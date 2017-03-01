@@ -24,17 +24,17 @@
 Data Scientist в стартапе, который нельзя называть. Раньше - программист-исследователь Mail.Ru Group в департаменте рекламы, позже в департаменте поиска. Преподавал в Техносфере@Mail.Ru на базе МГУ ВМК. Еще раньше - программист-исследователь в сфере компьютерного зрения, до нейросетевой эпохи, в Aspose ltd. Домашняя страница http://pavelnesterov.info/  <br>
 Павел пишет содержательные [статьи](https://habrahabr.ru/users/mephistopheies/topics/) на Хабре по нейронным сетям.
 
-#### Екатерина Демидова (@katya)
+#### Екатерина Демидова (@katya, [cotique](https://habrahabr.ru/users/cotique/))
 Data Scientist в Segmento, г. Санкт-Петербург. Ментор [специализации](https://www.coursera.org/specializations/machine-learning-data-analysis) Яндекса и МФТИ "Машинное обучение и анализ данных"  <br>
 У Кати есть [репозиторий](https://github.com/demidovakatya/vvedenie-mashinnoe-obuchenie) со списком книг/курсов/статей по Data Science
 
-[comment]: <> #### Мария Мансурова (@miptgirl)
-[comment]: <> Аналитик в Яндексе, г. Москва
+#### Мария Мансурова (@miptgirl)
+Аналитик в Яндексе, г. Москва
 
-[comment]: <> #### Арсений Кравченко (@arsenyinfo)
+#### Арсений Кравченко (@arsenyinfo)
 
-[comment]: <> #### Дмитрий Сергеев (@dmitryserg)
+#### Дмитрий Сергеев (@dmitryserg)
 
-[comment]: <> #### Виталий Радченко (@vradchenko)
+#### Виталий Радченко (@vradchenko)
 
-[comment]: <> #### Сергей Королев (@libfun)
+#### Сергей Королев (@libfun)
