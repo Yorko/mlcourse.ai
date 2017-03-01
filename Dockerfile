@@ -49,7 +49,7 @@ RUN pip install keras
 # update main conda packages
 RUN conda update --quiet --yes numpy scipy pandas matplotlib seaborn statsmodels scikit-learn
 
-# some other useful libs
+# some other useful libraries
 RUN pip install seaborn pydot
 
 # Switch back to jovyan to avoid accidental container runs as root
