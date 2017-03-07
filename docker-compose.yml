@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  jupyter:
+    container_name: mlcourse_open
+    image: festline/mlcourse_open
+    working_dir: /notebooks
+    ports:
+      - "7777:8888"
+    volumes:
+      - .:/notebooks
+
