@@ -50,7 +50,7 @@ RUN pip install keras
 RUN conda update --quiet --yes numpy scipy pandas matplotlib seaborn statsmodels scikit-learn
 
 # some other useful libraries
-RUN pip install seaborn pydot
+RUN pip install seaborn pydot plotly
 
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_USER
