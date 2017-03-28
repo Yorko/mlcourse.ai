@@ -15,7 +15,7 @@
 2. [Визуальный анализ данных о публикациях на Хабрахабре](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic2_visual_analysis/hw2_habr_visual_analysis.ipynb), [веб-форма](https://goo.gl/forms/p8x0SGmn91VCNB6o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic2_visual_analysis/%5Bsolution%5D_hw2_habr_visual_analysis.ipynb)
 3. [Деревья решений в игрушечной задаче и на данных Adult репозитория UCI](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic3_decision_trees_knn/hw3_decision_trees.ipynb), [веб-форма](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic3_decision_trees_knn/hw3_decision_trees.ipynb) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic3_decision_trees_knn/%5Bsolution%5D_hw3_decision_trees.ipynb)
 4. Линейные модели классификации и регрессии в соревнованиях Kaggle Inclass. [Часть 1: идентификация взломщика](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/hw4_part1_websites_logistic_regression.ipynb),  [Часть 2: прогноз популярности статьи на Хабрахабре](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/hw4_part2_habr_popularity_ridge.ipynb), [веб-форма](https://goo.gl/forms/6ii1zGEnfJvXhy6E2) для ответов
-5. [Логистическая регрессия и случайный лес в задаче кредитного скоринга](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/hw5_logit_rf_credit_scoring.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdUPWLr5N3YQ1aUpJQGcuJ5UrqUe19rIncpgRLxxlS_XMaUxA/viewform?c=0&w=1) для ответов
+5. [Логистическая регрессия и случайный лес в задаче кредитного скоринга](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/hw5_logit_rf_credit_scoring.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdUPWLr5N3YQ1aUpJQGcuJ5UrqUe19rIncpgRLxxlS_XMaUxA/viewform?c=0&w=1) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/%5Bsolution%5D_hw4_part1_websites_logistic_regression.ipynb) 1 части, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/%5Bsolution%5D_hw4_part2_habr_popularity_ridge.ipynb) 2 части
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs-lognorm)
@@ -25,7 +25,7 @@
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
  - домашние задания (от 10 до 20 баллов за каждое)
  - соревнования Kaggle Inclass (за каждое 40(1−(p−1)/N) баллов, где p – место участника в приватном рейтинге, N – число участников, побивших все бенчмарки в приватном рейтинге)
- - разовые короткие контесты, объявляемые в slack OpenDataScience в канале #mlcourse_open (от 1 до 5 баллов)
+ - разовые короткие контесты, объявляемые в slack OpenDataScience в канале #mlcourse_open (от 1 до 8 баллов)
 
 ## Авторы статей и лекторы 
 *(в скобках – ники в OpenDataScience и на Хабрахабре)*
