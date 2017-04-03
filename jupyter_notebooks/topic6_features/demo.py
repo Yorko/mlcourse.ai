@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import ujson as json
 from sklearn.base import TransformerMixin
 
 EPSILON = 1e-5
