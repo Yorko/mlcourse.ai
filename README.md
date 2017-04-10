@@ -8,7 +8,7 @@
 4. [Линейные модели классификации и регрессии](https://habrahabr.ru/company/ods/blog/323890/)
 5. [Композиции: бэггинг, случайный лес](https://habrahabr.ru/company/ods/blog/324402/)
 6. [Построение и отбор признаков](https://habrahabr.ru/company/ods/blog/325422/)
-7. Обучение без учителя: PCA, кластеризация, поиск аномалий
+7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
 
 ## Домашние задания
 1. [Анализ данных по доходу населения UCI Adult](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/hw1_adult_pandas.ipynb), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
@@ -60,6 +60,9 @@ Data Science Team Lead в [Juno](https://gojuno.com/). В прошлом - ан�
 
 #### Дмитрий Сергеев (@dmitryserg)
 Data Scientist @ Zeptolab, лектор в Центре Математических Финансов МГУ
+
+#### Алексей Натекин (@natekin, [natekin](https://habrahabr.ru/users/natekin/))
+Основатель сообщества OpenDataScience и DM Labs, Chief Data Officer @ Diginetica. В прошлом – глава отдела аналитики Deloitte
 
 
 # Инструкция по установке Docker-контейнера 
