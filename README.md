@@ -9,6 +9,9 @@
 5. [Композиции: бэггинг, случайный лес](https://habrahabr.ru/company/ods/blog/324402/)
 6. [Построение и отбор признаков](https://habrahabr.ru/company/ods/blog/325422/)
 7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
+8. Обучаемся на гигбайтах: онлайн-подход и Vowpal Wabbit
+9. Анализ временных рядов с помощью Python
+10. Градиентный бустинг
 
 ## Домашние задания
 1. [Анализ данных по доходу населения UCI Adult](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/hw1_adult_pandas.ipynb), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
