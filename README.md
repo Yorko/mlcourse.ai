@@ -62,7 +62,7 @@ Data Science Team Lead @ [gojuno.com](https://gojuno.com/). В прошлом - 
 #### Сергей Королев (@libfun, [libfun](https://habrahabr.ru/users/libfun/))
 Исследователь в СколТехе
 
-#### Дмитрий Сергеев (@dmitryserg [Skolopendriy](https://habrahabr.ru/users/Skolopendriy/))
+#### Дмитрий Сергеев (@dmitryserg, [Skolopendriy](https://habrahabr.ru/users/Skolopendriy/))
 Data Scientist @ Zeptolab, лектор в Центре Математических Финансов МГУ
 
 #### Алексей Натекин (@natekin, [natekin](https://habrahabr.ru/users/natekin/))
