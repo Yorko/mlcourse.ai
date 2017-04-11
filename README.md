@@ -61,6 +61,9 @@ Data Science Team Lead в [Juno](https://gojuno.com/). В прошлом - ан�
 #### Сергей Королев (@libfun, [libfun](https://habrahabr.ru/users/libfun/))
 Исследователь в СколТехе
 
+#### Арсений Кравченко (@arsenyinfo, [Arseny_Info](https://habrahabr.ru/users/Arseny_Info/))
+Data Science Team Lead @ [gojuno.com](https://gojuno.com/). В прошлом - аналитик-разработчик в Яндексе и менеджер по продукту в Wargaming. [Домашняя страница](http://arseny.info/pages/about-me.html).
+
 #### Дмитрий Сергеев (@dmitryserg)
 Data Scientist @ Zeptolab, лектор в Центре Математических Финансов МГУ
 
