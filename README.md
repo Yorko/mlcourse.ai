@@ -55,7 +55,7 @@ Data Science Intern в компании Ciklum. Студент магистер�
 Исследователь в СколТехе
 
 #### Арсений Кравченко (@arsenyinfo, [Arseny_Info](https://habrahabr.ru/users/Arseny_Info/))
-Data Science Teamlead @ [gojuno.com](https://gojuno.com/)
+Data Science Team Lead @ [gojuno.com](https://gojuno.com/). В прошлом - аналитик-разработчик в Яндексе и менеджер по продукту в Wargaming. [Домашняя страница](http://arseny.info/pages/about-me.html).
 
 #### Дмитрий Сергеев (@dmitryserg)
 Data Scientist @ Zeptolab, лектор в Центре Математических Финансов МГУ
