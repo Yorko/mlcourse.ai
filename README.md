@@ -9,7 +9,7 @@
 5. [Композиции: бэггинг, случайный лес](https://habrahabr.ru/company/ods/blog/324402/)
 6. [Построение и отбор признаков](https://habrahabr.ru/company/ods/blog/325422/)
 7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
-8. Обучаемся на гигабайтах: онлайн-подход и Vowpal Wabbit
+8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
 9. Анализ временных рядов с помощью Python
 10. Градиентный бустинг
 
@@ -20,7 +20,7 @@
 4. Линейные модели классификации и регрессии в соревнованиях Kaggle Inclass. [Часть 1: идентификация взломщика](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/hw4_part1_websites_logistic_regression.ipynb),  [Часть 2: прогноз популярности статьи на Хабрахабре](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/hw4_part2_habr_popularity_ridge.ipynb), [веб-форма](https://goo.gl/forms/6ii1zGEnfJvXhy6E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/%5Bsolution%5D_hw4_part1_websites_logistic_regression.ipynb) 1 части, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/%5Bsolution%5D_hw4_part2_habr_popularity_ridge.ipynb) 2 части
 5. [Логистическая регрессия и случайный лес в задаче кредитного скоринга](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/hw5_logit_rf_credit_scoring.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdUPWLr5N3YQ1aUpJQGcuJ5UrqUe19rIncpgRLxxlS_XMaUxA/viewform?c=0&w=1) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/%5Bsolution%5D_hw5_logit_rf_credit_scoring.ipynb)
 6. Работа с признаками. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/hw6_features.ipynb), [веб-форма](https://goo.gl/forms/1aSusaXaYm7T422o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/%5Bsolution%5D_hw6_features.ipynb)
-7. Метод главных компонент, t-SNE и кластеризация. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов
+7. Метод главных компонент, t-SNE и кластеризация. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/%5Bsolution%5D_hw7_pca_tsne_clustering.ipynb)
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs-lognorm)
