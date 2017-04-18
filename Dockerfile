@@ -8,7 +8,12 @@ USER root
 
 RUN pip install --upgrade pip
 
-RUN apt-get update && apt-get -y install vowpal-wabbit && apt-get -y install cmake
+RUN apt-get update && apt-get -y install cmake
+
+RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
+
+RUN git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
+    cd vowpal_wabbit && sudo make && sudo make install && cd python && pip install -e . && cd ../..
 
 # XGBoost
 RUN git clone --recursive https://github.com/dmlc/xgboost && \
