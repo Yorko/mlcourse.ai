@@ -21,7 +21,7 @@
 5. [Логистическая регрессия и случайный лес в задаче кредитного скоринга](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/hw5_logit_rf_credit_scoring.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdUPWLr5N3YQ1aUpJQGcuJ5UrqUe19rIncpgRLxxlS_XMaUxA/viewform?c=0&w=1) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/%5Bsolution%5D_hw5_logit_rf_credit_scoring.ipynb)
 6. Работа с признаками. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/hw6_features.ipynb), [веб-форма](https://goo.gl/forms/1aSusaXaYm7T422o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/%5Bsolution%5D_hw6_features.ipynb)
 7. Метод главных компонент, t-SNE и кластеризация. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/%5Bsolution%5D_hw7_pca_tsne_clustering.ipynb)
-8. Часть 1: Реализация алгоритмов онлайн-обучения, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part1_implement_sgd.ipynb), [веб-форма](https://goo.gl/forms/8855OkG6em04f8qq1) для ответов
+8. Часть 1: Реализация алгоритмов онлайн-обучения, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part1_implement_sgd.ipynb). Часть 2: Vowpal Wabbit в задаче классификации тегов вопросов на Stackoverflow, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part2_vw_stackoverflow_tags_10mln.ipynb), [веб-форма](https://goo.gl/forms/8855OkG6em04f8qq1) для ответов
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs-lognorm)
@@ -73,17 +73,16 @@ Data Scientist @ Zeptolab, лектор в Центре Математическ
 # Инструкция по установке Docker-контейнера 
 *(необходимое ПО)*
 
-В курсе используется сборка библиотек Anaconda, тетрадки Jupyter, Xgboost, Vowpal Wabbit и некоторые другие библиотеки. Все это можно не устанавливать, а использовать Docker-контейнер (требования: около 4 Гб места на диске, 4 Гб RAM). [Введение](https://habrahabr.ru/post/310460/) в Docker. Рекомендуется тем, кто использует Windows, c \*NIX проще самостоятельно установить необходимое (см. Dockerfile). 
+В курсе используются тетрадки `Jupyter`, библиотеки `Pandas`, `Scikit-learn`, `Xgboost`, `Vowpal Wabbit` и некоторые другие. Все это можно не устанавливать, а использовать Docker-контейнер (требования: около 4 Гб места на диске, 4 Гб RAM). [Введение](https://habrahabr.ru/post/310460/) в Docker. Рекомендуется тем, кто использует Windows, c \*NIX проще самостоятельно установить необходимое (см. [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/Dockerfile)). 
 
 Инструкция:
 - скачать данный репозиторий
 - на Windows скорее всего придется [включить](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) в BIOS виртуализацию, если раньше не использовали виртуальные машины или Docker
 - установить [Docker](https://docs.docker.com/engine/installation/)
-- установить [Docker Compose](https://docs.docker.com/compose/install/)
 - перейти в командной строке/терминале в скачанный каталог mlcourse_open
-- выполнить docker-compose up. Первый раз это займет продолжительное время
-- открыть localhost:7777 (в файле *docker-compose.yml* можно поменять порт 7777 на любой другой)
-- далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
+- выполнить `python run_docker_jupyter.py`. Первый раз это займет продолжительное время
+- открыть localhost:7777 
+- далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
 
 Контейнеры Docker, как правило, занимают много места на диске.
 - *docker ps* – посмотреть весь список контейнеров
