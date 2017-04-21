@@ -7,7 +7,7 @@ def main():
     args = parser.parse_args()
 
 
-    os.system('docker run -it -p 5022:22 -p 7777:7777 -v {0}:/notebooks -w /notebooks {1} jupyter'.format(os.getcwd(), args.docker_tag))
+    os.system('docker run -it --rm -p 5022:22 -p 7777:7777 -v {0}:/notebooks -w /notebooks {1} jupyter'.format(os.getcwd(), args.docker_tag))
 
 if __name__ == '__main__':
     main()
