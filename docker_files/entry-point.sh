@@ -10,7 +10,7 @@ case $1 in
     /usr/local/h2o
     ;;
   jupyter )
-    /usr/local/bin/jupyter notebook --ip="*" --no-browser --port 7777 --allow-root
+    /usr/local/bin/jupyter notebook --ip="*" --no-browser --port 4545 --allow-root
     ;;
   zeppelin )
     ;;

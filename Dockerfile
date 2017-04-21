@@ -91,7 +91,7 @@ RUN mkdir -p /home/user && \
     chmod a+x /entry-point.sh
 
 WORKDIR /home/user
-EXPOSE 22 7777
+EXPOSE 22 4545
 
 ENTRYPOINT ["/entry-point.sh"]
 CMD ["shell"]
