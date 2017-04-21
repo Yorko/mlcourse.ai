@@ -44,6 +44,10 @@ RUN pip3 install --upgrade tensorflow
 # Keras with TensorFlow backend
 RUN pip3 install --upgrade keras
 
+# Facebook Prophet
+# RUN pip3 install --upgrade cython fbprophet
+
+
 # == JAVA ==
 # Set locale to UTF-8
 # Set limits
@@ -74,8 +78,8 @@ RUN pip3 install --upgrade keras
 #    rm h2o-3.10.4.4.zip && \
 #    ln -s /usr/local/h2o-3.10.4.4 /usr/local/h2o
 
-COPY entry-point.sh /
-# COPY h2o /usr/local/bin/
+COPY docker_files/entry-point.sh /
+# COPY docker_files/h2o /usr/local/bin/
 
 # Final setup: directories, permissions, ssh login, symlinks, etc
 RUN mkdir -p /home/user && \
