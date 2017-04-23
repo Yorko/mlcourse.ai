@@ -80,7 +80,7 @@ Data Scientist @ Zeptolab, лектор в Центре Математическ
 - на Windows скорее всего придется [включить](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) в BIOS виртуализацию, если раньше не использовали виртуальные машины или Docker
 - установить [Docker](https://docs.docker.com/engine/installation/)
 - перейти в командной строке/терминале в скачанный каталог mlcourse_open
-- собрать образ Docker: `docker build -t mlcourse_open docker_files`. Первый раз это займет продолжительное время
+- собрать образ Docker: `docker build -t mlcourse_open .`. Первый раз это займет продолжительное время
 - выполнить `python run_docker_jupyter.py`
 - открыть localhost:7777 
 - далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
