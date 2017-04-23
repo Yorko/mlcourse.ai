@@ -80,9 +80,9 @@ Data Scientist @ Zeptolab, лектор в Центре Математическ
 - на Windows скорее всего придется [включить](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) в BIOS виртуализацию, если раньше не использовали виртуальные машины или Docker
 - установить [Docker](https://docs.docker.com/engine/installation/)
 - перейти в командной строке/терминале в скачанный каталог mlcourse_open
-- собрать образ Docker: `docker build -t mlcourse_open docker_files`. Первый раз это займет продолжительное время
-- выполнить `python run_docker_jupyter.py`
-- открыть localhost:7777 
+- выполнить `python run_docker_jupyter.py`. Первый раз это займет 5-10 минут (в зависимости от скорости соединения) - docker-образ скачается с [hub.docker](https://hub.docker.com/r/festline/mlcourse_open/)
+- при желании можно добавить установку дополнительных библиотек в [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/Dockerfile), собрать локально образ Docker: `docker build -t <tag_name> .` и выполнить `python run_docker_jupyter.py -t <tag_name>`
+- открыть localhost:4545
 - далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
 
 Контейнеры Docker, как правило, занимают много места на диске.
