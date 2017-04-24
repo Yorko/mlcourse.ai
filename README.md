@@ -7,15 +7,21 @@
 3. [Классификация, деревья решений и метод ближайших соседей](https://habrahabr.ru/company/ods/blog/322534/)
 4. [Линейные модели классификации и регрессии](https://habrahabr.ru/company/ods/blog/323890/)
 5. [Композиции: бэггинг, случайный лес](https://habrahabr.ru/company/ods/blog/324402/)
-6. Обучение без учителя: PCA, кластеризация, поиск аномалий
-7. Искусство построения и отбора признаков. Приложения в задачах обработки текста, изображений и гео-данных
+6. [Построение и отбор признаков](https://habrahabr.ru/company/ods/blog/325422/)
+7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
+8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
+9. Анализ временных рядов с помощью Python
+10. Градиентный бустинг
 
 ## Домашние задания
 1. [Анализ данных по доходу населения UCI Adult](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/hw1_adult_pandas.ipynb), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
 2. [Визуальный анализ данных о публикациях на Хабрахабре](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic2_visual_analysis/hw2_habr_visual_analysis.ipynb), [веб-форма](https://goo.gl/forms/p8x0SGmn91VCNB6o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic2_visual_analysis/%5Bsolution%5D_hw2_habr_visual_analysis.ipynb)
 3. [Деревья решений в игрушечной задаче и на данных Adult репозитория UCI](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic3_decision_trees_knn/hw3_decision_trees.ipynb), [веб-форма](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic3_decision_trees_knn/hw3_decision_trees.ipynb) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic3_decision_trees_knn/%5Bsolution%5D_hw3_decision_trees.ipynb)
 4. Линейные модели классификации и регрессии в соревнованиях Kaggle Inclass. [Часть 1: идентификация взломщика](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/hw4_part1_websites_logistic_regression.ipynb),  [Часть 2: прогноз популярности статьи на Хабрахабре](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/hw4_part2_habr_popularity_ridge.ipynb), [веб-форма](https://goo.gl/forms/6ii1zGEnfJvXhy6E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/%5Bsolution%5D_hw4_part1_websites_logistic_regression.ipynb) 1 части, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic4_linear_models/%5Bsolution%5D_hw4_part2_habr_popularity_ridge.ipynb) 2 части
-5. [Логистическая регрессия и случайный лес в задаче кредитного скоринга](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/hw5_logit_rf_credit_scoring.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdUPWLr5N3YQ1aUpJQGcuJ5UrqUe19rIncpgRLxxlS_XMaUxA/viewform?c=0&w=1) для ответов
+5. [Логистическая регрессия и случайный лес в задаче кредитного скоринга](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/hw5_logit_rf_credit_scoring.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdUPWLr5N3YQ1aUpJQGcuJ5UrqUe19rIncpgRLxxlS_XMaUxA/viewform?c=0&w=1) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic5_bagging_rf/%5Bsolution%5D_hw5_logit_rf_credit_scoring.ipynb)
+6. Работа с признаками. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/hw6_features.ipynb), [веб-форма](https://goo.gl/forms/1aSusaXaYm7T422o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/%5Bsolution%5D_hw6_features.ipynb)
+7. Метод главных компонент, t-SNE и кластеризация. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/%5Bsolution%5D_hw7_pca_tsne_clustering.ipynb)
+8. Часть 1: Реализация алгоритмов онлайн-обучения, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part1_implement_sgd.ipynb). Часть 2: Vowpal Wabbit в задаче классификации тегов вопросов на Stackoverflow, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part2_vw_stackoverflow_tags_10mln.ipynb), [веб-форма](https://goo.gl/forms/8855OkG6em04f8qq1) для ответов
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs-lognorm)
@@ -51,30 +57,33 @@ Data Scientist в Segmento, г. Санкт-Петербург. Ментор [с�
 #### Виталий Радченко (@vradchenko, [vradchenko](https://habrahabr.ru/users/vradchenko/))
 Data Science Intern в компании Ciklum. Студент магистерской программы Computer Science with Specialization in Data Science в Украинском Католическом Университете. Организовывает кагл-тренировки и другие активности по Data Science в Киеве и Львове. Был ментором [специализации](https://www.coursera.org/specializations/machine-learning-data-analysis) Яндекса и МФТИ "Машинное обучение и анализ данных". Раньше работал в банке, большой ритейл-компании и интернет-рекламе.
 
+#### Арсений Кравченко (@arsenyinfo, [Arseny_Info](https://habrahabr.ru/users/Arseny_Info/))
+Data Science Team Lead @ [gojuno.com](https://gojuno.com/). В прошлом - аналитик-разработчик в Яндексе и менеджер по продукту в Wargaming. [Домашняя страница](http://arseny.info/pages/about-me.html).
+
 #### Сергей Королев (@libfun, [libfun](https://habrahabr.ru/users/libfun/))
 Исследователь в СколТехе
 
-#### Арсений Кравченко (@arsenyinfo, [Arseny_Info](https://habrahabr.ru/users/Arseny_Info/))
-Data Science Teamlead @ [gojuno.com](https://gojuno.com/)
-
-#### Дмитрий Сергеев (@dmitryserg)
+#### Дмитрий Сергеев (@dmitryserg, [Skolopendriy](https://habrahabr.ru/users/Skolopendriy/))
 Data Scientist @ Zeptolab, лектор в Центре Математических Финансов МГУ
+
+#### Алексей Натекин (@natekin, [natekin](https://habrahabr.ru/users/natekin/))
+Основатель сообщества OpenDataScience и DM Labs, Chief Data Officer @ Diginetica. В прошлом – глава отдела аналитики Deloitte
 
 
 # Инструкция по установке Docker-контейнера 
 *(необходимое ПО)*
 
-В курсе используется сборка библиотек Anaconda, тетрадки Jupyter, Xgboost, Vowpal Wabbit и некоторые другие библиотеки. Все это можно не устанавливать, а использовать Docker-контейнер (требования: около 4 Гб места на диске, 4 Гб RAM). [Введение](https://habrahabr.ru/post/310460/) в Docker. Рекомендуется тем, кто использует Windows, c \*NIX проще самостоятельно установить необходимое (см. Dockerfile). 
+В курсе используются тетрадки `Jupyter`, библиотеки `Pandas`, `Scikit-learn`, `Xgboost`, `Vowpal Wabbit` и некоторые другие. Все это можно не устанавливать, а использовать Docker-контейнер (требования: около 4 Гб места на диске, 4 Гб RAM). [Введение](https://habrahabr.ru/post/310460/) в Docker. Рекомендуется тем, кто использует Windows, c \*NIX проще самостоятельно установить необходимое (см. [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/Dockerfile)). 
 
 Инструкция:
 - скачать данный репозиторий
 - на Windows скорее всего придется [включить](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) в BIOS виртуализацию, если раньше не использовали виртуальные машины или Docker
 - установить [Docker](https://docs.docker.com/engine/installation/)
-- установить [Docker Compose](https://docs.docker.com/compose/install/)
 - перейти в командной строке/терминале в скачанный каталог mlcourse_open
-- выполнить docker-compose up. Первый раз это займет продолжительное время
-- открыть localhost:7777 (в файле *docker-compose.yml* можно поменять порт 7777 на любой другой)
-- далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
+- выполнить `python run_docker_jupyter.py`. Первый раз это займет 5-10 минут (в зависимости от скорости соединения) - docker-образ скачается с [hub.docker](https://hub.docker.com/r/festline/mlcourse_open/)
+- при желании можно добавить установку дополнительных библиотек в [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/Dockerfile), собрать локально образ Docker: `docker build -t <tag_name> .` и выполнить `python run_docker_jupyter.py -t <tag_name>`
+- открыть localhost:4545
+- далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
 
 Контейнеры Docker, как правило, занимают много места на диске.
 - *docker ps* – посмотреть весь список контейнеров

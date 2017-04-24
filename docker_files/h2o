@@ -1,0 +1,3 @@
+#!/bin/bash
+H2O_OPTS="-Xms512M -Xmx4096M -Xss1M -XX:+CMSClassUnloadingEnabled"
+cd /usr/local/h2o/ && java $H2O_OPTS -jar h2o.jar "$@"
