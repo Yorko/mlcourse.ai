@@ -10,8 +10,8 @@
 6. [Построение и отбор признаков](https://habrahabr.ru/company/ods/blog/325422/)
 7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
 8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
-9. Анализ временных рядов с помощью Python
-10. Градиентный бустинг
+9. [Анализ временных рядов с помощью Python](https://habrahabr.ru/company/ods/blog/327242/)
+10. [Градиентный бустинг](https://habrahabr.ru/company/ods/blog/327250/) coming soon...
 
 ## Домашние задания
 1. [Анализ данных по доходу населения UCI Adult](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/hw1_adult_pandas.ipynb), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic1_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
@@ -22,6 +22,7 @@
 6. Работа с признаками. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/hw6_features.ipynb), [веб-форма](https://goo.gl/forms/1aSusaXaYm7T422o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic6_features/%5Bsolution%5D_hw6_features.ipynb)
 7. Метод главных компонент, t-SNE и кластеризация. [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic7_unsupervised/%5Bsolution%5D_hw7_pca_tsne_clustering.ipynb)
 8. Часть 1: Реализация алгоритмов онлайн-обучения, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part1_implement_sgd.ipynb). Часть 2: Vowpal Wabbit в задаче классификации тегов вопросов на Stackoverflow, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic8_sgd_hashing_vowpal_wabbit/hw8_part2_vw_stackoverflow_tags_10mln.ipynb), [веб-форма](https://goo.gl/forms/8855OkG6em04f8qq1) для ответов
+9. Предсказание числа просмотров вики-страницы, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic9_time_series/hw9_time_series.ipynb), [веб-форма](https://goo.gl/forms/ywD9QxXsQ3sZEXtu1) для ответов
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs-lognorm)
