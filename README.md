@@ -25,7 +25,7 @@
 9. Предсказание числа просмотров вики-страницы. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic9_time_series/hw9_time_series.ipynb), [веб-форма](https://goo.gl/forms/ywD9QxXsQ3sZEXtu1) для ответов
 
 ## Соревнования Kaggle Inclass
-1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs-lognorm)
+1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs)
 2. [Идентификация взломщика по последовательности переходов по сайтам](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking)
 
 ## Рейтинг
