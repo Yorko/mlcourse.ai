@@ -45,8 +45,8 @@ RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade keras
 
 # Facebook Prophet
-# RUN pip3 install --upgrade cython fbprophet
-
+RUN pip3 install --upgrade pystan cython
+RUN pip3 install --upgrade fbprophet
 
 # == JAVA ==
 # Set locale to UTF-8
