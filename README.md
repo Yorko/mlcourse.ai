@@ -22,11 +22,14 @@
 6. Работа с признаками. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic06_features/hw6_features.ipynb), [веб-форма](https://goo.gl/forms/1aSusaXaYm7T422o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic06_features/%5Bsolution%5D_hw6_features.ipynb)
 7. Метод главных компонент, t-SNE и кластеризация. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic07_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic07_unsupervised/%5Bsolution%5D_hw7_pca_tsne_clustering.ipynb)
 8. Часть 1: Реализация алгоритмов онлайн-обучения, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/hw8_part1_implement_sgd.ipynb), [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/%5Bsolution%5D_hw8_part1_implement_sgd.ipynb). Часть 2: Vowpal Wabbit в задаче классификации тегов вопросов на Stackoverflow, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/hw8_part2_vw_stackoverflow_tags_10mln.ipynb), [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/%5Bsolution%5D_hw8_part2_vw_stackoverflow_tags_10mln.ipynb). [веб-форма](https://goo.gl/forms/8855OkG6em04f8qq1) для ответов
-9. Предсказание числа просмотров вики-страницы. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic09_time_series/hw9_time_series.ipynb), [веб-форма](https://goo.gl/forms/ywD9QxXsQ3sZEXtu1) для ответов
+9. Предсказание числа просмотров вики-страницы. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic09_time_series/hw9_time_series.ipynb), [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic09_time_series/%5Bsolution%5D_hw9_time_series.ipynb), [веб-форма](https://goo.gl/forms/ywD9QxXsQ3sZEXtu1) для ответов
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs)
 2. [Идентификация взломщика по последовательности переходов по сайтам](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking)
+
+## Тьюториалы
+Участники курса сами могут написать тьюториал, поделиться им с другими и получить за это отличный опыт (и баллы). Подробности [тут](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/tutorial_template.ipynb). 
 
 ## Рейтинг
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
