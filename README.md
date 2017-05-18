@@ -11,7 +11,8 @@
 7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
 8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
 9. [Анализ временных рядов с помощью Python](https://habrahabr.ru/company/ods/blog/327242/)
-10. [Градиентный бустинг](https://habrahabr.ru/company/ods/blog/327250/) coming soon...
+10. [Градиентный бустинг. Часть 1](https://habrahabr.ru/company/ods/blog/327250/) 
+11. Градиентный бустинг. Часть 2. ~ 01.06.2017
 
 ## Домашние задания
 1. Анализ данных по доходу населения UCI Adult. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic01_pandas_data_analysis/hw1_adult_pandas.ipynb), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic01_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
