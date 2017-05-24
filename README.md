@@ -77,27 +77,3 @@ Data Scientist @ Zeptolab, лектор в Центре Математическ
 #### Алексей Натекин (@natekin, [natekin](https://habrahabr.ru/users/natekin/))
 Основатель сообщества OpenDataScience и DM Labs, Chief Data Officer @ Diginetica. В прошлом – глава отдела аналитики Deloitte.
 
-
-# Инструкция по установке Docker-контейнера 
-*(необходимое ПО)*
-
-В курсе используются тетрадки `Jupyter`, библиотеки `Pandas`, `Scikit-learn`, `Xgboost`, `Vowpal Wabbit` и некоторые другие. Все это можно не устанавливать, а использовать Docker-контейнер (требования: около 4 Гб места на диске, 4 Гб RAM). [Введение](https://habrahabr.ru/post/310460/) в Docker. Рекомендуется тем, кто использует Windows, c \*NIX проще самостоятельно установить необходимое (см. [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/Dockerfile)). 
-
-Инструкция:
-- скачать данный репозиторий
-- на Windows скорее всего придется [включить](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) в BIOS виртуализацию, если раньше не использовали виртуальные машины или Docker
-- установить [Docker](https://docs.docker.com/engine/installation/)
-- перейти в командной строке/терминале в скачанный каталог mlcourse_open
-- выполнить `python run_docker_jupyter.py`. Первый раз это займет 5-10 минут (в зависимости от скорости соединения) - docker-образ скачается с [hub.docker](https://hub.docker.com/r/festline/mlcourse_open/)
-- при желании можно добавить установку дополнительных библиотек в [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/Dockerfile), собрать локально образ Docker: `docker build -t <tag_name> .` и выполнить `python run_docker_jupyter.py -t <tag_name>`
-- открыть localhost:4545
-- далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
-
-Контейнеры Docker, как правило, занимают много места на диске.
-- *docker ps* – посмотреть весь список контейнеров
-- *docker stop $(docker ps -a -q)* – остановить все контейнеры
-- *docker rm $(docker ps -a -q)* – удалить все контейнеры
-- *docker images* - посмотреть весь список образов
-- *docker rmi \<image_id\>* – удалить ненужный образ
-
-Доступная и понятная [документация](https://docs.docker.com/engine/getstarted/) Docker с примерами
