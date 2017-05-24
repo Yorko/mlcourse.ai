@@ -31,7 +31,11 @@
 2. [Идентификация взломщика по последовательности переходов по сайтам](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking)
 
 ## Тьюториалы
-Участники курса сами могут написать тьюториал, поделиться им с другими и получить за это отличный опыт (и баллы). Подробности [тут](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/tutorial_template.ipynb). 
+Участники курса сами могут написать тьюториал, поделиться им с другими и получить за это отличный опыт (и баллы). Подробности [тут](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/tutorial_template.ipynb). За понравившиеся тьюториалы можно проголосовать в канале #mlcourse_open слэка ODS.
+
+- Михаил Комаров. [Экспериментируем с Azure ML: Классификация, деревья решений](https://habrahabr.ru/company/microsoft/blog/328826/)
+- Дмитрий Жеглов. [Word2Vec](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/word2vec_demonzheg.ipynb)
+- Владимир Яшин. [Метод прыжков для выбора числа кластеров](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/jumps_method_vdyashin.ipynb)
 
 ## Рейтинг
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
