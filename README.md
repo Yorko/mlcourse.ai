@@ -11,7 +11,8 @@
 7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
 8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
 9. [Анализ временных рядов с помощью Python](https://habrahabr.ru/company/ods/blog/327242/)
-10. [Градиентный бустинг](https://habrahabr.ru/company/ods/blog/327250/) coming soon...
+10. [Градиентный бустинг. Часть 1](https://habrahabr.ru/company/ods/blog/327250/) 
+11. Градиентный бустинг. Часть 2. ~ 01.06.2017
 
 ## Домашние задания
 1. Анализ данных по доходу населения UCI Adult. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic01_pandas_data_analysis/hw1_adult_pandas.ipynb), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic01_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
@@ -22,17 +23,26 @@
 6. Работа с признаками. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic06_features/hw6_features.ipynb), [веб-форма](https://goo.gl/forms/1aSusaXaYm7T422o2) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic06_features/%5Bsolution%5D_hw6_features.ipynb)
 7. Метод главных компонент, t-SNE и кластеризация. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic07_unsupervised/hw7_pca_tsne_clustering.ipynb), [веб-форма](https://docs.google.com/forms/d/e/1FAIpQLSdjgje8qvptEW1EKY-QBbHXmXGIs6QYK2PqhchzF4Kpg3v8OQ/viewform) для ответов, [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic07_unsupervised/%5Bsolution%5D_hw7_pca_tsne_clustering.ipynb)
 8. Часть 1: Реализация алгоритмов онлайн-обучения, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/hw8_part1_implement_sgd.ipynb), [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/%5Bsolution%5D_hw8_part1_implement_sgd.ipynb). Часть 2: Vowpal Wabbit в задаче классификации тегов вопросов на Stackoverflow, [тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/hw8_part2_vw_stackoverflow_tags_10mln.ipynb), [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic08_sgd_hashing_vowpal_wabbit/%5Bsolution%5D_hw8_part2_vw_stackoverflow_tags_10mln.ipynb). [веб-форма](https://goo.gl/forms/8855OkG6em04f8qq1) для ответов
-9. Предсказание числа просмотров вики-страницы. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic09_time_series/hw9_time_series.ipynb), [веб-форма](https://goo.gl/forms/ywD9QxXsQ3sZEXtu1) для ответов
+9. Предсказание числа просмотров вики-страницы. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic09_time_series/hw9_time_series.ipynb), [решение](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic09_time_series/%5Bsolution%5D_hw9_time_series.ipynb), [веб-форма](https://goo.gl/forms/ywD9QxXsQ3sZEXtu1) для ответов
+10. Реализация градиентного бустинга. [Тетрадка](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic10_boosting/hw10_implement_boosting.ipynb), [веб-форма](https://goo.gl/forms/mMUhGSDiOHJI9NHN2) для ответов
 
 ## Соревнования Kaggle Inclass
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs)
 2. [Идентификация взломщика по последовательности переходов по сайтам](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking)
 
+## Тьюториалы
+Участники курса сами могут написать тьюториал, поделиться им с другими и получить за это отличный опыт (и баллы). Подробности [тут](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/tutorial_template.ipynb). За понравившиеся тьюториалы можно проголосовать в канале #mlcourse_open слэка ODS.
+
+- Михаил Комаров. [Экспериментируем с Azure ML: Классификация, деревья решений](https://habrahabr.ru/company/microsoft/blog/328826/)
+- Дмитрий Жеглов. [Word2Vec](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/word2vec_demonzheg.ipynb)
+- Владимир Яшин. [Метод прыжков для выбора числа кластеров](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/jumps_method_vdyashin.ipynb)
+- Шаймарданова Екатерина. [Автоматизированное машинное обучение и библиотека TeaPOT](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/TeaPOT_ekaterina.ipynb)
+
 ## Рейтинг
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
  - домашние задания (от 10 до 20 баллов за каждое)
  - соревнования Kaggle Inclass (за каждое 40(1−(p−1)/N) баллов, где p – место участника в приватном рейтинге, N – число участников, побивших все бенчмарки в приватном рейтинге)
- - разовые короткие контесты, объявляемые в slack OpenDataScience в канале #mlcourse_open (от 1 до 8 баллов)
+ - разовые короткие контесты, объявляемые в slack OpenDataScience в канале #mlcourse_open (от 1 до 8 баллов), тьюториалы – в этом же формате (макс. 40 баллов)
 
 ## Авторы статей и лекторы 
 *(в скобках – ники в OpenDataScience и на Хабрахабре)*
@@ -67,27 +77,3 @@ Data Scientist @ Zeptolab, лектор в Центре Математическ
 #### Алексей Натекин (@natekin, [natekin](https://habrahabr.ru/users/natekin/))
 Основатель сообщества OpenDataScience и DM Labs, Chief Data Officer @ Diginetica. В прошлом – глава отдела аналитики Deloitte.
 
-
-# Инструкция по установке Docker-контейнера 
-*(необходимое ПО)*
-
-В курсе используются тетрадки `Jupyter`, библиотеки `Pandas`, `Scikit-learn`, `Xgboost`, `Vowpal Wabbit` и некоторые другие. Все это можно не устанавливать, а использовать Docker-контейнер (требования: около 4 Гб места на диске, 4 Гб RAM). [Введение](https://habrahabr.ru/post/310460/) в Docker. Рекомендуется тем, кто использует Windows, c \*NIX проще самостоятельно установить необходимое (см. [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/Dockerfile)). 
-
-Инструкция:
-- скачать данный репозиторий
-- на Windows скорее всего придется [включить](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) в BIOS виртуализацию, если раньше не использовали виртуальные машины или Docker
-- установить [Docker](https://docs.docker.com/engine/installation/)
-- перейти в командной строке/терминале в скачанный каталог mlcourse_open
-- выполнить `python run_docker_jupyter.py`. Первый раз это займет 5-10 минут (в зависимости от скорости соединения) - docker-образ скачается с [hub.docker](https://hub.docker.com/r/festline/mlcourse_open/)
-- при желании можно добавить установку дополнительных библиотек в [Dockerfile](https://github.com/Yorko/mlcourse_open/blob/master/Dockerfile), собрать локально образ Docker: `docker build -t <tag_name> .` и выполнить `python run_docker_jupyter.py -t <tag_name>`
-- открыть localhost:4545
-- далее можно выполнить тетрадку [check_docker.ipynb](https://github.com/Yorko/mlcourse_open/blob/master/docker_files/check_docker.ipynb) и убедиться, что нужные библиотеки подключаются
-
-Контейнеры Docker, как правило, занимают много места на диске.
-- *docker ps* – посмотреть весь список контейнеров
-- *docker stop $(docker ps -a -q)* – остановить все контейнеры
-- *docker rm $(docker ps -a -q)* – удалить все контейнеры
-- *docker images* - посмотреть весь список образов
-- *docker rmi \<image_id\>* – удалить ненужный образ
-
-Доступная и понятная [документация](https://docs.docker.com/engine/getstarted/) Docker с примерами
