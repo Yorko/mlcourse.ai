@@ -36,7 +36,8 @@
 - Михаил Комаров. [Экспериментируем с Azure ML: Классификация, деревья решений](https://habrahabr.ru/company/microsoft/blog/328826/)
 - Дмитрий Жеглов. [Word2Vec](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/word2vec_demonzheg.ipynb)
 - Владимир Яшин. [Метод прыжков для выбора числа кластеров](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/jumps_method_vdyashin.ipynb)
-- Шаймарданова Екатерина. [Автоматизированное машинное обучение и библиотека TeaPOT](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/TeaPOT_ekaterina.ipynb)
+- Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/TeaPOT_ekaterina.ipynb)
+- Георгий Емельянов. [Convolution Neural Networks. Traffic Signs Recognition](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/traffic_signs_cnn_georguy.ipynb)
 
 ## Рейтинг
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
