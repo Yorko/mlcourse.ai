@@ -41,6 +41,7 @@
 - Александр Лазарев. [Novelty detection при классификации изображений](https://goo.gl/kWxwwh)
 - Егор Лабинцев. [Работа с несбалансированными выборками](goo.gl/wHjrE3)
 - Вера Александровская. [Рисуем интерактивные карты с Folium](goo.gl/XU34YJ)
+- Нонна Шахова. [Python & R Collaboration](https://goo.gl/VU0Szm)
 
 ## Рейтинг
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
