@@ -39,8 +39,8 @@
 - Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](https://goo.gl/iJa1gF)
 - Георгий Емельянов. [Convolution Neural Networks. Traffic Signs Recognition](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/traffic_signs_cnn_georguy.ipynb)
 - Александр Лазарев. [Novelty detection при классификации изображений](https://goo.gl/kWxwwh)
-- Егор Лабинцев. [Работа с несбалансированными выборками](goo.gl/wHjrE3)
-- Вера Александровская. [Рисуем интерактивные карты с Folium](goo.gl/XU34YJ)
+- Егор Лабинцев. [Работа с несбалансированными выборками](https://goo.gl/wHjrE3)
+- Вера Александровская. [Рисуем интерактивные карты с Folium](https://goo.gl/XU34YJ)
 - Нонна Шахова. [Python & R Collaboration](https://goo.gl/VU0Szm)
 
 ## Рейтинг
