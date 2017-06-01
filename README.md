@@ -35,8 +35,8 @@
 
 - Михаил Комаров. [Экспериментируем с Azure ML: Классификация, деревья решений](https://habrahabr.ru/company/microsoft/blog/328826/)
 - Дмитрий Жеглов. [Word2Vec](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/word2vec_demonzheg.ipynb)
-- Владимир Яшин. [Метод прыжков для выбора числа кластеров](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/jumps_method_vdyashin.ipynb)
-- Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/TeaPOT_ekaterina.ipynb)
+- Владимир Яшин. [Метод прыжков для выбора числа кластеров](https://goo.gl/92XmP8)
+- Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](https://goo.gl/iJa1gF)
 - Георгий Емельянов. [Convolution Neural Networks. Traffic Signs Recognition](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/traffic_signs_cnn_georguy.ipynb)
 - Александр Лазарев. [Novelty detection при классификации изображений](https://goo.gl/kWxwwh)
 - Егор Лабинцев. [Работа с несбалансированными выборками](goo.gl/wHjrE3)
