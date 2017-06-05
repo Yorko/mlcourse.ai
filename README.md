@@ -1,6 +1,14 @@
 # Открытый курс OpenDataScience по машинному обучению
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
+В курсе даются теоретические основы "классического" машинного обучения, а также с помощью обилия домашних заданий и 2 соревнований Kaggle Inclass можно приобрести навыки практического анализа данных и построения прогнозных моделей. 
+Требуются начальные навыки программирования на Python и знание математики (математический анализ, линейная алгебра, теория вероятностей, математическая статистика) на уровне 2 курса технического ВУЗа.
+
+Ниже перечислены основные темы (со ссылками на статьи на Хабре), домашние задания и соревнования Kaggle в рамках курса.
+На [вики-странице](https://github.com/Yorko/mlcourse_open/wiki) репозитория можно найти информацию об авторах статей, необходимом для прохождения курса ПО, а также можно увидеть список тьюториалов, написанных участниками курса, по темам, связанным с DS & ML.
+
+1 итерация курса прошла с 28 февраля по 10 июня 2017 года – с домашними заданими, соревнованиями, тьюториалами, конкурсами по визуализации, общим рейтингом. Было весело :grinning:. Повторение курса не планируется, но можно самоорганизоваться, если найдутся энтузиасты. 
+
 ## Основные темы
 1. [Первичный анализ данных с Pandas](https://habrahabr.ru/company/ods/blog/322626/)
 2. [Визуальный анализ данных с Python](https://habrahabr.ru/company/ods/blog/323210/)
@@ -30,55 +38,8 @@
 1. [Прогноз популярности статьи на Хабре](https://inclass.kaggle.com/c/howpop-habrahabr-favs)
 2. [Идентификация взломщика по последовательности переходов по сайтам](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking)
 
-## Тьюториалы
-Участники курса сами могут написать тьюториал, поделиться им с другими и получить за это отличный опыт (и баллы). Подробности [тут](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/tutorial_template.ipynb). За понравившиеся тьюториалы можно проголосовать в канале #mlcourse_open слэка ODS.
-
-- Михаил Комаров. [Экспериментируем с Azure ML: Классификация, деревья решений](https://habrahabr.ru/company/microsoft/blog/328826/)
-- Дмитрий Жеглов. [Word2Vec](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/word2vec_demonzheg.ipynb)
-- Владимир Яшин. [Метод прыжков для выбора числа кластеров](https://goo.gl/92XmP8)
-- Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](https://goo.gl/iJa1gF)
-- Георгий Емельянов. [Convolution Neural Networks. Traffic Signs Recognition](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/traffic_signs_cnn_georguy.ipynb)
-- Александр Лазарев. [Novelty detection при классификации изображений](https://goo.gl/kWxwwh)
-- Егор Лабинцев. [Работа с несбалансированными выборками](https://goo.gl/8QUqB6)
-- Вера Александровская. [Рисуем интерактивные карты с Folium](https://goo.gl/XU34YJ)
-- Нонна Шахова. [Python & R Collaboration](https://goo.gl/VU0Szm)
-
-## Рейтинг
-В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
- - домашние задания (от 10 до 20 баллов за каждое)
- - соревнования Kaggle Inclass (за каждое 40(1−(p−1)/N) баллов, где p – место участника в приватном рейтинге, N – число участников, побивших все бенчмарки в приватном рейтинге)
- - разовые короткие контесты, объявляемые в slack OpenDataScience в канале #mlcourse_open (от 1 до 8 баллов), тьюториалы – в этом же формате (макс. 40 баллов)
-
-## Авторы статей и лекторы 
-*(в скобках – ники в OpenDataScience и на Хабрахабре)*
 
 
-#### Юрий Кашницкий (@yorko, [yorko](https://habrahabr.ru/users/yorko/))
-Программист-исследователь Mail.ru Group, старший преподаватель факультета компьютерных наук ВШЭ, научный сотрудник 
-Международной научно-учебной лаборатории интеллектуальных систем и структурного анализа ВШЭ. В прошлом — разработчик Hadoop, бизнес-аналитик и Java-программист РДТЕХ. [Домашняя страница](https://yorko.github.io).
-Преподаватель в годовой [программе](https://cs.hse.ru/dpo/bigml) дополнительного образования по анализу данных в ВШЭ, автор Capstone проекта [специализации](https://www.coursera.org/specializations/machine-learning-data-analysis) Яндекса и МФТИ "Машинное обучение и анализ данных". У Юрия есть [репозиторий](https://github.com/Yorko/python_intro) с Jupyter-тетрадками по языку Python и основным алгоритмам и структурам данных.
 
-#### Павел Нестеров (@mephistopheies, [mephistopheies](https://habrahabr.ru/users/mephistopheies/))
-Data Scientist в стартапе, который нельзя называть. Раньше - программист-исследователь Mail.Ru Group в департаменте рекламы, позже в департаменте поиска. Преподавал в Техносфере@Mail.Ru на базе МГУ ВМК. Еще раньше - программист-исследователь в сфере компьютерного зрения, до нейросетевой эпохи, в Aspose ltd. [Домашняя страница](http://pavelnesterov.info). Павел пишет содержательные [статьи](https://habrahabr.ru/users/mephistopheies/topics/) на Хабре по нейронным сетям.
 
-#### Екатерина Демидова (@katya, [cotique](https://habrahabr.ru/users/cotique/))
-Data Scientist в Segmento, г. Санкт-Петербург. Ментор [специализации](https://www.coursera.org/specializations/machine-learning-data-analysis) Яндекса и МФТИ "Машинное обучение и анализ данных". У Кати есть [репозиторий](https://github.com/demidovakatya/vvedenie-mashinnoe-obuchenie) со списком книг/курсов/статей по Data Science.
-
-#### Мария Мансурова (@miptgirl, [miptgirl](https://habrahabr.ru/users/miptgirl/))
-Аналитик-разработчик в команде Яндекс.Метрики. До этого в Яндексе работала аналитиком ключевых показателей. В прошлом также успела поработать бизнес-аналитиком в компании-интеграторе в сфере телекоммуникаций.
-
-#### Виталий Радченко (@vradchenko, [vradchenko](https://habrahabr.ru/users/vradchenko/))
-Data Science Intern в компании Ciklum. Студент магистерской программы Computer Science with Specialization in Data Science в Украинском Католическом Университете. Организовывает кагл-тренировки и другие активности по Data Science в Киеве и Львове. Был ментором [специализации](https://www.coursera.org/specializations/machine-learning-data-analysis) Яндекса и МФТИ "Машинное обучение и анализ данных". Раньше работал в банке, большой ритейл-компании и интернет-рекламе.
-
-#### Арсений Кравченко (@arsenyinfo, [Arseny_Info](https://habrahabr.ru/users/Arseny_Info/))
-Data Science Team Lead @ [gojuno.com](https://gojuno.com/). В прошлом - аналитик-разработчик в Яндексе и менеджер по продукту в Wargaming. [Домашняя страница](http://arseny.info/pages/about-me.html).
-
-#### Сергей Королев (@libfun, [libfun](https://habrahabr.ru/users/libfun/))
-Исследователь в СколТехе, разработчик в Snap Inc.
-
-#### Дмитрий Сергеев (@dmitryserg, [Skolopendriy](https://habrahabr.ru/users/Skolopendriy/))
-Data Scientist @ Zeptolab, лектор в Центре Математических Финансов МГУ.
-
-#### Алексей Натекин (@natekin, [natekin](https://habrahabr.ru/users/natekin/))
-Основатель сообщества OpenDataScience и DM Labs, Chief Data Officer @ Diginetica. В прошлом – глава отдела аналитики Deloitte.
 
