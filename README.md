@@ -12,7 +12,7 @@
 8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
 9. [Анализ временных рядов с помощью Python](https://habrahabr.ru/company/ods/blog/327242/)
 10. [Градиентный бустинг. Часть 1](https://habrahabr.ru/company/ods/blog/327250/) 
-11. Градиентный бустинг. Часть 2. ~ 01.06.2017
+11. Градиентный бустинг. Часть 2. ~ 20.06.2017
 
 ## Домашние задания
 1. Анализ данных по доходу населения UCI Adult. [Тетрадка](https://goo.gl/RjJlYR), [веб-форма](https://goo.gl/forms/63kYBviuDJuFz24E2) для ответов, [решение](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic01_pandas_data_analysis/%5Bsolution%5D_hw1_adult_pandas.ipynb)
@@ -35,12 +35,13 @@
 
 - Михаил Комаров. [Экспериментируем с Azure ML: Классификация, деревья решений](https://habrahabr.ru/company/microsoft/blog/328826/)
 - Дмитрий Жеглов. [Word2Vec](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/word2vec_demonzheg.ipynb)
-- Владимир Яшин. [Метод прыжков для выбора числа кластеров](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/jumps_method_vdyashin.ipynb)
-- Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/TeaPOT_ekaterina.ipynb)
+- Владимир Яшин. [Метод прыжков для выбора числа кластеров](https://goo.gl/92XmP8)
+- Екатерина Шаймарданова. [Автоматизированное машинное обучение и библиотека TeaPOT](https://goo.gl/iJa1gF)
 - Георгий Емельянов. [Convolution Neural Networks. Traffic Signs Recognition](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/tutorials/traffic_signs_cnn_georguy.ipynb)
 - Александр Лазарев. [Novelty detection при классификации изображений](https://goo.gl/kWxwwh)
-- Егор Лабинцев. [Работа с несбалансированными выборками](goo.gl/wHjrE3)
-- Вера Александровская. [Рисуем интерактивные карты с Folium](goo.gl/XU34YJ)
+- Егор Лабинцев. [Работа с несбалансированными выборками](https://goo.gl/8QUqB6)
+- Вера Александровская. [Рисуем интерактивные карты с Folium](https://goo.gl/XU34YJ)
+- Нонна Шахова. [Python & R Collaboration](https://goo.gl/VU0Szm)
 
 ## Рейтинг
 В течение курса ведется [рейтинг](https://docs.google.com/spreadsheets/d/1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY/edit?usp=sharing). На него влияют:
