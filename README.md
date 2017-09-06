@@ -31,6 +31,6 @@ Wiki-страницы этого репозитория:
 11. Градиентный бустинг. Часть 2. Скоро...
 
 ## Домашние задания
-1. Анализ данных по доходу населения UCI Adult. [Тетрадка](https://goo.gl/LffyJd), [веб-форма](https://docs.google.com/forms/d/1fGBAeQjTNaue2zen5BrIS4dLAd8csD6oA6FYsObJu9A) для ответов
+1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [веб-форма](https://docs.google.com/forms/d/1fGBAeQjTNaue2zen5BrIS4dLAd8csD6oA6FYsObJu9A) для ответов
 
 
