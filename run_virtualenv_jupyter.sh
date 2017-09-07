@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-timezone='Europe/Moscow'
-
 virtualenv_dir='venv'
 
 log() {
-    echo -e '['$(TZ="${timezone}" date '+%Y.%m.%d %H:%M:%S')']: '"${*}"
+    echo -e '['$(date '+%Y.%m.%d %H:%M:%S')']: '"${*}"
 }
 
 [ ! -d "${virtualenv_dir}" ] && { log 'Initializing virtualenv.' && { virtualenv "${virtualenv_dir}" || exit ${?}; } }
