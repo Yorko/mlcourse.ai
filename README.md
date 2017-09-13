@@ -24,7 +24,7 @@
 
 ## Видеолекции
 1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
-2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/watch?v=bBSLv6-mSGE)
+2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/edit?o=U&video_id=vm63p8Od0bM)
 
 ## Домашние задания
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [веб-форма](https://docs.google.com/forms/d/1fGBAeQjTNaue2zen5BrIS4dLAd8csD6oA6FYsObJu9A) для ответов, [решение](https://goo.gl/hYCjxa).
