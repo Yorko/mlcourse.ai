@@ -26,7 +26,16 @@
 1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
 
 ## Домашние задания
-1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [веб-форма](https://docs.google.com/forms/d/1fGBAeQjTNaue2zen5BrIS4dLAd8csD6oA6FYsObJu9A) для ответов
+1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [веб-форма](https://docs.google.com/forms/d/1fGBAeQjTNaue2zen5BrIS4dLAd8csD6oA6FYsObJu9A) для ответов, [решение](https://goo.gl/hYCjxa).
+2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/QQGK3p), [веб-форма](https://docs.google.com/forms/d/1M3QWSnBEOQI0UDA5CrshM65SJZBIRHd-JU7Qc5-GSoU). Дедлайн: 19.09.17 23:59 UTC +3.
+
+## Соревнования
+1. Идентификация пользователя по последовательности посещенных сайтов. [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+2. Прогноз популярности статьи на medium.com. Скоро...
+
+## Проекты
+1. Идентификация пользователей по последовательности посещенных сайтов. [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice). Дедлайн: 08.11.17 23:59 UTC +3.
+2. Индивидуальные проекты. Скоро...
 
 ## Рейтинг
 На [рейтинг](https://goo.gl/cd8hUc) участников влияют домашки, соревнования, проекты и тьюториалы. 
