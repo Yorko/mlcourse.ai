@@ -15,6 +15,9 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
 
+# Graphviz – visualizing trees
+RUN apt-get -y install graphviz 
+
 # Vowpal Wabbit
 RUN git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
     cd vowpal_wabbit && make && make install
