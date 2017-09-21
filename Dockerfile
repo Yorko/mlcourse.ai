@@ -17,11 +17,14 @@ RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-d
 
 # Graphviz – visualizing trees
 RUN apt-get -y install graphviz 
+RUN apt-get -y install openjdk-8-jdk
+ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
 
 # Vowpal Wabbit
 RUN git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
     cd vowpal_wabbit && make && make install
 # python wrapper
+RUN cd vowpal_wabbit/python && python3 setup.py install
 RUN pip3 install --upgrade vowpalwabbit
 
 # XGBoost
