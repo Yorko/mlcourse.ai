@@ -1,7 +1,7 @@
 ## Открытый курс OpenDataScience по машинному обучению
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: Новая сессия стартовала 6 сентября 2017 г. Еще можно [подключиться](https://goo.gl/RzGN3L) :exclamation:
+:exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/channel/UCgGADKKGalfwSNbpSyM5ryg) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack OpenDataScience в канале mlcourse_open. [Заявка](http://ods.ai/) на вступление.
@@ -24,15 +24,32 @@
 
 ## Видеолекции
 1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
+2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/watch?v=vm63p8Od0bM)
+3. [Классификация. Деревья решений](https://www.youtube.com/watch?v=p9Hny3Cs6rk)
+
+### Прочее
+4. [Беседа с А.Г. Дьяконовым](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+
 
 ## Домашние задания
-1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [веб-форма](https://docs.google.com/forms/d/1fGBAeQjTNaue2zen5BrIS4dLAd8csD6oA6FYsObJu9A) для ответов
+1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [решение](https://goo.gl/hYCjxa).
+2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/QQGK3p), [решение](https://goo.gl/cuoH6F)
+3. Деревья решений для классификации и регрессии. [Тетрадка](https://goo.gl/787DsT)
+
+## Соревнования
+1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+2. Прогноз популярности статьи на medium.com. Скоро...
+
+## Проекты
+1. Идентификация пользователей по последовательности посещенных сайтов ("Элис"). [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice).
+2. Индивидуальные проекты. Описаны на [Wiki](https://goo.gl/cJbw7V).
 
 ## Рейтинг
-На [рейтинг](https://goo.gl/cd8hUc) участников влияют домашки, соревнования, проекты и тьюториалы. 
+На [рейтинг](https://goo.gl/cd8hUc) участников влияют домашки, соревнования, проекты, тьюториалы и мини-конкурсы по визуализации данных.
 
 ## Wiki-страницы этого репозитория:
 
+- [Все активности по втором запуске курса](https://goo.gl/cJbw7V). Домашки, соревнования, проекты, тьюториалы и мини-конкурсы и все, за что еще можно получить баллы и, главное, опыт.
  - [Prerequisites: Python, математика, DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-математика,-DevOps). О том, как лучше подготовиться к прохождению курса, если навыков программирования или знаний математики не хватает.
  - [Домашние задания 1-ой сессии курса](https://github.com/Yorko/mlcourse_open/wiki/Домашние-задания-1-сессии-курса-(с-решениями)). С решениями. На текущий рейтинг не влияют.
  - [Авторы статей и лекторы](https://github.com/Yorko/mlcourse_open/wiki/Авторы-статей-и-лекторы). Вкратце представляем всех, кто поработал над курсом.
