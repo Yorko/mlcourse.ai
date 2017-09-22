@@ -34,7 +34,7 @@
 ## Домашние задания
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/LffyJd), [решение](https://goo.gl/hYCjxa).
 2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [Тетрадка](https://goo.gl/QQGK3p), [решение](https://goo.gl/cuoH6F)
-3. Деревья решений для классификации и регрессии. [Тетрадка](https://goo.gl/787DsT)
+3. Деревья решений для классификации и регрессии. [Тетрадка](https://goo.gl/787DsT). Реализация дерева решений (опц., не в зачет рейтинга). [Тетрадка](https://goo.gl/m7XaGQ)
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
