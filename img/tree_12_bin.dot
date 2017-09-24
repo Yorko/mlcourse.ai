@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box, style="filled", color="black"] ;
+0 [label="ap_hi_140_160 <= 0.5\ngini = 0.5\nsamples = 70000\nvalue = [35021, 34979]", fillcolor="#e5813900"] ;
+1 [label="ap_hi_160_180 <= 0.5\ngini = 0.4852\nsamples = 55564\nvalue = [32557, 23007]", fillcolor="#e581394b"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="cholesterol_3 <= 0.5\ngini = 0.4713\nsamples = 51663\nvalue = [32023, 19640]", fillcolor="#e5813963"] ;
+1 -> 2 ;
+3 [label="gini = 0.453\nsamples = 46977\nvalue = [30688, 16289]", fillcolor="#e5813978"] ;
+2 -> 3 ;
+4 [label="gini = 0.4075\nsamples = 4686\nvalue = [1335, 3351]", fillcolor="#399de599"] ;
+2 -> 4 ;
+5 [label="smoke <= 0.5\ngini = 0.2363\nsamples = 3901\nvalue = [534, 3367]", fillcolor="#399de5d7"] ;
+1 -> 5 ;
+6 [label="gini = 0.2396\nsamples = 3514\nvalue = [489, 3025]", fillcolor="#399de5d6"] ;
+5 -> 6 ;
+7 [label="gini = 0.2055\nsamples = 387\nvalue = [45, 342]", fillcolor="#399de5dd"] ;
+5 -> 7 ;
+8 [label="cholesterol_2 <= 0.5\ngini = 0.2831\nsamples = 14436\nvalue = [2464, 11972]", fillcolor="#399de5cb"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="age_55_60 <= 0.5\ngini = 0.2896\nsamples = 11648\nvalue = [2046, 9602]", fillcolor="#399de5c9"] ;
+8 -> 9 ;
+10 [label="gini = 0.2822\nsamples = 8693\nvalue = [1478, 7215]", fillcolor="#399de5cb"] ;
+9 -> 10 ;
+11 [label="gini = 0.3105\nsamples = 2955\nvalue = [568, 2387]", fillcolor="#399de5c2"] ;
+9 -> 11 ;
+12 [label="age_50_55 <= 0.5\ngini = 0.2549\nsamples = 2788\nvalue = [418, 2370]", fillcolor="#399de5d2"] ;
+8 -> 12 ;
+13 [label="gini = 0.2452\nsamples = 2069\nvalue = [296, 1773]", fillcolor="#399de5d4"] ;
+12 -> 13 ;
+14 [label="gini = 0.2818\nsamples = 719\nvalue = [122, 597]", fillcolor="#399de5cb"] ;
+12 -> 14 ;
+}
