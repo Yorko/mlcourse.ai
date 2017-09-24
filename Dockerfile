@@ -1,6 +1,9 @@
 FROM ubuntu:16.04
 
+# Graphviz – visualizing trees
 RUN apt-get update
+RUN apt-get -y install graphviz 
+
 RUN apt-get install --no-install-recommends -y apt-utils software-properties-common curl nano unzip openssh-server
 RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 
@@ -15,8 +18,6 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
 
-# Graphviz – visualizing trees
-RUN apt-get -y install graphviz 
 RUN apt-get -y install openjdk-8-jdk
 ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
 
