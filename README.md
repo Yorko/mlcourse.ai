@@ -36,6 +36,7 @@
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V), [ipynb](https://goo.gl/LffyJd)
 2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/QQGK3p)
 3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга), [ipynb](https://goo.gl/m7XaGQ)
+4. Логистическая регрессия в задаче тегирования вопросов StackOverflow, [ipynb](https://goo.gl/RAxGLA)
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
