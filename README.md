@@ -1,7 +1,7 @@
 ## Открытый курс OpenDataScience по машинному обучению
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса :exclamation:
+:exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса. А [вот](https://calendar.google.com/calendar/ical/p56i6ec9s7nrvcjq4807sfr8co%40group.calendar.google.com/public/basic.ics) и календарь дедлайнов :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/channel/UCgGADKKGalfwSNbpSyM5ryg) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack OpenDataScience в канале mlcourse_open. [Заявка](http://ods.ai/) на вступление.
@@ -26,17 +26,20 @@
 1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
 2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/watch?v=vm63p8Od0bM)
 3. [Классификация. Деревья решений](https://www.youtube.com/watch?v=p9Hny3Cs6rk)
-4. [Логистическая регрессия](https://www.youtube.com/watch?v=oTXGQ-_oqvI) + обсуждения [соревнования](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) Kaggle
+4. [Логистическая регрессия](https://www.youtube.com/watch?v=oTXGQ-_oqvI) + обсуждение [соревнования](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) Kaggle
+5. [Случайный лес](https://www.youtube.com/watch?v=G0DmuuFeC30)
 
 ### Прочее
-5. [Беседа с А.Г. Дьяконовым](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+6. [Беседа с А.Г. Дьяконовым](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+7. [Беседа с К.В. Воронцовым](https://youtu.be/DR3mgnEKRgI)
 
 
 ## Домашние задания
-1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V), [ipynb](https://goo.gl/LffyJd)
+1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/LffyJd)
 2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/QQGK3p)
-3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга), [ipynb](https://goo.gl/m7XaGQ)
-4. Логистическая регрессия в задаче тегирования вопросов StackOverflow, [ipynb](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic04_linear_models/hw4_session2_stackoverflow_logistic_regression.ipynb?flush_cache=true)
+3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга). [ipynb](https://goo.gl/m7XaGQ)
+4. Логистическая регрессия в задаче тегирования вопросов StackOverflow. Дедлайн: 23.59 UTC +3, 10.10.17г. [ipynb](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic04_linear_models/hw4_session2_stackoverflow_logistic_regression.ipynb?flush_cache=true)
+5. Случайный лес и логистическая регрессия в задачах кредитного скоринга и классификации отзывов к фильмам. Дедлайн: 23.59 UTC +3, 12.10.17г. [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic05_bagging_rf/hw5_session2_rf_logit_scoring_texts.ipynb)
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
