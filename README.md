@@ -27,7 +27,7 @@
 2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/watch?v=vm63p8Od0bM)
 3. [Классификация. Деревья решений](https://www.youtube.com/watch?v=p9Hny3Cs6rk)
 4. [Логистическая регрессия](https://www.youtube.com/watch?v=oTXGQ-_oqvI) + обсуждение [соревнования](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) Kaggle
-5. [Случайный лес](https://www.youtube.com/watch?v=uz1ms5OSUEA)
+5. [Случайный лес](https://www.youtube.com/watch?v=G0DmuuFeC30)
 
 ### Прочее
 6. [Беседа с А.Г. Дьяконовым](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
