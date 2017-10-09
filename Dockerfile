@@ -8,8 +8,8 @@ RUN apt-get install --no-install-recommends -y apt-utils software-properties-com
 RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 
 RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
-RUN pip3 install --upgrade nose tqdm pydot watermark
+RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn==0.19 pandas seaborn plotly jupyter statsmodels
+RUN pip3 install --upgrade nose tqdm pydot watermark geopy joblib
 
 RUN jupyter notebook --allow-root --generate-config -y
 RUN echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py
