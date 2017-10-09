@@ -29,9 +29,9 @@
 4. [Логистическая регрессия](https://www.youtube.com/watch?v=oTXGQ-_oqvI) + обсуждение [соревнования](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) Kaggle
 5. [Случайный лес](https://www.youtube.com/watch?v=G0DmuuFeC30)
 
-### Прочее
-6. [Беседа с А.Г. Дьяконовым](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
-7. [Беседа с К.В. Воронцовым](https://youtu.be/DR3mgnEKRgI)
+### Беседы с гуру Data Science
+6. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+7. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
 
 
 ## Домашние задания
