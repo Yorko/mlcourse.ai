@@ -38,8 +38,9 @@
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/LffyJd)
 2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/QQGK3p)
 3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга). [ipynb](https://goo.gl/m7XaGQ)
-4. Логистическая регрессия в задаче тегирования вопросов StackOverflow. Дедлайн: 23.59 UTC +3, 10.10.17г. [ipynb](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic04_linear_models/hw4_session2_stackoverflow_logistic_regression.ipynb?flush_cache=true)
-5. Случайный лес и логистическая регрессия в задачах кредитного скоринга и классификации отзывов к фильмам. Дедлайн: 23.59 UTC +3, 12.10.17г. [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic05_bagging_rf/hw5_session2_rf_logit_scoring_texts.ipynb)
+4. Логистическая регрессия в задаче тегирования вопросов StackOverflow. [ipynb](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic04_linear_models/hw4_session2_stackoverflow_logistic_regression.ipynb?flush_cache=true)
+5. Случайный лес и логистическая регрессия в задачах кредитного скоринга и классификации отзывов к фильмам. Дедлайн: 23.59 UTC +3, 12.10.17г. [ipynb](https://goo.gl/Pc71Cu)
+6. Исследование признаков на примере поездок такси в Чикаго. Дедлайн: 23.59 UTC +3, 17.10.17г. [ipynb](https://goo.gl/2s3osC)
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
