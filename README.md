@@ -44,7 +44,7 @@
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
-2. Прогноз популярности статьи на medium.com. Скоро...
+2. Прогноз популярности статьи на портале Medium.com. [Arktur.io](https://mlcourse.arktur.io/). Первые шаги: [ipynb](https://goo.gl/cz9jDd)
 
 ## Проекты
 1. Идентификация пользователей по последовательности посещенных сайтов ("Элис"). [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice).
