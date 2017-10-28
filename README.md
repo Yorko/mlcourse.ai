@@ -31,11 +31,12 @@
 6. [Регрессия, регуляризация](https://www.youtube.com/watch?v=c_EsDMF3rsI)
 7. [Обучение без учителя](https://www.youtube.com/watch?v=qmW968tw3AM)
 8. [Признаки, SGD, Vowpal Wabbit](https://www.youtube.com/watch?v=MnLc7xKSAsk)
+9. [Временные ряды](https://www.youtube.com/watch?v=-iwjtvTxoVU)
 
 ### Беседы с гуру Data Science
-9. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
-10. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
-11. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
+10. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+11. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
+12. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
 
 ## Домашние задания
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/LffyJd)
