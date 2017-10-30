@@ -30,11 +30,13 @@
 5. [Случайный лес](https://www.youtube.com/watch?v=G0DmuuFeC30)
 6. [Регрессия, регуляризация](https://www.youtube.com/watch?v=c_EsDMF3rsI)
 7. [Обучение без учителя](https://www.youtube.com/watch?v=qmW968tw3AM)
+8. [Признаки, SGD, Vowpal Wabbit](https://www.youtube.com/watch?v=MnLc7xKSAsk)
+9. [Временные ряды](https://www.youtube.com/watch?v=-iwjtvTxoVU)
 
 ### Беседы с гуру Data Science
-8. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
-9. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
-
+10. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+11. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
+12. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
 
 ## Домашние задания
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/LffyJd)
@@ -42,7 +44,9 @@
 3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга). [ipynb](https://goo.gl/m7XaGQ)
 4. Логистическая регрессия в задаче тегирования вопросов StackOverflow. [ipynb](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_notebooks/topic04_linear_models/hw4_session2_stackoverflow_logistic_regression.ipynb?flush_cache=true)
 5. Случайный лес и логистическая регрессия в задачах кредитного скоринга и классификации отзывов к фильмам. [ipynb](https://goo.gl/Pc71Cu)
-6. Исследование признаков на примере поездок такси в Чикаго. Дедлайн: 23.59 UTC +3, 17.10.17г. [ipynb](https://goo.gl/2s3osC)
+6. Исследование признаков на примере поездок такси в Чикаго. [ipynb](https://goo.gl/2s3osC)
+7. Обучение без учителя. [ipynb](https://goo.gl/Yk25mx)
+8. Vowpal Wabbit в задаче прогнозирования популярности статьи на Хабре. Дедлайн: 2 ноября 23:59 UTC +3. [ipynb](https://goo.gl/JfRRjz)
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
