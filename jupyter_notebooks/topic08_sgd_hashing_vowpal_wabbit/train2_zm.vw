@@ -1,2 +1,0 @@
-0.6931470000000001 |title Самопроизвольное разлогинивание |tags логин login |domain habrahabr.ru |flow None |author @ptitov |hubs Хабрахабр |num content_len:0.0 month:7 hour:1
-1.0986120000000001 |title Stand-along cообщества против сообществ в рамках социальных сетей |tags сообщества интернет-сообщество социальные сети нишевой бренд |domain geektimes.ru |flow None |author @AlexBruce |hubs Чёрная дыра |num content_len:0.0 month:7 hour:14
