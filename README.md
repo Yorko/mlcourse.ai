@@ -46,7 +46,8 @@
 5. Случайный лес и логистическая регрессия в задачах кредитного скоринга и классификации отзывов к фильмам. [ipynb](https://goo.gl/Pc71Cu)
 6. Исследование признаков на примере поездок такси в Чикаго. [ipynb](https://goo.gl/2s3osC)
 7. Обучение без учителя. [ipynb](https://goo.gl/Yk25mx)
-8. Vowpal Wabbit в задаче прогнозирования популярности статьи на Хабре. Дедлайн: 2 ноября 23:59 UTC +3. [ipynb](https://goo.gl/JfRRjz)
+8. Vowpal Wabbit в задаче прогнозирования популярности статьи на Хабре. [ipynb](https://goo.gl/JfRRjz)
+9. Временные ряды. Дедлайн: 10 ноября 23:59 UTC +3. [ipynb](https://goo.gl/NBfg9v)
 
 ## Соревнования
 1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
