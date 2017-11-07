@@ -32,11 +32,12 @@
 7. [Обучение без учителя](https://www.youtube.com/watch?v=qmW968tw3AM)
 8. [Признаки, SGD, Vowpal Wabbit](https://www.youtube.com/watch?v=MnLc7xKSAsk)
 9. [Временные ряды](https://www.youtube.com/watch?v=-iwjtvTxoVU)
+10. [Градиентный бустинг](https://www.youtube.com/watch?v=x4y9lKE4HpU)
 
 ### Беседы с гуру Data Science
-10. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
-11. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
-12. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
+11. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+12. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
+13. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
 
 ## Домашние задания
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/LffyJd)
