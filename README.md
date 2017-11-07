@@ -3,7 +3,7 @@
 
 :exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса. А [вот](https://calendar.google.com/calendar/ical/p56i6ec9s7nrvcjq4807sfr8co%40group.calendar.google.com/public/basic.ics) и календарь дедлайнов :exclamation:
 
-[Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/channel/UCgGADKKGalfwSNbpSyM5ryg) c онлайн-трансляциями и записями лекций.
+[Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack OpenDataScience в канале mlcourse_open. [Заявка](http://ods.ai/) на вступление.
 
 В статьях курса даются теоретические основы машинного обучения. Навыки практического анализа данных и построения прогнозных моделей можно получить через выполнение домашних заданий и индивидуального проекта, а также за счет участия в 2 соревнованиях по анализу данных.
