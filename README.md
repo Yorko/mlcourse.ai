@@ -31,7 +31,7 @@
 6. [Регрессия, регуляризация](https://www.youtube.com/watch?v=c_EsDMF3rsI)
 7. [Обучение без учителя](https://www.youtube.com/watch?v=qmW968tw3AM)
 8. [Признаки, SGD, Vowpal Wabbit](https://www.youtube.com/watch?v=MnLc7xKSAsk)
-9. [Временные ряды](https://www.youtube.com/watch?v=-iwjtvTxoVU)
+9. [Временные ряды](https://youtu.be/nQjul-5_0_M)
 10. [Градиентный бустинг](https://www.youtube.com/watch?v=x4y9lKE4HpU)
 
 ### Беседы с гуру Data Science
