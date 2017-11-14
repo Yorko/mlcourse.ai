@@ -1,0 +1,1 @@
+vw train_zm_all.vw -f vw_model_part.vw -b 27 --random_seed 17 -l 0.1817 --power_t 0.855 --loss_function quantile  --ngram=2 -k --passes=3 --cache_file vw_model_part.cache --quiet
