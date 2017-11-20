@@ -75,6 +75,7 @@
 13. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
 
 ## Домашние задания
+<<<<<<< HEAD
 1. Анализ данных по доходу населения UCI Adult, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/session1_homeworks_old/hw01_adult_pandas.ipynb)
 2. Визуальный анализ данных о публикациях на Хабрахабре, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/session1_homeworks_old/hw02_habr_visual_analysis.ipynb)
 3. Деревья решений в игрушечной задаче и на данных Adult репозитория UCI, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/session1_homeworks_old/hw03_decision_trees.ipynb)
@@ -84,6 +85,16 @@
 7. Метод главных компонент, t-SNE и кластеризация, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/session1_homeworks_old/hw07_pca_tsne_clustering.ipynb)
 8. Предсказание числа просмотров вики-страницы, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/session1_homeworks_old/hw09_time_series.ipynb)
 >>>>>>> a473c4a5baaf435ea95a722014e85da3820ccbca
+=======
+1. Анализ данных по доходу населения UCI Adult, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw01_adult_pandas.ipynb)
+2. Визуальный анализ данных о публикациях на Хабрахабре, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw02_habr_visual_analysis.ipynb)
+3. Деревья решений в игрушечной задаче и на данных Adult репозитория UCI, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw03_decision_trees.ipynb)
+4. Линейные модели классификации и регрессии в соревнованиях Kaggle Inclass. Часть 1: идентификация взломщика. [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw04_part1_websites_logistic_regression.ipynb) Часть 2: прогноз популярности статьи на Хабрахабре, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw04_part2_habr_popularity_ridge.ipynb)
+5. Логистическая регрессия и случайный лес в задаче кредитного скоринга, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw05_logit_rf_credit_scoring.ipynb)
+6. Работа с признаками, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw06_features.ipynb)
+7. Метод главных компонент, t-SNE и кластеризация, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw07_pca_tsne_clustering.ipynb)
+8. Предсказание числа просмотров вики-страницы, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw09_time_series.ipynb)
+>>>>>>> dc0d43b68bf28d4bb1c9c3c9e928f3c77dfbad64
 
 ## Проекты
 1. Идентификация пользователей по последовательности посещенных сайтов ("Элис"). [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice).
