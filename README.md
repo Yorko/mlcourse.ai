@@ -54,6 +54,7 @@
 
 ## Домашние задания
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/LffyJd)
 2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/QQGK3p)
 3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга). [ipynb](https://goo.gl/m7XaGQ)
@@ -89,6 +90,8 @@
 =======
 =======
 >>>>>>> dc0d43b68bf28d4bb1c9c3c9e928f3c77dfbad64
+=======
+>>>>>>> dc0d43b68bf28d4bb1c9c3c9e928f3c77dfbad64
 1. Анализ данных по доходу населения UCI Adult, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw01_adult_pandas.ipynb)
 2. Визуальный анализ данных о публикациях на Хабрахабре, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw02_habr_visual_analysis.ipynb)
 3. Деревья решений в игрушечной задаче и на данных Adult репозитория UCI, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw03_decision_trees.ipynb)
@@ -98,6 +101,9 @@
 7. Метод главных компонент, t-SNE и кластеризация, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw07_pca_tsne_clustering.ipynb)
 8. Предсказание числа просмотров вики-страницы, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw09_time_series.ipynb)
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> dc0d43b68bf28d4bb1c9c3c9e928f3c77dfbad64
+=======
 >>>>>>> dc0d43b68bf28d4bb1c9c3c9e928f3c77dfbad64
 =======
 >>>>>>> dc0d43b68bf28d4bb1c9c3c9e928f3c77dfbad64
