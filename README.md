@@ -51,6 +51,7 @@
 11. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
 12. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
 13. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
+14. [Дмитрий Ветров](https://youtu.be/5jOGUWvDJJE)
 
 ## Домашние задания
 <<<<<<< HEAD
