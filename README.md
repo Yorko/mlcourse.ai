@@ -11,15 +11,15 @@ The course aims at developing both theoretical understanding of main machine lea
 Among prerequisites for comfortably passing the course are basic Python skills and acquaintance with math concepts (calculus, linear algebra, probability theory and statistics) from the 2-nd year's high school curriculum.  
 
 ### Outline (Medium articles to appear)
-1. Exploratory data analysis with Pandas
-2. Visual data analysis with Python
-3. Classification, decision trees and k Nearest Neighbors
-4. Linear classification and regression
-5. Bagging and random forest
-6. Feature engineering and feature selection
-7. Unsupervised learning: Principal Component Anslysis and clustering
-8. Vowpal Wabbit: learning with gigabytes of data
-9. Time series analysis with Python
-10. Gradient boosting
+1. Exploratory data analysis with Pandas, [RUS](https://habrahabr.ru/company/ods/blog/322626/)
+2. Visual data analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/323210/)
+3. Classification, decision trees and k Nearest Neighbors, [RUS](https://habrahabr.ru/company/ods/blog/322534/)
+4. Linear classification and regression, [RUS](https://habrahabr.ru/company/ods/blog/323890/)
+5. Bagging and random forest, [RUS](https://habrahabr.ru/company/ods/blog/324402/)
+6. Feature engineering and feature selection, [RUS](https://habrahabr.ru/company/ods/blog/325422/)
+7. Unsupervised learning: Principal Component Anslysis and clustering, [RUS](https://habrahabr.ru/company/ods/blog/325654/)
+8. Vowpal Wabbit: learning with gigabytes of data, [RUS](https://habrahabr.ru/company/ods/blog/326418/)
+9. Time series analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/327242/)
+10. Gradient boosting, [RUS](https://habrahabr.ru/company/ods/blog/327250/) 
 
 More info in Russian is available on the [Wiki page](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-in-Russian) of the repository. 
