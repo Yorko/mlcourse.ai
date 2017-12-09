@@ -10,7 +10,8 @@ The course aims at developing both theoretical understanding of main machine lea
 
 Among prerequisites for comfortably passing the course are basic Python skills and acquaintance with math concepts (calculus, linear algebra, probability theory and statistics) from the 2-nd year's high school curriculum.  
 
-### Outline (Medium articles to appear)
+### Outline
+These are the topics of the Medium articles to appear from Feb 5 to Apr 7 2018. With RUS are given the links to the corresponding Habrahabr articles in Russian. 
 1. Exploratory data analysis with Pandas, [RUS](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual data analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/323210/)
 3. Classification, decision trees and k Nearest Neighbors, [RUS](https://habrahabr.ru/company/ods/blog/322534/)
