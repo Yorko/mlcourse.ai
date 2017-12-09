@@ -2,7 +2,7 @@
 
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: The course in English starts as a series of Medium articels on Feb 5, 2018. The 3-rd session (in Russian) launches at the same date. To participate, fill in the [form](https://goo.gl/MgsAr3). The course is free, however you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: The course in English starts as a series of Medium articels on Feb 5, 2018. The 3-rd session (in Russian) launches at the same date. To participate, fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 [About](https://habrahabr.ru/company/ods/blog/334960/) the course on Habrahabr. [Youtube-channel](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) with lecture videos (in Russian). The course is discussed in the #mlcourse_open channel in the [OpenDataScience](http://ods.ai/) Slack team.
 
@@ -22,4 +22,4 @@ Among prerequisites for comfortably passing the course are basic Python skills a
 9. Time series analysis with Python
 10. Gradient boosting
 
-More info in Russian on the Wiki page of the repository. 
+More info in Russian on the [Wiki page](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-in-Russian) of the repository. 
