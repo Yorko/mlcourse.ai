@@ -1,7 +1,7 @@
 ## Открытый курс OpenDataScience по машинному обучению
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: 3-ий запуск будет 5 февраля 2018 г., помочь развитию курса вы можете на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: 3-ий запуск будет 5 февраля 2018 г., помочь развитию курса вы можете на платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open.
