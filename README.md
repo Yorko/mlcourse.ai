@@ -1,7 +1,7 @@
 ## Открытый курс OpenDataScience по машинному обучению
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: 3-ий запуск будет 1 марта 2018 г. при условии достижения целей на  краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: 3-ий запуск будет 5 февраля 2018 г., помочь развитию курса вы можете на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open.
@@ -35,7 +35,7 @@
 9. [Временные ряды](https://youtu.be/nQjul-5_0_M)
 10. [Градиентный бустинг](https://youtu.be/x5Bz9ChD7N0)
 
-### Беседы с гуру Data Science
+### Беседы о Data Science
 11. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
 12. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
 13. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
