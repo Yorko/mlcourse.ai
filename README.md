@@ -22,4 +22,4 @@ Among prerequisites for comfortably passing the course are basic Python skills a
 9. Time series analysis with Python
 10. Gradient boosting
 
-More info in Russian on the [Wiki page](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-in-Russian) of the repository. 
+More info in Russian is available on the [Wiki page](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-in-Russian) of the repository. 
