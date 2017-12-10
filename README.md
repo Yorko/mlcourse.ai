@@ -27,7 +27,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 
 ## More info in Russian
 
-:exclamation: 3-ий запуск будет 1 марта 2018 г. при условии достижения целей на  краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: 3-ий запуск будет 5 февраля 2018 г., поддержать курс можно на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open.
