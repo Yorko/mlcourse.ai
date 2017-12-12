@@ -74,9 +74,10 @@ class TwoLayerNet(object):
         # Store the result in the scores variable, which should be an array of      #
         # shape (N, C).                                                             #
         #############################################################################
-        A1 = X.dot(W1) + np.repeat(self.params['b1'].reshape(1,-1), N, axis=0) # shape N x H
+        
+        A1 = X.dot(W1) + self.params['b1'] # shape N x H
         A1_relu = np.maximum(A1, np.zeros_like(A1)) # shape N x H
-        scores = A1_relu.dot(W2) + np.repeat(self.params['b2'].reshape(1,-1), N, axis=0) # shape N x C
+        scores = A1_relu.dot(W2) + self.params['b2'] # shape N x C
 
 
         #############################################################################
@@ -253,11 +254,7 @@ class TwoLayerNet(object):
         ###########################################################################
         # TODO: Implement this function; it should be VERY simple!                #
         ###########################################################################
-        A1 = X.dot(self.params['W1']) + np.repeat(self.params['b1'].reshape(1,-1),
-                                                  X.shape[0], axis=0)
-        A1_relu = np.maximum(A1, np.zeros_like(A1))
-        scores = A1_relu.dot(self.params['W2']) + np.repeat(self.params['b2'].reshape(1,-1),
-                                                            X.shape[0], axis=0)
+        scores = self.loss(X)
         y_pred = np.argmax(scores, axis=1)
         ###########################################################################
         #                              END OF YOUR CODE                           #
