@@ -1,7 +1,27 @@
-## Открытый курс OpenDataScience по машинному обучению
+## Open Machine Learning Course
+
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: 3-ий запуск будет 1 марта 2018 г. при условии достижения целей на  краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:arrow_down: *Russian version below* :arrow_down:
+
+:exclamation: The course in English starts on Feb 5, 2018 as a series of Medium articles with links to homeworks. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+
+### Outline
+These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018. With RUS are given the links to the corresponding Habrahabr articles in Russian (if you don't read Russain, math, code and figures can still give you an idea of what's going on). 
+1. Exploratory data analysis with Pandas, [RUS](https://habrahabr.ru/company/ods/blog/322626/)
+2. Visual data analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/323210/)
+3. Classification, decision trees and k Nearest Neighbors, [RUS](https://habrahabr.ru/company/ods/blog/322534/)
+4. Linear classification and regression, [RUS](https://habrahabr.ru/company/ods/blog/323890/)
+5. Bagging and random forest, [RUS](https://habrahabr.ru/company/ods/blog/324402/)
+6. Feature engineering and feature selection, [RUS](https://habrahabr.ru/company/ods/blog/325422/)
+7. Unsupervised learning: Principal Component Anslysis and clustering, [RUS](https://habrahabr.ru/company/ods/blog/325654/)
+8. Vowpal Wabbit: learning with gigabytes of data, [RUS](https://habrahabr.ru/company/ods/blog/326418/)
+9. Time series analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/327242/)
+10. Gradient boosting, [RUS](https://habrahabr.ru/company/ods/blog/327250/) 
+
+## More info in Russian
+
+:exclamation: 3-ий запуск будет 5 февраля 2018 г., поддержать курс можно на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open.
