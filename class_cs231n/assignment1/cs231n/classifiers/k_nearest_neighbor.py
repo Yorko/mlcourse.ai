@@ -305,7 +305,7 @@ class KNearestNeighbor(object):
         # shape (num_train, )
         X_train_norms = np.sum(self.X_train ** 2, axis=1)
         # it's not obvious but summing arrays of shapes (num_test, 1) and (num_train, )
-        # gives exactly the necessary shape (num_test, num_train). It's broadcasting. Try it out with 
+        # gives exactly the necessary shape (num_test, num_train). Try it out with 
         # toy arrays if shapes (5, 1) and (3, ), persay. 
         dists = (X_norms + X_train_norms - 2 * X.dot(self.X_train.T)) ** .5
 

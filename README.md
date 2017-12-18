@@ -17,16 +17,10 @@
 =======
 :arrow_down: *Russian version below* :arrow_down:
 
-:exclamation: The course in English starts as a series of Medium articles on Feb 5, 2018. The 3-rd session (in Russian) launches at the same date. To participate, fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
-
-[About](https://habrahabr.ru/company/ods/blog/334960/) the course on Habrahabr. [Youtube-channel](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) with lecture videos (in Russian). The course is discussed in the #mlcourse_open channel in the [OpenDataScience](http://ods.ai/) Slack team.
-
-The course aims at developing both theoretical understanding of main machine learning concepts and practical skills of applying DS/ML techniques for solving real-world tasks. For this purpose, on one hand, the Habrahabr articles are full of math but on the other hand, there are lots of homeworks and several Kaggle competitions held throughout the course. Moreover, participants come up with their own [tutorials](https://goo.gl/6T53d7) on DS/ML topics and convey [individual projects](https://goo.gl/KHB4cL). 
-
-Among prerequisites for comfortably passing the course are basic Python skills and acquaintance with math concepts (calculus, linear algebra, probability theory and statistics) from the 2-nd year's high school curriculum.  
+:exclamation: The course in English starts on Feb 5, 2018 as a series of Medium articles with links to homeworks. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 ### Outline
-These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018. With RUS are given the links to the corresponding Habrahabr articles in Russian. 
+These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018. With RUS are given the links to the corresponding Habrahabr articles in Russian (if you don't read Russain, math, code and figures can still give you an idea of what's going on). 
 1. Exploratory data analysis with Pandas, [RUS](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual data analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/323210/)
 3. Classification, decision trees and k Nearest Neighbors, [RUS](https://habrahabr.ru/company/ods/blog/322534/)
