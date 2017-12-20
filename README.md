@@ -23,8 +23,8 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 
 :exclamation: 3-ий запуск будет 5 февраля 2018 г., поддержать курс можно на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
-[Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
-Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open.
+[Анонс](https://habrahabr.ru/company/ods/blog/344044/) курса на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
+Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open, объявления – в [группе](https://vk.com/club158557357) ВКонтакте.
 
 Цель курса – развить понимание основных концепций машинного обучения (теория) и дать навыки его использования (практика). Поэтому статьи не без математики и поэтому в курсе множество активностей: домашние задания, соревнования на Kaggle Inclass, слушатели сами пишут [тьюториалы](https://goo.gl/6T53d7) по интересным темам и выполняют [индивидуальные проекты](https://goo.gl/KHB4cL). 
 
