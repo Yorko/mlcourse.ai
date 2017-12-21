@@ -4,6 +4,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 :exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса. А [вот](https://calendar.google.com/calendar/ical/p56i6ec9s7nrvcjq4807sfr8co%40group.calendar.google.com/public/basic.ics) и календарь дедлайнов :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
@@ -16,6 +17,9 @@
 :exclamation: 3-ий запуск будет 1 марта 2018 г. при условии достижения целей на  краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 =======
 :arrow_down: *Russian version below* :arrow_down:
+=======
+:arrow_down: *Please scroll down for Russian version* :arrow_down:
+>>>>>>> 6e0faca03d541fa5a650769e9d87d7de36a8b7b3
 
 :exclamation: The course in English starts on Feb 5, 2018 as a series of Medium articles with links to homeworks. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
@@ -37,8 +41,8 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 :exclamation: 3-ий запуск будет 5 февраля 2018 г., поддержать курс можно на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 >>>>>>> 42d14625af2f094e8f3c7a27b94ad0148c8de1d4
 
-[Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
-Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open.
+[Анонс](https://habrahabr.ru/company/ods/blog/344044/) курса на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
+Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open, объявления – в [группе](https://vk.com/club158557357) ВКонтакте.
 
 Цель курса – развить понимание основных концепций машинного обучения (теория) и дать навыки его использования (практика). Поэтому статьи не без математики и поэтому в курсе множество активностей: домашние задания, соревнования на Kaggle Inclass, слушатели сами пишут [тьюториалы](https://goo.gl/6T53d7) по интересным темам и выполняют [индивидуальные проекты](https://goo.gl/KHB4cL). 
 
