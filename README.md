@@ -2,7 +2,7 @@
 
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:arrow_down: *Please scroll down for Russian version* :arrow_down:
+:arrow_down: *Scroll down for the Russian version* :arrow_down:
 
 :exclamation: The course in English starts on Feb 5, 2018 as a series of Medium articles with links to homeworks. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
