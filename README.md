@@ -19,6 +19,10 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 9. Time series analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/327242/)
 10. Gradient boosting, [RUS](https://habrahabr.ru/company/ods/blog/327250/) 
 
+### Wiki Pages
+- [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) - how to get prepared for the course
+- [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) - this will guide you through installing all necessary stuff for working with course materials 
+
 ## More info in Russian
 
 :exclamation: 3-ий запуск будет 5 февраля 2018 г., поддержать курс можно на краудфандинговой платформе [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
@@ -30,7 +34,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 
 Требуются начальные навыки программирования на Python и знание математики (математический анализ, линейная алгебра, теория вероятностей, математическая статистика) на уровне 2 курса технического ВУЗа. Подробнее – в [Wiki репозитория](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-математика,-DevOps). 
 
-## Статьи на Хабрахабре
+### Статьи на Хабрахабре
 1. [Первичный анализ данных с Pandas](https://habrahabr.ru/company/ods/blog/322626/)
 2. [Визуальный анализ данных с Python](https://habrahabr.ru/company/ods/blog/323210/)
 3. [Классификация, деревья решений и метод ближайших соседей](https://habrahabr.ru/company/ods/blog/322534/)
@@ -43,7 +47,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 10. [Градиентный бустинг. Часть 1](https://habrahabr.ru/company/ods/blog/327250/) 
 11. Градиентный бустинг. Часть 2. Скоро...
 
-## Видеолекции
+### Видеолекции
 1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
 2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/watch?v=vm63p8Od0bM)
 3. [Классификация. Деревья решений](https://www.youtube.com/watch?v=p9Hny3Cs6rk)
@@ -55,12 +59,12 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 9. [Временные ряды](https://youtu.be/nQjul-5_0_M)
 10. [Градиентный бустинг](https://youtu.be/x5Bz9ChD7N0)
 
-### Беседы с гуру Data Science
+#### Беседы о Data Science
 11. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
 12. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
 13. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
 
-## Домашние задания
+### Домашние задания
 1. Анализ данных по доходу населения UCI Adult, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw01_adult_pandas.ipynb)
 2. Визуальный анализ данных о публикациях на Хабрахабре, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw02_habr_visual_analysis.ipynb)
 3. Деревья решений в игрушечной задаче и на данных Adult репозитория UCI, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw03_decision_trees.ipynb)
@@ -75,8 +79,6 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 2. Индивидуальные проекты. Описаны на [Wiki](https://goo.gl/cJbw7V).
 
 ## Wiki-страницы этого репозитория:
-
-
  - [Prerequisites: Python, математика, DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-математика,-DevOps). О том, как лучше подготовиться к прохождению курса, если навыков программирования или знаний математики не хватает.
   - [Все активности во втором запуске курса](https://goo.gl/cJbw7V). Домашки, соревнования, проекты, тьюториалы и мини-конкурсы и все, за что еще можно получить баллы и, главное, опыт.
  - [План совместного прохождения курса cs231n c 15.11.2017](https://goo.gl/rQmctS)
