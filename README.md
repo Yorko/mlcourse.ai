@@ -30,9 +30,9 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 [Анонс](https://habrahabr.ru/company/ods/blog/344044/) курса на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
 Курс обсуждается в Slack [OpenDataScience](http://ods.ai/) в канале #mlcourse_open, объявления – в [группе](https://vk.com/club158557357) ВКонтакте.
 
-Цель курса – развить понимание основных концепций машинного обучения (теория) и дать навыки его использования (практика). Поэтому статьи не без математики и поэтому в курсе множество активностей: домашние задания, соревнования на Kaggle Inclass, слушатели сами пишут [тьюториалы](https://goo.gl/6T53d7) по интересным темам и выполняют [индивидуальные проекты](https://goo.gl/KHB4cL). 
+Цель курса – развить понимание основных концепций машинного обучения (теория) и дать навыки его использования (практика). Поэтому статьи не без математики и поэтому в курсе множество активностей: домашние задания, соревнования на Kaggle Inclass, слушатели сами пишут [тьюториалы](https://github.com/Yorko/mlcourse_open/wiki/Individual-projects-and-tutorials-(in-Russian)) по интересным темам и выполняют [индивидуальные проекты](https://github.com/Yorko/mlcourse_open/wiki/Individual-projects-and-tutorials-(in-Russian)). 
 
-Требуются начальные навыки программирования на Python и знание математики (математический анализ, линейная алгебра, теория вероятностей, математическая статистика) на уровне 2 курса технического ВУЗа. Подробнее – в [Wiki репозитория](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-математика,-DevOps). 
+Требуются начальные навыки программирования на Python и знание математики (математический анализ, линейная алгебра, теория вероятностей, математическая статистика) на уровне 2 курса технического ВУЗа. Подробнее – в [Wiki репозитория](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps). 
 
 ### Статьи на Хабрахабре
 1. [Первичный анализ данных с Pandas](https://habrahabr.ru/company/ods/blog/322626/)
@@ -72,10 +72,6 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 6. Работа с признаками, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw06_features.ipynb)
 7. Метод главных компонент, t-SNE и кластеризация, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw07_pca_tsne_clustering.ipynb)
 8. Предсказание числа просмотров вики-страницы, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/homeworks/hw09_time_series.ipynb)
-
-## Проекты
-1. Идентификация пользователей по последовательности посещенных сайтов ("Элис"). [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice).
-2. Индивидуальные проекты. Описаны на [Wiki](https://goo.gl/cJbw7V).
 
 ## Wiki-страницы этого репозитория:
  - [Prerequisites: Python, математика, DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps). О том, как лучше подготовиться к прохождению курса, если навыков программирования или знаний математики не хватает.
