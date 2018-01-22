@@ -44,8 +44,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
 8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
 9. [Анализ временных рядов с помощью Python](https://habrahabr.ru/company/ods/blog/327242/)
-10. [Градиентный бустинг. Часть 1](https://habrahabr.ru/company/ods/blog/327250/) 
-11. Градиентный бустинг. Часть 2. Скоро...
+10. [Градиентный бустинг](https://habrahabr.ru/company/ods/blog/327250/) 
 
 ### Видеолекции
 1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
