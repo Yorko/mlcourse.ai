@@ -4,7 +4,7 @@
 
 :arrow_down: *Scroll down for the Russian version* :arrow_down:
 
-:exclamation: The course in English starts on Feb 5, 2018 as a series of Medium articles with assignments and Kaggle Inclass competitions. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: The course in English starts on Feb 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 ### Outline
 These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018. With RUS are given the links to the corresponding Habrahabr articles in Russian (if you don't read Russian, math, code and figures can still give you an idea of what's going on). 
