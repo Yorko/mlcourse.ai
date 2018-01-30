@@ -5,6 +5,9 @@ from past.builtins import xrange
 class KNearestNeighbor(object):
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 =======
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
   """ a kNN classifier with L2 distance """
@@ -77,6 +80,7 @@ class KNearestNeighbor(object):
         # training point, and store the result in dists[i, j]. You should   #
         # not use a loop over dimension.                                    #
         #####################################################################
+<<<<<<< HEAD
 <<<<<<< HEAD
         #pass
         #Zmeyoff
@@ -184,6 +188,9 @@ class KNearestNeighbor(object):
 >>>>>>> 42d14625af2f094e8f3c7a27b94ad0148c8de1d4
 =======
         pass
+=======
+        pass
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
         #####################################################################
         #                       END OF YOUR CODE                            #
         #####################################################################
@@ -279,5 +286,8 @@ class KNearestNeighbor(object):
       #########################################################################
 
     return y_pred
+<<<<<<< HEAD
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
+=======
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 

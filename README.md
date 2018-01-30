@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 :exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса. А [вот](https://calendar.google.com/calendar/ical/p56i6ec9s7nrvcjq4807sfr8co%40group.calendar.google.com/public/basic.ics) и календарь дедлайнов :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
@@ -21,6 +22,9 @@
 =======
 :arrow_down: *Please scroll down for Russian version* :arrow_down:
 >>>>>>> 6e0faca03d541fa5a650769e9d87d7de36a8b7b3
+=======
+:arrow_down: *Scroll down for the Russian version* :arrow_down:
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 =======
 :arrow_down: *Scroll down for the Russian version* :arrow_down:
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
@@ -57,8 +61,12 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 Требуются начальные навыки программирования на Python и знание математики (математический анализ, линейная алгебра, теория вероятностей, математическая статистика) на уровне 2 курса технического ВУЗа. Подробнее – в [Wiki репозитория](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps). 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> a473c4a5baaf435ea95a722014e85da3820ccbca
 ## Статьи на Хабрахабре
+=======
+### Статьи на Хабрахабре
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 =======
 ### Статьи на Хабрахабре
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
@@ -111,11 +119,12 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 2. Прогноз популярности статьи на портале Medium.com. [Arktur.io](https://mlcourse.arktur.io/). Первые шаги: [ipynb](https://goo.gl/cz9jDd)
 =======
 
-### Беседы с гуру Data Science
+#### Беседы о Data Science
 11. [Александр Дьяконов](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
 12. [Константин Воронцов](https://youtu.be/DR3mgnEKRgI)
 13. [Евгений Соколов](https://youtu.be/Dmkx6KGrjx8)
 
+<<<<<<< HEAD
 ## Домашние задания
 <<<<<<< HEAD
 1. Анализ данных по доходу населения UCI Adult, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/session1_homeworks_old/hw01_adult_pandas.ipynb)
@@ -152,6 +161,8 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 1. Идентификация пользователей по последовательности посещенных сайтов ("Элис"). [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice).
 2. Индивидуальные проекты. Описаны на [Wiki](https://goo.gl/cJbw7V).
 =======
+=======
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 ### Домашние задания
 1. Анализ данных по доходу населения UCI Adult, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/homeworks/hw01_adult_pandas.ipynb)
 2. Визуальный анализ данных о публикациях на Хабрахабре, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/homeworks/hw02_habr_visual_analysis.ipynb)
@@ -161,6 +172,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 6. Работа с признаками, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/homeworks/hw06_features.ipynb)
 7. Метод главных компонент, t-SNE и кластеризация, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/homeworks/hw07_pca_tsne_clustering.ipynb)
 8. Предсказание числа просмотров вики-страницы, [ipynb](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/homeworks/hw09_time_series.ipynb)
+<<<<<<< HEAD
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 
 <<<<<<< HEAD
@@ -193,6 +205,10 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
  - [Тьюториалы и проекты](https://github.com/Yorko/mlcourse_open/wiki/Индивидуальные-проекты-и-тьюториалы). Одним из заданий в курсе было написать тьюториал на одну из тем вокруг машинного обучения и анализа данных и выполнить индивидуальный проект по предложенному плану.
 >>>>>>> a473c4a5baaf435ea95a722014e85da3820ccbca
 =======
+=======
+
+## Wiki-страницы этого репозитория:
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
  - [Prerequisites: Python, математика, DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps). О том, как лучше подготовиться к прохождению курса, если навыков программирования или знаний математики не хватает.
  - [План совместного прохождения курса cs231n c 23.04.2018](https://github.com/Yorko/mlcourse_open/wiki/Passing-cs231n-together-(in-Russian))
  - [Авторы статей и лекторы](https://github.com/Yorko/mlcourse_open/wiki/Authors-(in-Russian)). Вкратце представляем всех, кто поработал над курсом.
@@ -200,4 +216,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
  - [Топ-100 1-ой сессии курса](https://github.com/Yorko/mlcourse_open/wiki/Session-1-final-rating-(in-Russian)). 1-я сессия курса прошла с 28 февраля по 10 июня 2017 года – с домашними заданими, соревнованиями, тьюториалами, конкурсами по визуализации и общим рейтингом. Более 500 участников.
  - [Топ-100 2-ой сессии курса](https://github.com/Yorko/mlcourse_open/wiki/Session-2-final-rating-(in-Russian)).  2-я сессия курса прошла с 6 сентября по 17 ноября 2017 года – добавились индивидуальные проекты. Более 1300 участников.
  - [Тьюториалы и проекты](https://github.com/Yorko/mlcourse_open/wiki/Individual-projects-and-tutorials-(in-Russian)). Одним из заданий в курсе было написать тьюториал на одну из тем вокруг машинного обучения и анализа данных и выполнить индивидуальный проект по предложенному плану.
+<<<<<<< HEAD
+>>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
+=======
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
