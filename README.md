@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 :exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса. А [вот](https://calendar.google.com/calendar/ical/p56i6ec9s7nrvcjq4807sfr8co%40group.calendar.google.com/public/basic.ics) и календарь дедлайнов :exclamation:
 
 [Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/playlist?list=PLVlY_7IJCMJdgcCtQfzj5j8OVB_Y0GJCl) c онлайн-трансляциями и записями лекций.
@@ -28,11 +29,14 @@
 =======
 :arrow_down: *Scroll down for the Russian version* :arrow_down:
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
+=======
+[Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
+>>>>>>> 9599da5d87a16d89b810bf6620d80c97965b38d0
 
-:exclamation: The course in English starts on Feb 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The 3-rd session (in Russian) launches at the same date. To participate in the course in Russian, please fill in the [form](https://goo.gl/MgsAr3). The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: The course in English starts on Feb 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 ### Outline
-These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018. With RUS are given the links to the corresponding Habrahabr articles in Russian (if you don't read Russian, math, code and figures can still give you an idea of what's going on). 
+These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (every Monday). The articles (Medium "stories" in a ["Publication"](https://medium.com/open-machine-learning-course)) will be in Eglish. All articles in Russian are already published and are given here with "RUS" hyperlinks. If you don't read Russian, still math, code and figures can give you an idea of what's going on. But again: all these articles are translated into English and will be published on Medium from Feb 5 to Apr 7, 2018.
 1. Exploratory data analysis with Pandas, [RUS](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual data analysis with Python, [RUS](https://habrahabr.ru/company/ods/blog/323210/)
 3. Classification, decision trees and k Nearest Neighbors, [RUS](https://habrahabr.ru/company/ods/blog/322534/)
@@ -47,6 +51,7 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) - how to get prepared for the course
 - [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) - this will guide you through installing all necessary stuff for working with course materials 
+<<<<<<< HEAD
 
 ## More info in Russian
 
@@ -220,3 +225,5 @@ These are the topics of the Medium articles to appear from Feb 5 to Apr 7, 2018.
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
 =======
 >>>>>>> 1047131bd49f565695188cc6dd2bd0005838d1e3
+=======
+>>>>>>> 9599da5d87a16d89b810bf6620d80c97965b38d0
