@@ -4,10 +4,10 @@
 
 [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
 
-:exclamation: The course in English starts on Feb 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse):exclamation:
+:exclamation: The course in English starts on Feb 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
 
 ### Outline
-These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (every Monday). The articles (Medium "stories" in a ["Publication"](https://medium.com/open-machine-learning-course)) will be in English :uk:. All articles in Russian are already published and are given here with [:ru:] signs (clickable). If you don't read Russian, still math, code and figures can give you an idea of what's going on. But again: all these articles are already translated into English and will be published on Medium from Feb 5 to Apr 7, 2018 :pencil:
+These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (every Monday). The articles (Medium "stories" in a ["Publication"](https://medium.com/open-machine-learning-course)) will be in English :uk:. All articles in Russian are already published and are given here with :ru: icons (clickable). If you don't read Russian, still math, code and figures can give you an idea of what's going on. But again: all these articles are already translated into English and will be published on Medium from Feb 5 to Apr 7, 2018 :pencil:
 1. Exploratory data analysis with Pandas [:ru:](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual data analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/323210/)
 3. Classification, decision trees and k Nearest Neighbors [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
