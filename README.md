@@ -20,6 +20,9 @@ All articles in Russian are already published and are given here with :ru: icons
 9. Time series analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/327242/)
 10. Gradient boosting [:ru:](https://habrahabr.ru/company/ods/blog/327250/) 
 
+### Assignments
+1. "Exploratory data analysis with Pandas", [ipynb](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
+
 ### Community
 The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
