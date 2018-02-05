@@ -49,6 +49,12 @@ All articles in Russian are already published and are given here with :ru: icons
 9. Time series analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/327242/)
 10. Gradient boosting [:ru:](https://habrahabr.ru/company/ods/blog/327250/) 
 
+<<<<<<< HEAD
+=======
+### Assignments
+1. "Exploratory data analysis with Pandas", [ipynb](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
+
+>>>>>>> Yorko-master
 ### Community
 The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
@@ -235,4 +241,8 @@ The discussions between students are held in the #eng_mlcourse_open channel of t
 =======
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
 - [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) – this will guide you through installing all necessary stuff for working with course materials 
+<<<<<<< HEAD
 >>>>>>> 1cb7c7a80ac92856885185f9bdab7a532e231bb5
+=======
+>>>>>>> 53ce192e8befd4a652ad80f55fb65874ee012ba1
+>>>>>>> Yorko-master
