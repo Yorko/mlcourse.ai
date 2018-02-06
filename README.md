@@ -4,7 +4,7 @@
 
 [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
 
-:exclamation: The course in English starts on Feb 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) :exclamation:
+:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. :exclamation:
 
 ### Outline
 These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (every Monday). The articles (Medium "stories" in a ["Publication"](https://medium.com/open-machine-learning-course)) will be in English :uk:. The Kaggle [kernel](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning) "Vowpal Wabbit tutorial: blazingly fast learning" can serve as a demonstration of our materials. 
@@ -29,3 +29,5 @@ The discussions between students are held in the #eng_mlcourse_open channel of t
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
 - [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) – this will guide you through installing all necessary stuff for working with course materials 
+
+*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
