@@ -32,5 +32,6 @@ The discussions between students are held in the #eng_mlcourse_open channel of t
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
 - [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) – this will guide you through installing all necessary stuff for working with course materials 
+- [1st session in English: all activities accounted for in rating](https://github.com/Yorko/mlcourse_open/wiki/1st-session-in-English:-all-activities-accounted-for-in-rating)
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
