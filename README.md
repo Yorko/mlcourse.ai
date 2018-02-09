@@ -23,6 +23,9 @@ All articles in Russian are already published and are given here with :ru: icons
 ### Assignments
 1. "Exploratory data analysis with Pandas", [ipynb](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
 
+### Kaggle competitions
+1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking, [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+
 ### Community
 The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
