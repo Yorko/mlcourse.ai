@@ -23,11 +23,15 @@ All articles in Russian are already published and are given here with :ru: icons
 ### Assignments
 1. "Exploratory data analysis with Pandas", [ipynb](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
 
+### Kaggle competitions
+1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking, [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+
 ### Community
 The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
 - [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) – this will guide you through installing all necessary stuff for working with course materials 
+- [1st session in English: all activities accounted for in rating](https://github.com/Yorko/mlcourse_open/wiki/1st-session-in-English:-all-activities-accounted-for-in-rating)
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
