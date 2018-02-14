@@ -1,12 +1,15 @@
 FROM ubuntu:16.04
 
+# Graphviz – visualizing trees
 RUN apt-get update
+RUN apt-get -y install graphviz 
+
 RUN apt-get install --no-install-recommends -y apt-utils software-properties-common curl nano unzip openssh-server
 RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 
 RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
-RUN pip3 install --upgrade nose tqdm pydot watermark
+RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn==0.19 pandas seaborn plotly jupyter statsmodels
+RUN pip3 install --upgrade nose tqdm pydot watermark geopy joblib
 
 RUN jupyter notebook --allow-root --generate-config -y
 RUN echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py
@@ -15,10 +18,14 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
 
+RUN apt-get -y install openjdk-8-jdk
+ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
+
 # Vowpal Wabbit
 RUN git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
     cd vowpal_wabbit && make && make install
 # python wrapper
+RUN cd vowpal_wabbit/python && python3 setup.py install
 RUN pip3 install --upgrade vowpalwabbit
 
 # XGBoost
@@ -45,8 +52,8 @@ RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade keras
 
 # Facebook Prophet
-# RUN pip3 install --upgrade cython fbprophet
-
+RUN pip3 install --upgrade pystan cython
+RUN pip3 install --upgrade fbprophet
 
 # == JAVA ==
 # Set locale to UTF-8
