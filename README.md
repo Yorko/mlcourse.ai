@@ -27,6 +27,9 @@ All articles in Russian are already published and are given here with :ru: icons
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking, [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 
+### Rating 
+Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account crdits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be list on a special Wiki page. 
+
 ### Community
 The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
