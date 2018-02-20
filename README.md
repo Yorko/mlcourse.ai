@@ -11,7 +11,7 @@ These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (eve
 All articles in Russian are already published and are given here with :ru: icons (clickable). If you don't read Russian, still math, code and figures can give you an idea of what's going on. But all these articles are already translated into English and will be published on Medium from Feb 5 to Apr 7, 2018 :pencil:
 1. Exploratory data analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual data analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/)
-3. Classification, decision trees and k Nearest Neighbors [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
+3. Classification, decision trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
 4. Linear classification and regression [:ru:](https://habrahabr.ru/company/ods/blog/323890/)
 5. Bagging and random forest [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
 6. Feature engineering and feature selection [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
