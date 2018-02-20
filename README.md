@@ -11,7 +11,7 @@ These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (eve
 All articles in Russian are already published and are given here with :ru: icons (clickable). If you don't read Russian, still math, code and figures can give you an idea of what's going on. But all these articles are already translated into English and will be published on Medium from Feb 5 to Apr 7, 2018 :pencil:
 1. Exploratory data analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual data analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/)
-3. Classification, decision trees and k Nearest Neighbors [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
+3. Classification, decision trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
 4. Linear classification and regression [:ru:](https://habrahabr.ru/company/ods/blog/323890/)
 5. Bagging and random forest [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
 6. Feature engineering and feature selection [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
@@ -23,9 +23,13 @@ All articles in Russian are already published and are given here with :ru: icons
 ### Assignments
 1. "Exploratory data analysis with Pandas", [nbviewer](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
 2. "Analyzing cardiovascular disease data", [nbviewer](https://goo.gl/VoTmG9).  Deadline: Feb. 18, 23.59 CET
+3. "Decision trees with a toy task and the UCI Adult dataset", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/assignment3_decision_trees.ipynb). Deadline: Feb. 25, 23.59 CET
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking, [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+
+### Rating 
+Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be list on a special Wiki page. 
 
 ### Community
 The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
