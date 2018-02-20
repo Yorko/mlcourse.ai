@@ -1,12 +1,10 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-
-
-
 RUN apt-get install --no-install-recommends -y apt-utils software-properties-common curl nano unzip openssh-server
 RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 
+# main python packages
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
 RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib
@@ -22,6 +20,10 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 # boost
 RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
+
+# JDK
+RUN apt-get -y install openjdk-8-jdk
+ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
 
 # Vowpal Wabbit
 RUN git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
