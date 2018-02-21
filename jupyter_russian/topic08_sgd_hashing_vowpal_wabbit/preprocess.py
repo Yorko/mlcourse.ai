@@ -21,3 +21,4 @@ with open(sys.argv[1]) as inp_file, open(sys.argv[2], 'w') as out_file:
             out_file.write('{} | {}\n'.format(str(topic_map[list(topics_from_list)[0]]), 
                                               text.strip().replace(':', '').replace('|', '')))
 print("{} lines selected, {} lines corrupted.".format(num_selected, num_corrupted))
+
