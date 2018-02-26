@@ -1,23 +1,27 @@
 FROM ubuntu:16.04
 
-# Graphviz – visualizing trees
 RUN apt-get update
-RUN apt-get -y install graphviz 
-
 RUN apt-get install --no-install-recommends -y apt-utils software-properties-common curl nano unzip openssh-server
 RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 
+# main python packages
 RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn==0.19 pandas seaborn plotly jupyter statsmodels
-RUN pip3 install --upgrade nose tqdm pydot watermark geopy joblib
+RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
+RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib
 
+# Graphviz, visualizing trees
+RUN apt-get -y install graphviz 
+
+# Jupyter configs
 RUN jupyter notebook --allow-root --generate-config -y
 RUN echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py
 RUN echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
+# boost
 RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
 
+# JDK
 RUN apt-get -y install openjdk-8-jdk
 ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
 
@@ -45,6 +49,9 @@ RUN cd /usr/local/src && git clone --recursive --depth 1 https://github.com/Micr
 # LightGBM python wrapper
 RUN cd /usr/local/src/LightGBM/python-package && python3 setup.py install 
 
+# CatBoost
+RUN pip3 install --upgrade catboost
+
 # TensorFlow 
 RUN pip3 install --upgrade tensorflow  
 
@@ -55,7 +62,8 @@ RUN pip3 install --upgrade keras
 RUN pip3 install --upgrade pystan cython
 RUN pip3 install --upgrade fbprophet
 
-# == JAVA ==
+
+# == JAVA == (uncomment if you need it)
 # Set locale to UTF-8
 # Set limits
 # Configure APT
@@ -76,8 +84,8 @@ RUN pip3 install --upgrade fbprophet
 #    apt-get -y autoremove && apt-get clean && \
 #    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/oracle-jdk8-installer
 
-# == H2O ==
-#RUN cd /tmp && \
+# == H2O == (uncomment if you need it)
+# RUN cd /tmp && \
 #    curl -L http://h2o-release.s3.amazonaws.com/h2o/rel-ueno/4/h2o-3.10.4.4.zip \
 #        > h2o-3.10.4.4.zip && \
 #    unzip h2o-3.10.4.4.zip && \
