@@ -21,7 +21,12 @@ RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 # boost
 RUN apt-get -y install libboost-program-options-dev zlib1g-dev libboost-python-dev
 
+<<<<<<< HEAD
+# Graphviz – visualizing trees
+RUN apt-get -y install graphviz 
+=======
 # JDK
+>>>>>>> upstream/master
 RUN apt-get -y install openjdk-8-jdk
 ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
 
