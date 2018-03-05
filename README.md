@@ -13,7 +13,7 @@ All articles in Russian are already published and are given here with :ru: icons
 2. Visual Data Analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/)
 3. Classification, Decision Trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
 4. Linear Classification and Regression [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220) [:ru:](https://habrahabr.ru/company/ods/blog/323890/)
-5. Ensembles of Algorithms and Random Forest [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7) [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
+5. Bagging and Random Forest [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7) [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
 6. Feature Engineering and Feature Selection [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
 7. Unsupervised Learning: Principal Component Analysis and Clustering [:ru:](https://habrahabr.ru/company/ods/blog/325654/)
 8. Vowpal Wabbit: Learning with Gigabytes of Data [:uk:](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning) [:ru:](https://habrahabr.ru/company/ods/blog/326418/)  
