@@ -4,11 +4,10 @@
 
 [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
 
-:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. :exclamation:
+:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. The next session is planned to start on Sept. 3, 2018. :exclamation:
 
 ### Outline
-These are the topics of Medium articles to appear from Feb 5 to Apr 7, 2018 (every Monday). The articles (Medium "stories" in a ["Publication"](https://medium.com/open-machine-learning-course)) are in English :uk:. The Kaggle [kernel](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning) "Vowpal Wabbit tutorial: blazingly fast learning" can serve as a demonstration of our materials. 
-All articles in Russian are already published and are given here with :ru: icons (clickable). If you don't read Russian, still math, code and figures can give you an idea of what's going on. But all these articles are already translated into English and will be published on Medium from Feb 5 to Apr 7, 2018 :pencil:
+Icons :uk: and :ru: are clickable.
 1. Exploratory Data Analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/)
 2. Visual Data Analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/)
 3. Classification, Decision Trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
@@ -35,7 +34,7 @@ All articles in Russian are already published and are given here with :ru: icons
 Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be list on a special Wiki page. 
 
 ### Community
-The discussions between students are held in the #eng_mlcourse_open channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
+Discussions between students are held in the **#eng_mlcourse_open channel** of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
