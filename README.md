@@ -25,7 +25,7 @@ Icons :uk: and :ru: are clickable.
 3. "Decision trees with a toy task and the UCI Adult dataset", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/assignment3_decision_trees.ipynb). Deadline: Feb. 25, 23.59 CET
 4. "User Identification with Logistic Regression", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic04_linear_models/assignment4_websites_logistic_regression.ipynb?flush_cache=true). Deadline: March 11, 23.59 CET
 5. "Logistic Regression and Random Forest in the Credit Scoring Problem", [nbviewer](https://goo.gl/bUL3ad). Deadline: March 18, 23.59 CET
-6. Beating benchmarks in two Kaggle Inclass competitons. [Part 1, "Alice"](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part1_alice_beat_baseline.ipynb). [Part 2, "Medium"](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part2_medium_beat_baseline.ipynb). Deadline: March 25, 23.59 CET
+6. Beating benchmarks in two Kaggle Inclass competitons. Part 1, "Alice", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part1_alice_beat_baseline.ipynb). Part 2, "Medium", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part2_medium_beat_baseline.ipynb). Deadline: March 25, 23.59 CET
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
