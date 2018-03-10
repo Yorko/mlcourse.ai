@@ -4,7 +4,7 @@
 
 [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
 
-:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://goo.gl/J19mw3) to participate:exclamation:
+:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
 
 ### Outline
 Icons :uk: and :ru: are clickable.
