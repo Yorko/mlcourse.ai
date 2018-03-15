@@ -4,7 +4,7 @@
 
 [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
 
-:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to participate. The next session is planned to start on Sept. 3, 2018. :exclamation:
+:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
 
 ### Outline
 Icons :uk: and :ru: are clickable.
@@ -24,14 +24,15 @@ Icons :uk: and :ru: are clickable.
 2. "Analyzing cardiovascular disease data", [nbviewer](https://goo.gl/VoTmG9).  Deadline: Feb. 18, 23.59 CET
 3. "Decision trees with a toy task and the UCI Adult dataset", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/assignment3_decision_trees.ipynb). Deadline: Feb. 25, 23.59 CET
 4. "User Identification with Logistic Regression", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic04_linear_models/assignment4_websites_logistic_regression.ipynb?flush_cache=true). Deadline: March 11, 23.59 CET
-5. "Logistic Regression and Random Forest in the Credit Scoring Problem", [nbviewer](https://goo.gl/bUL3ad). Deadline: March 18, 23.59 CET
+5. "Logistic Regression and Random Forest in the Credit Scoring Problem", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic05_ensembles_random_forests/assignment5_logit_rf_credit_scoring.ipynb?flush_cache=true). Deadline: March 18, 23.59 CET
+6. Beating benchmarks in two Kaggle Inclass competitons. Part 1, "Alice", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part1_alice_beat_baseline.ipynb). Part 2, "Medium", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part2_medium_beat_baseline.ipynb). Deadline: March 25, 23.59 CET
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
 
 ### Rating 
-Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be list on a special Wiki page. 
+Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be listed on a special Wiki page. 
 
 ### Community
 Discussions between students are held in the **#eng_mlcourse_open channel** of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1lejiyldtlHxwwDpWiEqFmaUFUOVfkm9BMjoZurR895c) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
