@@ -52,6 +52,10 @@ RUN cd /usr/local/src/LightGBM/python-package && python3 setup.py install
 # CatBoost
 RUN pip3 install --upgrade catboost
 
+# PyTorch
+RUN pip3 install http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl
+RUN pip3 install torchvision
+
 # TensorFlow 
 RUN pip3 install --upgrade tensorflow  
 
