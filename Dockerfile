@@ -7,7 +7,7 @@ RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 # main python packages
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
-RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib
+RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib pillow
 
 # Graphviz, visualizing trees
 RUN apt-get -y install graphviz 
