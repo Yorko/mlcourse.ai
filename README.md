@@ -2,19 +2,19 @@
 
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-[Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian))
+:ru: [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian)) :ru:
 
 :exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
 
 ### Outline
-Icons :uk: :ru: and :cn: are clickable.
+This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.com :cn:. Icons are clickable.
 1. Exploratory Data Analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/) [:cn:](https://www.jqr.com/article/000079)
 2. Visual Data Analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/) [:cn:](https://www.jqr.com/article/000086)
 3. Classification, Decision Trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/)
 4. Linear Classification and Regression [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220) [:ru:](https://habrahabr.ru/company/ods/blog/323890/)
 5. Bagging and Random Forest [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7) [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
 6. Feature Engineering and Feature Selection [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-6-feature-engineering-and-feature-selection-8b94f870706a) [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
-7. Unsupervised Learning: Principal Component Analysis and Clustering [:ru:](https://habrahabr.ru/company/ods/blog/325654/)
+7. Unsupervised Learning: Principal Component Analysis and Clustering [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-7-unsupervised-learning-pca-and-clustering-db7879568417) [:ru:](https://habrahabr.ru/company/ods/blog/325654/)
 8. Vowpal Wabbit: Learning with Gigabytes of Data [:uk:](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning) [:ru:](https://habrahabr.ru/company/ods/blog/326418/)  
 9. Time Series Analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/327242/)
 10. Gradient Boosting [:ru:](https://habrahabr.ru/company/ods/blog/327250/) 
