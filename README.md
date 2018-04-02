@@ -15,7 +15,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 5. Bagging and Random Forest [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7) [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
 6. Feature Engineering and Feature Selection [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-6-feature-engineering-and-feature-selection-8b94f870706a) [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
 7. Unsupervised Learning: Principal Component Analysis and Clustering [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-7-unsupervised-learning-pca-and-clustering-db7879568417) [:ru:](https://habrahabr.ru/company/ods/blog/325654/)
-8. Vowpal Wabbit: Learning with Gigabytes of Data [:uk:](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning) [:ru:](https://habrahabr.ru/company/ods/blog/326418/)  
+8. Vowpal Wabbit: Learning with Gigabytes of Data [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-8-vowpal-wabbit-fast-learning-with-gigabytes-of-data-60f750086237) [:ru:](https://habrahabr.ru/company/ods/blog/326418/), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning)
 9. Time Series Analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/327242/)
 10. Gradient Boosting [:ru:](https://habrahabr.ru/company/ods/blog/327250/) 
 
