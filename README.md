@@ -27,6 +27,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 5. "Logistic Regression and Random Forest in the Credit Scoring Problem", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic05_ensembles_random_forests/assignment5_logit_rf_credit_scoring.ipynb?flush_cache=true). Deadline: March 18, 23.59 CET
 6. Beating benchmarks in two Kaggle Inclass competitons. Part 1, "Alice", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part1_alice_beat_baseline.ipynb). Part 2, "Medium", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part2_medium_beat_baseline.ipynb). Deadline: April 1, 23.59 CET
 7. Unsupervised learning: PCA and clustering, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic07_unsupervised/assignment7_pca_clustering.ipynb?flush_cache=true). Deadline: April 4, 23.59 CET
+8. Vowpal Wabbit and StackOverflow questions, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic08_sgd_hashing_vowpal_wabbit/assignment8_vw_stackoverflow_tags_10mln.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
