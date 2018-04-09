@@ -29,6 +29,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 7. Unsupervised learning: PCA and clustering, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic07_unsupervised/assignment7_pca_clustering.ipynb?flush_cache=true). Deadline: April 4, 23.59 CET
 8. Vowpal Wabbit and StackOverflow questions, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic08_sgd_hashing_vowpal_wabbit/assignment8_vw_stackoverflow_tags_10mln.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
 9. Time series analysis, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic09_time_series/assignment9_time_series.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
+10. Gradient boosting and flight delays, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic10_boosting/assignment10_flight_delays_kaggle.ipynb). Deadline: April 22, 23.59 CET
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
