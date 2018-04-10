@@ -28,7 +28,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 6. Beating benchmarks in two Kaggle Inclass competitons. Part 1, "Alice", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part1_alice_beat_baseline.ipynb). Part 2, "Medium", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part2_medium_beat_baseline.ipynb). Deadline: April 1, 23.59 CET
 7. Unsupervised learning: PCA and clustering, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic07_unsupervised/assignment7_pca_clustering.ipynb?flush_cache=true). Deadline: April 4, 23.59 CET
 8. Vowpal Wabbit and StackOverflow questions, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic08_sgd_hashing_vowpal_wabbit/assignment8_vw_stackoverflow_tags_10mln.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
-9. Time series analysis, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic09_time_series/assignment9_time_series.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
+9. Time series analysis, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic09_time_series/assignment9_time_series.ipynb). Deadline: April 15, 23.59 CET
 10. Gradient boosting and flight delays, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic10_boosting/assignment10_flight_delays_kaggle.ipynb). Deadline: April 22, 23.59 CET
 
 ### Kaggle competitions
