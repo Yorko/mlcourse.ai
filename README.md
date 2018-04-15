@@ -1,60 +1,49 @@
-## Открытый курс OpenDataScience по машинному обучению
+## Open Machine Learning Course
+
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:exclamation: Новая сессия стартовала 6 сентября 2017 г. [Тут](https://goo.gl/cJbw7V) подробное описание активностей в течение курса :exclamation:
+:ru: [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian)) :ru:
 
-[Статья](https://habrahabr.ru/company/ods/blog/334960/) про курс на Хабре. [Youtube-канал](https://www.youtube.com/channel/UCgGADKKGalfwSNbpSyM5ryg) c онлайн-трансляциями и записями лекций.
-Курс обсуждается в Slack OpenDataScience в канале mlcourse_open. [Заявка](http://ods.ai/) на вступление.
+:exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
 
-В статьях курса даются теоретические основы машинного обучения. Навыки практического анализа данных и построения прогнозных моделей можно получить через выполнение домашних заданий и индивидуального проекта, а также за счет участия в 2 соревнованиях по анализу данных.
-Требуются начальные навыки программирования на Python и знание математики (математический анализ, линейная алгебра, теория вероятностей, математическая статистика) на уровне 2 курса технического ВУЗа. 
+### Outline
+This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.com :cn:. Icons are clickable.
+1. Exploratory Data Analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/) [:cn:](https://www.jqr.com/article/000079)
+2. Visual Data Analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/) [:cn:](https://www.jqr.com/article/000086)
+3. Classification, Decision Trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/) [:cn:](https://www.jqr.com/article/000139)
+4. Linear Classification and Regression [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220) [:ru:](https://habrahabr.ru/company/ods/blog/323890/)
+5. Bagging and Random Forest [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7) [:ru:](https://habrahabr.ru/company/ods/blog/324402/)
+6. Feature Engineering and Feature Selection [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-6-feature-engineering-and-feature-selection-8b94f870706a) [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
+7. Unsupervised Learning: Principal Component Analysis and Clustering [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-7-unsupervised-learning-pca-and-clustering-db7879568417) [:ru:](https://habrahabr.ru/company/ods/blog/325654/)
+8. Vowpal Wabbit: Learning with Gigabytes of Data [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-8-vowpal-wabbit-fast-learning-with-gigabytes-of-data-60f750086237) [:ru:](https://habrahabr.ru/company/ods/blog/326418/) [Kaggle Kernel](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning)
+9. Time Series Analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/327242/)
+10. Gradient Boosting [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
-## Статьи на Хабрахабре
-1. [Первичный анализ данных с Pandas](https://habrahabr.ru/company/ods/blog/322626/)
-2. [Визуальный анализ данных с Python](https://habrahabr.ru/company/ods/blog/323210/)
-3. [Классификация, деревья решений и метод ближайших соседей](https://habrahabr.ru/company/ods/blog/322534/)
-4. [Линейные модели классификации и регрессии](https://habrahabr.ru/company/ods/blog/323890/)
-5. [Композиции: бэггинг, случайный лес](https://habrahabr.ru/company/ods/blog/324402/)
-6. [Построение и отбор признаков](https://habrahabr.ru/company/ods/blog/325422/)
-7. [Обучение без учителя: PCA и кластеризация](https://habrahabr.ru/company/ods/blog/325654/)
-8. [Обучаемся на гигабайтах с Vowpal Wabbit](https://habrahabr.ru/company/ods/blog/326418/)
-9. [Анализ временных рядов с помощью Python](https://habrahabr.ru/company/ods/blog/327242/)
-10. [Градиентный бустинг. Часть 1](https://habrahabr.ru/company/ods/blog/327250/) 
-11. Градиентный бустинг. Часть 2. Скоро...
+### Assignments
+1. "Exploratory data analysis with Pandas", [nbviewer](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
+2. "Analyzing cardiovascular disease data", [nbviewer](https://goo.gl/VoTmG9).  Deadline: Feb. 18, 23.59 CET
+3. "Decision trees with a toy task and the UCI Adult dataset", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/assignment3_decision_trees.ipynb). Deadline: Feb. 25, 23.59 CET
+4. "User Identification with Logistic Regression", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic04_linear_models/assignment4_websites_logistic_regression.ipynb?flush_cache=true). Deadline: March 11, 23.59 CET
+5. "Logistic Regression and Random Forest in the Credit Scoring Problem", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic05_ensembles_random_forests/assignment5_logit_rf_credit_scoring.ipynb?flush_cache=true). Deadline: March 18, 23.59 CET
+6. Beating benchmarks in two Kaggle Inclass competitons. Part 1, "Alice", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part1_alice_beat_baseline.ipynb). Part 2, "Medium", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic06_features/assignment6_part2_medium_beat_baseline.ipynb). Deadline: April 1, 23.59 CET
+7. Unsupervised learning: PCA and clustering, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic07_unsupervised/assignment7_pca_clustering.ipynb?flush_cache=true). Deadline: April 4, 23.59 CET
+8. Vowpal Wabbit and StackOverflow questions, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic08_sgd_hashing_vowpal_wabbit/assignment8_vw_stackoverflow_tags_10mln.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
+9. Time series analysis, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic09_time_series/assignment9_time_series.ipynb). Deadline: April 15, 23.59 CET
+10. Gradient boosting and flight delays, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic10_boosting/assignment10_flight_delays_kaggle.ipynb). Deadline: April 22, 23.59 CET
 
-## Видеолекции
-1. [Первичный анализ данных с Pandas](https://www.youtube.com/watch?v=dEFxoyJhm3Y)
-2. [Визуальный анализ данных с Seaborn и Matplotlib](https://www.youtube.com/watch?v=vm63p8Od0bM)
-3. [Классификация. Деревья решений](https://www.youtube.com/watch?v=p9Hny3Cs6rk)
+### Kaggle competitions
+1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
 
-### Прочее
-4. [Беседа с А.Г. Дьяконовым](https://www.youtube.com/watch?v=qV3yjIyj7Dc)
+### Rating
+Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be listed on a special Wiki page.
 
+### Community
+Discussions between students are held in the **#eng_mlcourse_open channel** of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
-## Домашние задания
-1. Анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V), [ipynb](https://goo.gl/LffyJd)
-2. Визуальный анализ данных по сердечно-сосудистым заболеваниям (ML Boot Camp V). [ipynb](https://goo.gl/QQGK3p)
-3. Деревья решений для классификации и регрессии, [ipynb](https://goo.gl/787DsT). Реализация дерева решений (опционально, не в зачет рейтинга), [ipynb](https://goo.gl/m7XaGQ)
+### Wiki Pages
+- [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
+- [Software requirements and Docker container](https://github.com/Yorko/mlcourse_open/wiki/Software-requirements-and-Docker-container) – this will guide you through installing all necessary stuff for working with course materials
+- [1st session in English: all activities accounted for in rating](https://github.com/Yorko/mlcourse_open/wiki/1st-session-in-English:-all-activities-accounted-for-in-rating)
 
-## Соревнования
-1. Идентификация пользователя по последовательности посещенных сайтов ("Элис"). [Kaggle Inclass](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
-2. Прогноз популярности статьи на medium.com. Скоро...
-
-## Проекты
-1. Идентификация пользователей по последовательности посещенных сайтов ("Элис"). [Описание](https://goo.gl/uWLMPd). [Тетрадки](https://github.com/Yorko/mlcourse_open/blob/master/jupyter_notebooks/project_alice).
-2. Индивидуальные проекты. Описаны на [Wiki](https://goo.gl/cJbw7V).
-
-## Рейтинг
-На [рейтинг](https://goo.gl/cd8hUc) участников влияют домашки, соревнования, проекты, тьюториалы и мини-конкурсы по визуализации данных.
-
-## Wiki-страницы этого репозитория:
-
-- [Все активности по втором запуске курса](https://goo.gl/cJbw7V). Домашки, соревнования, проекты, тьюториалы и мини-конкурсы и все, за что еще можно получить баллы и, главное, опыт.
- - [Prerequisites: Python, математика, DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-математика,-DevOps). О том, как лучше подготовиться к прохождению курса, если навыков программирования или знаний математики не хватает.
- - [Домашние задания 1-ой сессии курса](https://github.com/Yorko/mlcourse_open/wiki/Домашние-задания-1-сессии-курса-(с-решениями)). С решениями. На текущий рейтинг не влияют.
- - [Авторы статей и лекторы](https://github.com/Yorko/mlcourse_open/wiki/Авторы-статей-и-лекторы). Вкратце представляем всех, кто поработал над курсом.
- - [ПО для прохождения курса и Docker](https://github.com/Yorko/mlcourse_open/wiki/ПО-для-прохождения-курса-и-Docker) – как настроить все ПО для прохождения курса. В частности, описывается, как запустить у себя Docker-контейнер, в котором уже все установлено.
- - [Топ-100 1-ой сессии курса](https://github.com/Yorko/mlcourse_open/wiki/Топ-100-участников-открытого-курса-OpenDataScience-по-машинному-обучению). 1 сессия курса прошла с 28 февраля по 10 июня 2017 года – с домашними заданими, соревнованиями, тьюториалами, конкурсами по визуализации и общим рейтингом. Более 500 участников, было весело :grinning:. Увековечим имена тех, кто попал в топ-100 финального рейтинга.
- - [Тьюториалы](https://github.com/Yorko/mlcourse_open/wiki/Тьюториалы,-написанные-участниками-курса). Одним из заданий в курсе было написать тьюториал на одну из тем вокруг машинного обучения и анализа данных. 
-
-
+*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
