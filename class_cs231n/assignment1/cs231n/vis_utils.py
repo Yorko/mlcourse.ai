@@ -1,5 +1,3 @@
-from past.builtins import xrange
-
 from math import sqrt, ceil
 import numpy as np
 
@@ -19,9 +17,9 @@ def visualize_grid(Xs, ubound=255.0, padding=1):
   grid = np.zeros((grid_height, grid_width, C))
   next_idx = 0
   y0, y1 = 0, H
-  for y in xrange(grid_size):
+  for y in range(grid_size):
     x0, x1 = 0, W
-    for x in xrange(grid_size):
+    for x in range(grid_size):
       if next_idx < N:
         img = Xs[next_idx]
         low, high = np.min(img), np.max(img)
