@@ -1,5 +1,4 @@
 from __future__ import print_function
-from past.builtins import xrange
 
 import numpy as np
 from random import randrange
@@ -110,7 +109,7 @@ def grad_check_sparse(f, x, analytic_grad, num_checks=10, h=1e-5):
   in this dimensions.
   """
 
-  for i in xrange(num_checks):
+  for i in range(num_checks):
     ix = tuple([randrange(m) for m in x.shape])
 
     oldval = x[ix]
