@@ -16,8 +16,8 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 6. Feature Engineering and Feature Selection [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-6-feature-engineering-and-feature-selection-8b94f870706a) [:ru:](https://habrahabr.ru/company/ods/blog/325422/)
 7. Unsupervised Learning: Principal Component Analysis and Clustering [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-7-unsupervised-learning-pca-and-clustering-db7879568417) [:ru:](https://habrahabr.ru/company/ods/blog/325654/)
 8. Vowpal Wabbit: Learning with Gigabytes of Data [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-8-vowpal-wabbit-fast-learning-with-gigabytes-of-data-60f750086237) [:ru:](https://habrahabr.ru/company/ods/blog/326418/) [Kaggle Kernel](https://www.kaggle.com/kashnitsky/vowpal-wabbit-tutorial-blazingly-fast-learning)
-9. Time Series Analysis with Python [:ru:](https://habrahabr.ru/company/ods/blog/327242/)
-10. Gradient Boosting [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
+9. Time Series Analysis with Python, part 1 [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-9-time-series-analysis-in-python-a270cb05e0b3) [:ru:](https://habrahabr.ru/company/ods/blog/327242/). Predicting future with Facebook Prophet, part 2 [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-9-part-3-predicting-the-future-with-facebook-prophet-3f3af145cdc)
+10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
 ### Assignments
 1. "Exploratory data analysis with Pandas", [nbviewer](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
@@ -39,7 +39,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be listed on a special Wiki page.
 
 ### Community
-Discussions between students are held in the **#eng_mlcourse_open channel** of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
+Discussions between students are held in the **#eng_mlcourse_open** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
