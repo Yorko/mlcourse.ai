@@ -1,3 +1,6 @@
+:uk: [English version](https://github.com/Yorko/mlcourse_open/wiki/Passing-cs231n-together) :uk:
+
+
 #mlcourse_open – базовый курс машинного обучения, до нейронных сетей не доходим. Поэтому там же в Slack OpenDataScience в канале #class_cs231n проходим один из лучших курсов по нейронным сетям - стэнфордский [cs231n](http://cs231n.stanford.edu/) "Convolutional Neural Networks for Visual Recognition".
 
 **Главные ссылки**
