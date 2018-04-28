@@ -4,7 +4,11 @@
 
 :ru: [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian)) :ru:
 
+<<<<<<< HEAD
 :exclamation: The course in English started on Feb. 5, 2018 as a series of articles (a ["Publication"](https://medium.com/open-machine-learning-course) on Medium) with assignments and Kaggle Inclass competitions. The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
+=======
+:exclamation: The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
+>>>>>>> 49b139fd8f2df8ad5818f60e03134388a1b74875
 
 ### Outline
 This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.com :cn:. Icons are clickable.
@@ -20,6 +24,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
 ### Assignments
+<<<<<<< HEAD
 1. "Exploratory data analysis with Pandas", [nbviewer](https://goo.gl/FR8qzt). Deadline: Feb. 11, 23.59 CET
 2. "Analyzing cardiovascular disease data", [nbviewer](https://goo.gl/VoTmG9).  Deadline: Feb. 18, 23.59 CET
 3. "Decision trees with a toy task and the UCI Adult dataset", [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/assignment3_decision_trees.ipynb). Deadline: Feb. 25, 23.59 CET
@@ -30,13 +35,20 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 8. Vowpal Wabbit and StackOverflow questions, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic08_sgd_hashing_vowpal_wabbit/assignment8_vw_stackoverflow_tags_10mln.ipynb?flush_cache=true). Deadline: April 15, 23.59 CET
 9. Time series analysis, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic09_time_series/assignment9_time_series.ipynb). Deadline: April 15, 23.59 CET
 10. Gradient boosting and flight delays, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic10_boosting/assignment10_flight_delays_kaggle.ipynb). Deadline: April 22, 23.59 CET
+=======
+Each topic is followedby an assignment. Examples are to appear in May, 2018. 
+>>>>>>> 49b139fd8f2df8ad5818f60e03134388a1b74875
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
 
 ### Rating
+<<<<<<< HEAD
 Throughout the course we are maintaining a [student rating](https://docs.google.com/spreadsheets/d/1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk/). It takes into account credits scored in assignments and Kaggle competitions. Top-10 students (according to the final rating) will be listed on a special Wiki page.
+=======
+Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
+>>>>>>> 49b139fd8f2df8ad5818f60e03134388a1b74875
 
 ### Community
 Discussions between students are held in the **#eng_mlcourse_open** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
