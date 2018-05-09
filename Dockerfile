@@ -53,8 +53,8 @@ RUN cd /usr/local/src/LightGBM/python-package && python3 setup.py install
 RUN pip3 install --upgrade catboost
 
 # PyTorch
-RUN pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
-RUN pip3 install torchvision
+RUN pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp35-cp35m-linux_x86_64.whl 
+RUN pip3 install --upgrade torchvision
 
 # TensorFlow 
 RUN pip3 install --upgrade tensorflow  
@@ -66,39 +66,7 @@ RUN pip3 install --upgrade keras
 RUN pip3 install --upgrade pystan cython
 RUN pip3 install --upgrade fbprophet
 
-
-# == JAVA == (uncomment if you need it)
-# Set locale to UTF-8
-# Set limits
-# Configure APT
-# Install JDK
-# Cleanup
-# RUN locale-gen en_US.UTF-8 && echo LANG=\"en_US.UTF-8\" > /etc/default/locale && \
-#    printf '%s\n%s\n%s\n%s\n' \
-#        '* - memlock unlimited' \
-#        '* - nofile 65536' \
-#        '* - nproc 65536' \
-#        '* - as unlimited' \
-#        >> /etc/security/limits.conf && \
-#    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | \
-#        /usr/bin/debconf-set-selections && \
-#    add-apt-repository -y ppa:webupd8team/java && \
-#    apt-get -y update && \
-#    apt-get install --no-install-recommends -y oracle-java8-installer oracle-java8-set-default && \
-#    apt-get -y autoremove && apt-get clean && \
-#    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/oracle-jdk8-installer
-
-# == H2O == (uncomment if you need it)
-# RUN cd /tmp && \
-#    curl -L http://h2o-release.s3.amazonaws.com/h2o/rel-ueno/4/h2o-3.10.4.4.zip \
-#        > h2o-3.10.4.4.zip && \
-#    unzip h2o-3.10.4.4.zip && \
-#    mv ./h2o-3.10.4.4 /usr/local/ && \
-#    rm h2o-3.10.4.4.zip && \
-#    ln -s /usr/local/h2o-3.10.4.4 /usr/local/h2o
-
 COPY docker_files/entry-point.sh /
-# COPY docker_files/h2o /usr/local/bin/
 
 # Final setup: directories, permissions, ssh login, symlinks, etc
 RUN mkdir -p /home/user && \
@@ -106,7 +74,6 @@ RUN mkdir -p /home/user && \
     echo 'root:12345' | chpasswd && \
     sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
-  #  chmod a+x /usr/local/bin/h2o && \
     chmod a+x /entry-point.sh
 
 WORKDIR /home/user
