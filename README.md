@@ -20,7 +20,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
 ### Assignments
-Each topic is followed by an assignment. Examples are to appear in May, 2018. 
+Each topic is followed by an assignment. Examples are to appear in the end of June, 2018. 
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
