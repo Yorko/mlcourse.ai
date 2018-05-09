@@ -7,7 +7,7 @@
 :exclamation: The next session is planned to start on Oct. 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate:exclamation:
 
 ### Outline
-This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.com :cn:. Icons are clickable.
+This is the list of published articles on Medium :uk:, Habr.com :ru:, and jqr.com :cn:. Icons are clickable.
 1. Exploratory Data Analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/) [:cn:](https://www.jqr.com/article/000079)
 2. Visual Data Analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/) [:cn:](https://www.jqr.com/article/000086)
 3. Classification, Decision Trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/) [:cn:](https://www.jqr.com/article/000139)
@@ -20,7 +20,7 @@ This is the list of published articles on Medium :uk:, Habrahabr :ru:, and jqr.c
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
 ### Assignments
-Each topic is followed by an assignment. Examples are to appear in May, 2018. 
+Each topic is followed by an assignment. Examples are to appear in the end of June, 2018. 
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
