@@ -136,6 +136,9 @@ class CaptioningRNN(object):
         # with respect to all model parameters. Use the loss and grads variables   #
         # defined above to store loss and gradients; grads[k] should give the      #
         # gradients for self.params[k].                                            #
+        #                                                                          #
+        # Note also that you are allowed to make use of functions from layers.py   #
+        # in your implementation, if needed.                                       #
         ############################################################################
         pass
         ############################################################################
@@ -190,7 +193,7 @@ class CaptioningRNN(object):
         # (3) Apply the learned affine transformation to the next hidden state to #
         #     get scores for all words in the vocabulary                          #
         # (4) Select the word with the highest score as the next word, writing it #
-        #     to the appropriate slot in the captions variable                    #
+        #     (the word index) to the appropriate slot in the captions variable   #
         #                                                                         #
         # For simplicity, you do not need to stop generating after an <END> token #
         # is sampled, but you can if you want to.                                 #
@@ -198,6 +201,9 @@ class CaptioningRNN(object):
         # HINT: You will not be able to use the rnn_forward or lstm_forward       #
         # functions; you'll need to call rnn_step_forward or lstm_step_forward in #
         # a loop.                                                                 #
+        #                                                                         #
+        # NOTE: we are still working over minibatches in this function. Also if   #
+        # you are using an LSTM, initialize the first cell state to zeros.        #
         ###########################################################################
         pass
         ############################################################################
