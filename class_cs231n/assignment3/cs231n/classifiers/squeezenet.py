@@ -102,9 +102,9 @@ class SqueezeNet(object):
             with tf.variable_scope('layer3'):
                 x = tf.nn.avg_pool(x,[1,13,13,1],strides=[1,13,13,1],padding='VALID')
                 self.layers.append(x)
-        self.classifier = tf.reshape(x,[-1, NUM_CLASSES])
+        self.scores = tf.reshape(x,[-1, NUM_CLASSES])
 
         if save_path is not None:
             saver = tf.train.Saver()
             saver.restore(sess, save_path)
-        self.loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=tf.one_hot(self.labels, NUM_CLASSES), logits=self.classifier))
+        self.loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(labels=tf.one_hot(self.labels, NUM_CLASSES), logits=self.scores))
