@@ -41,4 +41,4 @@
 - 03.06.18 – дедлайн по ДЗ 2. Решения загружать [сюда](https://www.dropbox.com/request/SYokh4VUuIpZRFe1bPHM)
 - 04.06.18 – 10.06.18. Лекция 13 и Лекция 14
 - 11.06.18 – 17.06.18. Лекция 15 и Лекция 16
-- 30.06.18 – дедлайн по ДЗ 3. Решения загружать [сюда](https://www.dropbox.com/request/omK1M8XNUH7KvGps3siF)
+- 01.07.18 – дедлайн по ДЗ 3. Решения загружать [сюда](https://www.dropbox.com/request/omK1M8XNUH7KvGps3siF)
