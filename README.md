@@ -20,7 +20,7 @@ This is the list of published articles on Medium :uk:, Habr.com :ru:, and jqr.co
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
 ### Assignments
-In a new run of the course, assignments will be announced each week. Meanwhile, youcan pratice with demo versions:
+In a new run of the course, assignments will be announced each week. Meanwhile, you can pratice with demo versions:
 1. Exploratory data analysis with Pandas, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb)
 2. Analyzing cardiovascular disease data, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb)
 
