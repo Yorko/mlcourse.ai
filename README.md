@@ -20,7 +20,9 @@ This is the list of published articles on Medium :uk:, Habr.com :ru:, and jqr.co
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/)
 
 ### Assignments
-Each topic is followed by an assignment. Examples are to appear in the end of June, 2018. 
+In a new run of the course, assignments will be announced each week. Meanwhile, youcan pratice with demo versions:
+1. Exploratory data analysis with Pandas, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb)
+2. Analyzing cardiovascular disease data, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb)
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
