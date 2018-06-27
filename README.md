@@ -2,9 +2,11 @@
 
 ![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
 
-:ru: [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian)) :ru:
+:ru: [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian)) :ru: 
 
 :exclamation: The next session launches on October 1, 2018. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate. In September, you'll get an invitation to OpenDataScience Slack team :exclamation:
+
+[Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse). 
 
 ### Outline
 This is the list of published articles on Medium :uk:, Habr.com :ru:, and jqr.com :cn:. Icons are clickable.
@@ -29,6 +31,8 @@ In a new run of the course, assignments will be announced each week. Meanwhile, 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
+
+The course is also available in a form of a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse). 
 
 ### Rating
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
