@@ -23,6 +23,8 @@ This is the list of published articles on Medium :uk:, Habr.com :ru:, and jqr.co
 In a new run of the course, assignments will be announced each week. Meanwhile, you can pratice with demo versions:
 1. Exploratory data analysis with Pandas, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb)
 2. Analyzing cardiovascular disease data, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb)
+3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb)
+5. Logistic Regression and Random Forest in the credit scoring problem, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment05_logit_rf_credit_scoring.ipynb)
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
