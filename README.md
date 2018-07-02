@@ -29,6 +29,7 @@ In a new run of the course, assignments will be announced each week. Meanwhile, 
 4. Linear Regression as an optimization problem, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment04_linreg_optimization.ipynb)
 5. Logistic Regression and Random Forest in the credit scoring problem, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment05_logit_rf_credit_scoring.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-5-logit-and-rf-for-credit-scoring)
 6. Exploring OLS, Lasso and Random Forest in a regression task, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment06_regression_wine.ipynb)
+7. Unupervised learning, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment07_unsupervised_learning.ipynb)
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
