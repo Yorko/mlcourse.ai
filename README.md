@@ -26,7 +26,9 @@ In a new run of the course, assignments will be announced each week. Meanwhile, 
 1. Exploratory data analysis with Pandas, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset)
 2. Analyzing cardiovascular disease data, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-2-analyzing-cardiovascular-data)
 3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-3-decision-trees)
+4. Linear Regression as an optimization problem, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment04_linreg_optimization.ipynb)
 5. Logistic Regression and Random Forest in the credit scoring problem, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment05_logit_rf_credit_scoring.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-5-logit-and-rf-for-credit-scoring)
+6. Exploring OLS, Lasso and Random Forest in a regression task, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment06_regression_wine.ipynb)
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
