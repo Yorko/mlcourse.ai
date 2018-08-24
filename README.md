@@ -6,7 +6,7 @@
 
 :exclamation: The next session launches on **October 1, 2018**. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate. In September, you'll get an invitation to OpenDataScience Slack team :exclamation:
 
-[Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse). 
+[Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) with the same materials (:uk:-only)
 
 ### Outline
 This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/), and jqr.com [:cn:](https://www.jqr.com). Icons are clickable. Also, links to Kaggle Kernels (in English) are given. This way one can reproduce everything without installing a single package.  
@@ -22,7 +22,7 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting)
 
 ### Assignments
-In a new run of the course, assignments will be announced each week. Meanwhile, you can pratice with demo versions. Solutions will be shared in the end of July, 2018. 
+Assignments will be announced each week. Meanwhile, you can pratice with demo versions. Solutions will be discussed in the upcoming run of the course. 
 1. Exploratory data analysis with Pandas, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset)
 2. Analyzing cardiovascular disease data, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-2-analyzing-cardiovascular-data)
 3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](http://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-3-decision-trees)
@@ -37,8 +37,6 @@ In a new run of the course, assignments will be announced each week. Meanwhile, 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
-
-The course is also available in a form of a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse). 
 
 ### Rating
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
