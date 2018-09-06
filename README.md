@@ -6,7 +6,7 @@
 
 :exclamation: The next session launches on **October 1, 2018**. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate. In September, you'll get an invitation to OpenDataScience Slack team :exclamation:
 
-[Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) with the same materials (:uk:-only)
+Mirrors: [mlcourse.ai](https://mlcourse.ai), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) with the same materials (:uk:-only)
 
 ### Outline
 This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/), and jqr.com [:cn:](https://www.jqr.com). Icons are clickable. Also, links to Kaggle Kernels (in English) are given. This way one can reproduce everything without installing a single package.  
@@ -42,7 +42,7 @@ Full assignments are announced each week in a new run of the course (October 1, 
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
 
 ### Community
-Discussions between students are held in the **#eng_mlcourse_open** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
+Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
 ### Wiki Pages
 - [Prerequisites: Python, math and DevOps](https://github.com/Yorko/mlcourse_open/wiki/Prerequisites:-Python,-math-and-DevOps) – how to get prepared for the course
