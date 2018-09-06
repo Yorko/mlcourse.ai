@@ -6,7 +6,7 @@
 
 :exclamation: The next session launches on **October 1, 2018**. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate. In September, you'll get an invitation to OpenDataScience Slack team :exclamation:
 
-Mirrors: [mlcourse.ai](https://mlcourse.ai), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) with the same materials (:uk:-only)
+Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
 ### Outline
 This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/), and jqr.com [:cn:](https://www.jqr.com). Icons are clickable. Also, links to Kaggle Kernels (in English) are given. This way one can reproduce everything without installing a single package.  
