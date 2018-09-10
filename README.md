@@ -1,8 +1,8 @@
-## Open Machine Learning Course
+## [mlcourse.ai](mlcourse.ai), open Machine Learning course
 
-![ODS stickers](https://github.com/Yorko/mlcourse_open/blob/master/img/ods_stickers.jpg)
+![ODS stickers](https://github.com/Yorko/mlcourse.ai/blob/master/img/ods_stickers.jpg)
 
-:ru: [Russian version](https://github.com/Yorko/mlcourse_open/wiki/About-the-course-(in-Russian)) :ru: 
+:ru: [Russian version](https://github.com/Yorko/mlcourse.ai/wiki/About-the-course-(in-Russian)) :ru: 
 
 :exclamation: The next session launches on **October 1, 2018**. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate. In September, you'll get an invitation to OpenDataScience Slack team :exclamation:
 
