@@ -22,6 +22,8 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting)
 
 ### Lectures
+Youtube [playlist](https://www.youtube.com/watch?v=DzXgyOcbZZk&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
+
 0. Introduction, [video](https://www.youtube.com/watch?v=DzXgyOcbZZk&feature=youtu.be), [slides](https://drive.google.com/open?id=13pBLPZmRQB3KPkd8-ji41r7qZvtrKo4c)
 
 ### Assignments
