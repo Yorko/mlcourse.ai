@@ -22,9 +22,13 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting)
 
 ### Lectures
-Youtube [playlist](https://www.youtube.com/watch?v=DzXgyOcbZZk&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
+Videolectures are uploaded to [this](https://www.youtube.com/watch?v=DzXgyOcbZZk&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX) YouTube playlist.
 
-0. Introduction, [video](https://www.youtube.com/watch?v=DzXgyOcbZZk&feature=youtu.be), [slides](https://drive.google.com/open?id=13pBLPZmRQB3KPkd8-ji41r7qZvtrKo4c)
+Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2NuadRV)
+
+1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI). Discussion of the 1st demo assignment is [here](https://youtu.be/Twpn7ihVWjQ)
+
+
 
 ### Assignments
 1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment1_pandas_olympic.ipynb). Deadline: **October 14, 20:59 CET**
