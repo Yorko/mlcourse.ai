@@ -1,4 +1,4 @@
-## [mlcourse.ai](mlcourse.ai), open Machine Learning course
+## [mlcourse.ai](https://mlcourse.ai), open Machine Learning course
 
 ![ODS stickers](https://github.com/Yorko/mlcourse.ai/blob/master/img/ods_stickers.jpg)
 
@@ -55,8 +55,7 @@ Throughout the course we are maintaining a student rating. It takes into account
 ### Community
 Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
-### Wiki Pages
-- [Prerequisites: Python, math, software, and DevOps](https://github.com/Yorko/mlcourse.ai/wiki/Prerequisites:-Python,-math,-software,-and-DevOps) – how to get prepared for the course
-- [1st session in English: all activities accounted for in rating](https://github.com/Yorko/mlcourse_open/wiki/1st-session-in-English:-all-activities-accounted-for-in-rating)
+### More info
+Go to [mlcourse.ai](https://mlcourse.ai)
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
