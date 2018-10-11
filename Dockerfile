@@ -7,6 +7,8 @@ RUN apt-get install -y python3 python3-dev python-distribute python3-pip git
 # main python packages
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
+# bug with 5.7.0 jupyter/docker-stacks#721
+RUN pip3 install notebook==5.6.0
 RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib pillow
 
 # Graphviz, visualizing trees
@@ -26,8 +28,8 @@ RUN apt-get -y install openjdk-8-jdk
 ENV CPLUS_INCLUDE_PATH=/usr/lib/jvm/java-8-openjdk-amd64/include/linux:/usr/lib/jvm/java-1.8.0-openjdk-amd64/include
 
 # Vowpal Wabbit
-RUN git clone git://github.com/JohnLangford/vowpal_wabbit.git && \
-    cd vowpal_wabbit && make && make install
+RUN git clone https://github.com/VowpalWabbit/vowpal_wabbit.git
+RUN cd vowpal_wabbit && make && make install
 # python wrapper
 RUN cd vowpal_wabbit/python && python3 setup.py install
 RUN pip3 install --upgrade vowpalwabbit
@@ -53,14 +55,14 @@ RUN cd /usr/local/src/LightGBM/python-package && python3 setup.py install
 RUN pip3 install --upgrade catboost
 
 # PyTorch
-RUN pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp35-cp35m-linux_x86_64.whl 
-RUN pip3 install --upgrade torchvision
+#RUN pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.0-cp35-cp35m-linux_x86_64.whl 
+#RUN pip3 install --upgrade torchvision
 
 # TensorFlow 
-RUN pip3 install --upgrade tensorflow  
+#RUN pip3 install --upgrade tensorflow  
 
 # Keras with TensorFlow backend
-RUN pip3 install --upgrade keras
+#RUN pip3 install --upgrade keras
 
 # Facebook Prophet
 RUN pip3 install --upgrade pystan cython
