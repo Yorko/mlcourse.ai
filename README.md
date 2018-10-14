@@ -1,10 +1,10 @@
-## [mlcourse.ai](mlcourse.ai), open Machine Learning course
+## [mlcourse.ai](https://mlcourse.ai), open Machine Learning course
 
 ![ODS stickers](https://github.com/Yorko/mlcourse.ai/blob/master/img/ods_stickers.jpg)
 
 :ru: [Russian version](https://github.com/Yorko/mlcourse.ai/wiki/About-the-course-(in-Russian)) :ru: 
 
-:exclamation: The next session launches on **October 1, 2018**. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate. In September, you'll get an invitation to OpenDataScience Slack team :exclamation:
+:exclamation: Current session launched on **October 1, 2018**. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to participate, you can still join :exclamation:
 
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
@@ -21,10 +21,20 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 9. Time Series Analysis with Python, part 1 [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-9-time-series-analysis-in-python-a270cb05e0b3) [:ru:](https://habrahabr.ru/company/ods/blog/327242/) [:cn:](https://www.jqr.com/article/000450). Predicting future with Facebook Prophet, part 2 [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-9-part-3-predicting-the-future-with-facebook-prophet-3f3af145cdc), Kaggle Kernels: [part1](https://www.kaggle.com/kashnitsky/topic-9-part-1-time-series-analysis-in-python), [part2](https://www.kaggle.com/kashnitsky/topic-9-part-2-time-series-with-facebook-prophet)
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting)
 
-### Assignments
-1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment1_pandas_olympic.ipynb). Deadline: **October 14, 20:59 CET**
+### Lectures
+Videolectures are uploaded to [this](https://bit.ly/2zY6Xe2) YouTube playlist.
 
-Demo assignments, just for practice, not to be accounted in rating
+Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2NuadRV)
+
+1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI). Discussion of the 1st demo assignment is [here](https://youtu.be/Twpn7ihVWjQ)
+
+
+
+### Assignments
+1. Exploratory Data Analysis of Olympic games with Pandas, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment1_pandas_olympic.ipynb?flush_cache=true). Deadline: **October 14, 20:59 CET**
+2. Exploratory Data Analysis of US flights,  [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment2_USA_flights.ipynb?flush_cache=true). Deadline: **October 21, 20:59 CET**
+
+These are demo versions. Just for practice, they don't have an impact on rating.  
 1. Exploratory data analysis with Pandas, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset)
 2. Analyzing cardiovascular disease data, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-2-analyzing-cardiovascular-data)
 3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-3-decision-trees)
@@ -41,13 +51,12 @@ Demo assignments, just for practice, not to be accounted in rating
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
 
 ### Rating
-Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
+Throughout the course we are maintaining a student [rating](https://drive.google.com/open?id=19AGEhUQUol6_kNLKSzBsjcGUU3qWy3BNUg8x8IFkO3Q). It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
 
 ### Community
 Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
 
-### Wiki Pages
-- [Prerequisites: Python, math, software, and DevOps](https://github.com/Yorko/mlcourse.ai/wiki/Prerequisites:-Python,-math,-software,-and-DevOps) – how to get prepared for the course
-- [1st session in English: all activities accounted for in rating](https://github.com/Yorko/mlcourse_open/wiki/1st-session-in-English:-all-activities-accounted-for-in-rating)
+### More info
+Go to [mlcourse.ai](https://mlcourse.ai)
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
