@@ -3,7 +3,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(add_help=True, description='Run docker image.')
-    parser.add_argument("--docker_tag", "-t", default='festline/mlcourse_open', help='Docker image tag')
+    parser.add_argument("--docker_tag", "-t", default='festline/mlcourse_ai', help='Docker image tag')
     parser.add_argument("--net_host", action='store_true', help='Whether to use --net=host with docker run (for Linux servers)')
     args = parser.parse_args()
 
