@@ -26,13 +26,16 @@ Videolectures are uploaded to [this](https://bit.ly/2zY6Xe2) YouTube playlist.
 
 Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2NuadRV)
 
-1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI). Discussion of the 1st demo assignment is [here](https://youtu.be/Twpn7ihVWjQ)
+1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI)
 2. Visualization, main plots for EDA, [video](https://www.youtube.com/watch?v=WNoQTNOME5g)
+3. Decision trees: [theory](https://youtu.be/H4XlBTPv5rQ) and [practical part](https://youtu.be/RrVYO6Td9Js)
+4. Logistic regression: [theoretical foundations](https://www.youtube.com/watch?v=l3jiw-N544s), [practical part](https://www.youtube.com/watch?v=7o0SWgY89i8) (baselines in the "Alice" competition)
 
 ### Assignments
 1. Exploratory Data Analysis of Olympic games with Pandas, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment1_pandas_olympic.ipynb?flush_cache=true). Deadline: **October 14, 21:59 UTC+2**
 2. Exploratory Data Analysis of US flights,  [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment2_USA_flights.ipynb?flush_cache=true). Deadline: **October 21, 21:59 UTC+2**
 3. Decision trees. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment3_decision_trees.ipynb?flush_cache=true). Deadline: **October 28, 21:59 UTC+2**. Optional: implementing a decision tree algorithm, [nvbiewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment3_optional_implement_dt.ipynb?flush_cache=true) (no webforms and credits, the same deadline)
+4. Logisitic regression. [nbviewer](notebooks/blob/master/jupyter_english/assignments_fall2018/assignment4_websites_logistic_regression.ipynb). Deadline: **November 4, 21:59 UTC+2**
 
 
 These are demo versions. Just for practice, they don't have an impact on rating.  
