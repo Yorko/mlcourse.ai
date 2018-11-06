@@ -37,6 +37,7 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 3. Decision trees. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment3_decision_trees.ipynb?flush_cache=true). Deadline: **October 28, 21:59 UTC+2**. Optional: implementing a decision tree algorithm, [nvbiewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment3_optional_implement_dt.ipynb?flush_cache=true) (no webforms and credits, the same deadline)
 4. Logisitic regression. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment4_websites_logistic_regression.ipynb). Deadline: **November 4, 21:59 UTC+2**
 5. Random Forest and Logistic Regression in credit scoring and movie reviews classification. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment5_rf_logit_scoring_texts.ipynb). Deadline: **November 11, 21:59 UTC+2**
+6. Beating baselines in "How good is your Medium article?". [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment6_medium_beat_baseline.ipynb). Deadline: **November 18, 21:59 UTC+2**
 
 
 
