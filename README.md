@@ -31,7 +31,7 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 3. Decision trees: [theory](https://youtu.be/H4XlBTPv5rQ) and [practical part](https://youtu.be/RrVYO6Td9Js)
 4. Logistic regression: [theoretical foundations](https://www.youtube.com/watch?v=l3jiw-N544s), [practical part](https://www.youtube.com/watch?v=7o0SWgY89i8) (baselines in the "Alice" competition)
 5. Emsembles and Random Forest – [part 1](https://www.youtube.com/watch?v=neXJL-AqI_c). Classification metrics – [part 2](https://www.youtube.com/watch?v=aBOMYqGUlWQ). Example of a business task, predicting a customer payment – [part 3](https://www.youtube.com/watch?v=FmKU-1LZGoE) 
-6. Linear regression and reqularization - [theory](https://youtu.be/ne-MfRfYs_c), LASSO & Ridge, LTV prediction - [practice](https://youtu.be/B8yIaIEMyIc)
+6. Linear regression and regularization - [theory](https://youtu.be/ne-MfRfYs_c), LASSO & Ridge, LTV prediction - [practice](https://youtu.be/B8yIaIEMyIc)
 
 
 ### Assignments
