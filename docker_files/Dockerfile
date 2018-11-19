@@ -9,7 +9,7 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade numpy scipy matplotlib scikit-learn pandas seaborn plotly jupyter statsmodels
 # bug with 5.7.0 jupyter/docker-stacks#721
 RUN pip3 install notebook==5.6.0
-RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib pillow
+RUN pip3 install --upgrade nose tqdm pydot pydotplus watermark geopy joblib pillow mlxtend pyyaml ua-parser user-agents
 
 # Graphviz, visualizing trees
 RUN apt-get -y install graphviz 
