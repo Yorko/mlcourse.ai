@@ -73,4 +73,4 @@ Discussions between students are held in the **#mlcourse_ai** channel of the Ope
 ### More info
 Go to [mlcourse.ai](https://mlcourse.ai)
 
-*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse)*
+*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](ko-fi.com/mlcourse_ai)*
