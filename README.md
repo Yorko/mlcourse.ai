@@ -4,7 +4,7 @@
 
 :ru: [Russian version](https://github.com/Yorko/mlcourse.ai/wiki/About-the-course-(in-Russian)) :ru: 
 
-:exclamation: The next session is planned to launch on **February 11, 2019**. Please wait for an announcement in January :exclamation:
+:exclamation: The next session is planned to launch in **February 2019**. Please wait for an announcement in January :exclamation:
 
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
@@ -23,7 +23,6 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 
 ### Lectures
 Videolectures are uploaded to [this](https://bit.ly/2zY6Xe2) YouTube playlist.
-
 Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2NuadRV)
 
 1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI)
@@ -38,18 +37,7 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 10. Gradient boosting: basic ideas - [part 1](https://youtu.be/g0ZOtzZqdqk), key ideas behind Xgboost, LightGBM, and CatBoost + practice - [part 2](https://youtu.be/V5158Oug4W8)
 
 ### Assignments
-1. Exploratory Data Analysis of Olympic games with Pandas. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment1_pandas_olympic.ipynb?flush_cache=true). Deadline: **October 14, 21:59 UTC+2**
-2. Exploratory Data Analysis of US flights. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment2_USA_flights.ipynb?flush_cache=true). Deadline: **October 21, 21:59 UTC+2**
-3. Decision trees. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment3_decision_trees.ipynb?flush_cache=true). Deadline: **October 28, 21:59 UTC+2**. Optional: implementing a decision tree algorithm, [nvbiewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment3_optional_implement_dt.ipynb?flush_cache=true) (no webforms and credits, the same deadline)
-4. Logisitic regression. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment4_websites_logistic_regression.ipynb). Deadline: **November 4, 21:59 UTC+2**
-5. Random Forest and Logistic Regression in credit scoring and movie reviews classification. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment5_rf_logit_scoring_texts.ipynb). Deadline: **November 11, 21:59 UTC+2**
-6. Beating baselines in "How good is your Medium article?". [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment6_medium_beat_baseline.ipynb). Deadline: **November 18, 21:59 UTC+2**
-7. PCA and clustering. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment7_pca_clustering.ipynb). Deadline: **November 25, 21:59 UTC+2**
-8. StackOverflow questions tagging with logistic regression. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment8_stackoverflow_logistic_regression.ipynb). Deadline: **December 2, 21:59 UTC+2**
-9. Time series analysis. [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_fall2018/assignment9_time_series.ipynb). Deadline: **December 16, 21:59 UTC+2** 
-10. Flight delays prediction, beating simple baselines. [Kaggle Kernel](https://www.kaggle.com/kashnitsky/mlcourse-ai-assignment10). Deadline: **December 16, 21:59 UTC+2**
-
-The following are demo versions. Just for practice, they don't have an impact on rating.  
+The following are demo versions. Full versions are announced during course sessions.  
 1. Exploratory data analysis with Pandas, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset)
 2. Analyzing cardiovascular disease data, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-2-analyzing-cardiovascular-data)
 3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-3-decision-trees)
@@ -59,13 +47,14 @@ The following are demo versions. Just for practice, they don't have an impact on
 7. Unsupervised learning, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment07_unsupervised_learning.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-7-unupervised-learning)
 8. Implementing online regressor, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment08_implement_sgd_regressor.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-8-implementing-online-regressor)
 9. Time series analysis, [nbviewer](https://mlcourse.ai/notebooks/blob/master/jupyter_english/assignments_demo/assignment09_time_series.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-9-time-series-analysis)
+10. Beating baseline in a competition, [Kaggle kernel](https://www.kaggle.com/kashnitsky/assignment-10-gradient-boosting-and-flight-delays)
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
 
 ### Rating
-Throughout the course we are maintaining a student [rating](https://drive.google.com/open?id=19AGEhUQUol6_kNLKSzBsjcGUU3qWy3BNUg8x8IFkO3Q). It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) will be listed on a special Wiki page.
+Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. Top students (according to the final rating) are listed on a special Wiki page.
 
 ### Community
 Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://drive.google.com/open?id=1_pDNuVHwBxV5wuOcdaXoxBZneyAQcqfOl4V2qkqKbNQ) to get an invitation. The form will also ask you some personal questions, don't hesitate :wave:
