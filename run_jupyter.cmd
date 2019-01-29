@@ -4,15 +4,17 @@ SET IMAGE="datamove/mlcourse_ai"
 
 docker pull %IMAGE%
 
-docker run --rm -v %cd%:/notebooks -w /notebooks -e HOME=/notebooks/home -p 4545:8888 %IMAGE% jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:4545"
+IF DEFINED  DOCKER_TOOLBOX_INSTALL_PATH (
+docker run -it --rm -u 1000:1000 -v /c/users/%username%/mlcourse.ai:/notebooks -w /notebooks -e HOME=/notebooks/home -p 4545:8888 %IMAGE% jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:4545"
 
+) ELSE (
 
-SET PWD=%cd%
-SET USER=%username%
-SET USER_ID=1000
-SET GROUP_ID=1000
-SET GROUP_NAME=fake
+docker run -it --rm -u 1000:1000 -v %cd%:/notebooks -w /notebooks -e HOME=/notebooks/home -p 4545:8888 %IMAGE% jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:4545"
+)
 
-REM docker-compose -f docker\docker-compose.yaml up
-
+REM
+REM Attention: Windows Toolbox users - you MUST put the course repo in C:\Users\%username\mlcourse.ai
+REM Attention: Windows Toolbox users - check your URL in the docker controls.
+REM Attention: Use Ctrl-C to shut down. If you close the window, the container may still run.
+REM 
 
