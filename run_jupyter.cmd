@@ -4,7 +4,7 @@ REM Attention: Windows Toolbox users - you MUST put the course repo in C:\Users\
 REM Attention: Use Ctrl-C to shut down. If you close the window, the container may still be running.
 REM 
 
-SET IMAGE="datamove/mlcourse_ai"
+SET IMAGE="festline/mlcourse_ai"
 
 REM check for new versin of the image
 docker pull %IMAGE%
