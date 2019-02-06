@@ -11,7 +11,7 @@
 # pip install --user are kept in mlcourse.ai/home folder. 
 # Remove them if you need a completely fresh image.
 #
-IMAGE=${1:-datamove/mlcourse_ai}
+IMAGE=${1:-festline/mlcourse_ai}
 
 #custom port
 PORT=4545
