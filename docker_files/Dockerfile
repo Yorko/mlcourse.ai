@@ -110,13 +110,11 @@ RUN pip install xgboost && \
 
 # Facebook Prophet
 RUN pip3 install --upgrade pystan cython
-#RUN pip3 install --upgrade fbprophet
 
 #Kaggle
 # Latest version of fbprophet fails with incompatibility with PyStan. From the logs:
     # pystan:Something went wrong while unpickling the StanModel. Consider recompiling 
     # See: https://github.com/facebook/prophet/issues/775
 RUN pip install fbprophet==0.3.post2
-
 
 EXPOSE 8888
