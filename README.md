@@ -4,7 +4,7 @@
 
 :ru: [Russian version](https://github.com/Yorko/mlcourse.ai/wiki/About-the-course-(in-Russian)) :ru: 
 
-:exclamation: The next session is planned to launch on **February 11, 2019**. Fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to participate. Wait for more details in the end of January :exclamation:
+Current session: **February 11th - April 26th, 2019**. You can join at any point, fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to participate.
 
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
