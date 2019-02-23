@@ -4,7 +4,7 @@
 
 :ru: [Russian version](https://github.com/Yorko/mlcourse.ai/wiki/About-the-course-(in-Russian)) :ru: 
 
-Current session: **February 11th - April 26th, 2019**. You can join at any point, fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to participate.
+Current session: **February 11th - April 26th, 2019**. You can join at any point, fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to participate, plese explore the main page [mlcourse.ai](https://mlcourse.ai) as well.
 
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
@@ -37,10 +37,10 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 10. Gradient boosting: basic ideas - [part 1](https://youtu.be/g0ZOtzZqdqk), key ideas behind Xgboost, LightGBM, and CatBoost + practice - [part 2](https://youtu.be/V5158Oug4W8)
 
 ### Spring 2019 assignments
-1. Exploratory Data Analysis (EDA) of US flights, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment1_USA_flights_EDA.ipynb?flush_cache=true)
-2. First two competitions:
-    - Part 1. User Identification with Logistic Regression (beating baselines in the "Alice" competition), [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment2_part1_alice_logistic_regression.ipynb?flush_cache=true)
-    - Part 2. Predicting Medium articles popularity with Ridge Regression (beating baselines in the "Medium" competition), [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment2_part2_medium_beat_baselines.ipynb?flush_cache=true)
+1. Exploratory Data Analysis (EDA) of US flights, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment1_USA_flights_EDA.ipynb?flush_cache=true). Deadline: **February 24, 20:59 GMT**
+2. In Assignment 2, you'll be beating baselines in first two competitions:
+    - Part 1. User Identification with Logistic Regression (beating baselines in the "Alice" competition), [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment2_part1_alice_logistic_regression.ipynb?flush_cache=true). Deadline: **March 10, 20:59 GMT**
+    - Part 2. Predicting Medium articles popularity with Ridge Regression (beating baselines in the "Medium" competition), [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment2_part2_medium_beat_baselines.ipynb?flush_cache=true). Deadline: **March 10, 20:59 GMT**
     
 ### Demo assignments, just for practice
 The following are demo versions. Full versions are announced during course sessions.  
@@ -63,6 +63,6 @@ The following are demo versions. Full versions are announced during course sessi
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
 
 ### Community
-Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to get an invitation (you can join at any point before the course ends ~ in the end of April 2019). The form will also ask you some personal questions, don't hesitate :wave:
+Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to get an invitation (you can join at any point before the course ends ~ in the end of April 26, 2019). The form will also ask you some personal questions, don't hesitate :wave:
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
