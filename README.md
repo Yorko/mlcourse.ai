@@ -62,6 +62,7 @@ The following are demo versions. Full versions are announced during course sessi
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
+3. DotA 2 winner prediction [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
 
 ### Rating
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
