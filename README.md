@@ -36,15 +36,7 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 9. Time series analysis with Python (ARIMA, Prophet) - [video](https://youtu.be/_9lBwXnbOd8)
 10. Gradient boosting: basic ideas - [part 1](https://youtu.be/g0ZOtzZqdqk), key ideas behind Xgboost, LightGBM, and CatBoost + practice - [part 2](https://youtu.be/V5158Oug4W8)
 
-### Spring 2019 assignments
-1. Exploratory Data Analysis (EDA) of US flights, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment1_USA_flights_EDA.ipynb?flush_cache=true). Deadline: **February 24, 20:59 GMT**
-2. In Assignment 2, you'll be beating baselines in first two competitions:
-    - Part 1. User Identification with Logistic Regression (beating baselines in the "Alice" competition), [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment2_part1_alice_logistic_regression.ipynb?flush_cache=true). Deadline: **March 10, 20:59 GMT**
-    - Part 2. Predicting Medium articles popularity with Ridge Regression (beating baselines in the "Medium" competition), [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_spring2019/assignment2_part2_medium_beat_baselines.ipynb?flush_cache=true). Deadline: **March 10, 20:59 GMT**
-3. Decision trees, Random Forest, and gradient boosting. Deadline: **March 31, 20:59 GMT**
-    - Part 1. "Decision trees for classification and regression", [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_spring2019/assignment3_part1_decision_trees.ipynb?flush_cache=true)
-    - Part 2. "Random Forest and Logistic Regression in credit scoring and movie reviews classification", [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/assignments_spring2019/assignment3_part2_rf_logit_scoring_texts.ipynb?flush_cache=true)
-    - Part 3. "Flight delays" competition, [Kernel](https://www.kaggle.com/kashnitsky/mlcourse-ai-assignment-3-starter) starter
+
     
 ### Demo assignments, just for practice
 The following are demo versions. Full versions are announced during course sessions.  
@@ -62,12 +54,11 @@ The following are demo versions. Full versions are announced during course sessi
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
-3. DotA 2 winner prediction [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
 
 ### Rating
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
 
 ### Community
-Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/1BMqcUc-hIQXa0HB_Q2Oa8vWBtGHXk8a6xo5gPnMKYKA/edit) to get an invitation (you can join at any point before the course ends ~ in the end of April 26, 2019). The form will also ask you some personal questions, don't hesitate :wave:
+Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/10HAN5huM996snUKjsNYyT_oOlm2uOsTKulKurb3oiNM/) to get an invitation closer to the start of a new session.
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
