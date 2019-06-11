@@ -23,7 +23,7 @@ if [ $# -eq 0 ]; then
     docker pull $IMAGE
 fi
 
-exec docker run --rm -u $(id -u):$(id -g) -v $PWD:/notebooks -w /notebooks -e HOME=/notebooks/home -p $PORT:8888 $IMAGE jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:$PORT"
+exec docker run --rm -u $(id -u):$(id -g) -v "$PWD:/notebooks" -w /notebooks -e HOME=/notebooks/home -p $PORT:8888 $IMAGE jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:$PORT"
 
 # this allows for container to be created and persisted.
 # which means that you can keep the changes you made, 
