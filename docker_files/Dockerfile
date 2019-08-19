@@ -1,4 +1,4 @@
-FROM continuumio/anaconda3:5.2.0
+FROM continuumio/anaconda3:2019.03
 
 # kaggle
 RUN apt-get update  && apt-get install -y build-essential unzip && \
