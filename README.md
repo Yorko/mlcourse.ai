@@ -35,7 +35,14 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 10. Gradient boosting: basic ideas - [part 1](https://youtu.be/g0ZOtzZqdqk), key ideas behind Xgboost, LightGBM, and CatBoost + practice - [part 2](https://youtu.be/V5158Oug4W8)
 
 ### Fall 2019 assignments
-1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment1_pandas_olympic.ipynb). Deadline: **2019 September 15, 20:59 GMT** 
+
+All deadlines are 20:59 CET (London time), check out also [this Google calendar](https://calendar.google.com/calendar?cid=Z25pZ3EwZGxxb2I5cDZwMWptam5rdmY3NWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
+
+1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment1_pandas_olympic.ipynb). Deadline: September 15
+2. Trees, forests and boosting
+  - Quiz 1. Trees and forests [nbviewer](https://bit.ly/2lLu3Qo). Deadline: September 27
+  - Part 1. Classification and regression trees, [nbviewer](https://bit.ly/2m5hwHY). Deadline: October 6
+  - Part 2. Beating a baseline in a Kaggle competition, [CatBoost starter](https://www.kaggle.com/kashnitsky/mlcourse-ai-fall-2019-catboost-starter). Deadline: October 6
 
 ### Demo assignments, just for practice
 The following are demo versions. Full versions are announced during course sessions.  
