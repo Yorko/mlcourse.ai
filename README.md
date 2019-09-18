@@ -29,7 +29,7 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 
 ### Lectures
 Videolectures are uploaded to [this](https://bit.ly/2zY6Xe2) YouTube playlist.
-Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2NuadRV)
+Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](https://www.slideshare.net/festline/mlcourseai-fall2019-live-session-0)
 
 1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI)
 2. Visualization, main plots for EDA, [video](https://www.youtube.com/watch?v=WNoQTNOME5g)
@@ -74,7 +74,7 @@ The following are demo versions. Full versions are announced during course sessi
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
 
 ### Community
-Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/10HAN5huM996snUKjsNYyT_oOlm2uOsTKulKurb3oiNM/) to get an invitation closer to the start of a new session.
+Discussions between students are held in the **#mlcourse_ai** channel of the [OpenDataScience](https://ods.ai/) Slack team.
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
 
