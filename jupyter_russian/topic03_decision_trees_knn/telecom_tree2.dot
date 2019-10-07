@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box, style="filled", color="black"] ;
+0 [label="Total day minutes <= 264.45\ngini = 0.255\nsamples = 2333\nvalue = [1983, 350]", fillcolor="#ea975c"] ;
+1 [label="Customer service calls <= 3.5\ngini = 0.206\nsamples = 2182\nvalue = [1927, 255]", fillcolor="#e89253"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="International plan <= 0.5\ngini = 0.149\nsamples = 2004\nvalue = [1842, 162]", fillcolor="#e78c4a"] ;
+1 -> 2 ;
+3 [label="gini = 0.096\nsamples = 1828\nvalue = [1736, 92]", fillcolor="#e68843"] ;
+2 -> 3 ;
+4 [label="gini = 0.479\nsamples = 176\nvalue = [106, 70]", fillcolor="#f6d4bc"] ;
+2 -> 4 ;
+5 [label="Total day minutes <= 159.9\ngini = 0.499\nsamples = 178\nvalue = [85, 93]", fillcolor="#eef7fd"] ;
+1 -> 5 ;
+6 [label="gini = 0.209\nsamples = 76\nvalue = [9, 67]", fillcolor="#54aae8"] ;
+5 -> 6 ;
+7 [label="gini = 0.38\nsamples = 102\nvalue = [76, 26]", fillcolor="#eeac7d"] ;
+5 -> 7 ;
+8 [label="Number vmail messages <= 6.5\ngini = 0.467\nsamples = 151\nvalue = [56, 95]", fillcolor="#aed7f4"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="Total eve minutes <= 187.75\ngini = 0.335\nsamples = 113\nvalue = [24, 89]", fillcolor="#6eb7ec"] ;
+8 -> 9 ;
+10 [label="gini = 0.495\nsamples = 40\nvalue = [22, 18]", fillcolor="#fae8db"] ;
+9 -> 10 ;
+11 [label="gini = 0.053\nsamples = 73\nvalue = [2, 71]", fillcolor="#3fa0e6"] ;
+9 -> 11 ;
+12 [label="International plan <= 0.5\ngini = 0.266\nsamples = 38\nvalue = [32, 6]", fillcolor="#ea995e"] ;
+8 -> 12 ;
+13 [label="gini = 0.062\nsamples = 31\nvalue = [30, 1]", fillcolor="#e68540"] ;
+12 -> 13 ;
+14 [label="gini = 0.408\nsamples = 7\nvalue = [2, 5]", fillcolor="#88c4ef"] ;
+12 -> 14 ;
+}
