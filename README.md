@@ -1,7 +1,15 @@
-## [mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course
+<div align="center">
 
 ![ODS stickers](https://github.com/Yorko/mlcourse.ai/blob/master/img/ods_stickers.jpg)
 
+**[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course**
+
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-green)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Slack](https://img.shields.io/badge/slack-ods.ai-orange)](https://opendatascience.slack.com/archives/C91N8TL83/p1567408586359500)
+[![Donate](https://img.shields.io/badge/support-ko--fi-red)](https://ko-fi.com/mlcourse_ai)
+
+</div>
+  
 The final session has launched on September 2, 2019. You can join at any point till the end of the session (November 22). Fill in [this form](https://docs.google.com/forms/d/10HAN5huM996snUKjsNYyT_oOlm2uOsTKulKurb3oiNM/) to participate, please explore the main page [mlcourse.ai](https://mlcourse.ai) as well.
 
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
@@ -21,7 +29,7 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 
 ### Lectures
 Videolectures are uploaded to [this](https://bit.ly/2zY6Xe2) YouTube playlist.
-Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2NuadRV)
+Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](https://www.slideshare.net/festline/mlcourseai-fall2019-live-session-0)
 
 1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI)
 2. Visualization, main plots for EDA, [video](https://www.youtube.com/watch?v=WNoQTNOME5g)
@@ -36,13 +44,17 @@ Introduction, [video](https://youtu.be/QKTuw4PNOsU), [slides](https://bit.ly/2Nu
 
 ### Fall 2019 assignments
 
-All deadlines are 20:59 CET (London time), check out also [this Google calendar](https://calendar.google.com/calendar?cid=Z25pZ3EwZGxxb2I5cDZwMWptam5rdmY3NWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
+All deadlines are 20:59 GMT+1 (London time), check out also [this Google calendar](https://calendar.google.com/calendar?cid=Z25pZ3EwZGxxb2I5cDZwMWptam5rdmY3NWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment1_pandas_olympic.ipynb). Deadline: September 15
 2. Trees, forests and boosting
   - Quiz 1. Trees and forests [nbviewer](https://bit.ly/2lLu3Qo). Deadline: September 27
   - Part 1. Classification and regression trees, [nbviewer](https://bit.ly/2m5hwHY). Deadline: October 6
   - Part 2. Beating a baseline in a Kaggle competition, [CatBoost starter](https://www.kaggle.com/kashnitsky/mlcourse-ai-fall-2019-catboost-starter). Deadline: October 6
+3. Linear classification and regression models
+  - Quiz 2. Math behind linear models, [nbviewer](https://bit.ly/33cC9C3). Deadline: October 25
+  - Part 1. User Identification with Logistic Regression, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment3_part1_alice_logistic_regression.ipynb?flush_cache=true). Deadline: October 27
+  - Part 2. Random Forest and Logistic Regression in credit scoring and movie reviews classification, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment3_part2_rf_logit_scoring_texts.ipynb?flush_cache=true). Deadline: October 27
 
 ### Demo assignments, just for practice
 The following are demo versions. Full versions are announced during course sessions.  
@@ -66,6 +78,8 @@ The following are demo versions. Full versions are announced during course sessi
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
 
 ### Community
-Discussions between students are held in the **#mlcourse_ai** channel of the OpenDataScience Slack team. Fill in [this form](https://docs.google.com/forms/d/10HAN5huM996snUKjsNYyT_oOlm2uOsTKulKurb3oiNM/) to get an invitation closer to the start of a new session.
+Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (ods.ai)](https://ods.ai/en/) Slack team.
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
+
+<a href='ko-fi.com/mlcourse_ai' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
