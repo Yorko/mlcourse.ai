@@ -6,7 +6,9 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-green)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Slack](https://img.shields.io/badge/slack-ods.ai-orange)](https://opendatascience.slack.com/archives/C91N8TL83/p1567408586359500)
+[![Donate](https://img.shields.io/badge/support-patreon-red)](https://www.patreon.com/ods_mlcourse)
 [![Donate](https://img.shields.io/badge/support-ko--fi-red)](https://ko-fi.com/mlcourse_ai)
+
 
 </div>
   
@@ -15,7 +17,7 @@ The final session has launched on September 2, 2019. You can join at any point t
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
 ### Outline
-This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/). Also notebooks in Chinese are mentioned [:cn:] and links to Kaggle Kernels (in English) are given. Icons are clickable.
+This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/). Also notebooks in Chinese are mentioned :cn: and links to Kaggle Kernels (in English) are given. Icons are clickable.
 1. Exploratory Data Analysis with Pandas [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  [:ru:](https://habrahabr.ru/company/ods/blog/322626/) [:cn:](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_chinese/topic01-%E4%BD%BF%E7%94%A8-Pandas-%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas)
 2. Visual Data Analysis with Python [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  [:ru:](https://habrahabr.ru/company/ods/blog/323210/) [:cn:](http://nbviewer.ipython.org/urls/raw.github.com/Yorko/mlcourse.ai/master/jupyter_chinese/topic02-Python-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90.ipynb), Kaggle Kernels: [part1](https://www.kaggle.com/kashnitsky/topic-2-visual-data-analysis-in-python), [part2](https://www.kaggle.com/kashnitsky/topic-2-part-2-seaborn-and-plotly)
 3. Classification, Decision Trees and k Nearest Neighbors [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd) [:ru:](https://habrahabr.ru/company/ods/blog/322534/) [:cn:](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_chinese/topic03-%E5%86%B3%E7%AD%96%E6%A0%91%E5%92%8C-K-%E8%BF%91%E9%82%BB%E5%88%86%E7%B1%BB.ipynb), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-3-decision-trees-and-knn)
@@ -82,4 +84,5 @@ Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (od
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
 
-<a href='ko-fi.com/mlcourse_ai' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+[![Donate](https://img.shields.io/badge/support-patreon-red)](https://www.patreon.com/ods_mlcourse)
+[![Donate](https://img.shields.io/badge/support-ko--fi-red)](https://ko-fi.com/mlcourse_ai)
