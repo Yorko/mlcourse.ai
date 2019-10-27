@@ -46,7 +46,7 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 
 ### Fall 2019 assignments
 
-All deadlines are 20:59 GMT+1 (London time), check out also [this Google calendar](https://calendar.google.com/calendar?cid=Z25pZ3EwZGxxb2I5cDZwMWptam5rdmY3NWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
+All deadlines are 20:59 GMT (London time), check out also [this Google calendar](https://calendar.google.com/calendar?cid=Z25pZ3EwZGxxb2I5cDZwMWptam5rdmY3NWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment1_pandas_olympic.ipynb). Deadline: September 15
 2. Trees, forests and boosting
