@@ -57,6 +57,10 @@ All deadlines are 20:59 GMT (London time), check out also [this Google calendar]
   - Quiz 2. Math behind linear models, [nbviewer](https://bit.ly/33cC9C3). Deadline: October 25
   - Part 1. User Identification with Logistic Regression, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment3_part1_alice_logistic_regression.ipynb?flush_cache=true). Deadline: October 27
   - Part 2. Random Forest and Logistic Regression in credit scoring and movie reviews classification, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment3_part2_rf_logit_scoring_texts.ipynb?flush_cache=true). Deadline: October 27
+4. Unsupervised learning and time series
+ - Quiz 3. Unsupervised learning and time series, [nbviewer](https://bit.ly/2q1MTFq). Deadline: November 15
+ - Assignment 4. Time series analysis, [nbviewer](https://bit.ly/36a4XgY). Deadline: November 17
+ - Dota 2 winner prediction [competition](https://www.kaggle.com/c/mlcourse-dota2-win-prediction). Deadline for submissions: November 18
 
 ### Demo assignments, just for practice
 The following are demo versions. Full versions are announced during course sessions.  
@@ -69,12 +73,11 @@ The following are demo versions. Full versions are announced during course sessi
 7. Unsupervised learning, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment07_unsupervised_learning.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-7-unupervised-learning), [solution](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution)
 8. Implementing online regressor, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment08_implement_sgd_regressor.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-8-implementing-online-regressor), [solution](https://www.kaggle.com/kashnitsky/a8-demo-implementing-online-regressor-solution)
 9. Time series analysis, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment09_time_series.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-9-time-series-analysis), [solution](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution)
-10. Beating baseline in a competition, [Kaggle kernel](https://www.kaggle.com/kashnitsky/assignment-10-gradient-boosting-and-flight-delays)
+10. Beating baseline in a competition, [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-10-gradient-boosting-and-flight-delays)
 
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
-2. How good is your Medium article? [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article/)
-3. DotA 2 winner prediction [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
+2. DotA 2 winner prediction [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
 
 ### Rating
 Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
