@@ -19,7 +19,7 @@ docker run -it -d --name mlcourse_ai --rm -u 1000:1000 -v /c/Users/%username%/ml
 
 ) ELSE (
 
-docker run -it --rm -u 1000:1000 -v %cd%:/notebooks -w /notebooks -e HOME=/notebooks/home -p 4545:8888 %IMAGE% jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:4545"
+docker run -it --rm -u 1000:1000 -v %cd%:/notebooks -w /notebooks -e HOME=/notebooks/home -p 4545:8888 -e JUPYTER_RUNTIME_DIR=/tmp -e JUPYTER_DATA_DIR=./ %IMAGE% jupyter-notebook --NotebookApp.ip=0.0.0.0 --NotebookApp.password_required=False --NotebookApp.token='' --NotebookApp.custom_display_url="http://localhost:4545"
 )
 
 
