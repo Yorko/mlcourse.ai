@@ -12,7 +12,7 @@
 
 </div>
   
-The final session has launched on September 2, 2019. You can join at any point till the end of the session (November 22). Fill in [this form](https://docs.google.com/forms/d/10HAN5huM996snUKjsNYyT_oOlm2uOsTKulKurb3oiNM/) to participate, please explore the main page [mlcourse.ai](https://mlcourse.ai) as well.
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience](https://ods.ai/en/). The course is designed to perfectly balance theory and practice. You can take part in several Kaggle Inclass competitions held during the course. From spring 2017 to fall 2019, 6 sessions of mlcourse.ai took place - 26k participants applied, 10k converted to passing the first assignment, about 1500 participants finished the course. Currently, the course is in self-paced mode. A thorough roadmap guiding you through the self-paced mlcourse.ai will be published in January, 2020. 
 
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kernels)
 
@@ -44,26 +44,7 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 9. Time series analysis with Python (ARIMA, Prophet) - [video](https://youtu.be/_9lBwXnbOd8)
 10. Gradient boosting: basic ideas - [part 1](https://youtu.be/g0ZOtzZqdqk), key ideas behind Xgboost, LightGBM, and CatBoost + practice - [part 2](https://youtu.be/V5158Oug4W8)
 
-### Fall 2019 assignments
-
-All deadlines are 20:59 GMT (London time), check out also [this Google calendar](https://calendar.google.com/calendar?cid=Z25pZ3EwZGxxb2I5cDZwMWptam5rdmY3NWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
-
-1. Exploratory data analysis of Olympic games with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment1_pandas_olympic.ipynb). Deadline: September 15
-2. Trees, forests and boosting
-  - Quiz 1. Trees and forests [nbviewer](https://bit.ly/2lLu3Qo). Deadline: September 27
-  - Part 1. Classification and regression trees, [nbviewer](https://bit.ly/2m5hwHY). Deadline: October 6
-  - Part 2. Beating a baseline in a Kaggle competition, [CatBoost starter](https://www.kaggle.com/kashnitsky/mlcourse-ai-fall-2019-catboost-starter). Deadline: October 6
-3. Linear classification and regression models
-  - Quiz 2. Math behind linear models, [nbviewer](https://bit.ly/33cC9C3). Deadline: October 25
-  - Part 1. User Identification with Logistic Regression, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment3_part1_alice_logistic_regression.ipynb?flush_cache=true). Deadline: October 27
-  - Part 2. Random Forest and Logistic Regression in credit scoring and movie reviews classification, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_fall2019/assignment3_part2_rf_logit_scoring_texts.ipynb?flush_cache=true). Deadline: October 27
-4. Unsupervised learning and time series
- - Quiz 3. Unsupervised learning and time series, [nbviewer](https://bit.ly/2q1MTFq). Deadline: November 15
- - Assignment 4. Time series analysis, [nbviewer](https://bit.ly/36a4XgY). Deadline: November 17
- - Dota 2 winner prediction [competition](https://www.kaggle.com/c/mlcourse-dota2-win-prediction). Deadline for submissions: November 18
-
-### Demo assignments, just for practice
-The following are demo versions. Full versions are announced during course sessions.  
+### Demo assignments
 1. Exploratory data analysis with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset), [solution](https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset-solution)
 2. Analyzing cardiovascular disease data, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-2-analyzing-cardiovascular-data), [solution](https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data-solution)
 3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb?flush_cache=true), [Kaggle Kernel](https://www.kaggle.com/kashnitsky/assignment-3-decision-trees), [solution](https://www.kaggle.com/kashnitsky/a3-demo-decision-trees-solution)
@@ -78,9 +59,6 @@ The following are demo versions. Full versions are announced during course sessi
 ### Kaggle competitions
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. DotA 2 winner prediction [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
-
-### Rating
-Throughout the course we are maintaining a student rating. It takes into account credits scored in assignments and Kaggle competitions. They say, rating highly motivates to finish the course. Top students (according to the final rating) are listed on a [special page](https://mlcourse.ai/rating).
 
 ### Community
 Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (ods.ai)](https://ods.ai/en/) Slack team.
