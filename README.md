@@ -66,7 +66,7 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 2. DotA 2 winner prediction. [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
 
 ### Community
-Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (ods.ai)](https://ods.ai/en/) Slack team.
+Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (ods.ai)](https://ods.ai) Slack team.
 
 *The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
 
