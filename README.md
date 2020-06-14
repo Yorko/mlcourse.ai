@@ -12,9 +12,9 @@
 
 </div>
   
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience](https://ods.ai/en/). The course is designed to perfectly balance theory and practice. You can take part in several Kaggle Inclass competitions held during the course. From spring 2017 to fall 2019, 6 sessions of mlcourse.ai took place - 26k participants applied, 10k converted to passing the first assignment, about 1500 participants finished the course. Currently, the course is in self-paced mode. Check out a thorough [Roadmap](https://mlcourse.ai/roadmap) guiding you through the self-paced mlcourse.ai.
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience](https://ods.ai). The course is designed to perfectly balance theory and practice. You can take part in several Kaggle Inclass competitions held during the course. From spring 2017 to fall 2019, 6 sessions of mlcourse.ai took place - 26k participants applied, 10k converted to passing the first assignment, about 1500 participants finished the course. Currently, the course is in self-paced mode. Check out a thorough [Roadmap](https://mlcourse.ai/roadmap) guiding you through the self-paced mlcourse.ai.
 
-Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Notebooks)
+Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kaggle Notebooks)
 
 ### Self-paced passing
 The [Roadmap](https://mlcourse.ai/roadmap) will guide you through 11 weeks of mlcourse.ai. For each week, from Pandas to Gradient Boosting, instructions are given on what artciles to read, lectures to watch, what assignments to accomplish. 
