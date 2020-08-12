@@ -65,6 +65,20 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. DotA 2 winner prediction. [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
 
+### Citing mlcourse.ai
+
+If you happen to cite mlcourse.ai in your work, you can use this bibtex
+```
+@misc{mlcourse_ai,
+    author = {Kashnitsky, Yury},
+    title = {mlcourse.ai – Open Machine Learning Course},
+    year = {2020},
+    publisher = {GitHub},
+    journal = {GitHub repository},
+    howpublished = {\url{https://github.com/Yorko/mlcourse.ai}},
+}
+```
+
 ### Community
 Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (ods.ai)](https://ods.ai) Slack team.
 
