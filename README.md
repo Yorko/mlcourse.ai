@@ -17,7 +17,7 @@
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kaggle Notebooks)
 
 ### Self-paced passing
-The [Roadmap](https://mlcourse.ai/roadmap) will guide you through 11 weeks of mlcourse.ai. For each week, from Pandas to Gradient Boosting, instructions are given on what artciles to read, lectures to watch, what assignments to accomplish. 
+The [Roadmap](https://mlcourse.ai/roadmap) will guide you through 11 weeks of mlcourse.ai. For each week, from Pandas to Gradient Boosting, instructions are given on what articles to read, lectures to watch, what assignments to accomplish. 
 
 ### Articles
 This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/). Also notebooks in Chinese are mentioned :cn: and links to Kaggle Notebooks (in English) are given. Icons are clickable.
