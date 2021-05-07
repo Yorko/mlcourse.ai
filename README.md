@@ -53,6 +53,8 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 
 ### Assignments
 
+The following are demo-assignments. Additionally, within the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse) you can get access to non-demo assignments.
+
 1. Exploratory data analysis with Pandas, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment01_pandas_uci_adult.ipynb?flush_cache=true), [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset), [solution](https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset-solution)
 2. Analyzing cardiovascular disease data, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment02_analyzing_cardiovascular_desease_data.ipynb?flush_cache=true), [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-2-analyzing-cardiovascular-data), [solution](https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data-solution)
 3. Decision trees with a toy task and the UCI Adult dataset, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/assignments_demo/assignment03_decision_trees.ipynb?flush_cache=true), [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-3-decision-trees), [solution](https://www.kaggle.com/kashnitsky/a3-demo-decision-trees-solution)
@@ -70,7 +72,8 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 
 ### Citing mlcourse.ai
 
-If you happen to cite mlcourse.ai in your work, you can use this bibtex
+If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can use this BibTeX record:
+
 ```
 @misc{mlcourse_ai,
     author = {Kashnitsky, Yury},
@@ -85,7 +88,7 @@ If you happen to cite mlcourse.ai in your work, you can use this bibtex
 ### Community
 Discussions are held in the **#mlcourse_ai** channel of the [OpenDataScience (ods.ai)](https://ods.ai) Slack team.
 
-*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai). Thus you'll foster the spread of Machine Learning in the world!*
+*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai).*
 
 [![Donate](https://img.shields.io/badge/support-patreon-red)](https://www.patreon.com/ods_mlcourse)
 [![Donate](https://img.shields.io/badge/support-ko--fi-red)](https://ko-fi.com/mlcourse_ai)
