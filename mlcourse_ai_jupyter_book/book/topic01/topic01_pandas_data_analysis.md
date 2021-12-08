@@ -17,7 +17,7 @@ kernelspec:
 ```{figure} /_static/img/ods_stickers.jpg
 :name: ods_stickers
 ```
-    
+
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina), Sergey Isaev and [Artem Trunov](https://www.linkedin.com/in/datamove/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
@@ -54,7 +54,7 @@ We’ll demonstrate the main methods in action by analyzing a [dataset](https://
 
 ```{code-cell} ipython3
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
-# you can specify the data/ folder from the root of your cloned 
+# you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
 DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
 ```
@@ -96,7 +96,7 @@ Now let’s try printing out column names using `columns`:
 print(df.columns)
 ```
 
-We can use the `info()` method to output some general information about the dataframe: 
+We can use the `info()` method to output some general information about the dataframe:
 
 
 ```{code-cell} ipython3
@@ -163,7 +163,7 @@ df.sort_values(by=["Churn", "Total day charge"], ascending=[True, False]).head()
 
 ### Indexing and retrieving data
 
-A `DataFrame` can be indexed in a few different ways. 
+A `DataFrame` can be indexed in a few different ways.
 
 To get a single column, you can use a `DataFrame['Name']` construction. Let's use this to answer a question about that column alone: **what is the proportion of churned users in our dataframe?**
 
@@ -177,7 +177,7 @@ df["Churn"].mean()
 
 14.5% is actually quite bad for a company; such a churn rate can make the company go bankrupt.
 
-**Boolean indexing** with one column is also very convenient. The syntax is `df[P(df['Name'])]`, where `P` is some logical condition that is checked for each element of the `Name` column. The result of such indexing is the `DataFrame` consisting only of rows that satisfy the `P` condition on the `Name` column. 
+**Boolean indexing** with one column is also very convenient. The syntax is `df[P(df['Name'])]`, where `P` is some logical condition that is checked for each element of the `Name` column. The result of such indexing is the `DataFrame` consisting only of rows that satisfy the `P` condition on the `Name` column.
 
 Let's use it to answer the question:
 
@@ -256,12 +256,12 @@ df["International plan"] = df["International plan"].map(d)
 df.head()
 ```
 
-Almost the same thing can be done with the `replace` method. 
+Almost the same thing can be done with the `replace` method.
 
 <details>
 <summary>Difference in treating values that are absent in the mapping dictionary</summary>
 <p>
-There's a slight difference. `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs). 
+There's a slight difference. `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).
 
 ```{code-cell} ipython3
 a_series = pd.Series(['a', 'b', 'c'])
@@ -352,7 +352,7 @@ df.pivot_table(
 
 ### DataFrame transformations
 
-Like many other things in Pandas, adding columns to a DataFrame is doable in many ways.
+Like many other things in Pandas, adding columns to a `DataFrame` is doable in many ways.
 
 For example, if we want to calculate the total number of calls for all users, let’s create the `total_calls` Series and paste it into the DataFrame:
 
@@ -442,7 +442,7 @@ sns.countplot(x="Customer service calls", hue="Churn", data=df);
 
 Although it's not so obvious from the summary table, it's easy to see from the above plot that the churn rate increases sharply from 4 customer service calls and above.
 
-Now let's add a binary feature to our DataFrame – `Customer service calls > 3`. And once again, let's see how it relates to churn. 
+Now let's add a binary feature to our DataFrame – `Customer service calls > 3`. And once again, let's see how it relates to churn.
 
 
 ```{code-cell} ipython3
@@ -466,10 +466,10 @@ Let’s construct another contingency table that relates *Churn* with both *Inte
 pd.crosstab(df["Many_service_calls"] & df["International plan"], df["Churn"])
 ```
 
-Therefore, predicting that a customer is not loyal (*Churn*=1) in the case when the number of calls to the service center is greater than 3 and the *International Plan* is added (and predicting *Churn*=0 otherwise), we might expect an accuracy of 85.8% (we are mistaken only 464 + 9 times). This number, 85.8%, that we got through this very simple reasoning serves as a good starting point (*baseline*) for the further machine learning models that we will build. 
+Therefore, predicting that a customer is not loyal (*Churn*=1) in the case when the number of calls to the service center is greater than 3 and the *International Plan* is added (and predicting *Churn*=0 otherwise), we might expect an accuracy of 85.8% (we are mistaken only 464 + 9 times). This number, 85.8%, that we got through this very simple reasoning serves as a good starting point (*baseline*) for the further machine learning models that we will build.
 
 As we move on through this course, recall that, before the advent of machine learning, the data analysis process looked something like this. Let's recap what we've covered:
-    
+
 - The share of loyal clients in the dataset is 85.5%. The most naive model that always predicts a "loyal customer" on such data will guess right in about 85.5% of all cases. That is, the proportion of correct answers (*accuracy*) of subsequent models should be no less than this number, and will hopefully be significantly higher;
 - With the help of a simple prediction that can be expressed by the following formula: `International plan = True & Customer Service calls > 3 => Churn = 1, else Churn = 0`, we can expect a guessing rate of 85.8%, which is just above 85.5%. Subsequently, we'll talk about decision trees and figure out how to find such rules **automatically** based only on the input data;
 - We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, persay, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple "if-else" model with two conditions;
@@ -489,4 +489,3 @@ As we move on through this course, recall that, before the advent of machine lea
 * [Pandas cheatsheet PDF](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
 * GitHub repos: [Pandas exercises](https://github.com/guipsamora/pandas_exercises/) and ["Effective Pandas"](https://github.com/TomAugspurger/effective-pandas)
 * [scipy-lectures.org](http://www.scipy-lectures.org/index.html) -- tutorials on pandas, numpy, matplotlib and scikit-learn
-

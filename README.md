@@ -11,7 +11,7 @@
 
 
 </div>
-  
+
 [mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Check out a thorough [Roadmap](roadmap) guiding you through the self-paced mlcourse.ai.
 
 __Bonus:__
@@ -20,7 +20,7 @@ Additionally, you can purchase a Bonus Assignments pack with the best non-demo v
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kaggle Notebooks)
 
 ### Self-paced passing
-The [Roadmap](https://mlcourse.ai/roadmap) will guide you through 11 weeks of mlcourse.ai. For each week, from Pandas to Gradient Boosting, instructions are given on what articles to read, lectures to watch, what assignments to accomplish. 
+The [Roadmap](https://mlcourse.ai/roadmap) will guide you through 11 weeks of mlcourse.ai. For each week, from Pandas to Gradient Boosting, instructions are given on what articles to read, lectures to watch, what assignments to accomplish.
 
 ### Articles
 This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/). Also notebooks in Chinese are mentioned :cn: and links to Kaggle Notebooks (in English) are given. Icons are clickable.
@@ -44,7 +44,7 @@ Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](htt
 2. Visualization, main plots for EDA, [video](https://www.youtube.com/watch?v=WNoQTNOME5g)
 3. Decision trees: [theory](https://youtu.be/H4XlBTPv5rQ) and [practical part](https://youtu.be/RrVYO6Td9Js)
 4. Logistic regression: [theoretical foundations](https://www.youtube.com/watch?v=l3jiw-N544s), [practical part](https://www.youtube.com/watch?v=7o0SWgY89i8) (baselines in the "Alice" competition)
-5. Ensembles and Random Forest – [part 1](https://www.youtube.com/watch?v=neXJL-AqI_c). Classification metrics – [part 2](https://www.youtube.com/watch?v=aBOMYqGUlWQ). Example of a business task, predicting a customer payment – [part 3](https://www.youtube.com/watch?v=FmKU-1LZGoE) 
+5. Ensembles and Random Forest – [part 1](https://www.youtube.com/watch?v=neXJL-AqI_c). Classification metrics – [part 2](https://www.youtube.com/watch?v=aBOMYqGUlWQ). Example of a business task, predicting a customer payment – [part 3](https://www.youtube.com/watch?v=FmKU-1LZGoE)
 6. Linear regression and regularization - [theory](https://youtu.be/ne-MfRfYs_c), LASSO & Ridge, LTV prediction - [practice](https://youtu.be/B8yIaIEMyIc)
 7. Unsupervised learning - [Principal Component Analysis](https://youtu.be/-AswHf7h0I4) and [Clustering](https://youtu.be/eVplCo-w4XE)
 8. Stochastic Gradient Descent for classification and regression - [part 1](https://youtu.be/EUSXbdzaQE8), part 2 TBA

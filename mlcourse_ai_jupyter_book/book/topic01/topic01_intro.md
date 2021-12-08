@@ -11,5 +11,5 @@ You definitely want to immediately start with Machine Learning and see math in a
 
 1. Read the [article](https://mlcourse.ai/articles/topic1-exploratory-data-analysis-with-pandas/) (same in a form of a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas))
 2. (opt.) watch a [video lecture](https://youtu.be/fwWCw_cE5aI)
-3. Complete [demo assignment 1](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset) where you'll be exploring demographic data (UCI "Adult"), and (opt.) check out the [solution](https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset-solution) 
+3. Complete [demo assignment 1](https://www.kaggle.com/kashnitsky/assignment-1-pandas-and-uci-adult-dataset) where you'll be exploring demographic data (UCI "Adult"), and (opt.) check out the [solution](https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset-solution)
 4. **[Bonus Assignment](https://www.patreon.com/ods_mlcourse):** here you'll be analyzing the history of the Olympic Games with Pandas.
