@@ -16,11 +16,11 @@
 
 Below you can see the course program (double-click on the image to enlarge)
 
-- **Green** stands for basic content outlined in the articles
-- **Yellow** stands for videolectures
-- **Blue** stands for demo assignments
-- **Chocolate** stands for bonus assignments
-- **White** stands for additional content
+- **Green** stands for basic content outlined in the articles;
+- **Yellow** stands for videolectures;
+- **Blue** stands for demo assignments;
+- **Chocolate** stands for bonus assignments;
+- **White** stands for additional content.
 
 ```{figure} /_static/program/program.png
 :name: course_program
