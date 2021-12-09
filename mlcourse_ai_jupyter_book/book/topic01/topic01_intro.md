@@ -7,7 +7,7 @@
 :width: 300px
 ```
 
-You definitely want to immediately start with Machine Learning and see math in action. But 70-80% of the time working on a real project is fussing with data, and here Pandas is very good, I use it in my work almost every day. This article describes the basic Pandas methods for preliminary data analysis. Then we analyze the data set on the churn of telecom customers and try to predict the churn without any training, simply relying on common sense. By no means should you underestimate such an approach.
+You definitely want to immmediately start with Machine Learning and see math in action. But 70-80% of the time working on a real project is fussing with data, and here Pandas is very good, I use it in my work almost every day. This article describes the basic Pandas methods for preliminary data analysis. Then we analyze the data set on the churn of telecom customers and try to predict the churn without any training, simply relying on common sense. By no means should you underestimate such an approach.
 
 1. Read the [article](https://mlcourse.ai/articles/topic1-exploratory-data-analysis-with-pandas/) (same in a form of a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas))
 2. (opt.) watch a [video lecture](https://youtu.be/fwWCw_cE5aI)
