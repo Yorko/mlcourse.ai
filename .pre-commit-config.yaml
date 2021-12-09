@@ -1,0 +1,17 @@
+files: ^mlcourse_ai_jupyter_book/
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-added-large-files
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-xml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md"]
+
+  - repo: https://github.com/hcodes/yaspeller.git
+    rev: v8.0.0
+    hooks:
+      - id: yaspeller
