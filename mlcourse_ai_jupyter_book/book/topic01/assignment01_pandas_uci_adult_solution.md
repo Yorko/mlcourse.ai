@@ -10,11 +10,9 @@ kernelspec:
   name: python3
 ---
 
-(assignment1_solution)=
+(assignment01_solution)=
 
-# Assignment #1 (demo). Solution
-
-## Exploratory data analysis with Pandas
+# Assignment #1 (demo). Exploratory data analysis with Pandas. Solution
 
 ```{figure} /_static/img/ods_stickers.jpg
 :name: ods_stickers

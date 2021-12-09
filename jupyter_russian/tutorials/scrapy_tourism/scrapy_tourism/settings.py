@@ -10,4 +10,3 @@ DOWNLOAD_DELAY = 0.25
 # ITEM_PIPELINES = {
 #    'scrapy_tourism.pipelines.GeocoderPipeline': 300,
 # }
-

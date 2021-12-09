@@ -1,6 +1,6 @@
 import pydot
 
-import random 
+import random
 
 def add_recurse(g, parent, tree):
     if isinstance(tree, (list, set)):
