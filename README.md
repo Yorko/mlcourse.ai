@@ -1,6 +1,6 @@
 <div align="center">
 
-![ODS stickers](https://github.com/Yorko/mlcourse.ai/blob/master/img/ods_stickers.jpg)
+![ODS stickers](https://github.com/Yorko/mlcourse.ai/blob/main/img/ods_stickers.jpg)
 
 **[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course**
 
@@ -8,6 +8,7 @@
 [![Slack](https://img.shields.io/badge/slack-ods.ai-orange)](https://opendatascience.slack.com/archives/C91N8TL83/p1567408586359500)
 [![Donate](https://img.shields.io/badge/support-patreon-red)](https://www.patreon.com/ods_mlcourse)
 [![Donate](https://img.shields.io/badge/support-ko--fi-red)](https://ko-fi.com/mlcourse_ai)
+    
 </div>
 
 [mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Check out a thorough [Roadmap](roadmap) guiding you through the self-paced mlcourse.ai.
