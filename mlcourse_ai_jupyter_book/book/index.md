@@ -2,7 +2,7 @@
 
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
-**<center>[mlcourse.ai](https://mlcourse.ai) – Opsaen Machine Learning Course** </center><br>
+**<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
 
 
