@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #1 (demo). Exploratory data analysis with Pandas. Solution &#8212; mlcourse.ai</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bonus Assignment 1. Exploratory Data Analysis (EDA) of Olympic games with Pandas" href="bonus_assignment01_pandas_olympics.html" />
+    <link rel="prev" title="Assignment #1 (demo). Exploratory data analysis with Pandas" href="assignment01_pandas_uci_adult.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Intro
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 1
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic01_intro.html">
+   Topic 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic01_pandas_data_analysis.html">
+   Exploratory data analysis with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="videolecture01.html">
+   Videolecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment01_pandas_uci_adult.html">
+   Demo Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Demo Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bonus_assignment01_pandas_olympics.html">
+   Bonus Assignment 1
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/book/topic01/assignment01_pandas_uci_adult_solution.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/topic01/assignment01_pandas_uci_adult_solution.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/topic01/assignment01_pandas_uci_adult_solution.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-1-demo-exploratory-data-analysis-with-pandas-solution">
+<span id="assignment01-solution"></span><h1>Assignment #1 (demo). Exploratory data analysis with Pandas. Solution<a class="headerlink" href="#assignment-1-demo-exploratory-data-analysis-with-pandas-solution" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="ods-stickers">
+<img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
+</div>
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
+<p>Author: <a class="reference external" href="https://www.linkedin.com/in/festline/">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/isvforall/">Sergey Isaev</a>, <a class="reference external" href="https://www.linkedin.com/in/datamove/">Artem Trunov</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
+<p><strong>Same assignment as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset">Kaggle Kernel</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset-solution">solution</a>.</strong></p>
+<p><strong>In this task you should use Pandas to answer a few questions about the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Adult">Adult</a> dataset. (You don’t have to download the data – it’s already  in the repository). Choose the answers in the <a class="reference external" href="https://docs.google.com/forms/d/1uY7MpI2trKx6FLWZte0uVh3ULV4Cm_tDud0VDFGCOKg">web-form</a>.</strong></p>
+<p>Unique values of features (for more information please see the link above):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code>: continuous;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">workclass</span></code>: <code class="docutils literal notranslate"><span class="pre">Private</span></code>, <code class="docutils literal notranslate"><span class="pre">Self-emp-not-inc</span></code>, <code class="docutils literal notranslate"><span class="pre">Self-emp-inc</span></code>, <code class="docutils literal notranslate"><span class="pre">Federal-gov</span></code>, <code class="docutils literal notranslate"><span class="pre">Local-gov</span></code>, <code class="docutils literal notranslate"><span class="pre">State-gov</span></code>, <code class="docutils literal notranslate"><span class="pre">Without-pay</span></code>, <code class="docutils literal notranslate"><span class="pre">Never-worked</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fnlwgt</span></code>: continuous;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">education</span></code>: <code class="docutils literal notranslate"><span class="pre">Bachelors</span></code>, <code class="docutils literal notranslate"><span class="pre">Some-college</span></code>, <code class="docutils literal notranslate"><span class="pre">11th</span></code>, <code class="docutils literal notranslate"><span class="pre">HS-grad</span></code>, <code class="docutils literal notranslate"><span class="pre">Prof-school</span></code>, <code class="docutils literal notranslate"><span class="pre">Assoc-acdm</span></code>, <code class="docutils literal notranslate"><span class="pre">Assoc-voc</span></code>, <code class="docutils literal notranslate"><span class="pre">9th</span></code>, <code class="docutils literal notranslate"><span class="pre">7th-8th</span></code>, <code class="docutils literal notranslate"><span class="pre">12th</span></code>, <code class="docutils literal notranslate"><span class="pre">Masters</span></code>, <code class="docutils literal notranslate"><span class="pre">1st-4th</span></code>, <code class="docutils literal notranslate"><span class="pre">10th</span></code>, <code class="docutils literal notranslate"><span class="pre">Doctorate</span></code>, <code class="docutils literal notranslate"><span class="pre">5th-6th</span></code>, <code class="docutils literal notranslate"><span class="pre">Preschool</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">education-num</span></code>: continuous;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">marital-status</span></code>: <code class="docutils literal notranslate"><span class="pre">Married-civ-spouse</span></code>, <code class="docutils literal notranslate"><span class="pre">Divorced</span></code>, <code class="docutils literal notranslate"><span class="pre">Never-married</span></code>, <code class="docutils literal notranslate"><span class="pre">Separated</span></code>, <code class="docutils literal notranslate"><span class="pre">Widowed</span></code>, <code class="docutils literal notranslate"><span class="pre">Married-spouse-absent</span></code>, <code class="docutils literal notranslate"><span class="pre">Married-AF-spouse</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">occupation</span></code>: <code class="docutils literal notranslate"><span class="pre">Tech-support</span></code>, <code class="docutils literal notranslate"><span class="pre">Craft-repair</span></code>, <code class="docutils literal notranslate"><span class="pre">Other-service</span></code>, <code class="docutils literal notranslate"><span class="pre">Sales</span></code>, <code class="docutils literal notranslate"><span class="pre">Exec-managerial</span></code>, <code class="docutils literal notranslate"><span class="pre">Prof-specialty</span></code>, <code class="docutils literal notranslate"><span class="pre">Handlers-cleaners</span></code>, <code class="docutils literal notranslate"><span class="pre">Machine-op-inspct</span></code>, <code class="docutils literal notranslate"><span class="pre">Adm-clerical</span></code>, <code class="docutils literal notranslate"><span class="pre">Farming-fishing</span></code>, <code class="docutils literal notranslate"><span class="pre">Transport-moving</span></code>, <code class="docutils literal notranslate"><span class="pre">Priv-house-serv</span></code>, <code class="docutils literal notranslate"><span class="pre">Protective-serv</span></code>, <code class="docutils literal notranslate"><span class="pre">Armed-Forces</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">relationship</span></code>: <code class="docutils literal notranslate"><span class="pre">Wife</span></code>, <code class="docutils literal notranslate"><span class="pre">Own-child</span></code>, <code class="docutils literal notranslate"><span class="pre">Husband</span></code>, <code class="docutils literal notranslate"><span class="pre">Not-in-family</span></code>, <code class="docutils literal notranslate"><span class="pre">Other-relative</span></code>, <code class="docutils literal notranslate"><span class="pre">Unmarried</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">race</span></code>: <code class="docutils literal notranslate"><span class="pre">White</span></code>, <code class="docutils literal notranslate"><span class="pre">Asian-Pac-Islander</span></code>, <code class="docutils literal notranslate"><span class="pre">Amer-Indian-Eskimo</span></code>, <code class="docutils literal notranslate"><span class="pre">Other</span></code>, <code class="docutils literal notranslate"><span class="pre">Black</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sex</span></code>: <code class="docutils literal notranslate"><span class="pre">Female</span></code>, <code class="docutils literal notranslate"><span class="pre">Male</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">capital-gain</span></code>: continuous.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">capital-loss</span></code>: continuous.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hours-per-week</span></code>: continuous.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">native-country</span></code>: <code class="docutils literal notranslate"><span class="pre">United-States</span></code>, <code class="docutils literal notranslate"><span class="pre">Cambodia</span></code>, <code class="docutils literal notranslate"><span class="pre">England</span></code>, <code class="docutils literal notranslate"><span class="pre">Puerto-Rico</span></code>, <code class="docutils literal notranslate"><span class="pre">Canada</span></code>, <code class="docutils literal notranslate"><span class="pre">Germany</span></code>, <code class="docutils literal notranslate"><span class="pre">Outlying-US(Guam-USVI-etc)</span></code>, <code class="docutils literal notranslate"><span class="pre">India</span></code>, <code class="docutils literal notranslate"><span class="pre">Japan</span></code>, <code class="docutils literal notranslate"><span class="pre">Greece</span></code>, <code class="docutils literal notranslate"><span class="pre">South</span></code>, <code class="docutils literal notranslate"><span class="pre">China</span></code>, <code class="docutils literal notranslate"><span class="pre">Cuba</span></code>, <code class="docutils literal notranslate"><span class="pre">Iran</span></code>, <code class="docutils literal notranslate"><span class="pre">Honduras</span></code>, <code class="docutils literal notranslate"><span class="pre">Philippines</span></code>, <code class="docutils literal notranslate"><span class="pre">Italy</span></code>, <code class="docutils literal notranslate"><span class="pre">Poland</span></code>, <code class="docutils literal notranslate"><span class="pre">Jamaica</span></code>, <code class="docutils literal notranslate"><span class="pre">Vietnam</span></code>, <code class="docutils literal notranslate"><span class="pre">Mexico</span></code>, <code class="docutils literal notranslate"><span class="pre">Portugal</span></code>, <code class="docutils literal notranslate"><span class="pre">Ireland</span></code>, <code class="docutils literal notranslate"><span class="pre">France</span></code>, <code class="docutils literal notranslate"><span class="pre">Dominican-Republic</span></code>, <code class="docutils literal notranslate"><span class="pre">Laos</span></code>, <code class="docutils literal notranslate"><span class="pre">Ecuador</span></code>, <code class="docutils literal notranslate"><span class="pre">Taiwan</span></code>, <code class="docutils literal notranslate"><span class="pre">Haiti</span></code>, <code class="docutils literal notranslate"><span class="pre">Columbia</span></code>, <code class="docutils literal notranslate"><span class="pre">Hungary</span></code>, <code class="docutils literal notranslate"><span class="pre">Guatemala</span></code>, <code class="docutils literal notranslate"><span class="pre">Nicaragua</span></code>, <code class="docutils literal notranslate"><span class="pre">Scotland</span></code>, <code class="docutils literal notranslate"><span class="pre">Thailand</span></code>, <code class="docutils literal notranslate"><span class="pre">Yugoslavia</span></code>, <code class="docutils literal notranslate"><span class="pre">El-Salvador</span></code>, <code class="docutils literal notranslate"><span class="pre">Trinadad&amp;Tobago</span></code>, <code class="docutils literal notranslate"><span class="pre">Peru</span></code>, <code class="docutils literal notranslate"><span class="pre">Hong</span></code>, <code class="docutils literal notranslate"><span class="pre">Holand-Netherlands</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">salary</span></code>: <code class="docutils literal notranslate"><span class="pre">&gt;50K</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=50K</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max.columns&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># to draw pictures in jupyter notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># we don&#39;t like warnings</span>
+<span class="c1"># you can comment the following 2 lines if you&#39;d like to</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
+<span class="c1"># you can specify the data/ folder from the root of your cloned</span>
+<span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
+<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_URL</span> <span class="o">+</span> <span class="s2">&quot;adult.data.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>fnlwgt</th>
+      <th>education</th>
+      <th>education-num</th>
+      <th>marital-status</th>
+      <th>occupation</th>
+      <th>relationship</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>capital-gain</th>
+      <th>capital-loss</th>
+      <th>hours-per-week</th>
+      <th>native-country</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>State-gov</td>
+      <td>77516</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Never-married</td>
+      <td>Adm-clerical</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>2174</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>Self-emp-not-inc</td>
+      <td>83311</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Exec-managerial</td>
+      <td>Husband</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>215646</td>
+      <td>HS-grad</td>
+      <td>9</td>
+      <td>Divorced</td>
+      <td>Handlers-cleaners</td>
+      <td>Not-in-family</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>Private</td>
+      <td>234721</td>
+      <td>11th</td>
+      <td>7</td>
+      <td>Married-civ-spouse</td>
+      <td>Handlers-cleaners</td>
+      <td>Husband</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>United-States</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private</td>
+      <td>338409</td>
+      <td>Bachelors</td>
+      <td>13</td>
+      <td>Married-civ-spouse</td>
+      <td>Prof-specialty</td>
+      <td>Wife</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40</td>
+      <td>Cuba</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>1. How many men and women (<em>sex</em> feature) are represented in this dataset?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Male      21790
+Female    10771
+Name: sex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2. What is the average age (<em>age</em> feature) of women?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36.85823043357163
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3. What is the proportion of German citizens (<em>native-country</em> feature)?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;native-country&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Germany&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">/</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.004207487485028101
+</pre></div>
+</div>
+</div>
+</div>
+<p>**4-5. What are mean value and standard deviation of the age of those who receive more than 50K per year (<em>salary</em> feature) and those who receive less than 50K per year? **</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&gt;50K&quot;</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span>
+<span class="n">ages2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&lt;=50K&quot;</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;The average age of the rich: </span><span class="si">{0}</span><span class="s2"> +- </span><span class="si">{1}</span><span class="s2"> years, poor - </span><span class="si">{2}</span><span class="s2"> +- </span><span class="si">{3}</span><span class="s2"> years.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">ages1</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">ages1</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">ages2</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">ages2</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The average age of the rich: 44 +- 10.5 years, poor - 37 +- 14.0 years.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>6. Is it true that people who earn more than 50K have at least high school education? (<em>education</em> – <code class="docutils literal notranslate"><span class="pre">Bachelors</span></code>, <code class="docutils literal notranslate"><span class="pre">Prof-school</span></code>, <code class="docutils literal notranslate"><span class="pre">Assoc-acdm</span></code>, <code class="docutils literal notranslate"><span class="pre">Assoc-voc</span></code>, <code class="docutils literal notranslate"><span class="pre">Masters</span></code> or <code class="docutils literal notranslate"><span class="pre">Doctorate</span></code> feature)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&gt;50K&quot;</span><span class="p">][</span><span class="s2">&quot;education&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>  <span class="c1"># No</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;HS-grad&#39;, &#39;Masters&#39;, &#39;Bachelors&#39;, &#39;Some-college&#39;, &#39;Assoc-voc&#39;,
+       &#39;Doctorate&#39;, &#39;Prof-school&#39;, &#39;Assoc-acdm&#39;, &#39;7th-8th&#39;, &#39;12th&#39;,
+       &#39;10th&#39;, &#39;11th&#39;, &#39;9th&#39;, &#39;5th-6th&#39;, &#39;1st-4th&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>7. Display age statistics for each race (<em>race</em> feature) and each gender (<em>sex</em> feature). Use <em>groupby()</em> and <em>describe()</em>. Find the maximum age of men of <code class="docutils literal notranslate"><span class="pre">Amer-Indian-Eskimo</span></code> race.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">race</span><span class="p">,</span> <span class="n">sex</span><span class="p">),</span> <span class="n">sub_df</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;race&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Race: </span><span class="si">{0}</span><span class="s2">, sex: </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">race</span><span class="p">,</span> <span class="n">sex</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Race: Amer-Indian-Eskimo, sex: Female
+count    119.000000
+mean      37.117647
+std       13.114991
+min       17.000000
+25%       27.000000
+50%       36.000000
+75%       46.000000
+max       80.000000
+Name: age, dtype: float64
+Race: Amer-Indian-Eskimo, sex: Male
+count    192.000000
+mean      37.208333
+std       12.049563
+min       17.000000
+25%       28.000000
+50%       35.000000
+75%       45.000000
+max       82.000000
+Name: age, dtype: float64
+Race: Asian-Pac-Islander, sex: Female
+count    346.000000
+mean      35.089595
+std       12.300845
+min       17.000000
+25%       25.000000
+50%       33.000000
+75%       43.750000
+max       75.000000
+Name: age, dtype: float64
+Race: Asian-Pac-Islander, sex: Male
+count    693.000000
+mean      39.073593
+std       12.883944
+min       18.000000
+25%       29.000000
+50%       37.000000
+75%       46.000000
+max       90.000000
+Name: age, dtype: float64
+Race: Black, sex: Female
+count    1555.000000
+mean       37.854019
+std        12.637197
+min        17.000000
+25%        28.000000
+50%        37.000000
+75%        46.000000
+max        90.000000
+Name: age, dtype: float64
+Race: Black, sex: Male
+count    1569.000000
+mean       37.682600
+std        12.882612
+min        17.000000
+25%        27.000000
+50%        36.000000
+75%        46.000000
+max        90.000000
+Name: age, dtype: float64
+Race: Other, sex: Female
+count    109.000000
+mean      31.678899
+std       11.631599
+min       17.000000
+25%       23.000000
+50%       29.000000
+75%       39.000000
+max       74.000000
+Name: age, dtype: float64
+Race: Other, sex: Male
+count    162.000000
+mean      34.654321
+std       11.355531
+min       17.000000
+25%       26.000000
+50%       32.000000
+75%       42.000000
+max       77.000000
+Name: age, dtype: float64
+Race: White, sex: Female
+count    8642.000000
+mean       36.811618
+std        14.329093
+min        17.000000
+25%        25.000000
+50%        35.000000
+75%        46.000000
+max        90.000000
+Name: age, dtype: float64
+Race: White, sex: Male
+count    19174.000000
+mean        39.652498
+std         13.436029
+min         17.000000
+25%         29.000000
+50%         38.000000
+75%         49.000000
+max         90.000000
+Name: age, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>8. Among whom is the proportion of those who earn a lot (<code class="docutils literal notranslate"><span class="pre">&gt;50K</span></code>) greater: married or single men (<em>marital-status</em> feature)? Consider as married those who have a <em>marital-status</em> starting with <em>Married</em> (<code class="docutils literal notranslate"><span class="pre">Married-civ-spouse</span></code>, <code class="docutils literal notranslate"><span class="pre">Married-spouse-absent</span></code> or <code class="docutils literal notranslate"><span class="pre">Married-AF-spouse</span></code>), the rest are considered bachelors.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Never-married&quot;</span><span class="p">,</span> <span class="s2">&quot;Separated&quot;</span><span class="p">,</span> <span class="s2">&quot;Divorced&quot;</span><span class="p">]))</span>
+<span class="p">][</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;=50K    7423
+&gt;50K      658
+Name: salary, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Married&quot;</span><span class="p">))][</span>
+    <span class="s2">&quot;salary&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;=50K    7576
+&gt;50K     5965
+Name: salary, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Married-civ-spouse       14976
+Never-married            10683
+Divorced                  4443
+Separated                 1025
+Widowed                    993
+Married-spouse-absent      418
+Married-AF-spouse           23
+Name: marital-status, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s good to be married :)</p>
+<p><strong>9. What is the maximum number of hours a person works per week (<em>hours-per-week</em> feature)? How many people work such a number of hours and what is the percentage of those who earn a lot among them?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_load</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max time - </span><span class="si">{0}</span><span class="s2"> hours./week.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_load</span><span class="p">))</span>
+
+<span class="n">num_workaholics</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_load</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of such hard workers </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_workaholics</span><span class="p">))</span>
+
+<span class="n">rich_share</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="nb">float</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">max_load</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&gt;50K&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="o">/</span> <span class="n">num_workaholics</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage of rich among them </span><span class="si">{0}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">rich_share</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Max time - 99 hours./week.
+Total number of such hard workers 85
+Percentage of rich among them 29%
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>10. Count the average time of work (<em>hours-per-week</em>) those who earning a little and a lot (<em>salary</em>) for each country (<em>native-country</em>).</strong></p>
+<p>Simple method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">salary</span><span class="p">),</span> <span class="n">sub_df</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;native-country&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">salary</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>? &lt;=50K 40.16
+? &gt;50K 45.55
+Cambodia &lt;=50K 41.42
+Cambodia &gt;50K 40.0
+Canada &lt;=50K 37.91
+Canada &gt;50K 45.64
+China &lt;=50K 37.38
+China &gt;50K 38.9
+Columbia &lt;=50K 38.68
+Columbia &gt;50K 50.0
+Cuba &lt;=50K 37.99
+Cuba &gt;50K 42.44
+Dominican-Republic &lt;=50K 42.34
+Dominican-Republic &gt;50K 47.0
+Ecuador &lt;=50K 38.04
+Ecuador &gt;50K 48.75
+El-Salvador &lt;=50K 36.03
+El-Salvador &gt;50K 45.0
+England &lt;=50K 40.48
+England &gt;50K 44.53
+France &lt;=50K 41.06
+France &gt;50K 50.75
+Germany &lt;=50K 39.14
+Germany &gt;50K 44.98
+Greece &lt;=50K 41.81
+Greece &gt;50K 50.62
+Guatemala &lt;=50K 39.36
+Guatemala &gt;50K 36.67
+Haiti &lt;=50K 36.33
+Haiti &gt;50K 42.75
+Holand-Netherlands &lt;=50K 40.0
+Honduras &lt;=50K 34.33
+Honduras &gt;50K 60.0
+Hong &lt;=50K 39.14
+Hong &gt;50K 45.0
+Hungary &lt;=50K 31.3
+Hungary &gt;50K 50.0
+India &lt;=50K 38.23
+India &gt;50K 46.48
+Iran &lt;=50K 41.44
+Iran &gt;50K 47.5
+Ireland &lt;=50K 40.95
+Ireland &gt;50K 48.0
+Italy &lt;=50K 39.62
+Italy &gt;50K 45.4
+Jamaica &lt;=50K 38.24
+Jamaica &gt;50K 41.1
+Japan &lt;=50K 41.0
+Japan &gt;50K 47.96
+Laos &lt;=50K 40.38
+Laos &gt;50K 40.0
+Mexico &lt;=50K 40.0
+Mexico &gt;50K 46.58
+Nicaragua &lt;=50K 36.09
+Nicaragua &gt;50K 37.5
+Outlying-US(Guam-USVI-etc) &lt;=50K 41.86
+Peru &lt;=50K 35.07
+Peru &gt;50K 40.0
+Philippines &lt;=50K 38.07
+Philippines &gt;50K 43.03
+Poland &lt;=50K 38.17
+Poland &gt;50K 39.0
+Portugal &lt;=50K 41.94
+Portugal &gt;50K 41.5
+Puerto-Rico &lt;=50K 38.47
+Puerto-Rico &gt;50K 39.42
+Scotland &lt;=50K 39.44
+Scotland &gt;50K 46.67
+South &lt;=50K 40.16
+South &gt;50K 51.44
+Taiwan &lt;=50K 33.77
+Taiwan &gt;50K 46.8
+Thailand &lt;=50K 42.87
+Thailand &gt;50K 58.33
+Trinadad&amp;Tobago &lt;=50K 37.06
+Trinadad&amp;Tobago &gt;50K 40.0
+United-States &lt;=50K 38.8
+United-States &gt;50K 45.51
+Vietnam &lt;=50K 37.19
+Vietnam &gt;50K 39.2
+Yugoslavia &lt;=50K 41.6
+Yugoslavia &gt;50K 49.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Elegant method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;native-country&quot;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">],</span>
+    <span class="n">values</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">],</span>
+    <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>native-country</th>
+      <th>?</th>
+      <th>Cambodia</th>
+      <th>Canada</th>
+      <th>China</th>
+      <th>Columbia</th>
+      <th>Cuba</th>
+      <th>Dominican-Republic</th>
+      <th>Ecuador</th>
+      <th>El-Salvador</th>
+      <th>England</th>
+      <th>France</th>
+      <th>Germany</th>
+      <th>Greece</th>
+      <th>Guatemala</th>
+      <th>Haiti</th>
+      <th>Holand-Netherlands</th>
+      <th>Honduras</th>
+      <th>Hong</th>
+      <th>Hungary</th>
+      <th>India</th>
+      <th>Iran</th>
+      <th>Ireland</th>
+      <th>Italy</th>
+      <th>Jamaica</th>
+      <th>Japan</th>
+      <th>Laos</th>
+      <th>Mexico</th>
+      <th>Nicaragua</th>
+      <th>Outlying-US(Guam-USVI-etc)</th>
+      <th>Peru</th>
+      <th>Philippines</th>
+      <th>Poland</th>
+      <th>Portugal</th>
+      <th>Puerto-Rico</th>
+      <th>Scotland</th>
+      <th>South</th>
+      <th>Taiwan</th>
+      <th>Thailand</th>
+      <th>Trinadad&amp;Tobago</th>
+      <th>United-States</th>
+      <th>Vietnam</th>
+      <th>Yugoslavia</th>
+    </tr>
+    <tr>
+      <th>salary</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>&lt;=50K</th>
+      <td>40.164760</td>
+      <td>41.416667</td>
+      <td>37.914634</td>
+      <td>37.381818</td>
+      <td>38.684211</td>
+      <td>37.985714</td>
+      <td>42.338235</td>
+      <td>38.041667</td>
+      <td>36.030928</td>
+      <td>40.483333</td>
+      <td>41.058824</td>
+      <td>39.139785</td>
+      <td>41.809524</td>
+      <td>39.360656</td>
+      <td>36.325</td>
+      <td>40.0</td>
+      <td>34.333333</td>
+      <td>39.142857</td>
+      <td>31.3</td>
+      <td>38.233333</td>
+      <td>41.44</td>
+      <td>40.947368</td>
+      <td>39.625</td>
+      <td>38.239437</td>
+      <td>41.000000</td>
+      <td>40.375</td>
+      <td>40.003279</td>
+      <td>36.09375</td>
+      <td>41.857143</td>
+      <td>35.068966</td>
+      <td>38.065693</td>
+      <td>38.166667</td>
+      <td>41.939394</td>
+      <td>38.470588</td>
+      <td>39.444444</td>
+      <td>40.15625</td>
+      <td>33.774194</td>
+      <td>42.866667</td>
+      <td>37.058824</td>
+      <td>38.799127</td>
+      <td>37.193548</td>
+      <td>41.6</td>
+    </tr>
+    <tr>
+      <th>&gt;50K</th>
+      <td>45.547945</td>
+      <td>40.000000</td>
+      <td>45.641026</td>
+      <td>38.900000</td>
+      <td>50.000000</td>
+      <td>42.440000</td>
+      <td>47.000000</td>
+      <td>48.750000</td>
+      <td>45.000000</td>
+      <td>44.533333</td>
+      <td>50.750000</td>
+      <td>44.977273</td>
+      <td>50.625000</td>
+      <td>36.666667</td>
+      <td>42.750</td>
+      <td>NaN</td>
+      <td>60.000000</td>
+      <td>45.000000</td>
+      <td>50.0</td>
+      <td>46.475000</td>
+      <td>47.50</td>
+      <td>48.000000</td>
+      <td>45.400</td>
+      <td>41.100000</td>
+      <td>47.958333</td>
+      <td>40.000</td>
+      <td>46.575758</td>
+      <td>37.50000</td>
+      <td>NaN</td>
+      <td>40.000000</td>
+      <td>43.032787</td>
+      <td>39.000000</td>
+      <td>41.500000</td>
+      <td>39.416667</td>
+      <td>46.666667</td>
+      <td>51.43750</td>
+      <td>46.800000</td>
+      <td>58.333333</td>
+      <td>40.000000</td>
+      <td>45.505369</td>
+      <td>39.200000</td>
+      <td>49.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/topic01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="assignment01_pandas_uci_adult.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Assignment #1 (demo). Exploratory data analysis with Pandas</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="bonus_assignment01_pandas_olympics.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Bonus Assignment 1. Exploratory Data Analysis (EDA) of Olympic games with Pandas</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Yury Kashnitsky (yorko)<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
