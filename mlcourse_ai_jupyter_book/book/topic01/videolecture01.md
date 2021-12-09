@@ -2,7 +2,7 @@
 
 # Videolecture 1. Pandas & Data Analysis
 
-In the 1st lecture, we get used to Pandas to perform preliminary data analysis.
+In the 1st lecturesf, we get used to Pandas to perform preliminary data analysis.
 
 <div align="center">
 
