@@ -21,4 +21,3 @@ class GeocoderPipeline(object):
         item['lon'] = lon
 
         return item
-

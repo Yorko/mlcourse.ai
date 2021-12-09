@@ -16,4 +16,3 @@ class TourismBeachSpider1(scrapy.Spider):
         if next_page_href is not None:
             next_page_url = response.urljoin(next_page_href)
             yield scrapy.Request(next_page_url, self.parse)
-

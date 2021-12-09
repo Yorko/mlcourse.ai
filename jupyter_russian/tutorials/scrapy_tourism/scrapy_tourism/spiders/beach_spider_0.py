@@ -11,4 +11,3 @@ class TourismBeachSpider0(scrapy.Spider):
             yield {
                 'title': obj.css('::text').extract_first()
             }
-
