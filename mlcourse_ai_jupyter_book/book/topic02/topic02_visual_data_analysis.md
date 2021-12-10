@@ -106,9 +106,9 @@ Here is the description of our features:
 | **Total eve minutes** | Total duration of evening calls | Numerical | Quantitative |
 | **Total eve calls** | Total number of evening calls | Numerical | Quantitative |
 | **Total eve charge** | Total charge for evening services | Numerical | Quantitative |
-| **Total night minutes** | Total duration of nighttime calls | Numerical | Quantitative |
-| **Total night calls** | Total number of nighttime calls | Numerical | Quantitative |
-| **Total night charge** | Total charge for nighttime services | Numerical | Quantitative |
+| **Total night minutes** | Total duration of night-time calls | Numerical | Quantitative |
+| **Total night calls** | Total number of night-time calls | Numerical | Quantitative |
+| **Total night charge** | Total charge for night-time services | Numerical | Quantitative |
 | **Total intl minutes** | Total duration of international calls  | Numerical | Quantitative |
 | **Total intl calls** | Total number of international calls | Numerical | Quantitative |
 | **Total intl charge** | Total charge for international calls | Numerical | Quantitative |
@@ -568,9 +568,9 @@ Occasionally, using t-SNE, you can get a really good intuition for the data. The
 
 ## 6. Useful resources
 - The same notebook as an interactive web-based [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-2-visual-data-analysis-in-python)
-- ["Plotly for interactive plots"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/tutorials/plotly_tutorial_for_interactive_plots_sankovalev.ipynb) - a tutorial by Alexander Kovalev within mlcourse.ai (full list of tutorials is [here](https://mlcourse.ai/tutorials))
-- ["Bring your plots to life with Matplotlib animations"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/tutorials/bring_your_plots_to_life_with_matplotlib_animations_kyriacos_kyriacou.ipynb) - a tutorial by Kyriacos Kyriacou within mlcourse.ai
-- ["Some details on Matplotlib"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/tutorials/some_details_in_matplotlib_pisarev_ivan.ipynb) - a tutorial by Ivan Pisarev within mlcourse.ai
+- ["Plotly for interactive plots"](https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/plotly_tutorial_for_interactive_plots_sankovalev.ipynb) - a tutorial by Alexander Kovalev within mlcourse.ai (full list of tutorials is [here](https://mlcourse.ai/tutorials))
+- ["Bring your plots to life with Matplotlib animations"](https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/bring_your_plots_to_life_with_matplotlib_animations_kyriacos_kyriacou.ipynb) - a tutorial by Kyriacos Kyriacou within mlcourse.ai
+- ["Some details on Matplotlib"](https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/some_details_in_matplotlib_pisarev_ivan.ipynb) - a tutorial by Ivan Pisarev within mlcourse.ai
 - Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
 - Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd) based on this notebook
 - Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)

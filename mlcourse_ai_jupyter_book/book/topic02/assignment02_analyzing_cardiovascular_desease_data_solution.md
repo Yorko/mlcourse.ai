@@ -191,7 +191,7 @@ In the end, we have:
 
 ## 1.1. Basic observations
 
-**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not expailned (whether "1" stands for women or men) – figure this out by looking analyzing height, reasonably assuming that on average men are taller.**
+**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not explained (whether "1" stands for women or men) – figure this out by looking analyzing height, reasonably assuming that on average men are taller.**
 1. 45530 women и 24470 men
 2. 45530 men и 24470 women
 3. 45470 women и 24530 men
@@ -353,7 +353,7 @@ As a result, the difference is approximately 3-fold. Not 5-fold, as the SCORE sc
 ## 1.3. Analyzing BMI
 ### Task:
 
-Create a new feature – BMI ([Body Mass Index](https://en.wikipedia.org/wiki/Body_mass_index)). To do this, divide weight in kilogramms by the square of height in meters. Normal BMI values are said to be from 18.5 to 25.
+Create a new feature – BMI ([Body Mass Index](https://en.wikipedia.org/wiki/Body_mass_index)). To do this, divide weight in kilograms by the square of height in meters. Normal BMI values are said to be from 18.5 to 25.
 
 **Question 1.6. (2 points). Choose the correct statements:.**
 
@@ -401,7 +401,7 @@ We can notice, that the data is not perfect. It contains much of "dirt" and inac
 
 Filter out the following patient segments (that we consider to have erroneous data)
 
-- diastilic pressure is higher then systolic.
+- diastolic pressure is higher then systolic.
 - height is strictly less than 2.5%-percentile (use `pd.Series.quantile`. If not familiar with it – please read the docs)
 - height is strictly more than 97.5%-percentile
 - weight is strictly less then 2.5%-percentile
@@ -409,7 +409,7 @@ Filter out the following patient segments (that we consider to have erroneous da
 
 This is not all we can do to clean the data, but let's stop here by now.
 
-**Question 1.7. (2 points). How many percents of data (rounded) did we throw away?**
+**Question 1.7. (2 points). What percent of the original data (rounded) did we throw away?**
 
 1. 8
 2. 9
