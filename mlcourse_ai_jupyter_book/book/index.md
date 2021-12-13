@@ -1,6 +1,7 @@
 # Intro
 
-<img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+```{figure} /_static/img/ods_stickers.jpg
+```
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
@@ -14,7 +15,7 @@
 
 </div>
 
-Below you can see the course program (double-click on the image to enlarge)
+Below you can see the course program (click to enlarge).
 
 - **Green** stands for basic content outlined in the articles;
 - **Yellow** stands for videolectures;
@@ -22,7 +23,7 @@ Below you can see the course program (double-click on the image to enlarge)
 - **Chocolate** stands for bonus assignments;
 - **White** stands for additional content.
 
-```{figure} /_static/program/program.png
+```{figure} /_static/program/program.svg
 :name: course_program
 :width: 600px
 ```
