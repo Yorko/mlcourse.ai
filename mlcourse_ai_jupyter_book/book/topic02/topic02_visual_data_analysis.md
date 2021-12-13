@@ -32,7 +32,7 @@ All in all, visualization is a relatively fast way to learn something new about 
 
 In this article, we are going to get hands-on experience with visual exploration of data using popular libraries such as `pandas`, `matplotlib` and `seaborn`.
 
-**Article outline**
+## Article outline
 
 1. [Dataset](#1.-Dataset)
 2. [Univariate visualization](#2.-Univariate-visualization)
@@ -122,11 +122,11 @@ The last data column, **Churn**, is our target variable. It is binary: *True* in
 
 Below, we will consider different statistical types of features and the corresponding tools for their individual visual analysis.
 
-#### 2.1 Quantitative features
+### 2.1 Quantitative features
 
 *Quantitative features* take on ordered numerical values. Those values can be *discrete*, like integers, or *continuous*, like real numbers, and usually express a count or a measurement.
 
-##### Histograms and density plots
+#### Histograms and density plots
 
 The easiest way to take a look at the distribution of a numerical variable is to plot its *histogram* using the `DataFrame`'s method [`hist()`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.hist.html).
 
@@ -158,7 +158,7 @@ sns.distplot(df["Total intl calls"]);
 
 The height of the histogram bars here is normed and shows the density rather than the number of examples in each bin.
 
-##### Box plot
+#### Box plot
 
 Another useful type of visualization is a *box plot*. `seaborn` does a great job here:
 
@@ -177,7 +177,7 @@ Outliers that fall outside of the range bounded by the whiskers are plotted indi
 
 We can see that a large number of international calls is quite rare in our data.
 
-##### Violin plot
+#### Violin plot
 
 The last type of distribution plots that we will consider is a *violin plot*.
 
@@ -194,7 +194,7 @@ The difference between the box and violin plots is that the former illustrates c
 
 In our case, the violin plot does not contribute any additional information about the data as everything is clear from the box plot alone.
 
-##### describe()
+#### describe()
 
 In addition to graphical tools, in order to get the exact numerical statistics of the distribution, we can use the method [`describe()`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html) of a `DataFrame`:
 
@@ -205,11 +205,11 @@ df[features].describe()
 
 Its output is mostly self-explanatory. *25%*, *50%* and *75%* are the corresponding [percentiles](https://en.wikipedia.org/wiki/Percentile).
 
-#### 2.2 Categorical and binary features
+### 2.2 Categorical and binary features
 
 *Categorical features* take on a fixed number of values. Each of these values assigns an observation to a corresponding group, known as a *category*, which reflects some qualitative property of this example. *Binary* variables are an important special case of categorical variables when the number of possible values is exactly 2. If the values of a categorical variable are ordered, it is called *ordinal*.
 
-##### Frequency table
+#### Frequency table
 
 Let’s check the class balance in our dataset by looking at the distribution of the target variable: the *churn rate*. First, we will get a frequency table, which shows how frequent each value of the categorical variable is. For this, we will use the [`value_counts()`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) method:
 
@@ -222,7 +222,7 @@ By default, the entries in the output are sorted from the most to the least freq
 
 In our case, the data is not *balanced*; that is, our two target classes, loyal and disloyal customers, are not represented equally in the dataset. Only a small part of the clients canceled their subscription to the telecom service. As we will see in the following articles, this fact may imply some restrictions on measuring the classification performance, and, in the future, we may want to additionally penalize our model errors in predicting the minority "Churn" class.
 
-##### Bar plot
+#### Bar plot
 
 The bar plot is a graphical representation of the frequency table. The easiest way to create it is to use the `seaborn`'s function [`countplot()`](https://seaborn.pydata.org/generated/seaborn.countplot.html). There is another function in `seaborn` that is somewhat confusingly called [`barplot()`](https://seaborn.pydata.org/generated/seaborn.barplot.html) and is mostly used for representation of some basic statistics of a numerical variable grouped by a categorical feature.
 
@@ -247,9 +247,9 @@ The left chart above vividly illustrates the imbalance in our target variable. T
 
 *Multivariate* plots allow us to see relationships between two and more different variables, all in one figure. Just as in the case of univariate plots, the specific type of visualization will depend on the types of the variables being analyzed.
 
-#### 3.1 Quantitative vs. Quantitative
+### 3.1 Quantitative vs. Quantitative
 
-##### Correlation matrix
+#### Correlation matrix
 
 Let's look at the correlations among the numerical variables in our dataset. This information is important to know as there are Machine Learning algorithms (for example, linear and logistic regression) that do not handle highly correlated input variables well.
 
@@ -294,7 +294,7 @@ numerical = list(
 )
 ```
 
-##### Scatter plot
+#### Scatter plot
 
 The *scatter plot* displays values of two numerical variables as *Cartesian coordinates* in 2D space. Scatter plots in 3D are also possible.
 
@@ -327,10 +327,9 @@ sns.jointplot(
 
 This is basically a bivariate version of the *Kernel Density Plot* discussed earlier.
 
-##### Scatterplot matrix
+#### Scatterplot matrix
 
 In some cases, we may want to plot a *scatterplot matrix* such as the one shown below. Its diagonal contains the distributions of the corresponding variables, and the scatter plots for each pair of variables fill the rest of the matrix.
-
 
 ```{code-cell} ipython3
 # `pairplot()` may become very slow with the SVG format
@@ -338,14 +337,13 @@ In some cases, we may want to plot a *scatterplot matrix* such as the one shown 
 sns.pairplot(df[numerical]);
 ```
 
-
 ```{code-cell} ipython3
 %config InlineBackend.figure_format = 'svg'
 ```
 
 Sometimes, such a visualization may help draw conclusions about data; but, in this case, everything is pretty clear with no surprises.
 
-#### 3.2 Quantitative vs. Categorical
+### 3.2 Quantitative vs. Categorical
 
 In this section, we will make our simple quantitative plots a little more exciting. We will try to gain new insights for churn prediction from the interactions between the numerical and categorical features.
 
@@ -412,7 +410,7 @@ sns.catplot(
 
 From this, we could conclude that, starting with 4 calls, *Total day minutes* may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.
 
-#### 3.3 Categorical vs. Categorical
+### 3.3 Categorical vs. Categorical
 
 As we saw earlier in this article, the variable *Customer service calls* has few unique values and, thus, can be considered either numerical or ordinal. We have already seen its distribution with a *count plot*. Now, we are interested in the relationship between this ordinal feature and the target variable *Churn*.
 
@@ -437,7 +435,7 @@ sns.countplot(x="Voice mail plan", hue="Churn", data=df, ax=axes[1]);
 
 **An observation**: when *International Plan* is enabled, the churn rate is much higher; the usage of the international plan by the customer is a strong feature. We do not observe the same effect with *Voice mail plan*.
 
-##### Contingency table
+#### Contingency table
 
 In addition to using graphical means for categorical analysis, there is a traditional tool from statistics: a *contingency table*, also called a *cross tabulation*. It shows a multivariate frequency distribution of categorical variables in tabular form. In particular, it allows us to see the distribution of one variable conditional on the other by looking along a column or row.
 
@@ -459,13 +457,13 @@ At first glance, it seems that the churn rate in *New Jersey* and *California* a
 
 ## 4. Whole dataset visualizations
 
-#### 4.1 A naive approach
+### 4.1 A naive approach
 
 We have been looking at different *facets* of our dataset by guessing interesting features and selecting a small number of them at a time for visualization. We have only dealt with two to three variables at once and were easily able to observe the structure and relationships in data. But, what if we want to display all the features and still be able to interpret the resulting visualization?
 
 We could use `hist()` or create a scatterplot matrix with `pairplot()` for the whole dataset to look at all of our features simultaneously. But, when the number of features is high enough, this kind of visual analysis quickly becomes slow and inefficient. Besides, we would still be analyzing our variables in a pairwise fashion, not all at once.
 
-#### 4.2 Dimensionality reduction
+### 4.2 Dimensionality reduction
 
 Most real-world datasets have many features, sometimes, many thousands of them. Each of them can be considered as a dimension in the space of data points. Consequently, more often than not, we deal with high-dimensional datasets, where entire visualization is quite hard.
 
@@ -475,7 +473,7 @@ One of the well-known dimensionality reduction methods is *Principal Component A
 
 There are also many non-linear methods, collectively called *Manifold Learning*. One of the best-known of them is *t-SNE*.
 
-#### 4.3 t-SNE
+### 4.3 t-SNE
 
 Let’s create a [t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) representation of the same churn data we have been using.
 

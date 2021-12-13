@@ -21,8 +21,11 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
 
 [![Patreon](../../_static/img/become_a_patron.png)](https://www.patreon.com/ods_mlcourse)
 
-In Bonus Assignment 1, you'll be analyzing the history of Olympic Games with Pandas. Below is an example of one of the questions:
+Here you’ll be performing EDA of a much larger dataset of US flights sometimes attending to the performance of basic operations. We'll cover some more in-depth Pandas operations, e.g. specifying data types to read the full DataFrame in memory efficiently. Also, in this assignment, you are asked to build several types of visualizations to answer questions on the data in hand.
 
-```{figure} /_static/img/assignment01_teaser.png
-:name: assignment01_teaser
+
+
+```{figure} /_static/img/flight_delays.jpg
+:name: flight_delays
+:width: 444px
 ```

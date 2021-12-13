@@ -17,7 +17,8 @@ kernelspec:
 
 ## Analyzing cardiovascular disease data
 
-<img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+```{figure} /_static/img/ods_stickers.jpg
+```
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
@@ -29,11 +30,11 @@ Authors: [Ilya Baryshnikov](https://www.linkedin.com/in/baryshnikov-ilya/), [Max
 
 In this assignment, you will answer questions about a dataset on cardiovascular disease. You do not need to download the data: it is already in the repository. There are some Tasks that will require you to write code. Complete them and then answer the questions in the [form](https://docs.google.com/forms/d/13cE_tSIb6hsScQvvWUJeu1MEHE5L6vnxQUbDYpXsf24).
 
-#### Problem
+### Problem
 
 Predict presence or absence of cardiovascular disease (CVD) using the patient examination results.
 
-#### Data description
+### Data description
 
 There are 3 types of input features:
 
@@ -102,14 +103,12 @@ rcParams["figure.figsize"] = 11, 8
 
 To make it simple, we will work only with the training part of the dataset:
 
-
 ```{code-cell} ipython3
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
 DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
 ```
-
 
 ```{code-cell} ipython3
 df = pd.read_csv(DATA_PATH + "mlbootcamp5_train.csv", sep=";")
@@ -283,7 +282,11 @@ Median age of smokers is 52.4 years, for non-smokers it's 54. We see that the co
 
 On the web site of European Society of Cardiology, a [SCORE scale](https://www.escardio.org/Education/Practice-Tools/CVD-prevention-toolbox/SCORE-Risk-Charts) is given. It is used for calculating the risk of death from a cardiovascular decease in the next 10 years. Here it is:
 
-<img src='../../_static/img/SCORE_CVD_eng.png' width=60%>
+
+```{figure} /_static/img/SCORE_CVD_eng.png
+:name: SCORE_CVD_eng
+:width: 600px
+```
 
 Let's take a look at the upper-right rectangle showing a subset of smoking men aged from 60 to 65. (It's not obvious, but the values in figure represent the upper boundary).
 

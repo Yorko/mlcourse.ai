@@ -25,7 +25,7 @@ kernelspec:
 Author: [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/). Translated and edited by Alena Sharlo, [Yury Kashnitsky](https://yorko.github.io), [Artem Trunov](https://www.linkedin.com/in/datamove), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
-### Article outline
+## Article outline
 
 1. [Dataset](#1.-Dataset)
 2. [DataFrame.plot()](#2.-DataFrame.plot)
@@ -137,7 +137,7 @@ df[[x for x in df.columns if "Sales" in x] + ["Year_of_Release"]].groupby(
 
 Now, let's move on to the `Seaborn` library. `seaborn` is essentially a higher-level API based on the `matplotlib` library. Among other things, it differs from the latter in that it contains more adequate default settings for plotting. By adding `import seaborn as sns; sns.set()` in your code, the images of your plots will become much nicer. Also, this library contains a set of complex tools for visualization that would otherwise (i.e. when using bare `matplotlib`) require quite a large amount of code.
 
-#### pairplot()
+### pairplot()
 
 Let's take a look at the first of such complex plots, a *pairwise relationships plot*, which creates a matrix of scatter plots by default. This kind of plot helps us visualize the relationship between different variables in a single output.
 
@@ -152,7 +152,7 @@ sns.pairplot(
 
 As you can see, the distribution histograms lie on the diagonal of the matrix. The remaining charts are scatter plots for the corresponding pairs of features.
 
-#### distplot()
+### distplot()
 
 It is also possible to plot a distribution of observations with `seaborn`'s `distplot()`. For example, let's look at the distribution of critics' ratings: `Critic_Score`. By default, the plot displays a histogram and the [kernel density estimate](https://en.wikipedia.org/wiki/Kernel_density_estimation).
 
@@ -162,7 +162,7 @@ It is also possible to plot a distribution of observations with `seaborn`'s `dis
 sns.distplot(df["Critic_Score"]);
 ```
 
-#### jointplot()
+### jointplot()
 
 To look more closely at the relationship between two numerical variables, you can use *joint plot*, which is a cross between a scatter plot and histogram. Let's see how the `Critic_Score` and `User_Score` features are related.
 
@@ -171,7 +171,7 @@ To look more closely at the relationship between two numerical variables, you ca
 sns.jointplot(x="Critic_Score", y="User_Score", data=df, kind="scatter");
 ```
 
-#### boxplot()
+### boxplot()
 
 Another useful type of plot is a *box plot*. Let's compare critics' ratings for the top 5 biggest gaming platforms.
 
@@ -196,7 +196,7 @@ The whiskers are the lines extending from the box. They represent the entire sca
 
 Outliers that fall out of the range bounded by the whiskers are plotted individually.
 
-#### heatmap()
+### heatmap()
 
 The last type of plot that we will cover here is a *heat map*. A heat map allows you to view the distribution of a numerical variable over two categorical ones. Let’s visualize the total sales of games by genre and gaming platform.
 
@@ -229,7 +229,7 @@ from plotly.offline import download_plotlyjs, init_notebook_mode, iplot, plot
 init_notebook_mode(connected=True)
 ```
 
-#### Line plot
+### Line plot
 
 First of all, let’s build a *line plot* showing the number of games released and their sales by year.
 
@@ -275,7 +275,7 @@ As an option, you can save the plot in an html file:
 plotly.offline.plot(fig, filename="years_stats.html", show_link=False);
 ```
 
-#### Bar chart
+### Bar chart
 
 Let's use a *bar chart* to compare the market share of different gaming platforms broken down by the number of new releases and by total revenue.
 
@@ -314,7 +314,7 @@ fig = go.Figure(data=data, layout=layout)
 iplot(fig, show_link=False)
 ```
 
-#### Box plot
+### Box plot
 
 `plotly` also supports *box plots*. Let’s consider the distribution of critics' ratings by the genre of the game.
 

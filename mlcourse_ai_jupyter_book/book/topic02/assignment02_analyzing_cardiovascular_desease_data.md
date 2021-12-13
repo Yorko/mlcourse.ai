@@ -17,7 +17,8 @@ kernelspec:
 
 ## Analyzing cardiovascular disease data
 
-<img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+```{figure} /_static/img/ods_stickers.jpg
+```
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 Authors: [Ilya Baryshnikov](https://www.linkedin.com/in/baryshnikov-ilya/), [Maxim Uvarov](https://www.linkedin.com/in/maxis42/), and [Yury Kashnitsky](https://www.linkedin.com/in/festline/). Translated and edited by [Inga Kaydanova](https://www.linkedin.com/in/inga-kaidanova-a92398b1/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
@@ -27,11 +28,11 @@ Authors: [Ilya Baryshnikov](https://www.linkedin.com/in/baryshnikov-ilya/), [Max
 
 In this assignment, you will answer questions about a dataset on cardiovascular disease. You do not need to download the data: it is already in the repository. There are some Tasks that will require you to write code. Complete them and then answer the questions in the [form](https://docs.google.com/forms/d/13cE_tSIb6hsScQvvWUJeu1MEHE5L6vnxQUbDYpXsf24).
 
-#### Problem
+### Problem
 
 Predict the presence or absence of cardiovascular disease (CVD) using the patient examination results.
 
-#### Data description
+### Data description
 
 There are 3 types of input features:
 
@@ -190,7 +191,7 @@ In the end, we have:
 
 ## 1.1. Basic observations
 
-**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not given (whether "1" stands for women or for men) – figure this out by looking analyzing height, making the assumption that men are taller on average. **
+**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not given (whether "1" stands for women or for men) – figure this out by looking analyzing height, making the assumption that men are taller on average.**
 1. 45530 women and 24470 men
 2. 45530 men and 24470 women
 3. 45470 women and 24530 men
