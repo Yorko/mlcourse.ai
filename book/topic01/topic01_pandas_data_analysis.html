@@ -174,6 +174,43 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_intro.html">
+   Topic 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
+   Classification, Decision Trees &amp; k Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/videolecture03.html">
+   Videolecture 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
+   Demo Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
+   Demo Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
+   Bonus Assignment 3
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -270,43 +307,41 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#demonstration-of-the-main-pandas-methods-a-class-tocskip">
+  <a class="reference internal nav-link" href="#demonstration-of-the-main-pandas-methods">
    1. Demonstration of the main Pandas methods
-   <a class="tocSkip">
-   </a>
-   <ul class="nav section-nav flex-column">
-    <li class="nav-item toc-entry">
-     <a class="reference internal nav-link" href="#sorting">
-      Sorting
-     </a>
-    </li>
-    <li class="nav-item toc-entry">
-     <a class="reference internal nav-link" href="#indexing-and-retrieving-data">
-      Indexing and retrieving data
-     </a>
-    </li>
-    <li class="nav-item toc-entry">
-     <a class="reference internal nav-link" href="#applying-functions-to-cells-columns-and-rows">
-      Applying Functions to Cells, Columns and Rows
-     </a>
-    </li>
-    <li class="nav-item toc-entry">
-     <a class="reference internal nav-link" href="#grouping">
-      Grouping
-     </a>
-    </li>
-    <li class="nav-item toc-entry">
-     <a class="reference internal nav-link" href="#summary-tables">
-      Summary tables
-     </a>
-    </li>
-    <li class="nav-item toc-entry">
-     <a class="reference internal nav-link" href="#dataframe-transformations">
-      DataFrame transformations
-     </a>
-    </li>
-   </ul>
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sorting">
+     Sorting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-and-retrieving-data">
+     Indexing and retrieving data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applying-functions-to-cells-columns-and-rows">
+     Applying Functions to Cells, Columns and Rows
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grouping">
+     Grouping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-tables">
+     Summary tables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe-transformations">
+     DataFrame transformations
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#first-attempt-at-predicting-telecom-churn">
@@ -342,13 +377,13 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p><a class="reference external" href="#1.-Demonstration-of-main-Pandas-methods">Demonstration of main Pandas methods</a></p></li>
-<li><p><a class="reference external" href="#2.-First-attempt-at-predicting-telecom-churn">First attempt at predicting telecom churn</a></p></li>
-<li><p><a class="reference external" href="#4.-Useful-resources">Useful resources</a></p></li>
+<li><p><a class="reference external" href="#demonstration-of-the-main-pandas-methods">Demonstration of main Pandas methods</a></p></li>
+<li><p><a class="reference external" href="#first-attempt-at-predicting-telecom-churn">First attempt at predicting telecom churn</a></p></li>
+<li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
 </div>
-<div class="section" id="demonstration-of-the-main-pandas-methods-a-class-tocskip">
-<h2>1. Demonstration of the main Pandas methods<a class="tocSkip"><a class="headerlink" href="#demonstration-of-the-main-pandas-methods-a-class-tocskip" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="demonstration-of-the-main-pandas-methods">
+<h2>1. Demonstration of the main Pandas methods<a class="headerlink" href="#demonstration-of-the-main-pandas-methods" title="Permalink to this headline">¶</a></h2>
 <p>Well… There are dozens of cool tutorials on Pandas and visual data analysis. If you are already familiar with these topics, you can switch to the 3rd article in the series, where we get into machine learning.</p>
 <p><strong><a class="reference external" href="http://pandas.pydata.org">Pandas</a></strong> is a Python library that provides extensive means for data analysis. Data scientists often work with data stored in table formats like <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>. Pandas makes it very convenient to load, process, and analyze such tabular data using SQL-like queries. In conjunction with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> provides a wide range of opportunities for visual analysis of tabular data.</p>
 <p>The main data structures in <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> are implemented with <strong>Series</strong> and <strong>DataFrame</strong> classes. The former is a one-dimensional indexed array of some fixed data type. The latter is a two-dimensional data structure - a table - where each column contains data of the same type. You can see it as a dictionary of <code class="docutils literal notranslate"><span class="pre">Series</span></code> instances. <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> are great for representing real data: rows correspond to instances (examples, observations, etc.), and columns correspond to features of these instances.</p>
