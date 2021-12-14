@@ -218,7 +218,9 @@ In the end, we have:
 ### Task:
 
 On the website for the European Society of Cardiology, a [SCORE scale](https://www.escardio.org/Education/Practice-Tools/CVD-prevention-toolbox/SCORE-Risk-Charts) is provided. It is used for calculating the risk of death from a cardiovascular decease in the next 10 years. Here it is:
-<img src='../../img/SCORE_CVD_eng.png' width=70%>
+
+```{figure} /_static/img/SCORE_CVD_eng.png
+```
 
 Let's take a look at the upper-right rectangle, which shows a subset of smoking men aged from 60 to 65. (It's not obvious, but the values in the figure represent the upper bound).
 

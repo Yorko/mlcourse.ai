@@ -27,11 +27,11 @@ Author: [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/). Translated 
 
 ## Article outline
 
-1. [Dataset](#1.-Dataset)
-2. [DataFrame.plot()](#2.-DataFrame.plot)
-3. [Seaborn](#3.-Seaborn)
-4. [Plotly](#4.-Plotly)
-5. [Useful resources](#6.-Useful-resources)
+1. [Dataset](#dataset)
+2. [DataFrame.plot()](#dataframe-plot)
+3. [Seaborn](#seaborn)
+4. [Plotly](#plotly)
+5. [Useful resources](#useful-resources)
 
 ## 1. Dataset
 

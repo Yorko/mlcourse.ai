@@ -2,8 +2,7 @@
 
 # Bonus Assignment 2. Exploratory Data Analysis (EDA) of Olympic games with Pandas
 
-```{figure} /_static/img/olympic_logo.png
-:name: olympic_logo
+```{figure} /_static/img/topic2-teaser.jpg
 :width: 200px
 ```
 
