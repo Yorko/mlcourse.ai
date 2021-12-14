@@ -1,0 +1,206 @@
+@startuml
+package "Week 1" {
+        package "Introduction" #Bisque {
+                rectangle "Course oveview and structure" as intro1 #40B464
+        }
+
+        package "EDA & Pandas" #Bisque {
+                rectangle "EDA with Pandas" as eda_python #40B464
+        }
+
+        package "Assignment 1" #Bisque {
+                rectangle "EDA with Pandas" as a1 #14D2EF
+                rectangle "Analysis of the Olympic Games with Pandas" as bonus_a1 #Chocolate
+        }
+}
+
+package "Week 2" {
+        package "Visual Data Analysis" #Bisque {
+                rectangle "Visual Data Analysis in Python" as visual_eda #40B464
+                rectangle "Seaborn, Matplotlib and Plotly" as vislibs #FFC864
+        }
+
+        package "Assignment 2" #Bisque {
+                rectangle "Analyzing cardiovascular disease data" as a2 #14D2EF
+                rectangle "Analysis of US flights" as bonus_a2 #Chocolate
+        }
+}
+
+package "Week 3" {
+        package "Classification, Decision Trees, and k Nearest Neighbors" #Bisque {
+                rectangle "Decision trees & kNN" as trees #40B464
+        }
+
+        package "Assignment 3" #Bisque {
+                rectangle "Decision trees" as a3 #14D2EF
+                rectangle "Decision trees for classification and regression" as bonus_a3 #Chocolate
+        }
+}
+
+package "Week 4" {
+        package "Linear Classification and Regression" #Bisque {
+                rectangle "Ordinary Least Squares" as ols #40B464
+                rectangle "Logistic Regression" as logreg #40B464
+                rectangle "Regularization" as regul #40B464
+                rectangle "Pros and Cons of Linear Models" as proscons_linmodels #40B464
+                rectangle "Validation and learning curves" as curves #40B464
+                rectangle "LASSO & Ridge" as lasso_ridge #FFC864
+                rectangle "Case study: LTV prediction" as case1 #White
+        }
+
+        package "Assignment 4" #Bisque {
+                rectangle "Sarcasm detection" as a4 #14D2EF
+                rectangle "OLS, Lasso and Random Forest in a regression task" as a6 #14D2EF
+                rectangle "Kaggle: feature engineering, model validation, classification ('Alice')" as bonus_a4 #Chocolate
+        }
+}
+
+package "Week 5" {
+        package "Bagging and Random Forest"  #Bisque {
+                rectangle "Bagging" as bag #40B464
+                rectangle "Random Forest" as rf #40B464
+                rectangle "Feature Importance" as fi #40B464
+                rectangle "Classification metrics" as clf_metrics #FFC864
+                rectangle "Case study: predict payment" as case2 #White
+        }
+
+        package "Assignment 5" #Bisque {
+                rectangle "Logreg vs Random Forest" as a5 #14D2EF
+                rectangle "Logreg vs Random Forest (advanced)" as bonus_a5 #Chocolate
+        }
+}
+
+package "Week 6" {
+        package "Feature Engineering and Feature Selection"  #Bisque {
+                rectangle "Feature Engineering and Feature Selection" as features #40B464
+        }
+
+        package "Assignment 6" #Bisque {
+                rectangle "Kaggle: feature engineering, model validation, regression ('Medium')" as bonus_a6 #Chocolate
+        }
+}
+
+package "Week 7" {
+        package "Unsupervised Learning"  #Bisque {
+                rectangle "Principal Component Analysis" as pca #40B464
+                rectangle "Clustering" as clust #40B464
+        }
+
+        package "Assignment 7" #Bisque {
+                rectangle "Human activity recognition via clustering" as a7 #14D2EF
+                rectangle "PCA and clustering ('faces')" as bonus_a7 #Chocolate
+        }
+
+
+}
+
+package "Week 8" {
+        package "Vowpal Wabbit: Learning with Gigabytes of Data"  #Bisque {
+                rectangle "Stochastic Gradient Descent" as sgd #40B464
+                rectangle "Vowpal Wabbit" as vw #40B464
+        }
+
+        package "Assignment 8" #Bisque {
+                rectangle "Implementing online regressor (demo)" as a8 #14D2EF
+                rectangle "Implementing online regressor (full)" as bonus_a8 #Chocolate
+        }
+}
+
+package "Week 9" {
+        package "Time series"  #Bisque {
+                rectangle "Time Series Analysis with Python" as ts #40B464
+                rectangle "Predicting future with Facebook Prophet" as prophet #FFC864
+        }
+
+        package "Assignment 9" #Bisque {
+                rectangle "ARIMA and Prophet" as a9 #14D2EF
+                rectangle "Feature engineering & time series" as bonus_a9 #Chocolate
+        }
+}
+
+package "Week 10" {
+        package "Gradient boosting"  #Bisque {
+                rectangle "Gradient boosting" as gb #40B464
+                rectangle "Fundamental ideas behind gradient boosting" as gb_video #FFC864
+                rectangle "Xgboost, LightGBM, and CatBoost: key ideas" as gb_impl #White
+        }
+
+        package "Assignment 10" #Bisque {
+                rectangle "Kaggle: categorical features and CatBoost ('Flight Delays')" as a10 #14D2EF
+                rectangle "Implementation of the gradient boosting algorithm" as bonus_a10 #Chocolate
+        }
+}
+
+
+intro1 --> eda_python
+
+
+eda_python --> a1
+eda_python --> bonus_a1
+
+a1 --> visual_eda
+visual_eda --> vislibs
+eda_python --> a2
+eda_python --> bonus_a2
+visual_eda --> a2
+visual_eda --> bonus_a2
+
+a2 --> trees
+trees --> a3
+trees --> bonus_a3
+
+a3 --> ols
+ols --> logreg
+logreg --> regul
+regul --> proscons_linmodels
+proscons_linmodels --> curves
+curves --> a4
+curves --> bonus_a4
+lasso_ridge --> a6
+
+trees --> lasso_ridge
+lasso_ridge --> case1
+
+a4 --> bag
+a6 --> bag
+bag --> rf
+rf --> fi
+rf --> clf_metrics
+rf --> case2
+bag --> a5
+bag --> bonus_a5
+rf --> a5
+rf --> bonus_a5
+logreg --> a5
+logreg --> bonus_a5
+
+fi --> features
+features --> bonus_a6
+
+features --> pca
+pca --> clust
+pca --> a7
+clust --> a7
+pca --> bonus_a7
+clust --> bonus_a7
+
+a7 --> sgd
+sgd --> vw
+sgd --> a8
+sgd --> bonus_a8
+
+a8 --> ts
+ts --> prophet
+ts --> a9
+ts --> bonus_a9
+
+a9 --> gb
+gb --> gb_video
+gb --> gb_impl
+gb --> a10
+gb --> bonus_a10
+gb_video --> a10
+gb_video --> bonus_a10
+gb_impl --> bonus_a10
+
+@enduml
