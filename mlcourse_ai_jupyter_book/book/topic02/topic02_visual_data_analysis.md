@@ -15,7 +15,6 @@ kernelspec:
 # Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction
 
 ```{figure} /_static/img/ods_stickers.jpg
-:name: ods_stickers2_1
 ```
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>

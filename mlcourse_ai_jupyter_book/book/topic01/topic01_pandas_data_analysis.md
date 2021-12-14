@@ -28,11 +28,11 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Ch
 
 ## Article outline
 
-1. [Demonstration of main Pandas methods](#1.-Demonstration-of-main-Pandas-methods)
-2. [First attempt at predicting telecom churn](#2.-First-attempt-at-predicting-telecom-churn)
-3. [Useful resources](#4.-Useful-resources)
+1. [Demonstration of main Pandas methods](#demonstration-of-the-main-pandas-methods)
+2. [First attempt at predicting telecom churn](#first-attempt-at-predicting-telecom-churn)
+3. [Useful resources](#useful-resources)
 
-## 1. Demonstration of the main Pandas methods<a class="tocSkip">
+## 1. Demonstration of the main Pandas methods
 Well... There are dozens of cool tutorials on Pandas and visual data analysis. If you are already familiar with these topics, you can switch to the 3rd article in the series, where we get into machine learning.  
 
 **[Pandas](http://pandas.pydata.org)** is a Python library that provides extensive means for data analysis. Data scientists often work with data stored in table formats like `.csv`, `.tsv`, or `.xlsx`. Pandas makes it very convenient to load, process, and analyze such tabular data using SQL-like queries. In conjunction with `Matplotlib` and `Seaborn`, `Pandas` provides a wide range of opportunities for visual analysis of tabular data.
