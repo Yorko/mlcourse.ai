@@ -331,7 +331,7 @@ forest.fit(X_train, y_train)
 round(forest.score(X_test, y_test), 3)
 ```
 
-### 3. The XOR Problem
+## 3. The XOR Problem
 Let's now consider an example where linear models are worse.
 
 Linear classification methods still define a very simple separating surface - a hyperplane. The most famous toy example of where classes cannot be divided by a hyperplane (or line) with no errors is "the XOR problem".
