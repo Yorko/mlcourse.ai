@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-(topi0c4_part2)=
+(topi04_part2)=
 
 
 # Topic 4. Linear Classification and Regression
