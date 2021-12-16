@@ -1,0 +1,1654 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #2 (demo). Solution &#8212; mlcourse.ai</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bonus Assignment 2. Exploratory Data Analysis (EDA) of Olympic games with Pandas" href="bonus_assignment02_visual_analysis.html" />
+    <link rel="prev" title="Assignment #2 (demo)" href="assignment02_analyzing_cardiovascular_desease_data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Intro
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_intro.html">
+   Topic 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
+   Exploratory data analysis with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/videolecture01.html">
+   Videolecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
+   Demo Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
+   Demo Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
+   Bonus Assignment 1
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic02_intro.html">
+   Topic 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic02_visual_data_analysis.html">
+   Visual Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic02_additional_seaborn_matplotlib_plotly.html">
+   Seaborn, Matplotlib, Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="videolecture02.html">
+   Videolecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment02_analyzing_cardiovascular_desease_data.html">
+   Demo Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Demo Assignment 2 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bonus_assignment02_visual_analysis.html">
+   Bonus Assignment 2
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_intro.html">
+   Topic 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
+   Classification, Decision Trees &amp; k Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/videolecture03.html">
+   Videolecture 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
+   Demo Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
+   Demo Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
+   Bonus Assignment 3
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic04_intro.html">
+   Topic 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
+   Linear classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
+   An illustrative example of logistic regression regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
+   When logistic regression is good and when it is not
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
+   Validation and learning curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/videolecture04.html">
+   Videolecture 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_sarcasm_detection_with_logit.html">
+   Demo Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_sarcasm_detection_with_logit_solution.html">
+   Demo Assignment 4 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
+   Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/book/topic02/assignment02_analyzing_cardiovascular_desease_data_solution.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/topic02/assignment02_analyzing_cardiovascular_desease_data_solution.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/topic02/assignment02_analyzing_cardiovascular_desease_data_solution.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-cardiovascular-disease-data">
+   Analyzing cardiovascular disease data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem">
+     Problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-description">
+     Data description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-preliminary-data-analysis">
+   Part 1. Preliminary data analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-observations">
+   1.1. Basic observations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#risk-maps">
+   1.2. Risk maps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-bmi">
+   1.3. Analyzing BMI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-data">
+   1.4. Cleaning data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-visual-data-analysis">
+   Part 2. Visual data analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-matrix-visualization">
+   2.1. Correlation matrix visualization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#height-distribution-of-men-and-women">
+   2.2. Height distribution of men and women
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Solution:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rank-correlation">
+   2.3. Rank correlation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#age">
+   2.4. Age
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="assignment-2-demo-solution">
+<span id="assignment02-solution"></span><h1>Assignment #2 (demo). Solution<a class="headerlink" href="#assignment-2-demo-solution" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="analyzing-cardiovascular-disease-data">
+<h2>Analyzing cardiovascular disease data<a class="headerlink" href="#analyzing-cardiovascular-disease-data" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
+</div>
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
+<p>Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshnikov-ilya/">Ilya Baryshnikov</a>, <a class="reference external" href="https://www.linkedin.com/in/maxis42/">Maxim Uvarov</a>, and <a class="reference external" href="https://www.linkedin.com/in/festline/">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/inga-kaidanova-a92398b1/">Inga Kaydanova</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
+<p><strong>Same assignment as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data">Kaggle Kernel</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data-solution">solution</a>.</strong></p>
+<p>In this assignment, you will answer questions about a dataset on cardiovascular disease. You do not need to download the data: it is already in the repository. There are some Tasks that will require you to write code. Complete them and then answer the questions in the <a class="reference external" href="https://docs.google.com/forms/d/13cE_tSIb6hsScQvvWUJeu1MEHE5L6vnxQUbDYpXsf24">form</a>.</p>
+<div class="section" id="problem">
+<h3>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">¶</a></h3>
+<p>Predict presence or absence of cardiovascular disease (CVD) using the patient examination results.</p>
+</div>
+<div class="section" id="data-description">
+<h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this headline">¶</a></h3>
+<p>There are 3 types of input features:</p>
+<ul class="simple">
+<li><p><em>Objective</em>: factual information;</p></li>
+<li><p><em>Examination</em>: results of medical examination;</p></li>
+<li><p><em>Subjective</em>: information given by the patient.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Variable Type</p></th>
+<th class="head"><p>Variable</p></th>
+<th class="head"><p>Value Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Age</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>age</p></td>
+<td><p>int (days)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Height</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>height</p></td>
+<td><p>int (cm)</p></td>
+</tr>
+<tr class="row-even"><td><p>Weight</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>weight</p></td>
+<td><p>float (kg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gender</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>gender</p></td>
+<td><p>categorical code</p></td>
+</tr>
+<tr class="row-even"><td><p>Systolic blood pressure</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>ap_hi</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Diastolic blood pressure</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>ap_lo</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-even"><td><p>Cholesterol</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>cholesterol</p></td>
+<td><p>1: normal, 2: above normal, 3: well above normal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Glucose</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>gluc</p></td>
+<td><p>1: normal, 2: above normal, 3: well above normal</p></td>
+</tr>
+<tr class="row-even"><td><p>Smoking</p></td>
+<td><p>Subjective Feature</p></td>
+<td><p>smoke</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alcohol intake</p></td>
+<td><p>Subjective Feature</p></td>
+<td><p>alco</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-even"><td><p>Physical activity</p></td>
+<td><p>Subjective Feature</p></td>
+<td><p>active</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>Presence or absence of cardiovascular disease</p></td>
+<td><p>Target Variable</p></td>
+<td><p>cardio</p></td>
+<td><p>binary</p></td>
+</tr>
+</tbody>
+</table>
+<p>All of the dataset values were collected at the moment of medical examination.</p>
+<p>Let’s get to know our data by performing a preliminary data analysis.</p>
+</div>
+</div>
+<div class="section" id="part-1-preliminary-data-analysis">
+<h2>Part 1. Preliminary data analysis<a class="headerlink" href="#part-1-preliminary-data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>First, we will initialize the environment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import all required modules</span>
+<span class="c1"># Disable warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="c1"># Import plotting modules</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should use the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> library for visual analysis, so let’s set it up too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tune the visual settings for figures in `seaborn`</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span>
+    <span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="s2">&quot;axes.titlesize&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+
+<span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make it simple, we will work only with the training part of the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
+<span class="c1"># you can specify the data/ folder from the root of your cloned</span>
+<span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">+</span> <span class="s2">&quot;mlbootcamp5_train.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset size: &quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset size:  (70000, 13)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>age</th>
+      <th>gender</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>ap_hi</th>
+      <th>ap_lo</th>
+      <th>cholesterol</th>
+      <th>gluc</th>
+      <th>smoke</th>
+      <th>alco</th>
+      <th>active</th>
+      <th>cardio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>18393</td>
+      <td>2</td>
+      <td>168</td>
+      <td>62.0</td>
+      <td>110</td>
+      <td>80</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>20228</td>
+      <td>1</td>
+      <td>156</td>
+      <td>85.0</td>
+      <td>140</td>
+      <td>90</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>18857</td>
+      <td>1</td>
+      <td>165</td>
+      <td>64.0</td>
+      <td>130</td>
+      <td>70</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>17623</td>
+      <td>2</td>
+      <td>169</td>
+      <td>82.0</td>
+      <td>150</td>
+      <td>100</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>17474</td>
+      <td>1</td>
+      <td>156</td>
+      <td>56.0</td>
+      <td>100</td>
+      <td>60</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It would be instructive to peek into the values of our variables.</p>
+<p>Let’s convert the data into <em>long</em> format and depict the value counts of the categorical features using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.factorplot.html"><code class="docutils literal notranslate"><span class="pre">factorplot()</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+    <span class="n">frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;cholesterol&quot;</span><span class="p">,</span> <span class="s2">&quot;gluc&quot;</span><span class="p">,</span> <span class="s2">&quot;smoke&quot;</span><span class="p">,</span> <span class="s2">&quot;alco&quot;</span><span class="p">,</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;cardio&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">df_uniques</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_uniques</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">])[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;count&quot;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_8_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_8_0.png" />
+</div>
+</div>
+<p>We can see that the target classes are balanced. That’s great!</p>
+<p>Let’s split the dataset by target values: sometimes you can immediately spot the most significant feature on the plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+    <span class="n">frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;cholesterol&quot;</span><span class="p">,</span> <span class="s2">&quot;gluc&quot;</span><span class="p">,</span> <span class="s2">&quot;smoke&quot;</span><span class="p">,</span> <span class="s2">&quot;alco&quot;</span><span class="p">,</span> <span class="s2">&quot;active&quot;</span><span class="p">],</span>
+    <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cardio&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">df_uniques</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_uniques</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;cardio&quot;</span><span class="p">])[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;count&quot;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;cardio&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_10_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_10_0.png" />
+</div>
+</div>
+<p>You can see that the target variable greatly affects the distribution of cholesterol and glucose levels. Is this a coincidence?</p>
+<p>Now, let’s calculate some statistics for the feature unique values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id
+70000
+----------
+age
+8076
+----------
+gender
+2 [(1, 45530), (2, 24470)]
+----------
+height
+109
+----------
+weight
+287
+----------
+ap_hi
+153
+----------
+ap_lo
+157
+----------
+cholesterol
+3 [(1, 52385), (2, 9549), (3, 8066)]
+----------
+gluc
+3 [(1, 59479), (2, 5190), (3, 5331)]
+----------
+smoke
+2 [(0, 63831), (1, 6169)]
+----------
+alco
+2 [(0, 66236), (1, 3764)]
+----------
+active
+2 [(0, 13739), (1, 56261)]
+----------
+cardio
+2 [(0, 35021), (1, 34979)]
+----------
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the end, we have:</p>
+<ul class="simple">
+<li><p>5 numerical features (excluding <em>id</em>);</p></li>
+<li><p>7 categorical features;</p></li>
+<li><p>70000 records in total.</p></li>
+</ul>
+</div>
+<div class="section" id="basic-observations">
+<h2>1.1. Basic observations<a class="headerlink" href="#basic-observations" title="Permalink to this headline">¶</a></h2>
+<p><strong>Question 1.1. (1 point). How many men and women are present in this dataset? Values of the <code class="docutils literal notranslate"><span class="pre">gender</span></code> feature were not explained (whether “1” stands for women or men) – figure this out by looking analyzing height, reasonably assuming that on average men are taller.</strong></p>
+<ol class="simple">
+<li><p>45530 women и 24470 men</p></li>
+<li><p>45530 men и 24470 women</p></li>
+<li><p>45470 women и 24530 men</p></li>
+<li><p>45470 men и 24530 women</p></li>
+</ol>
+<p><strong>Answer:</strong> 1.</p>
+<div class="section" id="solution">
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<p>Let’s calculate average height for both values of <code class="docutils literal notranslate"><span class="pre">gender</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gender
+1    161.355612
+2    169.947895
+Name: height, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>161 cm and almost 170 cm on average, so we make a conclusion that gender=1 represents females, and gender=2 – males. So the sample contains 45530 women и 24470 men.</p>
+<p><strong>Question 1.2. (1 point). Who more often report consuming alcohol - men or women?</strong></p>
+<ol class="simple">
+<li><p>women</p></li>
+<li><p>men</p></li>
+</ol>
+<p><strong>Answer:</strong> 2.</p>
+</div>
+<div class="section" id="id1">
+<h3>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)[</span><span class="s2">&quot;alco&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gender
+1    0.025500
+2    0.106375
+Name: alco, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well… obvious :)</p>
+<p><strong>Question 1.3. (1 point). What’s the rounded difference between the percentages of smokers among men and women?</strong></p>
+<ol class="simple">
+<li><p>4</p></li>
+<li><p>16</p></li>
+<li><p>20</p></li>
+<li><p>24</p></li>
+</ol>
+<p><strong>Answer:</strong> 3.</p>
+</div>
+<div class="section" id="id2">
+<h3>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)[</span><span class="s2">&quot;smoke&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gender
+1    0.017856
+2    0.218880
+Name: smoke, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span>
+    <span class="mi">100</span>
+    <span class="o">*</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;smoke&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;smoke&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1.4. (1 point). What’s the rounded difference between median values of age (in months) for non-smokers and smokers? You’ll need to figure out the units of feature <code class="docutils literal notranslate"><span class="pre">age</span></code> in this dataset.</strong></p>
+<ol class="simple">
+<li><p>5</p></li>
+<li><p>10</p></li>
+<li><p>15</p></li>
+<li><p>20</p></li>
+</ol>
+<p><strong>Answer:</strong> 4.</p>
+</div>
+<div class="section" id="id3">
+<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Age is given here in days.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;smoke&quot;</span><span class="p">)[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span> <span class="o">/</span> <span class="mf">365.25</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>smoke
+0    53.995893
+1    52.361396
+Name: age, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Median age of smokers is 52.4 years, for non-smokers it’s 54. We see that the correct answer is 20 months. But here is a way to calculate it exactly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;smoke&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;smoke&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="p">)</span> <span class="o">/</span> <span class="mf">365.25</span> <span class="o">*</span> <span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.613963039014372
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="risk-maps">
+<h2>1.2. Risk maps<a class="headerlink" href="#risk-maps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task">
+<h3>Task:<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<p>On the web site of European Society of Cardiology, a <a class="reference external" href="https://www.escardio.org/Education/Practice-Tools/CVD-prevention-toolbox/SCORE-Risk-Charts">SCORE scale</a> is given. It is used for calculating the risk of death from a cardiovascular decease in the next 10 years. Here it is:</p>
+<div class="figure align-default" id="score-cvd-eng">
+<a class="reference internal image-reference" href="../../_images/SCORE_CVD_eng.png"><img alt="../../_images/SCORE_CVD_eng.png" src="../../_images/SCORE_CVD_eng.png" style="width: 600px;" /></a>
+</div>
+<p>Let’s take a look at the upper-right rectangle showing a subset of smoking men aged from 60 to 65. (It’s not obvious, but the values in figure represent the upper boundary).</p>
+<p>We see a value 9 in the lower-left corner of the rectangle and 47 in the upper-right. This means that for people in this gender-age group whose systolic pressure is less than 120 the risk of a CVD is estimated to be 5 times lower than for those with the pressure in the interval [160,180).</p>
+<p>Let’s calculate the same ratio, but with our data.</p>
+<p>Clarifications:</p>
+<ul class="simple">
+<li><p>Calculate <code class="docutils literal notranslate"><span class="pre">age_years</span></code> feature – rounded age in years. For this task, select people aged from 60 to 64 inclusive.</p></li>
+<li><p>Cholesterol level categories in the figure and in our data are different. In the figure, the values of <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code> feature are as follows: 4 mmol/l <span class="math notranslate nohighlight">\(\rightarrow\)</span> 1, 5-7 mmol/l <span class="math notranslate nohighlight">\(\rightarrow\)</span> 2, 8 mmol/l <span class="math notranslate nohighlight">\(\rightarrow\)</span> 3.</p></li>
+</ul>
+<p><strong>Question 1.5. (2 points). Calculate fractions of ill people (with CVD) in two segments described above. What’s the quotient of these two fractions?</strong></p>
+<ol class="simple">
+<li><p>1</p></li>
+<li><p>2</p></li>
+<li><p>3</p></li>
+<li><p>4</p></li>
+</ol>
+<p><strong>Answer:</strong> 3.</p>
+</div>
+<div class="section" id="id4">
+<h3>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age_years&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age_years&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65
+</pre></div>
+</div>
+</div>
+</div>
+<p>The oldest people in the sample are aged 65. Coincidence? Don’t think so! Let’s select smoking men of age [60,64].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smoking_old_men</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age_years&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;age_years&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;smoke&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If cholesterol level in this age group is 1, and systolic pressure is below 120, then the proportion of people with  CVD is 26%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smoking_old_men</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">smoking_old_men</span><span class="p">[</span><span class="s2">&quot;cholesterol&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">smoking_old_men</span><span class="p">[</span><span class="s2">&quot;ap_hi&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">)</span>
+<span class="p">][</span><span class="s2">&quot;cardio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2631578947368421
+</pre></div>
+</div>
+</div>
+</div>
+<p>If, however, cholesterol level in this age group is 3, and systolic pressure is from 160 to 180, then the proportion of people with a CVD is 86%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smoking_old_men</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">smoking_old_men</span><span class="p">[</span><span class="s2">&quot;cholesterol&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">smoking_old_men</span><span class="p">[</span><span class="s2">&quot;ap_hi&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">160</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">smoking_old_men</span><span class="p">[</span><span class="s2">&quot;ap_hi&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">180</span><span class="p">)</span>
+<span class="p">][</span><span class="s2">&quot;cardio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8636363636363636
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a result, the difference is approximately 3-fold. Not 5-fold, as the SCORE scale tells us, but it’s possible that the SCORE risk of CVD is nonlinearly dependent on the proportion of ill people in the given age group.</p>
+</div>
+</div>
+<div class="section" id="analyzing-bmi">
+<h2>1.3. Analyzing BMI<a class="headerlink" href="#analyzing-bmi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Task:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Create a new feature – BMI (<a class="reference external" href="https://en.wikipedia.org/wiki/Body_mass_index">Body Mass Index</a>). To do this, divide weight in kilograms by the square of height in meters. Normal BMI values are said to be from 18.5 to 25.</p>
+<p><strong>Question 1.6. (2 points). Choose the correct statements:.</strong></p>
+<ol class="simple">
+<li><p>Median BMI in the sample is within boundaries of normal values.</p></li>
+<li><p>Women’s BMI is on average higher then men’s.</p></li>
+<li><p>Healthy people have, on average, higher BMI than ill people.</p></li>
+<li><p>In the segment of healthy and non-drinking men BMI is closer to the norm than in the segment of healthy and non-drinking women</p></li>
+</ol>
+<p><strong>Answer:</strong> 2 and 4</p>
+</div>
+<div class="section" id="id6">
+<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;BMI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;BMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.374068120774975
+</pre></div>
+</div>
+</div>
+</div>
+<p>First statement is incorrect since median BMI exceeds the norm of 25 points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)[</span><span class="s2">&quot;BMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gender
+1    26.709402
+2    25.910684
+Name: BMI, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Seconds statement is correct – women’s BMI is higher on average.</p>
+<p>Third statement is incorrect.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;alco&quot;</span><span class="p">,</span> <span class="s2">&quot;cardio&quot;</span><span class="p">])[</span><span class="s2">&quot;BMI&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>BMI</th>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <th>alco</th>
+      <th>cardio</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">1</th>
+      <th rowspan="2" valign="top">0</th>
+      <th>0</th>
+      <td>25.654372</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27.885187</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">1</th>
+      <th>0</th>
+      <td>27.885187</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30.110991</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">2</th>
+      <th rowspan="2" valign="top">0</th>
+      <th>0</th>
+      <td>25.102391</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>26.674874</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">1</th>
+      <th>0</th>
+      <td>25.351541</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27.530797</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Comparing BMI values in rows where <code class="docutils literal notranslate"><span class="pre">alco=0</span></code> and <code class="docutils literal notranslate"><span class="pre">cardio=0</span></code>, we see that the last statement is correct.</p>
+</div>
+</div>
+<div class="section" id="cleaning-data">
+<h2>1.4. Cleaning data<a class="headerlink" href="#cleaning-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>Task:<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>We can notice, that the data is not perfect. It contains much of “dirt” and inaccuracies. We’ll see it better when we do data visualization.</p>
+<p>Filter out the following patient segments (that we consider to have erroneous data)</p>
+<ul class="simple">
+<li><p>diastolic pressure is higher then systolic.</p></li>
+<li><p>height is strictly less than 2.5%-percentile (use <code class="docutils literal notranslate"><span class="pre">pd.Series.quantile</span></code>. If not familiar with it – please read the docs)</p></li>
+<li><p>height is strictly more than 97.5%-percentile</p></li>
+<li><p>weight is strictly less then 2.5%-percentile</p></li>
+<li><p>weight is strictly more than 97.5%-percentile</p></li>
+</ul>
+<p>This is not all we can do to clean the data, but let’s stop here by now.</p>
+<p><strong>Question 1.7. (2 points). What percent of the original data (rounded) did we throw away?</strong></p>
+<ol class="simple">
+<li><p>8</p></li>
+<li><p>9</p></li>
+<li><p>10</p></li>
+<li><p>11</p></li>
+</ol>
+<p><strong>Answer:</strong> 3</p>
+</div>
+<div class="section" id="id8">
+<h3>Solution:<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_to_remove</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;ap_lo&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ap_hi&quot;</span><span class="p">])</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.025</span><span class="p">))</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.975</span><span class="p">))</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.025</span><span class="p">))</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.975</span><span class="p">))</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_to_remove</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_to_remove</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0963
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve thrown out about 10% of the original data.</p>
+</div>
+</div>
+<div class="section" id="part-2-visual-data-analysis">
+<h2>Part 2. Visual data analysis<a class="headerlink" href="#part-2-visual-data-analysis" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="correlation-matrix-visualization">
+<h2>2.1. Correlation matrix visualization<a class="headerlink" href="#correlation-matrix-visualization" title="Permalink to this headline">¶</a></h2>
+<p>To understand the features better, you can create a matrix of the correlation coefficients between the features. Use the initial dataset (non-filtered).</p>
+<div class="section" id="id9">
+<h3>Task:<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Plot a correlation matrix using <a class="reference external" href="http://seaborn.pydata.org/generated/seaborn.heatmap.html"><code class="docutils literal notranslate"><span class="pre">heatmap()</span></code></a>. You can create the matrix using the standard <code class="docutils literal notranslate"><span class="pre">pandas</span></code> tools with the default parameters.</p>
+</div>
+<div class="section" id="id10">
+<h3>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the correlation matrix</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;pearson&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a mask to hide the upper triangle of the correlation matrix (which is symmetric)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">corr</span><span class="p">,</span>
+    <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span>
+    <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_43_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_43_0.png" />
+</div>
+</div>
+<p><strong>Question 2.1. (1 point).</strong> Which pair of features has the strongest Pearson’s correlation with the <em>gender</em> feature?</p>
+<ol class="simple">
+<li><p>Cardio, Cholesterol</p></li>
+<li><p>Height, Smoke</p></li>
+<li><p>Smoke, Alco</p></li>
+<li><p>Height, Weight</p></li>
+</ol>
+<p><strong>Answer:</strong> 2.</p>
+</div>
+</div>
+<div class="section" id="height-distribution-of-men-and-women">
+<h2>2.2. Height distribution of men and women<a class="headerlink" href="#height-distribution-of-men-and-women" title="Permalink to this headline">¶</a></h2>
+<p>From our exploration of the unique values we know that the gender is encoded by the values <em>1</em> and <em>2</em>. And though you don’t have a specification of how these values correspond to men and women, you can figure that out graphically by looking at the mean values of height and weight for each value of the <em>gender</em> feature.</p>
+<div class="section" id="id11">
+<h3>Task:<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Create a violin plot for the height and gender using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.violinplot.html"><code class="docutils literal notranslate"><span class="pre">violinplot()</span></code></a>. Use the parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hue</span></code> to split by gender;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale</span></code> to evaluate the number of records for each gender.</p></li>
+</ul>
+<p>In order for the plot to render correctly, you need to convert your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to <em>long</em> format using the <code class="docutils literal notranslate"><span class="pre">melt()</span></code> function from <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Here is <a class="reference external" href="https://stackoverflow.com/a/41575149/3338479">another example</a> of this.</p>
+</div>
+<div class="section" id="id12">
+<h3>Solution:<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_melt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span>
+    <span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_melt</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="n">scale_hue</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_45_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_45_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>Task:<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Create two <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.kdeplot.html"><code class="docutils literal notranslate"><span class="pre">kdeplot</span></code></a>s of the <em>height</em> feature for each gender on the same chart. You will see the difference between the genders more clearly, but you will be unable to evaluate the number of records in each of them.</p>
+</div>
+<div class="section" id="id14">
+<h3>Solution:<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_47_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_47_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rank-correlation">
+<h2>2.3. Rank correlation<a class="headerlink" href="#rank-correlation" title="Permalink to this headline">¶</a></h2>
+<p>In most cases, <em>the Pearson coefficient of linear correlation</em> is more than enough to discover patterns in data.
+But let’s go a little further and calculate a <a class="reference external" href="https://en.wikipedia.org/wiki/Rank_correlation">rank correlation</a>. It will help us to identify such feature pairs in which the lower rank in the variational series of one feature always precedes the higher rank in the another one (and we have the opposite in the case of negative correlation).</p>
+<div class="section" id="id15">
+<h3>Task:<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Calculate and plot a correlation matrix using the <a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman’s rank correlation coefficient</a>.</p>
+</div>
+<div class="section" id="id16">
+<h3>Solution:<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the correlation matrix</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;ap_hi&quot;</span><span class="p">,</span> <span class="s2">&quot;ap_lo&quot;</span><span class="p">,</span> <span class="s2">&quot;cholesterol&quot;</span><span class="p">,</span> <span class="s2">&quot;gluc&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a mask to hide the upper triangle of the correlation matrix (which is symmetric)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Plot the heatmap using the mask and correct aspect ratio</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">corr</span><span class="p">,</span>
+    <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span>
+    <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_49_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_49_0.png" />
+</div>
+</div>
+<p><strong>Question 2.2. (1 point).</strong> Which pair of features has the strongest Spearman correlation?</p>
+<ol class="simple">
+<li><p>Height, Weight</p></li>
+<li><p>Age, Weight</p></li>
+<li><p>Cholesterol, Gluc</p></li>
+<li><p>Cardio, Cholesterol</p></li>
+<li><p>Ap_hi, Ap_lo</p></li>
+<li><p>Smoke, Alco</p></li>
+</ol>
+<p><strong>Answer:</strong> 5.</p>
+<p><strong>Question 2.3. (1 point).</strong> Why does these features have strong rank correlation?</p>
+<ol class="simple">
+<li><p>Inaccuracies in the data (data acquisition errors).</p></li>
+<li><p>Relation is wrong, these features should not be related.</p></li>
+<li><p>Nature of the data.</p></li>
+</ol>
+<p><strong>Answer:</strong> 3.</p>
+</div>
+</div>
+<div class="section" id="age">
+<h2>2.4. Age<a class="headerlink" href="#age" title="Permalink to this headline">¶</a></h2>
+<p>Previously we calculated the age of the respondents in years at the moment of examination.</p>
+<div class="section" id="id17">
+<h3>Task:<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Create a <em>count plot</em> using <a class="reference external" href="http://seaborn.pydata.org/generated/seaborn.countplot.html"><code class="docutils literal notranslate"><span class="pre">countplot()</span></code></a>, with the age on the <em>X</em> axis and the number of people on the <em>Y</em> axis. Each value of the age should have two columns corresponding to the numbers of people of this age for each <em>cardio</em> class.</p>
+</div>
+<div class="section" id="id18">
+<h3>Solution:<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;age_years&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;cardio&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_51_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_solution_51_0.png" />
+</div>
+</div>
+<p><strong>Question 2.4. (1 point).</strong> At what age does the number of people with CVD outnumber the number of people without CVD for the first time?</p>
+<ol class="simple">
+<li><p>44</p></li>
+<li><p>55</p></li>
+<li><p>64</p></li>
+<li><p>70</p></li>
+</ol>
+<p><strong>Answer:</strong> 2.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/topic02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="assignment02_analyzing_cardiovascular_desease_data.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Assignment #2 (demo)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="bonus_assignment02_visual_analysis.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Bonus Assignment 2. Exploratory Data Analysis (EDA) of Olympic games with Pandas</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Yury Kashnitsky (yorko)<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
