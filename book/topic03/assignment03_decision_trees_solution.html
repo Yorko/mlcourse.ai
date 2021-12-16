@@ -52,6 +52,7 @@
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -210,6 +211,63 @@
  <li class="toctree-l1">
   <a class="reference internal" href="bonus_assignment03_decision_trees.html">
    Bonus Assignment 3
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Topic 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic04_intro.html">
+   Topic 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
+   Linear classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
+   An illustrative example of logistic regression regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
+   When logistic regression is good and when it is not
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
+   Validation and learning curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/videolecture04.html">
+   Videolecture 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_sarcasm_detection_with_logit.html">
+   Demo Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_sarcasm_detection_with_logit_solution.html">
+   Demo Assignment 4 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
+   Bonus Assignment 4
   </a>
  </li>
 </ul>
@@ -718,26 +776,26 @@
     <tr style="text-align: right;">
       <th></th>
       <th>Alcoholic_beverage_yes</th>
-      <th>Alcoholic_beverage_no</th>
-      <th>Looks_repulsive</th>
-      <th>Money_spent_lots</th>
-      <th>Looks_handsome</th>
-      <th>Money_spent_little</th>
-      <th>Eloquence_average</th>
       <th>Eloquence_high</th>
+      <th>Alcoholic_beverage_no</th>
+      <th>Eloquence_average</th>
+      <th>Looks_handsome</th>
+      <th>Money_spent_lots</th>
+      <th>Money_spent_little</th>
+      <th>Looks_repulsive</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -746,51 +804,51 @@
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>1</td>
-      <td>0</td>
-      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
     </tr>
@@ -801,8 +859,8 @@
       <td>0</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -835,48 +893,48 @@
     <tr style="text-align: right;">
       <th></th>
       <th>Alcoholic_beverage_yes</th>
-      <th>Alcoholic_beverage_no</th>
-      <th>Looks_repulsive</th>
-      <th>Money_spent_lots</th>
-      <th>Looks_handsome</th>
-      <th>Money_spent_little</th>
-      <th>Eloquence_average</th>
       <th>Eloquence_high</th>
+      <th>Alcoholic_beverage_no</th>
+      <th>Eloquence_average</th>
+      <th>Looks_handsome</th>
+      <th>Money_spent_lots</th>
+      <th>Money_spent_little</th>
+      <th>Looks_repulsive</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1039,13 +1097,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.005977711423774124,
+ 0.2916919971380598,
  0.005977711423774124,
- 0.12808527889139454,
- 0.46956521111470706,
- 0.12808527889139454,
- 0.46956521111470706,
  0.02024420715375619,
- 0.2916919971380598]
+ 0.12808527889139454,
+ 0.46956521111470706,
+ 0.46956521111470706,
+ 0.12808527889139454]
 </pre></div>
 </div>
 </div>
@@ -1091,12 +1149,12 @@ Entropy: 0 (left) and 0.7219280948873623 (right)
 ______________________________
 
 Splitting the right group with 5 samples:
-Best feature to split: Looks_repulsive
-Samples: 3 (left) and 2 (right)
-Entropy: 0 (left) and 1.0 (right)
+Best feature to split: Looks_handsome
+Samples: 2 (left) and 3 (right)
+Entropy: 1.0 (left) and 0 (right)
 ______________________________
 
-Splitting the right group with 2 samples:
+Splitting the left group with 2 samples:
 Best feature to split: Eloquence_high
 Samples: 1 (left) and 1 (right)
 Entropy: 0 (left) and 0 (right)
@@ -1734,33 +1792,61 @@ Name: Target, dtype: int64
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 &lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 &lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 &lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 &lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 &lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 &lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
   ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
+&lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
+  ax = fig.add_subplot(rows, cols, i + 1)
+&lt;ipython-input-28-1c080852a951&gt;:7: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  if data_train.dtypes[column] == np.object:
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-28-1c080852a951&gt;:5: MatplotlibDeprecationWarning: Passing non-integers as three-element position specification is deprecated since 3.3 and will be removed two minor releases later.
-  ax = fig.add_subplot(rows, cols, i + 1)
-</pre></div>
-</div>
-<img alt="../../_images/assignment03_decision_trees_solution_42_4.png" src="../../_images/assignment03_decision_trees_solution_42_4.png" />
+<img alt="../../_images/assignment03_decision_trees_solution_42_3.png" src="../../_images/assignment03_decision_trees_solution_42_3.png" />
 </div>
 </div>
 <p><strong>Checking data types</strong></p>
@@ -2283,8 +2369,8 @@ Feature names must be in the same order as they were in fit.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.57 s, sys: 572 ms, total: 6.14 s
-Wall time: 6.16 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.5 s, sys: 469 ms, total: 4.97 s
+Wall time: 4.97 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=5, estimator=DecisionTreeClassifier(random_state=17),
@@ -2358,8 +2444,8 @@ Feature names must be in the same order as they were in fit.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7.47 s, sys: 137 ms, total: 7.61 s
-Wall time: 7.63 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.39 s, sys: 116 ms, total: 6.5 s
+Wall time: 6.53 s
 </pre></div>
 </div>
 </div>
