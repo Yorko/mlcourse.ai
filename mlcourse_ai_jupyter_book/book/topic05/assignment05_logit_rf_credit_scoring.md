@@ -39,11 +39,11 @@ Great! Let's move on to machine learning.
 
 ## Credit scoring problem setup
 
-#### Problem
+### Problem
 
 Predict whether the customer will repay their credit within 90 days. This is a binary classification problem; we will assign customers into good or bad categories based on our prediction.
 
-#### Data description
+### Data description
 
 | Feature | Variable Type | Value Type | Description |
 |:--------|:--------------|:-----------|:------------|
