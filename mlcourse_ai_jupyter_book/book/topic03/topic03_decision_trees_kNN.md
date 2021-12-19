@@ -389,7 +389,7 @@ To illustrate, if we split by "Salary $\leq$ 34.5", the left subgroup will have 
 If we split by "Salary $\leq$ 95", the left subgroup will have the entropy of 0.97 (6 "bad" and 4 "good"), and the right one will have the entropy of 0 (a group containing only one object). The information gain is about 0.11.
 If we calculate information gain for each partition in that manner, we can select the thresholds for comparison of each numeric feature before the construction of a large tree (using all features).
 
-More examples of numeric feature discretization can be found in posts like ["A Simple Guide to Entropy-Based Discretization"](http://kevinmeurer.com/a-simple-guide-to-entropy-based-discretization/) or ["Discretizing a continuous variable using Entropy"](http://clear-lines.com/blog/post/Discretizing-a-continuous-variable-using-Entropy.aspx). One of the most prominent scientific papers on this subject is "On the handling of continuous-valued attributes in decision tree generation" (UM Fayyad. KB Irani, "Machine Learning", 1992).
+More examples of numeric feature discretization can be found in posts like ["A Simple Guide to Entropy-Based Discretization"](https://natmeurer.com/a-simple-guide-to-entropy-based-discretization/) or ["Discretizing a continuous variable using Entropy"](https://brandewinder.com/2013/05/26/Discretizing-a-continuous-variable-using-Entropy/). One of the most prominent scientific papers on this subject is "On the handling of continuous-valued attributes in decision tree generation" (UM Fayyad. KB Irani, "Machine Learning", 1992).
 
 ### Crucial Tree Parameters
 
