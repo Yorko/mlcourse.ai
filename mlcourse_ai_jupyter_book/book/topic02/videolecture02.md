@@ -4,8 +4,7 @@
 
 In the 2nd lecture, we discuss the typical plots that are usually built when performing Exploratory Data Analysis.
 
-<div align="center">
-
-[![mlcourse.ai video 2](https://img.youtube.com/vi/WNoQTNOME5g/hqdefault.jpg)](https://www.youtube.com/watch?v=WNoQTNOME5g&ab_channel=YuryKashnitsky)
-
-</div>
+<p align="center">
+	<iframe width="560" height="315" style='' src="https://www.youtube.com/embed/WNoQTNOME5g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+	</iframe>
+</p>
