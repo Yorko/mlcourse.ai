@@ -1,28 +1,24 @@
-(topic05_intro)=
+(topic07_intro)=
 
-# Topic 5. Bagging and Random Forest
+# Topic 7. Unsupervised Learning: Principal Component Analysis and Clustering
 
-```{figure} /_static/img/topic5-teaser.png
+```{figure} /_static/img/topic7-teaser.jpg
 :name: topic5-teaser
 :width: 200px
 ```
 
-Yet again, both theory and practice are exciting. We discuss why “wisdom of a crowd” works for machine learning models, and an ensemble of several models works better than each one of the ensemble members. In practice, we try out Random Forest (an ensemble of many decision trees) – a “default algorithm” in many tasks. We discuss in detail the numerous advantages of the Random Forest algorithm and its applications. No silver bullet though: in some cases, linear models still work better and faster.
+Here we turn to the vast topic of unsupervised learning, it’s about the cases when we have data but it is unlabeled with no target feature to predict like in classification/regression tasks. Most of the data out there is unlabeled, and we need to be able to make use of it. We discuss only 2 types of unsupervised learning tasks -- clustering and dimensionality reduction.
 
 ## Steps in this block
 
-1\. Read 5 articles:
- - ["Bagging"](topic05_part1) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-1-bagging));
- - ["Random Forest"](topic05_part2) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-2-random-forest));
- - ["Feature Importance"](topic05_part3) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-3-feature-importance));
+1\. Read the [article](topic07) (same in a form of a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-7-unsupervised-learning-pca-and-clustering));
 
-2\. Watch a video lecture on coming in 3 parts:
- - the [theory](https://www.youtube.com/watch?v=neXJL-AqI_c) behind ensembles, bagging, and Random Forest;
- - [classification metrics](https://www.youtube.com/watch?v=aBOMYqGUlWQ) in machine learning;
- - [business case](https://youtu.be/B8yIaIEMyIc), where we discuss a real classification task -- predicting customer payment;
+2\. Watch a video lecture on coming in 2 parts:
+ - [Principal Component Analysis](https://youtu.be/-AswHf7h0I4);
+ - [Clustering](https://youtu.be/eVplCo-w4XE);
 
-3\. Complete [demo assignment 5](assignment05) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a5-demo-logit-and-rf-for-credit-scoring)) where you compare logistic regression and Random Forest in the credit scoring problem;
+3\. Complete [demo assignment 7](assignment07) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-7-unupervised-learning)) where you analyze data coming from mobile phone accelerometers and gyroscopes to cluster people into different types of physical activities;
 
-4\. Check out the [solution](assignment05_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a5-demo-logit-and-rf-for-credit-scoring-sol)) to the demo assignment (optional);
+4\. Check out the [solution](assignment07_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution)) to the demo assignment (optional);
 
-5\. Complete [Bonus Assignment 5](bonus05) were you'll be applying logistic regression and Random Forest in two different tasks, which will be great for your understanding of application scenarios of these two extremely popular algorithms (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).
+5\. Complete [Bonus Assignment 7](bonus07) we walk you through Sklearn built-in implementations of dimensionality reduction and clustering methods and apply these techniques to the popular “faces” dataset (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).

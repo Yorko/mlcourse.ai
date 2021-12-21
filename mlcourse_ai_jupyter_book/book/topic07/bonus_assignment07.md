@@ -1,8 +1,8 @@
-(bonus05)=
+(bonus07)=
 
-# Bonus Assignment 5. Logistic Regression vs. Random Forest
+# Bonus Assignment 7. Principal Component Analysis and Clustering
 
-```{figure} /_static/img/topic5-teaser.png
+```{figure} /_static/img/topic7-teaser.jpg
 :width: 200px
 ```
 
@@ -27,6 +27,17 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
   </div>
 </div><br>
 
-I personally prefer either logistic regression or Random Forest, depending on the task, to build a first baseline in a machine learning task. The reason is that these algorithms are less sensitive to hyperparameter choice and can work fairly well out-of-the-box. Hence, it's important to understand when it's better to prefer logistic regression  and which tasks are more suitable for Random Forest.
+In this assignment (accessible via [Patreon](https://www.patreon.com/ods_mlcourse)), we walk you through `Sklearn` built-in implementations of dimensionality reduction and clustering methods and apply these techniques to the popular "faces" dataset.
 
-In this assignment, you'll be applying logistic regression and Random Forest in two different tasks -- credit scoring and movie reviews classification. This will be great for your understanding of application scenarios of these two extremely popular algorithms. You'll also learn the hard way that Random Forest should not be used in case of very large dimensions.
+<br>
+<div align="center">
+<img src='../../_static/img/assignment7_teaser_pca_faces.png'>  
+<p style="text-align:center;">Faces: principal components</p>
+</div>
+
+<p float="left">
+  <img src="../../_static/img/assignment7_teaser_clustering_faces1.png" width="350" />
+  <img src="../../_static/img/assignment7_teaser_clustering_faces2.png" width="350" />
+</p>
+
+_Left: clustering faces: pairwise similarities. Right: Clustering faces: a dendrogram_

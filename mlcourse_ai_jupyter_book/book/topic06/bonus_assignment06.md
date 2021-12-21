@@ -1,8 +1,8 @@
-(bonus05)=
+(bonus06)=
 
-# Bonus Assignment 5. Logistic Regression vs. Random Forest
+# Bonus Assignment 6. Logistic Regression vs. Random Forest
 
-```{figure} /_static/img/topic5-teaser.png
+```{figure} /_static/img/topic6-teaser.png
 :width: 200px
 ```
 

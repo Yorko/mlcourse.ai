@@ -10,25 +10,27 @@ kernelspec:
   name: python3
 ---
 
-(assignment06)=
+(assignment04)=
 
-# Assignment #6 (demo). Exploring OLS, Lasso and Random Forest in a regression task
+# Assignment #4 (demo). Exploring OLS, Lasso and Random Forest in a regression task
 
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
 Author: [Yury Kashnitsky](https://www.linkedin.com/in/festline/). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-**Same assignment as a [Kaggle Kernel](https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression) + [solution](https://www.kaggle.com/kashnitsky/a6-demo-regression-solution).**  
+**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression) + [solution](https://www.kaggle.com/kashnitsky/a6-demo-regression-solution).**  
 
-<img src='../../_static/img/wine_quality.jpg' width=30% align='center'>
+```{figure} /_static/img/wine_quality.jpg
+:width: 444px
+```
 
 **Fill in the missing code and choose answers in [this](https://docs.google.com/forms/d/1aHyK58W6oQmNaqEfvpLTpo6Cb0-ntnvJ18rZcvclkvw/edit) web form.**
 
 
 ```{code-cell} ipython3
 import warnings
-
 warnings.filterwarnings("ignore")
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
@@ -214,8 +216,8 @@ data.info()
 
 ```{code-cell} ipython3
 # (read-only in a JupyterBook, pls run jupyter-notebook to edit)
-rf_importance = pd.DataFrame  
-rf_importance.sort_values  
+# rf_importance = pd.DataFrame  
+# rf_importance.sort_values  
 ```
 
 **Make conclusions about the perdormance of the explored 3 models in this particular prediction task.**

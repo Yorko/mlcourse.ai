@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-(assignment07)=
+(assignment07_solution)=
 
 # Assignment #7 (demo). Unupervised learning. Solution
 

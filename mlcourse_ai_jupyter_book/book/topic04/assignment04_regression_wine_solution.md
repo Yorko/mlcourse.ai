@@ -10,17 +10,20 @@ kernelspec:
   name: python3
 ---
 
-(assignment06_solution)=
+(assignment04_solution)=
 
-# Assignment #6 (demo). Exploring OLS, Lasso and Random Forest in a regression task. Solution
+# Assignment #4 (demo). Exploring OLS, Lasso and Random Forest in a regression task. Solution
 
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
 Author: [Yury Kashnitsky](https://www.linkedin.com/in/festline/). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-**Same assignment as a [Kaggle Kernel](https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression) + [solution](https://www.kaggle.com/kashnitsky/a6-demo-regression-solution).**  
+**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression) + [solution](https://www.kaggle.com/kashnitsky/a6-demo-regression-solution).**  
 
-<img src='../../_static/img/wine_quality.jpg' width=30%>
+
+```{figure} /_static/img/wine_quality.jpg
+:width: 444px
+```
 
 **Fill in the missing code and choose answers in [this](https://docs.google.com/forms/d/1aHyK58W6oQmNaqEfvpLTpo6Cb0-ntnvJ18rZcvclkvw/edit) web form.**
 

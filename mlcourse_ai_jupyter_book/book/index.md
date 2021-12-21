@@ -9,11 +9,10 @@
 
 [mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai). Also, in the following [short video](https://youtu.be/0E0DrKvXi-Y) we discuss how to best approach the course material:
 
-<div align="center">
-
-[![mlcourse.ai Roadmap intro](https://habrastorage.org/webt/ov/lz/qh/ovlzqhgglr3ntnisktgdbc5proi.png)](https://youtu.be/0E0DrKvXi-Y)
-
-</div>
+<p align="center">
+	<iframe width="560" height="315" style='' src="https://www.youtube.com/embed/0E0DrKvXi-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+	</iframe>
+</p>
 
 Additionally, you can purchase a **Bonus Assignments pack** with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse).
 

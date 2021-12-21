@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-(topic6)=
+(topic06)=
 
 # Topic 6. Feature Engineering and Feature Selection
 
@@ -204,7 +204,6 @@ Often for problems associated with images, a convolutional neural network is use
 
 
 ```{code-cell} ipython3
-# doesn't work with Python 3.7
 # # Install Keras and tensorflow (https://keras.io/)
 # from keras.applications.resnet50 import ResNet50, preprocess_input
 # from keras.preprocessing import image

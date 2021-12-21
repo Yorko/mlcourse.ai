@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-(assignment04_solution)=
+(assignment04_extra_solution)=
 
 
 # Assignment 4 (demo). Solution. Sarcasm detection with logistic regression

@@ -523,7 +523,7 @@ Make a prediction with the trained model on the test data.
 
 
 ```{code-cell} ipython3
-tree_predictions = tree.predict(X_test)
+tree_predictions = tree.predict(X_test[X_train.columns])
 ```
 
 

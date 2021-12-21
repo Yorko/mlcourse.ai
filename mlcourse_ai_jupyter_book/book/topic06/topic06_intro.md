@@ -1,34 +1,23 @@
-(assignment04_intro)=
+(topic06_intro)=
 
-# Topic 4. Linear Classification and Regression
+# Topic 6. Feature Engineering and Feature Selection
 
-<div align="center">
-<img src="../../_static/img/topic4-teaser.png" />
-</div>
-<br>
+```{figure} /_static/img/topic6-teaser.png
+:name: topic4-teaser
+:width: 200px
+```
 
-The following 5 articles may form a small brochure, and that's for a good reason: linear models are the most widely used family of predictive algorithms. These articles represent our course in miniature: a lot of theory, a lot of practice. We discuss the theoretical basis of the Ordinary Least Squares method and logistic regression, as well as their merits in terms of practical applications. Also, crucial concepts like regularization and learning curves are introduced. In the practical part, we apply logistic regression to the [task](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) of user identification on the Internet, it's a Kaggle Inclass competition a.k.a "Alice".
+Feature engineering is one of the most interesting processes in the whole of ML. It's art or at least craft and is therefore not yet well-automated. The article describes the ways of working with heterogeneous features in various ML tasks with texts, images, geodata, etc. Practice with one more Kaggle competition is going to convince you how powerful feature engineering can be. And that it's a lot of fun as well!
 
+## Steps in this block
 
-1\. Read 5 articles:
- - ["Ordinary Least Squares"](https://mlcourse.ai/articles/topic4-part1-linreg/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-1-ols))
- - ["Logistic Regression"](https://mlcourse.ai/articles/topic4-part2-logit/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-2-classification))
- - ["Regularization"](https://mlcourse.ai/articles/topic4-part3-regularization/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-3-regularization))
- - ["Pros and Cons of Linear Models"](https://mlcourse.ai/articles/topic4-part4-applications/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-4-more-of-logit))
- - ["Validation and learning curves"](https://mlcourse.ai/articles/topic4-part5-validation/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-5-validation))
+1\. Read the [article](topic06) (same in a form of a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-6-feature-engineering-and-feature-selection));
 
-2\. Watch a video lecture on logistic regression coming in 2 parts:
- - the [theory](https://youtu.be/ne-MfRfYs_c) behind LASSO and Ridge regression models
- - [practical part](https://www.youtube.com/watch?v=7o0SWgY89i8), beating baselines in the "Alice" [competition](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+2\. **Kaggle:** Following simple baselines in the ["Alice" competition](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) (see [Topic 4](topic04_intro)), check out a bit more advanced Notebooks:
 
-3\. Watch a video lecture on regression and regularization coming in 2 parts:
- - the [theory](https://www.youtube.com/watch?v=l3jiw-N544s) behind linear models, an intuitive explanation
- - [business case](https://youtu.be/B8yIaIEMyIc), where we discuss a real regression task – predicting customer Life-Time Value
+ - ["Correct time-aware cross-validation scheme"](https://www.kaggle.com/kashnitsky/correct-time-aware-cross-validation-scheme);
+ - ["Model validation in a competition"](https://www.kaggle.com/kashnitsky/model-validation-in-a-competition);
 
-4\. Complete [demo assignment 4](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit) on sarcasm detection, and (opt.) check out the [solution](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit-solution)
+   Go on with feature engineering and try to achieve ~ 0.955 (or higher) ROC AUC on the [Public Leaderboard](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/leaderboard). Alternatively, if a better solution is already shared by the time you join the competition, try to improve the best publicly shared solution by at least 0.5%. However, **please do not share high-performing solutions**, it ruins the competitive spirit of the competition and also hurts some other courses which also have this competition in their syllabus;
 
-
-
-## Bonus Assignment 4. Kaggle Competition. User Identification with Logistic Regression (beating baselines in the "Alice" competition)
-
-Here you'll be guided through working with sparse data, feature engineering, model validation, and the process of competing on Kaggle. The task will be to beat baselines in that ["Alice" Kaggle competition](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2). That's a very useful assignment for anyone starting to practice with Machine Learning, regardless of the desire to compete on Kaggle.
+3\.  Complete [Bonus Assignment 6](bonus06) we walk you through beating a baseline in a competition where the task is to predict the popularity of an article published on Medium. The basic solution uses text only. But on the go, you'll create a lot of additional features to improve the model. Also, in this assignment, you'll learn some dirty Kaggle hacks. (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).
