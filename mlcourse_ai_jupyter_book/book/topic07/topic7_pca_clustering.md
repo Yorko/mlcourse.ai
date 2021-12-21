@@ -25,7 +25,7 @@ Welcome to the seventh part of our Open Machine Learning Course!
 In this lesson, we will work with unsupervised learning methods such as Principal Component Analysis (PCA) and clustering. You will learn why and how we can reduce the dimensionality of the original data and what the main approaches are for grouping similar data points.  
 
 
-### Article outline
+## Article outline
 1. Introduction
 2. PCA
  - Intuition, theories, and application issues
@@ -408,7 +408,7 @@ plt.ylabel("$J(C_k)$");
 
 We see that $J(C_k)$ decreases significantly until the number of clusters is 3 and then does not change as much anymore. This means that the optimal number of clusters is 3.
 
-#### Issues
+### Issues
 
 Inherently, K-means is NP-hard. For $d$ dimensions, $k$ clusters, and $n$ observations, we will find a solution in $O(n^{d k+1})$ time. There are some heuristics to deal with this; an example is MiniBatch K-means, which takes portions (batches) of data instead of fitting the whole dataset and then moves centroids by taking the average of the previous steps. Compare the implementation of K-means and MiniBatch K-means in the [sckit-learn documentation](http://scikit-learn.org/stable/auto_examples/cluster/plot_mini_batch_kmeans.html).
 
