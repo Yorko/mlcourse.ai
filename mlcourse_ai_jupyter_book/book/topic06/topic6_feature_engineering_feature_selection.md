@@ -34,34 +34,34 @@ This article will contain almost no math, but there will be a fair amount of cod
 ```{code-cell} ipython3
 # preload dataset automatically, if not already in place.
 import os
+from pathlib import Path
+import numpy as np
+import pandas as pd
 
-import requests
+def download_file_from_gdrive(file_url, filename, out_path: Path, overwrite=False):
+    """
+    Downloads a file from GDrive given an URL
+    :param file_url: a string formated as https://drive.google.com/uc?id=<file_id>
+    :param: the desired file name
+    :param: the desired folder where the file will be downloaded to
+    :param overwrite: whether to overwrite the file if it already exists
+    """
+    file_exists = os.path.exists(f'{out_path}/{filename}')
 
-url = "https://drive.google.com/uc?export=download&id=1_lqydkMrmyNAgG4vU4wVmp6-j7tV0XI8"
-file_name = "../../data/renthop_train.json.gz"
-
-
-def load_renthop_dataset(url, target, overwrite=False):
-    # check if exists already
-    if os.path.isfile(target) and not overwrite:
-        print("Dataset is already in place")
-        return
-
-    print("Will download the dataset from", url)
-
-    response = requests.get(url)
-    open(target, "wb").write(response.content)
-
-
-load_renthop_dataset(url, file_name)
+    if (file_exists and overwrite) or (not file_exists):
+        os.system(f'gdown {file_url} -O {out_path}/{filename}')
 ```
 
 
 ```{code-cell} ipython3
-import numpy as np
-import pandas as pd
+FILE_URL = "https://drive.google.com/uc?id=1_lqydkMrmyNAgG4vU4wVmp6-j7tV0XI8"
+FILE_NAME = "renthop_train.json.gz"
+DATA_PATH = Path("../../_static/data/")
 
-df = pd.read_json(file_name, compression="gzip")
+download_file_from_gdrive(file_url=FILE_URL, filename= FILE_NAME, out_path=DATA_PATH)
+
+df = pd.read_json(DATA_PATH / FILE_NAME, compression="gzip",
+                  convert_dates=['created'])
 ```
 
 ## Article outline
@@ -180,7 +180,7 @@ $$ \large tfidf(t,d,D) = tf(t,d) \times idf(t,D) $$
 
 Ideas similar to Bag of Words can also be found outside of text problems e.g. bag of sites in the [Catch Me If You Can competition](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking), [bag of apps](https://www.kaggle.com/xiaoml/talkingdata-mobile-user-demographics/bag-of-app-id-python-2-27392), [bag of events](http://www.interdigital.com/download/58540a46e3b9659c9f000372), etc.
 
-![image](../../_static/img/bag_of_words.png)
+![image](../../_static/img/topic6_bag_of_words.png)
 
 Using these algorithms, it is possible to obtain a working solution for a simple problem, which can serve as a baseline. However, for those who do not like the classics, there are new approaches. The most popular method in the new wave is [Word2Vec](https://arxiv.org/pdf/1310.4546.pdf), but there are a few alternatives as well ([GloVe](https://nlp.stanford.edu/pubs/glove.pdf), [Fasttext](https://arxiv.org/abs/1607.01759), etc.).
 
@@ -249,8 +249,7 @@ import requests
 from io import BytesIO
 
 ##### Just a random picture from search
-img = 'http://ohscurrent.org/wp-content/uploads/2015/09/domus-01-google.jpg'
-
+img = "http://ohscurrent.org/wp-content/uploads/2015/09/domus-01-google.jpg"
 img = requests.get(img)
 img = Image.open(BytesIO(img.content))
 text = pytesseract.image_to_string(img)
@@ -258,14 +257,19 @@ text = pytesseract.image_to_string(img)
 print(text)
 ```
 
-<!--One must understand that `pytesseract` is not a solution for everything.
+It's good to keep in mind that `pytesseract` is not a "silver bullet".
+
+```{figure} /_static/img/topic6_apartment_plan.jpg
+:width: 444px
+```
 
 ```{code-cell} ipython3
-##### This time we take a picture from Renthop
-img = requests.get('https://photos.renthop.com/2/8393298_6acaf11f030217d05f3a5604b9a2f70f.jpg')
+img = "https://habrastorage.org/webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg"
+img = requests.get(img)
 img = Image.open(BytesIO(img.content))
-pytesseract.image_to_string(img)
-```-->
+
+print(pytesseract.image_to_string(img))
+```
 
 Another case where neural networks cannot help is extracting features from meta-information. For images, EXIF stores many useful meta-information: manufacturer and camera model, resolution, use of the flash, geographic coordinates of shooting, software used to process image and more.
 
@@ -282,7 +286,7 @@ If you have a small amount of data, enough time, and no desire to extract fancy 
 ```{code-cell} ipython3
 import reverse_geocoder as revgc
 
-revgc.search((df.latitude, df.longitude))
+revgc.search(list(zip(df.latitude, df.longitude)))
 ```
 
 When working with geoсoding, we must not forget that addresses may contain typos, which makes the data cleaning step necessary. Coordinates contain fewer misprints, but its position can be incorrect due to GPS noise or bad accuracy in places like tunnels, downtown areas, etc. If the data source is a mobile device, the geolocation may not be determined by GPS but by WiFi networks in the area, which leads to holes in space and teleportation. While traveling along in Manhattan, there can suddenly be a WiFi location from Chicago.
@@ -459,13 +463,13 @@ The lognormal distribution is suitable for describing salaries, price of securit
 
 In the examples above, we have worked with synthetic data and strictly tested normality using the Shapiro-Wilk test. Let’s try to look at some real data and test for normality using a less formal method — [Q-Q plot](https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot). For a normal distribution, it will look like a smooth diagonal line, and visual anomalies should be intuitively understandable.
 
-```{figure} /_static/img/qq_lognorm.png
+```{figure} /_static/img/topic6_qq_lognorm.png
 :name: qq_lognorm
 
 Q-Q plot for lognormal distribution
 ```
 
-```{figure} /_static/img/qq_log.png
+```{figure} /_static/img/topic6_qq_log.png
 :name: qq_log
 Q-Q plot for the same distribution after taking the logarithm
 ```
