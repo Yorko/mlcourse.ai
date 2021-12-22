@@ -20,11 +20,11 @@ kernelspec:
 
 Authors: [Olga Daykhovskaya](https://www.linkedin.com/in/odaykhovskaya/), [Yury Kashnitskiy](https://yorko.github.io). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
-**Same assignment as a [Kaggle Kernel](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning) + [solution](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution).**
+**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning) + [solution](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution).**
 
 In this task, we will look at how data dimensionality reduction and clustering methods work. At the same time, we'll practice solving classification task again.
 
-We will work with the [Samsung Human Activity Recognition](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) dataset. Download the data [here](https://drive.google.com/file/d/14RukQ0ylM2GCdViUHBBjZ2imCaYcjlux/view?usp=sharing). The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones ( you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.
+We will work with the [Samsung Human Activity Recognition](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) dataset. The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones ( you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.
 
 First, we pretend that the type of activity is unknown to us, and we will try to cluster people purely on the basis of available features. Then we solve the problem of determining the type of physical activity as a classification problem.
 
@@ -33,6 +33,9 @@ Fill the code where needed ("Your code is here") and answer the questions in the
 
 ```{code-cell} ipython3
 import os
+from zipfile import ZipFile
+from pathlib import Path
+import requests
 
 import numpy as np
 import pandas as pd
@@ -58,28 +61,42 @@ RANDOM_STATE = 17
 
 
 ```{code-cell} ipython3
-# for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
-# you can specify the data/ folder from the root of your cloned
-# https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+def load_har_dataset(url, extract_path: Path, filename: str, overwrite=False):
+    # check if existed already
+    filepath = extract_path / filename
+    if filepath.exists() and not overwrite:
+        print("The dataset is already in place.")
+        return
+
+    print("Downloading the dataset from:  ", url)
+    response = requests.get(url)
+
+    with open(filepath, 'wb') as f:
+        f.write(response.content)
+
+    with ZipFile(filepath, 'r') as zipObj:
+        # Extract all the contents of zip file in current directory
+        zipObj.extractall(extract_path)
 ```
 
 
 ```{code-cell} ipython3
-PATH_TO_SAMSUNG_DATA = DATA_PATH + "samsung_HAR/"
+FILE_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip"
+FILE_NAME = "UCI HAR Dataset.zip"
+DATA_PATH = Path("../../_static/data/")
+
+load_har_dataset(url=FILE_URL, extract_path=DATA_PATH, filename=FILE_NAME)
+
+PATH_TO_SAMSUNG_DATA = DATA_PATH / FILE_NAME.strip('.zip')
 ```
 
 
 ```{code-cell} ipython3
-X_train = np.loadtxt(os.path.join(PATH_TO_SAMSUNG_DATA, "samsung_train.txt"))
-y_train = np.loadtxt(
-    os.path.join(PATH_TO_SAMSUNG_DATA, "samsung_train_labels.txt")
-).astype(int)
+X_train = np.loadtxt(PATH_TO_SAMSUNG_DATA / "train" / "X_train.txt")
+y_train = np.loadtxt(PATH_TO_SAMSUNG_DATA / "train" / "y_train.txt").astype(int)
 
-X_test = np.loadtxt(os.path.join(PATH_TO_SAMSUNG_DATA, "samsung_test.txt"))
-y_test = np.loadtxt(
-    os.path.join(PATH_TO_SAMSUNG_DATA, "samsung_test_labels.txt")
-).astype(int)
+X_test = np.loadtxt(PATH_TO_SAMSUNG_DATA / "test" / "X_test.txt")
+y_test = np.loadtxt(PATH_TO_SAMSUNG_DATA / "test" / "y_test.txt").astype(int)
 ```
 
 
@@ -93,7 +110,7 @@ For clustering, we do not need a target vector, so we'll work with the combinati
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
 Define the number of unique values of the labels of the target class.
@@ -120,24 +137,24 @@ Scale the sample using `StandardScaler` with default parameters.
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
 Reduce the number of dimensions using PCA, leaving as many components as necessary to explain at least 90% of the variance of the original (scaled) data. Use the scaled dataset and fix `random_state` (RANDOM_STATE constant).
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 # pca =
 # X_pca =
 ```
 
-** Question 1: ** <br>
+**Question 1:** <br>
 What is the minimum number of principal components required to cover the 90% of the variance of the original (scaled) data?
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
 **Answer options:**
@@ -157,14 +174,14 @@ What percentage of the variance is covered by the first principal component? Rou
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
 Visualize data in projection on the first two principal components.
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 # plt.scatter(, , c=y, s=20, cmap='viridis');
 ```
 
@@ -183,22 +200,22 @@ Perform clustering with the `KMeans` method, training the model on data with red
 
 Options:
 
-- ** n_clusters ** = n_classes (number of unique labels of the target class)
-- ** n_init ** = 100
-- ** random_state ** = RANDOM_STATE (for reproducibility of the result)
+- `n_clusters` = n_classes (number of unique labels of the target class)
+- `n_init` = 100
+- `random_state` = RANDOM_STATE (for reproducibility of the result)
 
 Other parameters should have default values.
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
 Visualize data in projection on the first two principal components. Color the dots according to the clusters obtained.
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 # plt.scatter(, , c=cluster_labels, s=20, cmap='viridis');
 ```
 
@@ -223,10 +240,10 @@ Example: if for class "walking downstairs" (with 1406 instances belonging to it)
 then such a share will be 900/1406 $ \approx $ 0.64.
 
 
-** Question 4: ** <br>
+**Question 4:** <br>
 Which activity is separated from the rest better than others based on the simple metric described above? <br>
 
-**Answer:**
+**Answer options:**
 - walking
 - standing
 - walking downstairs
@@ -236,13 +253,13 @@ It can be seen that kMeans does not distinguish activities very well. Use the el
 
 
 ```{code-cell} ipython3
-# # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 # inertia = []
 # for k in tqdm_notebook(range(1, n_classes + 1)):
 #     pass
 ```
 
-** Question 5: ** <br>
+**Question 5:** <br>
 How many clusters can we choose according to the elbow method? <br>
 
 **Answer options:**
@@ -265,13 +282,13 @@ Calculate the Adjusted Rand Index (`sklearn.metrics`) for the resulting clusteri
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
-** Question 6: ** <br>
+**Question 6:** <br>
 Select all the correct statements. <br>
 
-** Answer options: **
+** Answer options:**
 - According to ARI, KMeans handled clustering worse than Agglomerative Clustering
 - For ARI, it does not matter which tags are assigned to the cluster, only the partitioning of instances into clusters matters
 - In case of random partitioning into clusters, ARI will be close to zero
@@ -289,7 +306,7 @@ Choose the `C` hyperparameter for` LinearSVC` using `GridSearchCV`.
 
 
 ```{code-cell} ipython3
-# # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 # scaler = StandardScaler()
 # X_train_scaled =
 # X_test_scaled =
@@ -304,7 +321,7 @@ svc_params = {"C": [0.001, 0.01, 0.1, 1, 10]}
 
 ```{code-cell} ipython3
 # %%time
-# # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 # best_svc = None
 ```
 
@@ -338,7 +355,7 @@ Which value of the hyperparameter `C` was chosen the best on the basis of cross-
 # tab
 ```
 
-** Question 8: ** <br>
+**Question 8:** <br>
 Which activity type is worst detected by SVM in terms of precision? Recall?<br>
 
 **Answer options:**
@@ -353,10 +370,10 @@ Finally, do the same thing as in Question 7, but add PCA.
 - Train the same PCA as before, on the scaled training set, apply scaling to the test set
 - Choose the hyperparameter `C` via cross-validation on the training set with PCA-transformation. You will notice how much faster it works now.
 
-** Question 9: ** <br>
+**Question 9:** <br>
 What is the difference between the best quality (accuracy) for cross-validation in the case of all 561 initial characteristics and in the second case, when the principal component method was applied? Round to the nearest percent. <br>
 
-** Options: **
+**Answer options:**
 - quality is the same
 - 2%
 - 4%
@@ -365,13 +382,13 @@ What is the difference between the best quality (accuracy) for cross-validation 
 
 
 ```{code-cell} ipython3
-# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+# You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)
 ```
 
-** Question 10: ** <br>
+**Question 10:** <br>
 Select all the correct statements:
 
-** Answer options: **
+**Answer options:**
 - Principal component analysis in this case allowed to reduce the model training time, while the quality (mean cross-validation accuracy) suffered greatly, by more than 10%
 - PCA can be used to visualize data, but there are better methods for this task, for example, tSNE. However, PCA has lower computational complexity
 - PCA builds linear combinations of initial features, and in some applications they might be poorly interpreted by humans

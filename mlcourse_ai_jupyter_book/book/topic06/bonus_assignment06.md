@@ -1,6 +1,6 @@
 (bonus06)=
 
-# Bonus Assignment 6. Logistic Regression vs. Random Forest
+# Bonus Assignment 6. Beating baselines in the competition “How good is your Medium article?”
 
 ```{figure} /_static/img/topic6-teaser.png
 :width: 200px
@@ -27,6 +27,6 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
   </div>
 </div><br>
 
-I personally prefer either logistic regression or Random Forest, depending on the task, to build a first baseline in a machine learning task. The reason is that these algorithms are less sensitive to hyperparameter choice and can work fairly well out-of-the-box. Hence, it's important to understand when it's better to prefer logistic regression  and which tasks are more suitable for Random Forest.
+In this assignment, you'll be challenged to beat a baseline in the competition where the goal is to predict popularity of a Medium article. For this purpose, you'll be provided with instructions on extracting features from raw JSON files, such as title, author, content, etc. as well as some time-based features.
 
-In this assignment, you'll be applying logistic regression and Random Forest in two different tasks -- credit scoring and movie reviews classification. This will be great for your understanding of application scenarios of these two extremely popular algorithms. You'll also learn the hard way that Random Forest should not be used in case of very large dimensions.
+Here it's much closer to real-world Data Science, where you spend time fussing with JSONs extracting features and waiting while the model is being trained. At the same time, just like with the "Alice" competition (see [Bonus Assignment 4](bonus04)) feature engineering is the key, and that's fun.
