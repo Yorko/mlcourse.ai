@@ -348,6 +348,20 @@ six = "*"
 tqdm = "*"
 
 [[package]]
+name = "ghp-import"
+version = "2.0.2"
+description = "Copy your docs directly to the gh-pages branch."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+python-dateutil = ">=2.8.1"
+
+[package.extras]
+dev = ["twine", "markdown", "flake8", "wheel"]
+
+[[package]]
 name = "gitdb"
 version = "4.0.9"
 description = "Git Object Database"
@@ -2216,7 +2230,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<=3.9"
-content-hash = "d9df41861dea749dcc161dce73710f0cd688857ee60840d4c8116923a776c323"
+content-hash = "6a6932aece86c5f02641fcc9b875f0624ad185e4d8e8a8fa6510ff6cd97a3dde"
 
 [metadata.files]
 alabaster = [
@@ -2423,6 +2437,10 @@ fonttools = [
 ]
 gdown = [
     {file = "gdown-4.2.0.tar.gz", hash = "sha256:bd871c125242a9d3691aa74f360b6b5268a58c13991bb2405fdb3ec3028307dc"},
+]
+ghp-import = [
+    {file = "ghp-import-2.0.2.tar.gz", hash = "sha256:947b3771f11be850c852c64b561c600fdddf794bab363060854c1ee7ad05e071"},
+    {file = "ghp_import-2.0.2-py3-none-any.whl", hash = "sha256:5f8962b30b20652cdffa9c5a9812f7de6bcb56ec475acac579807719bf242c46"},
 ]
 gitdb = [
     {file = "gitdb-4.0.9-py3-none-any.whl", hash = "sha256:8033ad4e853066ba6ca92050b9df2f89301b8fc8bf7e9324d412a63f8bf1a8fd"},
