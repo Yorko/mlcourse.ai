@@ -29,6 +29,6 @@ The following 5 articles may form a small brochure, and that's for a good reason
 
 4\. Complete [demo assignment 4](assignment04) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit)) on sarcasm detection;
 
-5\. Check out the [solution](assignment04_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit-solution)) to the demo assignment;
+5\. Check out the [solution](assignment04_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit-solution)) to the demo assignment (optional);
 
 6\. Complete [Bonus Assignment 4](https://www.patreon.com/ods_mlcourse) where you'll be guided through working with sparse data, feature engineering, model validation, and the process of competing on Kaggle. The task will be to beat baselines in that ["Alice" Kaggle competition](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2). That's a very useful assignment for anyone starting to practice with Machine Learning, regardless of the desire to compete on Kaggle (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).

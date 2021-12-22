@@ -369,7 +369,7 @@ data_train["Target"].value_counts()
 ```{code-cell} ipython3
 fig = plt.figure(figsize=(25, 15))
 cols = 5
-rows = np.ceil(float(data_train.shape[1]) / cols)
+rows = int(data_train.shape[1] / cols)
 for i, column in enumerate(data_train.columns):
     ax = fig.add_subplot(rows, cols, i + 1)
     ax.set_title(column)
@@ -523,7 +523,7 @@ Make a prediction with the trained model on the test data.
 
 
 ```{code-cell} ipython3
-tree_predictions = tree.predict(X_test)
+tree_predictions = tree.predict(X_test[X_train.columns])
 ```
 
 

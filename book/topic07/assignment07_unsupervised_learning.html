@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #7 (demo). Unupervised learning &#8212; mlcourse.ai</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #7 (demo). Unupervised learning. Solution" href="assignment07_unsupervised_learning_solution.html" />
+    <link rel="prev" title="Videolecture 7. Unsupervised learning" href="videolecture07.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Intro
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_intro.html">
+   Topic 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
+   Exploratory data analysis with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/videolecture01.html">
+   Videolecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
+   Demo Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
+   Demo Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
+   Bonus Assignment 1
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_intro.html">
+   Topic 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
+   Visual Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
+   Seaborn, Matplotlib, Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/videolecture02.html">
+   Videolecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
+   Demo Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
+   Demo Assignment 2 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
+   Bonus Assignment 2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_intro.html">
+   Topic 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
+   Classification, Decision Trees &amp; k Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/videolecture03.html">
+   Videolecture 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
+   Demo Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
+   Demo Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
+   Bonus Assignment 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic04_intro.html">
+   Topic 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
+   Linear classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
+   An illustrative example of logistic regression regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
+   When logistic regression is good and when it is not
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
+   Validation and learning curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/videolecture04.html">
+   Videolecture 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
+   Demo Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
+   Demo Assignment 4 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
+   Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic05_intro.html">
+   Topic 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
+   Bagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
+   Random Forest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
+   Feature importance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/videolecture05.html">
+   Videolecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
+   Demo Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
+   Demo Assignment 5 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
+   Bonus Assignment 5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic06_intro.html">
+   Topic 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
+   Feature engineering &amp; feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/demo_assignment06.html">
+   Demo Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/bonus_assignment06.html">
+   Bonus Assignment 6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic07_intro.html">
+   Topic 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic7_pca_clustering.html">
+   Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="videolecture07.html">
+   Videolecture 7
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Demo Assignment 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment07_unsupervised_learning_solution.html">
+   Demo Assignment 7 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bonus_assignment07.html">
+   Bonus Assignment 7
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/book/topic07/assignment07_unsupervised_learning.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/topic07/assignment07_unsupervised_learning.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic07/assignment07_unsupervised_learning.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/master/mlcourse_ai_jupyter_book/book/topic07/assignment07_unsupervised_learning.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/master?urlpath=tree/mlcourse_ai_jupyter_book/book/topic07/assignment07_unsupervised_learning.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-7-demo-unupervised-learning">
+<span id="assignment07"></span><h1>Assignment #7 (demo). Unupervised learning<a class="headerlink" href="#assignment-7-demo-unupervised-learning" title="Permalink to this headline">¶</a></h1>
+<img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
+<p>Authors: <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitskiy</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+<p><strong>Same assignment as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning">Kaggle Notebook</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution">solution</a>.</strong></p>
+<p>In this task, we will look at how data dimensionality reduction and clustering methods work. At the same time, we’ll practice solving classification task again.</p>
+<p>We will work with the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">Samsung Human Activity Recognition</a> dataset. The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones ( you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.</p>
+<p>First, we pretend that the type of activity is unknown to us, and we will try to cluster people purely on the basis of available features. Then we solve the problem of determining the type of physical activity as a classification problem.</p>
+<p>Fill the code where needed (“Your code is here”) and answer the questions in the <a class="reference external" href="https://docs.google.com/forms/d/1wBf5UoRndv6PpzIwYnM9f0ysoGa4Yqcqle-HBlBP5QQ/edit">web form</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm_notebook</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">([</span><span class="s2">&quot;seaborn-darkgrid&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DejaVu Sans&quot;</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span><span class="p">,</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">SpectralClustering</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
+
+<span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># check if existed already</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">extract_path</span> <span class="o">/</span> <span class="n">filename</span>
+    <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The dataset is already in place.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading the dataset from:  &quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipObj</span><span class="p">:</span>
+        <span class="c1"># Extract all the contents of zip file in current directory</span>
+        <span class="n">zipObj</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip&quot;</span>
+<span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;UCI HAR Dataset.zip&quot;</span>
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../_static/data/&quot;</span><span class="p">)</span>
+
+<span class="n">load_har_dataset</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">FILE_URL</span><span class="p">,</span> <span class="n">extract_path</span><span class="o">=</span><span class="n">DATA_PATH</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">FILE_NAME</span><span class="p">)</span>
+
+<span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">=</span> <span class="n">DATA_PATH</span> <span class="o">/</span> <span class="n">FILE_NAME</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The dataset is already in place.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;train&quot;</span> <span class="o">/</span> <span class="s2">&quot;X_train.txt&quot;</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;train&quot;</span> <span class="o">/</span> <span class="s2">&quot;y_train.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;test&quot;</span> <span class="o">/</span> <span class="s2">&quot;X_test.txt&quot;</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;test&quot;</span> <span class="o">/</span> <span class="s2">&quot;y_test.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checking dimensions</span>
+<span class="k">assert</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">7352</span><span class="p">,</span> <span class="mi">561</span><span class="p">)</span> <span class="ow">and</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">7352</span><span class="p">,)</span>
+<span class="k">assert</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2947</span><span class="p">,</span> <span class="mi">561</span><span class="p">)</span> <span class="ow">and</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2947</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For clustering, we do not need a target vector, so we’ll work with the combination of training and test samples. Merge <code class="docutils literal notranslate"><span class="pre">X_train</span></code> with <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, and <code class="docutils literal notranslate"><span class="pre">y_train</span></code> with <code class="docutils literal notranslate"><span class="pre">y_test</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define the number of unique values of the labels of the target class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.unique(y)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_classes = np.unique(y).size</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.names">These labels correspond to:</a></p>
+<ul class="simple">
+<li><p>1 – walking</p></li>
+<li><p>2 – walking upstairs</p></li>
+<li><p>3 – walking downstairs</p></li>
+<li><p>4 – sitting</p></li>
+<li><p>5 – standing</p></li>
+<li><p>6 – laying down</p></li>
+</ul>
+<p>Scale the sample using <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> with default parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reduce the number of dimensions using PCA, leaving as many components as necessary to explain at least 90% of the variance of the original (scaled) data. Use the scaled dataset and fix <code class="docutils literal notranslate"><span class="pre">random_state</span></code> (RANDOM_STATE constant).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<span class="c1"># pca =</span>
+<span class="c1"># X_pca =</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 1:</strong> <br>
+What is the minimum number of principal components required to cover the 90% of the variance of the original (scaled) data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>56</p></li>
+<li><p>65</p></li>
+<li><p>66</p></li>
+<li><p>193</p></li>
+</ul>
+<p><strong>Вопрос 2:</strong><br>
+What percentage of the variance is covered by the first principal component? Round to the nearest percent.</p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>45</p></li>
+<li><p>51</p></li>
+<li><p>56</p></li>
+<li><p>61</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize data in projection on the first two principal components.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<span class="c1"># plt.scatter(, , c=y, s=20, cmap=&#39;viridis&#39;);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3:</strong><br>
+If everything worked out correctly, you will see a number of clusters, almost perfectly separated from each other. What types of activity are included in these clusters? <br></p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>1 cluster: all 6 activities</p></li>
+<li><p>2 clusters: (walking, walking upstairs, walking downstairs ) and (sitting, standing, laying)</p></li>
+<li><p>3 clusters: (walking), (walking upstairs, walking downstairs) and (sitting, standing, laying)</p></li>
+<li><p>6 clusters</p></li>
+</ul>
+<hr class="docutils" />
+<p>Perform clustering with the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> method, training the model on data with reduced dimensionality (by PCA). In this case, we will give a clue to look for exactly 6 clusters, but in general case we will not know how many clusters we should be looking for.</p>
+<p>Options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> = n_classes (number of unique labels of the target class)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_init</span></code> = 100</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code> = RANDOM_STATE (for reproducibility of the result)</p></li>
+</ul>
+<p>Other parameters should have default values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize data in projection on the first two principal components. Color the dots according to the clusters obtained.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<span class="c1"># plt.scatter(, , c=cluster_labels, s=20, cmap=&#39;viridis&#39;);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at the correspondence between the cluster marks and the original class labels and what kinds of activities the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> algorithm is confused at.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab = pd.crosstab(y, cluster_labels, margins=True)</span>
+<span class="c1"># tab.index = [&#39;walking&#39;, &#39;going up the stairs&#39;,</span>
+<span class="c1">#             &#39;going down the stairs&#39;, &#39;sitting&#39;, &#39;standing&#39;, &#39;laying&#39;, &#39;all&#39;]</span>
+<span class="c1"># tab.columns = [&#39;cluster&#39; + str(i + 1) for i in range(6)] + [&#39;all&#39;]</span>
+<span class="c1"># tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that for each class (i.e., each activity) there are several clusters. Let’s look at the maximum percentage of objects in a class that are assigned to a single cluster. This will be a simple metric that characterizes how easily the class is separated from others when clustering.</p>
+<p>Example: if for class “walking downstairs” (with 1406 instances belonging to it), the distribution of clusters is:</p>
+<ul class="simple">
+<li><p>cluster 1 - 900</p></li>
+<li><p>cluster 3 - 500</p></li>
+<li><p>cluster 6 - 6,</p></li>
+</ul>
+<p>then such a share will be 900/1406 <span class="math notranslate nohighlight">\( \approx \)</span> 0.64.</p>
+<p><strong>Question 4:</strong> <br>
+Which activity is separated from the rest better than others based on the simple metric described above? <br></p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>walking</p></li>
+<li><p>standing</p></li>
+<li><p>walking downstairs</p></li>
+<li><p>all three options are incorrect</p></li>
+</ul>
+<p>It can be seen that kMeans does not distinguish activities very well. Use the elbow method to select the optimal number of clusters. Parameters of the algorithm and the data we use are the same as before, we change only <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<span class="c1"># inertia = []</span>
+<span class="c1"># for k in tqdm_notebook(range(1, n_classes + 1)):</span>
+<span class="c1">#     pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5:</strong> <br>
+How many clusters can we choose according to the elbow method? <br></p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>1</p></li>
+<li><p>2</p></li>
+<li><p>3</p></li>
+<li><p>4</p></li>
+</ul>
+<hr class="docutils" />
+<p>Let’s try another clustering algorithm, described in the article – agglomerative clustering.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ag = AgglomerativeClustering(n_clusters=n_classes,</span>
+<span class="c1">#                              linkage=&#39;ward&#39;).fit(X_pca)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the Adjusted Rand Index (<code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>) for the resulting clustering and for <code class="docutils literal notranslate"> <span class="pre">KMeans</span></code> with the parameters from the 4th question.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 6:</strong> <br>
+Select all the correct statements. <br></p>
+<p>** Answer options:**</p>
+<ul class="simple">
+<li><p>According to ARI, KMeans handled clustering worse than Agglomerative Clustering</p></li>
+<li><p>For ARI, it does not matter which tags are assigned to the cluster, only the partitioning of instances into clusters matters</p></li>
+<li><p>In case of random partitioning into clusters, ARI will be close to zero</p></li>
+</ul>
+<hr class="docutils" />
+<p>You can notice that the task is not very well solved when we try to detect several clusters (&gt; 2). Now, let’s solve the classification problem, given that the data is labeled.</p>
+<p>For classification, use the support vector machine – class <code class="docutils literal notranslate"><span class="pre">sklearn.svm.LinearSVC</span></code>. In this course, we didn’t study this algorithm separately, but it is well-known and you can read about it, for example <a class="reference external" href="http://cs231n.github.io/linear-classify/#svmvssoftmax">here</a>.</p>
+<p>Choose the <code class="docutils literal notranslate"><span class="pre">C</span></code> hyperparameter for<code class="docutils literal notranslate"> <span class="pre">LinearSVC</span></code> using <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p>
+<ul class="simple">
+<li><p>Train the new <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> on the training set (with all original features), apply scaling to the test set</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>, specify <code class="docutils literal notranslate"><span class="pre">cv</span></code> = 3.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<span class="c1"># scaler = StandardScaler()</span>
+<span class="c1"># X_train_scaled =</span>
+<span class="c1"># X_test_scaled =</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svc</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">)</span>
+<span class="n">svc_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%time</span>
+<span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<span class="c1"># best_svc = None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># best_svc.best_params_, best_svc.best_score_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 7</strong><br>
+Which value of the hyperparameter <code class="docutils literal notranslate"><span class="pre">C</span></code> was chosen the best on the basis of cross-validation? <br></p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>0.001</p></li>
+<li><p>0.01</p></li>
+<li><p>0.1</p></li>
+<li><p>1</p></li>
+<li><p>10</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_predicted = best_svc.predict(X_test_scaled)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab = pd.crosstab(y_test, y_predicted, margins=True)</span>
+<span class="c1"># tab.index = [&#39;walking&#39;, &#39;climbing up the stairs&#39;,</span>
+<span class="c1">#              &#39;going down the stairs&#39;, &#39;sitting&#39;, &#39;standing&#39;, &#39;laying&#39;, &#39;all&#39;]</span>
+<span class="c1"># tab.columns = [&#39;walking&#39;, &#39;climbing up the stairs&#39;,</span>
+<span class="c1">#              &#39;going down the stairs&#39;, &#39;sitting&#39;, &#39;standing&#39;, &#39;laying&#39;, &#39;all&#39;]</span>
+<span class="c1"># tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 8:</strong> <br>
+Which activity type is worst detected by SVM in terms of precision? Recall?<br></p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>precision – going up the stairs, recall – laying</p></li>
+<li><p>precision – laying, recall – sitting</p></li>
+<li><p>precision – walking, recall – walking</p></li>
+<li><p>precision – standing, recall – sitting</p></li>
+</ul>
+<p>Finally, do the same thing as in Question 7, but add PCA.</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">X_train_scaled</span></code> and<code class="docutils literal notranslate"> <span class="pre">X_test_scaled</span></code></p></li>
+<li><p>Train the same PCA as before, on the scaled training set, apply scaling to the test set</p></li>
+<li><p>Choose the hyperparameter <code class="docutils literal notranslate"><span class="pre">C</span></code> via cross-validation on the training set with PCA-transformation. You will notice how much faster it works now.</p></li>
+</ul>
+<p><strong>Question 9:</strong> <br>
+What is the difference between the best quality (accuracy) for cross-validation in the case of all 561 initial characteristics and in the second case, when the principal component method was applied? Round to the nearest percent. <br></p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>quality is the same</p></li>
+<li><p>2%</p></li>
+<li><p>4%</p></li>
+<li><p>10%</p></li>
+<li><p>20%</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 10:</strong> <br>
+Select all the correct statements:</p>
+<p><strong>Answer options:</strong></p>
+<ul class="simple">
+<li><p>Principal component analysis in this case allowed to reduce the model training time, while the quality (mean cross-validation accuracy) suffered greatly, by more than 10%</p></li>
+<li><p>PCA can be used to visualize data, but there are better methods for this task, for example, tSNE. However, PCA has lower computational complexity</p></li>
+<li><p>PCA builds linear combinations of initial features, and in some applications they might be poorly interpreted by humans</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/topic07"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="videolecture07.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Videolecture 7. Unsupervised learning</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment07_unsupervised_learning_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment #7 (demo). Unupervised learning. Solution</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Yury Kashnitsky (yorko)<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -4,16 +4,14 @@
 
 In the 3rd lecture, we start with basics of Machine Learning, then supervised learning, and cover classification decision trees in detail.
 
-<div align="center">
-
-[![mlcourse.ai video 3a](https://img.youtube.com/vi/H4XlBTPv5rQ/hqdefault.jpg)](https://youtu.be/H4XlBTPv5rQ)
-
-</div>
+<p align="center">
+	<iframe width="560" height="315" style='' src="https://www.youtube.com/embed/H4XlBTPv5rQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+	</iframe>
+</p>
 
 In the practical part, we use Sklearn to train, tune and visualize decision trees.
 
-<div align="center">
-
-[![mlcourse.ai video 3a](https://img.youtube.com/vi/RrVYO6Td9Js/hqdefault.jpg)](https://youtu.be/RrVYO6Td9Js)
-
-</div>
+<p align="center">
+	<iframe width="560" height="315" style='' src="https://www.youtube.com/embed/RrVYO6Td9Js" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+	</iframe>
+</p>

@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic 5. Ensembles and random forest. Part 2. Random Forest &#8212; mlcourse.ai</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Topic 5. Ensembles and random forest. Part 3. Feature importance" href="topic5_part3_feature_importance.html" />
+    <link rel="prev" title="Topic 5. Ensembles and random forest. Part 1. Bagging" href="topic5_part1_bagging.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Intro
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_intro.html">
+   Topic 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
+   Exploratory data analysis with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/videolecture01.html">
+   Videolecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
+   Demo Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
+   Demo Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
+   Bonus Assignment 1
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_intro.html">
+   Topic 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
+   Visual Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
+   Seaborn, Matplotlib, Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/videolecture02.html">
+   Videolecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
+   Demo Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
+   Demo Assignment 2 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
+   Bonus Assignment 2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_intro.html">
+   Topic 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
+   Classification, Decision Trees &amp; k Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/videolecture03.html">
+   Videolecture 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
+   Demo Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
+   Demo Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
+   Bonus Assignment 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic04_intro.html">
+   Topic 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
+   Linear classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
+   An illustrative example of logistic regression regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
+   When logistic regression is good and when it is not
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
+   Validation and learning curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/videolecture04.html">
+   Videolecture 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
+   Demo Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
+   Demo Assignment 4 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
+   Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic05_intro.html">
+   Topic 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic5_part1_bagging.html">
+   Bagging
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Random Forest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="topic5_part3_feature_importance.html">
+   Feature importance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="videolecture05.html">
+   Videolecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment05_logit_rf_credit_scoring.html">
+   Demo Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment05_logit_rf_credit_scoring_solution.html">
+   Demo Assignment 5 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bonus_assignment05_logreg_rf.html">
+   Bonus Assignment 5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic06_intro.html">
+   Topic 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
+   Feature engineering &amp; feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/demo_assignment06.html">
+   Demo Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/bonus_assignment06.html">
+   Bonus Assignment 6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic07_intro.html">
+   Topic 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
+   Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/videolecture07.html">
+   Videolecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
+   Demo Assignment 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
+   Demo Assignment 7 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/bonus_assignment07.html">
+   Bonus Assignment 7
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/book/topic05/topic5_part2_random_forest.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/topic05/topic5_part2_random_forest.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic05/topic5_part2_random_forest.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/master/mlcourse_ai_jupyter_book/book/topic05/topic5_part2_random_forest.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/master?urlpath=tree/mlcourse_ai_jupyter_book/book/topic05/topic5_part2_random_forest.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#article-outline">
+   Article outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithm">
+   1. Algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-with-decision-trees-and-bagging">
+   2. Comparison with Decision Trees and Bagging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameters">
+   3. Parameters
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practice-with-random-forests-in-a-real-problem">
+     Practice with random forests in a real problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-and-decorrelation">
+   4. Variance and Decorrelation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bias">
+   5. Bias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extremely-randomized-trees">
+   6. Extremely Randomized Trees
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#similarities-between-random-forest-and-k-nearest-neighbors">
+   7. Similarities between Random Forest and k-Nearest Neighbors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation-of-a-dataset-into-a-high-dimensional-representation">
+   8. Transformation of a dataset into a high-dimensional representation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pros-and-cons-of-random-forests">
+   9. Pros and cons of random forests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pros">
+     Pros:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cons">
+     Cons:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-resources">
+   10. Useful resources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-5-ensembles-and-random-forest-part-2-random-forest">
+<span id="topic05-part2"></span><h1>Topic 5. Ensembles and random forest. Part 2. Random Forest<a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-2-random-forest" title="Permalink to this headline">¶</a></h1>
+<img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
+<p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, and <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+<div class="section" id="article-outline">
+<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#algorithm">Algorithm</a></p></li>
+<li><p><a class="reference external" href="#comparison-with-decision-trees-and-bagging">Comparison with Decision Trees and Bagging</a></p></li>
+<li><p><a class="reference external" href="#parameters">Parameters</a></p></li>
+<li><p><a class="reference external" href="#variance-and-decorrelation">Variance and Decorrelation</a></p></li>
+<li><p><a class="reference external" href="#bias">Bias</a></p></li>
+<li><p><a class="reference external" href="#extremely-randomized-trees">Extremely Randomized Trees</a></p></li>
+<li><p><a class="reference external" href="#similarities-between-random-forest-and-k-nearest-neighbors">Similarities between Random Forest and k-Nearest Neighbors</a></p></li>
+<li><p><a class="reference external" href="#transformation-of-a-dataset-into-a-high-dimensional-representation">Transformation of a dataset into a high-dimensional representation</a></p></li>
+<li><p><a class="reference external" href="#pros-and-cons-of-random-forests">Pros and cons of random forests</a></p></li>
+<li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\Var}{Var}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\Corr}{Corr}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\Err}{Err}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\Bias}{Bias}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\E}{\mathbb{E}}\)</span></p>
+<p>Leo Breiman managed to apply bootstrapping not only in statistics but also in machine learning. He, along with Adel Cutler, extended and improved the random forest algorithm <a class="reference external" href="http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf">proposed by Tin Kam Ho</a>. They combined the construction of uncorrelated trees using <a class="reference external" href="https://en.wikipedia.org/wiki/Predictive_analytics#Classification_and_regression_trees_.28CART.29">CART</a>, bagging, and the <a class="reference external" href="https://en.wikipedia.org/wiki/Random_subspace_method">random subspace method</a>.</p>
+<p>Decision trees are a good choice for the base classifier in bagging because they are quite sophisticated and can achieve zero classification error on any sample. The random subspace method reduces the correlation between the trees and thus prevents overfitting. With bagging, the base algorithms are trained on different random subsets of the original feature set.</p>
+<p>The following algorithm constructs an ensemble of models using the random subspace method:</p>
+<ol class="simple">
+<li><p>Let the number of instances be equal to <span class="math notranslate nohighlight">\(\large \ell\)</span>, and the number of features be equal to <span class="math notranslate nohighlight">\(\large d\)</span>.</p></li>
+<li><p>Choose <span class="math notranslate nohighlight">\(\large L\)</span> as the number of individual models in the ensemble.</p></li>
+<li><p>For each model <span class="math notranslate nohighlight">\(\large l\)</span>, choose the number of features <span class="math notranslate nohighlight">\(\large dl &lt; d\)</span>. As a rule, the same value of <span class="math notranslate nohighlight">\(\large dl\)</span> is used for all the models.</p></li>
+<li><p>For each model <span class="math notranslate nohighlight">\(\large l\)</span>, create a training set by selecting <span class="math notranslate nohighlight">\(\large dl\)</span> features at random from the whole set of <span class="math notranslate nohighlight">\(\large d\)</span> features.</p></li>
+<li><p>Train each model.</p></li>
+<li><p>Apply the resulting ensemble model to a new instance by combining the results from all the models in <span class="math notranslate nohighlight">\(\large L\)</span>. You can use either majority voting or aggregation of the posterior probabilities.</p></li>
+</ol>
+</div>
+<div class="section" id="algorithm">
+<h2>1. Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The algorithm for constructing a random forest of <span class="math notranslate nohighlight">\(\large N\)</span> trees goes as follows:</p>
+<ul class="simple">
+<li><p>For each <span class="math notranslate nohighlight">\(\large k = 1, \dots, N\)</span>:</p>
+<ul>
+<li><p>Generate a bootstrap sample <span class="math notranslate nohighlight">\(\large X_k\)</span>.</p></li>
+<li><p>Build a decision tree <span class="math notranslate nohighlight">\(\large b_k\)</span> on the sample <span class="math notranslate nohighlight">\(\large X_k\)</span>:</p>
+<ul>
+<li><p>Pick the best feature according to the given criteria. Split the sample by this feature to create a new tree level. Repeat this procedure until the sample is exhausted.</p></li>
+<li><p>Building the tree until any of its leaves contains no more than <span class="math notranslate nohighlight">\(\large n_\text{min}\)</span> instances or until a certain depth is reached.</p></li>
+<li><p>For each split, we first randomly pick <span class="math notranslate nohighlight">\(\large m\)</span> features from the <span class="math notranslate nohighlight">\(\large d\)</span> original ones and then search for the next best split only among the subset.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The final classifier is defined by:
+$<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k = 1}^N b_k(x)\)</span>$</p>
+<p>We use the majority voting for classification and the mean for regression.</p>
+<p>For classification problems, it is advisable to set <span class="math notranslate nohighlight">\(\large m = \sqrt{d}\)</span>. For regression problems, we usually take <span class="math notranslate nohighlight">\(\large m = \frac{d}{3}\)</span>, where <span class="math notranslate nohighlight">\(\large d\)</span> is the number of features. It is recommended to build each tree until all of its leaves contain only <span class="math notranslate nohighlight">\(\large n_\text{min} = 1\)</span> examples for classification and <span class="math notranslate nohighlight">\(\large n_\text{min} = 5\)</span> examples for regression.</p>
+<p>You can see random forest as bagging of decision trees with the modification of selecting a random subset of features at each split.</p>
+</div>
+<div class="section" id="comparison-with-decision-trees-and-bagging">
+<h2>2. Comparison with Decision Trees and Bagging<a class="headerlink" href="#comparison-with-decision-trees-and-bagging" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable warnings in Anaconda</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BaggingClassifier</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">,</span>
+                              <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_train</span> <span class="o">=</span> <span class="mi">150</span>  
+<span class="n">n_test</span> <span class="o">=</span> <span class="mi">1000</span>  
+<span class="n">noise</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Generate data</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>\
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">n_train</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">n_test</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">)</span>
+
+<span class="c1"># One decision tree regressor</span>
+<span class="n">dtree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">d_predict</span> <span class="o">=</span> <span class="n">dtree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">d_predict</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Decision tree, MSE = </span><span class="si">%.2f</span><span class="s2">&quot;</span>
+          <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">d_predict</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Bagging with a decision tree regressor</span>
+<span class="n">bdt</span> <span class="o">=</span> <span class="n">BaggingRegressor</span><span class="p">(</span><span class="n">DecisionTreeRegressor</span><span class="p">())</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">bdt_predict</span> <span class="o">=</span> <span class="n">bdt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">bdt_predict</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bagging for decision trees, MSE = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">bdt_predict</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">));</span>
+
+<span class="c1"># Random Forest</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">rf_predict</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">rf_predict</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Random forest, MSE = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">rf_predict</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic5_part2_random_forest_2_0.png" src="../../_images/topic5_part2_random_forest_2_0.png" />
+<img alt="../../_images/topic5_part2_random_forest_2_1.png" src="../../_images/topic5_part2_random_forest_2_1.png" />
+<img alt="../../_images/topic5_part2_random_forest_2_2.png" src="../../_images/topic5_part2_random_forest_2_2.png" />
+</div>
+</div>
+<p>As we can see from our graphs and the MSE values above, a random forest of 10 trees achieves a better result than a single decision tree and is comparable to bagging with 10 trees. The main difference between random forests and bagging is that, in a random forest, the best feature for a split is selected from a random subset of the available features while, in bagging, all features are considered for the next best split.</p>
+<p>We can also look at the advantages of random forests and bagging in classification problems:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train_circles</span><span class="p">,</span> <span class="n">X_test_circles</span><span class="p">,</span> <span class="n">y_train_circles</span><span class="p">,</span> <span class="n">y_test_circles</span> <span class="o">=</span> \
+    <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">dtree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">dtree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_circles</span><span class="p">,</span> <span class="n">y_train_circles</span><span class="p">)</span>
+
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">x_range</span><span class="p">)</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">dtree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">xx2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">y_hat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Decision tree&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">b_dtree</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+                            <span class="n">n_estimators</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">b_dtree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_circles</span><span class="p">,</span> <span class="n">y_train_circles</span><span class="p">)</span>
+
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">x_range</span><span class="p">)</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">b_dtree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">xx2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">y_hat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bagging (decision trees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_circles</span><span class="p">,</span> <span class="n">y_train_circles</span><span class="p">)</span>
+
+<span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">x_range</span><span class="p">)</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">xx2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">y_hat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx1</span><span class="p">,</span> <span class="n">xx2</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Random forest&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic5_part2_random_forest_4_0.png" src="../../_images/topic5_part2_random_forest_4_0.png" />
+<img alt="../../_images/topic5_part2_random_forest_4_1.png" src="../../_images/topic5_part2_random_forest_4_1.png" />
+<img alt="../../_images/topic5_part2_random_forest_4_2.png" src="../../_images/topic5_part2_random_forest_4_2.png" />
+</div>
+</div>
+<p>The figures above show that the decision boundary of the decision tree is quite jagged and has a lot of acute angles that suggest overfitting and a weak ability to generalize. We would have trouble making reliable predictions on new test data. In contrast, the bagging algorithm has a rather smooth boundary and has no obvious signs of overfitting.</p>
+<p>Now, let’s investigate some parameters which can help us increase the model accuracy.</p>
+</div>
+<div class="section" id="parameters">
+<h2>3. Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn library</a> implements random forests by providing two estimators: <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code>.</p>
+<p>The full list of random forest parameters for regression is shown below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> — the number of trees in the forest (default = 10)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">criterion</span></code> — the function used to measure the quality of a split. Supported criteria are “mse” for the mean squared error, which is equal to variance reduction as feature selection criterion, and “mae” for the mean absolute error (default = “mse”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code> — the number of features to consider when looking for the best split. You can specify the number or percentage of features, or choose from the available values: “auto” (all features), “sqrt”, “log2”. (default = “auto”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> — the maximum depth of the tree (default means that nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code> — the minimum number of samples required to split an internal node. Can be specified as the number or as a percentage of a total number of samples (default = 2)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> — the minimum number of samples required at a leaf node(default = 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_weight_fraction_leaf</span></code> — the minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided (default = 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_leaf_nodes</span></code> — the maximum number of leaves (default = no restrictions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_impurity_split</span></code> — threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf (default = 1е-7)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> — whether bootstrap samples are used when building trees(default = True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oob_score</span></code> — whether to use out-of-bag samples to estimate the R^2 on unseen data (default = False)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> — the number of jobs to run in parallel for both fit and predict. If -1, then the number of jobs is set to the number of cores (default = 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code> — if int, random_state is the seed used by the random number generator; if RandomState instance, random_state is the random number generator; if None, the random number generator is the RandomState instance used by np.random (default = None)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code> — controls the verbosity of the tree building process (default = 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warm_start</span></code> — when set to True, reuse the solution of the previous call to fit and add more estimators to the ensemble, otherwise, just fit a whole new forest (default = False)</p></li>
+</ul>
+<p>In case of classification, parameters are mostly the same. Only the following differ for <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> as compared to <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">criterion</span></code> — the function used to measure the quality of a split. Supported criteria are “gini” for the Gini impurity and “entropy” for the information gain. Note: this parameter is tree-specific (default = “gini”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class_weight</span></code> — the weight of each class (by default all weights equal to 1, but you can create a dictionary with weights or specify it as “balanced” - uses the values of classes to automatically adjust weights inversely proportional to class frequencies in the input data or as “balanced_subsample” - the same as “balanced” except that weights are computed based on the bootstrap sample for every tree grown)</p></li>
+</ul>
+<p>Below are the parameters which we need to pay attention to when we are building a new model:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> — the number of trees in the forest;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">criterion</span></code> — the function used to measure the quality of a split;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code> — the number of features to consider when looking for the best split;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> — the minimum number of samples required to be at a leaf node;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> — the maximum depth of the tree.</p></li>
+</ul>
+<div class="section" id="practice-with-random-forests-in-a-real-problem">
+<h3>Practice with random forests in a real problem<a class="headerlink" href="#practice-with-random-forests-in-a-real-problem" title="Permalink to this headline">¶</a></h3>
+<p>In this example we will look at predicting customer churn. This is a classification problem, so we will use accuracy for model evaluation.</p>
+<p>First, let’s build a simple classifier which we will use as a baseline. For the sake of simplicity, we will use only numeric features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedKFold</span><span class="p">,</span>
+                                     <span class="n">cross_val_score</span><span class="p">)</span>
+
+<span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
+<span class="c1"># you can specify the data/ folder from the root of your cloned</span>
+<span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
+
+<span class="c1"># Load data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">+</span> <span class="s2">&quot;telecom_churn.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Choose the numeric features</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;float64&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;int64&#39;</span><span class="p">):</span>
+        <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># Divide the dataset into the input and target</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int8&#39;</span><span class="p">)</span>
+
+<span class="c1"># Initialize a stratified split of our dataset for the validation process</span>
+<span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Initialize the classifier with the default parameters</span>
+<span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Train it on the training set</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">rfc</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">skf</span><span class="p">)</span>
+
+<span class="c1"># Evaluate the accuracy on the test set</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CV accuracy score: </span><span class="si">{:.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CV accuracy score: 92.50%
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have accuracy equal to 91.18%. Now, let’s try to improve this result, and take a look at the behavior of the learning curves when we change the basic parameters.</p>
+<p>Let’s start with the number of trees:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the validation</span>
+<span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Create lists to save the values of accuracy on training and test sets</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">trees_grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">ntrees</span> <span class="ow">in</span> <span class="n">trees_grid</span><span class="p">:</span>
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="n">ntrees</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">temp_train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+        <span class="n">temp_test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+    <span class="n">train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_train_acc</span><span class="p">)</span>
+    <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_test_acc</span><span class="p">)</span>
+
+<span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_acc</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best CV accuracy is </span><span class="si">{:.2f}</span><span class="s2">% with </span><span class="si">{}</span><span class="s2"> trees&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+                                                        <span class="n">trees_grid</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best CV accuracy is 92.50% with 100 trees
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trees_grid</span><span class="p">,</span> <span class="n">train_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trees_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cv&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">trees_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">trees_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">1.02</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;N_estimators&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic5_part2_random_forest_9_0.png" src="../../_images/topic5_part2_random_forest_9_0.png" />
+</div>
+</div>
+<p>As you can see, when a certain number of trees is reached, our accuracy on the test set is very close to the asymptote. You can decide by yourself which value would be the optimal number of trees for your problem.</p>
+<p>The figures also show that we achieved 100% accuracy on the training set, which tells us that we overfit. In order to avoid overfitting, we need to add regularization parameters to our model.</p>
+<p>We will start with the maximum depth of trees <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and fix the number of trees at 100:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create lists to save accuracy values on the training and test sets</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_depth_grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">max_depth</span> <span class="ow">in</span> <span class="n">max_depth_grid</span><span class="p">:</span>
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">)</span>
+    <span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">temp_train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+        <span class="n">temp_test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+    <span class="n">train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_train_acc</span><span class="p">)</span>
+    <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_test_acc</span><span class="p">)</span>
+
+<span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_acc</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best CV accuracy is </span><span class="si">{:.2f}</span><span class="s2">% with </span><span class="si">{}</span><span class="s2"> max_depth&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+                                                        <span class="n">max_depth_grid</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))]))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_depth_grid</span><span class="p">,</span> <span class="n">train_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_depth_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cv&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">max_depth_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">max_depth_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">1.02</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Max_depth&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best CV accuracy is 92.44% with 24 max_depth
+</pre></div>
+</div>
+<img alt="../../_images/topic5_part2_random_forest_11_1.png" src="../../_images/topic5_part2_random_forest_11_1.png" />
+</div>
+</div>
+<p>Parameter <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> copes well with the regularization of our model and it does not overfit as badly as before. The model accuracy has increased slightly.</p>
+<p>Another important parameter worth tuning is <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code>. It also contributes to regularization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create lists to save accuracy values on the training and test sets</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">min_samples_leaf_grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">min_samples_leaf</span> <span class="ow">in</span> <span class="n">min_samples_leaf_grid</span><span class="p">:</span>
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">min_samples_leaf</span><span class="o">=</span><span class="n">min_samples_leaf</span><span class="p">)</span>
+    <span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">temp_train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+        <span class="n">temp_test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+    <span class="n">train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_train_acc</span><span class="p">)</span>
+    <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_test_acc</span><span class="p">)</span>
+
+<span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_acc</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best CV accuracy is </span><span class="si">{:.2f}</span><span class="s2">% with </span><span class="si">{}</span><span class="s2"> min_samples_leaf&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+                                                        <span class="n">min_samples_leaf_grid</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best CV accuracy is 92.50% with 1 min_samples_leaf
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">min_samples_leaf_grid</span><span class="p">,</span> <span class="n">train_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">min_samples_leaf_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cv&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">min_samples_leaf_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">min_samples_leaf_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">1.02</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Min_samples_leaf&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic5_part2_random_forest_14_0.png" src="../../_images/topic5_part2_random_forest_14_0.png" />
+</div>
+</div>
+<p>In this case, we do not see an improvement in accuracy on the validation set, but we significantly reduce the overfitting down to 2% while keeping the accuracy at about 92%.</p>
+<p>Let’s consider the parameter <code class="docutils literal notranslate"><span class="pre">max_features</span></code>. For classification, the value <span class="math notranslate nohighlight">\(\large \sqrt{d}\)</span> (the total number of features) is typically used as the default choice. Let’s check whether it would be optimal to use 4 features in our case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create lists to save accuracy values on the training and test sets</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">max_features_grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">max_features</span> <span class="ow">in</span> <span class="n">max_features_grid</span><span class="p">:</span>
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">)</span>
+    <span class="n">temp_train_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">temp_test_acc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+        <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">temp_train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+        <span class="n">temp_test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+    <span class="n">train_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_train_acc</span><span class="p">)</span>
+    <span class="n">test_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_test_acc</span><span class="p">)</span>
+
+<span class="n">train_acc</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_acc</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">test_acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best CV accuracy is </span><span class="si">{:.2f}</span><span class="s2">% with </span><span class="si">{}</span><span class="s2"> max_features&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+                                                        <span class="n">max_features_grid</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))]))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_features_grid</span><span class="p">,</span> <span class="n">train_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">max_features_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cv&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">max_features_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">max_features_grid</span><span class="p">,</span> <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">test_acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">test_acc</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#888888&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">1.02</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Max_features&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best CV accuracy is 92.50% with 4 max_features
+</pre></div>
+</div>
+<img alt="../../_images/topic5_part2_random_forest_16_1.png" src="../../_images/topic5_part2_random_forest_16_1.png" />
+</div>
+</div>
+<p>In our case, the optimal number of features is equal to 10. This is the value at which the best result is achieved.</p>
+<p>We have seen how the learning curves change with different values of the basic parameters. Now, let’s use <code class="docutils literal notranslate"><span class="pre">GridSearch</span></code> to find the optimal parameters for our example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the set of parameters for exhaustive search and fit</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+              <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+              <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]}</span>
+<span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gcv</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">rfc</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">skf</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gcv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 64 candidates, totalling 320 fits
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=StratifiedKFold(n_splits=5, random_state=42, shuffle=True),
+             estimator=RandomForestClassifier(n_jobs=-1, random_state=42),
+             n_jobs=-1,
+             param_grid={&#39;max_depth&#39;: [5, 10, 15, 20],
+                         &#39;max_features&#39;: [4, 7, 10, 13],
+                         &#39;min_samples_leaf&#39;: [1, 3, 5, 7]},
+             verbose=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcv</span><span class="o">.</span><span class="n">best_params_</span><span class="p">,</span> <span class="n">gcv</span><span class="o">.</span><span class="n">best_score_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;max_depth&#39;: 20, &#39;max_features&#39;: 10, &#39;min_samples_leaf&#39;: 3},
+ 0.925596661128895)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variance-and-decorrelation">
+<h2>4. Variance and Decorrelation<a class="headerlink" href="#variance-and-decorrelation" title="Permalink to this headline">¶</a></h2>
+<p>Let’s write the variance of a random forest as</p>
+<div class="math notranslate nohighlight">
+\[\large \Var f(x) = \rho(x)\sigma^2(x)\]</div>
+<div class="math notranslate nohighlight">
+\[\large \rho(x) = \Corr\left[T(x_1,\Theta_1(Z)),T(x_2,\Theta_2(Z))\right],\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\large \rho(x)\)</span> is the sample correlation coefficient between any two trees used in averaging:</p></li>
+<li><p><span class="math notranslate nohighlight">\(\large \Theta_1(Z)\)</span> and <span class="math notranslate nohighlight">\(\large \Theta_2(Z)\)</span> are a randomly selected pair of trees on randomly selected elements of the sample <span class="math notranslate nohighlight">\(Z\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\large T(x,\Theta_i(Z))\)</span> is the output of the <span class="math notranslate nohighlight">\(\large i\)</span>-th tree classifier on an input vector <span class="math notranslate nohighlight">\(\large x\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\large \sigma^2(x)\)</span> is the sample variance of any randomly selected tree:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\large \sigma^2(x) = \Var\left[T(x,\Theta(X))\right]\]</div>
+<p>It is easy to confuse <span class="math notranslate nohighlight">\(\large \rho(x)\)</span> with the average correlation between the trained trees in a given random forest when we consider trees as N-vectors and calculate the average pairwise correlation between them. But this is not the case.</p>
+<p>In fact, this conditional correlation is not directly related to the averaging process, and the dependence of <span class="math notranslate nohighlight">\(\large \rho(x)\)</span> on <span class="math notranslate nohighlight">\(\large x\)</span> warns us of this difference. <span class="math notranslate nohighlight">\(\large \rho(x)\)</span> is the theoretical correlation between a pair of random trees estimated on the input <span class="math notranslate nohighlight">\(\large x\)</span>. Its value comes from the repeated sampling of the training set from the population <span class="math notranslate nohighlight">\(\large Z\)</span> and the subsequent random choice of a pair of trees. In statistics jargon, this is the correlation caused by the sampling distribution of <span class="math notranslate nohighlight">\(\large Z\)</span> and <span class="math notranslate nohighlight">\(\large \Theta\)</span>.</p>
+<p>The conditional covariance of any pair of trees is equal to 0 because bootstrapping and feature selection are independent and identically distributed.</p>
+<p>If we consider the variance of a single tree, it barely depends on the parameters of the splitting (<span class="math notranslate nohighlight">\(\large m\)</span>). But they are crucial for ensembles. The variance of a tree is much higher than the one of an ensemble. The book <em>The Elements of Statistical Learning (Trevor Hastie, Robert Tibshirani and Jerome Friedman)</em> has a great example that demonstrates this fact:</p>
+<p><img alt="image" src="../../_images/topic5_variance_rf.png" /></p>
+</div>
+<div class="section" id="bias">
+<h2>5. Bias<a class="headerlink" href="#bias" title="Permalink to this headline">¶</a></h2>
+<p>Just as in bagging, the bias of a random forest is the same as the bias of a single tree <span class="math notranslate nohighlight">\(\large T(x,\Theta(Z))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \large \begin{array}{rcl} \Bias &amp;=&amp; \mu(x) - \E_Z \, f_{rf}(x) \\
+&amp;=&amp; \mu(x) - \E_Z \, \E_{\Theta | Z} \, T(x,\Theta(Z))\end{array}\end{split}\]</div>
+<p>In absolute value, the bias is usually higher than that of an unprunned tree because randomization and sample space reduction impose their own restrictions on the model. Therefore, the improvements in prediction accuracy obtained by bagging and random forests are solely the result of variance reduction.</p>
+</div>
+<div class="section" id="extremely-randomized-trees">
+<h2>6. Extremely Randomized Trees<a class="headerlink" href="#extremely-randomized-trees" title="Permalink to this headline">¶</a></h2>
+<p>Extremely Randomized Trees employ a greater degree of randomization at the cut-point choice when splitting a tree node. As in random forests, a random subset of features is used. But, instead of the search for the optimal thresholds, their values are selected at random for each possible feature, and the best one among these randomly generated thresholds is used as the best rule to split the node. This usually trades off a slight reduction in the model variance with a small increase of the bias.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library, there are 2 implementations of Extremely Randomized Trees: <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier">ExtraTreesClassifier</a> and <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor">ExtraTreesRegressor</a>.</p>
+<p>This method should be used if you have greatly overfit with random forests or gradient boosting.</p>
+</div>
+<div class="section" id="similarities-between-random-forest-and-k-nearest-neighbors">
+<h2>7. Similarities between Random Forest and k-Nearest Neighbors<a class="headerlink" href="#similarities-between-random-forest-and-k-nearest-neighbors" title="Permalink to this headline">¶</a></h2>
+<p>The random forest method is similar to the nearest neighbors technique. Random forests predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let’s prove this formally.</p>
+<p>Let’s consider a regression problem with the quadratic loss function. Let <span class="math notranslate nohighlight">\(\large T_n(x)\)</span> be the number of the leaf of the <span class="math notranslate nohighlight">\(\large n\)</span>-th tree in a random forest with input <span class="math notranslate nohighlight">\(\large x\)</span>.
+The algorithm response for the input vector <span class="math notranslate nohighlight">\(\large x\)</span> equals the averaged response over all the examples of the training sample that fall into the leaf <span class="math notranslate nohighlight">\(\large T_n(x)\)</span>. This can be written as</p>
+<div class="math notranslate nohighlight">
+\[\large b_n(x) = \sum_{i=1}^{l}w_n(x,x_i)y_i,\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[ \large w_n(x, x_i) = \frac{\left[T_n(x) = T_n(x_i)\right]}{\sum_{j=1}^{l}\left[T_n(x) = T_n(x_j)\right]}\]</div>
+<p>Then, the response of the composition is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \large \begin{array}{rcl} a_n(x) &amp;=&amp; \frac{1}{N}\sum_{n=1}^{N}\sum_{i=1}^{l}w_n(x,x_i)y_i \\
+&amp;=&amp; \sum_{i=1}^{l}\left(\frac{1}{N}\sum_{j=1}^{N}w_n(x,x_j)\right)y_i \end{array}\end{split}\]</div>
+<p>You can see that the response of a random forest is a weighted sum of responses over all training examples.</p>
+<p>It is also worth noting that the number of the leaf <span class="math notranslate nohighlight">\( \large T_n(x)\)</span>, where the instance <span class="math notranslate nohighlight">\(\large x\)</span> ended up, is a valuable feature by itself. For example, the following approach works well: 1) A composition of a small number of trees is trained on a sample using a random forest or gradient boosting. 2) The categorical features <span class="math notranslate nohighlight">\(\large T_1(x), \dots, T_n(x)\)</span> are added to the sample.</p>
+<p>These new features are the result of the non-linear space splitting, and they provide information about similarity between examples. In the book <em>The Elements of Statistical Learning</em>, there is a good illustrative example that demonstrates this similarity between random forests and the k-nearest neighbors technique:</p>
+<p><img alt="image" src="../../_images/topic5_knn_vs_rf.png" /></p>
+</div>
+<div class="section" id="transformation-of-a-dataset-into-a-high-dimensional-representation">
+<h2>8. Transformation of a dataset into a high-dimensional representation<a class="headerlink" href="#transformation-of-a-dataset-into-a-high-dimensional-representation" title="Permalink to this headline">¶</a></h2>
+<p>Random forests are mostly used in supervised learning, but there is a way to apply them in the unsupervised setting.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> method <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomTreesEmbedding.html#sklearn.ensemble.RandomTreesEmbedding">RandomTreesEmbedding</a>, we can transform our dataset into a high-dimensional, <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">sparse</a> representation. We first build extremely randomized trees and then use the index of the leaf containing the example as a new feature.</p>
+<p>For example, if the input appears in the first leaf, we assign <span class="math notranslate nohighlight">\(1\)</span> as the feature value; if not, we assign <span class="math notranslate nohighlight">\(0\)</span>. This is a so-called <em>binary coding</em>. We can control the number of features and the sparseness of data by increasing or decreasing the number of trees and their depth. Because nearby data points are likely to fall into the same leaf, this transformation provides an implicit nonparametric estimate of their density.</p>
+</div>
+<div class="section" id="pros-and-cons-of-random-forests">
+<h2>9. Pros and cons of random forests<a class="headerlink" href="#pros-and-cons-of-random-forests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pros">
+<h3>Pros:<a class="headerlink" href="#pros" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>High prediction accuracy; will perform better than linear algorithms in most problems; the accuracy is comparable with that of boosting.</p></li>
+<li><p>Robust to outliers, thanks to random sampling.</p></li>
+<li><p>Insensitive to the scaling of features as well as any other monotonic transformations due to the random subspace selection.</p></li>
+<li><p>Doesn’t require fine-grained parameter tuning, works quite well out-of-the-box. With tuning, it is possible to achieve a 0.5–3% gain in accuracy, depending on the problem setting and data.</p></li>
+<li><p>Efficient for datasets with a large number of features and classes.</p></li>
+<li><p>Handles both continuous and discrete variables equally well.</p></li>
+<li><p>Rarely overfits. In practice, an increase in the tree number almost always improves the composition. But, after reaching a certain number of trees, the learning curve is very close to the asymptote.</p></li>
+<li><p>There are developed methods to estimate feature importance.</p></li>
+<li><p>Works well with missing data and maintains good accuracy even when a large part of data is missing.</p></li>
+<li><p>Provides means to weight classes on the whole dataset as well as for each tree sample.</p></li>
+<li><p>Under the hood, calculates proximities between pairs of examples that can subsequently be used in clustering, outlier detection, or interesting data representations.</p></li>
+<li><p>The above functionality and properties may be extended to unlabeled data to enable unsupervised clustering, data visualization, and outlier detection.</p></li>
+<li><p>Easily parallelized and highly scalable.</p></li>
+</ul>
+</div>
+<div class="section" id="cons">
+<h3>Cons:<a class="headerlink" href="#cons" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In comparison with a single decision tree, Random Forest’s output is more difficult to interpret.</p></li>
+<li><p>There are no formal p-values for feature significance estimation.</p></li>
+<li><p>Performs worse than linear methods in the case of sparse data: text inputs, bag of words, etc.</p></li>
+<li><p>Unlike linear regression, Random Forest is unable to extrapolate. But, this can be also regarded as an advantage because outliers do not cause extreme values in Random Forests.</p></li>
+<li><p>Prone to overfitting in some problems, especially, when dealing with noisy data.</p></li>
+<li><p>In the case of categorical variables with varying level numbers, random forests favor variables with a greater number of levels. The tree will fit more towards a feature with many levels because this gains greater accuracy.</p></li>
+<li><p>If a dataset contains groups of correlated features, preference might be given to groups of smaller size. See <a class="reference external" href="http://rnowling.github.io/machine/learning/2015/08/11/random-forest-correlation-bias.html">this work</a></p></li>
+<li><p>The resulting model is large and requires a lot of RAM.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="useful-resources">
+<h2>10. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p><a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> <a class="reference external" href="https://www.youtube.com/watch?v=neXJL-AqI_c">lecture</a> on Random Forest</p></li>
+<li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">“story”</a> based on this notebook</p></li>
+<li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
+<li><p>If you read Russian: an <a class="reference external" href="https://habr.com/ru/company/ods/blog/324402/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/G0DmuuFeC30">lecture</a> on YouTube</p></li>
+<li><p>Chapter 15 of the book “<a class="reference external" href="https://statweb.stanford.edu/~tibs/ElemStatLearn/">Elements of Statistical Learning</a>” by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie.</p></li>
+<li><p>More about practical applications of random forests and other algorithms can be found in the <a class="reference external" href="http://scikit-learn.org/stable/modules/ensemble.html">official documentation</a> of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
+<li><p>For a more in-depth discussion of variance and decorrelation of random forests, see the <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf">original paper</a>.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/topic05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="topic5_part1_bagging.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 5. Ensembles and random forest. Part 1. Bagging</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="topic5_part3_feature_importance.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Topic 5. Ensembles and random forest. Part 3. Feature importance</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Yury Kashnitsky (yorko)<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

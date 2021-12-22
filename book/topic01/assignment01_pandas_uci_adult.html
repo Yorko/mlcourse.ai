@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment #1 (demo). Exploratory data analysis with Pandas &#8212; mlcourse.ai</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,19 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -57,7 +59,10 @@
     <link rel="next" title="Assignment #1 (demo). Exploratory data analysis with Pandas. Solution" href="assignment01_pandas_uci_adult_solution.html" />
     <link rel="prev" title="Videolecture 1. Pandas &amp; Data Analysis" href="videolecture01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,7 +101,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 1
  </span>
@@ -133,7 +138,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 2
  </span>
@@ -175,7 +180,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 3
  </span>
@@ -212,7 +217,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 4
  </span>
@@ -254,18 +259,129 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_sarcasm_detection_with_logit.html">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
    Demo Assignment 4 Task
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_sarcasm_detection_with_logit_solution.html">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
    Demo Assignment 4 Solution
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
    Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic05_intro.html">
+   Topic 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
+   Bagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
+   Random Forest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
+   Feature importance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/videolecture05.html">
+   Videolecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
+   Demo Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
+   Demo Assignment 5 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
+   Bonus Assignment 5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic06_intro.html">
+   Topic 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
+   Feature engineering &amp; feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/demo_assignment06.html">
+   Demo Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/bonus_assignment06.html">
+   Bonus Assignment 6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic07_intro.html">
+   Topic 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
+   Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/videolecture07.html">
+   Videolecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
+   Demo Assignment 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
+   Demo Assignment 7 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/bonus_assignment07.html">
+   Bonus Assignment 7
   </a>
  </li>
 </ul>
@@ -323,6 +439,24 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic01/assignment01_pandas_uci_adult.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/master/mlcourse_ai_jupyter_book/book/topic01/assignment01_pandas_uci_adult.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -337,7 +471,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/topic01/assignment01_pandas_uci_adult.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/master?urlpath=tree/mlcourse_ai_jupyter_book/book/topic01/assignment01_pandas_uci_adult.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -362,7 +496,7 @@
         
               <div>
                 
-  <div class="section" id="assignment-1-demo-exploratory-data-analysis-with-pandas">
+  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-1-demo-exploratory-data-analysis-with-pandas">
 <span id="assignment01"></span><h1>Assignment #1 (demo). Exploratory data analysis with Pandas<a class="headerlink" href="#assignment-1-demo-exploratory-data-analysis-with-pandas" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-default" id="ods-stickers">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
@@ -654,31 +788,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="videolecture01.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Videolecture 1. Pandas &amp; Data Analysis</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="videolecture01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Videolecture 1. Pandas &amp; Data Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment01_pandas_uci_adult_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment #1 (demo). Exploratory data analysis with Pandas. Solution</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="assignment01_pandas_uci_adult_solution.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Assignment #1 (demo). Exploratory data analysis with Pandas. Solution</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -689,7 +814,7 @@
         
           By Yury Kashnitsky (yorko)<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -699,8 +824,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

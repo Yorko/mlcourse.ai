@@ -56,7 +56,7 @@ We’ll demonstrate the main methods in action by analyzing a [dataset](https://
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 
@@ -478,8 +478,8 @@ As we move on through this course, recall that, before the advent of machine lea
 ## 3. Useful resources
 
 * The same notebook as an interactive web-based [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas)
-* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (full list of tutorials is [here](https://mlcourse.ai/tutorials))
-* ["Handle different dataset with dask and trying a little dask ML"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/master/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb) -- a tutorial by Irina Knyazeva within mlcourse.ai
+* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (full list of tutorials is [here](https://mlcourse.ai/tutorials))
+* ["Handle different dataset with dask and trying a little dask ML"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb) -- a tutorial by Irina Knyazeva within mlcourse.ai
 * Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
 * Official Pandas [documentation](http://pandas.pydata.org/pandas-docs/stable/index.html)
 * Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)

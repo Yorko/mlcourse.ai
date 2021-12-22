@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +31,23 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,7 +61,10 @@
     <link rel="next" title="Topic 4. Linear Classification and Regression" href="topic4_linear_models_part5_valid_learning_curves.html" />
     <link rel="prev" title="Topic 4. Linear Classification and Regression" href="topic4_linear_models_part3_regul_example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -98,7 +103,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 1
  </span>
@@ -135,7 +140,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 2
  </span>
@@ -177,7 +182,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 3
  </span>
@@ -214,7 +219,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Topic 4
  </span>
@@ -256,18 +261,129 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="assignment04_sarcasm_detection_with_logit.html">
+  <a class="reference internal" href="assignment04_regression_wine.html">
    Demo Assignment 4 Task
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="assignment04_sarcasm_detection_with_logit_solution.html">
+  <a class="reference internal" href="assignment04_regression_wine_solution.html">
    Demo Assignment 4 Solution
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bonus_assignment04_alice_baselines.html">
    Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic05_intro.html">
+   Topic 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
+   Bagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
+   Random Forest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
+   Feature importance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/videolecture05.html">
+   Videolecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
+   Demo Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
+   Demo Assignment 5 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
+   Bonus Assignment 5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic06_intro.html">
+   Topic 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
+   Feature engineering &amp; feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/demo_assignment06.html">
+   Demo Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/bonus_assignment06.html">
+   Bonus Assignment 6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic07_intro.html">
+   Topic 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
+   Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/videolecture07.html">
+   Videolecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
+   Demo Assignment 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
+   Demo Assignment 7 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/bonus_assignment07.html">
+   Bonus Assignment 7
   </a>
  </li>
 </ul>
@@ -325,6 +441,24 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/master/mlcourse_ai_jupyter_book/book/topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -339,7 +473,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/master?urlpath=tree/mlcourse_ai_jupyter_book/book/topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -402,7 +536,7 @@
         
               <div>
                 
-  <div class="section" id="topic-4-linear-classification-and-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-4-linear-classification-and-regression">
 <span id="topic04-part4"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="part-4-when-logistic-regression-is-good-and-when-it-is-not">
 <h2>Part 4. When Logistic Regression Is Good and When It Is Not<a class="headerlink" href="#part-4-when-logistic-regression-is-good-and-when-it-is-not" title="Permalink to this headline">¶</a></h2>
@@ -617,7 +751,7 @@ Number of documents in test data: 25000
 [&#39;pincher&#39;, &#39;pinchers&#39;, &#39;pinches&#39;, &#39;pinching&#39;, &#39;pinchot&#39;, &#39;pinciotti&#39;, &#39;pine&#39;, &#39;pineal&#39;, &#39;pineapple&#39;, &#39;pineapples&#39;, &#39;pines&#39;, &#39;pinet&#39;, &#39;pinetrees&#39;, &#39;pineyro&#39;, &#39;pinfall&#39;, &#39;pinfold&#39;, &#39;ping&#39;, &#39;pingo&#39;, &#39;pinhead&#39;, &#39;pinheads&#39;, &#39;pinho&#39;, &#39;pining&#39;, &#39;pinjar&#39;, &#39;pink&#39;, &#39;pinkerton&#39;, &#39;pinkett&#39;, &#39;pinkie&#39;, &#39;pinkins&#39;, &#39;pinkish&#39;, &#39;pinko&#39;, &#39;pinks&#39;, &#39;pinku&#39;, &#39;pinkus&#39;, &#39;pinky&#39;, &#39;pinnacle&#39;, &#39;pinnacles&#39;, &#39;pinned&#39;, &#39;pinning&#39;, &#39;pinnings&#39;, &#39;pinnochio&#39;, &#39;pinnocioesque&#39;, &#39;pino&#39;, &#39;pinocchio&#39;, &#39;pinochet&#39;, &#39;pinochets&#39;, &#39;pinoy&#39;, &#39;pinpoint&#39;, &#39;pinpoints&#39;, &#39;pins&#39;, &#39;pinsent&#39;]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
   warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
@@ -696,8 +830,8 @@ Number of documents in test data: 25000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 64.4 ms, sys: 108 ms, total: 173 ms
-Wall time: 7.33 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 65.4 ms, sys: 114 ms, total: 179 ms
+Wall time: 7.34 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(n_jobs=-1, random_state=7)
@@ -769,7 +903,7 @@ Wall time: 7.33 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
   warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
@@ -795,7 +929,7 @@ Wall time: 7.33 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
@@ -806,8 +940,8 @@ Please also refer to the documentation for alternative solver options:
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.86432
-CPU times: user 28.5 s, sys: 3.32 s, total: 31.8 s
-Wall time: 8.51 s
+CPU times: user 26.5 s, sys: 5.37 s, total: 31.9 s
+Wall time: 8.82 s
 </pre></div>
 </div>
 </div>
@@ -827,11 +961,11 @@ Wall time: 8.51 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 25.8 s, sys: 3.85 s, total: 29.7 s
-Wall time: 29.8 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 25.5 s, sys: 3.72 s, total: 29.2 s
+Wall time: 31.1 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
@@ -912,8 +1046,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2min 54s, sys: 598 ms, total: 2min 55s
-Wall time: 15.2 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2min 56s, sys: 759 ms, total: 2min 56s
+Wall time: 15.9 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(n_estimators=200, n_jobs=-1, random_state=17)
@@ -1003,9 +1137,9 @@ Wall time: 15.2 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-34-cd5d9f13f81d&gt;:16: UserWarning: No contour levels were found within the data range.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xs/x4nxtnxd4qq06sg5z0x951q1q7mkqq/T/ipykernel_53268/3069517639.py:16: UserWarning: No contour levels were found within the data range.
   contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
-&lt;ipython-input-34-cd5d9f13f81d&gt;:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
+/var/folders/xs/x4nxtnxd4qq06sg5z0x951q1q7mkqq/T/ipykernel_53268/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
   contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
 </pre></div>
 </div>
@@ -1040,9 +1174,9 @@ Wall time: 15.2 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-34-cd5d9f13f81d&gt;:16: UserWarning: No contour levels were found within the data range.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xs/x4nxtnxd4qq06sg5z0x951q1q7mkqq/T/ipykernel_53268/3069517639.py:16: UserWarning: No contour levels were found within the data range.
   contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
-&lt;ipython-input-34-cd5d9f13f81d&gt;:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
+/var/folders/xs/x4nxtnxd4qq06sg5z0x951q1q7mkqq/T/ipykernel_53268/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
   contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
 </pre></div>
 </div>
@@ -1094,31 +1228,22 @@ Wall time: 15.2 s
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="topic4_linear_models_part3_regul_example.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Topic 4. Linear Classification and Regression</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="topic4_linear_models_part3_regul_example.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 4. Linear Classification and Regression</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="topic4_linear_models_part5_valid_learning_curves.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Topic 4. Linear Classification and Regression</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="topic4_linear_models_part5_valid_learning_curves.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Topic 4. Linear Classification and Regression</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1129,7 +1254,7 @@ Wall time: 15.2 s
         
           By Yury Kashnitsky (yorko)<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1139,8 +1264,7 @@ Wall time: 15.2 s
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
