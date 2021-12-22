@@ -6,18 +6,30 @@ logo: _static/img/mlcourse_ai_logo.jpg
 description: >-
   Open Machine Learning course
 
+repository:
+  url                       : https://github.com/Yorko/mlcourse.ai/
+  path_to_book              : mlcourse_ai_jupyter_book
+
 execute:
   execute_notebooks           : cache
   run_in_temp: true
   timeout: -1
 
 # exclude some content
-exclude_patterns: [book/jupyter_english/*]
+exclude_patterns: [
+  book/extra/*,
+#   book/topic02/*,
+#   book/topic03/*,
+#   book/topic05/*
+  ]
 
 # HTML-specific settings
 html:
   favicon                     : _static/img/favicon.ico
-  home_page_in_navbar         : true
+  home_page_in_navbar         : true  # Whether to include your home page in the left Navigation Bar
+  use_edit_page_button        : true  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_repository_button       : true  # Whether to add a link to your repository button
+  use_issues_button           : true  # Whether to add an "open an issue" button
 
 # Interact link settings
 notebook_interface            : "notebook"
@@ -33,7 +45,7 @@ latex:
 sphinx:
   config:
     # html_extra_path: ['_static/data']
-    # html_extra_path: ['_static/img']
+    html_extra_path: ['_static/img']
     html_js_files:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
       - https://c6.patreon.com/becomePatronButton.bundle.js
