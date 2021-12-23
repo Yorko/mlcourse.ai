@@ -13,7 +13,9 @@ kernelspec:
 (topic07)=
 
 # Topic 7. Unsupervised learning: PCA and clustering
+
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
 Author: [Sergey Korolev](https://www.linkedin.com/in/sokorolev/), Software Engineer at Snap Inc. <br>
@@ -26,17 +28,17 @@ In this lesson, we will work with unsupervised learning methods such as Principa
 
 
 ## Article outline
-1. Introduction
-2. PCA
- - Intuition, theories, and application issues
- - Application examples
-3. Cluster analysis
- - K-means
- - Affinity Propagation
- - Spectral clustering
- - Agglomerative clustering
- - Accuracy metrics
-4. Useful links
+1. [Introduction](#introduction)
+2. [Principal Component Analysis (PCA)](#principal-component-analysis-pca)
+ - [Intuition, theories, and application issues](#intuition-theories-and-application-issues)
+ - [Examples](#examples)
+3. [Clustering](#clustering)
+ - [K-means](#k-means)
+ - [Affinity Propagation](#affinity-propagation)
+ - [Spectral clustering](#spectral-clustering)
+ - [Agglomerative clustering](#agglomerative-clustering)
+ - [Accuracy metrics](#accuracy-metrics)
+4. [Useful links](#useful-links)
 
 ## 1. Introduction
 
