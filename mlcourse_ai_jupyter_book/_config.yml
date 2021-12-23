@@ -9,18 +9,22 @@ description: >-
 repository:
   url                       : https://github.com/Yorko/mlcourse.ai/
   path_to_book              : mlcourse_ai_jupyter_book
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
 execute:
   execute_notebooks           : cache
-  run_in_temp: true
   timeout: -1
 
 # exclude some content
 exclude_patterns: [
   book/extra/*,
-#   book/topic02/*,
-#   book/topic03/*,
-#   book/topic05/*
+  # book/topic01/*,
+  # book/topic02/*,
+  # book/topic03/*,
+  # book/topic04/*,
+  # book/topic05/*,
+  # book/topic06/*,
+  # book/topic07/*
   ]
 
 # HTML-specific settings
