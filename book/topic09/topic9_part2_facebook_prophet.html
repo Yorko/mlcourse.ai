@@ -812,7 +812,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>For a detailed description of the model and algorithms behind Prophet refer to the paper <a class="reference external" href="https://peerj.com/preprints/3190/">“Forecasting at scale”</a> by Sean J. Taylor and Benjamin Letham.</p>
 <p>The authors also compared their library with several other methods for time series forecasting. They used <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error">Mean Absolute Percentage Error (MAPE)</a> as a measure of prediction accuracy. In this research, Prophet has shown substantially lower forecasting error than the other models.</p>
 <img src="../../_static/img/topic9_benchmarking_prophet.png" />
-<p>Let’s look closer at how the forcasting quality was measured in the article. To do this, we will need the formula of Mean Absolute Percentage Error.</p>
+<p>Let’s look closer at how the forecasting quality was measured in the article. To do this, we will need the formula of Mean Absolute Percentage Error.</p>
 <p>Let <span class="math notranslate nohighlight">\(y_{i}\)</span> be the <em>actual (historical) value</em> and <span class="math notranslate nohighlight">\(\hat{y}_{i}\)</span> be the <em>forecast value</em> given by our model.</p>
 <p>Then <span class="math notranslate nohighlight">\(e_{i} = y_{i} - \hat{y}_{i}\)</span> is the <em>forecast error</em> and <span class="math notranslate nohighlight">\(p_{i} =\frac{\displaystyle e_{i}}{\displaystyle y_{i}}\)</span> is the <em>relative forecast error</em>.</p>
 <p>We define</p>
@@ -841,7 +841,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install fbprophet
 </pre></div>
 </div>
-<p>In R you can find the corresponing CRAN package. Refer to the <a class="reference external" href="https://facebookincubator.github.io/prophet/docs/installation.html">documentation</a> for details.</p>
+<p>In R you can find the corresponding CRAN package. Refer to the <a class="reference external" href="https://facebookincubator.github.io/prophet/docs/installation.html">documentation</a> for details.</p>
 <p>Let’s import the modules that we will need, and initialize our environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -897,7 +897,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 </div>
-<p>Next, we leave out all columns except <code class="docutils literal notranslate"><span class="pre">published</span></code> and <code class="docutils literal notranslate"><span class="pre">url</span></code>. The former corresonds to the time dimension while the latter uniquely identifies a post by its URL. Along the way we get rid of possible duplicates and missing values in the data:</p>
+<p>Next, we leave out all columns except <code class="docutils literal notranslate"><span class="pre">published</span></code> and <code class="docutils literal notranslate"><span class="pre">url</span></code>. The former corresponds to the time dimension while the latter uniquely identifies a post by its URL. Along the way we get rid of possible duplicates and missing values in the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;published&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -1281,7 +1281,7 @@ require(['plotly'], function(Plotly) {
 </div></div>
 </div>
 <p>This downsampled chart proves to be somewhat better for an analyst’s perception.</p>
-<p>One of the most useful functions that <code class="docutils literal notranslate"><span class="pre">Plotly</span></code> provides is the ability to quickly dive into different periods of timeline in order to better understand the data and find visual clues about possbile trends, periodic and irregular effects.</p>
+<p>One of the most useful functions that <code class="docutils literal notranslate"><span class="pre">Plotly</span></code> provides is the ability to quickly dive into different periods of timeline in order to better understand the data and find visual clues about possible trends, periodic and irregular effects.</p>
 <p>For example, zooming-in on a couple of consecutive years shows us time points corresponding to Christmas holidays, which greatly influence human behaviors.</p>
 <p>Now, we’re going to omit the first few years of observations, up to 2015. First, they won’t contribute much into the forecast quality in 2017. Second, these first years, having very low number of posts per day, are likely to increase noise in our predictions, as the model would be forced to fit this abnormal historical data along with more relevant and indicative data from the recent years.</p>
 <div class="cell docutils container">

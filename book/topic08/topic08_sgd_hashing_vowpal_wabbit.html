@@ -697,7 +697,7 @@
 <span id="topic08"></span><h1>Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data<a class="headerlink" href="#topic-8-vowpal-wabbit-learning-with-gigabytes-of-data" title="Permalink to this headline">¶</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
-<p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitskiy</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/sergeoreshkov/">Serge Oreshkov</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+<p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/sergeoreshkov/">Serge Oreshkov</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>This week, we’ll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.</p>
 <div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">¶</a></h2>
@@ -1400,7 +1400,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 </div>
 </div>
-<p>Does this operation make any sense? Not really. Let’s try to train logisitic regression with this feature transformation.</p>
+<p>Does this operation make any sense? Not really. Let’s try to train logistic regression with this feature transformation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
@@ -1865,7 +1865,7 @@ day_of_week=mon -&gt; 6
 </div>
 <div class="section" id="vowpal-wabbit">
 <h2>3. Vowpal Wabbit<a class="headerlink" href="#vowpal-wabbit" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit">Vowpal Wabbit</a> (VW) is one of the most widespread machine learning libraries used in industry. It is prominent for its training speed and support of many training modes, especially for online learning with big and high-dimentional data. This is one of the major merits of the library. Also, with the hashing trick implemented, Vowpal Wabbit is a perfect choice for working with text data.</p>
+<p><a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit">Vowpal Wabbit</a> (VW) is one of the most widespread machine learning libraries used in industry. It is prominent for its training speed and support of many training modes, especially for online learning with big and high-dimensional data. This is one of the major merits of the library. Also, with the hashing trick implemented, Vowpal Wabbit is a perfect choice for working with text data.</p>
 <p>Shell is the main interface for VW.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

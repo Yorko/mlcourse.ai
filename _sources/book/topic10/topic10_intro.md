@@ -14,7 +14,7 @@ Gradient boosting is one of the most prominent Machine Learning algorithms, it f
 1\. Read the [article](topic10) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting));
 
 2\. Watch a video lecture on logistic regression coming in 2 parts:
- - the [theorical part](https://youtu.be/g0ZOtzZqdqk) covers fundamental ideas behind gradient boosting;
+ - the [theoretical part](https://youtu.be/g0ZOtzZqdqk) covers fundamental ideas behind gradient boosting;
  - the [practical part](https://youtu.be/V5158Oug4W8), reviews key ideas behind major implementations: Xgboost, LightGBM, and CatBoost;
 
 3\. Complete [demo assignment 10](assignment10) where you'll be beating baselines in a Kaggle "Flight delays" [competition](https://www.kaggle.com/c/flight-delays-fall-2018) provided a CatBoost [starter](https://www.kaggle.com/kashnitsky/mlcourse-ai-fall-2019-catboost-starter-with-gpu);

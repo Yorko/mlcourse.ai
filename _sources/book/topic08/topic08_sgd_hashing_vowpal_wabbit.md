@@ -18,7 +18,7 @@ kernelspec:
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
-Author: [Yury Kashnitskiy](https://yorko.github.io). Translated and edited by [Serge Oreshkov](https://www.linkedin.com/in/sergeoreshkov/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Serge Oreshkov](https://www.linkedin.com/in/sergeoreshkov/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
 This week, we'll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.
@@ -224,7 +224,7 @@ df.loc[1].job - df.loc[2].job
 ```
 
 
-Does this operation make any sense? Not really. Let's try to train logisitic regression with this feature transformation.
+Does this operation make any sense? Not really. Let's try to train logistic regression with this feature transformation.
 
 
 ```{code-cell} ipython3
@@ -336,7 +336,7 @@ A good analysis of hash collisions, their dependency on feature space and hashin
 
 ## 3. Vowpal Wabbit
 
-[Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) (VW) is one of the most widespread machine learning libraries used in industry. It is prominent for its training speed and support of many training modes, especially for online learning with big and high-dimentional data. This is one of the major merits of the library. Also, with the hashing trick implemented, Vowpal Wabbit is a perfect choice for working with text data.
+[Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) (VW) is one of the most widespread machine learning libraries used in industry. It is prominent for its training speed and support of many training modes, especially for online learning with big and high-dimensional data. This is one of the major merits of the library. Also, with the hashing trick implemented, Vowpal Wabbit is a perfect choice for working with text data.
 
 Shell is the main interface for VW.
 

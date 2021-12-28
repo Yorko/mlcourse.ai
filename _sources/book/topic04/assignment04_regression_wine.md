@@ -220,4 +220,4 @@ data.info()
 # rf_importance.sort_values  
 ```
 
-**Make conclusions about the perdormance of the explored 3 models in this particular prediction task.**
+**Make conclusions about the performance of the explored 3 models in this particular prediction task.**

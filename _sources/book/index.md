@@ -35,8 +35,9 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
   </div>
 </div><br>
 
-The bonus pack contains 10 assignments, in some of them you are challenged to beat a baseline in a Kaggle competition under thorough guidance (["Alice"](bonus04) and "Medium") or implement an algorithm from scratch (SGD regression model and gradient boosting).
+The bonus pack contains 10 assignments, in some of them you are challenged to beat a baseline in a Kaggle competition under thorough guidance (["Alice"](bonus04) and ["Medium"](bonus06)) or implement an algorithm from scratch -- efficient stochastic gradient descent [classifier](bonus08) and [gradient boosting](bonus10).
 
+<!--
 Below you can see the course program (click to enlarge).
 
 - **Green** stands for basic content outlined in the articles;
@@ -48,4 +49,4 @@ Below you can see the course program (click to enlarge).
 ```{figure} /_static/program/program.svg
 :name: course_program
 :width: 600px
-```
+```-->

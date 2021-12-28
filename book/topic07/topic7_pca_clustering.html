@@ -1185,8 +1185,8 @@ Wall time: 3.4 s
 <p>We see that <span class="math notranslate nohighlight">\(J(C_k)\)</span> decreases significantly until the number of clusters is 3 and then does not change as much anymore. This means that the optimal number of clusters is 3.</p>
 <div class="section" id="issues">
 <h3>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">¶</a></h3>
-<p>Inherently, K-means is NP-hard. For <span class="math notranslate nohighlight">\(d\)</span> dimensions, <span class="math notranslate nohighlight">\(k\)</span> clusters, and <span class="math notranslate nohighlight">\(n\)</span> observations, we will find a solution in <span class="math notranslate nohighlight">\(O(n^{d k+1})\)</span> time. There are some heuristics to deal with this; an example is MiniBatch K-means, which takes portions (batches) of data instead of fitting the whole dataset and then moves centroids by taking the average of the previous steps. Compare the implementation of K-means and MiniBatch K-means in the <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/cluster/plot_mini_batch_kmeans.html">sckit-learn documentation</a>.</p>
-<p>The <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">implemetation</a> of the algorithm using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> has its benefits such as the possibility to state the number of initializations with the <code class="docutils literal notranslate"><span class="pre">n_init</span></code> function parameter, which enables us to identify more robust centroids. Moreover, these runs can be done in parallel to decrease the computation time.</p>
+<p>Inherently, K-means is NP-hard. For <span class="math notranslate nohighlight">\(d\)</span> dimensions, <span class="math notranslate nohighlight">\(k\)</span> clusters, and <span class="math notranslate nohighlight">\(n\)</span> observations, we will find a solution in <span class="math notranslate nohighlight">\(O(n^{d k+1})\)</span> time. There are some heuristics to deal with this; an example is MiniBatch K-means, which takes portions (batches) of data instead of fitting the whole dataset and then moves centroids by taking the average of the previous steps. Compare the implementation of K-means and MiniBatch K-means in the <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/cluster/plot_mini_batch_kmeans.html">scikit-learn documentation</a>.</p>
+<p>The <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">implementation</a> of the algorithm using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> has its benefits such as the possibility to state the number of initializations with the <code class="docutils literal notranslate"><span class="pre">n_init</span></code> function parameter, which enables us to identify more robust centroids. Moreover, these runs can be done in parallel to decrease the computation time.</p>
 </div>
 </div>
 <div class="section" id="affinity-propagation">
@@ -1230,7 +1230,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 <span class="math notranslate nohighlight">\(d(C_i, C_j) = ||\mu_i - \mu_j||\)</span></p></li>
 </ol>
 <p>The 3rd one is the most effective in computation time since it does not require recomputing the distances every time the clusters are merged.</p>
-<p>The results can be visualized as a beautiful cluster tree (dendogram) to help recognize the moment the algorithm should be stopped to get optimal results. There are plenty of Python tools to build these dendograms for agglomerative clustering.</p>
+<p>The results can be visualized as a beautiful cluster tree (dendrogram) to help recognize the moment the algorithm should be stopped to get optimal results. There are plenty of Python tools to build these dendrograms for agglomerative clustering.</p>
 <p>Let’s consider an example with the clusters we got from K-means:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1265,7 +1265,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 </div>
 <div class="section" id="accuracy-metrics">
 <h2>Accuracy metrics<a class="headerlink" href="#accuracy-metrics" title="Permalink to this headline">¶</a></h2>
-<p>As opposed to classfication, it is difficult to assess the quality of results from clustering. Here, a metric cannot depend on the labels but only on the goodness of split. Secondly, we do not usually have true labels of the observations when we use clustering.</p>
+<p>As opposed to classification, it is difficult to assess the quality of results from clustering. Here, a metric cannot depend on the labels but only on the goodness of split. Secondly, we do not usually have true labels of the observations when we use clustering.</p>
 <p>There are <em>internal</em> and <em>external</em> goodness metrics. External metrics use the information about the known true split while internal metrics do not use any external information and assess the goodness of clusters based only on the initial data. The optimal number of clusters is usually defined with respect to some internal metrics.</p>
 <p>All the metrics described below are implemented in <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>.</p>
 <p><strong>Adjusted Rand Index (ARI)</strong></p>

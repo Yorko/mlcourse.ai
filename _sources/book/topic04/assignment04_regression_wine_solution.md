@@ -271,6 +271,6 @@ print(
 # rf_importance.sort_values(by="coef", ascending=False)
 ```
 
-**Make conclusions about the perdormance of the explored 3 models in this particular prediction task.**
+**Make conclusions about the performance of the explored 3 models in this particular prediction task.**
 
-The depency of wine quality on other features in hand is, presumable, non-linear. So Random Forest works better in this task.
+The dependency of wine quality on other features in hand is, presumable, non-linear. So Random Forest works better in this task.
