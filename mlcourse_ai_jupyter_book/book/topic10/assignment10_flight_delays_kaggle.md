@@ -1,15 +1,32 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+(assignment10)=
+
+# Assignment #10 (demo). Gradient boosting
+
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
-Author: [Yury Kashnitsky](https://www.linkedin.com/in/festline/), Data Scientist @ Mail.Ru Group <br>All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+Author: [Yury Kashnitsky](https:/yorko.github.io). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-# <center> Assignment #10 (demo)
-## <center> Gradient boosting
 
 Your task is to beat at least 2 benchmarks in this [Kaggle Inclass competition](https://www.kaggle.com/c/flight-delays-spring-2018). Here you won’t be provided with detailed instructions. We only give you a brief description of how the second benchmark was achieved using Xgboost. Hopefully, at this stage of the course, it's enough for you to take a quick look at the data in order to understand that this is the type of task where gradient boosting will perform well. Most likely it will be Xgboost, however, we’ve got plenty of categorical features here.
 
-<img src='../../_static/img/xgboost_meme.jpg' width=40% />
+```{figure} /_static/img/xgboost_meme.jpg
+:name: ods_stickers
+:width: 444px
+```
 
 
 ```{code-cell} ipython3

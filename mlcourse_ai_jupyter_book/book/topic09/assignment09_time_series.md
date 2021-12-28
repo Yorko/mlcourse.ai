@@ -1,13 +1,27 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+(assignment09)=
+
+# Assignment #9 (demo). Time series analysis
+
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
 Author: Mariya Mansurova, Analyst & developer in Yandex.Metrics team. Translated by Ivan Zakharov, ML enthusiast. <br>This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
-# <center> Assignment #9 (demo)
-## <center> Time series analysis
 
-**Same assignment as a [Kaggle Kernel](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis) + [solution](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution).**
+**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis) + [solution](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution).**
 
 **Fill cells marked with "Your code here" and submit your answers to the questions through the [web form](https://docs.google.com/forms/d/1UYQ_WYSpsV3VSlZAzhSN_YXmyjV7YlTP8EYMg8M8SoM/edit).**
 
@@ -26,8 +40,9 @@ from plotly.offline import download_plotlyjs, init_notebook_mode, iplot, plot
 
 print(__version__)  # need 1.9.0 or greater
 init_notebook_mode(connected=True)
+```
 
-
+```{code-cell} ipython3
 def plotly_df(df, title=""):
     data = []
 
@@ -77,7 +92,7 @@ plotly_df(df.set_index("date")[["count"]])
 
 
 ```{code-cell} ipython3
-from fbprophet import Prophet
+from prophet import Prophet
 ```
 
 
@@ -98,14 +113,14 @@ df.tail()
 
 
 ```{code-cell} ipython3
-# You code here
+# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
 Estimate the quality of the prediction with the last 30 points.
 
 
 ```{code-cell} ipython3
-# You code here
+# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
 **<font color='red'>Question 2:</font> What is MAPE equal to?**
@@ -115,12 +130,20 @@ Estimate the quality of the prediction with the last 30 points.
 - 5.39
 - 65.91
 
+```{code-cell} ipython3
+# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+```
+
 **<font color='red'>Question 3:</font> What is MAE equal to?**
 
 - 355
 - 4007
 - 600
 - 903
+
+```{code-cell} ipython3
+# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
+```
 
 ## Predicting with ARIMA
 
@@ -143,7 +166,7 @@ plt.rcParams["figure.figsize"] = (15, 10)
 
 
 ```{code-cell} ipython3
-# You code here
+# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
 **Next, we turn to the construction of the SARIMAX model (`sm.tsa.statespace.SARIMAX`).<br> <font color='red'>Question 5:</font> What parameters are the best for the model according to the `AIC` criterion?**
@@ -155,5 +178,5 @@ plt.rcParams["figure.figsize"] = (15, 10)
 
 
 ```{code-cell} ipython3
-# You code here
+# You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```

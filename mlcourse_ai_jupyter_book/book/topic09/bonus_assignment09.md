@@ -1,8 +1,8 @@
 (bonus09)=
 
-# Bonus Assignment 8. Stochastic gradient descent for classification and regression
+# Bonus Assignment 9. Linear models and feature engineering for time series analysis
 
-```{figure} /_static/img/topic8-teaser.png
+```{figure} /_static/img/topic9-teaser.jpg
 :width: 200px
 ```
 
@@ -28,17 +28,8 @@ You can purchase a Bonus Assignments pack with the best non-demo versions of [ml
 </div>
 </div><br>
 
-This assignment is an extended version of the [demo assignment](assignment08) where SDG regressor is implemented. Also, we go deeper into the math behind this wonderful optimization algorithm. Here is one of the questions:
+In this assignment, we are attacking a times series prediction task with a method that has proven to be working well in practice providing quality comparable to ARIMA models. Namely, feature engineering, feature selection and linear models.
 
-<br>
-<div align="center">
-<img src='../../_static/img/assignment8_teaser_update_formula.png'>  
-</div>
-
-
-Finally, we implement both an SGD regressor and an SGD classifier from scrath and validate both with real-world datasets.
-
-<p float="left">
-  <img src="../../_static/img/assignment8_teaser_sdg_classifier.png" width="450" />
-    <img src="../../_static/img/assignment8_teaser_loss.png" width="250" />
-</p>
+```{figure} /_static/img/bonus_assignment09_teaser.png
+:width: 800px
+```

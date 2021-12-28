@@ -23,21 +23,10 @@ Author: [Alexey Natekin](https://www.linkedin.com/in/natekin/), OpenDataScience 
 
 <img src='https://habrastorage.org/web/4a9/edb/082/4a9edb082408442ea47a12b75f19d122.jpg' align='right' width=40%>
 
-So far, we've covered 9 topics from Exploratory Data Analysis to Time Series Analysis in Python:
-<spoiler title="List of the series' articles">
-1. [Exploratory Data Analysis with Pandas](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68)  
-2. [Visual data analysis with Python](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd)  
-3. [Classification, Decision Trees and k Nearest Neighbors](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd)  
-4. [Linear Classification and Regression](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220)  
-5. [Bagging and Random Forest](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7)  
-6. [Feature Engineering and Feature Selection](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-6-feature-engineering-and-feature-selection-8b94f870706a)  
-7. [Unsupervised Learning: Principal Component Analysis and Clustering](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-7-unsupervised-learning-pca-and-clustering-db7879568417)
-8. [Vowpal Wabbit: Learning with Gigabytes of Data](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-8-vowpal-wabbit-fast-learning-with-gigabytes-of-data-60f750086237)  
-9. [Time Series Analysis in Python](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-9-time-series-analysis-in-python-a270cb05e0b3)  
 
 Today we are going to have a look at one of the most popular and practical machine learning algorithms: gradient boosting.
 
-###  Article Outline
+## Article outline
 We recommend going over this article in the order described below, but feel free to jump around between sections.  
 
 1. [Introduction and history of boosting](#introduction-and-history-of-boosting)
@@ -54,7 +43,7 @@ We recommend going over this article in the order described below, but feel free
 1. [Conclusion](#4conclusion)
 1. [Useful resources](#useful-resources)
 
-# 1.  Introduction and history of boosting
+## 1.  Introduction and history of boosting
 Almost everyone in machine learning has heard about gradient boosting. Many data scientists include this algorithm in their data scientist's toolbox because of the good results it yields on any given (unknown) problem.  
 
 Furthermore, XGBoost is often the standard recipe for [winning](https://github.com/dmlc/xgboost/blob/master/demo/README.md#usecases) [ML competitions](http://blog.kaggle.com/tag/xgboost/). It is so popular that the idea of stacking XGBoosts has become a meme. Moreover, boosting is an important component in [many recommender systems](https://en.wikipedia.org/wiki/Learning_to_rank#Practical_usage_by_search_engines); sometimes, it is even considered a [brand](https://yandex.com/company/technologies/matrixnet/).
@@ -101,7 +90,7 @@ In general, there has been a transition from engineering and algorithmic researc
 
 <img src="https://habrastorage.org/webt/h2/v4/k9/h2v4k9r-4yn4jwvwz99fbss4ghi.png" />
 
-## History of GBM
+### History of GBM
 
 It took more than 10 years after the introduction of GBM for it to become an essential part of the data science toolbox.  
 GBM was extended to apply to different statistics problems: GLMboost and GAMboost for strengthening already existing GAM models, CoxBoost for survival curves, and RankBoost and LambdaMART for ranking.  
@@ -113,21 +102,24 @@ At the same time, boosting had been actively used in search ranking. This proble
 
 This algorithm has gone through very typical path for ML algorithms today: mathematical problem and algorithmic crafts to successful practical applications and mass adoption years after its first appearance.
 
-# 2. GBM algorithm
+## 2. GBM algorithm
 ### ML problem statement
 
 We are going to solve the problem of function approximation in a general supervised learning setting. We have a set of features $ \large x $ and target variables $\large y, \large \left\{ (x_i, y_i) \right\}_{i=1, \ldots,n}$ which we use to restore the dependence $\large y = f(x) $. We restore the dependence by approximating $ \large \hat{f}(x) $ and by understanding which approximation is better when we use the loss function $ \large L(y,f) $, which we want to minimize: $ \large y \approx \hat{f}(x), \large \hat{f}(x) = \underset{f(x)}{\arg\min} \ L(y,f(x)) $.  
 
-<img src='../../img/topic10_help_with_func.png'  align='center'>
+<img src='../../_static/img/topic10_help_with_func_compressed.png'  align='center'>
 
 At this moment, we do not make any assumptions regarding the type of dependence $ \large f(x) $, the model of our approximation $ \large \hat{f}(x) $, or the distribution of the target variable $ \large y $. We only expect the function $ \large L(y,f) $ to be differentiable. Our approach is very general: we define $ \large \hat {f}(x) $ by minimizing the loss:  
-$$ \large  \hat{f}(x) = \underset{f(x)}{\arg\min} \ \mathbb {E} _{x,y}[L(y,f(x))]  $$
+
+$$\large  \hat{f}(x) = \underset{f(x)}{\arg\min} \ \mathbb {E} _{x,y}[L(y,f(x))]$$
 
 Unfortunately, the number of functions $ \large f(x) $ is not just large, but its functional space is infinite-dimensional. That is why it is acceptable for us to limit the search space by some family of functions $ \large f(x, \theta), \theta \in \mathbb{R}^d $. This simplifies the objective a lot because now we have a solvable optimization of parameter values:
-$ \large \hat{f}(x) = f(x, \hat{\theta}),$
-$$\large \hat{\theta} = \underset{\theta}{\arg\min} \ \mathbb {E} _{x,y}[L(y,f(x,\theta))] $$
+$\large \hat{f}(x) = f(x, \hat{\theta}),$
+
+$$\large \hat{\theta} = \underset{\theta}{\arg\min} \ \mathbb {E} _{x,y}[L(y,f(x,\theta))]$$
 
 Simple analytical solutions for finding the optimal parameters $ \large \hat{\theta} $ often do not exist, so the parameters are usually approximated iteratively. To start, we write down the empirical loss function $ \large L_{\theta}(\hat{\theta}) $ that will allow us to evaluate our parameters using our data. Additionally, let's write out our approximation $ \large \hat{\theta} $ for a number of $ \large M $ iterations as a sum:  
+
 $ \large \hat{\theta} = \sum_{i = 1}^M \hat{\theta_i}, \\
 \large L_{\theta}(\hat{\theta}) =  \sum_{i = 1}^N L(y_i,f(x_i, \hat{\theta}))$  
 
@@ -150,11 +142,13 @@ $\large \hat{\theta} = \sum_{i = 0}^M \hat{\theta_i} $
 ### Functional gradient descent
 
 Let's imagine for a second that we can perform optimization in the function space and iteratively search for the approximations $\large \hat{f}(x)$ as functions themselves. We will express our approximation as a sum of incremental improvements, each being a function. For convenience, we will immediately start with the sum from the initial approximation $\large \hat{f_0}(x)$:
+
 $$\large \hat{f}(x) = \sum_{i = 0}^M \hat{f_i}(x)$$
 
 Nothing has happened yet; we have only decided that we will search for our approximation $\large \hat{f}(x)$ not as a big model with plenty of parameters (as an example, neural network), but as a sum of functions, pretending we move in functional space.
 
 In order to accomplish this task, we need to limit our search by some function family $\large \hat{f}(x) = h(x, \theta)$. There are a few issues here -- first of all, the sum of models can be more complicated than any model from this family; secondly, the general objective is still in functional space. Let's note that, on every step, we will need to select an optimal coefficient $\large \rho \in \mathbb{R}$. For step $\large t$, the problem is the following:
+
 $$\large \hat{f}(x) = \sum_{i = 0}^{t-1} \hat{f_i}(x), \\
 \large (\rho_t,\theta_t) = \underset{\rho,\theta}{\arg\min} \ \mathbb {E} _{x,y}[L(y,\hat{f}(x) +  \rho \cdot h(x, \theta))], \\
 \large \hat{f_t}(x) = \rho_t \cdot h(x, \theta_t)$$
@@ -162,12 +156,13 @@ $$\large \hat{f}(x) = \sum_{i = 0}^{t-1} \hat{f_i}(x), \\
 Here is where the magic happens. We have defined all of our objectives in general terms, as if we could have trained any kind of model $\large h(x, \theta)$ for any type of loss functions $\large L(y, f(x, \theta))$. In practice, this is extremely difficult, but, fortunately, there is a simple way to solve this task.
 
 Knowing the expression of loss function's gradient, we can calculate its value on our data. So, let's train the models such that our predictions will be more correlated with this gradient (with a minus sign). In other words, we will use least squares to correct the predictions with these residuals. For classification, regression, and ranking tasks, we will minimize the squared difference between pseudo-residuals $\large r$ and our predictions. For step $\large t$, the final problem looks like the following:
+
 $$ \large \hat{f}(x) = \sum_{i = 0}^{t-1} \hat{f_i}(x), \\
 \large r_{it} = -\left[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}\right]_{f(x)=\hat{f}(x)}, \quad \mbox{for } i=1,\ldots,n ,\\
 \large \theta_t = \underset{\theta}{\arg\min} \ \sum_{i = 1}^{n} (r_{it} - h(x_i, \theta))^2, \\
 \large \rho_t = \underset{\rho}{\arg\min} \ \sum_{i = 1}^{n} L(y_i, \hat{f}(x_i) + \rho \cdot h(x_i, \theta_t))$$
 
-<img src='../../img/topic10_regression_for_everybody.jpg'   align='center' width=60%>
+<img src='../../_static/img/topic10_regression_for_everybody.jpg'   align='center' width=60%>
 
 ### Friedman's classic GBM algorithm
 
@@ -222,7 +217,7 @@ The rest of the process goes as expected -- on every step, our pseudo-residuals 
 
 <img src='https://habrastorage.org/web/779/3e0/e66/7793e0e66b7d4871b6391a94cd5d4cf2.jpg'   align='center'>
 
-# 3. Loss functions
+## 3. Loss functions
 
 If we want to solve a classification problem instead of regression, what would change? We only need to choose a suitable loss function $\large L(y, f)$. This is the most important, high-level moment that determines exactly how we will optimize and what characteristics we can expect in the final model.
 
@@ -317,17 +312,20 @@ Sometimes, there is a situation where we want a more specific loss function for 
 The statistical warrior would invent their own loss function, write out the gradient for it (for more effective training, include the Hessian), and carefully check whether this function satisfies the required properties. However, there is a high probability of making a mistake somewhere, running up against computational difficulties, and spending an inordinate amount of time on research.
 
 In lieu of this, a very simple instrument was invented (which is rarely remembered in practice): weighing observations and assigning weight functions. The simplest example of such weighting is the setting of weights for class balance. In general, if we know that some subset of data, both in the input variables $\large x$ and in the target variable $\large y$, has greater importance for our model, then we just assign them a larger weight $\large w(x,y)$. The main goal is to fulfill the general requirements for weights:
+
 $$ \large w_i \in \mathbb{R}, \\
 \large w_i \geq 0 \quad \mbox{for } i=1,\ldots,n, \\
 \large \sum_{i = 1}^n w_i > 0 $$
 
 Weights can significantly reduce the time spent adjusting the loss function for the task we are solving and also encourages experiments with the target models' properties. Assigning these weights is entirely a function of creativity. We simply add scalar weights:
+
 $$ \large L_{w}(y,f) = w \cdot L(y,f), \\
-\large r_{it} =   - w_i \cdot \left[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}\right]_{f(x)=\hat{f}(x)}, \quad \mbox{for } i=1,\ldots,n$$
+\large r_{it} =   - w_i \cdot \left[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}\right]_{f(x)=\hat{f}(x)}, \quad \mbox{for } i=1,\ldots,n $$
 
 It is clear that, for arbitrary weights, we do not know the statistical properties of our model. Often, linking the weights to the values $\large y$ can be too complicated. For example, the usage of weights proportional to $\large |y|$ in $\large L_1$ loss function is not equivalent to $\large L_2$ loss because the gradient will not take into account the values of the predictions themselves: $\large \hat{f}(x)$.
 
 We mention all of this so that we can understand our possibilities better. Let's create some very exotic weights for our toy data. We will define a strongly asymmetric weight function as follows:
+
 $$ \large \begin{equation} w(x) =\left\{   \begin{array}{@{}ll@{}}     0.1, & \text{if}\ x \leq 0 \\     0.1 + |cos(x)|, & \text{if}\ x >0 \end{array}\right. \end{equation} $$
 
 <img src='https://habrastorage.org/web/8c2/1b1/aa4/8c21b1aa47134f7aa46b15ef910369b2.png'   align='center'>
@@ -340,7 +338,7 @@ We achieved the result that we expected. First, we can see how strongly the pseu
 
 Weights are a powerful but risky tool that we can use to control the properties of our model. If you want to optimize your loss function, it is worth trying to solve a more simple problem first but add weights to the observations at your discretion.
 
-# 4. Conclusion
+## 4. Conclusion
 
 Today, we learned the theory behind gradient boosting. GBM is not just some specific algorithm but a common methodology for building ensembles of models. In addition, this methodology is sufficiently flexible and expandable -- it is possible to train a large number of models, taking into consideration different loss-functions with a variety of weighting functions.
 
@@ -348,8 +346,8 @@ Practice and ML competitions show that, in standard problems (except for image, 
 
 In this article, we intentionally omitted questions concerning GBM’s regularization, stochasticity, and hyper-parameters. It was not accidental that we used a small number of iterations $\large M = 3$ throughout. If we used 30 trees instead of 3 and trained the GBM as described, the result would not be that predictable:
 
-<img src='../../img/topic10_good_fit.png'   align='center' width=60%>
-<img src='../../img/topic10_overfitting.png'   align='center' width=60%>
+<img src='../../_static/img/topic10_good_fit.png'   align='center' width=60%>
+<img src='../../_static/img/topic10_overfitting.png'   align='center' width=60%>
 
 
 <img src='https://habrastorage.org/web/27f/0f5/3be/27f0f53be9424cb1afaffb9a0e32909f.jpg'   align='center'>
@@ -357,7 +355,7 @@ In this article, we intentionally omitted questions concerning GBM’s regulariz
 [Interactive demo](http://arogozhnikov.github.io/2016/07/05/gradient_boosting_playground.html)
 
 
-# 5. Useful resources
+## 5. Useful resources
 - Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
 - Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)
 - mlcourse.ai lectures on gradient boosting: [theory](https://youtu.be/g0ZOtzZqdqk) and [practice](https://youtu.be/V5158Oug4W8)

@@ -1,8 +1,8 @@
 (bonus10)=
 
-# Bonus Assignment 10.
+# Bonus Assignment 10
 
-```{figure} /_static/img/topic8-teaser.png
+```{figure} /_static/img/topic10-teaser.jpeg
 :width: 200px
 ```
 
@@ -28,17 +28,16 @@ You can purchase a Bonus Assignments pack with the best non-demo versions of [ml
 </div>
 </div><br>
 
-This assignment is an extended version of the [demo assignment](assignment08) where SDG regressor is implemented. Also, we go deeper into the math behind this wonderful optimization algorithm. Here is one of the questions:
+In this assignment, we go through the math and implement the general gradient boosting algorithm from scratch. The same class will implement a binary classifier that minimizes the logistic loss function and two regressors that minimize the mean squared error (MSE) and the root mean squared logarithmic error (RMSLE). This way, we will see that we can optimize arbitrary differentiable functions using gradient boosting and how this technique adapts to different contexts. Here is one of the questions:
 
-<br>
 <div align="center">
-<img src='../../_static/img/assignment8_teaser_update_formula.png'>  
+<img src="../../_static/img/assignment10_teaser_math.png" />
 </div>
+<br>
 
+Residuals at each gradient boosting iteration and the corresponding tree prediction:
 
-Finally, we implement both an SGD regressor and an SGD classifier from scrath and validate both with real-world datasets.
-
-<p float="left">
-  <img src="../../_static/img/assignment8_teaser_sdg_classifier.png" width="450" />
-    <img src="../../_static/img/assignment8_teaser_loss.png" width="250" />
-</p>
+<div align="center">
+<img src="../../_static/img/assignment10_teaser_residuals.png" />
+</div>
+<br>

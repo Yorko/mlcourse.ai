@@ -1,13 +1,26 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+(assignment09_solution)=
+
+# Assignment #9 (demo). Time series analysis. Solution
+
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
 Author: Mariya Mansurova, Analyst & developer in Yandex.Metrics team. Translated by Ivan Zakharov, ML enthusiast. <br>This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
-# <center> Assignment #9 (demo). Solution
-## <center> Time series analysis
-
-**Same assignment as a [Kaggle Kernel](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis) + [solution](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution).**
+**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis) + [solution](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution).**
 
 **Fill cells marked with "Your code here" and submit your answers to the questions through the [web form](https://docs.google.com/forms/d/1UYQ_WYSpsV3VSlZAzhSN_YXmyjV7YlTP8EYMg8M8SoM/edit).**
 
@@ -78,7 +91,7 @@ plotly_df(df.set_index("date")[["count"]])
 
 
 ```{code-cell} ipython3
-from fbprophet import Prophet
+from prophet import Prophet
 ```
 
 
@@ -182,7 +195,7 @@ plt.rcParams["figure.figsize"] = (15, 10)
 
 
 ```{code-cell} ipython3
-sm.tsa.seasonal_decompose(train_df["y"].values, freq=7).plot()
+sm.tsa.seasonal_decompose(train_df["y"].values, period=7).plot()
 print("Dickey-Fuller test: p=%f" % sm.tsa.stattools.adfuller(train_df["y"])[1])
 ```
 
@@ -196,7 +209,7 @@ train_df.set_index("ds", inplace=True)
 
 ```{code-cell} ipython3
 train_df["y_diff"] = train_df.y - train_df.y.shift(7)
-sm.tsa.seasonal_decompose(train_df.y_diff[7:].values, freq=7).plot()
+sm.tsa.seasonal_decompose(train_df.y_diff[7:].values, period=7).plot()
 print("Dickey-Fuller test: p=%f" % sm.tsa.stattools.adfuller(train_df.y_diff[8:])[1])
 ```
 
@@ -239,7 +252,7 @@ len(parameters_list)
 %%time
 import warnings
 
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 
 results1 = []
 best_aic = float("inf")

@@ -121,7 +121,7 @@ For a detailed description of the model and algorithms behind Prophet refer to t
 
 The authors also compared their library with several other methods for time series forecasting. They used [Mean Absolute Percentage Error (MAPE)](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) as a measure of prediction accuracy. In this research, Prophet has shown substantially lower forecasting error than the other models.
 
-<img src="../../img/topic9_benchmarking_prophet.png" />
+<img src="../../_static/img/topic9_benchmarking_prophet.png" />
 
 Let's look closer at how the forcasting quality was measured in the article. To do this, we will need the formula of Mean Absolute Percentage Error.
 
@@ -163,17 +163,18 @@ Let's import the modules that we will need, and initialize our environment:
 
 
 ```{code-cell} ipython3
+import os
+from pathlib import Path
 import warnings
-
 warnings.filterwarnings("ignore")
 
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 from scipy import stats
 
-%matplotlib inline
+import matplotlib.pyplot as plt
+#%config InlineBackend.figure_format = 'retina'
 ```
 
 ### 3.2 Dataset
@@ -182,17 +183,29 @@ We will predict the daily number of posts published on [Medium](https://medium.c
 
 First, we load our dataset.
 
-
 ```{code-cell} ipython3
-# for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
-# you can specify the data/ folder from the root of your cloned
-# https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+def download_file_from_gdrive(file_url, filename, out_path: Path, overwrite=False):
+    """
+    Downloads a file from GDrive given an URL
+    :param file_url: a string formated as https://drive.google.com/uc?id=<file_id>
+    :param: the desired file name
+    :param: the desired folder where the file will be downloaded to
+    :param overwrite: whether to overwrite the file if it already exists
+    """
+    file_exists = (out_path / filename).exists()
+
+    if (file_exists and overwrite) or (not file_exists):
+        os.system(f'gdown {file_url} -O {out_path}/{filename}')
 ```
 
-
 ```{code-cell} ipython3
-df = pd.read_csv(DATA_PATH + "medium_posts.csv.zip", sep="\t")
+FILE_URL = "https://drive.google.com/uc?id=1G3YjM6mR32iPnQ6O3f6rE9BVbhiTiLyU"
+FILE_NAME = "medium_posts.csv"
+DATA_PATH = Path("../../../data/large_files")
+
+download_file_from_gdrive(file_url=FILE_URL, filename= FILE_NAME, out_path=DATA_PATH)
+
+df = pd.read_csv(DATA_PATH / FILE_NAME,  sep="\t")
 ```
 
 Next, we leave out all columns except `published` and `url`. The former corresonds to the time dimension while the latter uniquely identifies a post by its URL. Along the way we get rid of possible duplicates and missing values in the data:
@@ -267,7 +280,8 @@ First, we import and initialize the `Plotly` library, which allows creating beau
 
 ```{code-cell} ipython3
 from plotly import graph_objs as go
-from plotly.offline import init_notebook_mode, iplot
+from plotly.offline import init_notebook_mode, iplot, plot
+from IPython.display import display, IFrame
 
 # Initialize plotly
 init_notebook_mode(connected=True)
@@ -277,13 +291,20 @@ We also define a helper function, which will plot our dataframes throughout the 
 
 
 ```{code-cell} ipython3
-def plotly_df(df, title=""):
+def plotly_df(df, title="", width=800, height=500):
     """Visualize all the dataframe columns as line plots."""
     common_kw = dict(x=df.index, mode="lines")
     data = [go.Scatter(y=df[c], name=c, **common_kw) for c in df.columns]
     layout = dict(title=title)
     fig = dict(data=data, layout=layout)
-    iplot(fig, show_link=False)
+
+    # in a Jupyter Notebook, the following should work
+    #iplot(fig, show_link=False)
+
+    # in a Jupyter Book, we save a plot offline and then render it with IFrame
+    plot_path = f"../../_static/plotly_htmls/{title}.html".replace(" ", "_")
+    plot(fig, filename=plot_path, show_link=False, auto_open=False);
+    display(IFrame(plot_path, width=width, height=height))
 ```
 
 Let's try and plot our dataset *as is*:
@@ -339,7 +360,7 @@ To get started, we'll import the library and mute unimportant diagnostic message
 ```{code-cell} ipython3
 import logging
 
-from fbprophet import Prophet
+from prophet import Prophet
 
 logging.getLogger().setLevel(logging.ERROR)
 ```
@@ -501,7 +522,7 @@ We will define a custom helper function `show_forecast` and call it (for more on
 
 
 ```{code-cell} ipython3
-def show_forecast(cmp_df, num_predictions, num_values, title):
+def show_forecast(cmp_df, num_predictions, num_values, title, width=800, height=500):
     """Visualize the forecast."""
 
     def create_go(name, column, num, **kwargs):
@@ -536,7 +557,14 @@ def show_forecast(cmp_df, num_predictions, num_values, title):
 
     layout = go.Layout(yaxis=dict(title="Posts"), title=title, showlegend=False)
     fig = go.Figure(data=data, layout=layout)
-    iplot(fig, show_link=False)
+
+    # in a Jupyter Notebook, the following should work
+    #iplot(fig, show_link=False)
+
+    # in a Jupyter Book, we save a plot offline and then render it with IFrame
+    plot_path = f"../../_static/plotly_htmls/{title}.html".replace(" ", "_")
+    plot(fig, filename=plot_path, show_link=False, auto_open=False);
+    display(IFrame(plot_path, width=width, height=height))
 
 
 show_forecast(cmp_df, prediction_size, 100, "New posts on Medium")

@@ -1,34 +1,24 @@
-(assignment04_intro)=
+(topic09_intro)=
 
-# Topic 4. Linear Classification and Regression
+# Topic 9. Time Series Analysis with Python
 
 <div align="center">
-<img src="../../_static/img/topic4-teaser.png" />
+<img src="../../_static/img/topic9-teaser.jpg" />
 </div>
 <br>
 
-The following 5 articles may form a small brochure, and that's for a good reason: linear models are the most widely used family of predictive algorithms. These articles represent our course in miniature: a lot of theory, a lot of practice. We discuss the theoretical basis of the Ordinary Least Squares method and logistic regression, as well as their merits in terms of practical applications. Also, crucial concepts like regularization and learning curves are introduced. In the practical part, we apply logistic regression to the [task](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) of user identification on the Internet, it's a Kaggle Inclass competition a.k.a "Alice".
+Here we discuss various approaches to working with time series: what types of data preparation is necessary, how to get short-term and long-term predictions. We walk through different time series models, from simple moving average to ARIMA and to general machine learning models with specific feature engineering. We also take a look at the ways to search for anomalies in time series and discuss pros and cons of these methods.
 
+## Steps in this block
 
-1\. Read 5 articles:
- - ["Ordinary Least Squares"](https://mlcourse.ai/articles/topic4-part1-linreg/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-1-ols))
- - ["Logistic Regression"](https://mlcourse.ai/articles/topic4-part2-logit/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-2-classification))
- - ["Regularization"](https://mlcourse.ai/articles/topic4-part3-regularization/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-3-regularization))
- - ["Pros and Cons of Linear Models"](https://mlcourse.ai/articles/topic4-part4-applications/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-4-more-of-logit))
- - ["Validation and learning curves"](https://mlcourse.ai/articles/topic4-part5-validation/) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-5-validation))
+1\. Read 2 articles:
+ - ["Time series analysis in Python"](topic09_part1) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-9-part-1-time-series-analysis-in-python));
+ - ["Predicting future with Facebook Prophet"](topic09_part2) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-9-part-2-time-series-with-facebook-prophet));
 
-2\. Watch a video lecture on logistic regression coming in 2 parts:
- - the [theory](https://youtu.be/ne-MfRfYs_c) behind LASSO and Ridge regression models
- - [practical part](https://www.youtube.com/watch?v=7o0SWgY89i8), beating baselines in the "Alice" [competition](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
+2\. Watch a [video lecture](https://youtu.be/_9lBwXnbOd8) on time series (optional);
 
-3\. Watch a video lecture on regression and regularization coming in 2 parts:
- - the [theory](https://www.youtube.com/watch?v=l3jiw-N544s) behind linear models, an intuitive explanation
- - [business case](https://youtu.be/B8yIaIEMyIc), where we discuss a real regression task – predicting customer Life-Time Value
+3\. Complete [demo assignment 9](assignment09) on time series analysis in Python (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis));
 
-4\. Complete [demo assignment 4](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit) on sarcasm detection, and (opt.) check out the [solution](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit-solution)
+4\. Check out the [solution](assignment09_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution)) to the demo assignment (optional);
 
-
-
-## Bonus Assignment 4. Kaggle Competition. User Identification with Logistic Regression (beating baselines in the "Alice" competition)
-
-Here you'll be guided through working with sparse data, feature engineering, model validation, and the process of competing on Kaggle. The task will be to beat baselines in that ["Alice" Kaggle competition](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2). That's a very useful assignment for anyone starting to practice with Machine Learning, regardless of the desire to compete on Kaggle.
+5\. Complete [Bonus Assignment 9](bonus09) where you'll engineer some features and apply a m achine learning model to a time series prediction task (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).

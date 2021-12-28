@@ -26,7 +26,7 @@ We continue our open machine learning course with a new article on time series.
 
 Let's take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost... In addition, all of this will be applied to (harsh) real world examples.
 
-# Article outline:
+# Article outline
 1. [Introduction](#introduction)
    - [Forecast quality metrics](#forecast-quality-metrics)
 2. [Move, smoothe, evaluate](#move-smoothe-evaluate)
@@ -94,14 +94,12 @@ As an example, let's look at real mobile game data. Specifically, we will look i
 DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
 ```
 
-
 ```{code-cell} ipython3
 ads = pd.read_csv(DATA_PATH + "ads.csv", index_col=["Time"], parse_dates=["Time"])
 currency = pd.read_csv(
     DATA_PATH + "currency.csv", index_col=["Time"], parse_dates=["Time"]
 )
 ```
-
 
 ```{code-cell} ipython3
 plt.figure(figsize=(12, 6))
@@ -110,7 +108,6 @@ plt.title("Ads watched (hourly data)")
 plt.grid(True)
 plt.show()
 ```
-
 
 ```{code-cell} ipython3
 plt.figure(figsize=(15, 7))
@@ -128,7 +125,7 @@ Before we begin forecasting, let's understand how to measure the quality of our 
 
 $R^2 = 1 - \frac{SS_{res}}{SS_{tot}}$
 
-```{code-cell} ipython3
+```python
 sklearn.metrics.r2_score
 ```
 ---
@@ -136,7 +133,7 @@ sklearn.metrics.r2_score
 
 $MAE = \frac{\sum\limits_{i=1}^{n} |y_i - \hat{y}_i|}{n}$
 
-```{code-cell} ipython3
+```python
 sklearn.metrics.mean_absolute_error
 ```
 ---
@@ -144,7 +141,7 @@ sklearn.metrics.mean_absolute_error
 
 $MedAE = median(|y_1 - \hat{y}_1|, ... , |y_n - \hat{y}_n|)$
 
-```{code-cell} ipython3
+```python
 sklearn.metrics.median_absolute_error
 ```
 ---
@@ -152,7 +149,7 @@ sklearn.metrics.median_absolute_error
 
 $MSE = \frac{1}{n}\sum\limits_{i=1}^{n} (y_i - \hat{y}_i)^2$
 
-```{code-cell} ipython3
+```python
 sklearn.metrics.mean_squared_error
 ```
 ---
@@ -160,7 +157,7 @@ sklearn.metrics.mean_squared_error
 
 $MSLE = \frac{1}{n}\sum\limits_{i=1}^{n} (log(1+y_i) - log(1+\hat{y}_i))^2$
 
-```{code-cell} ipython3
+```python
 sklearn.metrics.mean_squared_log_error
 ```
 ---
@@ -624,7 +621,7 @@ You may be asking how to do cross-validation for time series because time series
 
 The idea is rather simple -- we train our model on a small segment of the time series from the beginning until some $t$, make predictions for the next $t+n$ steps, and calculate an error. Then, we expand our training sample to $t+n$ value, make predictions from $t+n$ until $t+2*n$, and continue moving our test segment of the time series until we hit the last available observation. As a result, we have as many folds as $n$ will fit between the initial training sample and the last observation.
 
-<img src="../../img/time_series_cv.png"/>
+<img src="../../_static/img/topic9_time_series_cv.png"/>
 
 Now, knowing how to set up cross-validation, we can find the optimal parameters for the Holt-Winters model. Recall that we have daily seasonality in ads, hence the `slen=24` parameter.
 
@@ -835,7 +832,7 @@ plt.title("Brutlag's predicted deviation");
 
 # Econometric approach
 
-### Stationarity
+## Stationarity
 
 Before we start modeling, we should mention such an important property of time series: [**stationarity**](https://en.wikipedia.org/wiki/Stationary_process).
 
@@ -1523,8 +1520,12 @@ plotCoefficients(lasso)
 Lasso regression turned out to be more conservative; it removed 23-rd lag from the most important features and dropped 5 features completely, which only made the quality of prediction better.
 
 # Boosting
+
 Why shouldn't we try XGBoost now?
-<img src="../../img/xgboost_the_things.jpg"/>
+
+```{figure} /_static/img/xgboost_the_things.jpg
+:width: 200px
+```
 
 
 ```{code-cell} ipython3
@@ -1533,7 +1534,6 @@ from xgboost import XGBRegressor
 xgb = XGBRegressor(verbosity=0)
 xgb.fit(X_train_scaled, y_train);
 ```
-
 
 ```{code-cell} ipython3
 plotModelResults(
