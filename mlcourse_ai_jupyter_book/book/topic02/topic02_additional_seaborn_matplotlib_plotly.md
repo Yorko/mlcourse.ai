@@ -272,7 +272,7 @@ As an option, you can save the plot in an html file:
 
 
 ```{code-cell} ipython3
-plotly.offline.plot(fig, filename="years_stats.html", show_link=False);
+plotly.offline.plot(fig, filename="years_stats.html", show_link=False, auto_open=False);
 ```
 
 ### Bar chart

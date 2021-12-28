@@ -9,7 +9,7 @@ description: >-
 repository:
   url                       : https://github.com/Yorko/mlcourse.ai/
   path_to_book              : mlcourse_ai_jupyter_book
-  branch: main  # Which branch of the repository should be used when creating links (optional)
+  branch: main              # Which branch of the repository should be used when creating links (optional)
 
 execute:
   execute_notebooks           : cache
@@ -17,14 +17,7 @@ execute:
 
 # exclude some content
 exclude_patterns: [
-  book/extra/*,
-  # book/topic01/*,
-  # book/topic02/*,
-  # book/topic03/*,
-  # book/topic04/*,
-  # book/topic05/*,
-  # book/topic06/*,
-  # book/topic07/*
+  book/extra/*
   ]
 
 # HTML-specific settings
@@ -39,8 +32,6 @@ html:
 notebook_interface            : "notebook"
 
 # LaTeX settings
-# bibtex_bibfiles:
-#    - _bibliography/references.bib
 latex:
   latex_engine                : "xelatex"
   latex_documents:
@@ -48,8 +39,7 @@ latex:
 
 sphinx:
   config:
-    # html_extra_path: ['_static/data']
-    html_extra_path: ['_static/img']
+    # html_extra_path: ['_static/plotly_htmls/']
     html_js_files:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
       - https://c6.patreon.com/becomePatronButton.bundle.js

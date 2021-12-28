@@ -82,7 +82,7 @@ def load_har_dataset(url, extract_path: Path, filename: str, overwrite=False):
 ```{code-cell} ipython3
 FILE_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip"
 FILE_NAME = "UCI HAR Dataset.zip"
-DATA_PATH = Path("../../_static/data/")
+DATA_PATH = Path("../../../data/large_files")
 
 load_har_dataset(url=FILE_URL, extract_path=DATA_PATH, filename=FILE_NAME)
 
