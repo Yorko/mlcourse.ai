@@ -21,4 +21,4 @@ Here we discuss various approaches to working with time series: what types of da
 
 4\. Check out the [solution](assignment09_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution)) to the demo assignment (optional);
 
-5\. Complete [Bonus Assignment 9](bonus09) where you'll engineer some features and apply a m achine learning model to a time series prediction task (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).
+5\. Complete [Bonus Assignment 9](bonus09) where you'll engineer some features and apply a machine learning model to a time series prediction task (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).

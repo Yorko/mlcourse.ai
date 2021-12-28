@@ -36,7 +36,7 @@ This assignment is an extended version of the [demo assignment](assignment08) wh
 </div>
 
 
-Finally, we implement both an SGD regressor and an SGD classifier from scrath and validate both with real-world datasets.
+Finally, we implement both an SGD regressor and an SGD classifier from scratch and validate both with real-world datasets.
 
 <p float="left">
   <img src="../../_static/img/assignment8_teaser_sdg_classifier.png" width="450" />

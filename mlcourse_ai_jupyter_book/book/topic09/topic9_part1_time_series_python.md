@@ -55,7 +55,7 @@ We begin with a simple [definition](https://en.wikipedia.org/wiki/Time_series) o
 
 Therefore, the data is organized by relatively deterministic timestamps, and may, compared to random sample data, contain additional information that we can extract.
 
-Let's import some libraries. First, we will need the [statsmodels](http://statsmodels.sourceforge.net/stable/) library, which has many statistical modeling functions, including time series. For R afficionados who had to move to Python, `statsmodels` will definitely look more familiar since it supports model definitions like 'Wage ~ Age + Education'.
+Let's import some libraries. First, we will need the [statsmodels](http://statsmodels.sourceforge.net/stable/) library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, `statsmodels` will definitely look more familiar since it supports model definitions like 'Wage ~ Age + Education'.
 
 
 ```{code-cell} ipython3
@@ -129,7 +129,7 @@ $R^2 = 1 - \frac{SS_{res}}{SS_{tot}}$
 sklearn.metrics.r2_score
 ```
 ---
-- [Mean Absolute Error](http://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error): this is an interpretable metric because it has the same unit of measurment as the initial series, $[0, +\infty)$
+- [Mean Absolute Error](http://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error): this is an interpretable metric because it has the same unit of measurement as the initial series, $[0, +\infty)$
 
 $MAE = \frac{\sum\limits_{i=1}^{n} |y_i - \hat{y}_i|}{n}$
 
@@ -850,7 +850,7 @@ If a process is stationary, that means it does not change its statistical proper
 
 <img src="https://habrastorage.org/files/2f6/1ee/cb2/2f61eecb20714352840748b826e38680.png"/>
 
-So why is stationarity so important? Because it is easy to make predictions on a stationary series since we can assume that the future statistical properties will not be different from those currently observed. Most of the time-series models, in one way or the other, try to predict those properties (mean or variance, for example). Furture predictions would be wrong if the original series were not stationary. Unfortunately, most of the time series that we see outside of textbooks are non-stationary, but we can (and should) change this.
+So why is stationarity so important? Because it is easy to make predictions on a stationary series since we can assume that the future statistical properties will not be different from those currently observed. Most of the time-series models, in one way or the other, try to predict those properties (mean or variance, for example). Future predictions would be wrong if the original series were not stationary. Unfortunately, most of the time series that we see outside of textbooks are non-stationary, but we can (and should) change this.
 
 So, in order to combat non-stationarity, we have to know our enemy, so to speak. Let's see how we can detect it. We will look at white noise and random walks to learn how to get from one to another for free.
 
@@ -953,7 +953,7 @@ ads_diff = ads_diff - ads_diff.shift(1)
 tsplot(ads_diff[24 + 1 :], lags=60)
 ```
 
-Perfect! Our series now looks like something undescribable, oscillating around zero. The Dickey-Fuller test indicates that it is stationary, and the number of significant peaks in ACF has dropped. We can finally start modeling!
+Perfect! Our series now looks like something indescribable, oscillating around zero. The Dickey-Fuller test indicates that it is stationary, and the number of significant peaks in ACF has dropped. We can finally start modeling!
 
 ## ARIMA-family Crash-Course
 
@@ -980,7 +980,7 @@ With this, we have three parameters: $(P, D, Q)$
 
 - $Q$ - similar logic using the ACF plot instead.
 
-- $D$ - order of seasonal integration. This can be equal to 1 or 0, depending on whether seasonal differeces were applied or not.
+- $D$ - order of seasonal integration. This can be equal to 1 or 0, depending on whether seasonal differences were applied or not.
 
 Now that we know how to set the initial parameters, let's have a look at the final plot once again and set the parameters:
 
@@ -1141,7 +1141,7 @@ This approach is not backed by theory and breaks several assumptions (e.g. Gauss
 
 ## Feature extraction
 
-The model needs features, and all we have is a 1-dimentional time series. What features can we extract?
+The model needs features, and all we have is a 1-dimensional time series. What features can we extract?
 * Time series lags
 * Window statistics:
     - Max/min value of series in a window

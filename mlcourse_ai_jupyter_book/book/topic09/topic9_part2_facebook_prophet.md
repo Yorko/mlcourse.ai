@@ -123,7 +123,7 @@ The authors also compared their library with several other methods for time seri
 
 <img src="../../_static/img/topic9_benchmarking_prophet.png" />
 
-Let's look closer at how the forcasting quality was measured in the article. To do this, we will need the formula of Mean Absolute Percentage Error.
+Let's look closer at how the forecasting quality was measured in the article. To do this, we will need the formula of Mean Absolute Percentage Error.
 
 Let $y_{i}$ be the *actual (historical) value* and $\hat{y}_{i}$ be the *forecast value* given by our model.
 
@@ -157,7 +157,7 @@ In Python you can install Prophet using PyPI:
 $ pip install fbprophet
 ```
 
-In R you can find the corresponing CRAN package. Refer to the [documentation](https://facebookincubator.github.io/prophet/docs/installation.html) for details.
+In R you can find the corresponding CRAN package. Refer to the [documentation](https://facebookincubator.github.io/prophet/docs/installation.html) for details.
 
 Let's import the modules that we will need, and initialize our environment:
 
@@ -208,7 +208,7 @@ download_file_from_gdrive(file_url=FILE_URL, filename= FILE_NAME, out_path=DATA_
 df = pd.read_csv(DATA_PATH / FILE_NAME,  sep="\t")
 ```
 
-Next, we leave out all columns except `published` and `url`. The former corresonds to the time dimension while the latter uniquely identifies a post by its URL. Along the way we get rid of possible duplicates and missing values in the data:
+Next, we leave out all columns except `published` and `url`. The former corresponds to the time dimension while the latter uniquely identifies a post by its URL. Along the way we get rid of possible duplicates and missing values in the data:
 
 
 ```{code-cell} ipython3
@@ -334,7 +334,7 @@ plotly_df(weekly_df, title="Posts on Medium (weekly)")
 
 This downsampled chart proves to be somewhat better for an analyst's perception.
 
-One of the most useful functions that `Plotly` provides is the ability to quickly dive into different periods of timeline in order to better understand the data and find visual clues about possbile trends, periodic and irregular effects.
+One of the most useful functions that `Plotly` provides is the ability to quickly dive into different periods of timeline in order to better understand the data and find visual clues about possible trends, periodic and irregular effects.
 
 For example, zooming-in on a couple of consecutive years shows us time points corresponding to Christmas holidays, which greatly influence human behaviors.
 
