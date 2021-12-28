@@ -18,7 +18,7 @@ kernelspec:
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
-Authors: [Olga Daykhovskaya](https://www.linkedin.com/in/odaykhovskaya/), [Yury Kashnitskiy](https://yorko.github.io). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Authors: [Olga Daykhovskaya](https://www.linkedin.com/in/odaykhovskaya/), [Yury Kashnitsky](https://yorko.github.io). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 **Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning) + [solution](https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution).**
 
@@ -82,7 +82,7 @@ def load_har_dataset(url, extract_path: Path, filename: str, overwrite=False):
 ```{code-cell} ipython3
 FILE_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip"
 FILE_NAME = "UCI HAR Dataset.zip"
-DATA_PATH = Path("../../_static/data/")
+DATA_PATH = Path("../../../data/large_files")
 
 load_har_dataset(url=FILE_URL, extract_path=DATA_PATH, filename=FILE_NAME)
 
