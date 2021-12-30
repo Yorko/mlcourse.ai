@@ -16,9 +16,7 @@ execute:
   timeout: -1
 
 # exclude some content
-exclude_patterns: [
-  book/extra/*
-  ]
+exclude_patterns: ["book/extra/*"]
 
 # HTML-specific settings
 html:
@@ -27,6 +25,7 @@ html:
   use_edit_page_button        : true  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   use_repository_button       : true  # Whether to add a link to your repository button
   use_issues_button           : true  # Whether to add an "open an issue" button
+  google_analytics_id         : UA-125504619-1
 
 # Interact link settings
 notebook_interface            : "notebook"
@@ -39,7 +38,7 @@ latex:
 
 sphinx:
   config:
-    # html_extra_path: ['_static/plotly_htmls/']
+    # html_extra_path: ["_static/plotly_htmls/"]
     html_js_files:
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
       - https://c6.patreon.com/becomePatronButton.bundle.js
