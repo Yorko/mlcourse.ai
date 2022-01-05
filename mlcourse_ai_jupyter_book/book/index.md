@@ -7,12 +7,22 @@
 
 
 
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai). Also, in the following [short video](https://youtu.be/0E0DrKvXi-Y) we discuss how to best approach the course material:
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
+
+<!--Also, in the following [short video](https://youtu.be/0E0DrKvXi-Y) we discuss how to best approach the course material:
 
 <p align="center">
 	<iframe width="560" height="315" style='' src="https://www.youtube.com/embed/0E0DrKvXi-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 	</iframe>
-</p>
+</p>-->
+
+## How to navigate this website and pass the course
+
+Here you see a [Jupyter book](https://jupyterbook.org/intro.html) -- an executable book containing markdown, code, images, graphs, etc. (we describe Jupyter books in more detail [later](./prereqs/software_devops.html#jupyter-book)). You can jump forward and backward with left- and rightarrows. Any page can be downloaded as `.md` (MarkDown) or PDF -- use the Download button in the upper-right corner. Additionally, each page containing code can be downloaded as `.ipynb` -- a [Jupyter Notebook](https://jupyter.org) (not to be confused with Jupyter book). For every page, you can see its source on GitHub, and you can also open an issue or suggest an edit -- use the GitHub button in the upper-right corner.
+
+OK, let's go! First, check [prerequisites](prereq_python), then you see 10 topics -- from exporatory data analysis with Pandas to gradient boosting. For each topic, there's an introductory part ([here's an example](topic01_intro) for Topic 1) that lists articles to read, lectures to watch and assignments to crack.
+
+## Bonus assignments
 
 Additionally, you can purchase a **Bonus Assignments pack** with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse).
 
@@ -50,3 +60,20 @@ Below you can see the course program (click to enlarge).
 :name: course_program
 :width: 600px
 ```-->
+
+## About the course
+
+If you scroll down here on the left, you see the "About the course" section with additional materials and information:
+
+ - One of the assignments in the past mlcourse.ai sessions was to write a tutorial on almost any ML/DS-related topic. The result is seen on the [Tutorials](tutorials) page;
+ - One of the motivating features of the the past mlcourse.ai sessions was the leaderboard. Top 100 participants of each session are listed on the [Rating](rating) page;
+ - The [Resources](resources) page lists other resources constituting the course, e.g. YouTube playlists or Medium/Habr.com articles written in the past;
+ - Authors and some of the mlcourse.ai contributors (there were too many to list all of them) are listed on the [Contributors](contributors) page. Acknowledgements are there as well.
+
+<!-- - Lastly, the [Support](support) page -->
+
+## Russian version of the course
+
+The course originated in [OpenDataScience](https://ods.ai/), at that time in 2017 (well, and still), mostly Russian-speaking community. Hence the first couple of sessions were held in Russian. Then, later, the course launched in English and resulted in what you see here.
+
+The Russian version of the course is resurrected and will be led by [Petr Ermakov](https://www.linkedin.com/in/ermakovpetr/). If you speak Russian, please refer to [this Open ML course](https://ods.ai/tracks/open-ml-course) launching on **Feb 1st, 2022.**
