@@ -11,7 +11,7 @@
 
 </div>
 
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Check out a thorough [Roadmap](roadmap) guiding you through the self-paced mlcourse.ai.
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Check out a thorough [Roadmap](roadmap) guiding you through the self-paced mlcourse.ai. The Russian version of the course is resurrected and will be led by [Petr Ermakov](https://www.linkedin.com/in/ermakovpetr/). If you speak Russian, please refer to [this Open ML course](https://ods.ai/tracks/open-ml-course) launching on Feb 1st, 2022.
 
 __Bonus:__
 Additionally, you can purchase a Bonus Assignments pack with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse). Refer to the details of the deal on the main page [mlcourse.ai](https://mlcourse.ai/).
@@ -19,7 +19,7 @@ Additionally, you can purchase a Bonus Assignments pack with the best non-demo v
 Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kaggle Notebooks)
 
 ### Self-paced passing
-You are guided through 1o weeks of [mlcourse.ai](https://mlcourse.ai). For each week, from Pandas to Gradient Boosting, instructions are given on what articles to read, lectures to watch, what assignments to accomplish.
+You are guided through 10 weeks of [mlcourse.ai](https://mlcourse.ai). For each week, from Pandas to Gradient Boosting, instructions are given on which articles to read, lectures to watch, what assignments to accomplish.
 
 ### Articles
 This is the list of published articles on medium.com [:uk:](https://medium.com/open-machine-learning-course), habr.com [:ru:](https://habr.com/company/ods/blog/344044/). Also notebooks in Chinese are mentioned :cn: and links to Kaggle Notebooks (in English) are given. Icons are clickable.
@@ -66,8 +66,15 @@ The following are demo-assignments. Additionally, within the ["Bonus Assignments
 10. Beating baseline in a competition, [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-10-gradient-boosting-and-flight-delays)
 
 ### Kaggle competitions
+
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. DotA 2 winner prediction. [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
+
+### Russian version of the course
+
+The course originated in [OpenDataScience](https://ods.ai/), at that time in 2017 (well, and still), mostly Russian-speaking community. Hence the first couple of sessions were held in Russian. Then, later, the course launched in English and resulted in what you see here and on [mlcourse.ai](https://mlcourse.ai).
+
+The Russian version of the course is resurrected and is led by [Petr Ermakov](https://www.linkedin.com/in/ermakovpetr/). If you speak Russian, please refer to [this Open ML course](https://ods.ai/tracks/open-ml-course) launching on **Feb 1st, 2022.**
 
 ### Citing mlcourse.ai
 
