@@ -120,8 +120,23 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/prerequisites.html">
+  <a class="reference internal" href="../prereqs/python.html">
    Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/math.html">
+   Math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/software_devops.html">
+   Software &amp; DevOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/docker.html">
+   Docker
   </a>
  </li>
 </ul>
@@ -522,13 +537,28 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Extra
+  About the course
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../extra/tutorials.html">
+   Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../extra/rating.html">
-   Top-100 performers of the 6-th session of mlcourse.ai by ods.ai, fall 2019
+   Rating
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/contributors.html">
+   Contributors
   </a>
  </li>
 </ul>
@@ -879,7 +909,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>Let’s import the modules that we will need, and initialize our environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
@@ -902,7 +932,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>First, we load our dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_file_from_gdrive</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_file_from_gdrive</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Downloads a file from GDrive given an URL</span>
 <span class="sd">    :param file_url: a string formated as https://drive.google.com/uc?id=&lt;file_id&gt;</span>
@@ -920,7 +950,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://drive.google.com/uc?id=1G3YjM6mR32iPnQ6O3f6rE9BVbhiTiLyU&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://drive.google.com/uc?id=1G3YjM6mR32iPnQ6O3f6rE9BVbhiTiLyU&quot;</span>
 <span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;medium_posts.csv&quot;</span>
 <span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../../data/large_files&quot;</span><span class="p">)</span>
 
@@ -934,7 +964,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>Next, we leave out all columns except <code class="docutils literal notranslate"><span class="pre">published</span></code> and <code class="docutils literal notranslate"><span class="pre">url</span></code>. The former corresponds to the time dimension while the latter uniquely identifies a post by its URL. Along the way we get rid of possible duplicates and missing values in the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;published&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;published&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -942,7 +972,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>Next, we need to convert <code class="docutils literal notranslate"><span class="pre">published</span></code> to the datetime format because by default <code class="docutils literal notranslate"><span class="pre">pandas</span></code> treats this field as string-valued.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -950,159 +980,33 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>Let’s sort the dataframe by time and take a look at what we’ve got:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>published</th>
-      <th>url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>50931</th>
-      <td>1970-01-01 00:00:00.001000+00:00</td>
-      <td>https://medium.com/iiot</td>
-    </tr>
-    <tr>
-      <th>40243</th>
-      <td>1970-01-01 00:00:00.001000+00:00</td>
-      <td>https://medium.com/@ikaella/melon-rebranding-b...</td>
-    </tr>
-    <tr>
-      <th>37395</th>
-      <td>1970-01-18 05:11:46.500000+00:00</td>
-      <td>http://www.novosti.rs/%D0%B2%D0%B5%D1%81%D1%82...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Medium’s public release date was August 15, 2012. But, as you can see from the data above, there are at least several rows with much earlier publication dates. They have somehow turned up in our dataset, but they are hardly legitimate ones. We will just trim our time series to keep only those rows that fall onto the period from August 15, 2012 to June 25, 2017:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
     <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&quot;2012-08-15&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&quot;2017-06-26&quot;</span><span class="p">)</span>
 <span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;published&quot;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>published</th>
-      <th>url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>24630</th>
-      <td>2012-08-15 00:25:03.373000+00:00</td>
-      <td>https://medium.com/launch-day/jean-attempts-to...</td>
-    </tr>
-    <tr>
-      <th>24631</th>
-      <td>2012-08-15 00:25:29.419000+00:00</td>
-      <td>https://medium.com/launch-day/dan-and-kristin-...</td>
-    </tr>
-    <tr>
-      <th>17811</th>
-      <td>2012-08-15 00:34:59.502000+00:00</td>
-      <td>https://medium.com/i-m-h-o/the-world-is-social...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>published</th>
-      <th>url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>62122</th>
-      <td>2017-06-25 23:36:01.171000+00:00</td>
-      <td>https://medium.com/push-the-pace/the-official-...</td>
-    </tr>
-    <tr>
-      <th>72471</th>
-      <td>2017-06-25 23:41:48.295000+00:00</td>
-      <td>https://medium.com/parti-xyz-developers/%EA%B4...</td>
-    </tr>
-    <tr>
-      <th>83283</th>
-      <td>2017-06-25 23:51:43+00:00</td>
-      <td>http://www.johanr.com/blog/people-support-dreams</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>As we are going to predict the number of published posts, we will aggregate and count unique posts at each given point in time. We will name the corresponding new column <code class="docutils literal notranslate"><span class="pre">posts</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggr_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;published&quot;</span><span class="p">)[[</span><span class="s2">&quot;url&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aggr_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;published&quot;</span><span class="p">)[[</span><span class="s2">&quot;url&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="n">aggr_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;posts&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1111,104 +1015,20 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>In this practice, we are interested in the number of posts <strong>a day</strong>. But at this moment all our data is divided into irregular time intervals that are less than a day. This is called a <em>sub-daily time series</em>. To see it, let’s print out the first 3 rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aggr_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aggr_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>posts</th>
-    </tr>
-    <tr>
-      <th>published</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2012-08-15 00:25:03.373000+00:00</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2012-08-15 00:25:29.419000+00:00</th>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2012-08-15 00:34:59.502000+00:00</th>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>To fix this, we need to aggregate the post counts by “bins” of a date size. In time series analysis, this process is referred to as <em>resampling</em>. And if we <em>reduce</em> the sampling rate of data it is often called <em>downsampling</em>.</p>
 <p>Luckily, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> has a built-in functionality for this task. We will resample our time index down to 1-day bins:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily_df</span> <span class="o">=</span> <span class="n">aggr_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">daily_df</span> <span class="o">=</span> <span class="n">aggr_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 <span class="n">daily_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>posts</th>
-    </tr>
-    <tr>
-      <th>published</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2012-08-15 00:00:00+00:00</th>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>2012-08-16 00:00:00+00:00</th>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>2012-08-17 00:00:00+00:00</th>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 <div class="section" id="exploratory-visual-analysis">
@@ -1218,7 +1038,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>First, we import and initialize the <code class="docutils literal notranslate"><span class="pre">Plotly</span></code> library, which allows creating beautiful interactive plots:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objs</span> <span class="k">as</span> <span class="n">go</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objs</span> <span class="k">as</span> <span class="n">go</span>
 <span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">iplot</span><span class="p">,</span> <span class="n">plot</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">IFrame</span>
 
@@ -1227,28 +1047,11 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><script type="text/javascript">
-window.PlotlyConfig = {MathJaxConfig: 'local'};
-if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-if (typeof require !== 'undefined') {
-require.undef("plotly");
-requirejs.config({
-    paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.6.3.min']
-    }
-});
-require(['plotly'], function(Plotly) {
-    window._Plotly = Plotly;
-});
-}
-</script>
-</div></div>
 </div>
 <p>We also define a helper function, which will plot our dataframes throughout the article:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotly_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotly_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Visualize all the dataframe columns as line plots.&quot;&quot;&quot;</span>
     <span class="n">common_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="o">**</span><span class="n">common_kw</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
@@ -1269,28 +1072,17 @@ require(['plotly'], function(Plotly) {
 <p>Let’s try and plot our dataset <em>as is</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotly_df</span><span class="p">(</span><span class="n">daily_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Posts on Medium (daily)&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotly_df</span><span class="p">(</span><span class="n">daily_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Posts on Medium (daily)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="800"
-    height="500"
-    src="../../_static/plotly_htmls/Posts_on_Medium_(daily).html"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
 </div>
 <p>High-frequency data can be rather difficult to analyze. Even with the ability to zoom in provided by <code class="docutils literal notranslate"><span class="pre">Plotly</span></code>, it is hard to infer anything meaningful from this chart apart from the prominent upward and accelerating trend.</p>
 <p>To reduce the noise, we will resample the post counts down to weekly bins. Besides <em>binning</em>, other possible techniques of noise reduction include <a class="reference external" href="https://en.wikipedia.org/wiki/Moving_average">Moving-Average Smoothing</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_smoothing">Exponential Smoothing</a>, among others.</p>
 <p>We save our downsampled dataframe in a separate variable because further in this practice we will work only with daily series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_df</span> <span class="o">=</span> <span class="n">daily_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_df</span> <span class="o">=</span> <span class="n">daily_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1298,21 +1090,10 @@ require(['plotly'], function(Plotly) {
 <p>Finally, we plot the result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotly_df</span><span class="p">(</span><span class="n">weekly_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Posts on Medium (weekly)&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotly_df</span><span class="p">(</span><span class="n">weekly_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Posts on Medium (weekly)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="800"
-    height="500"
-    src="../../_static/plotly_htmls/Posts_on_Medium_(weekly).html"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
 </div>
 <p>This downsampled chart proves to be somewhat better for an analyst’s perception.</p>
 <p>One of the most useful functions that <code class="docutils literal notranslate"><span class="pre">Plotly</span></code> provides is the ability to quickly dive into different periods of timeline in order to better understand the data and find visual clues about possible trends, periodic and irregular effects.</p>
@@ -1320,53 +1101,11 @@ require(['plotly'], function(Plotly) {
 <p>Now, we’re going to omit the first few years of observations, up to 2015. First, they won’t contribute much into the forecast quality in 2017. Second, these first years, having very low number of posts per day, are likely to increase noise in our predictions, as the model would be forced to fit this abnormal historical data along with more relevant and indicative data from the recent years.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily_df</span> <span class="o">=</span> <span class="n">daily_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">daily_df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">daily_df</span> <span class="o">=</span> <span class="n">daily_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">daily_df</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="s2">&quot;2015-01-01&quot;</span><span class="p">]</span>
 <span class="n">daily_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>posts</th>
-    </tr>
-    <tr>
-      <th>published</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2015-01-01 00:00:00+00:00</th>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>2015-01-02 00:00:00+00:00</th>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>2015-01-03 00:00:00+00:00</th>
-      <td>11</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>To sum up, from visual analysis we can see that our dataset is non-stationary with a prominent growing trend. It also demonstrates weekly and yearly seasonality and a number of abnormal days in each year.</p>
 </div>
@@ -1380,7 +1119,7 @@ require(['plotly'], function(Plotly) {
 <p>To get started, we’ll import the library and mute unimportant diagnostic messages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="kn">from</span> <span class="nn">prophet</span> <span class="kn">import</span> <span class="n">Prophet</span>
 
@@ -1392,7 +1131,7 @@ require(['plotly'], function(Plotly) {
 <p>Let’s convert our dataframe to the format required by Prophet:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">daily_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">daily_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ds&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]</span>
 <span class="c1"># converting timezones (issue https://github.com/facebook/prophet/issues/831)</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
@@ -1400,129 +1139,23 @@ require(['plotly'], function(Plotly) {
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>904</th>
-      <td>2017-06-23</td>
-      <td>421</td>
-    </tr>
-    <tr>
-      <th>905</th>
-      <td>2017-06-24</td>
-      <td>277</td>
-    </tr>
-    <tr>
-      <th>906</th>
-      <td>2017-06-25</td>
-      <td>253</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The authors of the library generally advise to make predictions based on at least several months, ideally, more than a year of historical data. Luckily, in our case we have more than a couple of years of data to fit the model.</p>
 <p>To measure the quality of our forecast, we need to split our dataset into the <em>historical part</em>, which is the first and biggest slice of our data, and the <em>prediction part</em>, which will be located at the end of the timeline. We will remove the last month from the dataset in order to use it later as a prediction target:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prediction_size</span> <span class="o">=</span> <span class="mi">30</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prediction_size</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">train_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="o">-</span><span class="n">prediction_size</span><span class="p">]</span>
 <span class="n">train_df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>874</th>
-      <td>2017-05-24</td>
-      <td>375</td>
-    </tr>
-    <tr>
-      <th>875</th>
-      <td>2017-05-25</td>
-      <td>298</td>
-    </tr>
-    <tr>
-      <th>876</th>
-      <td>2017-05-26</td>
-      <td>269</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Now we need to create a new <code class="docutils literal notranslate"><span class="pre">Prophet</span></code> object. Here we can pass the parameters of the model into the constructor. But in this article we will use the defaults. Then we train our model by invoking its <code class="docutils literal notranslate"><span class="pre">fit</span></code> method on our training dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
 <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:prophet:Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial log joint probability = -13.7344
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-      99        2155.6    0.00996018       130.615      0.1681           1      130   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     100       2155.62   0.000240779       134.918   1.843e-06       0.001      164  LS failed, Hessian reset 
-     199       2160.72   0.000974398       121.576      0.6085      0.6085      282   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     223       2161.01   0.000247044       145.175   1.664e-06       0.001      346  LS failed, Hessian reset 
-     299       2161.12   1.40104e-05       69.8342           1           1      443   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     317       2161.12   1.26956e-07       64.3775      0.2713           1      475   
-Optimization terminated normally: 
-  Convergence detected: relative gradient magnitude is below tolerance
 </pre></div>
 </div>
 </div>
@@ -1530,180 +1163,29 @@ Optimization terminated normally:
 <p>Using the helper method <code class="docutils literal notranslate"><span class="pre">Prophet.make_future_dataframe</span></code>, we create a dataframe which will contain all dates from the history and also extend into the future for those 30 days that we left out before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">future</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">make_future_dataframe</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="n">prediction_size</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">future</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">make_future_dataframe</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="n">prediction_size</span><span class="p">)</span>
 <span class="n">future</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>904</th>
-      <td>2017-06-23</td>
-    </tr>
-    <tr>
-      <th>905</th>
-      <td>2017-06-24</td>
-    </tr>
-    <tr>
-      <th>906</th>
-      <td>2017-06-25</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>We predict values with <code class="docutils literal notranslate"><span class="pre">Prophet</span></code> by passing in the dates for which we want to create a forecast. If we also supply the historical dates (as in our case), then in addition to the prediction we will get an in-sample fit for the history. Let’s call the model’s <code class="docutils literal notranslate"><span class="pre">predict</span></code> method with our <code class="docutils literal notranslate"><span class="pre">future</span></code> dataframe as an input:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forecast</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">forecast</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
 <span class="n">forecast</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-      <th>trend</th>
-      <th>yhat_lower</th>
-      <th>yhat_upper</th>
-      <th>trend_lower</th>
-      <th>trend_upper</th>
-      <th>additive_terms</th>
-      <th>additive_terms_lower</th>
-      <th>additive_terms_upper</th>
-      <th>weekly</th>
-      <th>weekly_lower</th>
-      <th>weekly_upper</th>
-      <th>yearly</th>
-      <th>yearly_lower</th>
-      <th>yearly_upper</th>
-      <th>multiplicative_terms</th>
-      <th>multiplicative_terms_lower</th>
-      <th>multiplicative_terms_upper</th>
-      <th>yhat</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>904</th>
-      <td>2017-06-23</td>
-      <td>276.382316</td>
-      <td>254.771968</td>
-      <td>304.238442</td>
-      <td>275.979054</td>
-      <td>276.767416</td>
-      <td>2.472183</td>
-      <td>2.472183</td>
-      <td>2.472183</td>
-      <td>3.477172</td>
-      <td>3.477172</td>
-      <td>3.477172</td>
-      <td>-1.004989</td>
-      <td>-1.004989</td>
-      <td>-1.004989</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>278.854499</td>
-    </tr>
-    <tr>
-      <th>905</th>
-      <td>2017-06-24</td>
-      <td>277.084834</td>
-      <td>216.506975</td>
-      <td>268.180435</td>
-      <td>276.657992</td>
-      <td>277.496136</td>
-      <td>-34.834838</td>
-      <td>-34.834838</td>
-      <td>-34.834838</td>
-      <td>-34.026689</td>
-      <td>-34.026689</td>
-      <td>-34.026689</td>
-      <td>-0.808149</td>
-      <td>-0.808149</td>
-      <td>-0.808149</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>242.249997</td>
-    </tr>
-    <tr>
-      <th>906</th>
-      <td>2017-06-25</td>
-      <td>277.787353</td>
-      <td>220.852053</td>
-      <td>271.935317</td>
-      <td>277.321512</td>
-      <td>278.216301</td>
-      <td>-31.194572</td>
-      <td>-31.194572</td>
-      <td>-31.194572</td>
-      <td>-30.582650</td>
-      <td>-30.582650</td>
-      <td>-30.582650</td>
-      <td>-0.611921</td>
-      <td>-0.611921</td>
-      <td>-0.611921</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>246.592782</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>In the resulting dataframe you can see many columns characterizing the prediction, including trend and seasonality components as well as their confidence intervals. The forecast itself is stored in the <code class="docutils literal notranslate"><span class="pre">yhat</span></code> column.</p>
 <p>The Prophet library has its own built-in tools for visualization that enable us to quickly evaluate the result.</p>
 <p>First, there is a method called <code class="docutils literal notranslate"><span class="pre">Prophet.plot</span></code> that plots all the points from the forecast:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/topic9_part2_facebook_prophet_45_0.png" src="../../_images/topic9_part2_facebook_prophet_45_0.png" />
 </div>
 </div>
 <p>This chart doesn’t look very informative. The only definitive conclusion that we can draw here is that the model treated many of the data points as outliers.</p>
@@ -1711,12 +1193,9 @@ Optimization terminated normally:
 <p>Let’s try it out:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot_components</span><span class="p">(</span><span class="n">forecast</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot_components</span><span class="p">(</span><span class="n">forecast</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/topic9_part2_facebook_prophet_47_0.png" src="../../_images/topic9_part2_facebook_prophet_47_0.png" />
 </div>
 </div>
 <p>As you can see from the trend graph, Prophet did a good job by fitting the accelerated growth of new posts at the end of 2016. The graph of weekly seasonality leads to the conclusion that usually there are less new posts on Saturdays and Sundays than on the other days of the week. In the yearly seasonality graph there is a prominent dip on Christmas Day.</p>
@@ -1727,12 +1206,7 @@ Optimization terminated normally:
 <p>Let’s look into the object <code class="docutils literal notranslate"><span class="pre">forecast</span></code> that the library created for us:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">forecast</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ds, trend, yhat_lower, yhat_upper, trend_lower, trend_upper, additive_terms, additive_terms_lower, additive_terms_upper, weekly, weekly_lower, weekly_upper, yearly, yearly_lower, yearly_upper, multiplicative_terms, multiplicative_terms_lower, multiplicative_terms_upper, yhat
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">forecast</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1740,7 +1214,7 @@ Optimization terminated normally:
 <p>We can see that this dataframe contains all the information we need except for the historical values. We need to join the <code class="docutils literal notranslate"><span class="pre">forecast</span></code> object with the actual values <code class="docutils literal notranslate"><span class="pre">y</span></code> from the original dataset <code class="docutils literal notranslate"><span class="pre">df</span></code>. For this we will define a helper function that we will reuse later:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_comparison_dataframe</span><span class="p">(</span><span class="n">historical</span><span class="p">,</span> <span class="n">forecast</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_comparison_dataframe</span><span class="p">(</span><span class="n">historical</span><span class="p">,</span> <span class="n">forecast</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Join the history with the forecast.</span>
 
 <span class="sd">       The resulting dataset will contain columns &#39;yhat&#39;, &#39;yhat_lower&#39;, &#39;yhat_upper&#39; and &#39;y&#39;.</span>
@@ -1755,73 +1229,16 @@ Optimization terminated normally:
 <p>Let’s apply this function to our last forecast:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmp_df</span> <span class="o">=</span> <span class="n">make_comparison_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">forecast</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmp_df</span> <span class="o">=</span> <span class="n">make_comparison_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">forecast</span><span class="p">)</span>
 <span class="n">cmp_df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>yhat</th>
-      <th>yhat_lower</th>
-      <th>yhat_upper</th>
-      <th>y</th>
-    </tr>
-    <tr>
-      <th>ds</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017-06-23</th>
-      <td>278.854499</td>
-      <td>254.771968</td>
-      <td>304.238442</td>
-      <td>421</td>
-    </tr>
-    <tr>
-      <th>2017-06-24</th>
-      <td>242.249997</td>
-      <td>216.506975</td>
-      <td>268.180435</td>
-      <td>277</td>
-    </tr>
-    <tr>
-      <th>2017-06-25</th>
-      <td>246.592782</td>
-      <td>220.852053</td>
-      <td>271.935317</td>
-      <td>253</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>We are also going to define a helper function that we will use to gauge the quality of our forecasting with MAPE and MAE error measures:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_forecast_errors</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_forecast_errors</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Calculate MAPE and MAE of the forecast.</span>
 
 <span class="sd">       Args:</span>
@@ -1854,14 +1271,8 @@ Optimization terminated normally:
 <p>Let’s use our function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span> <span class="ow">in</span> <span class="n">calculate_forecast_errors</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span> <span class="ow">in</span> <span class="n">calculate_forecast_errors</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 22.696043590111355
-MAE 70.3078940123337
 </pre></div>
 </div>
 </div>
@@ -1876,7 +1287,7 @@ MAE 70.3078940123337
 <p>We will define a custom helper function <code class="docutils literal notranslate"><span class="pre">show_forecast</span></code> and call it (for more on how it works please refer to the comments in the code and the <a class="reference external" href="https://plot.ly/python/">documentation</a>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_forecast</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">num_predictions</span><span class="p">,</span> <span class="n">num_values</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_forecast</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">num_predictions</span><span class="p">,</span> <span class="n">num_values</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Visualize the forecast.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">create_go</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1925,17 +1336,6 @@ MAE 70.3078940123337
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="800"
-    height="500"
-    src="../../_static/plotly_htmls/New_posts_on_Medium.html"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
 </div>
 <p>At first glance, the prediction of the mean values by our model seems to be sensible. The high value of MAPE that we got above may be explained by the fact that the model failed to catch on to increasing peak-to-peak amplitude of weakly seasonality.</p>
 <p>Also, we can conclude from the graph above that many of the actual values lie outside the confidence interval. Prophet may not be suitable for time series with unstable variance, at least when the default settings are used. We will try to fix this by applying a transform to our data.</p>
@@ -1967,7 +1367,7 @@ MAE 70.3078940123337
 <p>The corresponding function in Python is implemented as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse_boxcox</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">inverse_boxcox</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">lambda_</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">lambda_</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">lambda_</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1976,7 +1376,7 @@ MAE 70.3078940123337
 <p>First, we prepare our dataset by setting its index:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_df2</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ds&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_df2</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ds&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1984,7 +1384,7 @@ MAE 70.3078940123337
 <p>Then, we apply the function <code class="docutils literal notranslate"><span class="pre">stats.boxcox</span></code> from <code class="docutils literal notranslate"><span class="pre">Scipy</span></code>, which applies the Box–Cox transformation. In our case it will return two values. The first one is the transformed series and the second one is the found value of <span class="math notranslate nohighlight">\(\lambda\)</span> that is optimal in terms of the maximum log-likelihood:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_df2</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">lambda_prophet</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">boxcox</span><span class="p">(</span><span class="n">train_df2</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_df2</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">lambda_prophet</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">boxcox</span><span class="p">(</span><span class="n">train_df2</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 <span class="n">train_df2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1993,40 +1393,10 @@ MAE 70.3078940123337
 <p>We create a new <code class="docutils literal notranslate"><span class="pre">Prophet</span></code> model and repeat the fit-predict cycle that we have already done above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
 <span class="n">m2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df2</span><span class="p">)</span>
 <span class="n">future2</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">make_future_dataframe</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="n">prediction_size</span><span class="p">)</span>
 <span class="n">forecast2</span> <span class="o">=</span> <span class="n">m2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">future2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:prophet:Disabling daily seasonality. Run prophet with daily_seasonality=True to override this.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial log joint probability = -4.93811
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-      57       2510.43   0.000382063       225.687   4.668e-06       0.001      121  LS failed, Hessian reset 
-      99       2515.54     0.0165581       558.049           1           1      173   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     187       2517.65   0.000151599       103.129   4.023e-07       0.001      317  LS failed, Hessian reset 
-     199       2517.73   9.63138e-05       66.7623       1.079      0.3897      332   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     298       2518.07   8.02604e-05       87.5722   4.684e-07       0.001      490  LS failed, Hessian reset 
-     299       2518.09   0.000389787        105.27          10           1      492   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     399       2518.31   0.000167843       91.1044           1           1      615   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     461       2518.43    0.00058232        181.86    4.74e-06       0.001      732  LS failed, Hessian reset 
-     499       2518.54    4.1327e-05       69.9514           1           1      777   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     541       2518.56   2.86546e-05        81.471   3.661e-07       0.001      869  LS failed, Hessian reset 
-     599       2518.59    1.9034e-05       84.3218           1           1      948   
-    Iter      log prob        ||dx||      ||grad||       alpha      alpha0  # evals  Notes 
-     634       2518.61   4.09994e-06       67.8992   5.288e-08       0.001     1034  LS failed, Hessian reset 
-     668       2518.61   3.95771e-09       71.9641    0.007082      0.4396     1077   
-Optimization terminated normally: 
-  Convergence detected: absolute parameter change was below tolerance
 </pre></div>
 </div>
 </div>
@@ -2034,7 +1404,7 @@ Optimization terminated normally:
 <p>At this point, we need to revert the Box–Cox transformation with our inverse function and the known value of <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;yhat&quot;</span><span class="p">,</span> <span class="s2">&quot;yhat_lower&quot;</span><span class="p">,</span> <span class="s2">&quot;yhat_upper&quot;</span><span class="p">]:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;yhat&quot;</span><span class="p">,</span> <span class="s2">&quot;yhat_lower&quot;</span><span class="p">,</span> <span class="s2">&quot;yhat_upper&quot;</span><span class="p">]:</span>
     <span class="n">forecast2</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">inverse_boxcox</span><span class="p">(</span><span class="n">forecast2</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">lambda_prophet</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2043,15 +1413,9 @@ Optimization terminated normally:
 <p>Here we will reuse our tools for making the comparison dataframe and calculating the errors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmp_df2</span> <span class="o">=</span> <span class="n">make_comparison_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">forecast2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmp_df2</span> <span class="o">=</span> <span class="n">make_comparison_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">forecast2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span> <span class="ow">in</span> <span class="n">calculate_forecast_errors</span><span class="p">(</span><span class="n">cmp_df2</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 11.66893553954676
-MAE 39.41147838458597
 </pre></div>
 </div>
 </div>
@@ -2060,31 +1424,11 @@ MAE 39.41147838458597
 <p>Finally, let’s plot our previous performance with the latest results side-by-side. Note that we use <code class="docutils literal notranslate"><span class="pre">prediction_size</span></code> for the third parameter in order to zoom in on the interval being predicted:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">show_forecast</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;No transformations&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_forecast</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;No transformations&quot;</span><span class="p">)</span>
 <span class="n">show_forecast</span><span class="p">(</span><span class="n">cmp_df2</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;Box–Cox transformation&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe
-    width="800"
-    height="500"
-    src="../../_static/plotly_htmls/No_transformations.html"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div><div class="output text_html">
-<iframe
-    width="800"
-    height="500"
-    src="../../_static/plotly_htmls/Box–Cox_transformation.html"
-    frameborder="0"
-    allowfullscreen
-
-></iframe>
-</div></div>
 </div>
 <p>We see that the forecast of weekly changes in the second graph is much closer to the real values now.</p>
 </div>
