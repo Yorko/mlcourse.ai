@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorials &#8212; mlcourse.ai</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Rating" href="rating.html" />
+    <link rel="prev" title="Bonus Assignment 10" href="../topic10/bonus_assignment10.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-125504619-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Intro
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Prerequisites
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/math.html">
+   Math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/software_devops.html">
+   Software &amp; DevOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_intro.html">
+   Topic 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
+   Exploratory data analysis with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/videolecture01.html">
+   Videolecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
+   Demo Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
+   Demo Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
+   Bonus Assignment 1
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_intro.html">
+   Topic 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
+   Visual Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
+   Seaborn, Matplotlib, Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/videolecture02.html">
+   Videolecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
+   Demo Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
+   Demo Assignment 2 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
+   Bonus Assignment 2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_intro.html">
+   Topic 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
+   Classification, Decision Trees &amp; k Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/videolecture03.html">
+   Videolecture 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
+   Demo Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
+   Demo Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
+   Bonus Assignment 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic04_intro.html">
+   Topic 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
+   Linear classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
+   An illustrative example of logistic regression regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
+   When logistic regression is good and when it is not
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
+   Validation and learning curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/videolecture04.html">
+   Videolecture 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
+   Demo Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
+   Demo Assignment 4 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
+   Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic05_intro.html">
+   Topic 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
+   Bagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
+   Random Forest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
+   Feature importance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/videolecture05.html">
+   Videolecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
+   Demo Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
+   Demo Assignment 5 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
+   Bonus Assignment 5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic06_intro.html">
+   Topic 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
+   Feature engineering &amp; feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/demo_assignment06.html">
+   Demo Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/bonus_assignment06.html">
+   Bonus Assignment 6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic07_intro.html">
+   Topic 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
+   Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/videolecture07.html">
+   Videolecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
+   Demo Assignment 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
+   Demo Assignment 7 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/bonus_assignment07.html">
+   Bonus Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/topic08_intro.html">
+   Topic 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
+   Vowpal Wabbit: Learning with Gigabytes of Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/videolecture08.html">
+   Videolecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
+   Demo Assignment 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
+   Demo Assignment 8 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/bonus_assignment08.html">
+   Bonus Assignment 8
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/topic09_intro.html">
+   Topic 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">
+   Topic 9. Time series analysis in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">
+   Predicting the future with Facebook Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/videolecture09.html">
+   Videolecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/assignment09_time_series.html">
+   Demo Assignment 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/assignment09_time_series_solution.html">
+   Demo Assignment 9 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/bonus_assignment09.html">
+   Bonus Assignment 9
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/topic10_intro.html">
+   Topic 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/topic10_gradient_boosting.html">
+   Gradient boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/videolecture10.html">
+   Videolecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">
+   Demo Assignment 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/bonus_assignment10.html">
+   Bonus Assignment 10
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About the course
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rating.html">
+   Rating
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/extra/tutorials.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/extra/tutorials.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/extra/tutorials.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spring-2019-session">
+   Spring 2019 session
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fall-2018-session">
+   Fall 2018 session
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tutorials">
+<span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="ods-stickers">
+<img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
+</div>
+<p>One of the assignments in the course was to write a tutorial on almost any ML/DS-related topic. Here is the result. Slack nicks of the authors are given with &#64;’s.</p>
+<div class="section" id="spring-2019-session">
+<h2>Spring 2019 session<a class="headerlink" href="#spring-2019-session" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>“Overview of imbalance-learn package” – <a class="reference external" href="https://www.kaggle.com/pdepdepde/what-we-can-do-with-umbalanced-data">Kaggle Kernel</a>  by &#64;pdepdepde</p></li>
+<li><p>“Extracting cricket scorecards of batsman and bowlers from ESPN cricinfo” – <a class="reference external" href="https://www.kaggle.com/rjs417/cricket-scorecard-web-scraping">Kaggle Kernel</a> by &#64;Rajasekhar Battula</p></li>
+<li><p>“LDA, PCA and topic modelling” – <a class="reference external" href="https://inclass.kaggle.com/shivampanwar/tutorial-lda-vs-pca-and-topic-modelling-using-lda">Kaggle Kernel</a> by &#64;Shivam Panwar</p></li>
+<li><p>“Visualization with Bokeh” – <a class="reference external" href="https://www.kaggle.com/sitask/tutorial-visualization-with-bokeh">Kaggle Kernel</a> by &#64;Sita</p></li>
+<li><p>“Autoencoders and t-SNE” – <a class="reference external" href="https://inclass.kaggle.com/rohitgr/autoencoders-tsne">Kaggle Kernel</a> by &#64;goku</p></li>
+<li><p>“Implementing Gradient Descent” – <a class="reference external" href="https://www.kaggle.com/pocahontas1010/implementing-gradient-descent-algorithm">Kaggle Kernel</a> by &#64;Ana Hristian</p></li>
+<li><p>“ML interpretability” – <a class="reference external" href="https://www.kaggle.com/datacog314/tutorial-machine-learning-interpretability">Kaggle Kernel</a> by &#64;Christophe Rigon</p></li>
+<li><p>“ML In Chemistry Research: RDKit &amp; mol2vec” – <a class="reference external" href="https://www.kaggle.com/vladislavkisin/tutorial-ml-in-chemistry-research-rdkit-mol2vec">Kaggle Kernel</a> by &#64;Vlad Kisin</p></li>
+<li><p>“Bayesian methods of hyperparameter optimization” – <a class="reference external" href="https://www.kaggle.com/clair14/tutorial-bayesian-optimization">Kaggle Kernel</a> by &#64;clair</p></li>
+<li><p>“Python Data Pre-Processing – Handy Tips” – <a class="reference external" href="https://inclass.kaggle.com/shravankoninti/python-data-pre-processing-handy-tips">Kaggle Kernel</a> by &#64;Shravan Kumar Koninti</p></li>
+<li><p>“Categorical Feature Encoding” – <a class="reference external" href="https://www.kaggle.com/waydeherman/categorical-feature-encoding">Kaggle Kernel</a> by &#64;Wayde Herman</p></li>
+<li><p>“Unsupervised Learning: Clustering” – <a class="reference external" href="https://inclass.kaggle.com/maximgolovatchev/unsupervised-learning-clustering-tutorial">Kaggle Kernel</a> by &#64;Maximgolovatchev</p></li>
+<li><p>“Collaborative filtering with PySpark” – <a class="reference external" href="https://www.kaggle.com/vchulski/tutorial-collaborative-filtering-with-pyspark">Kaggle Kernel</a> by &#64;vchulski</p></li>
+<li><p>“AutoML capabilities of H2O library” – <a class="reference external" href="https://inclass.kaggle.com/paradiselost/tutorial-automl-capabilities-of-h2o-library">Kaggle Kernel</a> by &#64;Dmitry Burdeiny</p></li>
+<li><p>“Factorization machine implemented in PyTorch” – <a class="reference external" href="https://inclass.kaggle.com/gennadylaptev/factorization-machine-implemented-in-pytorch">Kaggle Kernel</a> by &#64;GL</p></li>
+<li><p>“CatBoost overview” – <a class="reference external" href="https://www.kaggle.com/mitribunskiy/tutorial-catboost-overview">Kaggle Kernel</a> by &#64;MITribunskiy</p></li>
+<li><p>“Hyperopt” – <a class="reference external" href="https://www.kaggle.com/fanvacoolt/tutorial-on-hyperopt">Kaggle Kernel</a> by &#64;fanvacoolt</p></li>
+</ol>
+</div>
+<div class="section" id="fall-2018-session">
+<h2>Fall 2018 session<a class="headerlink" href="#fall-2018-session" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>“Plotly for interactive plots” by Alexander Kovalev (&#64;velavok) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/plotly_tutorial_for_interactive_plots_sankovalev.ipynb">nbviewer</a></p></li>
+<li><p>“Basic semi-supervised learning models” by Gleb Levitski (&#64;altprof) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/basic_semi-supervised_learning_models_altprof.ipynb">nbviewer</a></p></li>
+<li><p>“Yet another ensemble learning helper” by Aleksandr Korotkov (&#64;krotix) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/yet_another_ensemble_learning_helper_aleksandr_korotkov.ipynb">nbviewer</a></p></li>
+<li><p>“Imputing missing data with fancyimpute” by Archit Rungta (&#64;Archit Rungta) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Imputing_missing_data_with_fancyimpute_archit_rungta.ipynb">nbviewer</a></p></li>
+<li><p>“Risk management with Python” by Andrey Varkentin (&#64;varan) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Risk_management_with_Python_Andrey_Varkentin2.ipynb">nbviewer</a></p></li>
+<li><p>“Insights of Monty Hall paradox with Plotly” by Denis Mironov (&#64;dmironov) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Insights_of_Monty_Hall_paradox_with_Plotly_dmironov.ipynb">nbviewer</a></p></li>
+<li><p>“Epidemics on networks with NetworkX and EoN” by Ilya Syrovatskiy (&#64;bokomaru) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Epidemics_on_networks_with_NetworkX_and_EoN_Syrovatskiy_Ilya.ipynb">nbviewer</a></p></li>
+<li><p>“LDA (Linear Discriminant Analysis) and LDA vs PCA” by Shivam Panwar (&#64;Shivam Panwar) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/lda_pca_and_topic_modelling_shivam_panwar.ipynb">nbviewer</a></p></li>
+<li><p>“A little more info about NumPy” by Ksenia Terekhova (&#64;Kseniia) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/more_info_about_numpy_kseniia_terekhova.ipynb">nbviewer</a></p></li>
+<li><p>“Forget about GridSearch – how to tune hyperparameters using Hyperopt” by Ilya Larchenko (&#64;ilya_l) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/hyperparameters_tunning_ilya_larchenko.ipynb">nbviewer</a></p></li>
+<li><p>“Merging DataFrames with pandas” by Max Palko (&#64;odpalko) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb">nbviewer</a></p></li>
+<li><p>“A Tutorial On Understanding ([Rr]ege)(x|xp|xes|xps|xen)” by Aditya Soni (&#64;ecdrid) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/learn_regex_the_easy_way_aditya_soni.ipynb">nbviewer</a></p></li>
+<li><p>“Leaderboard probing” by Nikolai Timonin (&#64;timoninn) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/kaggle_leaderboard_probing_nikolai_timonin.ipynb">nbviewer</a></p></li>
+<li><p>“Mlxtend.SFS: an easy way to select features” by Anton Gilmanov (&#64;wicker) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Mlxtend_SFS_an_easy_way_to_select_features.ipynb">nbviewer</a></p></li>
+<li><p>“Bring your plots to life with Matplotlib animations” by Kyriacos Kyriacou (&#64;kyr) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/bring_your_plots_to_life_with_matplotlib_animations_kyriacos_kyriacou.ipynb">nbviewer</a></p></li>
+<li><p>“Handle different dataset with dask and trying a little dask ML” by Irina Knyazeva (&#64;Iknyazeva) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb">nbviewer</a></p></li>
+<li><p>“Feature engineering is all you need” by Georgy Surin (&#64;formemorte) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Feature_engineering_is_all_you_need_%20tutorial_Georgy_Surin.ipynb">nbviewer</a></p></li>
+<li><p>“Latent Dirichlet Allocation” by Valentin Kovalev (&#64;Valentin) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/tutorial_lda_pyldavis_kovalevvyu.ipynb">nbviewer</a></p></li>
+<li><p>“Handling categorical variables” by Danila Perepechin (&#64;Danila) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/handling_categorical_data_Danila.ipynb">nbviewer</a></p></li>
+<li><p>“Introduction to Network Analysis with NetworkX” by Georgy Lazarev (&#64;jorgy) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Introduction_to_Network_Analysis_with_NetworkX_Georgy_Lazarev.ipynb">nbviewer</a></p></li>
+<li><p>“Webscraping an online retailer assortment” by Maxim Keremet (&#64;maximkeremet) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/webscraping_ecommerce_website_with_scrapy.ipynb">nbviewer</a></p></li>
+<li><p>“Some details on Matplotlib” by Ivan Pisarev (&#64;pisarev_i) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/some_details_in_matplotlib_pisarev_ivan.ipynb">nbviewer</a></p></li>
+<li><p>“Statistical hypothesis testing in Python” by Kirill Panin (&#64;Kirill Panin) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/statistical_hypothesis_testing_in_python_panin_kirill.ipynb">nbviewer</a></p></li>
+<li><p>“Nested cross-validation” by Tatyana Kudasova (&#64;kudasova) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/nested_cross_validation_tatyana_kudasova.ipynb">nbviewer</a></p></li>
+<li><p>“Intuitive explanation of Expectation Maximization” by Neeraj Agrawal (&#64;MagnIeeT) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Intitutive_Explanation_of_Expectation_Maximization_Algorithm_MagnIeeT.ipynb">nbviewer</a></p></li>
+<li><p>“Scraping websites with help of Selenium” by Vadim Voskresenskii (&#64;Vadimvoskresenskiy) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Voskresenskii_selenium_tutorial.ipynb">nbviewer</a></p></li>
+<li><p>“Constructing simple Chatbot using spaCy” by Ilya Kalininskii (&#64;Kiavip) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/tutorial_spaCy_chatbot.ipynb">nbviewer</a></p></li>
+<li><p>“LSTM (Long Short Term Memory) Networks for predicting Time Series” by Sergei Bulaev (&#64;Ser-serege) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/LSTM_tutorial_Sergei_Bulaev.ipynb">nbviewer</a></p></li>
+<li><p>“How to predict catastrophic events?” by Joris Fournell (&#64;Jorisfournell) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Catastrophic_Events_with_Scipy.ipynb">nbviewer</a></p></li>
+<li><p>“Anomaly Detection: Isolation Forest” by Alexander Nichiporenko (&#64;AlexNich) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/anomaly_detection_isolation_forest_alexander_nichiporenko.ipynb">nbviewer</a></p></li>
+<li><p>“Something else about ensemble learning” by Dmitry Korgun (&#64;tbb) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/something_else_about_ensemble_tbb.ipynb">nbviewer</a></p></li>
+<li><p>“KERAS: easy way to construct the Neural Networks” by Natalia Domozhirova (&#64;ndomozhirova) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/Keras_easy_way_to_construct_the_Neural_Networks_fixed.ipynb">nbviewer</a></p></li>
+<li><p>“Deploying your Machine Learning Model” by Maxim Klyuchnikov (&#64;jabberwock) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/deploying-your-machine-learning-model_maxim-klyuchnikov.ipynb">nbviewer</a></p></li>
+<li><p>“Virtual environment for learning ML” by Mikhail Korshchikov (&#64;Mikhailsergeevi4) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/tutorial_ML_with_VM_Mikhail%20Korshchikov.ipynb">nbviewer</a></p></li>
+<li><p>“Self organizing map” by Nikita Simonov (&#64;simanjan) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/self_organizing_map_nikita_simonov.ipynb">nbviewer</a></p></li>
+<li><p>“Useful Google Colab snippets” by Denic Cera (&#64;Dene) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Dene33/mlcourse.ai/blob/master/jupyter_english/tutorials/Useful_Google_Colab_snippets.ipynb">nbviewer</a></p></li>
+<li><p>“Can we create our own text vectorizer?” by Alexander Ashikhmin (&#64;alex.ash) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/custom_vectorizer_tutorial.ipynb">nbviewer</a></p></li>
+<li><p>“Collecting information for machine learning purposes. Parsing and Grabbing” by Alexander Laskorunskiy (&#64;a_lasko) – <a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/parsing_and_grabbing_tutorial_aleksandr_laskorunsky.ipynb">nbviewer</a></p></li>
+</ol>
+<p>More tutorials and individual projects (in Russian) are listed in the <a class="reference external" href="https://github.com/Yorko/mlcourse.ai/wiki">Wiki section</a> of the course repo.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/extra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../topic10/bonus_assignment10.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Bonus Assignment 10</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="rating.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Rating</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Yury Kashnitsky (yorko)<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating &#8212; mlcourse.ai</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-125504619-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Intro
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Prerequisites
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/math.html">
+   Math
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/software_devops.html">
+   Software &amp; DevOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prereqs/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_intro.html">
+   Topic 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
+   Exploratory data analysis with Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/videolecture01.html">
+   Videolecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
+   Demo Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
+   Demo Assignment 1 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
+   Bonus Assignment 1
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_intro.html">
+   Topic 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
+   Visual Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
+   Seaborn, Matplotlib, Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/videolecture02.html">
+   Videolecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
+   Demo Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
+   Demo Assignment 2 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
+   Bonus Assignment 2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_intro.html">
+   Topic 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
+   Classification, Decision Trees &amp; k Nearest Neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/videolecture03.html">
+   Videolecture 3
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
+   Demo Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
+   Demo Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
+   Bonus Assignment 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic04_intro.html">
+   Topic 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
+   Ordinary Least Squares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
+   Linear classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
+   An illustrative example of logistic regression regularization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
+   When logistic regression is good and when it is not
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
+   Validation and learning curves
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/videolecture04.html">
+   Videolecture 4
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
+   Demo Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
+   Demo Assignment 4 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
+   Bonus Assignment 4
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic05_intro.html">
+   Topic 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
+   Bagging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
+   Random Forest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
+   Feature importance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/videolecture05.html">
+   Videolecture 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
+   Demo Assignment 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
+   Demo Assignment 5 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
+   Bonus Assignment 5
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic06_intro.html">
+   Topic 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
+   Feature engineering &amp; feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/demo_assignment06.html">
+   Demo Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic06/bonus_assignment06.html">
+   Bonus Assignment 6
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic07_intro.html">
+   Topic 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
+   Unsupervised learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/videolecture07.html">
+   Videolecture 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
+   Demo Assignment 7
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
+   Demo Assignment 7 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic07/bonus_assignment07.html">
+   Bonus Assignment 7
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/topic08_intro.html">
+   Topic 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
+   Vowpal Wabbit: Learning with Gigabytes of Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/videolecture08.html">
+   Videolecture 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
+   Demo Assignment 8
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
+   Demo Assignment 8 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic08/bonus_assignment08.html">
+   Bonus Assignment 8
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/topic09_intro.html">
+   Topic 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">
+   Topic 9. Time series analysis in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">
+   Predicting the future with Facebook Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/videolecture09.html">
+   Videolecture 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/assignment09_time_series.html">
+   Demo Assignment 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/assignment09_time_series_solution.html">
+   Demo Assignment 9 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic09/bonus_assignment09.html">
+   Bonus Assignment 9
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Topic 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/topic10_intro.html">
+   Topic 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/topic10_gradient_boosting.html">
+   Gradient boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/videolecture10.html">
+   Videolecture 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">
+   Demo Assignment 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../topic10/bonus_assignment10.html">
+   Bonus Assignment 10
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About the course
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials.html">
+   Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Rating
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributors.html">
+   Contributors
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/extra/rating.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/extra/rating.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/extra/rating.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-100-performers-of-the-6-th-session-of-mlcourse-ai-by-ods-ai-fall-2019">
+   Top-100 performers of the 6-th session of mlcourse.ai by ods.ai, fall 2019
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-100-performers-of-the-5-th-session-of-mlcourse-ai-by-ods-ai-spring-2019">
+   Top-100 performers of the 5-th session of mlcourse.ai by ods.ai, spring 2019
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-100-performers-of-the-4-th-session-of-mlcourse-ai-by-ods-ai-fall-2018">
+   Top-100 performers of the 4-th session of mlcourse.ai by ods.ai, fall 2018
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-10-performers-of-the-3-rd-session-of-mlcourse-ai-by-ods-ai-spring-2018-held-in-english-experimental-at-that-time">
+   Top-10 performers of the 3-rd session of mlcourse.ai by ods.ai, spring 2018 (held in English, experimental at that time)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-100-performers-of-the-3-rd-session-of-mlcourse-ai-by-ods-ai-spring-2018-held-in-russian">
+   Top-100 performers of the 3-rd session of mlcourse.ai by ods.ai, spring 2018 (held in Russian)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-100-performers-of-the-2-nd-session-of-mlcourse-ai-by-ods-ai-fall-2017-held-in-russian">
+   Top-100 performers of the 2-nd session of mlcourse.ai by ods.ai, fall 2017 (held in Russian)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-100-performers-of-the-1-st-session-of-mlcourse-ai-by-ods-ai-spring-2017-held-in-russian">
+   Top-100 performers of the 1-st session of mlcourse.ai by ods.ai, spring 2017 (held in Russian)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="rating">
+<span id="id1"></span><h1>Rating<a class="headerlink" href="#rating" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="ods-stickers">
+<img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
+</div>
+<p>One of the motivating features of the the past <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> sessions was the leaderboard built from all activities in the course: assignments, competitions, written tutorials, and completed individual projects. This page lists top performers of each session.</p>
+<div class="section" id="top-100-performers-of-the-6-th-session-of-mlcourse-ai-by-ods-ai-fall-2019">
+<h2>Top-100 performers of the 6-th session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, fall 2019<a class="headerlink" href="#top-100-performers-of-the-6-th-session-of-mlcourse-ai-by-ods-ai-fall-2019" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://bit.ly/2mbv5FF">final rating</a>. The session took place from September 2nd till November 23rd, 2019, there were about 2300 participants.</p>
+<ol class="simple">
+<li><p>Dmitry Sermyagin, <a class="reference external" href="mailto:sermyagin&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitry-sermyagin-127b7a185/">LinkedIn</a></p></li>
+<li><p>Sergey Grechishkin, <a class="reference external" href="mailto:grechishkin&#46;sergey&#37;&#52;&#48;gmail&#46;com">email</a>,
+<a class="reference external" href="https://www.linkedin.com/in/sergey-grechishkin-21599718b/">LinkedIn</a></p></li>
+<li><p>Vladimir Kulyashov,  <a class="reference external" href="mailto:kulyashovv&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anton Dudkin, <a class="reference external" href="mailto:addudkin1824&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexey Sitdikov, <a class="reference external" href="https://www.facebook.com/profile.php?id=100006195257755">Facebook</a>, <a class="reference external" href="mailto:asitdikov&#37;&#52;&#48;list&#46;ru">email</a></p></li>
+<li><p>Andrei Shchahlou, <a class="reference external" href="https://www.linkedin.com/in/andrei-scheglov-29b72584/">LinkedIn</a>, <a class="reference external" href="mailto:andapkas&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Igor Gaidamaka, <a class="reference external" href="https://www.linkedin.com/in/gaidamaka/">LinkedIn</a>, <a class="reference external" href="mailto:mant1&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Viktor Tiulpin, <a class="reference external" href="https://tiulp.in/">Website</a>, <a class="reference external" href="https://linkedin.com/in/tiulpin">LinkedIn</a>, <a class="reference external" href="https://github.com/tiulpin">GitHub</a></p></li>
+<li><p>Yury Koshelenko, <a class="reference external" href="https://github.com/H4ide">GitHub</a>,
+<a class="reference external" href="https://www.linkedin.com/in/yura-koshelenko/">LinkedIn</a>, <a class="reference external" href="mailto:koshelenkoyura&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Jonathan Larkin, <a class="reference external" href="https://github.com/marketneutral">GitHub</a>, <a class="reference external" href="https://linkedin.com/in/quantfinance">LinkedIn</a>, <a class="reference external" href="https://kaggle.com/marketneutral">Kaggle</a>, <a class="reference external" href="https://twitter.com/jonathanrlarkin">Twitter</a>, <a class="reference external" href="mailto:jonathan&#46;r&#46;larkin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Shirkov, <a class="reference external" href="https://www.linkedin.com/in/alexander-shirkov-0193a827/">LinkedIn</a>, <a class="reference external" href="mailto:simple&#37;&#52;&#48;elitemail&#46;org">email</a></p></li>
+<li><p>Yuriy Ganusyak, <a class="reference external" href="mailto:y&#46;ganusyak&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Roman Grigorov, <a class="reference external" href="mailto:roman&#46;grigorov&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://vk.com/puffofsmoke">Website</a></p></li>
+<li><p>Andrew Ponomarev, <a class="reference external" href="https://www.linkedin.com/in/andrew-ponomarev-ba361954/">LinkedIn</a>,  <a class="reference external" href="mailto:ponomarev&#46;a&#46;v&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Valerii Chetvertakov,  <a class="reference external" href="https://github.com/valeriich/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/valera-chetvertakoff-440405b9/">LinkedIn</a>, <a class="reference external" href="mailto:IIXMCMLXXIII&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vyacheslav Koloskov, <a class="reference external" href="mailto:slivka_83&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Artur Kolishenko, <a class="reference external" href="https://www.linkedin.com/in/artur-kolishenko-253439b6/">LinkedIn</a>,
+<a class="reference external" href="https://github.com/payonear/">GitHub</a>,
+<a class="reference external" href="mailto:arthur&#46;kolishenko&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Wasiu Sanusi, <a class="reference external" href="mailto:sanusiwasiu&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/sanusiprofile/">LinkedIn</a></p></li>
+<li><p>Vladimir Kazakov, <a class="reference external" href="mailto:ice_earl&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Dmitrii Petrishchev, <a class="reference external" href="https://github.com/dypetrishchev">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dypetrishchev/">LinkedIn</a>, <a class="reference external" href="mailto:dypetrishchev&#37;&#52;&#48;ya&#46;ru">email</a></p></li>
+<li><p>Ruslan Sakaev <a class="reference external" href="https://github.com/ningeen">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sakaevruslan/">LinkedIn</a> <a class="reference external" href="mailto:sakaevruslan&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ilya Sviridov, <a class="reference external" href="https://github.com/IlyaSviridov">GitHub</a>, <a class="reference external" href="mailto:sviridov&#46;ilya&#46;s&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Oksana Kovalenko, <a class="reference external" href="mailto:oksanakovalenkonsk&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Nikolay Sheregeda,  <a class="reference external" href="https://github.com/sheregeda">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sheregeda/">LinkedIn</a>, <a class="reference external" href="mailto:ns&#46;sheregeda&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Timur Kulumbaev, <a class="reference external" href="mailto:t&#46;kulumbaev&#37;&#52;&#48;outlook&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/tekulum">LinkedIn</a></p></li>
+<li><p>Pavel Tyshevskyi, <a class="reference external" href="https://www.linkedin.com/in/ptyshevs">LinkedIn</a>, <a class="reference external" href="mailto:ptyshevs&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Tatiana Glazkova, <a class="reference external" href="https://www.linkedin.com/in/glazkovads/">LinkedIn</a>,
+<a class="reference external" href="mailto:panika77&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Yevheniia Tuholukova</p></li>
+<li><p>Vasily Zernin, <a class="reference external" href="mailto:zerninvasilii&#37;&#52;&#48;yandex&#46;ru">email</a>, <a class="reference external" href="https://github.com/zerninv">GitHub</a></p></li>
+<li><p>Anuj Singh, <a class="reference external" href="https://github.com/x5or6">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/x5or6/">LinkedIn</a>, <a class="reference external" href="mailto:anuj699&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alex Shtepa <a class="reference external" href="https://www.linkedin.com/in/alexander-shtepa-92037b4a/">LinkedIn</a>, <a class="reference external" href="mailto:alexs&#46;another&#46;email&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Artem Kolmykov, <a class="reference external" href="https://www.linkedin.com/in/artem-kolmykov-58281219/">LinkedIn</a>, <a class="reference external" href="mailto:akolmykov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Maxim Dergunov, <a class="reference external" href="https://www.linkedin.com/in/maxim-dergunov/">LinkedIn</a>, <a class="reference external" href="mailto:maxim_dergunov&#37;&#52;&#48;inbox&#46;ru">email</a></p></li>
+<li><p>Nikita Kuzmin <a class="reference external" href="http://github.com/paniquex/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/paniquex/">LinkedIn</a>, <a class="reference external" href="mailto:paniquexx&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://kaggle.com/paniquex/">Kaggle</a></p></li>
+<li><p>Polina Karpikova, <a class="reference external" href="https://github.com/poliik">Github</a>, <a class="reference external" href="mailto:poliikwork&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Michael Feldman, <a class="reference external" href="mailto:michael&#46;george&#46;feldman&#37;&#52;&#48;gmail&#46;com">email</a>,
+<a class="reference external" href="https://github.com/michaelgfeldman">GitHub</a>,
+<a class="reference external" href="https://www.linkedin.com/in/michael--feldman/">LinkedIn</a></p></li>
+<li><p>Artur Zavaliienko, <a class="reference external" href="https://t.me/iGero">Telegram</a>, <a class="reference external" href="mailto:scentofdark&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vadim Nesterov, <a class="reference external" href="https://www.linkedin.com/in/alanok13/">LinkedIn</a>, <a class="reference external" href="mailto:alan&#37;&#52;&#48;xaker&#46;ru">email</a></p></li>
+<li><p>Stepan Martyugin, <a class="reference external" href="mailto:MartyuginStepan&#37;&#52;&#48;yandex&#46;ru">email</a>, <a class="reference external" href="https://www.linkedin.com/in/stepan-martyugin-a06710198">LinkedIn</a>    <a class="reference external" href="https://github.com/stmyst">GitHub</a></p></li>
+<li><p>Dzhal Antonov, <a class="reference external" href="mailto:dzhal&#46;antonov&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/dzhal-antonov-111588193">LinkedIn</a>, <a class="reference external" href="https://github.com/chejuro">GitHub</a></p></li>
+<li><p>Max Shkuratov, <a class="reference external" href="mailto:sosontref&#37;&#52;&#48;gmail&#46;com">email</a>,
+<a class="reference external" href="https://github.com/sontref">GitHub</a></p></li>
+<li><p>Dmitry Filin, <a class="reference external" href="https://www.linkedin.com/in/dmitry-filin/">LinkedIn</a>, <a class="reference external" href="mailto:dmifilin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Nikolay Galkov, <a class="reference external" href="mailto:ngalkov&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://github.com/ngalkov">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/nikolay-galkov-4b660656">LinkedIn</a></p></li>
+<li><p>Anton Semenistyy, <a class="reference external" href="mailto:anton&#46;semenistyy&#37;&#52;&#48;gmail&#46;com">email</a>
+<a class="reference external" href="https://www.linkedin.com/in/anton-semenistyy-3b10b2169/">LinkedIn</a></p></li>
+<li><p>Yurii Liashchuk</p></li>
+<li><p>Maria Bezouglova, <a class="reference external" href="mailto:m_bezouglova&#37;&#52;&#48;mail&#46;ru">email</a>, <a class="reference external" href="https://www.linkedin.com/in/maria-bezouglova-41915917b/">LinkedIn</a>, <a class="reference external" href="https://github.com/sibmaria">GitHub</a></p></li>
+<li><p>Denys Shylov, <a class="reference external" href="mailto:shylovdenys&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://github.com/shlvd">GitHub</a></p></li>
+<li><p>Ivan Chernov, <a class="reference external" href="https://github.com/vanya-black">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/iche/">LinkedIn</a>, <a class="reference external" href="mailto:ivan&#46;chernov&#46;92&#37;&#52;&#48;bk&#46;ru">email</a></p></li>
+<li><p>Cameron McGarry, <a class="reference external" href="http://github.com/mcgarc/">GitHub</a></p></li>
+<li><p>Eduard Agekyan, <a class="reference external" href="https://github.com/psheshke/">GitHub</a>, <a class="reference external" href="mailto:eaagekyan&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Yulia Klochko, <a class="reference external" href="https://github.com/yusklochko/">GitHub</a>, <a class="reference external" href="mailto:yusklochko&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Oleg Zagorulko,
+<a class="reference external" href="http://github.com/warpdiver/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/olegzagorulko/">LinkedIn</a>, <a class="reference external" href="mailto:warpdiver&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Zoltan Szabo</p></li>
+<li><p>Timur Gadylshin</p></li>
+<li><p>Pavel Kolosov</p></li>
+<li><p>Nikita Sokovnin, <a class="reference external" href="https://github.com/sokovninn">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/nikita-sokovnin-250939198">LinkedIn</a></p></li>
+<li><p>Ilya Maslyaev</p></li>
+<li><p>Dmitry Levachev</p></li>
+<li><p>Alexander Kuznetsov</p></li>
+<li><p>Andrey Evtikheev</p></li>
+<li><p>Alina Vladimirova</p></li>
+<li><p>Snetkov Roman, <a class="reference external" href="https://github.com/SnetkovR">GitHub</a></p></li>
+<li><p>Maxim Polyashov</p></li>
+<li><p>Timur Kamaliev, <a class="reference external" href="https://github.com/SVizor42">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/timurkamaliev/">LinkedIn</a>, <a class="reference external" href="mailto:timurkamaliev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Misty Perutti</p></li>
+<li><p>Eugene Popov</p></li>
+<li><p>Dmitriy Merkulov, <a class="reference external" href="mailto:merkulovd67&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Rustem Amirov, <a class="reference external" href="https://github.com/rustemamirov">GitHub</a>,  <a class="reference external" href="mailto:rustem&#46;amirov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ilija Lazarevic, <a class="reference external" href="https://www.linkedin.com/in/ilijalazarevic">LinkedIn</a>, <a class="reference external" href="mailto:ilija&#46;z&#46;lazarevic&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Roman Ishchenko, <a class="reference external" href="https://www.linkedin.com/in/roman-ishchenko/">LinkedIn</a>, <a class="reference external" href="mailto:firstdrizzzle&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Abdikozha Abdikalykov,
+<a class="reference external" href="mailto:adiko2008&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anton Nikulov, <a class="reference external" href="mailto:favor86&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Nadezda Zabkova, <a class="reference external" href="mailto:zabkovan&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vladimir Fedchun, <a class="reference external" href="mailto:fedchunvv&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/vladimir-fedchun">LinkedIn</a></p></li>
+<li><p>Angelina Kovalenko</p></li>
+<li><p>Satu Inkinen</p></li>
+<li><p>Carlos Domínguez García, <a class="reference external" href="https://github.com/carlosdg">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/carlos-dominguez-garcia/">LinkedIn</a></p></li>
+<li><p>Aleksandr Shoyko, <a class="reference external" href="mailto:aleksandr&#46;shoyko&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/aleksandr-shoyko-413988b6/">LinkedIn</a></p></li>
+<li><p>Alexandr Ositsyn</p></li>
+<li><p>Juuso Ketola</p></li>
+<li><p>Evgeniy Vorsin</p></li>
+<li><p>Stanislav Budzinskiy</p></li>
+<li><p>Konstantin Shitkov, <a class="reference external" href="https://github.com/shitkov">Github</a>, <a class="reference external" href="mailto:konstantin&#46;shitkov&#37;&#52;&#48;mail&#46;ru">email</a>, <a class="reference external" href="https://www.linkedin.com/in/kshitkov/">LinkedIn</a>, <a class="reference external" href="https://www.kaggle.com/kitaiskypanda">Kaggle</a>,</p></li>
+<li><p>Sagyndyk Abshenov, <a class="reference external" href="mailto:abshenovs&#46;21&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/sagyndyk-abshenov/">LinkedIn</a></p></li>
+<li><p>Daniil Pimanov <a class="reference external" href="https://github.com/Sterals">Github</a>, <a class="reference external" href="mailto:pimanov&#46;d&#37;&#52;&#48;gmail&#46;com">email</a>,
+<a class="reference external" href="https://www.linkedin.com/in/daniil-pimanov-901484194/">LinkedIn</a></p></li>
+<li><p>Jiri Prazan, <a class="reference external" href="https://github.com/jpraguer">Github</a>, <a class="reference external" href="https://www.linkedin.com/in/jiriprazan/">LinkedIn</a>, <a class="reference external" href="mailto:jiri&#46;prazan&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Iurii Mordovin</p></li>
+<li><p>Wendy Mak, <a class="reference external" href="https://github.com/wwymak">Github</a>, <a class="reference external" href="https://www.linkedin.com/in/wwymak/">LinkedIn</a>, <a class="reference external" href="mailto:wwymak&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Mikhail Solodukhin</p></li>
+<li><p>Natalia Spichekova, <a class="reference external" href="https://www.linkedin.com/in/natalia-spichekova-46921888/">LinkedIn</a> <a class="reference external" href="mailto:n&#46;spichekova&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Thomas Pasenchenko, <a class="reference external" href="https://github.com/pasenchenko">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/thomas-pasenchenko/">LinkedIn</a>, <a class="reference external" href="mailto:thomas&#46;pasenchenko&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Maksym Velychko</p></li>
+<li><p>Ruslan Khabibrakhmanov, <a class="reference external" href="https://www.linkedin.com/in/ruslan-khab">LinkedIn</a></p></li>
+<li><p>Giancarlo Camilo, <a class="reference external" href="https://github.com/giancamilo">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/giancamilo">LinkedIn</a>, <a class="reference external" href="mailto:gianfis&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Konstantin Sukharev, <a class="reference external" href="https://github.com/k-sukharev">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sukharev/">LinkedIn</a></p></li>
+<li><p>Quan Dai</p></li>
+<li><p>Ashot Martirosyan, <a class="reference external" href="mailto:martiroshot&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Yury Mikhno, <a class="reference external" href="https://github.com/Duneholy">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/yury-mikhno">LinkedIn</a>, <a class="reference external" href="mailto:dalekrotovsky&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Arthur Asylgareev,
+<a class="reference external" href="mailto:arthur&#37;&#52;&#48;asylgareev&#46;ru">email</a>
+<a class="reference external" href="https://github.com/stardreamer">GitHub</a></p></li>
+<li><p>Vladislav Gogolin, <a class="reference external" href="https://github.com/DDarean">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/vladislav-gogolin">LinkedIn</a>, <a class="reference external" href="mailto:ddarean&#37;&#52;&#48;gmail&#46;com">email</a> <br></p></li>
+<li><p>Alexander Karamyshev, <a class="reference external" href="https://www.linkedin.com/in/karamyshev/">LinkedIn</a>, <a class="reference external" href="mailto:a&#46;karamyshev&#37;&#52;&#48;gmail&#46;com">email</a> <br></p></li>
+<li><p>Kirill Krolik, <a class="reference external" href="https://github.com/avant1">Github</a>, <a class="reference external" href="mailto:yoursuffer&#37;&#52;&#48;gmail&#46;com">email</a><br></p></li>
+<li><p>Mikhail Chernomazov (#100-103 share the same place)</p></li>
+</ol>
+</div>
+<div class="section" id="top-100-performers-of-the-5-th-session-of-mlcourse-ai-by-ods-ai-spring-2019">
+<h2>Top-100 performers of the 5-th session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, spring 2019<a class="headerlink" href="#top-100-performers-of-the-5-th-session-of-mlcourse-ai-by-ods-ai-spring-2019" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://drive.google.com/open?id=1LAy1eK8vIONzIWgcCEaVmhKPSj579zK5lrECf_tQT60">final rating</a>. The session took place from February 6 till April 26, 2019, there were about 1600 participants.</p>
+<ol class="simple">
+<li><p>Vladimir Sapachev, <a class="reference external" href="https://github.com/N0rdream">GitHub</a>, <a class="reference external" href="mailto:vsapachev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Tarasov Sergey, <a class="reference external" href="https://github.com/RiSearcher">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sergej-tarasov-8b7716131/">LinkedIn</a>, <a class="reference external" href="mailto:tarasov&#37;&#52;&#48;pmi&#46;lv">email</a></p></li>
+<li><p>Vlad Kisin, <a class="reference external" href="https://github.com/vladkisin">GitHub</a>, <a class="reference external" href="mailto:vladkisin1996&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/vladislav-kisin-6a5785173/">LinkedIn</a></p></li>
+<li><p>Andrei Konshin, <a class="reference external" href="https://github.com/akenshin">GitHub</a>, <a class="reference external" href="mailto:andreikonshin&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/andrei-konshin-313304b0/">LinkedIn</a></p></li>
+<li><p>Wayde Herman, <a class="reference external" href="https://github.com/WaydeHerman">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/wayde-herman-10986685/">LinkedIn</a>, <a class="reference external" href="mailto:wayde&#46;h&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Korepanov Alexey,  <a class="reference external" href="https://github.com/grazder">GitHub</a>,  <a class="reference external" href="http://linkedin.com/in/grazder">LinkedIn</a>, <a class="reference external" href="mailto:grazder&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Meynardo Jose</p></li>
+<li><p>Ustinov Dmitry, <a class="reference external" href="https://github.com/dm1tryx">GitHub</a>,  <a class="reference external" href="https://www.linkedin.com/in/dmitry-ustinov/">LinkedIn</a>,  <a class="reference external" href="mailto:ust&#46;dmit&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Nikita Rubinkovskiy, <a class="reference external" href="http://github.com/Fissium/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/rubinkovskiy/">LinkedIn</a>, <a class="reference external" href="mailto:NARubinkovskiy&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andreas Kouzelis, <a class="reference external" href="http://github.com/kuzand/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/kuzand/">LinkedIn</a>, <a class="reference external" href="mailto:kuzand&#37;&#52;&#48;hotmail&#46;com">email</a></p></li>
+<li><p>Vadim Shestopalov, <a class="reference external" href="https://www.linkedin.com/in/vadim-shestopalov/">LinkedIn</a>, <a class="reference external" href="mailto:vdmshestopalov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Shokhan Birlikov, <a class="reference external" href="https://www.linkedin.com/in/birlikov/">LinkedIn</a>, <a class="reference external" href="mailto:birlikoff&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Mikhail Tribunskiy, <a class="reference external" href="https://github.com/MiTribunskiy/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/tribunskiy/">LinkedIn</a>, <a class="reference external" href="mailto:mitribunskiy&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ivan Zaikin, <a class="reference external" href="https://github.com/utapyngo/">GitHub</a>, <a class="reference external" href="mailto:ut&#37;&#52;&#48;pyngo&#46;tom&#46;ru">email</a></p></li>
+<li><p>Alexey Serov, <a class="reference external" href="https://github.com/AlexS90">GitHub</a>, <a class="reference external" href="mailto:ayiserov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Thomas Chambon, <a class="reference external" href="https://github.com/tchambon">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/thomas-chambon-0a648664/">LinkedIn</a></p></li>
+<li><p>Dmitry Vladimirov, <a class="reference external" href="https://github.com/Dmitry513">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitry-vladimirov-9a704913b/">LinkedIn</a>,  <a class="reference external" href="mailto:vladimirov&#46;dm513&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Gennady Laptev</p></li>
+<li><p>Vladimir Kozlov, <a class="reference external" href="mailto:kozlowladimir&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Mikhail Efimov, <a class="reference external" href="https://www.linkedin.com/in/mikhail-efimov/">LinkedIn</a>, <a class="reference external" href="mailto:mikhail&#46;m&#46;efimov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Lyubich, <a class="reference external" href="https://www.linkedin.com/in/alexander-lyubich-8b6215174/">LinkedIn</a>, <a class="reference external" href="mailto:avlyubich&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Roman Volykhin, <a class="reference external" href="https://github.com/GerrBert">GitHub</a>, <a class="reference external" href="mailto:roman&#46;volykhin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Maxim Golovatchev, <a class="reference external" href="mailto:maximgolovatchev&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/maxim-golovatchev-94229912a/">LinkedIn</a></p></li>
+<li><p>Mikhail Slivin,  <a class="reference external" href="https://github.com/spknnk/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/spknnk/">LinkedIn</a> , <a class="reference external" href="mailto:spknnk&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Vasin, <a class="reference external" href="https://github.com/vad4msiu">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/vad4msiu/">LinkedIn</a>, <a class="reference external" href="mailto:vad4msiu&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Sergei Samsonov</p></li>
+<li><p>Shivam Panwar, <a class="reference external" href="https://github.com/shivampanwar">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/shivam-panwar-284989101/">LinkedIn</a>, <a class="reference external" href="mailto:panwar&#46;shivam199&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Petr Kungurtsev, <a class="reference external" href="https://github.com/Corwinpro">GitHub</a>, <a class="reference external" href="mailto:corwinat&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexey Smirnov, <a class="reference external" href="https://www.linkedin.com/in/alexey-smirnov-611b621/">LinkedIn</a>, <a class="reference external" href="mailto:alexey&#46;i&#46;smirnoff&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Dmitry Gluzdov, <a class="reference external" href="https://github.com/DIVIGL1">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitry-gluzdov-766b8b185/">LinkedIn</a>, <a class="reference external" href="mailto:dmitry&#37;&#52;&#48;gluzdov&#46;ru">email</a></p></li>
+<li><p>Peter Fournier</p></li>
+<li><p>Dmitry Tsarev, <a class="reference external" href="https://www.linkedin.com/in/dmitry-tsarev88/">LinkedIn</a>, <a class="reference external" href="mailto:tsarspb&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Shravan Kumar Koninti, <a class="reference external" href="https://github.com/shravankoninti">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/shravankoninti/">LinkedIn</a>, <a class="reference external" href="mailto:shravankumar224&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Dmitry Burdeiny, <a class="reference external" href="mailto:dmitry&#46;burdeiny&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Pavel Gusev, <a class="reference external" href="mailto:pavelgsv&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alena Arykina</p></li>
+<li><p>Evgeniy Chukanov, <a class="reference external" href="https://github.com/chukanov">Github</a>, <a class="reference external" href="mailto:chukanov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aptha K S, <a class="reference external" href="https://github.com/apthagowda97">Github</a>, <a class="reference external" href="https://www.linkedin.com/in/apthaks/">LinkedIn</a>, <a class="reference external" href="mailto:iamuraptha&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Rajasekhar Battula, <a class="reference external" href="https://github.com/rjs417">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/rajasekhar-battula-99673b49/">LinkedIn</a>, <a class="reference external" href="mailto:rajasekhar&#46;battula&#37;&#52;&#48;yahoo&#46;in">email</a></p></li>
+<li><p>Rohit Gupta, <a class="reference external" href="https://github.com/rohitgr7/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/rohitgr7/">LinkedIn</a>, <a class="reference external" href="mailto:rohitgr1998&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://rohitgr7.github.io/">website</a></p></li>
+<li><p>Alexey Zapolskii , <a class="reference external" href="https://github.com/AlexZapolskii/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/%D0%B0%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9-%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%B8%D0%B9-90a259162/">LinkedIn</a>, <a class="reference external" href="mailto:th1rt3n&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Veronika Shilova, <a class="reference external" href="https://github.com/VeronikaShilova">GitHub</a>, <a class="reference external" href="mailto:shilova_veronika&#37;&#52;&#48;inbox&#46;ru">email</a></p></li>
+<li><p>Armand Kulsh, <a class="reference external" href="https://github.com/Gogen120">GitHub</a>, <a class="reference external" href="mailto:zenars85&#37;&#52;&#48;mail&#46;ru">email</a>, <a class="reference external" href="https://www.linkedin.com/in/armand-kulsh-765901184/">LinkedIn</a>,</p></li>
+<li><p>Anton Pekarskii, <a class="reference external" href="mailto:deep_wizard&#37;&#52;&#48;yahoo&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/antonpekarskii/">LinkedIn</a></p></li>
+<li><p>Mihail Parushkin, <a class="reference external" href="mailto:mihail&#46;parushkin&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Artem Tregubenko, <a class="reference external" href="https://github.com/artitre">GitHub</a>, <a class="reference external" href="mailto:tregubenkoart&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Oleg Chugalinsky, <a class="reference external" href="mailto:chugalinsky&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Sergei Tsurkan</p></li>
+<li><p>Gleb Krapivin, <a class="reference external" href="https://www.linkedin.com/in/gleb-krapivin-aa6812114/">LinkedIn</a>, <a class="reference external" href="mailto:gleb&#46;krapivin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Uladzimir Zbanok, <a class="reference external" href="mailto:uzbanok&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vladimir Bolotin, <a class="reference external" href="https://www.linkedin.com/in/vladimir-bolotin-45360a1a/">LinkedIn</a>, <a class="reference external" href="mailto:momun&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Hakan Ozler, <a class="reference external" href="https://github.com/ozlerhakan">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/ozlerhakan/">LinkedIn</a>, <a class="reference external" href="mailto:ozler&#46;hakan&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Nikolay Kudinov, <a class="reference external" href="https://github.com/nkudinov">GitHub</a>, <a class="reference external" href="mailto:oracle_developer&#37;&#52;&#48;mail&#46;ru">email</a>, <a class="reference external" href="https://www.linkedin.com/in/nikolay-kudinov-9aaa697/">LinkedIn</a></p></li>
+<li><p>Andrei Lomov, <a class="reference external" href="mailto:muhortova58&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anton Zavyalov</p></li>
+<li><p>Alexandr Drozhzhin, <a class="reference external" href="https://github.com/jastfake">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexandr-drozhzhin-916482103">LinkedIn</a>, <a class="reference external" href="mailto:drozhzhinalex&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vyacheslav Koloskov, <a class="reference external" href="mailto:slivka_83&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Kirill Stroganov, <a class="reference external" href="mailto:kiraplenkin&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://github.com/kiraplenkin">GitHub</a></p></li>
+<li><p>Nick Bienko, <a class="reference external" href="https://github.com/bikolya/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/bikolya/">LinkedIn</a></p></li>
+<li><p>Mikhail Yuldashev</p></li>
+<li><p>Olya Yakushewa, <a class="reference external" href="https://www.linkedin.cn/in/olga-yakushewa-018006186">LinkedIn</a></p></li>
+<li><p>Sita Krishnakumar, <a class="reference external" href="http://github.com/sitask/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sitask/">LinkedIn</a>, <a class="reference external" href="mailto:sita&#46;krishnakumar&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andres Tiko, <a class="reference external" href="https://www.linkedin.com/in/tiko">LinkedIn</a></p></li>
+<li><p>Artem Ryblov</p></li>
+<li><p>Viktor Nikolaev, <a class="reference external" href="mailto:viktor_andreevich&#37;&#52;&#48;outlook&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/ViktorAndreevich">LinkedIn</a></p></li>
+<li><p>Alexander Bunyatov, <a class="reference external" href="mailto:bunalil&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Maxim Yurchenko, <a class="reference external" href="https://github.com/mv-yurchenko/">GitHub</a>, <a class="reference external" href="https://mv-yurchenko.github.io">PersonalSite</a>, <a class="reference external" href="mailto:maxonus2&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Irina Telina</p></li>
+<li><p>Pavel Peskov, <a class="reference external" href="http://github.com/pchlq/">GitHub</a>, <a class="reference external" href="https://www.twitter.com/Pchlq/">twitter</a>, <a class="reference external" href="mailto:peskovps&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/pavel-peskov-8673a76/">LinkedIn</a></p></li>
+<li><p>Alexander Chernyshov, <a class="reference external" href="https://github.com/alexbolduin">GitHub</a>, <a class="reference external" href="mailto:achernys123&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Bruyako Maksim</p></li>
+<li><p>Chavalapalli Varun</p></li>
+<li><p>Pavel Nikalayeu, <a class="reference external" href="https://www.linkedin.com/in/pavelnikalayeu/">LinkedIn</a>, <a class="reference external" href="mailto:pavel&#46;nikalayeu&#37;&#52;&#48;zoho&#46;com">email</a></p></li>
+<li><p>Andrey Goldin</p></li>
+<li><p>Aman Berry</p></li>
+<li><p>Vladislav Golubtsov</p></li>
+<li><p>Siarhei Kulaha</p></li>
+<li><p>Aleksei Barykin, <a class="reference external" href="http://www.linkedin.com/in/aleksei-barykin-a5b76797">LinkedIn</a>, <a class="reference external" href="mailto:aleksei&#46;bary&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Kostiantyn Shysh</p></li>
+<li><p>Aleksey Morozov, <a class="reference external" href="https://www.linkedin.com/in/ao-morozov/">LinkedIn</a>, <a class="reference external" href="mailto:a_m0r0z0v&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Ana-Maria Hristian, <a class="reference external" href="https://www.linkedin.com/in/ana-hristian">LinkedIn</a>, <a class="reference external" href="mailto:parr&#46;ana&#46;maria&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://github.com/AnaHristian">GitHub</a></p></li>
+<li><p>Dmitrii Vasilev, <a class="reference external" href="https://github.com/dmitriykel/">GitHub</a>, <a class="reference external" href="https://resume.io/r/kOvC2rs9O">CV</a>, <a class="reference external" href="mailto:dmitriykehl&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://t.me/dmitriykel">Telegram</a></p></li>
+<li><p>Vasily Suvorov, <a class="reference external" href="mailto:avalanche&#46;v&#37;&#52;&#48;gmail&#46;com">emal</a>, <a class="reference external" href="https://www.facebook.com/vasiliy.suvorov">facebook</a></p></li>
+<li><p>Volodymyr Bakhur, <a class="reference external" href="https://www.linkedin.com/in/vbakhur/">LinkedIn</a>, <a class="reference external" href="mailto:volodyabakhur&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ramis Imilbaev, <a class="reference external" href="https://www.linkedin.com/in/imilbaev">LinkedIn</a>, <a class="reference external" href="mailto:fordsmail&#37;&#52;&#48;ya&#46;ru">email</a></p></li>
+<li><p>Denis Finogenov, <a class="reference external" href="https://github.com/denisfin">GitHub</a>, <a class="reference external" href="mailto:denis&#46;finogenov&#46;ml&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Bohdan Dolishnii, <a class="reference external" href="https://github.com/SENSBoD">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/bohdan-dolishnii/">LinkedIn</a>, <a class="reference external" href="mailto:dolishniibohdan&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ekaterina Krivtsova, <a class="reference external" href="mailto:payekse&#37;&#52;&#48;rambler&#46;ru">email</a></p></li>
+<li><p>Dmitry Saponov, <a class="reference external" href="https://github.com/DSaponov">Github</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitry-saponov-b5a42450/">Linkedin</a>, <a class="reference external" href="mailto:dsaponov1&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Olga Braginskaya</p></li>
+<li><p>Igor Babikov, <a class="reference external" href="https://github.com/sharkzeeh">GitHub</a> <a class="reference external" href="https://www.linkedin.com/in/igor-babikov-031b7b150/">LinkedIn</a>, <a class="reference external" href="mailto:igorbabikov24&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aleynikov Sergey, <a class="reference external" href="https://github.com/AleynikovSergey">GitHub</a>, <a class="reference external" href="mailto:aleynikov&#46;sergey&#46;a&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Matthias Seghers</p></li>
+<li><p>Borislav Breusenko, <a class="reference external" href="mailto:bbreusenko&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/borislav-breusenko-85727a146/">Linkedin</a></p></li>
+<li><p>Mikhail Sheleh, <a class="reference external" href="https://github.com/lordofprograms">Github</a>, <a class="reference external" href="https://www.linkedin.com/in/msheleh/">Linkedin</a>, <a class="reference external" href="mailto:shelegmike&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anthony Sazonov, <a class="reference external" href="https://github.com/Jericho-kd">GitHub</a>, <a class="reference external" href="mailto:ant-sazon&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Omar Idres Gurashi, <a class="reference external" href="https://www.linkedin.com/in/omar-idres-gurashi-5b45a9144/">LinkedIn</a>, <a class="reference external" href="mailto:omargurashi1&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Henry Yang, <a class="reference external" href="https://www.linkedin.com/in/yile-yang/">LinkedIn</a>, <a class="reference external" href="mailto:yyl&#46;henry&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Maxim Seregin, <a class="reference external" href="mailto:horanzon&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Tretyak, <a class="reference external" href="https://github.com/thesjanse">Github</a>, <a class="reference external" href="https://www.linkedin.com/in/alexander-tretyak-04024a46/">LinkedIn</a>, <a class="reference external" href="mailto:alexander&#46;mejinski&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+</ol>
+</div>
+<div class="section" id="top-100-performers-of-the-4-th-session-of-mlcourse-ai-by-ods-ai-fall-2018">
+<h2>Top-100 performers of the 4-th session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, fall 2018<a class="headerlink" href="#top-100-performers-of-the-4-th-session-of-mlcourse-ai-by-ods-ai-fall-2018" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://goo.gl/vMHdED">final rating</a>. The session took place from October 14 till December 21, 2018, there were about 2200 participants.</p>
+<ol class="simple">
+<li><p>Maxim Klyuchnikov, <a class="reference external" href="https://www.linkedin.com/in/maxnk/">LinkedIn</a>, <a class="reference external" href="mailto:maxim&#46;n&#46;klyuchnikov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ilya Larchenko, <a class="reference external" href="https://www.linkedin.com/in/larchenko/">LinkedIn</a>, <a class="reference external" href="mailto:ilya&#46;larchenko&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ivan Pisarev, <a class="reference external" href="https://github.com/Pisarev-I">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/pisarevi">LinkedIn</a>, <a class="reference external" href="mailto:pisarev&#46;ik&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexey Bykov, <a class="reference external" href="https://github.com/devcrab/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexey-bykov-mipt/">LinkedIn</a>, <a class="reference external" href="mailto:alexey&#46;bykov&#46;mipt&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Kseniia Terekhova, <a class="reference external" href="https://www.linkedin.com/in/kseniia-terekhova-41b371b8/">LinkedIn</a>, <a class="reference external" href="https://github.com/prickly-u">GitHub</a>, <a class="reference external" href="mailto:kterehova&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Kovalev, <a class="reference external" href="https://github.com/sankovalev/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/velavok/">LinkedIn</a>, <a class="reference external" href="mailto:sankovalev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andrew Trefilov, <a class="reference external" href="http://github.com/lalka1/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/andtre/">LinkedIn</a>, <a class="reference external" href="mailto:trefik92&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Nikolai Timonin, <a class="reference external" href="https://github.com/timoninn/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/timoninn/">LinkedIn</a>, <a class="reference external" href="mailto:nikki&#46;timonin&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Alexander Nichiporenko, <a class="reference external" href="https://github.com/alexnich">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexnich">LinkedIn</a>, <a class="reference external" href="mailto:avnichiporenko&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Tatiana Nekrasova, <a class="reference external" href="https://github.com/polosataya/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/tnekrasova/">LinkedIn</a>, <a class="reference external" href="mailto:gntv1977&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Kyriacos Kyriacou, <a class="reference external" href="https://github.com/kompiuter">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/kyriacos-kyriacou-761806107">LinkedIn</a></p></li>
+<li><p>Georgy Lazarev, <a class="reference external" href="https://github.com/justramgerry">GitHub</a>, <a class="reference external" href="mailto:lazarev&#46;georgy&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Denis Mironov, <a class="reference external" href="https://github.com/dmironov1993">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/denismironov/">LinkedIn</a>, <a class="reference external" href="mailto:mironovdenis1993&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Valentin Kovalev, <a class="reference external" href="https://github.com/ValentinKovalev">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/valentinkovalev/">LinkedIn</a>, <a class="reference external" href="mailto:kovalev1580&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ivan Kalininskii, <a class="reference external" href="mailto:kiavip&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Irina Knyazeva, <a class="reference external" href="mailto:iknyazeva&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.researchgate.net/profile/Irina_Knyazeva3">ResearchGate</a></p></li>
+<li><p>Alexander Veramyev, <a class="reference external" href="https://github.com/rrobolit">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/veramyev/">LinkedIn</a>, <a class="reference external" href="mailto:rrobolit&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Neeraj Agrawal, <a class="reference external" href="https://github.com/MagnIeeT/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/neeraj-agrawal/">LinkedIn</a>, <a class="reference external" href="mailto:neeraj13788&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Tatyana Kudasova, <a class="reference external" href="mailto:kuzznetsova&#46;t&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Syrovatskiy Ilya, <a class="reference external" href="https://github.com/Mercurialll/">GitHub</a>, <a class="reference external" href="mailto:ilyasyr14&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Artem Kuznetsov, s<a class="reference external" href="https://www.linkedin.com/in/artem-kuznetsov-te/">LinkedIn</a>, <a class="reference external" href="mailto:agkuznetsov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anton Gilmanov, <a class="reference external" href="https://www.linkedin.com/in/anton-gilmanov/">LinkedIn</a>, <a class="reference external" href="mailto:anthonygil&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Georgy Surin, <a class="reference external" href="mailto:suringeorgy94&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Barinov Konstantin, <a class="reference external" href="https://www.linkedin.com/in/konstantin-barinov/">LinkedIn</a>, <a class="reference external" href="mailto:barinov&#46;work-box&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Dmitry Girdyuk, <a class="reference external" href="https://github.com/dmgirdyuk">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dmgirdyuk/">LinkedIn</a>, <a class="reference external" href="mailto:dm&#46;girdyuk&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Korgun Dmitry, <a class="reference external" href="https://github.com/tbb">GitHub</a>, <a class="reference external" href="mailto:dmitry&#46;tbb&#37;&#52;&#48;ya&#46;ru">email</a></p></li>
+<li><p>Perepechin Danila, <a class="reference external" href="https://github.com/d-perepechin">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/danila-perepechin/">LinkedIn</a>, <a class="reference external" href="mailto:d&#46;a&#46;perepechin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Sergey Shkarin, <a class="reference external" href="mailto:kouki&#46;sergey&#37;&#52;&#48;gmail&#46;com">email</a>, <a class="reference external" href="https://www.linkedin.com/in/kouki91/">LinkedIn</a>, <a class="reference external" href="https://github.com/SergeyShk">GitHub</a></p></li>
+<li><p>Pavel Taiga, <a class="reference external" href="https://github.com/ptaiga">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/ptaiga/">LinkedIn</a>, <a class="reference external" href="mailto:paveltaiga&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Sergey Ustyantsev, <a class="reference external" href="https://github.com/schokoro">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/schokoro/">LinkedIn</a>, <a class="reference external" href="mailto:ustyantsev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Laskorunskiy <a class="reference external" href="https://www.linkedin.com/in/alexander-laskorunskiy/">LinkedIn</a>, <a class="reference external" href="mailto:umachkaalex&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Mikhail Deulin, <a class="reference external" href="mailto:mikhaildeulin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ekaterina Skriptsova, <a class="reference external" href="https://github.com/actuallyykatie">GitHub</a>, <a class="reference external" href="mailto:actuallyykatie&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Michael Afanasev</p></li>
+<li><p>Nikita Simonov, <a class="reference external" href="mailto:simonoff&#46;n&#46;a&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Samokhvalov Mikhail, <a class="reference external" href="mailto:2051sam&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Sergey Bronskiy, <a class="reference external" href="mailto:s&#46;s&#46;bronskiy&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Victor Tolmachev, <a class="reference external" href="https://github.com/greav">GitHub</a>, <a class="reference external" href="http://www.linkedin.com/in/victor-tolmachev-2406">LinkedIn</a>, <a class="reference external" href="mailto:tolmachev&#46;2406&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Maxim Kashirin, <a class="reference external" href="https://github.com/MaximKsh">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/kshmax">LinkedIn</a>, <a class="reference external" href="mailto:ksh&#46;max&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Mikhail Lunev, <a class="reference external" href="https://github.com/lunevm">GitHub</a>, <a class="reference external" href="http://www.linkedin.com/in/lunevm">LinkedIn</a>, <a class="reference external" href="mailto:lunev&#46;m78&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Gennadiy Mikhaylov, <a class="reference external" href="mailto:genanady&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aleksandr Seliverstov, <a class="reference external" href="https://github.com/seliverstov/">GitHub</a>, <a class="reference external" href="mailto:seliverstov&#46;a&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Nikolin, <a class="reference external" href="https://github.com/Howuhh">GitHub</a>, <a class="reference external" href="http://www.linkedin.com/in/howuhh">LinkedIn</a>, <a class="reference external" href="mailto:hsehowuhh&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Joris Fournel, <a class="reference external" href="http://github.com/Jorisfournel/">GitHub</a>,  <a class="reference external" href="https://www.linkedin.com/in/jorisfournel/">LinkedIn</a>, <a class="reference external" href="mailto:jorisfournell&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Otrokov <a class="reference external" href="https://github.com/oav711">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/otrokov/">LinkedIn</a>, <a class="reference external" href="mailto:oav711&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexey Bachurin</p></li>
+<li><p>Elvira Diaminova, <a class="reference external" href="https://github.com/eelvira">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/elvira-diaminova/">LinkedIn</a>, <a class="reference external" href="mailto:e&#46;diaminova&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Odzhaev Rakhmet, <a class="reference external" href="https://github.com/odzhaev">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/rodzhaev/">LinkedIn</a>, <a class="reference external" href="mailto:rodzhaev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aleksei Demin, <a class="reference external" href="https://github.com/aleksei-dmn">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/aleksei-demin/">LinkedIn</a>, <a class="reference external" href="mailto:dmn&#46;aleksei&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Pavel Humeniuk,  <a class="reference external" href="https://www.linkedin.com/in/pavel-humeniuk">LinkedIn</a>, <a class="reference external" href="mailto:phuman911&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ermilov Vitaliy</p></li>
+<li><p>Julia Mochalova, <a class="reference external" href="https://github.com/JuliaMochalova/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/juliamochalova/">LinkedIn</a>, <a class="reference external" href="mailto:juliarychkova1&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Kirill Simakov, <a class="reference external" href="mailto:kirill&#46;simakov&#37;&#52;&#48;gmail&#46;com">email</a>,  <a class="reference external" href="https://www.linkedin.com/in/kirill-simakov/">LinkedIn</a>, <a class="reference external" href="https://github.com/kirill-simakov">GitHub</a></p></li>
+<li><p>Kozlov Sergey, <a class="reference external" href="https://github.com/kozlovsv">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/kozlovsv/">LinkedIn</a>, <a class="reference external" href="mailto:kozlovsv78&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Luis Herrera, <a class="reference external" href="https://github.com/luhego/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/luis-herrera-27263149/">LinkedIn</a>, <a class="reference external" href="mailto:luhegoes&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Yuri Maigur, <a class="reference external" href="http://github.com/yurimaigur/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/yurimaigur/">LinkedIn</a>, <a class="reference external" href="mailto:yuri&#46;maigur&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andre Barbosa, <a class="reference external" href="https://www.linkedin.com/in/barbosaandre/">LinkedIn</a>, <a class="reference external" href="mailto:abarbosa0494&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Timur Sinyavsky, <a class="reference external" href="https://github.com/SinyTim/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sinytim/">LinkedIn</a>, <a class="reference external" href="mailto:sinytim&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Mikhail Korshchikov, <a class="reference external" href="https://github.com/mikhailsergeevi4">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/mike-korschikov-63604a14a/">LinkedIn</a>, <a class="reference external" href="mailto:mikhailsergeevi4&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Sergey Parshukov, <a class="reference external" href="https://www.linkedin.com/in/sparshukov/">LinkedIn</a>, <a class="reference external" href="mailto:sparshukov85&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vadim Voskresenskii, <a class="reference external" href="https://github.com/voskresenskiy/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/vadim-voskresenskiy-9405b9a8/">LinkedIn</a>, <a class="reference external" href="mailto:vadimvoskresenskiy&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexander Timofeev, <a class="reference external" href="https://github.com/artesby">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexander-timofeev-/">LinkedIn</a>, <a class="reference external" href="mailto:artesby1&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andrew Mottes</p></li>
+<li><p>Dmitry Labazkin, <a class="reference external" href="mailto:lab_dmitriy&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Oleg Chekan, <a class="reference external" href="http://linkedin.com/in/oleg-chekan">LinkedIn</a>, <a class="reference external" href="mailto:o&#46;chekan&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andrey Viktorov, <a class="reference external" href="http://www.linkedin.com/in/viktorov-aa">LinkedIn</a>, <a class="reference external" href="mailto:viktorov-aa&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Kozlov Maxim, <a class="reference external" href="https://github.com/komaksim">GitHub</a>, <a class="reference external" href="mailto:komaksim&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Vladimir Varfolomeev, <a class="reference external" href="mailto:v&#46;e&#46;varfolomeev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Sergey Golubev</p></li>
+<li><p>Alim Gubzhokov, <a class="reference external" href="http://github.com/spectr747/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alim-gubzhokov-071118177/">LinkedIn</a>, <a class="reference external" href="mailto:spectr747&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Wit Thanawitchayakarn, <a class="reference external" href="http://github.com/witwitchayakarn/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/wit-thanawitchayakarn-5ab27184/">LinkedIn</a>, <a class="reference external" href="mailto:witwitchayakarn&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Bill Guo</p></li>
+<li><p>Sergei Bulaev, <a class="reference external" href="https://github.com/ser-serege/BigDataBig">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sergei-bulaev">LinkedIn</a>, <a class="reference external" href="mailto:s&#46;a&#46;bulaev&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Kirill Panin, <a class="reference external" href="https://github.com/KirillPanin">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/kirill-panin/">LinkedIn</a>, <a class="reference external" href="mailto:kirylpanin&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Pavel Platonov, <a class="reference external" href="mailto:scientist74&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anton Petrov, <a class="reference external" href="http://github.com/gsenseless">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/anton-p-693b4875/">LinkedIn</a>, <a class="reference external" href="mailto:gjobspam+mlcai&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Daria Skakun, <a class="reference external" href="mailto:theskada&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Anna Kashcheeva, <a class="reference external" href="https://www.linkedin.com/in/anna-kashcheeva-0a004715b/">LinkedIn</a>, <a class="reference external" href="mailto:l&#46;oompa&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Aleksei Ashikhmin, <a class="reference external" href="https://github.com/apokrif333">GitHub</a>, <a class="reference external" href="mailto:alex&#46;ah&#37;&#52;&#48;list&#46;ru">email</a></p></li>
+<li><p>Ekaterina Chebeneva, <a class="reference external" href="mailto:ekaterina&#46;chebeneva&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Roman Danilov, <a class="reference external" href="https://github.com/danilovrju/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/danilovrju/">LinkedIn</a>, <a class="reference external" href="mailto:danilovrju&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Igor Sorokin, <a class="reference external" href="https://www.linkedin.com/in/igor-sorokin-405bb5121/">LinkedIn</a></p></li>
+<li><p>Aleksey Smirnov, <a class="reference external" href="https://www.linkedin.com/in/aleksey-smirnov-aa3898177/">LinkedIn</a>, <a class="reference external" href="mailto:alexsmir&#37;&#52;&#48;list&#46;ru">email</a></p></li>
+<li><p>Natalia Domozhirova, <a class="reference external" href="https://www.linkedin.com/in/natalia-domozhirova-81bb8b2/">LinkedIn</a>, <a class="reference external" href="mailto:dnn37&#37;&#52;&#48;mail&#46;ru">email</a></p></li>
+<li><p>Nikolai Pliev, <a class="reference external" href="mailto:nickpliev&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Gleb Levitskiy, <a class="reference external" href="https://github.com/GLevV">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/gleb-levitskiy-0a9122177/">LinkedIn</a>, <a class="reference external" href="mailto:gp&#46;ultimum&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Alexey Vinogradov, <a class="reference external" href="https://www.linkedin.com/in/aleksey-vinogradov-02846625/">LinkedIn</a>, <a class="reference external" href="mailto:tenchi1988&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andrei Rem, <a class="reference external" href="http://github.com/andreirem">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/andrei-rem">LinkedIn</a>, <a class="reference external" href="mailto:andrei&#46;rem&#46;ds&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Svetlana Sudarkova, <a class="reference external" href="https://github.com/sudarkova">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sudarkova">LinkedIn</a>, <a class="reference external" href="mailto:sudarkova&#46;sveta&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aleksandr Korotkov, <a class="reference external" href="https://www.linkedin.com/in/alexandr-korotkov/">LinkedIn</a>, <a class="reference external" href="mailto:krotix&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Haowen Jiang, <a class="reference external" href="https://github.com/Jianghaowen/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/jiang-haowen-618970158/">LinkedIn</a>, <a class="reference external" href="mailto:j534878350&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Ackerley Tng, <a class="reference external" href="https://github.com/ackerleytng/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/ackerleytng/">LinkedIn</a>, <a class="reference external" href="mailto:ackerleytng&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aleksandr Kuptsov, <a class="reference external" href="https://github.com/Kommunarus">GitHub</a>, <a class="reference external" href="http://www.linkedin.com/in/Kuptsov-Aleksandr">LinkedIn</a>, <a class="reference external" href="mailto:kooptsov&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andreas Louka, <a class="reference external" href="https://github.com/AndreasLouka">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/andreas-louka-2a2095131/">LinkedIn</a>, <a class="reference external" href="mailto:andreas&#46;louca19&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Aleksandr Okhilkov, <a class="reference external" href="http://www.linkedin.com/in/aokhilkov">LinkedIn</a>, <a class="reference external" href="mailto:oxil91l3v&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Sergey Rukhmanov, <a class="reference external" href="https://github.com/giiuser/">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/giuser/">LinkedIn</a>, <a class="reference external" href="mailto:grandemeist&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Stanislav Kravchuk</p></li>
+<li><p>Moss Ebeling, <a class="reference external" href="https://www.linkedin.com/in/mossimo-ebeling">LinkedIn</a> <a class="reference external" href="mailto:mossbanay+mlcourse&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+<li><p>Andrey Varkentin, <a class="reference external" href="mailto:andrei&#46;varkentin&#37;&#52;&#48;yandex&#46;ru">email</a></p></li>
+<li><p>Bin Jia, <a class="reference external" href="https://www.linkedin.com/in/bin-jia-79986720/">LinkedIn</a>, <a class="reference external" href="mailto:flyerae&#37;&#52;&#48;gmail&#46;com">email</a></p></li>
+</ol>
+</div>
+<div class="section" id="top-10-performers-of-the-3-rd-session-of-mlcourse-ai-by-ods-ai-spring-2018-held-in-english-experimental-at-that-time">
+<h2>Top-10 performers of the 3-rd session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, spring 2018 (held in English, experimental at that time)<a class="headerlink" href="#top-10-performers-of-the-3-rd-session-of-mlcourse-ai-by-ods-ai-spring-2018-held-in-english-experimental-at-that-time" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://drive.google.com/open?id=1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk">final rating</a> based on assignments and Kaggle competitions. The session took place from Feb 6 till April 27, 2018, there were about 200 participants.</p>
+<ol class="simple">
+<li><p>Yevgeni Berkovitch, <a class="reference external" href="https://www.linkedin.com/in/yberkovitch/">LinkedIn</a>, <a class="reference external" href="mailto:taoberkovitch&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Alex Lee, <a class="reference external" href="https://www.github.com/alwc">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexwclee/">LinkedIn</a>, <a class="reference external" href="mailto:alwc90&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Sümeyra Bedir, <a class="reference external" href="https://www.github.com/smyrbdr">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/sumeyrabedir">LinkedIn</a>, <a class="reference external" href="mailto:smyrbdr&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Mikhail Romanov, <a class="reference external" href="https://www.linkedin.com/in/mikhail-romanov-903aa7a0/">LinkedIn</a>, <a class="reference external" href="mailto:mikhail&#37;&#52;&#48;buzzwoo&#46;de">e-mail</a></p></li>
+<li><p>Muhammed Tan, <a class="reference external" href="https://www.github.com/intelmt">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/muhammedtan">LinkedIn</a>, <a class="reference external" href="mailto:tanmuhammed&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Ivan Reznikov, <a class="reference external" href="https://www.linkedin.com/in/reznikovivan/">LinkedIn</a>, <a class="reference external" href="mailto:ivanreznikov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Aditya Soni, <a class="reference external" href="https://www.github.com/AdityaSoni19031997">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/aditya-soni-0505a9124/">LinkedIn</a>, <a class="reference external" href="mailto:adityafast&#46;ai&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Artem Kalchenko, <a class="reference external" href="https://www.github.com/kalkolab">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/artem-kalchenko">LinkedIn</a>, <a class="reference external" href="mailto:artem&#37;&#52;&#48;kalko&#46;me">e-mail</a></p></li>
+<li><p>Nastassia Ryabkova, <a class="reference external" href="https://www.github.com/nastassiaryabkova">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/nastassiaryabkova">LinkedIn</a>, <a class="reference external" href="mailto:nastassia&#46;ryabkova&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Henrique Silva, <a class="reference external" href="https://www.github.com/henriqueribeiro">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/henrique-ribeiro-silva">LinkedIn</a>, <a class="reference external" href="mailto:henrique&#46;rd&#46;silva&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+</ol>
+</div>
+<div class="section" id="top-100-performers-of-the-3-rd-session-of-mlcourse-ai-by-ods-ai-spring-2018-held-in-russian">
+<h2>Top-100 performers of the 3-rd session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, spring 2018 (held in Russian)<a class="headerlink" href="#top-100-performers-of-the-3-rd-session-of-mlcourse-ai-by-ods-ai-spring-2018-held-in-russian" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://drive.google.com/open?id=1HMn7uA8CwfBoWuDkiJkVomkKkoOVXyIm-vKFZlISotk">final rating</a>. The session took place in Feb-Apr 2018, there were 1826 participants.</p>
+<ol class="simple">
+<li><p>Петухов Дмитрий, <a class="reference external" href="https://github.com/jandevel">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitpetukhov">LinkedIn</a>, <a class="reference external" href="mailto:dmit&#46;petukhov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Акимов Олег Александрович, <a class="reference external" href="https://github.com/ilbuono">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/oleg-akimov-715532102/">LinkedIn</a>, <a class="reference external" href="mailto:akimovoa&#37;&#52;&#48;bk&#46;ru">e-mail</a></p></li>
+<li><p>Семеновых Владимир Николаевич, <a class="reference external" href="https://github.com/MdScntst">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/vladimirsemenovykh/">LinkedIn</a>, <a class="reference external" href="mailto:semenovikh&#37;&#52;&#48;bk&#46;ru">e-mail</a></p></li>
+<li><p>Измайлов Константин Константинович, <a class="reference external" href="https://www.linkedin.com/in/konstantin-izmaylov-bb0953a4/">LinkedIn</a>, <a class="reference external" href="mailto:izmajlovkonstantin&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Тышов Никита Владимирович, <a class="reference external" href="https://www.linkedin.com/in/nikita-tyshov-536787105">LinkedIn</a>, <a class="reference external" href="mailto:ntyshov03&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Титаевская Наталья Анатольевна, <a class="reference external" href="https://www.linkedin.com/in/titaevskaya">LinkedIn</a>, <a class="reference external" href="mailto:titaevskaya&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Чернышёв Михаил Александрович, <a class="reference external" href="https://github.com/Qovaxx">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/michernyshev/">LinkedIn</a>, <a class="reference external" href="mailto:m-tan&#46;rx&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Каменев Михаил Сергеевич, <a class="reference external" href="https://www.linkedin.com/in/kamenevms">LinkedIn</a></p></li>
+<li><p>Забков Илья Васильевич, <a class="reference external" href="mailto:zabkov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Самсонов Максим, <a class="reference external" href="https://www.linkedin.com/in/mvsamsonov/">LinkedIn</a>, <a class="reference external" href="mailto:mvsamsonov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Павлов Андрей Александрович, <a class="reference external" href="https://www.linkedin.com/in/andrey-pavlov-4729ba88/">LinkedIn</a>, <a class="reference external" href="mailto:pavlov&#46;andrey&#37;&#52;&#48;pm&#46;me">e-mail</a></p></li>
+<li><p>Мельник Михаил Викторович, <a class="reference external" href="https://www.linkedin.com/in/mikhail-melnik-47764a67/">LinkedIn</a></p></li>
+<li><p>Лозовой Виталий Витальевич, <a class="reference external" href="https://www.linkedin.com/in/vitaliy-lozoviy-0326792a/">LinkedIn</a>, <a class="reference external" href="mailto:vuzya1&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Егоров Дмитрий Витальевич, <a class="reference external" href="https://github.com/zelizpriest">GitHub</a>, <a class="reference external" href="mailto:zelilockerz&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Чигин Сергей Олегович, <a class="reference external" href="https://www.linkedin.com/in/sergeychigin/">LinkedIn</a></p></li>
+<li><p>Куликов Павел Викторович, <a class="reference external" href="https://github.com/Kulikovpavel">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/pavel-kulikov-55331651/">LinkedIn</a>, <a class="reference external" href="mailto:kulikovpavel&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Некрасова Татьяна Валерьевна, <a class="reference external" href="mailto:gntv1977&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Ilya Chernov, <a class="reference external" href="https://github.com/ch3rn0v">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/chernovilya/">LinkedIn</a>, <a class="reference external" href="mailto:ilya&#46;v&#46;chernov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Прохоров Павел Владимирович, <a class="reference external" href="https://github.com/pavelvpster">GitHub</a>, <a class="reference external" href="mailto:pavelvpster&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Артамонов Игорь Михайлович, <a class="reference external" href="https://www.linkedin.com/in/igor-artamonov">LinkedIn</a>, <a class="reference external" href="mailto:iartamonov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Осипова Зоя Анатольевна, <a class="reference external" href="https://www.linkedin.com/in/zoyaosipova/">LinkedIn</a>, <a class="reference external" href="mailto:azured&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Спирин Егор Сергеевич, <a class="reference external" href="https://github.com/Voudy">GitHub</a>, <a class="reference external" href="mailto:egor&#37;&#52;&#48;spirin&#46;tech">e-mail</a></p></li>
+<li><p>Коломиец Сергей Иванович, <a class="reference external" href="https://github.com/SerK0">GitHub</a>, <a class="reference external" href="mailto:s_kolomiyets&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Потапов Даниил Сергеевич, <a class="reference external" href="https://www.linkedin.com/in/daniel-potapov/">LinkedIn</a></p></li>
+<li><p>Ничипоренко Александр Владимирович, <a class="reference external" href="https://github.com/alexnich">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexnich/">LinkedIn</a>, <a class="reference external" href="mailto:avnichiporenko&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Трофимов Артём Владимирович, <a class="reference external" href="https://github.com/atrof">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/artyomtrofimov">LinkedIn</a>, <a class="reference external" href="mailto:avtrrr&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Нечаев Дмитрий Васильевич, <a class="reference external" href="https://github.com/ndv87">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitry-nechaev-948620150">LinkedIn</a>, <a class="reference external" href="mailto:faust&#46;666&#37;&#52;&#48;bk&#46;ru">e-mail</a></p></li>
+<li><p>Трофимов Кирилл Александрович, <a class="reference external" href="https://github.com/antikov">GitHub</a>, <a class="reference external" href="mailto:crazytraffic&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Алексей Полтавец, <a class="reference external" href="https://www.linkedin.com/in/oleksii-poltavets/">LinkedIn</a>, <a class="reference external" href="mailto:kaktys&#46;leha&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Остроухов Максим Николаевич, <a class="reference external" href="https://github.com/blatr">GitHub</a>, <a class="reference external" href="mailto:mnostroukhov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Адыгамов Ильяс Шамильевич, <a class="reference external" href="https://github.com/adilyas">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/adilyas">LinkedIn</a>, <a class="reference external" href="mailto:adygamovilyas&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Клочков Алексей</p></li>
+<li><p>Бокиев Наврас Солиевич, <a class="reference external" href="https://github.com/bnavras">GitHub</a>, <a class="reference external" href="mailto:bnavras&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Польников Эдуард Владимирович</p></li>
+<li><p>Жеребцов Алексей Вячеславович, <a class="reference external" href="https://github.com/CyberPunk2049">GitHub</a>, <a class="reference external" href="mailto:avzherebtsov&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Асмоловский Артём Анатольевич, <a class="reference external" href="https://github.com/Asmolovskij">GitHub</a>, <a class="reference external" href="mailto:art-asmolovskij&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Кощегулов Эльдар Линарович, <a class="reference external" href="https://www.linkedin.com/in/eldar-kochshegulov-77578814b/">LinkedIn</a>, <a class="reference external" href="mailto:eldar&#46;kochshegulov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Борисов Дмитрий Анатольевич, <a class="reference external" href="https://github.com/BorisovDm">GitHub</a>, <a class="reference external" href="mailto:abdima2010&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Коломиец Дмитрий Владимирович, <a class="reference external" href="https://github.com/kolomietsdv">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitriy-kolomiets-56335562/">LinkedIn</a>, <a class="reference external" href="mailto:kolomietsdv&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Паршин Дмитрий Андреевич, <a class="reference external" href="https://github.com/dimas1318">GitHub</a>, <a class="reference external" href="mailto:parshin&#37;&#52;&#48;phystech&#46;edu">e-mail</a></p></li>
+<li><p>Горев Николай Анатольевич, <a class="reference external" href="https://github.com/NickGorev">GitHub</a>, <a class="reference external" href="mailto:nick&#46;a&#46;gorev&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Плаксина Елена Константиновна, <a class="reference external" href="https://github.com/Levka8">GitHub</a>, <a class="reference external" href="https://bit.ly/2HC2ZJH">LinkedIn</a></p></li>
+<li><p>Белоусов Павел Дмитриевич, <a class="reference external" href="https://github.com/pbelousov">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/pavel-belousov-22499435/">LinkedIn</a>, <a class="reference external" href="mailto:mail&#37;&#52;&#48;pavelbelousov&#46;com">e-mail</a></p></li>
+<li><p>Романова Анастасия Геннадьевна, <a class="reference external" href="https://github.com/anastasiaromane">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiaromane/">LinkedIn</a></p></li>
+<li><p>Сафонов Дмитрий Павлович</p></li>
+<li><p>Tomkevich Alina Kazimirovna, <a class="reference external" href="https://www.linkedin.com/in/alina-tamkevich-650bb0aa/">LinkedIn</a>, <a class="reference external" href="mailto:atomkevich&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Латышев Евгений Сергеевич, <a class="reference external" href="https://github.com/zhekalat">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/%D0%B5%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9-%D0%BB%D0%B0%D1%82%D1%8B%D1%88%D0%B5%D0%B2-5229a1155/">LinkedIn</a>, <a class="reference external" href="mailto:e&#46;latishev&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Кунилов Петр Евгеньевич, <a class="reference external" href="mailto:peter&#46;kunilov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Лопухова Арина Андреевна, <a class="reference external" href="mailto:arlopuhova&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Сиволобов Виталий Александрович</p></li>
+<li><p>Sergey S</p></li>
+<li><p>Белоконь Сергей Олегович, <a class="reference external" href="https://github.com/n1wh">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/serg-bilokon-588117160/">LinkedIn</a></p></li>
+<li><p>Иванов Алексей Анатольевич</p></li>
+<li><p>Суббота Александр Вячеславович, <a class="reference external" href="https://github.com/alexsubota">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alexander-subota-7a231114a/">LinkedIn</a>, <a class="reference external" href="mailto:alex&#46;subota&#46;m&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Ширяева Екатерина Игоревна, <a class="reference external" href="https://www.linkedin.com/in/ekaterina-shiryaeva-7381818/">LinkedIn</a>, <a class="reference external" href="mailto:katya&#46;shiryaeva&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Кирилл Романов, <a class="reference external" href="https://github.com/kvr777">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/kirill-romanov-4682527">LinkedIn</a>, <a class="reference external" href="mailto:kirill&#46;v&#46;romanov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Еремина Мария Антоновна, <a class="reference external" href="mailto:maryeeremina&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Маскаев Дмитрий Герасимович, <a class="reference external" href="mailto:maska666&#37;&#52;&#48;rambler&#46;ru">e-mail</a></p></li>
+<li><p>Трубанёв Кирилл Викторович, <a class="reference external" href="https://www.linkedin.com/in/kirill-trubanev-534b921">LinkedIn</a>, <a class="reference external" href="mailto:k&#46;trubanev&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Наумов Станислав Сергеевич, <a class="reference external" href="https://github.com/josdas">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/stanislav-n-054244145/">LinkedIn</a>, <a class="reference external" href="mailto:josdas&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Ахметов Данил Маратович, <a class="reference external" href="https://github.com/danil328">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/danil-akhmetov-4b7790162/">LinkedIn</a>,  <a class="reference external" href="mailto:Danil328&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Ермаков Антон Николаевич, <a class="reference external" href="https://www.linkedin.com/in/%D0%B0%D0%BD%D1%82%D0%BE%D0%BD-%D0%B5%D1%80%D0%BC%D0%B0%D0%BA%D0%BE%D0%B2-5481ba117/">LinkedIn</a>, <a class="reference external" href="mailto:a-n-ermakov&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Милованов Денис Александрович, <a class="reference external" href="mailto:milovan&#46;denis&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Чертушкин Михаил Дмитриевич</p></li>
+<li><p>Борисихин Алексей Николаевич, <a class="reference external" href="https://github.com/aborisihin">GitHub</a>, <a class="reference external" href="mailto:a&#46;borisihin&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Бубон Максим Витальевич, <a class="reference external" href="https://github.com/Justize">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/maxim-bubon-6b5227162/">LinkedIn</a>, <a class="reference external" href="mailto:maxbubon&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Зорин Даниил Александрович, <a class="reference external" href="https://github.com/DanielZorin">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/daniel-zorin-a9704647/">LinkedIn</a>, <a class="reference external" href="mailto:jfaranime&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Беляев Александр Михайлович, <a class="reference external" href="https://www.linkedin.com/in/alexander-belyaev-78214921/">LinkedIn</a>, <a class="reference external" href="mailto:sasha999_belyaev&#37;&#52;&#48;bk&#46;ru">e-mail</a></p></li>
+<li><p>Литичевский Дмитрий Владимирович</p></li>
+<li><p>Гелетуха Евгения Вадииовна, <a class="reference external" href="mailto:pinkorhid&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Ермилов Виталий Николаевич, <a class="reference external" href="mailto:ermilovvit&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Русаков Константин Дмитриевич, <a class="reference external" href="https://github.com/kot21663">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/konstantin-rusakov-4b5785143">LinkedIn</a>, <a class="reference external" href="mailto:rusakov&#46;msk&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Сенькин Денис Русланович, <a class="reference external" href="https://github.com/denix56">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/denys-senkin-914b25121/">LinkedIn</a>, <a class="reference external" href="mailto:denisx9&#46;0c&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Талантов Сергей Владимирович, <a class="reference external" href="https://www.linkedin.com/in/talantov">LinkedIn</a>, <a class="reference external" href="mailto:sergey&#46;talantov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Коргун Дмитрий Александрович, <a class="reference external" href="https://github.com/tbb">GitHub</a>, <a class="reference external" href="mailto:dmitry&#46;tbb&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Мишин Александр Анатольевич, <a class="reference external" href="mailto:iscandmishin&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Топорнин Дмитрий Дмитриевич, <a class="reference external" href="https://github.com/wilddima">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/topornin/">LinkedIn</a>, <a class="reference external" href="mailto:dtopornin&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Фатхутдинова Милия, <a class="reference external" href="https://github.com/MillaLady">GitHub</a></p></li>
+<li><p>Большагин Никита Николаевич, <a class="reference external" href="https://github.com/bolshagin">GitHub</a>, <a class="reference external" href="mailto:bolshagin&#46;nikita&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Гомилко Степан Игоревич, <a class="reference external" href="https://github.com/Gromilko">GitHub</a>, <a class="reference external" href="mailto:gomilkostepan&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Медников Андрей Олегович</p></li>
+<li><p>Николаева Наталия Михайловна, <a class="reference external" href="mailto:nikolaewa&#46;natasya&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Ершова Александра Сергеевна, <a class="reference external" href="https://github.com/religofsil">GitHub</a>, <a class="reference external" href="mailto:religionofsilence&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Шелепанов Сергей Сергеевич, <a class="reference external" href="mailto:sergey&#46;shelepanov&#37;&#52;&#48;phystech&#46;edu">e-mail</a></p></li>
+<li><p>Корниевская Анастасия Андреевна, <a class="reference external" href="https://www.linkedin.com/in/akorn95/">LinkedIn</a></p></li>
+<li><p>Краснов Дмитрий Анатольевич</p></li>
+<li><p>Михайлов Геннадий Вячеславович, <a class="reference external" href="mailto:genanady&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Сивков Илья Евгеньевич, <a class="reference external" href="https://www.linkedin.com/in/ilya-sivkov-10a6a787">LinkedIn</a>, <a class="reference external" href="mailto:ilyasivkov&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Кушаев Кайрат Евгеньевич, <a class="reference external" href="https://www.linkedin.com/in/kairat-kushaev-44298759/">LinkedIn</a>, <a class="reference external" href="mailto:gyddone&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Трофимов Алексей Юрьевич</p></li>
+<li><p>Ширкин Александр Евгеньевич, <a class="reference external" href="mailto:shirkin39&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Константин Кравченко</p></li>
+<li><p>Горбатюк Сергей Петрович</p></li>
+<li><p>Летенко Иван Дмитриевич</p></li>
+<li><p>Нигматуллин Ранис Нафисович, <a class="reference external" href="https://github.com/Ran1s">GitHub</a>, <a class="reference external" href="mailto:ranixxzz&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Копцов Дмитрий Владимирович</p></li>
+<li><p>Пекичева Юлия Борисовна, <a class="reference external" href="https://www.linkedin.com/in/yulia-melnikova-00654172/">LinkedIn</a>, <a class="reference external" href="mailto:yuliamel&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Борисов Артём Александрович, <a class="reference external" href="https://bitbucket.org/Amphyby/">Bitbucket</a>, <a class="reference external" href="https://www.linkedin.com/in/artiom-borisov-1a3795144/">LinkedIn</a>, <a class="reference external" href="mailto:amphyby&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Копылов Дмитрий Евгеньевич</p></li>
+<li><p>Полянских Сергей Валерьевич</p></li>
+</ol>
+</div>
+<div class="section" id="top-100-performers-of-the-2-nd-session-of-mlcourse-ai-by-ods-ai-fall-2017-held-in-russian">
+<h2>Top-100 performers of the 2-nd session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, fall 2017 (held in Russian)<a class="headerlink" href="#top-100-performers-of-the-2-nd-session-of-mlcourse-ai-by-ods-ai-fall-2017-held-in-russian" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://drive.google.com/open?id=1NSdcHzMy_KoFx6hSZUuXUTwW5X6xsFY-POW2wQ4jjjs">final rating</a>. The session took place in Sep-Nov 2017, there were 1305 participants.</p>
+<ol class="simple">
+<li><p>Бирюкова Валентина, <a class="reference external" href="https://www.github.com/MyLtYkRiTiK">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/myltykritik/">LinkedIn</a>, <a class="reference external" href="mailto:myltykritik777&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Куценко Андрей Кириллович, <a class="reference external" href="mailto:andrey&#46;kc&#46;data&#46;science&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Щесняк Даниил Сергеевич</p></li>
+<li><p>Котенков Игорь Дмитриевич</p></li>
+<li><p>Лукьяненко Андрей Петрович, <a class="reference external" href="https://www.github.com/Erlemar">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/andlukyane/">LinkedIn</a>, <a class="reference external" href="mailto:andlukyane&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Уваров Максим Александрович, <a class="reference external" href="https://www.github.com/maxis42">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/maxis42/">LinkedIn</a>, <a class="reference external" href="mailto:uvarov&#46;max&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Васильев Леонид Валерьевич, <a class="reference external" href="mailto:vasiliev&#46;leonid&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Машкин Евгений Николаевич, <a class="reference external" href="https://www.linkedin.com/in/eugene-mashkin-88490883/">LinkedIn</a>, <a class="reference external" href="mailto:e&#46;n&#46;mashkin&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Овчинников Григорий Олегович, <a class="reference external" href="mailto:ogowm&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Тетерников Илья Анатольевич</p></li>
+<li><p>Соколов Ярослав Сергеевич, <a class="reference external" href="https://www.github.com/SokolovYaroslav">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/yaroslav-sokolov-768727125/">LinkedIn</a>, <a class="reference external" href="mailto:sokolov&#46;yas&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Немчинов Егор Игоревич, <a class="reference external" href="https://www.github.com/ImmortalTurtle">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-nemchinov-4a57a2150/">LinkedIn</a>, <a class="reference external" href="mailto:nemchegor&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Власов Кирилл Вячеславович, <a class="reference external" href="mailto:vlasoff&#46;k&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Данилов Денис Валерьевич, <a class="reference external" href="mailto:danilov&#46;d8&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/den-danilov-88326b7b/">LinkedIn</a></p></li>
+<li><p>Tetyana Gavrylenko, <a class="reference external" href="mailto:tegavrylenko&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/tetyana-gavrylenko/">LinkedIn</a>, <a class="reference external" href="https://www.github.com/taguka">github</a></p></li>
+<li><p>Кузнецов Илья Ефимович, <a class="reference external" href="https://www.linkedin.com/in/efimich/">LinkedIn</a>, <a class="reference external" href="mailto:kuilef42&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Челяпин Павел Сергеевич, <a class="reference external" href="https://www.kaggle.com/ungvert/">Kaggle</a>, <a class="reference external" href="https://www.github.com/ungvert/">GitHub</a></p></li>
+<li><p>Малюгина Анастасия Алексеевна</p></li>
+<li><p>Кондратюк Вячеслав Юрьевич, <a class="reference external" href="https://www.github.com/viakondratiuk">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/viacheslavkondratiuk/">LinkedIn</a>, <a class="reference external" href="mailto:viakondratiuk&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Козлова Надежда Вячеславовна</p></li>
+<li><p>Катренко Петр Вадимович</p></li>
+<li><p>Поливин Олег Сергеевич, <a class="reference external" href="mailto:olegpolivin&#37;&#52;&#48;gmail&#46;com">e-mail</a> <a class="reference external" href="https://www.linkedin.com/in/polivin/">LinkedIn</a></p></li>
+<li><p>Трунов Артем Геннадьевич <a class="reference external" href="mailto:datamove&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Тимофеев Егор Николаевич, <a class="reference external" href="https://www.linkedin.com/in/timofeevegor">LinkedIn</a>, <a class="reference external" href="mailto:timofeev&#46;egor&#46;perm&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Однобоков Никита Юрьевич, <a class="reference external" href="mailto:odnobokovn&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.kaggle.com/obknik/">Kaggle</a></p></li>
+<li><p>Ширинкин Аркадий Викторович</p></li>
+<li><p>Мустаев Айрат Ильдарович</p></li>
+<li><p>Осипов Алексей Валерианович, <a class="reference external" href="mailto:osipovav28&#37;&#52;&#48;googlemail&#46;com">e-mail</a></p></li>
+<li><p>Кудин Степан Сергеевич, <a class="reference external" href="mailto:kudin&#46;stepan&#37;&#52;&#48;yandex&#46;ru">email</a>, <a class="reference external" href="https://www.linkedin.com/in/stepan-kudin-83164393/">LinkedIn</a></p></li>
+<li><p>Гуревич Андрей Александрович, <a class="reference external" href="https://www.linkedin.com/in/andrey-gurevich-245b5486/">LinkedIn</a>, <a class="reference external" href="mailto:andrey&#46;a&#46;gurevich&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Ляхов Игорь Геннадиевич</p></li>
+<li><p>Анненкова Ольга, <a class="reference external" href="https://www.github.com/olga3n">GitHub</a></p></li>
+<li><p>Акиньшин Евгений</p></li>
+<li><p>Evgeny Sushko, <a class="reference external" href="https://www.github.com/evgenysushko">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/evgenysushko">LinkedIn</a></p></li>
+<li><p>Евсеев Вадим Сергеевич</p></li>
+<li><p>Маловичко Галина, <a class="reference external" href="https://www.linkedin.com/in/malovichko/">LinkedIn</a></p></li>
+<li><p>Песков Роман, <a class="reference external" href="https://www.linkedin.com/in/romanpeskov/">LinkedIn</a>, <a class="reference external" href="mailto:peskovrn&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Черкес Никита Викторович, <a class="reference external" href="mailto:paralid&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Шерешевский Дмитрий Изяславович, <a class="reference external" href="mailto:d&#46;shereshevskiy&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/dmitry-shereshevskiy/">LinkedIn</a></p></li>
+<li><p>Барыков Вадим Юрьевич, <a class="reference external" href="https://www.github.com/Reshalkin">GitHub</a>, <a class="reference external" href="https://www.kaggle.com/reshalkin">Kaggle</a>, <a class="reference external" href="mailto:q-mind&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Уваров Александр Олегович</p></li>
+<li><p>Валиуллин Адель Марсович <a class="reference external" href="mailto:adel&#46;valiullin&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Попов Ярослав Игоревич, <a class="reference external" href="https://www.github.com/chilicoder">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/chilicoder/">LinkedIn</a></p></li>
+<li><p>Канашов Андрей Вадимович</p></li>
+<li><p>Савицкий Арсений Олегович, <a class="reference external" href="mailto:quantumdiagram&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Филиппова Ольга Валерьевна</p></li>
+<li><p>Кулага Иван Вадимович</p></li>
+<li><p>Урванов Егор Сергеевич <a class="reference external" href="https://www.github.com/hedgehogues">GitHub</a>, <a class="reference external" href="mailto:hedgehogues&#37;&#52;&#48;bk&#46;ru">e-mail</a></p></li>
+<li><p>Девятайкина Елена Петровна, <a class="reference external" href="mailto:elenadevyataykina&#37;&#52;&#48;gmail&#46;com">e-mail</a> , <a class="reference external" href="https://www.linkedin.com/in/edevyataykina/">LinkedIn</a></p></li>
+<li><p>Бадамшин Булат Ильдарович</p></li>
+<li><p>Пучков Кирилл Андреевич, <a class="reference external" href="https://www.linkedin.com/in/kirill-puchkov">LinkedIn</a>, <a class="reference external" href="mailto:kiramipt&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Востропятов Алексей Юрьевич, <a class="reference external" href="mailto:alvostropyatov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Орешин Павел Евгеньевич, <a class="reference external" href="mailto:oreshinpe&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/pavel-oreshin-b87a83117">LinkedIn</a></p></li>
+<li><p>Самойлов Олег Геннадьевич, <a class="reference external" href="https://www.linkedin.com/in/oleg-samoilov-a54559106">LinkedIn</a>, <a class="reference external" href="mailto:samoilovog&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Климушина Юлия Дмитриевна</p></li>
+<li><p>Морозов Максим Олегович, <a class="reference external" href="mailto:mormaks&#37;&#52;&#48;mail&#46;ru">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/mormaks/">LinkedIn</a></p></li>
+<li><p>Сухарев Андрей Сергеевич, <a class="reference external" href="https://www.linkedin.com/in/fremis/">LinkedIn</a></p></li>
+<li><p>Казаков Олег Владимирович</p></li>
+<li><p>Хализов Михаил Владимирович</p></li>
+<li><p>Нужный Данил Игоревич</p></li>
+<li><p>Супранович Дмитрий Александрович, <a class="reference external" href="https://www.linkedin.com/in/dsupranovich/">LinkedIn</a></p></li>
+<li><p>Баженов Александр Павлович</p></li>
+<li><p>Бахшецян Константин Альбертович, <a class="reference external" href="https://www.github.com/bahshetsian">GitHub</a>, <a class="reference external" href="mailto:bahshetsian&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Удод Алексей Витальевич, <a class="reference external" href="https://www.linkedin.com/in/alexudod/">LinkedIn</a></p></li>
+<li><p>Кучкаров Ильдус Ильдарович, <a class="reference external" href="mailto:kuchkarov&#46;ildus&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Жигалов Василий, <a class="reference external" href="mailto:zhigalov&#46;va&#37;&#52;&#48;ya&#46;ru">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/vasiliy-jigalov/">LinkedIn</a></p></li>
+<li><p>Малофеев Евгений</p></li>
+<li><p>Воейков Роман, <a class="reference external" href="mailto:voeykovroman&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Сахаров Дмитрий Андреевич, <a class="reference external" href="mailto:tomatiks&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Тараканова Мария Николаевна</p></li>
+<li><p>Торопов Василий Михайлович</p></li>
+<li><p>Костин Андрей Сергеевич</p></li>
+<li><p>Григорьев Алексей Сергеевич, <a class="reference external" href="https://www.github.com/alexeygrigorev">GitHub</a></p></li>
+<li><p>Желубенков Александр Евгеньевич</p></li>
+<li><p>Джумакаев Тимур Казбекович</p></li>
+<li><p>Кобычев Кирилл, <a class="reference external" href="mailto:kirillkobychev&#37;&#52;&#48;gmail&#46;com">e-mail</a>  <a class="reference external" href="https://www.linkedin.com/in/kirill-kobychev-68489a50/">LinkedIn</a></p></li>
+<li><p>Будакян Ян Сергеевич, <a class="reference external" href="https://www.github.com/astromid">GitHub</a>, <a class="reference external" href="mailto:ys&#46;budakyan&#37;&#52;&#48;physics&#46;msu&#46;ru">e-mail</a>, <a class="reference external" href="https://www.kaggle.com/astromid">Kaggle</a></p></li>
+<li><p>Матиив Роман Александрович, <a class="reference external" href="mailto:matiiv&#46;r&#46;a&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Кустиков Дмитрий</p></li>
+<li><p>Князятов Станислав Александрович</p></li>
+<li><p>Долгов Андрей Валерьевич</p></li>
+<li><p>Мальцев Александр Николаевич</p></li>
+<li><p>Almaz Sadenov, <a class="reference external" href="https://www.github.com/alm4z">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alm4z">LinkedIn</a>,  <a class="reference external" href="mailto:a&#46;sadenov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Мороз Денис Анатольевич <a class="reference external" href="https://www.linkedin.com/in/denis-moroz-51a138a">LinkedIn</a>, <a class="reference external" href="mailto:denismoroz81&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Мальцев Даниил Сергеевич, <a class="reference external" href="https://www.linkedin.com/in/daniil-maltsev-503a6696">LinkedIn</a>, <a class="reference external" href="mailto:d&#46;maltsev&#46;0&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Власов Роман Дмитриевич</p></li>
+<li><p>Введенский Вячеслав Владимирович</p></li>
+<li><p>Протопопов Антон Павлович</p></li>
+<li><p>Сидоренко Александр Александрович, <a class="reference external" href="https://www.github.com/alside">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/alside/">LinkedIn</a>, <a class="reference external" href="mailto:asidorenkoa&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Фушта Антон Игоревич</p></li>
+<li><p>Смирнов Артем Сергеевич</p></li>
+<li><p>Виктория Здановская, <a class="reference external" href="https://www.github.com/ladyyvii">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/victoriazdanovskaya/">LinkedIn</a>, <a class="reference external" href="mailto:vik-zdanovskaya&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Ивахненко Дарья Александровна, <a class="reference external" href="mailto:das875&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Ефремова Дина Борисовна</p></li>
+<li><p>Толкачев Иван Павлович <a class="reference external" href="mailto:i&#46;tolkachev1994&#37;&#52;&#48;gmail&#46;com">email</a> <span class="xref myst">telegram</span></p></li>
+<li><p>Круглов Артем Игоревич</p></li>
+<li><p>Зикрач Дмитрий Юрьевич</p></li>
+<li><p>Каменев Андрей Владимирович</p></li>
+<li><p>Князев Михаил Витальевич</p></li>
+<li><p>Репьевский Сергей Владимирович</p></li>
+</ol>
+</div>
+<div class="section" id="top-100-performers-of-the-1-st-session-of-mlcourse-ai-by-ods-ai-spring-2017-held-in-russian">
+<h2>Top-100 performers of the 1-st session of <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> by <a class="reference external" href="http://ods.ai">ods.ai</a>, spring 2017 (held in Russian)<a class="headerlink" href="#top-100-performers-of-the-1-st-session-of-mlcourse-ai-by-ods-ai-spring-2017-held-in-russian" title="Permalink to this headline">¶</a></h2>
+<p>According to the <a class="reference external" href="https://drive.google.com/open?id=1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY">final rating</a>. The session took place in Feb-May 2017, there were 530 participants.</p>
+<ol class="simple">
+<li><p>Волков Дмитрий Сергеевич, <a class="reference external" href="mailto:dsvolkov&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Лазарев Александр Александрович, <a class="reference external" href="https://github.com/Arsey">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/arsey">LinkedIn</a></p></li>
+<li><p>Куцев Роман Анатольевич, <a class="reference external" href="https://github.com/Kucev">GitHub</a>, <a class="reference external" href="mailto:roman&#37;&#52;&#48;kucev&#46;ru">e-mail</a></p></li>
+<li><p>Буянкин Михаил Александрович</p></li>
+<li><p>Яшин Владимир Дмитриевич <a class="reference external" href="mailto:vladimir&#46;d&#46;iashin&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://github.com/v-iashin">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/vladimir-iashin/">LinkedIn</a></p></li>
+<li><p>Жеглов Дмитрий Андреевич</p></li>
+<li><p>Лабинцев Егор Сергеевич, <a class="reference external" href="https://www.linkedin.com/in/egorlabintcev/">LinkedIn</a></p></li>
+<li><p>Онищенко Елена Вячеславовна</p></li>
+<li><p>Шахова Нонна Дмитриевна <a class="reference external" href="mailto:nonshakhova&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/nonna-shakhova-718332a8/">LinkedIn</a></p></li>
+<li><p>Пранчук Дмитрий Михайлович, <a class="reference external" href="https://github.com/cortwave">GitHub</a></p></li>
+<li><p>Петров Борис Александрович</p></li>
+<li><p>Глинский Алексей Валерьевич, <a class="reference external" href="mailto:alexionon&#37;&#52;&#48;mail&#46;ru">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/alex-glinsky-minsk/">LinkedIn</a></p></li>
+<li><p>Александровская Вера, <a class="reference external" href="https://www.linkedin.com/in/valeksandrovskaya/">LinkedIn</a></p></li>
+<li><p>Подрезов Антон Владимирович</p></li>
+<li><p>Пономарев Алексей Анатольевич</p></li>
+<li><p>Воронцов Геннадий Геннадьевич</p></li>
+<li><p>Осипов Александр Евгеньевич, <a class="reference external" href="https://github.com/oalexandere">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/oalexandere/">LinkedIn</a></p></li>
+<li><p>Колесов Антон Юрьевич, <a class="reference external" href="mailto:kolesov-ay&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Синев Леонид Станиславович, <a class="reference external" href="https://github.com/LSinev">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/lsinev/">LinkedIn</a></p></li>
+<li><p>Ширшова Анна Евгеньевна, <a class="reference external" href="mailto:anna&#46;e&#46;shirshova&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-shirshova-b908458b/">LinkedIn</a></p></li>
+<li><p>Бабаев Андрей Сергеевич</p></li>
+<li><p>Бабич Дмитрий Станиславович</p></li>
+<li><p>Шатилов Александр Алексеевич, <a class="reference external" href="https://www.linkedin.com/in/aleksandr-shatilov">LinkedIn</a></p></li>
+<li><p>Иванов Иван Иванович</p></li>
+<li><p>Даниленко Евгений Викторович, <a class="reference external" href="mailto:6655321&#37;&#52;&#48;bk&#46;ru">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/evgeny-danilenko-90895524/">LinkedIn</a></p></li>
+<li><p>Филиппов Борис Александрович</p></li>
+<li><p>Барышников Илья Сергеевич, <a class="reference external" href="https://github.com/Lucidyan">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/ilya-baryshnikov/">LinkedIn</a>, <a class="reference external" href="https://www.kaggle.com/lucidyan">Kaggle</a></p></li>
+<li><p>Замятина Мария Николаевна</p></li>
+<li><p>Гуревич Станислав Алексеевич</p></li>
+<li><p>Дорошенко Олег Александрович, <a class="reference external" href="https://www.linkedin.com/in/aleh-darashenka-2a7b1572/">LinkedIn</a></p></li>
+<li><p>Бонвеч Елена Алексеевна, <a class="reference external" href="mailto:bonvech&#37;&#52;&#48;yandex&#46;ru">e-mail</a></p></li>
+<li><p>Прокопьев Станислав Юрьевич</p></li>
+<li><p>Соломонов Павел Валерьевич</p></li>
+<li><p>Кузнецов Максим Викторович</p></li>
+<li><p>Карпов Сергей Александрович</p></li>
+<li><p>Литвинов Денис Владимирович</p></li>
+<li><p>Михайлюков Иван Иванович</p></li>
+<li><p>Попов Вадим Вячеславович, <a class="reference external" href="mailto:popov&#46;vadim&#46;vyacheslavovich&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://github.com/VadimPopov">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/vv-popov/">LinkedIn</a></p></li>
+<li><p>Смирнов Глеб Вадимович</p></li>
+<li><p>Титов Артем Владимирович</p></li>
+<li><p>Трескова Елена Викторовна</p></li>
+<li><p>Исаев Сергей Валерьевич, <a class="reference external" href="https://github.com/isvforall">GitHub</a></p></li>
+<li><p>Котенок Виталий Александрович</p></li>
+<li><p>Свиридов Александр Павлович</p></li>
+<li><p>Чертов Сергей Леонидович</p></li>
+<li><p>Кладов Станислав Александрович, <a class="reference external" href="mailto:stas&#37;&#52;&#48;kladov&#46;ru">e-mail</a></p></li>
+<li><p>Малахов Андрей Дмитриевич, <span class="xref myst">LinkedIn</span></p></li>
+<li><p>Стройкова Ксения Александровна, <a class="reference external" href="mailto:k&#46;a&#46;stroykova&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://github.com/stroykova">GitHub</a></p></li>
+<li><p>Иткин Игорь Самуилович <a class="reference external" href="mailto:ig&#46;itkin&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/yehudaitkin/">LinkedIn</a></p></li>
+<li><p>Танеев Тимур Рустамович</p></li>
+<li><p>Зибров Борис Евгеньевич</p></li>
+<li><p>Морозов Глеб</p></li>
+<li><p>Полидорова Надежда Валерьевна</p></li>
+<li><p>Шестериков Павел Вадимович</p></li>
+<li><p>Щербаков Антон Алексеевич, <a class="reference external" href="https://github.com/phpbot">GitHub</a>, <a class="reference external" href="mailto:0kerneltrick&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Дубов Михаил Сергеевич, <a class="reference external" href="https://github.com/mikhaildubov">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/mikhaildubov/">LinkedIn</a></p></li>
+<li><p>Литвиненко Анна Андреевна, <a class="reference external" href="https://github.com/Letoile">GitHub</a></p></li>
+<li><p>Трофимов Алексей Юрьевич</p></li>
+<li><p>Чистяков Юрий Олегович,
+<a class="reference external" href="https://www.linkedin.com/in/yury-chistyakov">LinkedIn</a>,<a class="reference external" href="mailto:chistyakovyo&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Иванов Максим Владимирович</p></li>
+<li><p>Кириленко Владимир Николаевич, <a class="reference external" href="https://www.linkedin.com/in/vladimir-kirilenko-ab388084/">LinkedIn</a></p></li>
+<li><p>Малюгин Роберт Николаевич, <a class="reference external" href="https://www.linkedin.com/in/robert-malyugin-0562a941/">LinkedIn</a>, <a class="reference external" href="mailto:gmunc01&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Никулин Юрий Александрович, <a class="reference external" href="https://www.linkedin.com/in/vladimir-kirilenko-ab388084/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BWYYOoiNlR1KE%2Fmlar4AJtA%3D%3D&amp;licu=urn%3Ali%3Acontrol%3Ad_flagship3_feed-nav.settings_view_profile">LinkedIn</a></p></li>
+<li><p>Салынский Александр Викторович, <a class="reference external" href="https://github.com/alimantu">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/asalynskii/">LinkedIn</a>, <a class="reference external" href="mailto:alimantu&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Торшин Дмитрий Алексеевич</p></li>
+<li><p>Кайданова Инга Юрьевна <a class="reference external" href="mailto:inga-loputneva&#37;&#52;&#48;yandex&#46;ru">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/inga-kaidanova-a92398b1/">LinkedIn</a>, <a class="reference external" href="https://www.kaggle.com/ingakaydanova">Kaggle</a></p></li>
+<li><p>Ломакина Ольга Михайловна, <a class="reference external" href="mailto:omlomakina&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/olga-lomakina-349354ab/">LinkedIn</a></p></li>
+<li><p>Парфианович Владимир</p></li>
+<li><p>Крикливый Александр Владимирович</p></li>
+<li><p>Сердюк Дарья Сергеевна, <a class="reference external" href="https://www.linkedin.com/in/darya-serdyuk-71192a139/">LinkedIn</a>, <a class="reference external" href="https://github.com/DashaSerdyuk">GitHub</a></p></li>
+<li><p>Цуканова Анастасия Юрьевна, <a class="reference external" href="mailto:ayutsukanova&#37;&#52;&#48;gmail&#46;com">e-mail</a>,
+<a class="reference external" href="https://www.linkedin.com/in/%D0%B0%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F-%D1%86%D1%83%D0%BA%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0-7864369a/">LinkedIn</a></p></li>
+<li><p>Антонов Алексей</p></li>
+<li><p>Голосная Анна Александровна, <a class="reference external" href="mailto:anna&#46;golosnaya&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Максимов Константин Анатольевич, <a class="reference external" href="mailto:maksimov&#46;konstantin&#46;a&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/konstantin-maksimov">LinkedIn</a></p></li>
+<li><p>Смольская Анастасия Игоревна, <a class="reference external" href="mailto:smolsnastya96&#37;&#52;&#48;mail&#46;ru">e-mail</a></p></li>
+<li><p>Белугин Александр Александрович</p></li>
+<li><p>Данилин Павел Иванович</p></li>
+<li><p>Жуков Евгений Алексеевич</p></li>
+<li><p>Рахматуллин Айрат Фанисович</p></li>
+<li><p>Тевосян Вачик Эдрвадович</p></li>
+<li><p>Фадеева Анастасия</p></li>
+<li><p>Шевченко Денис Александрович</p></li>
+<li><p>Агеев Данил Викторович</p></li>
+<li><p>Алексеев Владимир Владимирович, <a class="reference external" href="mailto:vladimir&#46;alekseev&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://linkedin.com/in/vladimiralekseyev">LinkedIn</a></p></li>
+<li><p>Безносов Николай Эдуардович</p></li>
+<li><p>Васильев Василий Олегович, <a class="reference external" href="mailto:vasily&#46;o&#46;vasilyev&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/vasily-vasilyev/">LinkedIn</a>, <a class="reference external" href="https://github.com/purple-led">GitHub</a>,
+<a class="reference external" href="https://www.kaggle.com/vasilyvasilyev">Kaggle</a></p></li>
+<li><p>Кирпиченко Юрий Евгеньевич</p></li>
+<li><p>Павлов Дмитрий Олегович</p></li>
+<li><p>Скрипко Сергей Юрьевич</p></li>
+<li><p>Ульянов Александр Анатольевич</p></li>
+<li><p>Ющук Михаил Виктрович, <a class="reference external" href="https://www.linkedin.com/in/michael-yushchuk-1a134b119/">LinkedIn</a>
+<a class="reference external" href="mailto:ymv&#37;&#52;&#48;protonmail&#46;com">e-mail</a></p></li>
+<li><p>Башкиров Дмитрий</p></li>
+<li><p>Гинз Василий Николаевич</p></li>
+<li><p>Джумурат Александр Степанович, <a class="reference external" href="https://github.com/Dju999">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/dzhumurat-aleksandr-04942484/">LinkedIn</a>, <a class="reference external" href="mailto:dju0204&#37;&#52;&#48;gmail&#46;com">e-mail</a></p></li>
+<li><p>Протопопов Антон Павлович, <a class="reference external" href="https://github.com/aprotopopov">GitHub</a>, <a class="reference external" href="https://www.linkedin.com/in/aprotopopov/">LinkedIn</a>, <a class="reference external" href="mailto:an&#46;protopopov&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.kaggle.com/protan">Kaggle</a></p></li>
+<li><p>Сурняев Виталий Андреевич</p></li>
+<li><p>Шарло Алена Станиславовна</p></li>
+<li><p>Баженов Александр Павлович</p></li>
+<li><p>Карпов Антон Александрович, <a class="reference external" href="mailto:karpov&#46;kirov&#37;&#52;&#48;gmail&#46;com">e-mail</a>, <a class="reference external" href="https://www.linkedin.com/in/anthony-karpov-17837684/">LinkedIn</a></p></li>
+<li><p>Ляхов Игорь Геннадиевич <a class="reference external" href="https://www.linkedin.com/in/ilyakhov/">LinkedIn</a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/extra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="tutorials.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tutorials</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="resources.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Resources</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Yury Kashnitsky (yorko)<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
