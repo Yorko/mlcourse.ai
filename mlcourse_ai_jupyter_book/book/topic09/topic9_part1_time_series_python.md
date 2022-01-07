@@ -12,7 +12,7 @@ kernelspec:
 
 (topic09_part1)=
 
-# Topic 9. Time series analysis in Python
+# Time series analysis in Python
 
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 
@@ -181,6 +181,10 @@ from sklearn.metrics import (mean_absolute_error, mean_squared_error,
 
 def mean_absolute_percentage_error(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
+```
+
+```{note}
+You should be very careful with MAPE, MSLE and other metrics that are poorly defined around $y=0$. Formally, MAPE is not defined for any $y_i = 0$. In practice, these metric can "explode" even for small values of $y_i$ around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values $y_i = 0$ is indeed a workaround but a bad one: thus, we'd ignore those cases where the prediction is high ($\hat{y}_i \gg 1$) and the actual value is 0 ($y_i = 0$). More of this is [discussed](https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape) on CrossValidated.
 ```
 
 Now that we know how to measure the quality of the forecasts, let's see what metrics we can use and how to translate the results for the boss. After that, one small detail remains - building the model.
