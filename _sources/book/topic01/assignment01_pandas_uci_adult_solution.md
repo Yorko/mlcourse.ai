@@ -134,7 +134,7 @@ for (race, sex), sub_df in data.groupby(["race", "sex"]):
 
 ```{code-cell} ipython3
 # married men
-data[(data["sex"] == "Male") 
+data[(data["sex"] == "Male")
      & (data["marital-status"].str.startswith("Married"))][
     "salary"
 ].value_counts(normalize=True)

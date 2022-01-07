@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Topic 9. Time series analysis in Python &#8212; mlcourse.ai</title>
+    <title>Time series analysis in Python &#8212; mlcourse.ai</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -474,7 +474,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Topic 9. Time series analysis in Python
+   Time series analysis in Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -672,7 +672,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Topic 9. Time series analysis in Python
+   Time series analysis in Python
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -794,8 +794,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-9-time-series-analysis-in-python">
-<span id="topic09-part1"></span><h1>Topic 9. Time series analysis in Python<a class="headerlink" href="#topic-9-time-series-analysis-in-python" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="time-series-analysis-in-python">
+<span id="topic09-part1"></span><h1>Time series analysis in Python<a class="headerlink" href="#time-series-analysis-in-python" title="Permalink to this headline">¶</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://github.com/DmitrySerg">Dmitriy Sergeyev</a>, Data Scientist &#64; Zeptolab, lecturer in the Center of Mathematical Finance in MSU. Translated by: &#64;borowis. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
@@ -993,6 +993,10 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should be very careful with MAPE, MSLE and other metrics that are poorly defined around <span class="math notranslate nohighlight">\(y=0\)</span>. Formally, MAPE is not defined for any <span class="math notranslate nohighlight">\(y_i = 0\)</span>. In practice, these metric can “explode” even for small values of <span class="math notranslate nohighlight">\(y_i\)</span> around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values <span class="math notranslate nohighlight">\(y_i = 0\)</span> is indeed a workaround but a bad one: thus, we’d ignore those cases where the prediction is high (<span class="math notranslate nohighlight">\(\hat{y}_i \gg 1\)</span>) and the actual value is 0 (<span class="math notranslate nohighlight">\(y_i = 0\)</span>). More of this is <a class="reference external" href="https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape">discussed</a> on CrossValidated.</p>
 </div>
 <p>Now that we know how to measure the quality of the forecasts, let’s see what metrics we can use and how to translate the results for the boss. After that, one small detail remains - building the model.</p>
 </div>
