@@ -133,22 +133,19 @@ for (race, sex), sub_df in data.groupby(["race", "sex"]):
 
 
 ```{code-cell} ipython3
+# married men
+data[(data["sex"] == "Male")
+     & (data["marital-status"].str.startswith("Married"))][
+    "salary"
+].value_counts(normalize=True)
+```
+
+```{code-cell} ipython3
+# single men
 data[
     (data["sex"] == "Male")
-    & (data["marital-status"].isin(["Never-married", "Separated", "Divorced"]))
-]["salary"].value_counts()
-```
-
-
-```{code-cell} ipython3
-data[(data["sex"] == "Male") & (data["marital-status"].str.startswith("Married"))][
-    "salary"
-].value_counts()
-```
-
-
-```{code-cell} ipython3
-data["marital-status"].value_counts()
+    & ~(data["marital-status"].str.startswith("Married"))
+]["salary"].value_counts(normalize=True)
 ```
 
 It's good to be married :)
