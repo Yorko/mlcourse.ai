@@ -17,30 +17,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-with open(os.path.join(PATH_TO_WRITE_DATA, "20news_test_predictions.txt")) as pred_file:
-    test_prediction = [float(label) for label in pred_file.readlines()]
-
-auc = roc_auc_score(test_labels, test_prediction)
-roc_curve = roc_curve(test_labels, test_prediction)
-
-with plt.xkcd():
-    plt.plot(roc_curve[0], roc_curve[1])
-    plt.plot([0, 1], [0, 1])
-    plt.xlabel("FPR")
-    plt.ylabel("TPR")
-    plt.title("test AUC = %f" % (auc))
-    plt.axis([-0.05, 1.05, -0.05, 1.05]);
+with open(
+    os.path.join(PATH_TO_WRITE_DATA, "20news_test_predictions_mult.txt")
+) as pred_file:
+    test_prediction_mult = [float(label) for label in pred_file.readlines()]
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-31-44afe1fbc009>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mwith[0m [0mopen[0m[0;34m([0m[0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mPATH_TO_WRITE_DATA[0m[0;34m,[0m [0;34m"20news_test_predictions.txt"[0m[0;34m)[0m[0;34m)[0m [0;32mas[0m [0mpred_file[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m     [0mtest_prediction[0m [0;34m=[0m [0;34m[[0m[0mfloat[0m[0;34m([0m[0mlabel[0m[0;34m)[0m [0;32mfor[0m [0mlabel[0m [0;32min[0m [0mpred_file[0m[0;34m.[0m[0mreadlines[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[1;32m      4[0m [0mauc[0m [0;34m=[0m [0mroc_auc_score[0m[0;34m([0m[0mtest_labels[0m[0;34m,[0m [0mtest_prediction[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0mroc_curve[0m [0;34m=[0m [0mroc_curve[0m[0;34m([0m[0mtest_labels[0m[0;34m,[0m [0mtest_prediction[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-36-53571a4e3cf1>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m with open(
+[0m[1;32m      2[0m     [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mPATH_TO_WRITE_DATA[0m[0;34m,[0m [0;34m"20news_test_predictions_mult.txt"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m ) as pred_file:
+[1;32m      4[0m     [0mtest_prediction_mult[0m [0;34m=[0m [0;34m[[0m[0mfloat[0m[0;34m([0m[0mlabel[0m[0;34m)[0m [0;32mfor[0m [0mlabel[0m [0;32min[0m [0mpred_file[0m[0;34m.[0m[0mreadlines[0m[0;34m([0m[0;34m)[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions.txt'
-FileNotFoundError: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions.txt'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions_mult.txt'
+FileNotFoundError: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions_mult.txt'
 
