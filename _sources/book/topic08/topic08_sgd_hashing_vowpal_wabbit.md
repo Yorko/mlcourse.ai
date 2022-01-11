@@ -84,7 +84,7 @@ DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
 
 
 ```{code-cell} ipython3
-PATH_TO_WRITE_DATA = "../../tmp/"
+PATH_TO_WRITE_DATA = "../../../data/tmp/"
 data_demo = pd.read_csv(os.path.join(DATA_PATH, "weights_heights.csv"))
 ```
 
