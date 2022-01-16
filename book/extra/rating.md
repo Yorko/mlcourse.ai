@@ -559,7 +559,7 @@ According to the [final rating](https://drive.google.com/open?id=1NSdcHzMy_KoFx6
 1. Виктория Здановская, [GitHub](https://www.github.com/ladyyvii), [LinkedIn](https://www.linkedin.com/in/victoriazdanovskaya/), [e-mail](mailto:vik-zdanovskaya@yandex.ru)
 1. Ивахненко Дарья Александровна, [e-mail](mailto:das875@yandex.ru)
 1. Ефремова Дина Борисовна
-1. Толкачев Иван Павлович [email](mailto:i.tolkachev1994@gmail.com) [telegram](@vanerpool)
+1. Толкачев Иван Павлович [email](mailto:i.tolkachev1994@gmail.com)
 1. Круглов Артем Игоревич
 1. Зикрач Дмитрий Юрьевич
 1. Каменев Андрей Владимирович
@@ -616,7 +616,7 @@ According to the [final rating](https://drive.google.com/open?id=1thts1kTZev82aI
 1. Свиридов Александр Павлович
 1. Чертов Сергей Леонидович
 1. Кладов Станислав Александрович, [e-mail](mailto:stas@kladov.ru)
-1. Малахов Андрей Дмитриевич, [LinkedIn](www.linkedin.com/in/andrey-malakhov)
+1. Малахов Андрей Дмитриевич, [LinkedIn](https://www.linkedin.com/in/andrey-malakhov)
 1. Стройкова Ксения Александровна, [e-mail](mailto:k.a.stroykova@gmail.com), [GitHub](https://github.com/stroykova)
 1. Иткин Игорь Самуилович [e-mail](mailto:ig.itkin@gmail.com), [LinkedIn](https://www.linkedin.com/in/yehudaitkin/)
 1. Танеев Тимур Рустамович
