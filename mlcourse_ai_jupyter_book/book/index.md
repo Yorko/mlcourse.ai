@@ -20,7 +20,7 @@
 
 Here you see a [Jupyter book](https://jupyterbook.org/intro.html) -- an executable book containing markdown, code, images, graphs, etc. (we describe Jupyter books in more detail [later](./prereqs/software_devops.html#jupyter-book)). You can jump forward and backward with left- and rightarrows. Any page can be downloaded as `.md` (MarkDown) or PDF -- use the Download button in the upper-right corner. Additionally, each page containing code can be downloaded as `.ipynb` -- a [Jupyter Notebook](https://jupyter.org) (not to be confused with Jupyter book). For every page, you can see its source on GitHub, and you can also open an issue or suggest an edit -- use the GitHub button in the upper-right corner.
 
-OK, let's go! First, check [prerequisites](prereq_python), then you see 10 topics -- from exporatory data analysis with Pandas to gradient boosting. For each topic, there's an introductory part ([here's an example](topic01_intro) for Topic 1) that lists articles to read, lectures to watch and assignments to crack.
+OK, let's go! First, check [prerequisites](prereq_python), then you see 10 topics -- from exploratory data analysis with Pandas to gradient boosting. For each topic, there's an introductory part ([here's an example](topic01_intro) for Topic 1) that lists articles to read, lectures to watch and assignments to crack.
 
 ## Bonus assignments
 
