@@ -12,7 +12,7 @@ kernelspec:
 
 (assignment07)=
 
-# Assignment #7 (demo). Unupervised learning
+# Assignment #7 (demo). Unsupervised learning
 
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 

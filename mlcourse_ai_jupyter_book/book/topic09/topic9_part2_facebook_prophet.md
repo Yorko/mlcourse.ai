@@ -54,7 +54,7 @@ According to the [article](https://research.fb.com/prophet-forecasting-at-scale/
 
 The authors claim that, even with the default settings, in many cases, their library produces forecasts as accurate as those delivered by experienced analysts.
 
-Moreover, Prophet has a number of intuitive and easily interpretable customizations that allow gradually improving the quality of the forecasting model. What is especially important, these paramaters are quite comprehensible even for non-experts in time series analysis, which is a field of data science requiring certain skill and experience.
+Moreover, Prophet has a number of intuitive and easily interpretable customizations that allow gradually improving the quality of the forecasting model. What is especially important, these parameters are quite comprehensible even for non-experts in time series analysis, which is a field of data science requiring certain skill and experience.
 
 By the way, the original article is called "Forecasting at Scale", but it is not about the scale in the "usual" sense, that is addressing computational and infrastructure problems of a large number of working programs. According to the authors, Prophet should scale well in the following 3 areas:
 - Accessibility to a wide audience of analysts, possibly without profound expertise in time series.

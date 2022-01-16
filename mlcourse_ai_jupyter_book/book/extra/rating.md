@@ -216,7 +216,7 @@ According to the [final rating](https://drive.google.com/open?id=1LAy1eK8vIONzIW
 1. Aleksey Morozov, [LinkedIn](https://www.linkedin.com/in/ao-morozov/), [email](mailto:a_m0r0z0v@mail.ru)
 1. Ana-Maria Hristian, [LinkedIn](https://www.linkedin.com/in/ana-hristian), [email](mailto:parr.ana.maria@gmail.com), [GitHub](https://github.com/AnaHristian)
 1. Dmitrii Vasilev, [GitHub](https://github.com/dmitriykel/), [CV](https://resume.io/r/kOvC2rs9O), [email](mailto:dmitriykehl@gmail.com), [Telegram](https://t.me/dmitriykel)
-1. Vasily Suvorov, [emal](mailto:avalanche.v@gmail.com), [facebook](https://www.facebook.com/vasiliy.suvorov)
+1. Vasily Suvorov, [email](mailto:avalanche.v@gmail.com), [facebook](https://www.facebook.com/vasiliy.suvorov)
 1. Volodymyr Bakhur, [LinkedIn](https://www.linkedin.com/in/vbakhur/), [email](mailto:volodyabakhur@gmail.com)
 1. Ramis Imilbaev, [LinkedIn](https://www.linkedin.com/in/imilbaev), [email](mailto:fordsmail@ya.ru)
 1. Denis Finogenov, [GitHub](https://github.com/denisfin), [email](mailto:denis.finogenov.ml@gmail.com)

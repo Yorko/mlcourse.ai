@@ -65,7 +65,7 @@ This will install the required packages. For the rest, please refer to [Poetry d
 
 This part is pretty lengthy, so we moved it to a [separate next page](prereq_docker).
 
-_Note: Using Docker is optional, you can set up your environemnt with Poetry or Anaconda as well. It's hard to say which option is more challenging._
+_Note: Using Docker is optional, you can set up your environment with Poetry or Anaconda as well. It's hard to say which option is more challenging._
 
 ### Jupyter Notebooks
 
