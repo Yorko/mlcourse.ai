@@ -11,7 +11,7 @@ _Note: the following instruction was used in 2019 during live course session, it
 
 All necessary software is already installed and distributed in the form of a [Docker container](https://cloud.docker.com/u/festline/repository/docker/festline/mlcourse_ai). Instructions:
 
-#### Docker on Linux and macOS
+### Docker on Linux and macOS
  - install [Docker](https://docs.docker.com/engine/installation/)
  - add your user to the docker group: `sudo usermod -aG docker your_user_name`
  - install git using your OS package manager
@@ -21,7 +21,7 @@ All necessary software is already installed and distributed in the form of a [Do
  - aim your browser to `localhost:4545`. You should see files from the mlcourse.ai folder
  - To test your setup, click on `docker_files` directory, open `check_docker.ipynb` and  execute all cells to make sure all the libraries are installed and work fine.
 
-#### Docker on Windows
+### Docker on Windows
 
 If you meet the following requirements, install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
@@ -40,7 +40,7 @@ You can still use [Docker Toolbox](https://docs.docker.com/toolbox/overview) whi
 - Change to mlcourse.ai directory: `cd mlcourse.ai` and run `run_docker_jupyter_windows.cmd`. Take a note on the local address the notebook reports, and aim your browser to this address. In the case of Windows 10 and Hyper-V, it should just be `http://localhost:4545`. In the case of Docker Toolbox, it's different. We implemented the autostart of your default browser with the correct address, but beware, that it may not work in Internet Explorer or Edge (for unknown reason). Use Firefox or Chrome then.
 - In the browser, you should see the directory tree from your mlcourse.ai folder. Click on `docker_files`, open `check_docker.ipynb` and execute all cells to make sure all the libraries are installed and work fine.
 
-#### Docker tips
+### Docker tips
 - Typically, Docker containers need a lot of disk space. The official mlcourse image requires some 6Gb of space.
 - use `docker pull` to get new files from the repo to your locally downloaded repo.
 - when you work with an assignment notebook, duplicate it first, and work with the duplicate. This way it's easier to pull changes to the repo since there will be no conflicts on the file level. If you'd like to work on a lecture notebook, do the same.

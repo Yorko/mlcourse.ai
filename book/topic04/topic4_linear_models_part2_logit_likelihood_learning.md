@@ -71,7 +71,7 @@ To predict the probability $p_+ \in [0,1]$, we can start by constructing a linea
 :width: 480px
 ```
 
-Let's denote the probability of an event $X$ as $P(X)$. Then the odds ratio $OR(X)$ is determined by $\frac{P(X)}{1-P(X)}$, which is the ratio of the probabilities of whether or not an event will happen. It is obvious that the probability and odds ratio contain the same information, but, while $P(X)$ ranges from 0 to 1, $OR(X)$ is in the range of 0 to $\infty$.
+Let's denote the probability of an event $X$ as $P(X)$. Then the odds  $OR(X)$ are determined by $\frac{P(X)}{1-P(X)}$, which is the ratio of the probabilities of whether or not an event will happen. It is obvious that the probability and odds contain the same information, but, while $P(X)$ ranges from 0 to 1, $OR(X)$ is in the range of 0 to $\infty$.
 
 If we calculate the logarithm of $OR(X)$ (a logarithm of odds or log probability ratio), it is easy to notice that $\log{OR(X)} \in \mathbb{R}$. This is what we will use with OLS.
 
@@ -79,7 +79,7 @@ Let's see how logistic regression will make a prediction $p_+ = P\left(y_i = 1 \
 
 **Step 1.** Calculate $w_{0}+w_{1}x_1 + w_{2}x_2 + ... = \textbf{w}^\text{T}\textbf{x}$. (Equation $\textbf{w}^\text{T}\textbf{x} = 0$ defines a hyperplane separating the examples into two classes);
 
-**Step 2.** Compute the log odds ratio: $ \log(OR_{+}) = \textbf{w}^\text{T}\textbf{x}$.
+**Step 2.** Compute the log odds: $ \log(OR_{+}) = \textbf{w}^\text{T}\textbf{x}$.
 
 **Step 3.** Now that we have the chance of assigning an example to the class of "+" - $OR_{+}$, calculate $p_{+}$ using the simple relationship:
 
