@@ -11,7 +11,7 @@
 
 </div>
 
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Check out a thorough [Roadmap](roadmap) guiding you through the self-paced mlcourse.ai. The Russian version of the course is resurrected and will be led by [Petr Ermakov](https://www.linkedin.com/in/ermakovpetr/). If you speak Russian, please refer to [this Open ML course](https://ods.ai/tracks/open-ml-course) launching on Feb 1st, 2022.
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, the course meets you with math formulae in lectures, and a lot of practice in a form of assignments and  Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
 
 __Bonus:__
 Additionally, you can purchase a Bonus Assignments pack with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse). Refer to the details of the deal on the main page [mlcourse.ai](https://mlcourse.ai/).
@@ -69,12 +69,6 @@ The following are demo-assignments. Additionally, within the ["Bonus Assignments
 
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
 2. DotA 2 winner prediction. [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
-
-### Russian version of the course
-
-The course originated in [OpenDataScience](https://ods.ai/), at that time in 2017 (well, and still), mostly Russian-speaking community. Hence the first couple of sessions were held in Russian. Then, later, the course launched in English and resulted in what you see here and on [mlcourse.ai](https://mlcourse.ai).
-
-The Russian version of the course is resurrected and is led by [Petr Ermakov](https://www.linkedin.com/in/ermakovpetr/). If you speak Russian, please refer to [this Open ML course](https://ods.ai/tracks/open-ml-course) launching on **Feb 1st, 2022.**
 
 ### Citing mlcourse.ai
 
