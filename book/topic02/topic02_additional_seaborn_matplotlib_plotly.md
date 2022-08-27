@@ -225,8 +225,24 @@ Before we start, let’s import all the necessary modules and initialize `plotly
 import plotly
 import plotly.graph_objs as go
 from plotly.offline import download_plotlyjs, init_notebook_mode, iplot, plot
+from IPython.display import display, IFrame
 
 init_notebook_mode(connected=True)
+
+def plotly_depict_figure_as_iframe(fig, title="", width=800, height=500, 
+  plot_path='../../_static/plotly_htmls/'):
+  """
+  This is a helper method to visualizae PLotly plots as Iframes in a Jupyter book.
+  If you are running `jupyter-notebook`, you can just use iplot(fig).
+  """
+  
+  # in a Jupyter Notebook, the following should work
+  #iplot(fig, show_link=False)
+  
+  # in a Jupyter Book, we save a plot offline and then render it with IFrame
+  fig_path_path = f"{plot_path}/{title}.html"
+  plot(fig, filename=fig_path_path, show_link=False, auto_open=False);
+  display(IFrame(fig_path_path, width=width, height=height))
 ```
 
 ### Line plot
@@ -265,7 +281,12 @@ layout = {"title": "Statistics for video games"}
 
 # Create a Figure and plot it
 fig = go.Figure(data=data, layout=layout)
-iplot(fig, show_link=False)
+
+# in a Jupyter Notebook, the following should work
+#iplot(fig, show_link=False)
+
+# in a Jupyter Book, we save a plot offline and then render it with IFrame
+plotly_depict_figure_as_iframe(fig, title="topic2_part2_plot1")
 ```
 
 As an option, you can save the plot in an html file:
@@ -311,7 +332,11 @@ layout = {"title": "Market share by gaming platform"}
 
 # Create a `Figure` and plot it
 fig = go.Figure(data=data, layout=layout)
-iplot(fig, show_link=False)
+# in a Jupyter Notebook, the following should work
+#iplot(fig, show_link=False)
+
+# in a Jupyter Book, we save a plot offline and then render it with IFrame
+plotly_depict_figure_as_iframe(fig, title="topic2_part2_plot2")
 ```
 
 ### Box plot
@@ -327,7 +352,11 @@ for genre in df.Genre.unique():
     data.append(go.Box(y=df[df.Genre == genre].Critic_Score, name=genre))
 
 # Visualize
-iplot(data, show_link=False)
+# in a Jupyter Notebook, the following should work
+#iplot(data, show_link=False)
+
+# in a Jupyter Book, we save a plot offline and then render it with IFrame
+plotly_depict_figure_as_iframe(data, title="topic2_part2_plot3")
 ```
 
 Using `plotly`, you can also create other types of visualization. Even with default settings, the plots look quite nice. Additionally, the library makes it easy to modify various parameters: colors, fonts, captions, annotations, and so on.
