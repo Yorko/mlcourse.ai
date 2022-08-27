@@ -1,94 +1,80 @@
 Traceback (most recent call last):
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
     return future.result()
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/Users/kashnitskiyy/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-FILE_URL = "https://drive.google.com/uc?id=1G3YjM6mR32iPnQ6O3f6rE9BVbhiTiLyU"
-FILE_NAME = "medium_posts.csv"
-DATA_PATH = Path("../../../data/large_files")
-
-download_file_from_gdrive(file_url=FILE_URL, filename= FILE_NAME, out_path=DATA_PATH)
-
-df = pd.read_csv(DATA_PATH / FILE_NAME,  sep="\t")
+plotly_df(daily_df, title="Posts on Medium (daily)")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-3-0ec16b658deb>[0m in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [0mdownload_file_from_gdrive[0m[0;34m([0m[0mfile_url[0m[0;34m=[0m[0mFILE_URL[0m[0;34m,[0m [0mfilename[0m[0;34m=[0m [0mFILE_NAME[0m[0;34m,[0m [0mout_path[0m[0;34m=[0m[0mDATA_PATH[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;34m[0m[0m
-[0;32m----> 7[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mDATA_PATH[0m [0;34m/[0m [0mFILE_NAME[0m[0;34m,[0m  [0msep[0m[0;34m=[0m[0;34m"\t"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
-[1;32m    309[0m                     [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    310[0m                 )
-[0;32m--> 311[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    312[0m [0;34m[0m[0m
-[1;32m    313[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+Input [0;32mIn [14][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m [43mplotly_df[49m[43m([49m[43mdaily_df[49m[43m,[49m[43m [49m[43mtitle[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mPosts on Medium (daily)[39;49m[38;5;124;43m"[39;49m[43m)[49m
 
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py[0m in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)[0m
-[1;32m    584[0m     [0mkwds[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mkwds_defaults[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    585[0m [0;34m[0m[0m
-[0;32m--> 586[0;31m     [0;32mreturn[0m [0m_read[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    587[0m [0;34m[0m[0m
-[1;32m    588[0m [0;34m[0m[0m
+Input [0;32mIn [13][0m, in [0;36mplotly_df[0;34m(df, title, width, height)[0m
+[1;32m      8[0m [38;5;66;03m# in a Jupyter Notebook, the following should work[39;00m
+[1;32m      9[0m [38;5;66;03m#iplot(fig, show_link=False)[39;00m
+[1;32m     10[0m 
+[1;32m     11[0m [38;5;66;03m# in a Jupyter Book, we save a plot offline and then render it with IFrame[39;00m
+[1;32m     12[0m plot_path [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;124m../../_static/plotly_htmls/[39m[38;5;132;01m{[39;00mtitle[38;5;132;01m}[39;00m[38;5;124m.html[39m[38;5;124m"[39m[38;5;241m.[39mreplace([38;5;124m"[39m[38;5;124m [39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124m_[39m[38;5;124m"[39m)
+[0;32m---> 13[0m [43mplot[49m[43m([49m[43mfig[49m[43m,[49m[43m [49m[43mfilename[49m[38;5;241;43m=[39;49m[43mplot_path[49m[43m,[49m[43m [49m[43mshow_link[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m[43m [49m[43mauto_open[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m;
+[1;32m     14[0m display(IFrame(plot_path, width[38;5;241m=[39mwidth, height[38;5;241m=[39mheight))
 
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py[0m in [0;36m_read[0;34m(filepath_or_buffer, kwds)[0m
-[1;32m    480[0m [0;34m[0m[0m
-[1;32m    481[0m     [0;31m# Create the parser.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 482[0;31m     [0mparser[0m [0;34m=[0m [0mTextFileReader[0m[0;34m([0m[0mfilepath_or_buffer[0m[0;34m,[0m [0;34m**[0m[0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    483[0m [0;34m[0m[0m
-[1;32m    484[0m     [0;32mif[0m [0mchunksize[0m [0;32mor[0m [0miterator[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/plotly/offline/offline.py:586[0m, in [0;36mplot[0;34m(figure_or_data, show_link, link_text, validate, output_type, include_plotlyjs, filename, auto_open, image, image_filename, image_width, image_height, config, include_mathjax, auto_play, animation_opts)[0m
+[1;32m    581[0m post_script [38;5;241m=[39m build_save_image_post_script(
+[1;32m    582[0m     image, image_filename, image_height, image_width, [38;5;124m"[39m[38;5;124mplot[39m[38;5;124m"[39m
+[1;32m    583[0m )
+[1;32m    585[0m [38;5;28;01mif[39;00m output_type [38;5;241m==[39m [38;5;124m"[39m[38;5;124mfile[39m[38;5;124m"[39m:
+[0;32m--> 586[0m     [43mpio[49m[38;5;241;43m.[39;49m[43mwrite_html[49m[43m([49m
+[1;32m    587[0m [43m        [49m[43mfigure[49m[43m,[49m
+[1;32m    588[0m [43m        [49m[43mfilename[49m[43m,[49m
+[1;32m    589[0m [43m        [49m[43mconfig[49m[38;5;241;43m=[39;49m[43mconfig[49m[43m,[49m
+[1;32m    590[0m [43m        [49m[43mauto_play[49m[38;5;241;43m=[39;49m[43mauto_play[49m[43m,[49m
+[1;32m    591[0m [43m        [49m[43minclude_plotlyjs[49m[38;5;241;43m=[39;49m[43minclude_plotlyjs[49m[43m,[49m
+[1;32m    592[0m [43m        [49m[43minclude_mathjax[49m[38;5;241;43m=[39;49m[43minclude_mathjax[49m[43m,[49m
+[1;32m    593[0m [43m        [49m[43mpost_script[49m[38;5;241;43m=[39;49m[43mpost_script[49m[43m,[49m
+[1;32m    594[0m [43m        [49m[43mfull_html[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m    595[0m [43m        [49m[43mvalidate[49m[38;5;241;43m=[39;49m[43mvalidate[49m[43m,[49m
+[1;32m    596[0m [43m        [49m[43manimation_opts[49m[38;5;241;43m=[39;49m[43manimation_opts[49m[43m,[49m
+[1;32m    597[0m [43m        [49m[43mauto_open[49m[38;5;241;43m=[39;49m[43mauto_open[49m[43m,[49m
+[1;32m    598[0m [43m    [49m[43m)[49m
+[1;32m    599[0m     [38;5;28;01mreturn[39;00m filename
+[1;32m    600[0m [38;5;28;01melse[39;00m:
 
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py[0m in [0;36m__init__[0;34m(self, f, engine, **kwds)[0m
-[1;32m    809[0m             [0mself[0m[0;34m.[0m[0moptions[0m[0;34m[[0m[0;34m"has_index_names"[0m[0;34m][0m [0;34m=[0m [0mkwds[0m[0;34m[[0m[0;34m"has_index_names"[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m    810[0m [0;34m[0m[0m
-[0;32m--> 811[0;31m         [0mself[0m[0;34m.[0m[0m_engine[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_make_engine[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mengine[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    812[0m [0;34m[0m[0m
-[1;32m    813[0m     [0;32mdef[0m [0mclose[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/plotly/io/_html.py:536[0m, in [0;36mwrite_html[0;34m(fig, file, config, auto_play, include_plotlyjs, include_mathjax, post_script, full_html, animation_opts, validate, default_width, default_height, auto_open, div_id)[0m
+[1;32m    534[0m [38;5;66;03m# Write HTML string[39;00m
+[1;32m    535[0m [38;5;28;01mif[39;00m path [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 536[0m     [43mpath[49m[38;5;241;43m.[39;49m[43mwrite_text[49m[43m([49m[43mhtml_str[49m[43m)[49m
+[1;32m    537[0m [38;5;28;01melse[39;00m:
+[1;32m    538[0m     file[38;5;241m.[39mwrite(html_str)
 
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/readers.py[0m in [0;36m_make_engine[0;34m(self, engine)[0m
-[1;32m   1038[0m             )
-[1;32m   1039[0m         [0;31m# error: Too many arguments for "ParserBase"[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1040[0;31m         [0;32mreturn[0m [0mmapping[0m[0;34m[[0m[0mengine[0m[0;34m][0m[0;34m([0m[0mself[0m[0;34m.[0m[0mf[0m[0;34m,[0m [0;34m**[0m[0mself[0m[0;34m.[0m[0moptions[0m[0;34m)[0m  [0;31m# type: ignore[call-arg][0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1041[0m [0;34m[0m[0m
-[1;32m   1042[0m     [0;32mdef[0m [0m_failover_to_python[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/pathlib.py:1152[0m, in [0;36mPath.write_text[0;34m(self, data, encoding, errors, newline)[0m
+[1;32m   1149[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m'[39m[38;5;124mdata must be str, not [39m[38;5;132;01m%s[39;00m[38;5;124m'[39m [38;5;241m%[39m
+[1;32m   1150[0m                     data[38;5;241m.[39m[38;5;18m__class__[39m[38;5;241m.[39m[38;5;18m__name__[39m)
+[1;32m   1151[0m encoding [38;5;241m=[39m io[38;5;241m.[39mtext_encoding(encoding)
+[0;32m-> 1152[0m [38;5;28;01mwith[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mw[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m[43m [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m[43m [49m[43mnewline[49m[38;5;241;43m=[39;49m[43mnewline[49m[43m)[49m [38;5;28;01mas[39;00m f:
+[1;32m   1153[0m     [38;5;28;01mreturn[39;00m f[38;5;241m.[39mwrite(data)
 
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/c_parser_wrapper.py[0m in [0;36m__init__[0;34m(self, src, **kwds)[0m
-[1;32m     49[0m [0;34m[0m[0m
-[1;32m     50[0m         [0;31m# open handles[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 51[0;31m         [0mself[0m[0;34m.[0m[0m_open_handles[0m[0;34m([0m[0msrc[0m[0;34m,[0m [0mkwds[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     52[0m         [0;32massert[0m [0mself[0m[0;34m.[0m[0mhandles[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     53[0m [0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/pathlib.py:1117[0m, in [0;36mPath.open[0;34m(self, mode, buffering, encoding, errors, newline)[0m
+[1;32m   1115[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
+[1;32m   1116[0m     encoding [38;5;241m=[39m io[38;5;241m.[39mtext_encoding(encoding)
+[0;32m-> 1117[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_accessor[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[43mbuffering[49m[43m,[49m[43m [49m[43mencoding[49m[43m,[49m[43m [49m[43merrors[49m[43m,[49m
+[1;32m   1118[0m [43m                           [49m[43mnewline[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers/base_parser.py[0m in [0;36m_open_handles[0;34m(self, src, kwds)[0m
-[1;32m    220[0m         [0mLet[0m [0mthe[0m [0mreaders[0m [0mopen[0m [0mIOHandles[0m [0mafter[0m [0mthey[0m [0mare[0m [0mdone[0m [0;32mwith[0m [0mtheir[0m [0mpotential[0m [0mraises[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    221[0m         """
-[0;32m--> 222[0;31m         self.handles = get_handle(
-[0m[1;32m    223[0m             [0msrc[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    224[0m             [0;34m"r"[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/common.py[0m in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
-[1;32m    700[0m         [0;32mif[0m [0mioargs[0m[0;34m.[0m[0mencoding[0m [0;32mand[0m [0;34m"b"[0m [0;32mnot[0m [0;32min[0m [0mioargs[0m[0;34m.[0m[0mmode[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    701[0m             [0;31m# Encoding[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 702[0;31m             handle = open(
-[0m[1;32m    703[0m                 [0mhandle[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    704[0m                 [0mioargs[0m[0;34m.[0m[0mmode[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../data/large_files/medium_posts.csv'
-FileNotFoundError: [Errno 2] No such file or directory: '../../../data/large_files/medium_posts.csv'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../_static/plotly_htmls/Posts_on_Medium_(daily).html'
+FileNotFoundError: [Errno 2] No such file or directory: '../../_static/plotly_htmls/Posts_on_Medium_(daily).html'
 

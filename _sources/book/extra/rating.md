@@ -328,7 +328,7 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Alexey Vinogradov, [LinkedIn](https://www.linkedin.com/in/aleksey-vinogradov-02846625/), [email](mailto:tenchi1988@gmail.com)
 1. Andrei Rem, [GitHub](http://github.com/andreirem), [LinkedIn](https://www.linkedin.com/in/andrei-rem), [email](mailto:andrei.rem.ds@gmail.com)
 1. Svetlana Sudarkova, [GitHub](https://github.com/sudarkova), [LinkedIn](https://www.linkedin.com/in/sudarkova), [email](mailto:sudarkova.sveta@gmail.com)
-1. Aleksandr Korotkov, [LinkedIn](https://www.linkedin.com/in/alexandr-korotkov/), [email](mailto:krotix@gmail.com)
+1. Aleksandr Korotkov, [LinkedIn](https://www.linkedin.com/in/krotix/), [email](mailto:krotix@gmail.com)
 1. Haowen Jiang, [GitHub](https://github.com/Jianghaowen/), [LinkedIn](https://www.linkedin.com/in/jiang-haowen-618970158/), [email](mailto:j534878350@gmail.com)
 1. Ackerley Tng, [GitHub](https://github.com/ackerleytng/), [LinkedIn](https://www.linkedin.com/in/ackerleytng/), [email](mailto:ackerleytng@gmail.com)
 1. Aleksandr Kuptsov, [GitHub](https://github.com/Kommunarus), [LinkedIn](http://www.linkedin.com/in/Kuptsov-Aleksandr), [email](mailto:kooptsov@gmail.com)

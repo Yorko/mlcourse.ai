@@ -7,7 +7,7 @@
 
 
 
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, you go through math formulae in lectures, and practice with Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, the course meets you with math formulae in lectures, and a lot of practice in a form of assignments and  Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
 
 In the following [short video](https://youtu.be/CPlYV_DryEo) we discuss how to best approach the course material:
 
@@ -69,11 +69,3 @@ If you scroll down here on the left, you see the "About the course" section with
  - One of the motivating features of the the past mlcourse.ai sessions was the leaderboard. Top 100 participants of each session are listed on the [Rating](rating) page;
  - The [Resources](resources) page lists other resources constituting the course, e.g. YouTube playlists or Medium/Habr.com articles written in the past;
  - Authors and some of the mlcourse.ai contributors (there were too many to list all of them) are listed on the [Contributors](contributors) page. Acknowledgements are there as well.
-
-<!-- - Lastly, the [Support](support) page -->
-
-## Russian version of the course
-
-The course originated in [OpenDataScience](https://ods.ai/), at that time in 2017 (well, and still), mostly Russian-speaking community. Hence the first couple of sessions were held in Russian. Then, later, the course launched in English and resulted in what you see here.
-
-The Russian version of the course is resurrected and will be led by [Petr Ermakov](https://www.linkedin.com/in/ermakovpetr/). If you speak Russian, please refer to [this Open ML course](https://ods.ai/tracks/open-ml-course) launching on **Feb 1st, 2022.**

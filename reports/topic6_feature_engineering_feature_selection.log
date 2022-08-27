@@ -1,19 +1,19 @@
 Traceback (most recent call last):
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/nbclient/client.py", line 1093, in execute
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
     return future.result()
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/nbclient/client.py", line 559, in async_execute
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/nbclient/client.py", line 854, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/Users/kashnitskiyy/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -29,60 +29,63 @@ df = pd.read_json(DATA_PATH / FILE_NAME, compression="gzip",
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/var/folders/xs/x4nxtnxd4qq06sg5z0x951q1q7mkqq/T/ipykernel_92543/2322945868.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      5[0m [0mdownload_file_from_gdrive[0m[0;34m([0m[0mfile_url[0m[0;34m=[0m[0mFILE_URL[0m[0;34m,[0m [0mfilename[0m[0;34m=[0m [0mFILE_NAME[0m[0;34m,[0m [0mout_path[0m[0;34m=[0m[0mDATA_PATH[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;34m[0m[0m
-[0;32m----> 7[0;31m df = pd.read_json(DATA_PATH / FILE_NAME, compression="gzip",
-[0m[1;32m      8[0m                   convert_dates=['created'])
+Input [0;32mIn [2][0m, in [0;36m<cell line: 7>[0;34m()[0m
+[1;32m      3[0m DATA_PATH [38;5;241m=[39m Path([38;5;124m"[39m[38;5;124m../../_static/data/[39m[38;5;124m"[39m)
+[1;32m      5[0m download_file_from_gdrive(file_url[38;5;241m=[39mFILE_URL, filename[38;5;241m=[39m FILE_NAME, out_path[38;5;241m=[39mDATA_PATH)
+[0;32m----> 7[0m df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_json[49m[43m([49m[43mDATA_PATH[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[43mFILE_NAME[49m[43m,[49m[43m [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mgzip[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m      8[0m [43m                  [49m[43mconvert_dates[49m[38;5;241;43m=[39;49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mcreated[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
-[1;32m    205[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    206[0m                     [0mkwargs[0m[0;34m[[0m[0mnew_arg_name[0m[0;34m][0m [0;34m=[0m [0mnew_arg_value[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 207[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    208[0m [0;34m[0m[0m
-[1;32m    209[0m         [0;32mreturn[0m [0mcast[0m[0;34m([0m[0mF[0m[0;34m,[0m [0mwrapper[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/util/_decorators.py:207[0m, in [0;36mdeprecate_kwarg.<locals>._deprecate_kwarg.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    205[0m     [38;5;28;01melse[39;00m:
+[1;32m    206[0m         kwargs[new_arg_name] [38;5;241m=[39m new_arg_value
+[0;32m--> 207[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
-[1;32m    309[0m                     [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    310[0m                 )
-[0;32m--> 311[0;31m             [0;32mreturn[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    312[0m [0;34m[0m[0m
-[1;32m    313[0m         [0;32mreturn[0m [0mwrapper[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/util/_decorators.py:311[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    305[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    306[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    307[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39marguments),
+[1;32m    308[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    309[0m         stacklevel[38;5;241m=[39mstacklevel,
+[1;32m    310[0m     )
+[0;32m--> 311[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/io/json/_json.py[0m in [0;36mread_json[0;34m(path_or_buf, orient, typ, dtype, convert_axes, convert_dates, keep_default_dates, numpy, precise_float, date_unit, encoding, encoding_errors, lines, chunksize, compression, nrows, storage_options)[0m
-[1;32m    612[0m [0;34m[0m[0m
-[1;32m    613[0m     [0;32mwith[0m [0mjson_reader[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 614[0;31m         [0;32mreturn[0m [0mjson_reader[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    615[0m [0;34m[0m[0m
-[1;32m    616[0m [0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/io/json/_json.py:614[0m, in [0;36mread_json[0;34m(path_or_buf, orient, typ, dtype, convert_axes, convert_dates, keep_default_dates, numpy, precise_float, date_unit, encoding, encoding_errors, lines, chunksize, compression, nrows, storage_options)[0m
+[1;32m    611[0m     [38;5;28;01mreturn[39;00m json_reader
+[1;32m    613[0m [38;5;28;01mwith[39;00m json_reader:
+[0;32m--> 614[0m     [38;5;28;01mreturn[39;00m [43mjson_reader[49m[38;5;241;43m.[39;49m[43mread[49m[43m([49m[43m)[49m
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/io/json/_json.py[0m in [0;36mread[0;34m(self)[0m
-[1;32m    746[0m                 [0mobj[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_object_parser[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_combine_lines[0m[0;34m([0m[0mdata_lines[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    747[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 748[0;31m             [0mobj[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_object_parser[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mdata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    749[0m         [0mself[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    750[0m         [0;32mreturn[0m [0mobj[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/io/json/_json.py:748[0m, in [0;36mJsonReader.read[0;34m(self)[0m
+[1;32m    746[0m         obj [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_get_object_parser([38;5;28mself[39m[38;5;241m.[39m_combine_lines(data_lines))
+[1;32m    747[0m [38;5;28;01melse[39;00m:
+[0;32m--> 748[0m     obj [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_object_parser[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdata[49m[43m)[49m
+[1;32m    749[0m [38;5;28mself[39m[38;5;241m.[39mclose()
+[1;32m    750[0m [38;5;28;01mreturn[39;00m obj
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/io/json/_json.py[0m in [0;36m_get_object_parser[0;34m(self, json)[0m
-[1;32m    768[0m         [0mobj[0m [0;34m=[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    769[0m         [0;32mif[0m [0mtyp[0m [0;34m==[0m [0;34m"frame"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 770[0;31m             [0mobj[0m [0;34m=[0m [0mFrameParser[0m[0;34m([0m[0mjson[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m.[0m[0mparse[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    771[0m [0;34m[0m[0m
-[1;32m    772[0m         [0;32mif[0m [0mtyp[0m [0;34m==[0m [0;34m"series"[0m [0;32mor[0m [0mobj[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/io/json/_json.py:770[0m, in [0;36mJsonReader._get_object_parser[0;34m(self, json)[0m
+[1;32m    768[0m obj [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    769[0m [38;5;28;01mif[39;00m typ [38;5;241m==[39m [38;5;124m"[39m[38;5;124mframe[39m[38;5;124m"[39m:
+[0;32m--> 770[0m     obj [38;5;241m=[39m [43mFrameParser[49m[43m([49m[43mjson[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m[38;5;241;43m.[39;49m[43mparse[49m[43m([49m[43m)[49m
+[1;32m    772[0m [38;5;28;01mif[39;00m typ [38;5;241m==[39m [38;5;124m"[39m[38;5;124mseries[39m[38;5;124m"[39m [38;5;129;01mor[39;00m obj [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    773[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(dtype, [38;5;28mbool[39m):
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/io/json/_json.py[0m in [0;36mparse[0;34m(self)[0m
-[1;32m    883[0m [0;34m[0m[0m
-[1;32m    884[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 885[0;31m             [0mself[0m[0;34m.[0m[0m_parse_no_numpy[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m    886[0m [0;34m[0m[0m
-[1;32m    887[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mobj[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/io/json/_json.py:885[0m, in [0;36mParser.parse[0;34m(self)[0m
+[1;32m    882[0m     [38;5;28mself[39m[38;5;241m.[39m_parse_numpy()
+[1;32m    884[0m [38;5;28;01melse[39;00m:
+[0;32m--> 885[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_parse_no_numpy[49m[43m([49m[43m)[49m
+[1;32m    887[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mobj [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    888[0m     [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
 
-[0;32m~/opt/anaconda3/envs/mlcourse/lib/python3.8/site-packages/pandas/io/json/_json.py[0m in [0;36m_parse_no_numpy[0;34m(self)[0m
-[1;32m   1138[0m         [0;32mif[0m [0morient[0m [0;34m==[0m [0;34m"columns"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1139[0m             self.obj = DataFrame(
-[0;32m-> 1140[0;31m                 [0mloads[0m[0;34m([0m[0mjson[0m[0;34m,[0m [0mprecise_float[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mprecise_float[0m[0;34m)[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0;32mNone[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1141[0m             )
-[1;32m   1142[0m         [0;32melif[0m [0morient[0m [0;34m==[0m [0;34m"split"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+File [0;32m/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pandas/io/json/_json.py:1140[0m, in [0;36mFrameParser._parse_no_numpy[0;34m(self)[0m
+[1;32m   1136[0m orient [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39morient
+[1;32m   1138[0m [38;5;28;01mif[39;00m orient [38;5;241m==[39m [38;5;124m"[39m[38;5;124mcolumns[39m[38;5;124m"[39m:
+[1;32m   1139[0m     [38;5;28mself[39m[38;5;241m.[39mobj [38;5;241m=[39m DataFrame(
+[0;32m-> 1140[0m         [43mloads[49m[43m([49m[43mjson[49m[43m,[49m[43m [49m[43mprecise_float[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mprecise_float[49m[43m)[49m, dtype[38;5;241m=[39m[38;5;28;01mNone[39;00m
+[1;32m   1141[0m     )
+[1;32m   1142[0m [38;5;28;01melif[39;00m orient [38;5;241m==[39m [38;5;124m"[39m[38;5;124msplit[39m[38;5;124m"[39m:
+[1;32m   1143[0m     decoded [38;5;241m=[39m {
+[1;32m   1144[0m         [38;5;28mstr[39m(k): v
+[1;32m   1145[0m         [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m loads(json, precise_float[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mprecise_float)[38;5;241m.[39mitems()
+[1;32m   1146[0m     }
 
 [0;31mValueError[0m: Expected object or value
 ValueError: Expected object or value

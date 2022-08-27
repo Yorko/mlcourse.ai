@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -697,7 +695,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Fill the code where needed (“Your code is here”) and answer the questions in the <a class="reference external" href="https://docs.google.com/forms/d/1wBf5UoRndv6PpzIwYnM9f0ysoGa4Yqcqle-HBlBP5QQ/edit">web form</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -707,7 +705,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm_notebook</span>
 
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">([</span><span class="s2">&quot;seaborn-darkgrid&quot;</span><span class="p">])</span>
@@ -728,7 +726,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="c1"># check if existed already</span>
     <span class="n">filepath</span> <span class="o">=</span> <span class="n">extract_path</span> <span class="o">/</span> <span class="n">filename</span>
     <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
@@ -750,7 +748,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FILE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip&quot;</span>
 <span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;UCI HAR Dataset.zip&quot;</span>
 <span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../../data/large_files&quot;</span><span class="p">)</span>
 
@@ -760,15 +758,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading the dataset from:   https://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;train&quot;</span> <span class="o">/</span> <span class="s2">&quot;X_train.txt&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;train&quot;</span> <span class="o">/</span> <span class="s2">&quot;X_train.txt&quot;</span><span class="p">)</span>
 <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;train&quot;</span> <span class="o">/</span> <span class="s2">&quot;y_train.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">PATH_TO_SAMSUNG_DATA</span> <span class="o">/</span> <span class="s2">&quot;test&quot;</span> <span class="o">/</span> <span class="s2">&quot;X_test.txt&quot;</span><span class="p">)</span>
@@ -779,7 +772,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checking dimensions</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Checking dimensions</span>
 <span class="k">assert</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">7352</span><span class="p">,</span> <span class="mi">561</span><span class="p">)</span> <span class="ow">and</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">7352</span><span class="p">,)</span>
 <span class="k">assert</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2947</span><span class="p">,</span> <span class="mi">561</span><span class="p">)</span> <span class="ow">and</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2947</span><span class="p">,)</span>
 </pre></div>
@@ -789,7 +782,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>For clustering, we do not need a target vector, so we’ll work with the combination of training and test samples. Merge <code class="docutils literal notranslate"><span class="pre">X_train</span></code> with <code class="docutils literal notranslate"><span class="pre">X_test</span></code>, and <code class="docutils literal notranslate"><span class="pre">y_train</span></code> with <code class="docutils literal notranslate"><span class="pre">y_test</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>
@@ -797,14 +790,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Define the number of unique values of the labels of the target class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.unique(y)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.unique(y)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_classes = np.unique(y).size</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_classes = np.unique(y).size</span>
 </pre></div>
 </div>
 </div>
@@ -821,7 +814,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Scale the sample using <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> with default parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>
@@ -829,7 +822,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Reduce the number of dimensions using PCA, leaving as many components as necessary to explain at least 90% of the variance of the original (scaled) data. Use the scaled dataset and fix <code class="docutils literal notranslate"><span class="pre">random_state</span></code> (RANDOM_STATE constant).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 <span class="c1"># pca =</span>
 <span class="c1"># X_pca =</span>
 </pre></div>
@@ -840,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
 What is the minimum number of principal components required to cover the 90% of the variance of the original (scaled) data?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>
@@ -863,7 +856,7 @@ What percentage of the variance is covered by the first principal component? Rou
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>
@@ -871,7 +864,7 @@ What percentage of the variance is covered by the first principal component? Rou
 <p>Visualize data in projection on the first two principal components.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 <span class="c1"># plt.scatter(, , c=y, s=20, cmap=&#39;viridis&#39;);</span>
 </pre></div>
 </div>
@@ -897,7 +890,7 @@ If everything worked out correctly, you will see a number of clusters, almost pe
 <p>Other parameters should have default values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>
@@ -905,7 +898,7 @@ If everything worked out correctly, you will see a number of clusters, almost pe
 <p>Visualize data in projection on the first two principal components. Color the dots according to the clusters obtained.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 <span class="c1"># plt.scatter(, , c=cluster_labels, s=20, cmap=&#39;viridis&#39;);</span>
 </pre></div>
 </div>
@@ -914,7 +907,7 @@ If everything worked out correctly, you will see a number of clusters, almost pe
 <p>Look at the correspondence between the cluster marks and the original class labels and what kinds of activities the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> algorithm is confused at.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab = pd.crosstab(y, cluster_labels, margins=True)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab = pd.crosstab(y, cluster_labels, margins=True)</span>
 <span class="c1"># tab.index = [&#39;walking&#39;, &#39;going up the stairs&#39;,</span>
 <span class="c1">#             &#39;going down the stairs&#39;, &#39;sitting&#39;, &#39;standing&#39;, &#39;laying&#39;, &#39;all&#39;]</span>
 <span class="c1"># tab.columns = [&#39;cluster&#39; + str(i + 1) for i in range(6)] + [&#39;all&#39;]</span>
@@ -943,7 +936,7 @@ Which activity is separated from the rest better than others based on the simple
 <p>It can be seen that kMeans does not distinguish activities very well. Use the elbow method to select the optimal number of clusters. Parameters of the algorithm and the data we use are the same as before, we change only <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 <span class="c1"># inertia = []</span>
 <span class="c1"># for k in tqdm_notebook(range(1, n_classes + 1)):</span>
 <span class="c1">#     pass</span>
@@ -964,7 +957,7 @@ How many clusters can we choose according to the elbow method? <br></p>
 <p>Let’s try another clustering algorithm, described in the article – agglomerative clustering.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ag = AgglomerativeClustering(n_clusters=n_classes,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ag = AgglomerativeClustering(n_clusters=n_classes,</span>
 <span class="c1">#                              linkage=&#39;ward&#39;).fit(X_pca)</span>
 </pre></div>
 </div>
@@ -973,7 +966,7 @@ How many clusters can we choose according to the elbow method? <br></p>
 <p>Calculate the Adjusted Rand Index (<code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>) for the resulting clustering and for <code class="docutils literal notranslate"> <span class="pre">KMeans</span></code> with the parameters from the 4th question.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>
@@ -996,7 +989,7 @@ Select all the correct statements. <br></p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 <span class="c1"># scaler = StandardScaler()</span>
 <span class="c1"># X_train_scaled =</span>
 <span class="c1"># X_test_scaled =</span>
@@ -1006,7 +999,7 @@ Select all the correct statements. <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svc</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">svc</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">)</span>
 <span class="n">svc_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
 </pre></div>
 </div>
@@ -1014,7 +1007,7 @@ Select all the correct statements. <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%time</span>
 <span class="c1"># # You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 <span class="c1"># best_svc = None</span>
 </pre></div>
@@ -1023,7 +1016,7 @@ Select all the correct statements. <br></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># best_svc.best_params_, best_svc.best_score_</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># best_svc.best_params_, best_svc.best_score_</span>
 </pre></div>
 </div>
 </div>
@@ -1040,14 +1033,14 @@ Which value of the hyperparameter <code class="docutils literal notranslate"><sp
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_predicted = best_svc.predict(X_test_scaled)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_predicted = best_svc.predict(X_test_scaled)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab = pd.crosstab(y_test, y_predicted, margins=True)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># tab = pd.crosstab(y_test, y_predicted, margins=True)</span>
 <span class="c1"># tab.index = [&#39;walking&#39;, &#39;climbing up the stairs&#39;,</span>
 <span class="c1">#              &#39;going down the stairs&#39;, &#39;sitting&#39;, &#39;standing&#39;, &#39;laying&#39;, &#39;all&#39;]</span>
 <span class="c1"># tab.columns = [&#39;walking&#39;, &#39;climbing up the stairs&#39;,</span>
@@ -1084,7 +1077,7 @@ What is the difference between the best quality (accuracy) for cross-validation 
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls download as .ipynb and run jupyter-notebook to edit)</span>
 </pre></div>
 </div>
 </div>

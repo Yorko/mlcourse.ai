@@ -199,7 +199,7 @@ def download_file_from_gdrive(file_url, filename, out_path: Path, overwrite=Fals
 ```
 
 ```{code-cell} ipython3
-FILE_URL = "https://drive.google.com/uc?id=1G3YjM6mR32iPnQ6O3f6rE9BVbhiTiLyU"
+FILE_URL = "https://drive.google.com/uc?id=1et3FfGQzm_lw0AWtZ0125TKKbD6dTwdi"
 FILE_NAME = "medium_posts.csv"
 DATA_PATH = Path("../../../data/large_files")
 
