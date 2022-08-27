@@ -891,7 +891,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    :param overwrite: whether to overwrite the file if it already exists</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">file_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_path</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    
+
     <span class="k">if</span> <span class="p">(</span><span class="n">file_exists</span> <span class="ow">and</span> <span class="n">overwrite</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">file_exists</span><span class="p">):</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gdown </span><span class="si">{</span><span class="n">file_url</span><span class="si">}</span><span class="s1"> -O </span><span class="si">{</span><span class="n">out_path</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -908,33 +908,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">/</span> <span class="n">FILE_NAME</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s2">&quot;gzip&quot;</span><span class="p">,</span>
                   <span class="n">convert_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;created&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading...
-From: https://drive.google.com/uc?id=1N8eav5HWd6A7rG0ZCRo7rNFryqZS4tVg
-To: /Users/kashnitskiyy/Documents/ML/mlcourse.ai/mlcourse_ai_jupyter_book/_static/data/renthop_train.json.gz
-
-  0%|          | 0.00/21.0M [00:00&lt;?, ?B/s]
-  7%|▋         | 1.57M/21.0M [00:00&lt;00:01, 11.4MB/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 17%|█▋        | 3.67M/21.0M [00:00&lt;00:01, 15.6MB/s]
- 27%|██▋       | 5.77M/21.0M [00:00&lt;00:00, 15.4MB/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 37%|███▋      | 7.86M/21.0M [00:00&lt;00:00, 17.0MB/s]
- 47%|████▋     | 9.96M/21.0M [00:00&lt;00:00, 17.8MB/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 57%|█████▋    | 12.1M/21.0M [00:00&lt;00:00, 18.1MB/s]
- 67%|██████▋   | 14.2M/21.0M [00:00&lt;00:00, 18.4MB/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 80%|███████▉  | 16.8M/21.0M [00:00&lt;00:00, 20.4MB/s]
- 95%|█████████▍| 19.9M/21.0M [00:01&lt;00:00, 22.9MB/s]
-100%|██████████| 21.0M/21.0M [00:01&lt;00:00, 19.7MB/s]
 </pre></div>
 </div>
 </div>
@@ -996,11 +969,11 @@ To: /Users/kashnitskiyy/Documents/ML/mlcourse.ai/mlcourse_ai_jupyter_book/_stati
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;a&#39;), (1, &#39;and&#39;), (2, &#39;cat&#39;), (3, &#39;you&#39;), (4, &#39;dog&#39;), (5, &#39;have&#39;), (6, &#39;i&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;a&#39;), (1, &#39;you&#39;), (2, &#39;i&#39;), (3, &#39;and&#39;), (4, &#39;have&#39;), (5, &#39;cat&#39;), (6, &#39;dog&#39;)]
 Vectors:
-[1. 0. 1. 0. 0. 1. 1.]
-[1. 0. 0. 1. 1. 1. 0.]
-[2. 2. 1. 1. 1. 1. 1.]
+[1. 0. 1. 0. 1. 1. 0.]
+[1. 1. 0. 0. 1. 0. 1.]
+[2. 1. 1. 2. 1. 1. 1.]
 </pre></div>
 </div>
 </div>
@@ -7377,7 +7350,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.862819492816925, pvalue=1.1497548989686597e-28)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8680354952812195, pvalue=3.3330735841023403e-28)
 </pre></div>
 </div>
 </div>
@@ -7392,7 +7365,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8628193140029907, pvalue=1.1497183062997164e-28)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8680354952812195, pvalue=3.3330735841023403e-28)
 </pre></div>
 </div>
 </div>
@@ -7504,7 +7477,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.5351003408432007, pvalue=2.802596928649634e-45)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.6790130734443665, pvalue=8.406151266745642e-40)
 </pre></div>
 </div>
 </div>
@@ -7516,7 +7489,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9981062412261963, pvalue=0.3300205171108246)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9989855289459229, pvalue=0.8656283617019653)
 </pre></div>
 </div>
 </div>
@@ -7664,7 +7637,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 19)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 18)
 </pre></div>
 </div>
 </div>
@@ -7676,7 +7649,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 19)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 16)
 </pre></div>
 </div>
 </div>
@@ -7724,7 +7697,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.2987955630267944
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.36263739397352585
 </pre></div>
 </div>
 </div>
@@ -7738,7 +7711,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.27648101057615326
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.30278687773962554
 </pre></div>
 </div>
 </div>
@@ -7752,7 +7725,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.28153120897008427
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3669925289702961
 </pre></div>
 </div>
 </div>
@@ -7796,9 +7769,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.35734640665618445
--0.59961294020678
--0.26865902929653906
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.34890339824259503
+-1.0264631122179806
+-0.31037670819064883
 </pre></div>
 </div>
 </div>
@@ -7826,9 +7799,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.2715704027955481
-LR:  -0.36396117799758665
-RF:  -0.59961294020678
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.3137052874115336
+LR:  -0.35541630299486726
+RF:  -1.0264631122179806
 </pre></div>
 </div>
 </div>

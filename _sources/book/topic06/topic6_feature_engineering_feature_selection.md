@@ -47,7 +47,7 @@ def download_file_from_gdrive(file_url, filename, out_path: Path, overwrite=Fals
     :param overwrite: whether to overwrite the file if it already exists
     """
     file_exists = os.path.exists(f'{out_path}/{filename}')
-    
+
     if (file_exists and overwrite) or (not file_exists):
         os.system(f'gdown {file_url} -O {out_path}/{filename}')
 ```
