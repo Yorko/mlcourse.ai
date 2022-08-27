@@ -54,7 +54,7 @@ def download_file_from_gdrive(file_url, filename, out_path: Path, overwrite=Fals
 
 
 ```{code-cell} ipython3
-FILE_URL = "https://drive.google.com/uc?id=1_lqydkMrmyNAgG4vU4wVmp6-j7tV0XI8"
+FILE_URL = "https://drive.google.com/uc?id=1N8eav5HWd6A7rG0ZCRo7rNFryqZS4tVg"
 FILE_NAME = "renthop_train.json.gz"
 DATA_PATH = Path("../../_static/data/")
 
