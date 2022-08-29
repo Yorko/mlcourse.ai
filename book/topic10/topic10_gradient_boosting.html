@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Topic 10. Gradient Boosting &#8212; mlcourse.ai</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,22 +37,25 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -77,7 +78,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,9 +101,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -106,14 +122,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Intro
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Intro
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Prerequisites
  </span>
@@ -564,112 +581,243 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/book/topic10/topic10_gradient_boosting.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/book/topic10/topic10_gradient_boosting.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic10/topic10_gradient_boosting.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic10/topic10_gradient_boosting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/topic10/topic10_gradient_boosting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/book/topic10/topic10_gradient_boosting.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#article-outline">
    Article outline
@@ -748,12 +896,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Topic 10. Gradient Boosting</h1>
@@ -848,18 +995,19 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-10-gradient-boosting">
-<span id="topic10"></span><h1>Topic 10. Gradient Boosting<a class="headerlink" href="#topic-10-gradient-boosting" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-10-gradient-boosting">
+<span id="topic10"></span><h1>Topic 10. Gradient Boosting<a class="headerlink" href="#topic-10-gradient-boosting" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://www.linkedin.com/in/natekin/">Alexey Natekin</a>, OpenDataScience founder, Machine Learning Evangelist. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <img src='https://habrastorage.org/web/4a9/edb/082/4a9edb082408442ea47a12b75f19d122.jpg' align='right' width=40%>
 <p>Today we are going to have a look at one of the most popular and practical machine learning algorithms: gradient boosting.</p>
-<div class="section" id="article-outline">
-<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">¶</a></h2>
+<section id="article-outline">
+<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <p>We recommend going over this article in the order described below, but feel free to jump around between sections.</p>
 <ol class="simple">
 <li><p><a class="reference external" href="#introduction-and-history-of-boosting">Introduction and history of boosting</a></p>
@@ -885,9 +1033,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="#4conclusion">Conclusion</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</div>
-<div class="section" id="introduction-and-history-of-boosting">
-<h2>1.  Introduction and history of boosting<a class="headerlink" href="#introduction-and-history-of-boosting" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="introduction-and-history-of-boosting">
+<h2>1.  Introduction and history of boosting<a class="headerlink" href="#introduction-and-history-of-boosting" title="Permalink to this headline">#</a></h2>
 <p>Almost everyone in machine learning has heard about gradient boosting. Many data scientists include this algorithm in their data scientist’s toolbox because of the good results it yields on any given (unknown) problem.</p>
 <p>Furthermore, XGBoost is often the standard recipe for <a class="reference external" href="https://github.com/dmlc/xgboost/blob/master/demo/README.md#usecases">winning</a> <a class="reference external" href="http://blog.kaggle.com/tag/xgboost/">ML competitions</a>. It is so popular that the idea of stacking XGBoosts has become a meme. Moreover, boosting is an important component in <a class="reference external" href="https://en.wikipedia.org/wiki/Learning_to_rank#Practical_usage_by_search_engines">many recommender systems</a>; sometimes, it is even considered a <a class="reference external" href="https://yandex.com/company/technologies/matrixnet/">brand</a>.
 Let’s look at the history and development of boosting.</p>
@@ -920,20 +1068,20 @@ Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boo
 <p>There is also a great <a class="reference external" href="https://www.youtube.com/watch?v=zBk3PK3g-Fc">lecture</a> from Hastie, a retrospective on data analysis from one of the creators of methods that we use everyday.</p>
 <p>In general, there has been a transition from engineering and algorithmic research to a full-fledged approach to building and studying algorithms. From a mathematical perspective, this is not a big change - we are still adding (or boosting) weak algorithms and enlarging our ensemble with gradual improvements for parts of the data where the model was inaccurate. But, this time, the next simple model is not just built on re-weighted objects but improves its approximation of the gradient of overall objective function. This concept greatly opens up our algorithms for imagination and extensions.</p>
 <img src="https://habrastorage.org/webt/h2/v4/k9/h2v4k9r-4yn4jwvwz99fbss4ghi.png" />
-<div class="section" id="history-of-gbm">
-<h3>History of GBM<a class="headerlink" href="#history-of-gbm" title="Permalink to this headline">¶</a></h3>
+<section id="history-of-gbm">
+<h3>History of GBM<a class="headerlink" href="#history-of-gbm" title="Permalink to this headline">#</a></h3>
 <p>It took more than 10 years after the introduction of GBM for it to become an essential part of the data science toolbox.<br />
 GBM was extended to apply to different statistics problems: GLMboost and GAMboost for strengthening already existing GAM models, CoxBoost for survival curves, and RankBoost and LambdaMART for ranking.<br />
 Many realizations of GBM also appeared under different names and on different platforms: Stochastic GBM, GBDT (Gradient Boosted Decision Trees), GBRT (Gradient Boosted Regression Trees), MART (Multiple Additive Regression Trees), and more. In addition, the ML community was very segmented and dissociated, which made it hard to track just how widespread boosting had become.</p>
 <p>At the same time, boosting had been actively used in search ranking. This problem was rewritten in terms of a loss function that penalizes errors in the output order, so it became convenient to simply insert it into GBM. AltaVista was one of the first companies who introduced boosting to ranking. Soon, the ideas spread to Yahoo, Yandex, Bing, etc. Once this happened, boosting became one of the main algorithms that was used not only in research but also in core technologies in industry.</p>
 <p><img src='https://habrastorage.org/web/48a/ea4/fff/48aea4fffdbe4e5f9205ba81110e6061.jpg' align='right' width=30%> ML competitions, especially Kaggle, played a major role in boosting’s popularization. Now, researchers had a common platform where they could compete in different data science problems with large number of participants from around the world. With Kaggle, one could test new algorithms on the real data, giving algorithms an opportunity to “shine”, and provide full information in sharing model performance results across competition data sets. This is exactly what happened to boosting when it was used at <a class="reference external" href="http://blog.kaggle.com/2011/12/21/score-xavier-conort-on-coming-second-in-give-me-some-credit/">Kaggle</a> (check interviews with Kaggle winners starting from 2011 who mostly used boosting). The <a class="reference external" href="https://github.com/dmlc/xgboost">XGBoost</a> library quickly gained popularity after its appearance. XGBoost is not a new, unique algorithm; it is just an extremely effective realization of classic GBM with additional heuristics.</p>
 <p>This algorithm has gone through very typical path for ML algorithms today: mathematical problem and algorithmic crafts to successful practical applications and mass adoption years after its first appearance.</p>
-</div>
-</div>
-<div class="section" id="gbm-algorithm">
-<h2>2. GBM algorithm<a class="headerlink" href="#gbm-algorithm" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ml-problem-statement">
-<h3>ML problem statement<a class="headerlink" href="#ml-problem-statement" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="gbm-algorithm">
+<h2>2. GBM algorithm<a class="headerlink" href="#gbm-algorithm" title="Permalink to this headline">#</a></h2>
+<section id="ml-problem-statement">
+<h3>ML problem statement<a class="headerlink" href="#ml-problem-statement" title="Permalink to this headline">#</a></h3>
 <p>We are going to solve the problem of function approximation in a general supervised learning setting. We have a set of features <span class="math notranslate nohighlight">\( \large x \)</span> and target variables <span class="math notranslate nohighlight">\(\large y, \large \left\{ (x_i, y_i) \right\}_{i=1, \ldots,n}\)</span> which we use to restore the dependence <span class="math notranslate nohighlight">\(\large y = f(x) \)</span>. We restore the dependence by approximating <span class="math notranslate nohighlight">\( \large \hat{f}(x) \)</span> and by understanding which approximation is better when we use the loss function <span class="math notranslate nohighlight">\( \large L(y,f) \)</span>, which we want to minimize: <span class="math notranslate nohighlight">\( \large y \approx \hat{f}(x), \large \hat{f}(x) = \underset{f(x)}{\arg\min} \ L(y,f(x)) \)</span>.</p>
 <img src='../../_static/img/topic10_help_with_func_compressed.png'  align='center'>
 <p>At this moment, we do not make any assumptions regarding the type of dependence <span class="math notranslate nohighlight">\( \large f(x) \)</span>, the model of our approximation <span class="math notranslate nohighlight">\( \large \hat{f}(x) \)</span>, or the distribution of the target variable <span class="math notranslate nohighlight">\( \large y \)</span>. We only expect the function <span class="math notranslate nohighlight">\( \large L(y,f) \)</span> to be differentiable. Our approach is very general: we define <span class="math notranslate nohighlight">\( \large \hat {f}(x) \)</span> by minimizing the loss:</p>
@@ -961,9 +1109,9 @@ Many realizations of GBM also appeared under different names and on different pl
 <li><p>Use the function that was found <span class="math notranslate nohighlight">\(\large \hat{f}(x) = f(x, \hat{\theta})\)</span></p></li>
 </ol>
 <img src='https://habrastorage.org/web/2b5/5d6/90d/2b55d690d99e4ec0976b360aae6ce4df.jpg'   align='center'>
-</div>
-<div class="section" id="functional-gradient-descent">
-<h3>Functional gradient descent<a class="headerlink" href="#functional-gradient-descent" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="functional-gradient-descent">
+<h3>Functional gradient descent<a class="headerlink" href="#functional-gradient-descent" title="Permalink to this headline">#</a></h3>
 <p>Let’s imagine for a second that we can perform optimization in the function space and iteratively search for the approximations <span class="math notranslate nohighlight">\(\large \hat{f}(x)\)</span> as functions themselves. We will express our approximation as a sum of incremental improvements, each being a function. For convenience, we will immediately start with the sum from the initial approximation <span class="math notranslate nohighlight">\(\large \hat{f_0}(x)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\large \hat{f}(x) = \sum_{i = 0}^M \hat{f_i}(x)\]</div>
@@ -981,9 +1129,9 @@ Many realizations of GBM also appeared under different names and on different pl
 \large \theta_t = \underset{\theta}{\arg\min} \ \sum_{i = 1}^{n} (r_{it} - h(x_i, \theta))^2, \\
 \large \rho_t = \underset{\rho}{\arg\min} \ \sum_{i = 1}^{n} L(y_i, \hat{f}(x_i) + \rho \cdot h(x_i, \theta_t))\end{split}\]</div>
 <img src='../../_static/img/topic10_regression_for_everybody.jpg'   align='center' width=60%>
-</div>
-<div class="section" id="friedman-s-classic-gbm-algorithm">
-<h3>Friedman’s classic GBM algorithm<a class="headerlink" href="#friedman-s-classic-gbm-algorithm" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="friedman-s-classic-gbm-algorithm">
+<h3>Friedman’s classic GBM algorithm<a class="headerlink" href="#friedman-s-classic-gbm-algorithm" title="Permalink to this headline">#</a></h3>
 <p>We can now define the classic GBM algorithm suggested by Jerome Friedman in 1999. It is a supervised algorithm that has the following components:</p>
 <ul class="simple">
 <li><p>dataset <span class="math notranslate nohighlight">\(\large \left\{ (x_i, y_i) \right\}_{i=1, \ldots,n}\)</span>;</p></li>
@@ -1009,9 +1157,9 @@ Many realizations of GBM also appeared under different names and on different pl
 <span class="math notranslate nohighlight">\(\large \hat{f}(x) = \sum_{i = 0}^M \hat{f_i}(x) \)</span></p></li>
 <li><p>Conquer Kaggle and the rest of the world</p></li>
 </ol>
-</div>
-<div class="section" id="step-by-step-example-how-gbm-works">
-<h3>Step-By-Step example: How GBM Works<a class="headerlink" href="#step-by-step-example-how-gbm-works" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="step-by-step-example-how-gbm-works">
+<h3>Step-By-Step example: How GBM Works<a class="headerlink" href="#step-by-step-example-how-gbm-works" title="Permalink to this headline">#</a></h3>
 <p>Let’s see an example of how GBM works. In this toy example, we will restore a noisy function <span class="math notranslate nohighlight">\(\large y = cos(x) + \epsilon, \epsilon \sim \mathcal{N}(0, \frac{1}{5}), x \in [-5,5]\)</span>.</p>
 <img src='https://habrastorage.org/web/9fe/04d/7ba/9fe04d7ba5a645d49fc6aa3e875c8c41.jpg'   align='center'>
 <p>This is a regression problem with a real-valued target, so we will choose to use the mean squared error loss function. We will generate 300 pairs of observations and approximate them with decision trees of depth 2. Let’s put together everything we need to use GBM:</p>
@@ -1029,14 +1177,14 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>By the second iteration, our trees have recovered the basic form of the function. However, at the first iteration, we see that the algorithm has built only the “left branch” of the function (<span class="math notranslate nohighlight">\(\large x \in [-5, -4]\)</span>). This was due to the fact that our trees simply did not have enough depth to build a symmetrical branch at once, and it focused on the left branch with the larger error. Therefore, the right branch appeared only after the second iteration.</p>
 <p>The rest of the process goes as expected – on every step, our pseudo-residuals decreased, and GBM approximated the original function better and better with each iteration. However, by construction, trees cannot approximate a continuous function, which means that GBM is not ideal in this example. To play with GBM function approximations, you can use the awesome interactive demo in this blog called <a class="reference external" href="http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html">Brilliantly wrong</a>:</p>
 <img src='https://habrastorage.org/web/779/3e0/e66/7793e0e66b7d4871b6391a94cd5d4cf2.jpg'   align='center'>
-</div>
-</div>
-<div class="section" id="loss-functions">
-<h2>3. Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="loss-functions">
+<h2>3. Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">#</a></h2>
 <p>If we want to solve a classification problem instead of regression, what would change? We only need to choose a suitable loss function <span class="math notranslate nohighlight">\(\large L(y, f)\)</span>. This is the most important, high-level moment that determines exactly how we will optimize and what characteristics we can expect in the final model.</p>
 <p>As a rule, we do not need to invent this ourselves – researchers have already done it for us. Today, we will explore loss functions for the two most common objectives: regression <span class="math notranslate nohighlight">\(\large y \in \mathbb{R}\)</span> and binary classification <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>.</p>
-<div class="section" id="regression-loss-functions">
-<h3>Regression loss functions<a class="headerlink" href="#regression-loss-functions" title="Permalink to this headline">¶</a></h3>
+<section id="regression-loss-functions">
+<h3>Regression loss functions<a class="headerlink" href="#regression-loss-functions" title="Permalink to this headline">#</a></h3>
 <p>Let’s start with a regression problem for <span class="math notranslate nohighlight">\(\large y \in \mathbb{R}\)</span>. In order to choose the appropriate loss function, we need to consider which of the properties of the conditional distribution <span class="math notranslate nohighlight">\(\large (y|x)\)</span> we want to restore. The most common options are:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\large L(y, f) = (y - f)^2\)</span> a.k.a. <span class="math notranslate nohighlight">\(\large L_2\)</span> loss or Gaussian loss. It is the classical conditional mean, which is the simplest and most common case. If we do not have any additional information or requirements for a model to be robust, we can use the Gaussian loss.</p></li>
@@ -1068,9 +1216,9 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>In this example, we used splines as the base algorithm. See, it does not always have to be trees for boosting?</p>
 <p>We can clearly see the difference between the functions <span class="math notranslate nohighlight">\(\large L_2\)</span>, <span class="math notranslate nohighlight">\(\large L_1\)</span>, and Huber loss. If we choose optimal parameters for the Huber loss, we can get the best possible approximation among all our options. The difference can be seen as well in the 10%, 50%, and 90%-quantiles.</p>
 <p>Unfortunately, Huber loss function is supported only by very few popular libraries/packages; h2o supports it, but XGBoost does not. It is relevant to other things that are more exotic like <a class="reference external" href="https://www.slideshare.net/charthur/quantile-and-expectile-regression">conditional expectiles</a>, but it may still be interesting knowledge.</p>
-</div>
-<div class="section" id="classification-loss-functions">
-<h3>Classification loss functions<a class="headerlink" href="#classification-loss-functions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="classification-loss-functions">
+<h3>Classification loss functions<a class="headerlink" href="#classification-loss-functions" title="Permalink to this headline">#</a></h3>
 <p>Now, let’s look at the binary classification problem <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>. We saw that GBM can even optimize non-differentiable loss functions. Technically, it is possible to solve this problem with a regression <span class="math notranslate nohighlight">\(\large L_2\)</span> loss, but it wouldn’t be correct.</p>
 <p>The distribution of the target variable requires us to use log-likelihood, so we need to have different loss functions for targets multiplied by their predictions:  <span class="math notranslate nohighlight">\(\large y \cdot f\)</span>. The most common choices would be the following:</p>
 <ul class="simple">
@@ -1094,9 +1242,9 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>Our optimal initial approximation is around -0.273. You could have guessed that it was negative because it is more profitable to predict everything as the most popular class, but there is no formula for the exact value. Now let’s finally start GBM, and look what actually happens under the hood:</p>
 <img src='https://habrastorage.org/web/7b4/ab0/5fa/7b4ab05fa0a543bfad94950e47f91568.png'   align='center'>
 <p>The algorithm successfully restored the separation between our classes. You can see how the “lower” areas are separating because the trees are more confident in the correct prediction of the negative class and how the two steps of mixed classes are forming. It is clear that we have a lot of correctly classified observations and some amount of observations with large errors that appeared due to the noise in the data.</p>
-</div>
-<div class="section" id="weights">
-<h3>Weights<a class="headerlink" href="#weights" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="weights">
+<h3>Weights<a class="headerlink" href="#weights" title="Permalink to this headline">#</a></h3>
 <p>Sometimes, there is a situation where we want a more specific loss function for our problem. For example, in financial time series, we may want to give bigger weight to large movements in the time series; for churn prediction, it is more useful to predict the churn of clients with high LTV (or lifetime value: how much money a client will bring in the future).</p>
 <img src='https://habrastorage.org/web/0c0/ad0/3a4/0c0ad03a4c4b46bfa5bcd5101678c9c4.jpg'   align='center'>
 <p>The statistical warrior would invent their own loss function, write out the gradient for it (for more effective training, include the Hessian), and carefully check whether this function satisfies the required properties. However, there is a high probability of making a mistake somewhere, running up against computational difficulties, and spending an inordinate amount of time on research.</p>
@@ -1118,10 +1266,10 @@ Many realizations of GBM also appeared under different names and on different pl
 <img src='https://habrastorage.org/web/afc/cca/72a/afccca72a0774990b685de37b0fe9d9f.png'   align='center'>
 <p>We achieved the result that we expected. First, we can see how strongly the pseudo-residuals differ; on the initial iteration, they look almost like the original cosine. Second, the left part of the function’s graph was often ignored in favor of the right one, which had larger weights. Third, the function that we got on the third iteration received enough attention and started looking similar to the original cosine (also started to slightly overfit).</p>
 <p>Weights are a powerful but risky tool that we can use to control the properties of our model. If you want to optimize your loss function, it is worth trying to solve a more simple problem first but add weights to the observations at your discretion.</p>
-</div>
-</div>
-<div class="section" id="conclusion">
-<h2>4. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="conclusion">
+<h2>4. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>Today, we learned the theory behind gradient boosting. GBM is not just some specific algorithm but a common methodology for building ensembles of models. In addition, this methodology is sufficiently flexible and expandable – it is possible to train a large number of models, taking into consideration different loss-functions with a variety of weighting functions.</p>
 <p>Practice and ML competitions show that, in standard problems (except for image, audio, and very sparse data), GBM is often the most effective algorithm (not to mention stacking and high-level ensembles, where GBM is almost always a part of them).  Also, there are many adaptations of GBM <a class="reference external" href="https://arxiv.org/abs/1603.04119">for Reinforcement Learning</a> (Minecraft, ICML 2016). By the way, the Viola-Jones algorithm, which is still used in computer vision, <a class="reference external" href="https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework#Learning_algorithm">is based on AdaBoost</a>.</p>
 <p>In this article, we intentionally omitted questions concerning GBM’s regularization, stochasticity, and hyper-parameters. It was not accidental that we used a small number of iterations <span class="math notranslate nohighlight">\(\large M = 3\)</span> throughout. If we used 30 trees instead of 3 and trained the GBM as described, the result would not be that predictable:</p>
@@ -1129,9 +1277,9 @@ Many realizations of GBM also appeared under different names and on different pl
 <img src='../../_static/img/topic10_overfitting.png'   align='center' width=60%>
 <img src='https://habrastorage.org/web/27f/0f5/3be/27f0f53be9424cb1afaffb9a0e32909f.jpg'   align='center'>
 <p><a class="reference external" href="http://arogozhnikov.github.io/2016/07/05/gradient_boosting_playground.html">Interactive demo</a></p>
-</div>
-<div class="section" id="useful-resources">
-<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="useful-resources">
+<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
@@ -1146,8 +1294,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <li><p><a class="reference external" href="https://arxiv.org/abs/1809.04559">Benchmarking and Optimization of
 Gradient Boosting Decision Tree Algorithms</a>, <a class="reference external" href="https://arxiv.org/abs/1806.11248">XGBoost: Scalable GPU Accelerated Learning</a> - benchmarking CatBoost, Light GBM, and XGBoost (no 100% winner)</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1171,9 +1319,11 @@ Gradient Boosting Decision Tree Algorithms</a>, <a class="reference external" hr
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="topic10_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1189,24 +1339,28 @@ Gradient Boosting Decision Tree Algorithms</a>, <a class="reference external" hr
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Yury Kashnitsky (yorko)<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

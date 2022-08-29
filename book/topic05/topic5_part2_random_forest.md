@@ -533,7 +533,7 @@ Just as in bagging, the bias of a random forest is the same as the bias of a sin
 $$ \large \begin{array}{rcl} \Bias &=& \mu(x) - \E_Z \, f_{rf}(x) \\
 &=& \mu(x) - \E_Z \, \E_{\Theta | Z} \, T(x,\Theta(Z))\end{array}$$  
 
-In absolute value, the bias is usually higher than that of an unprunned tree because randomization and sample space reduction impose their own restrictions on the model. Therefore, the improvements in prediction accuracy obtained by bagging and random forests are solely the result of variance reduction.
+In absolute value, the bias is usually higher than that of an unpruned tree because randomization and sample space reduction impose their own restrictions on the model. Therefore, the improvements in prediction accuracy obtained by bagging and random forests are solely the result of variance reduction.
 
 ##  6. Extremely Randomized Trees
 

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,22 +37,25 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -77,7 +78,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,9 +101,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -106,14 +122,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Intro
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Intro
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Prerequisites
  </span>
@@ -564,112 +581,243 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/book/topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#part-1-ordinary-least-squares">
    Part 1. Ordinary Least Squares
@@ -707,12 +855,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Topic 4. Linear Classification and Regression</h1>
@@ -766,20 +913,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-4-linear-classification-and-regression">
-<span id="topic04-part1"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="part-1-ordinary-least-squares">
-<h2>Part 1. Ordinary Least Squares<a class="headerlink" href="#part-1-ordinary-least-squares" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default">
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
+<span id="topic04-part1"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this headline">#</a></h1>
+<section id="part-1-ordinary-least-squares">
+<h2>Part 1. Ordinary Least Squares<a class="headerlink" href="#part-1-ordinary-least-squares" title="Permalink to this headline">#</a></h2>
+<figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</div>
+</figure>
 <p>Author: <a class="reference external" href="http://pavelnesterov.info/">Pavel Nesterov</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-</div>
-<div class="section" id="article-outline">
-<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="article-outline">
+<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
 <li><p><a class="reference external" href="#maximum-likelihood-estimation">Maximum Likelihood Estimation</a></p></li>
@@ -787,9 +935,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="#regularization-of-linear-regression">Regularization of Linear Regression</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</div>
-<div class="section" id="introduction">
-<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>We will start studying linear models with linear regression. First of all, you must specify a model that relates the dependent variable <span class="math notranslate nohighlight">\(y\)</span> to the explanatory factors (or features); for linear models, the dependency function will take the following form: <span class="math notranslate nohighlight">\(\large y = w_0 + \sum_{i=1}^m w_i x_i\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> is the number of features. If we add a fictitious dimension <span class="math notranslate nohighlight">\(x_0 = 1\)</span> (called <em>bias</em> or <em>intercept</em> term) for each observation, then the linear form can be rewritten in a slightly more compact way by pulling the absolute term <span class="math notranslate nohighlight">\(w_0\)</span> into the sum: <span class="math notranslate nohighlight">\(\large y = \sum_{i=0}^m w_i x_i = \textbf{w}^\text{T} \textbf{x}\)</span>. If we have a matrix of <span class="math notranslate nohighlight">\(n\)</span> observations, where the rows are observations from a data set, we need to add a single column of ones on the left. We define the model as follows:</p>
 <div class="math notranslate nohighlight">
 \[\large \textbf y = \textbf X \textbf w + \epsilon,\]</div>
@@ -849,9 +997,9 @@ $$\large \begin{array}{rcl}
 &amp;\Leftrightarrow&amp; \textbf{w} = \left(\textbf{X}^{\text{T}} \textbf{X}\right)^{-1} \textbf{X}^{\text{T}} \textbf{y}
 \end{array}\end{split}\]</div>
 <p>Bearing in mind all the definitions and conditions described above, we can say that, based on the <a href="https://en.wikipedia.org/wiki/Gauss–Markov_theorem">Gauss–Markov theorem</a>, OLS estimators of the model parameters are optimal among all linear and unbiased estimators, i.e. they give the lowest variance.</p>
-</div>
-<div class="section" id="maximum-likelihood-estimation">
-<h2>2. Maximum Likelihood Estimation<a class="headerlink" href="#maximum-likelihood-estimation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="maximum-likelihood-estimation">
+<h2>2. Maximum Likelihood Estimation<a class="headerlink" href="#maximum-likelihood-estimation" title="Permalink to this headline">#</a></h2>
 <p>One could ask why we choose to minimize the mean square error instead of something else? After all, one can minimize the mean absolute value of the residual. The only thing that will happen, if we change the minimized value, is that we will exceed the Gauss-Markov theorem conditions, and our estimates will therefore cease to be the optimal over the linear and unbiased ones.</p>
 <p>Before we continue, let’s digress to illustrate maximum likelihood estimation with a simple example.</p>
 <p>Many people probably remember the formula of ethyl alcohol, so I decided to do an experiment to determine whether people remember a simpler formula for methanol: <span class="math notranslate nohighlight">\(CH_3OH\)</span>. We surveyed 400 people to find that only 117 people remembered the formula. Then, it is reasonable to assume that the probability that the next respondent knows the formula of methyl alcohol is <span class="math notranslate nohighlight">\(\frac{117}{400} \approx 29\%\)</span>. Let’s show that this intuitive assessment is not only good but also a maximum likelihood estimate. Where this estimate come from? Recall the definition of the Bernoulli distribution: a random variable has a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli distribution</a> if it takes only two values (<span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(0\)</span> with probability <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(1 - \theta\)</span>, respectively) and has the following probability distribution function:</p>
@@ -897,9 +1045,9 @@ p\left(y_i \mid \textbf X; \textbf{w}\right) &amp;=&amp; \mathcal{N}\left(\sum_{
 &amp;=&amp;  \arg \min_{\textbf w} \mathcal{L}\left(\textbf X, \textbf{y}, \textbf{w} \right)
 \end{array}\end{split}\]</div>
 <p>Thus, we have seen that the maximization of the likelihood of data is the same as the minimization of the mean squared error (given the above assumptions). It turns out that such a cost function is a consequence of the fact that the errors are distributed normally.</p>
-</div>
-<div class="section" id="bias-variance-decomposition">
-<h2>3. Bias-Variance Decomposition<a class="headerlink" href="#bias-variance-decomposition" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bias-variance-decomposition">
+<h2>3. Bias-Variance Decomposition<a class="headerlink" href="#bias-variance-decomposition" title="Permalink to this headline">#</a></h2>
 <p>Let’s talk a little about the error properties of linear regression prediction (in fact, this discussion is valid for all machine learning algorithms). We just covered the following:</p>
 <ul class="simple">
 <li><p>true value of the target variable is the sum of a deterministic function <span class="math notranslate nohighlight">\(f\left(\textbf{x}\right)\)</span> and random error <span class="math notranslate nohighlight">\(\epsilon\)</span>: <span class="math notranslate nohighlight">\(y = f\left(\textbf{x}\right) + \epsilon\)</span>;</p></li>
@@ -952,17 +1100,17 @@ p\left(y_i \mid \textbf X; \textbf{w}\right) &amp;=&amp; \mathcal{N}\left(\sum_{
 <li><p>irremovable error: <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p></li>
 </ul>
 <p>While we cannot do anything with the <span class="math notranslate nohighlight">\(\sigma^2\)</span> term, we can influence the first two. Ideally, we’d like to negate both of these terms (upper left square of the picture), but, in practice, it is often necessary to balance between the biased and unstable estimates (high variance).</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_bias_variance.png"><img alt="../../_images/topic4_bias_variance.png" src="../../_images/topic4_bias_variance.png" style="width: 480px;" /></a>
-</div>
+</figure>
 <p>Generally, as the model becomes more computational (e.g. when the number of free parameters grows), the variance (dispersion) of the estimate also increases, but bias decreases. Due to the fact that the training set is memorized completely instead of generalizing, small changes lead to unexpected results (overfitting). On the other side, if the model is too weak, it will not be able to learn the pattern, resulting in learning something different that is offset with respect to the right solution.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_bias_variance2.png"><img alt="../../_images/topic4_bias_variance2.png" src="../../_images/topic4_bias_variance2.png" style="width: 480px;" /></a>
-</div>
+</figure>
 <p>The Gauss-Markov theorem asserts that the OLS estimator of parameters of the linear model is the best for the class of linear unbiased estimator. This means that if there exists any other unbiased model <span class="math notranslate nohighlight">\(g\)</span>, from the same class of linear models, we can be sure that <span class="math notranslate nohighlight">\(Var\left(\widehat{f}\right) \leq Var\left(g\right)\)</span>.</p>
-</div>
-<div class="section" id="regularization-of-linear-regression">
-<h2>4. Regularization of Linear Regression<a class="headerlink" href="#regularization-of-linear-regression" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="regularization-of-linear-regression">
+<h2>4. Regularization of Linear Regression<a class="headerlink" href="#regularization-of-linear-regression" title="Permalink to this headline">#</a></h2>
 <p>There are situations where we might intentionally increase the bias of the model for the sake of stability i.e. to reduce the variance of the model <span class="math notranslate nohighlight">\(\text{Var}\left(\widehat{f}\right)\)</span>. One of the conditions of the Gauss-Markov theorem is the full column rank of matrix <span class="math notranslate nohighlight">\(\textbf{X}\)</span>. Otherwise, the OLS solution <span class="math notranslate nohighlight">\(\textbf{w} = \left(\textbf{X}^\text{T} \textbf{X}\right)^{-1} \textbf{X}^\text{T} \textbf{y}\)</span> does not exist since the inverse matrix <span class="math notranslate nohighlight">\(\left(\textbf{X}^\text{T} \textbf{X}\right)^{-1}\)</span> does not exist. In other words, matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> will be singular or degenerate. This problem is called an <a href="https://en.wikipedia.org/wiki/Well-posed_problem"> ill-posed problem</a>. Problems like this must be corrected, namely, matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> needs to become non-degenerate, or regular (which is why this process is called regularization). Often we observe the so-called multicollinearity in the data: when two or more features are strongly correlated, it is manifested in the matrix <span class="math notranslate nohighlight">\(\textbf{X}\)</span> in the form of “almost” linear dependence between the columns. For example, in the problem of predicting house prices by their parameters, attributes “area with balcony” and “area without balcony” will have an “almost” linear relationship. Formally, matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> for such data is reversible, but, due to multicollinearity, some of its eigenvalues will be close to zero. In the inverse matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span>, some extremely large eigenvalues will appear, as eigenvalues of the inverse matrix are <span class="math notranslate nohighlight">\(\frac{1}{\lambda_i}\)</span>. The result of this vacillation of eigenvalues is an unstable estimate of model parameters, i.e. adding a new set of observations to the training data will lead to a completely different solution.
 One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Tikhonov regularization</a>, which generally looks like the addition of a new member to the mean squared error:</p>
 <div class="math notranslate nohighlight">
@@ -975,16 +1123,16 @@ One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_
 \textbf{w} &amp;=&amp; \left(\textbf{X}^{\text{T}} \textbf{X} + \lambda \textbf{E}\right)^{-1} \textbf{X}^{\text{T}} \textbf{y}
 \end{array}\]</div>
 <p>This type of regression is called ridge regression. The ridge is the diagonal matrix that we add to the <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> matrix to ensure that we get a regular matrix as a result.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_ridge.png"><img alt="../../_images/topic4_ridge.png" src="../../_images/topic4_ridge.png" style="width: 480px;" /></a>
-</div>
+</figure>
 <p>Such a solution reduces dispersion but becomes biased because the norm of the vector of parameters is also minimized, which makes the solution shift towards zero. On the figure below, the OLS solution is at the intersection of the white dotted lines. Blue dots represent different solutions of ridge regression. It can be seen that by increasing the regularization parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, we shift the solution towards zero.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_l2_regul.png"><img alt="../../_images/topic4_l2_regul.png" src="../../_images/topic4_l2_regul.png" style="width: 480px;" /></a>
-</div>
-</div>
-<div class="section" id="useful-resources">
-<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">¶</a></h2>
+</figure>
+</section>
+<section id="useful-resources">
+<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
@@ -999,8 +1147,8 @@ One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_
 <li><p>One more <a class="reference external" href="https://github.com/diefimov/MTH594_MachineLearning">ML course</a> with very good materials.</p></li>
 <li><p><a class="reference external" href="https://github.com/rushter/MLAlgorithms">Implementations</a> of many ML algorithms. Search for linear regression and logistic regression.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1024,9 +1172,11 @@ One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="topic04_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1042,24 +1192,28 @@ One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Yury Kashnitsky (yorko)<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

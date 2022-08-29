@@ -69,11 +69,11 @@ _Note: Using Docker is optional, you can set up your environment with Poetry or 
 
 ### Jupyter Notebooks
 
-The recommended way of working with course materials is running Jupyter notebooks. If new to this, take a look at [jupyter.org](http://jupyter.org/). In a nutshell, this is a way of mixing code, graphics, markdown, latex, etc. in a single development environment. Perfect for sharing your work/ideas, for prototyping and for working with educative materials.
+The recommended way of working with course materials is running Jupyter notebooks. If new to this, take a look at [jupyter.org](http://jupyter.org/). In a nutshell, this is a way of mixing code, graphics, MarkDown, latex, etc. in a single development environment. Perfect for sharing your work/ideas, for prototyping and for working with educative materials.
 
 To start working with the course materials (i.e. Jupyter notebooks):
 
-- install jupyter, this depends on how you set up the environemnt in the previous step
+- install jupyter, this depends on how you set up the environment in the previous step
 - download/clone [the course repo](https://github.com/Yorko/mlcourse.ai) repo
 - run `jupyter-notebook` from the downloaded directory mlcourse.ai.
 - this opens [http://localhost:8888/tree](http://localhost:8888/tree) (8888 is the default port) in your browser, from there you can run Jupyter notebooks in the `jupyter_english` folder

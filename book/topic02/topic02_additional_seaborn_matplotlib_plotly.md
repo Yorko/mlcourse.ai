@@ -229,16 +229,16 @@ from IPython.display import display, IFrame
 
 init_notebook_mode(connected=True)
 
-def plotly_depict_figure_as_iframe(fig, title="", width=800, height=500, 
+def plotly_depict_figure_as_iframe(fig, title="", width=800, height=500,
   plot_path='../../_static/plotly_htmls/'):
   """
   This is a helper method to visualizae PLotly plots as Iframes in a Jupyter book.
   If you are running `jupyter-notebook`, you can just use iplot(fig).
   """
-  
+
   # in a Jupyter Notebook, the following should work
   #iplot(fig, show_link=False)
-  
+
   # in a Jupyter Book, we save a plot offline and then render it with IFrame
   fig_path_path = f"{plot_path}/{title}.html"
   plot(fig, filename=fig_path_path, show_link=False, auto_open=False);
@@ -293,7 +293,8 @@ As an option, you can save the plot in an html file:
 
 
 ```{code-cell} ipython3
-plotly.offline.plot(fig, filename="years_stats.html", show_link=False, auto_open=False);
+# commented out as it produces a large in size file
+#plotly.offline.plot(fig, filename="years_stats.html", show_link=False, auto_open=False);
 ```
 
 ### Bar chart

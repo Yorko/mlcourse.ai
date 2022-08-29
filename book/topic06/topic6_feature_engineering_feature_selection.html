@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Topic 6. Feature Engineering and Feature Selection &#8212; mlcourse.ai</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,22 +37,25 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -77,7 +78,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -86,9 +101,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -106,14 +122,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Intro
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Intro
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Prerequisites
  </span>
@@ -564,112 +581,243 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/book/topic06/topic6_feature_engineering_feature_selection.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/book/topic06/topic6_feature_engineering_feature_selection.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Yorko/mlcourse.ai/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic06/topic6_feature_engineering_feature_selection.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic06/topic6_feature_engineering_feature_selection.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic06/topic6_feature_engineering_feature_selection.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic06/topic6_feature_engineering_feature_selection.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai/"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic06/topic6_feature_engineering_feature_selection.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic06/topic6_feature_engineering_feature_selection.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/topic06/topic6_feature_engineering_feature_selection.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/book/topic06/topic6_feature_engineering_feature_selection.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#article-outline">
    Article outline
@@ -753,12 +901,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Topic 6. Feature Engineering and Feature Selection</h1>
@@ -858,11 +1005,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-6-feature-engineering-and-feature-selection">
-<span id="topic06"></span><h1>Topic 6. Feature Engineering and Feature Selection<a class="headerlink" href="#topic-6-feature-engineering-and-feature-selection" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-6-feature-engineering-and-feature-selection">
+<span id="topic06"></span><h1>Topic 6. Feature Engineering and Feature Selection<a class="headerlink" href="#topic-6-feature-engineering-and-feature-selection" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="http://arseny.info/pages/about-me.html">Arseny Kravchenko</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io/">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-larionova-74434689/">Anna Larionova</a>, <a class="reference external" href="https://www.linkedin.com/in/evgenysushko/">Evgeny Sushko</a> and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
@@ -912,8 +1060,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="article-outline">
-<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">¶</a></h2>
+<section id="article-outline">
+<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Feature Extraction
 1. Texts
@@ -930,12 +1078,12 @@ const thebe_selector_output = ".output, .cell_output"
 2. Selection by modeling
 3. Grid search</p></li>
 </ol>
-</div>
-<div class="section" id="feature-extraction">
-<h2>Feature Extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="feature-extraction">
+<h2>Feature Extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">#</a></h2>
 <p>In practice, data rarely comes in the form of ready-to-use matrices. That’s why every task begins with feature extraction. Sometimes, it can be enough to read the csv file and convert it into <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>, but this is a rare exception. Let’s look at some of the popular types of data from which features can be extracted.</p>
-<div class="section" id="texts">
-<h3>Texts<a class="headerlink" href="#texts" title="Permalink to this headline">¶</a></h3>
+<section id="texts">
+<h3>Texts<a class="headerlink" href="#texts" title="Permalink to this headline">#</a></h3>
 <p>Text is a type of data that can come in different formats; there are so many text processing methods that cannot fit in a single article. Nevertheless, we will review the most popular ones.</p>
 <p>Before working with text, one must tokenize it. Tokenization implies splitting the text into units (hence, tokens). Most simply, tokens are just the words. But splitting by word can lose some of the meaning – “Santa Barbara” is one token, not two, but “rock’n’roll” should not be split into two tokens. There are ready-to-use tokenizers that take into account peculiarities of the language, but they make mistakes as well, especially when you work with specific sources of text (newspapers, slang, misspellings, typos).</p>
 <p>After tokenization, you will normalize the data. For text, this is about stemming and/or lemmatization; these are similar processes used to process different forms of a word. One can read about the difference between them <a class="reference external" href="http://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html">here</a>.</p>
@@ -1077,9 +1225,9 @@ Vectors:
 <p>It is worth noting that this model does not comprehend the meaning of the words but simply tries to position the vectors such that words used in common context are close to each other. If this is not taken into account, a lot of fun examples will come up.</p>
 <p>Such models need to be trained on very large datasets in order for the vector coordinates to capture the semantics. A pretrained model for your own tasks can be downloaded <a class="reference external" href="https://github.com/3Top/word2vec-api#where-to-get-a-pretrained-models">here</a>.</p>
 <p>Similar methods are applied in other areas such as bioinformatics. An unexpected application is <a class="reference external" href="https://jaan.io/food2vec-augmented-cooking-machine-intelligence/">food2vec</a>. You can probably think of a few other fresh ideas; the concept is universal enough.</p>
-</div>
-<div class="section" id="images">
-<h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="images">
+<h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">#</a></h3>
 <p>Working with images is easier and harder at the same time. It is easier because it is possible to just use one of the popular pretrained networks without much thinking but harder because, if you need to dig into the details, you may end up going really deep. Let’s start from the beginning.</p>
 <p>In a time when GPUs were weaker and the “renaissance of neural networks” had not happened yet, feature generation from images was its own complex field. One had to work at a low level, determining corners, borders of regions, color distributions statistics, and so on. Experienced specialists in computer vision could draw a lot of parallels between older approaches and neural networks; in particular, convolutional layers in today’s networks are similar to <a class="reference external" href="https://en.wikipedia.org/wiki/Haar-like_feature">Haar cascades</a>. If you are interested in reading more, here are a couple of links to some interesting libraries: <a class="reference external" href="http://scikit-image.org/docs/stable/api/skimage.feature.html">skimage</a> and <a class="reference external" href="http://simplecv.readthedocs.io/en/latest/SimpleCV.Features.html">SimpleCV</a>.</p>
 <p>Often for problems associated with images, a convolutional neural network is used. You do not have to come up with the architecture and train a network from scratch. Instead, download a pretrained state-of-the-art network with the weights from public sources. Data scientists often do so-called fine-tuning to adapt these networks to their needs by “detaching” the last fully connected layers of the network, adding new layers chosen for a specific task, and then training the network on new data. If your task is to just vectorize the image (for example, to use some non-network classifier), you only need to remove the last layers and use the output from the previous layers:</p>
@@ -1147,9 +1295,9 @@ Vectors:
 </div>
 </div>
 <p>It’s good to keep in mind that <code class="docutils literal notranslate"><span class="pre">pytesseract</span></code> is not a “silver bullet”.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/topic6_apartment_plan.jpg"><img alt="../../_images/topic6_apartment_plan.jpg" src="../../_images/topic6_apartment_plan.jpg" style="width: 444px;" /></a>
-</div>
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="s2">&quot;https://habrastorage.org/webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg&quot;</span>
@@ -1182,9 +1330,9 @@ x1t0&quot;
 </div>
 </div>
 <p>Another case where neural networks cannot help is extracting features from meta-information. For images, EXIF stores many useful meta-information: manufacturer and camera model, resolution, use of the flash, geographic coordinates of shooting, software used to process image and more.</p>
-</div>
-<div class="section" id="geospatial-data">
-<h3>Geospatial data<a class="headerlink" href="#geospatial-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="geospatial-data">
+<h3>Geospatial data<a class="headerlink" href="#geospatial-data" title="Permalink to this headline">#</a></h3>
 <p>Geographic data is not so often found in problems, but it is still useful to master the basic techniques for working with it, especially since there are quite a number of ready-to-use solutions in this field.</p>
 <p>Geospatial data is often presented in the form of addresses or coordinates of (Latitude, Longitude). Depending on the task, you may need two mutually-inverse operations: geocoding (recovering a point from an address) and reverse geocoding (recovering an address from a point). Both operations are accessible in practice via external APIs from Google Maps or OpenStreetMap. Different geocoders have their own characteristics, and the quality varies from region to region. Fortunately, there are universal libraries like <a class="reference external" href="https://github.com/geopy/geopy">geopy</a> that act as wrappers for these external services.</p>
 <p>If you have a lot of data, you will quickly reach the limits of external API. Besides, it is not always the fastest to receive information via HTTP. Therefore, it is necessary to consider using a local version of OpenStreetMap.</p>
@@ -7212,9 +7360,9 @@ x1t0&quot;
 </div></blockquote>
 <p>The point is usually located among infrastructure. Here, you can really unleash your imagination and invent features based on your life experience and domain knowledge: the proximity of a point to the subway, the number of stories in the building, the distance to the nearest store, the number of ATMs around, etc. For any task, you can easily come up with dozens of features and extract them from various external sources. For problems outside an urban environment, you may consider features from more specific sources e.g. the height above sea level.</p>
 <p>If two or more points are interconnected, it may be worthwhile to extract features from the route between them. In that case, distances (great circle distance and road distance calculated by the routing graph), number of turns with the ratio of left to right turns, number of traffic lights, junctions, and bridges will be useful. In one of my own tasks, I generated a feature called “the complexity of the road”, which computed the graph-calculated distance divided by the GCD.</p>
-</div>
-<div class="section" id="date-and-time">
-<h3>Date and time<a class="headerlink" href="#date-and-time" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="date-and-time">
+<h3>Date and time<a class="headerlink" href="#date-and-time" title="Permalink to this headline">#</a></h3>
 <p>You would think that date and time are standardized because of their prevalence, but, nevertheless, some pitfalls remain.</p>
 <p>Let’s start with the day of the week, which are easy to turn into 7 dummy variables using one-hot encoding. In addition, we will also create a separate binary feature for the weekend called <code class="docutils literal notranslate"><span class="pre">is_weekend</span></code>.</p>
 <div class="cell docutils container">
@@ -7283,9 +7431,9 @@ x1t0&quot;
 </div>
 </div>
 <p>However, the difference between such coding methods is down to the third decimal place in the metric.</p>
-</div>
-<div class="section" id="time-series-web-etc">
-<h3>Time series, web, etc.<a class="headerlink" href="#time-series-web-etc" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="time-series-web-etc">
+<h3>Time series, web, etc.<a class="headerlink" href="#time-series-web-etc" title="Permalink to this headline">#</a></h3>
 <p>Regarding time series — we will not go into too much detail here (mostly due to my personal lack of experience), but I will point you to a <a class="reference external" href="https://github.com/blue-yonder/tsfresh">useful library that automatically generates features for time series</a>.</p>
 <p>If you are working with web data, then you usually have information about the user’s User Agent. It is a wealth of information. First, one needs to extract the operating system from it. Secondly, make a feature <code class="docutils literal notranslate"><span class="pre">is_mobile</span></code>. Third, look at the browser.</p>
 <div class="cell docutils container">
@@ -7324,12 +7472,12 @@ Browser Version:  (56, 0, 2924)
 <p>In addition to the operating system and browser, you can look at the referrer (not always available), <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language">http_accept_language</a>, and other meta information.</p>
 <p>The next useful piece of information is the IP-address, from which you can extract the country and possibly the city, provider, and connection type (mobile/stationary). You need to understand that there is a variety of proxy and outdated databases, so this feature can contain noise. Network administration gurus may try to extract even fancier features like suggestions for <a class="reference external" href="https://habrahabr.ru/post/216295/">using VPN</a>. By the way, the data from the IP-address is well combined with <code class="docutils literal notranslate"><span class="pre">http_accept_language</span></code>: if the user is sitting at the Chilean proxies and browser locale is <code class="docutils literal notranslate"><span class="pre">ru_RU</span></code>, something is unclean and worth a look in the corresponding column in the table (<code class="docutils literal notranslate"><span class="pre">is_traveler_or_proxy_user</span></code>).</p>
 <p>Any given area has so many specifics that it is too much for an individual to absorb completely. Therefore, I invite everyone to share their experiences and discuss feature extraction and generation in the comments section.</p>
-</div>
-</div>
-<div class="section" id="feature-transformations">
-<h2>Feature transformations<a class="headerlink" href="#feature-transformations" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="normalization-and-changing-distribution">
-<h3>Normalization and changing distribution<a class="headerlink" href="#normalization-and-changing-distribution" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="feature-transformations">
+<h2>Feature transformations<a class="headerlink" href="#feature-transformations" title="Permalink to this headline">#</a></h2>
+<section id="normalization-and-changing-distribution">
+<h3>Normalization and changing distribution<a class="headerlink" href="#normalization-and-changing-distribution" title="Permalink to this headline">#</a></h3>
 <p>Monotonic feature transformation is critical for some algorithms and has no effect on others. This is one of the reasons for the increased popularity of decision trees and all its derivative algorithms (random forest, gradient boosting). Not everyone can or want to tinker with transformations, and these algorithms are robust to unusual distributions.</p>
 <p>There are also purely engineering reasons: <code class="docutils literal notranslate"><span class="pre">np.log</span></code> is a way of dealing with large numbers that do not fit in <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>. This is an exception rather than a rule; often it’s driven by the desire to adapt the dataset to the requirements of the algorithm. Parametric methods usually require the data distribution to be at least symmetric and unimodal, which is not always the case. There may be more stringent requirements; recall <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">our earlier article about linear models</a>.</p>
 <p>However, data requirements are imposed not only by parametric methods; <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-3-classification-decision-trees-and-k-nearest-neighbors-8613c6b6d2cd">K nearest neighbors</a> will predict complete nonsense if features are not normalized e.g. when one distribution is located in the vicinity of zero and does not go beyond (-1, 1) while the other’s range is on the order of hundreds of thousands.</p>
@@ -7496,14 +7644,18 @@ Browser Version:  (56, 0, 2924)
 </div>
 <p>The lognormal distribution is suitable for describing salaries, price of securities, urban population, number of comments on articles on the internet, etc. However, to apply this procedure, the underlying distribution does not necessarily have to be lognormal; you can try to apply this transformation to any distribution with a heavy right tail. Furthermore, one can try to use other similar transformations, formulating their own hypotheses on how to approximate the available distribution to a normal. Examples of such transformations are <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.boxcox.html">Box-Cox transformation</a> (logarithm is a special case of the Box-Cox transformation) or <a class="reference external" href="https://gist.github.com/mesgarpour/f24769cd186e2db853957b10ff6b7a95">Yeo-Johnson transformation</a> (extends the range of applicability to negative numbers). In addition, you can also try adding a constant to the feature — <code class="docutils literal notranslate"><span class="pre">np.log</span> <span class="pre">(x</span> <span class="pre">+</span> <span class="pre">const)</span></code>.</p>
 <p>In the examples above, we have worked with synthetic data and strictly tested normality using the Shapiro-Wilk test. Let’s try to look at some real data and test for normality using a less formal method — <a class="reference external" href="https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot">Q-Q plot</a>. For a normal distribution, it will look like a smooth diagonal line, and visual anomalies should be intuitively understandable.</p>
-<div class="figure align-default" id="qq-lognorm">
+<figure class="align-default" id="qq-lognorm">
 <img alt="../../_images/topic6_qq_lognorm.png" src="../../_images/topic6_qq_lognorm.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Q-Q plot for lognormal distribution</span><a class="headerlink" href="#qq-lognorm" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="qq-log">
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Q-Q plot for lognormal distribution</span><a class="headerlink" href="#qq-lognorm" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="qq-log">
 <img alt="../../_images/topic6_qq_log.png" src="../../_images/topic6_qq_log.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Q-Q plot for the same distribution after taking the logarithm</span><a class="headerlink" href="#qq-log" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Q-Q plot for the same distribution after taking the logarithm</span><a class="headerlink" href="#qq-log" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s draw plots!</span>
@@ -7578,9 +7730,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <p>Let’s see whether transformations can somehow help the real model. There is no silver bullet here.</p>
-</div>
-<div class="section" id="interactions">
-<h3>Interactions<a class="headerlink" href="#interactions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="interactions">
+<h3>Interactions<a class="headerlink" href="#interactions" title="Permalink to this headline">#</a></h3>
 <p>If previous transformations seemed rather math-driven, this part is more about the nature of the data; it can be attributed to both feature transformations and feature creation.</p>
 <p>Let’s come back again to the Two Sigma Connect: Rental Listing Inquiries problem. Among the features in this problem are the number of rooms and the price. Logic suggests that the cost per single room is more indicative than the total cost, so we can generate such a feature.</p>
 <div class="cell docutils container">
@@ -7593,9 +7745,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <p>You should limit yourself in this process. If there are a limited number of features, it is possible to generate all the possible interactions and then weed out the unnecessary ones using the techniques described in the next section. In addition, not all interactions between features must have a physical meaning; for example, polynomial features (see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html">sklearn.preprocessing.PolynomialFeatures</a>) are often used in linear models and are almost impossible to interpret.</p>
-</div>
-<div class="section" id="filling-in-the-missing-values">
-<h3>Filling in the missing values<a class="headerlink" href="#filling-in-the-missing-values" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="filling-in-the-missing-values">
+<h3>Filling in the missing values<a class="headerlink" href="#filling-in-the-missing-values" title="Permalink to this headline">#</a></h3>
 <p>Not many algorithms can work with missing values, and the real world often provides data with gaps. Fortunately, this is one of the tasks for which one doesn’t need any creativity. Both key python libraries for data analysis provide easy-to-use solutions: <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html">pandas.DataFrame.fillna</a> and <a class="reference external" href="http://scikit-learn.org/stable/modules/preprocessing.html#imputation">sklearn.preprocessing.Imputer</a>.</p>
 <p>These solutions do not have any magic happening behind the scenes. Approaches to handling missing values are pretty straightforward:</p>
 <ul class="simple">
@@ -7606,13 +7758,13 @@ Browser Version:  (56, 0, 2924)
 </ul>
 <p><img alt="image" src="https://cdn-images-1.medium.com/max/800/0*Ps-v8F0fBgmnG36S." /></p>
 <p>Easy-to-use library solutions sometimes suggest sticking to something like <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.fillna(0)</span></code> and not sweat the gaps. But this is not the best solution: data preparation takes more time than building models, so thoughtless gap-filling may hide a bug in processing and damage the model.</p>
-</div>
-</div>
-<div class="section" id="feature-selection">
-<h2>Feature selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="feature-selection">
+<h2>Feature selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">#</a></h2>
 <p>Why would it even be necessary to select features? To some, this idea may seem counterintuitive, but there are at least two important reasons to get rid of unimportant features. The first is clear to every engineer: the more data, the higher the computational complexity. As long as we work with toy datasets, the size of the data is not a problem, but, for real loaded production systems, hundreds of extra features will be quite tangible. The second reason is that some algorithms take noise (non-informative features) as a signal and overfit.</p>
-<div class="section" id="statistical-approaches">
-<h3>Statistical approaches<a class="headerlink" href="#statistical-approaches" title="Permalink to this headline">¶</a></h3>
+<section id="statistical-approaches">
+<h3>Statistical approaches<a class="headerlink" href="#statistical-approaches" title="Permalink to this headline">#</a></h3>
 <p>The most obvious candidate for removal is a feature whose value remains unchanged, i.e., it contains no information at all. If we build on this thought, it is reasonable to say that features with low variance are worse than those with high variance. So, one can consider cutting features with variance below a certain threshold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7731,9 +7883,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <p>We can see that our selected features have improved the quality of the classifier. Of course, this example is purely artificial; however, it is worth using for real problems.</p>
-</div>
-<div class="section" id="selection-by-modeling">
-<h3>Selection by modeling<a class="headerlink" href="#selection-by-modeling" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="selection-by-modeling">
+<h3>Selection by modeling<a class="headerlink" href="#selection-by-modeling" title="Permalink to this headline">#</a></h3>
 <p>Another approach is to use some baseline model for feature evaluation because the model will clearly show the importance of the features. Two types of models are usually used: some “wooden” composition such as <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">Random Forest</a> or a linear model with Lasso regularization so that it is prone to nullify weights of weak features. The logic is intuitive: if features are clearly useless in a simple model, there is no need to drag them to a more complex one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7806,9 +7958,9 @@ RF:  -1.0264631122179806
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="grid-search">
-<h3>Grid search<a class="headerlink" href="#grid-search" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="grid-search">
+<h3>Grid search<a class="headerlink" href="#grid-search" title="Permalink to this headline">#</a></h3>
 <p>Finally, we get to the most reliable method, which is also the most computationally complex: trivial grid search. Train a model on a subset of features, store results, repeat for different subsets, and compare the quality of models to identify the best feature set. This approach is called <a class="reference external" href="http://rasbt.github.io/mlxtend/user_guide/feature_selection/ExhaustiveFeatureSelector/">Exhaustive Feature Selection</a>.</p>
 <p>Searching all combinations usually takes too long, so you can try to reduce the search space. Fix a small number N, iterate through all combinations of N features, choose the best combination, and then iterate through the combinations of (N + 1) features so that the previous best combination of features is fixed and only a single new feature is considered. It is possible to iterate until we hit a maximum number of characteristics or until the quality of the model ceases to increase significantly. This algorithm is called <a class="reference external" href="http://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/">Sequential Feature Selection</a>.</p>
 <p>This algorithm can be reversed: start with the complete feature space and remove features one by one until it does not impair the quality of the model or until the desired number of features is reached.</p>
@@ -7827,9 +7979,9 @@ RF:  -1.0264631122179806
 </div>
 </div>
 <p>Take a look how this approach was done in one <a class="reference external" href="https://www.kaggle.com/arsenyinfo/easy-feature-selection-pipeline-0-55-at-lb">simple yet elegant Kaggle kernel</a>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -7853,9 +8005,11 @@ RF:  -1.0264631122179806
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="topic06_intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -7871,24 +8025,28 @@ RF:  -1.0264631122179806
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Yury Kashnitsky (yorko)<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

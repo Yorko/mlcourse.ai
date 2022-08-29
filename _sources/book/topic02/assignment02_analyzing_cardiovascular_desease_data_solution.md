@@ -190,11 +190,12 @@ In the end, we have:
 
 ## 1.1. Basic observations
 
-**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not explained (whether "1" stands for women or men) – figure this out by looking analyzing height, reasonably assuming that on average men are taller.**
-1. 45530 women и 24470 men
-2. 45530 men и 24470 women
-3. 45470 women и 24530 men
-4. 45470 men и 24530 women
+**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not given (whether "1" stands for women or for men) – figure this out by looking analyzing height, making the assumption that men are taller on average.**
+
+1. 45530 women and 24470 men
+2. 45530 men and 24470 women
+3. 45470 women and 24530 men
+4. 45470 men and 24530 women
 
 **Answer:** 1.
 
@@ -209,7 +210,8 @@ df.groupby("gender")["height"].mean()
 
 161 cm and almost 170 cm on average, so we make a conclusion that gender=1 represents females, and gender=2 – males. So the sample contains 45530 women и 24470 men.
 
-**Question 1.2. (1 point). Who more often report consuming alcohol - men or women?**
+**Question 1.2. (1 point). Who more often report consuming alcohol – men or women?**
+
 1. women
 2. men
 
@@ -225,6 +227,7 @@ df.groupby("gender")["alco"].mean()
 Well... obvious :)
 
 **Question 1.3. (1 point). What's the rounded difference between the percentages of smokers among men and women?**
+
 1. 4
 2. 16
 3. 20
@@ -298,7 +301,7 @@ Clarifications:
 - Calculate ``age_years`` feature – rounded age in years. For this task, select people aged from 60 to 64 inclusive.
 - Cholesterol level categories in the figure and in our data are different. In the figure, the values of ``cholesterol`` feature are as follows: 4 mmol/l $\rightarrow$ 1, 5-7 mmol/l $\rightarrow$ 2, 8 mmol/l $\rightarrow$ 3.
 
-**Question 1.5. (2 points). Calculate fractions of ill people (with CVD) in two segments described above. What's the quotient of these two fractions?**
+**Question 1.5. (2 points). Calculate fractions of ill people (with CVD) in the two groups of people described in the task. What's the ratio of these two fractions?**
 
 1. 1
 2. 2
@@ -362,7 +365,7 @@ Create a new feature – BMI ([Body Mass Index](https://en.wikipedia.org/wiki/Bo
 
 1. Median BMI in the sample is within boundaries of normal values.
 2. Women's BMI is on average higher then men's.
-3. Healthy people have, on average, higher BMI than ill people.
+3. Healthy people have higher median BMI than ill people.
 4. In the segment of healthy and non-drinking men BMI is closer to the norm than in the segment of healthy and non-drinking women
 
 **Answer:** 2 and 4
@@ -412,7 +415,7 @@ Filter out the following patient segments (that we consider to have erroneous da
 
 This is not all we can do to clean the data, but let's stop here by now.
 
-**Question 1.7. (2 points). What percent of the original data (rounded) did we throw away?**
+**Question 1.7. (2 points). What percent of the original data (rounded) did we filter out in the previous step?**
 
 1. 8
 2. 9
@@ -437,13 +440,13 @@ print(df_to_remove.shape[0] / df.shape[0])
 filtered_df = df[~df.index.isin(df_to_remove)]
 ```
 
-We've thrown out about 10% of the original data.
+We've filtered out about 10% of the original data.
 
 ## Part 2. Visual data analysis
 
 ## 2.1. Correlation matrix visualization
 
-To understand the features better, you can create a matrix of the correlation coefficients between the features. Use the initial dataset (non-filtered).
+To understand the features better, you can create a matrix of the correlation coefficients between the features. Use the filtered dataset from now on.
 
 ### Task:
 
@@ -566,7 +569,7 @@ sns.heatmap(
 );
 ```
 
-**Question 2.2. (1 point).** Which pair of features has the strongest Spearman correlation?
+**Question 2.2. (1 point).** Which pair of features has the strongest Spearman rank correlation?
 
 1. Height, Weight
 2. Age, Weight
@@ -577,7 +580,7 @@ sns.heatmap(
 
 **Answer:** 5.
 
-**Question 2.3. (1 point).** Why does these features have strong rank correlation?
+**Question 2.3. (1 point).** Why do these features have strong rank correlation?
 
 1. Inaccuracies in the data (data acquisition errors).
 2. Relation is wrong, these features should not be related.
@@ -600,7 +603,7 @@ Create a *count plot* using [`countplot()`](http://seaborn.pydata.org/generated/
 sns.countplot(x="age_years", hue="cardio", data=df);
 ```
 
-**Question 2.4. (1 point).** At what age does the number of people with CVD outnumber the number of people without CVD for the first time?
+**Question 2.4. (1 point).** What is the smallest age at which the number of people with CVD outnumbers the number of people without CVD?
 
 1. 44
 2. 55
