@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1111,7 +1109,15 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <p>Let’s visualize how Out-of-Bag Error (or OOBE) estimation works:</p>
 <p><img alt="image" src="../../_images/topic5_oob.png" /></p>
 <p>The top part of the figure above represents our original dataset. We split it into the training (left) and test (right) sets. In the left image, we draw a grid that perfectly divides our dataset according to classes. Now, we use the same grid to estimate the share of the correct answers on our test set. We can see that our classifier gave incorrect answers in those 4 cases that have not been used during training (on the left). Hence, the accuracy of our classifier is <span class="math notranslate nohighlight">\(\large \frac{11}{15}*100\% = 73.33\%\)</span>.</p>
-<p>To sum up, each base algorithm is trained on <span class="math notranslate nohighlight">\(\large \approx 63\%\)</span> of the original examples. It can be validated on the remaining <span class="math notranslate nohighlight">\(\large \approx 37\%\)</span>. The Out-of-Bag estimate is nothing more than the mean estimate of the base algorithms on those <span class="math notranslate nohighlight">\(\large \approx 37\%\)</span> of inputs that were left out of training.</p>
+<p>To sum up, each base algorithm is trained on <span class="math notranslate nohighlight">\(\large \approx 63\%\)</span> of the original examples. It can be validated on the remaining <span class="math notranslate nohighlight">\(\large \approx 37\%\)</span>.</p>
+<p>The Out-of-Bag error is then computed in the following way:</p>
+<ul class="simple">
+<li><p>take all instances that have been chosen as a part of test set for some tree (in the picture above that would be all instances in the lower-right picture). All together, they form an <em>Out-of-Bag dataset</em>;</p></li>
+<li><p>take a specific instance from the <em>Out-of-Bag dataset</em> and all models (trees) that were not trained with this instance;</p></li>
+<li><p>compare the majority vote of these trees’ classifications and compare it with the true label for this instance;</p></li>
+<li><p>do this for all instances in the <em>Out-of-Bag dataset</em> and get the average OOB error.</p></li>
+</ul>
+<p>For further elaboration, see also visualizations in <a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-bag_error">this Wikipedia article</a>.</p>
 </section>
 <section id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>

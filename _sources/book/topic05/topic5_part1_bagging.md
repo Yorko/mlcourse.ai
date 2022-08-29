@@ -243,7 +243,16 @@ Let's visualize how Out-of-Bag Error (or OOBE) estimation works:
 
 The top part of the figure above represents our original dataset. We split it into the training (left) and test (right) sets. In the left image, we draw a grid that perfectly divides our dataset according to classes. Now, we use the same grid to estimate the share of the correct answers on our test set. We can see that our classifier gave incorrect answers in those 4 cases that have not been used during training (on the left). Hence, the accuracy of our classifier is $\large \frac{11}{15}*100\% = 73.33\%$.
 
-To sum up, each base algorithm is trained on $\large \approx 63\%$ of the original examples. It can be validated on the remaining $\large \approx 37\%$. The Out-of-Bag estimate is nothing more than the mean estimate of the base algorithms on those $\large \approx 37\%$ of inputs that were left out of training.
+To sum up, each base algorithm is trained on $\large \approx 63\%$ of the original examples. It can be validated on the remaining $\large \approx 37\%$.
+
+The Out-of-Bag error is then computed in the following way:
+
+- take all instances that have been chosen as a part of test set for some tree (in the picture above that would be all instances in the lower-right picture). All together, they form an _Out-of-Bag dataset_;
+- take a specific instance from the _Out-of-Bag dataset_ and all models (trees) that were not trained with this instance;
+- compare the majority vote of these trees' classifications and compare it with the true label for this instance;
+- do this for all instances in the _Out-of-Bag dataset_ and get the average OOB error.
+
+For further elaboration, see also visualizations in [this Wikipedia article](https://en.wikipedia.org/wiki/Out-of-bag_error).
 
 ## 5. Useful resources
 - Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
