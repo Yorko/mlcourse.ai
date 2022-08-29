@@ -64,7 +64,7 @@ tests = ["pytest"]
 
 [[package]]
 name = "astroid"
-version = "2.12.4"
+version = "2.12.5"
 description = "An abstract syntax tree for Python with inference support."
 category = "dev"
 optional = false
@@ -335,7 +335,7 @@ python-versions = "*"
 
 [[package]]
 name = "docutils"
-version = "0.16"
+version = "0.17.1"
 description = "Docutils -- Python Documentation Utilities"
 category = "main"
 optional = false
@@ -377,7 +377,7 @@ python-versions = "*"
 
 [[package]]
 name = "executing"
-version = "0.10.0"
+version = "1.0.0"
 description = "Get the currently executing AST node of a frame, and other information"
 category = "main"
 optional = false
@@ -700,11 +700,11 @@ testing = ["Django (<3.1)", "colorama", "docopt", "pytest (<7.0.0)"]
 
 [[package]]
 name = "jinja2"
-version = "3.0.3"
+version = "3.1.2"
 description = "A very fast and expressive template engine."
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 MarkupSafe = ">=2.0"
@@ -739,7 +739,7 @@ format_nongpl = ["idna", "jsonpointer (>1.13)", "webcolors", "rfc3986-validator 
 
 [[package]]
 name = "jupyter-book"
-version = "0.12.3"
+version = "0.13.1"
 description = "Build a book with Jupyter Notebooks and Sphinx."
 category = "main"
 optional = false
@@ -748,19 +748,19 @@ python-versions = ">=3.7"
 [package.dependencies]
 click = ">=7.1,<9"
 docutils = ">=0.15,<0.18"
-Jinja2 = "<3.1"
+Jinja2 = "*"
 jsonschema = "<4"
 linkify-it-py = ">=1.0.1,<1.1.0"
 myst-nb = ">=0.13.1,<0.14.0"
 pyyaml = "*"
-sphinx = ">=3,<5"
-sphinx_book_theme = ">=0.1.4,<0.2.0"
+sphinx = ">=4,<5"
+sphinx_book_theme = ">=0.3.2,<0.4.0"
 sphinx-comments = "*"
 sphinx-copybutton = "*"
+sphinx-design = ">=0.1.0,<0.2.0"
 sphinx-external-toc = ">=0.2.3,<0.3.0"
 sphinx-jupyterbook-latex = ">=0.4.6,<0.5.0"
 sphinx-multitoc-numbering = ">=0.1.3,<0.2.0"
-sphinx-panels = ">=0.6.0,<0.7.0"
 sphinx-thebe = ">=0.1.1,<0.2.0"
 sphinx_togglebutton = "*"
 sphinxcontrib-bibtex = ">=2.2.0,<=2.5.0"
@@ -768,7 +768,7 @@ sphinxcontrib-bibtex = ">=2.2.0,<=2.5.0"
 [package.extras]
 code_style = ["pre-commit (>=2.12,<3.0)"]
 pdfhtml = ["pyppeteer"]
-sphinx = ["altair", "bokeh", "folium", "ipywidgets", "jupytext", "matplotlib", "nbclient", "numpy", "pandas", "plotly", "sphinx-click", "sphinx-inline-tabs", "sphinxext-rediraffe (>=0.2.3,<0.3.0)", "sympy", "sphinx-proof"]
+sphinx = ["altair", "bokeh", "folium", "ipywidgets", "jupytext", "matplotlib", "nbclient", "numpy", "pandas", "plotly", "sphinx-click", "sphinx-examples", "sphinx-inline-tabs", "sphinx-proof", "sphinxext-rediraffe (>=0.2.3,<0.3.0)", "sympy"]
 testing = ["altair", "beautifulsoup4", "beautifulsoup4", "cookiecutter", "coverage", "jupytext", "matplotlib", "pyppeteer", "pytest (>=6.2.4)", "pytest-cov", "pytest-regressions", "pytest-timeout", "pytest-xdist", "sphinx-click", "sphinx-tabs", "texsoup"]
 
 [[package]]
@@ -1369,11 +1369,15 @@ python-versions = "*"
 
 [[package]]
 name = "pillow"
-version = "8.4.0"
+version = "9.2.0"
 description = "Python Imaging Library (Fork)"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-issues (>=3.0.1)", "sphinx-removed-in", "sphinxext-opengraph"]
+tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 
 [[package]]
 name = "platformdirs"
@@ -1533,20 +1537,23 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pydata-sphinx-theme"
-version = "0.7.2"
+version = "0.8.1"
 description = "Bootstrap-based Sphinx theme from the PyData community"
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.7"
 
 [package.dependencies]
 beautifulsoup4 = "*"
 docutils = "!=0.17.0"
-sphinx = "*"
+packaging = "*"
+sphinx = ">=3.5.4,<5"
 
 [package.extras]
-coverage = ["pytest-cov", "codecov", "sphinx", "numpydoc", "recommonmark", "pandas", "pytest", "pytest-regressions", "beautifulsoup4", "sphinx-sitemap", "jupyter-sphinx", "plotly", "numpy", "xarray", "docutils (==0.16)"]
-test = ["sphinx", "numpydoc", "recommonmark", "pandas", "pytest", "pytest-regressions", "beautifulsoup4", "sphinx-sitemap", "jupyter-sphinx", "plotly", "numpy", "xarray", "docutils (==0.16)"]
+dev = ["pydata-sphinx-theme", "nox", "pre-commit", "pyyaml"]
+coverage = ["pydata-sphinx-theme", "codecov", "pytest-cov"]
+test = ["pydata-sphinx-theme", "pytest"]
+doc = ["xarray", "numpy", "plotly", "jupyter-sphinx", "sphinx-sitemap", "sphinxext-rediraffe", "pytest-regressions", "pytest", "pandas", "myst-parser", "numpydoc"]
 
 [[package]]
 name = "pydot"
@@ -1901,24 +1908,21 @@ test = ["pytest", "pytest-cov", "html5lib", "cython", "typed-ast"]
 
 [[package]]
 name = "sphinx-book-theme"
-version = "0.1.10"
+version = "0.3.3"
 description = "A clean book theme for scientific explanations and documentation with Sphinx"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
-beautifulsoup4 = ">=4.6.1,<5"
-docutils = ">=0.15,<0.17"
-pydata-sphinx-theme = ">=0.7.2,<0.8.0"
+pydata-sphinx-theme = ">=0.8.0,<0.9.0"
 pyyaml = "*"
 sphinx = ">=3,<5"
 
 [package.extras]
+test = ["sphinx-thebe", "pytest-regressions (>=2.0.1,<2.1.0)", "pytest-cov", "pytest (>=6.0.1,<6.1.0)", "myst-nb (>=0.13.2,<0.14.0)", "coverage", "beautifulsoup4 (>=4.6.1,<5)"]
+doc = ["sphinxext-opengraph", "sphinxcontrib-youtube", "sphinxcontrib-bibtex (>=2.2,<3.0)", "sphinx-thebe (>=0.1.1)", "sphinx-togglebutton (>=0.2.1)", "sphinx-tabs", "sphinx-copybutton", "sphinx-examples", "sphinx-design", "sphinx (>=4.0,<5.0)", "plotly", "pandas", "nbclient", "myst-nb (>=0.13.2,<0.14.0)", "numpydoc", "matplotlib", "numpy", "folium", "ipywidgets", "ablog (>=0.10.13,<0.11.0)"]
 code_style = ["pre-commit (>=2.7.0,<2.8.0)"]
-live-dev = ["sphinx-autobuild", "web-compile (>=0.2.1,<0.3.0)"]
-sphinx = ["ablog (>=0.10.13,<0.11.0)", "ipywidgets", "folium", "numpy", "matplotlib", "myst-nb (>=0.13,<1.0)", "nbclient", "pandas", "plotly", "sphinx (>=4.0,<5.0)", "sphinx-design", "sphinx-copybutton", "sphinx-togglebutton (>=0.2.1)", "sphinx-thebe", "sphinxcontrib-bibtex (>=2.2,<3.0)", "sphinxext-opengraph"]
-testing = ["coverage", "myst-nb (>=0.13,<1.0)", "pytest (>=6.0.1,<6.1.0)", "pytest-cov", "pytest-regressions (>=2.0.1,<2.1.0)", "sphinx-thebe"]
 
 [[package]]
 name = "sphinx-comments"
@@ -1950,6 +1954,26 @@ sphinx = ">=1.8"
 [package.extras]
 code_style = ["pre-commit (==2.12.1)"]
 rtd = ["sphinx", "ipython", "myst-nb", "sphinx-book-theme"]
+
+[[package]]
+name = "sphinx-design"
+version = "0.1.0"
+description = "A sphinx extension for designing beautiful, view size responsive web components."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+sphinx = ">=3,<5"
+
+[package.extras]
+theme_sbt = ["sphinx-book-theme (>=0.3.0,<0.4.0)"]
+theme_rtd = ["sphinx-rtd-theme (>=1.0,<2.0)"]
+theme_pydata = ["pydata-sphinx-theme (>=0.8.1,<0.9.0)"]
+theme_furo = ["furo (==2022.04.07)"]
+testing = ["pytest-regressions", "pytest-cov", "pytest (>=6.2,<7.0)", "myst-parser (>=0.17.0,<0.18.0)"]
+rtd = ["myst-parser (>=0.17.0,<0.18.0)"]
+code_style = ["pre-commit (>=2.12,<3.0)"]
 
 [[package]]
 name = "sphinx-external-toc"
@@ -2003,24 +2027,6 @@ sphinx = ">=3"
 code_style = ["flake8 (>=3.7.0,<3.8.0)", "black", "pre-commit (==1.17.0)"]
 rtd = ["sphinx (>=3.0)", "sphinx-book-theme", "myst-parser"]
 testing = ["pytest (>=5.4,<6.0)", "pytest-cov (>=2.8,<3.0)", "coverage (<5.0)", "pytest-regressions", "jupyter-book"]
-
-[[package]]
-name = "sphinx-panels"
-version = "0.6.0"
-description = "A sphinx extension for creating panels in a grid layout."
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-docutils = "*"
-sphinx = ">=2,<5"
-
-[package.extras]
-code_style = ["pre-commit (>=2.7.0,<2.8.0)"]
-live-dev = ["sphinx-autobuild", "web-compile (>=0.2.0,<0.3.0)"]
-testing = ["pytest (>=6.0.1,<6.1.0)", "pytest-regressions (>=2.0.1,<2.1.0)"]
-themes = ["sphinx-rtd-theme", "pydata-sphinx-theme (>=0.4.0,<0.5.0)", "sphinx-book-theme (>=0.0.36,<0.1.0)", "myst-parser (>=0.12.9,<0.13.0)"]
 
 [[package]]
 name = "sphinx-thebe"
@@ -2498,7 +2504,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.12"
-content-hash = "98269ec5d7c6ae2a8aebf0c85933e6af3855682b292020b2771866f9e07df996"
+content-hash = "f9e0996c59a9818bbb635f93414511eca6592316a1149d7fc48980d6d9a0fbeb"
 
 [metadata.files]
 alabaster = [
@@ -2597,8 +2603,8 @@ dill = [
 ]
 distlib = []
 docutils = [
-    {file = "docutils-0.16-py2.py3-none-any.whl", hash = "sha256:0c5b78adfbf7762415433f5515cd5c9e762339e23369dbe8000d84a4bf4ab3af"},
-    {file = "docutils-0.16.tar.gz", hash = "sha256:c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"},
+    {file = "docutils-0.17.1-py2.py3-none-any.whl", hash = "sha256:cf316c8370a737a022b72b56874f6602acf974a37a9fba42ec2876387549fc61"},
+    {file = "docutils-0.17.1.tar.gz", hash = "sha256:686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"},
 ]
 eli5 = []
 entrypoints = [
@@ -2648,8 +2654,8 @@ jedi = [
     {file = "jedi-0.18.1.tar.gz", hash = "sha256:74137626a64a99c8eb6ae5832d99b3bdd7d29a3850fe2aa80a4126b2a7d949ab"},
 ]
 jinja2 = [
-    {file = "Jinja2-3.0.3-py3-none-any.whl", hash = "sha256:077ce6014f7b40d03b47d1f1ca4b0fc8328a692bd284016f806ed0eaca390ad8"},
-    {file = "Jinja2-3.0.3.tar.gz", hash = "sha256:611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7"},
+    {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
+    {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
 ]
 joblib = [
     {file = "joblib-1.1.0-py2.py3-none-any.whl", hash = "sha256:f21f109b3c7ff9d95f8387f752d0d9c34a02aa2f7060c2135f465da0e5160ff6"},
@@ -2659,10 +2665,7 @@ jsonschema = [
     {file = "jsonschema-3.2.0-py2.py3-none-any.whl", hash = "sha256:4e5b3cf8216f577bee9ce139cbe72eca3ea4f292ec60928ff24758ce626cd163"},
     {file = "jsonschema-3.2.0.tar.gz", hash = "sha256:c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"},
 ]
-jupyter-book = [
-    {file = "jupyter-book-0.12.3.tar.gz", hash = "sha256:ed695f29b1d1a0816e1fc0c409755ccb2a15fda36e507b19da69e3bdc4f5c7a8"},
-    {file = "jupyter_book-0.12.3-py3-none-any.whl", hash = "sha256:063ab998ae7dae00ae2992ab986f83253c71385af99faa36c643e6e9f491b27d"},
-]
+jupyter-book = []
 jupyter-cache = [
     {file = "jupyter-cache-0.4.3.tar.gz", hash = "sha256:4c9b5431b1d320bc68440c21fa0a155bbeb29c5b979bef72222e244a7bcd54fc"},
     {file = "jupyter_cache-0.4.3-py3-none-any.whl", hash = "sha256:6d5d662d81f565d18009e8dcfd3a56fb876af47eafead2a19ef0045aba8ffe3b"},
@@ -2917,10 +2920,7 @@ pycparser = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},
     {file = "pycparser-2.21.tar.gz", hash = "sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"},
 ]
-pydata-sphinx-theme = [
-    {file = "pydata-sphinx-theme-0.7.2.tar.gz", hash = "sha256:671df35fcdd290eafbd23d0595e6d359dbe90b2e64e6c3f4dc88276eed4a065e"},
-    {file = "pydata_sphinx_theme-0.7.2-py3-none-any.whl", hash = "sha256:bc1abc45e103b254c6c7a8f2ddabbaf8aa1f0817d85cae65dd163dd554c52700"},
-]
+pydata-sphinx-theme = []
 pydot = [
     {file = "pydot-1.4.2-py2.py3-none-any.whl", hash = "sha256:66c98190c65b8d2e2382a441b4c0edfdb4f4c025ef9cb9874de478fb0793a451"},
     {file = "pydot-1.4.2.tar.gz", hash = "sha256:248081a39bcb56784deb018977e428605c1c758f10897a339fce1dd728ff007d"},
@@ -3058,10 +3058,7 @@ sphinx = [
     {file = "Sphinx-4.5.0-py3-none-any.whl", hash = "sha256:ebf612653238bcc8f4359627a9b7ce44ede6fdd75d9d30f68255c7383d3a6226"},
     {file = "Sphinx-4.5.0.tar.gz", hash = "sha256:7bf8ca9637a4ee15af412d1a1d9689fec70523a68ca9bb9127c2f3eeb344e2e6"},
 ]
-sphinx-book-theme = [
-    {file = "sphinx-book-theme-0.1.10.tar.gz", hash = "sha256:c74d7deb36e6fea4bcb3a979d162d9fd80e93b7ea4da78ebf8286da4b898582a"},
-    {file = "sphinx_book_theme-0.1.10-py3-none-any.whl", hash = "sha256:1722b60c8ac87aa53758f4403912972cb28d0c253196446339859124e92f686f"},
-]
+sphinx-book-theme = []
 sphinx-comments = [
     {file = "sphinx-comments-0.0.3.tar.gz", hash = "sha256:00170afff27019fad08e421da1ae49c681831fb2759786f07c826e89ac94cf21"},
     {file = "sphinx_comments-0.0.3-py3-none-any.whl", hash = "sha256:1e879b4e9bfa641467f83e3441ac4629225fc57c29995177d043252530c21d00"},
@@ -3070,6 +3067,7 @@ sphinx-copybutton = [
     {file = "sphinx-copybutton-0.5.0.tar.gz", hash = "sha256:a0c059daadd03c27ba750da534a92a63e7a36a7736dcf684f26ee346199787f6"},
     {file = "sphinx_copybutton-0.5.0-py3-none-any.whl", hash = "sha256:9684dec7434bd73f0eea58dda93f9bb879d24bff2d8b187b1f2ec08dfe7b5f48"},
 ]
+sphinx-design = []
 sphinx-external-toc = [
     {file = "sphinx_external_toc-0.2.4-py3-none-any.whl", hash = "sha256:f7906620e74fbef50f0c3b8adf943da03000ab955ffe957ae4760d6cd5a09717"},
     {file = "sphinx_external_toc-0.2.4.tar.gz", hash = "sha256:f073c482d959a166f844ca8caadd13e24fa43153750cc120646ded37ff622018"},
@@ -3081,10 +3079,6 @@ sphinx-jupyterbook-latex = [
 sphinx-multitoc-numbering = [
     {file = "sphinx-multitoc-numbering-0.1.3.tar.gz", hash = "sha256:c9607671ac511236fa5d61a7491c1031e700e8d498c9d2418e6c61d1251209ae"},
     {file = "sphinx_multitoc_numbering-0.1.3-py3-none-any.whl", hash = "sha256:33d2e707a9b2b8ad636b3d4302e658a008025106fe0474046c651144c26d8514"},
-]
-sphinx-panels = [
-    {file = "sphinx-panels-0.6.0.tar.gz", hash = "sha256:d36dcd26358117e11888f7143db4ac2301ebe90873ac00627bf1fe526bf0f058"},
-    {file = "sphinx_panels-0.6.0-py3-none-any.whl", hash = "sha256:bd64afaf85c07f8096d21c8247fc6fd757e339d1be97832c8832d6ae5ed2e61d"},
 ]
 sphinx-thebe = []
 sphinx-togglebutton = []

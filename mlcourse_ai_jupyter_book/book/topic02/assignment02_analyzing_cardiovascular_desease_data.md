@@ -192,22 +192,23 @@ In the end, we have:
 ## 1.1. Basic observations
 
 **Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not given (whether "1" stands for women or for men) – figure this out by looking analyzing height, making the assumption that men are taller on average.**
+
 1. 45530 women and 24470 men
 2. 45530 men and 24470 women
 3. 45470 women and 24530 men
 4. 45470 men and 24530 women
 
-**Question 1.2. (1 point). Which gender more often reports consuming alcohol - men or women?**
+**Question 1.2. (1 point). Who more often report consuming alcohol – men or women?**
 1. women
 2. men
 
-**Question 1.3. (1 point). What is the difference between the percentages of smokers among men and women (rounded)?**
+**Question 1.3. (1 point). What's the rounded difference between the percentages of smokers among men and women?**
 1. 4
 2. 16
 3. 20
 4. 24
 
-**Question 1.4. (1 point). What is the difference between median values of age for smokers and non-smokers (in months, rounded)? You'll need to figure out the units of feature `age` in this dataset.**
+**Question 1.4. (1 point). What's the rounded difference between median values of age (in months) for non-smokers and smokers? You'll need to figure out the units of feature `age` in this dataset.**
 
 1. 5
 2. 10
@@ -237,7 +238,7 @@ Clarifications:
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
-**Question 1.5. (2 points). Calculate the fraction of the people with CVD for the two segments described above. What is the ratio of these two fractions?**
+**Question 1.5. (2 points). Calculate fractions of ill people (with CVD) in the two groups of people described in the task. What's the ratio of these two fractions?**
 
 1. 1
 2. 2
@@ -256,10 +257,10 @@ Create a new feature – BMI ([Body Mass Index](https://en.wikipedia.org/wiki/Bo
 
 **Question 1.6. (2 points). Choose the correct statements:**
 
-1. Median BMI in the sample is within the range of normal BMI values.
-2. The BMI for women is on average higher than for men.
-3. Healthy people have, on average, a higher BMI than the people with CVD.
-4. For healthy, non-drinking men, BMI is closer to the norm than for healthy, non-drinking women
+1. Median BMI in the sample is within boundaries of normal values.
+2. Women's BMI is on average higher then men's.
+3. Healthy people have higher median BMI than ill people.
+4. In the segment of healthy and non-drinking men BMI is closer to the norm than in the segment of healthy and non-drinking women
 
 ## 1.4. Cleaning data
 
@@ -281,7 +282,7 @@ This is not everything that we can do to clean this data, but this is sufficient
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
-**Question 1.7. (2 points). What percent of the original data (rounded) did we throw away?**
+**Question 1.7. (2 points). What percent of the original data (rounded) did we filter out in the previous step?**
 
 1. 8
 2. 9
@@ -292,7 +293,7 @@ This is not everything that we can do to clean this data, but this is sufficient
 
 ## 2.1. Correlation matrix visualization
 
-To understand the features better, you can create a matrix of the correlation coefficients between the features. Use the initial dataset (non-filtered).
+To understand the features better, you can create a matrix of the correlation coefficients between the features. Use the filtered dataset from now on.
 
 ### Task:
 
@@ -303,7 +304,7 @@ Plot a correlation matrix using [`heatmap()`](http://seaborn.pydata.org/generate
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
-** Question 2.1. (1 point).** Which pair of features has the strongest Pearson's correlation with the *gender* feature?
+**Question 2.1. (1 point).** Which pair of features has the strongest Pearson's correlation with the *gender* feature?
 
 1. Cardio, Cholesterol
 2. Height, Smoke
@@ -327,15 +328,6 @@ In order for the plot to render correctly, you need to convert your `DataFrame` 
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
-**Question 2.2. (1 point).** Which pair of features has the strongest Spearman correlation?
-
-1. Height, Weight
-2. Age, Weight
-3. Cholesterol, Gluc
-4. Cardio, Cholesterol
-5. Ap_hi, Ap_lo
-6. Smoke, Alco
-
 ## 2.3. Rank correlation
 
 In most cases, *the Pearson coefficient of linear correlation* is more than enough to discover patterns in data.
@@ -351,6 +343,15 @@ Calculate and plot a correlation matrix using the [Spearman's rank correlation c
 ```{code-cell} ipython3
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
+
+**Question 2.2. (1 point).** Which pair of features has the strongest Spearman rank correlation?
+
+1. Height, Weight
+2. Age, Weight
+3. Cholesterol, Gluc
+4. Cardio, Cholesterol
+5. Ap_hi, Ap_lo
+6. Smoke, Alco
 
 **Question 2.3. (1 point).** Why do these features have strong rank correlation?
 
@@ -371,7 +372,7 @@ Create a *count plot* using [`countplot()`](http://seaborn.pydata.org/generated/
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
-**Question 2.4. (1 point).** What is the smallest age at which the number of people with CVD outnumber the number of people without CVD?
+**Question 2.4. (1 point).** What is the smallest age at which the number of people with CVD outnumbers the number of people without CVD?
 
 1. 44
 2. 55
