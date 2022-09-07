@@ -80,12 +80,14 @@ To solve this optimization problem, we need to calculate derivatives with respec
 <details>
 <summary>Small CheatSheet on matrix derivatives (click the triangle to extend)</summary>
 <p>
+
 $$\large \begin{array}{rcl}
 \frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} &=& \textbf{A} \\
 \frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} \textbf{X} &=& \left(\textbf{A} + \textbf{A}^{\text{T}}\right)\textbf{X} \\
 \frac{\partial}{\partial \textbf{A}} \textbf{X}^{\text{T}} \textbf{A} \textbf{y} &=&  \textbf{X}^{\text{T}} \textbf{y}\\
 \frac{\partial}{\partial \textbf{X}} \textbf{A}^{-1} &=& -\textbf{A}^{-1} \frac{\partial \textbf{A}}{\partial \textbf{X}} \textbf{A}^{-1}
 \end{array}$$
+
 </p>
 </details>
 
