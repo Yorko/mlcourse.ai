@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -977,12 +975,13 @@ depend only on the samples from <span class="math notranslate nohighlight">\(\te
 <details>
 <summary>Small CheatSheet on matrix derivatives (click the triangle to extend)</summary>
 <p>
-$$\large \begin{array}{rcl}
-\frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} &=& \textbf{A} \\
-\frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} \textbf{X} &=& \left(\textbf{A} + \textbf{A}^{\text{T}}\right)\textbf{X} \\
-\frac{\partial}{\partial \textbf{A}} \textbf{X}^{\text{T}} \textbf{A} \textbf{y} &=&  \textbf{X}^{\text{T}} \textbf{y}\\
-\frac{\partial}{\partial \textbf{X}} \textbf{A}^{-1} &=& -\textbf{A}^{-1} \frac{\partial \textbf{A}}{\partial \textbf{X}} \textbf{A}^{-1}
-\end{array}$$
+<div class="math notranslate nohighlight">
+\[\begin{split}\large \begin{array}{rcl}
+\frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} &amp;=&amp; \textbf{A} \\
+\frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} \textbf{X} &amp;=&amp; \left(\textbf{A} + \textbf{A}^{\text{T}}\right)\textbf{X} \\
+\frac{\partial}{\partial \textbf{A}} \textbf{X}^{\text{T}} \textbf{A} \textbf{y} &amp;=&amp;  \textbf{X}^{\text{T}} \textbf{y}\\
+\frac{\partial}{\partial \textbf{X}} \textbf{A}^{-1} &amp;=&amp; -\textbf{A}^{-1} \frac{\partial \textbf{A}}{\partial \textbf{X}} \textbf{A}^{-1}
+\end{array}\end{split}\]</div>
 </p>
 </details>
 <p>What we get is:</p>
