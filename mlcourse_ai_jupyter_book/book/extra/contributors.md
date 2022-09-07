@@ -12,6 +12,7 @@ Although led by [Yury Kashnitsky](https://yorko.github.io/), the course is devel
  - [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/) for a major contribution to translation and proof-reading;
  - [Ekaterina Demidova](https://github.com/demidovakatya), [Mariya Mansurova](https://www.linkedin.com/in/mariya-mansurova/), [Pavel Nesterov](https://www.linkedin.com/in/nesterovpavel/), [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), [Arseny Kravchenko](https://www.linkedin.com/in/arsenyinfo/), [Sergey Korolev](https://www.linkedin.com/in/sokorolev/), [Dmitry Sergeev](https://www.linkedin.com/in/sergeyevdmitry), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), and [Alexey Natekin](https://www.linkedin.com/in/natekin/) for authoring or co-authoring course articles;
  - [Vladimir Iglovikov](https://www.linkedin.com/in/iglovikov/) for continuous help in promotion of the course;
- -  [Aleksandr Lozhechnik](https://www.linkedin.com/in/aleksandr-lozhechnik-40021263/) for long-lasting help with the course website.
+ -  [Aleksandr Lozhechnik](https://www.linkedin.com/in/aleksandr-lozhechnik-40021263/) for long-lasting help with the course website;
+ -  [Kirill Vlasov](https://vlasov.info/) for continuous help with org stuff.
 
 Many thanks for your support, guys! It was great to see your dedication and enthusiasm, just for the sake of doing the right thing, not to earn money.
