@@ -376,7 +376,7 @@ Let's check the format by running VW with this training sample:
 ! echo '1 1.0 |Subject WHAT car is this |Organization University of Maryland:0.5 College Park' | vw
 ```
 
-VW is a wonderful tool for working with text data. We'll illustrate it with the [20newsgroups dataset](http://scikit-learn.org/stable/datasets/twenty_newsgroups.html), which contains letters from 20 different newsletters.
+VW is a wonderful tool for working with text data. We'll illustrate it with the [20newsgroups dataset](https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html), which contains letters from 20 different newsletters.
 
 
 ### 3.1. News. Binary classification.
@@ -458,7 +458,7 @@ Now, we pass the created training file to Vowpal Wabbit. We solve the classifica
 # --loss_function hinge -f $PATH_TO_WRITE_DATA/20news_model.vw
 ```
 
-VW prints a lot of interesting info while training (one can suppress it with the `--quiet` parameter). You can see documentation of the diagnostic output on [GitHub](https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial#vws-diagnostic-information). Note how average loss drops while training. For loss computation, VW uses samples it has never seen before, so this measure is usually accurate. Now, we apply our trained model to the test set, saving predictions into a file with the `-p` flag:  
+VW prints a lot of interesting info while training (one can suppress it with the `--quiet` parameter). You can see [documentation](https://vowpalwabbit.org/docs/vowpal_wabbit/python/latest/tutorials/cmd_linear_regression.html#vowpal-wabbit-output) of the diagnostic output. Note how average loss drops while training. For loss computation, VW uses samples it has never seen before, so this measure is usually accurate. Now, we apply our trained model to the test set, saving predictions into a file with the `-p` flag:  
 
 
 ```{code-cell} ipython3
@@ -847,6 +847,6 @@ This section has been moved to Kaggle, please explore [this Notebook](https://ww
 - [Don’t be tricked by the Hashing Trick](https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087) - analysis of hash collisions, their dependency on feature space and hashing space dimensions and affecting classification/regression performance
 - ["Numeric Computation" Chapter](http://www.deeplearningbook.org/contents/numerical.html) of the [Deep Learning book](http://www.deeplearningbook.org/)
 - ["Convex Optimization" by Stephen Boyd](https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787)
-- "Command-line Tools can be 235x Faster than your Hadoop Cluster" [post](https://aadrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html)
+- "Command-line Tools can be 235x Faster than your Hadoop Cluster" [post](https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html)
 - Benchmarking various ML algorithms on Criteo 1TB dataset on [GitHub](https://github.com/rambler-digital-solutions/criteo-1tb-benchmark)
 - [VW on FastML.com](http://fastml.com/blog/categories/vw/)

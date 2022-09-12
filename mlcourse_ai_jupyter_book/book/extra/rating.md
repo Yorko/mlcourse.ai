@@ -50,7 +50,7 @@ According to the [final rating](https://bit.ly/2mbv5FF). The session took place 
 1. Alex Shtepa [LinkedIn](https://www.linkedin.com/in/alexander-shtepa-92037b4a/), [email](mailto:alexs.another.email@gmail.com)
 1. Artem Kolmykov, [LinkedIn](https://www.linkedin.com/in/artem-kolmykov-58281219/), [email](mailto:akolmykov@gmail.com)
 1. Maxim Dergunov, [LinkedIn](https://www.linkedin.com/in/maxim-dergunov/), [email](mailto:maxim_dergunov@inbox.ru)
-1. Nikita Kuzmin [GitHub](http://github.com/paniquex/), [LinkedIn](https://www.linkedin.com/in/paniquex/), [email](mailto:paniquexx@gmail.com), [Kaggle](https://kaggle.com/paniquex/)
+1. Nikita Kuzmin [GitHub](https://github.com/paniquex/), [LinkedIn](https://www.linkedin.com/in/paniquex/), [email](mailto:paniquexx@gmail.com), [Kaggle](https://kaggle.com/paniquex/)
 1. Polina Karpikova, [Github](https://github.com/poliik), [email](mailto:poliikwork@gmail.com)
 1. Michael Feldman, [email](mailto:michael.george.feldman@gmail.com),
 [GitHub](https://github.com/michaelgfeldman),
@@ -69,11 +69,11 @@ According to the [final rating](https://bit.ly/2mbv5FF). The session took place 
 1. Maria Bezouglova, [email](mailto:m_bezouglova@mail.ru), [LinkedIn](https://www.linkedin.com/in/maria-bezouglova-41915917b/), [GitHub](https://github.com/sibmaria)
 1. Denys Shylov, [email](mailto:shylovdenys@gmail.com), [GitHub](https://github.com/shlvd)
 1. Ivan Chernov, [GitHub](https://github.com/vanya-black), [LinkedIn](https://www.linkedin.com/in/iche/), [email](mailto:ivan.chernov.92@bk.ru)
-1. Cameron McGarry, [GitHub](http://github.com/mcgarc/)
+1. Cameron McGarry, [GitHub](https://github.com/mcgarc/)
 1. Eduard Agekyan, [GitHub](https://github.com/psheshke/), [email](mailto:eaagekyan@mail.ru)
 1. Yulia Klochko, [GitHub](https://github.com/yusklochko/), [email](mailto:yusklochko@gmail.com)
 1. Oleg Zagorulko,
-[GitHub](http://github.com/warpdiver/), [LinkedIn](https://www.linkedin.com/in/olegzagorulko/), [email](mailto:warpdiver@yandex.ru)
+[GitHub](https://github.com/warpdiver/), [LinkedIn](https://www.linkedin.com/in/olegzagorulko/), [email](mailto:warpdiver@yandex.ru)
 1. Zoltan Szabo
 1. Timur Gadylshin
 1. Pavel Kolosov
@@ -142,8 +142,8 @@ According to the [final rating](https://drive.google.com/open?id=1LAy1eK8vIONzIW
 1. Korepanov Alexey,  [GitHub](https://github.com/grazder),  [LinkedIn](http://linkedin.com/in/grazder), [email](mailto:grazder@yandex.ru)
 1. Meynardo Jose
 1. Ustinov Dmitry, [GitHub](https://github.com/dm1tryx),  [LinkedIn](https://www.linkedin.com/in/dmitry-ustinov/),  [email](mailto:ust.dmit@gmail.com)
-1. Nikita Rubinkovskiy, [GitHub](http://github.com/Fissium/), [LinkedIn](https://www.linkedin.com/in/rubinkovskiy/), [email](mailto:NARubinkovskiy@gmail.com)
-1. Andreas Kouzelis, [GitHub](http://github.com/kuzand/), [LinkedIn](https://www.linkedin.com/in/kuzand/), [email](mailto:kuzand@hotmail.com)
+1. Nikita Rubinkovskiy, [GitHub](https://github.com/Fissium/), [LinkedIn](https://www.linkedin.com/in/rubinkovskiy/), [email](mailto:NARubinkovskiy@gmail.com)
+1. Andreas Kouzelis, [GitHub](https://github.com/kuzand/), [LinkedIn](https://www.linkedin.com/in/kuzand/), [email](mailto:kuzand@hotmail.com)
 1. Vadim Shestopalov, [LinkedIn](https://www.linkedin.com/in/vadim-shestopalov/), [email](mailto:vdmshestopalov@gmail.com)
 1. Shokhan Birlikov, [LinkedIn](https://www.linkedin.com/in/birlikov/), [email](mailto:birlikoff@gmail.com)
 1. Mikhail Tribunskiy, [GitHub](https://github.com/MiTribunskiy/), [LinkedIn](https://www.linkedin.com/in/tribunskiy/), [email](mailto:mitribunskiy@gmail.com)
@@ -195,14 +195,14 @@ According to the [final rating](https://drive.google.com/open?id=1LAy1eK8vIONzIW
 1. Nick Bienko, [GitHub](https://github.com/bikolya/), [LinkedIn](https://www.linkedin.com/in/bikolya/)
 1. Mikhail Yuldashev
 1. Olya Yakushewa, [LinkedIn](https://www.linkedin.cn/in/olga-yakushewa-018006186)
-1. Sita Krishnakumar, [GitHub](http://github.com/sitask/), [LinkedIn](https://www.linkedin.com/in/sitask/), [email](mailto:sita.krishnakumar@gmail.com)
+1. Sita Krishnakumar, [GitHub](https://github.com/sitask/), [LinkedIn](https://www.linkedin.com/in/sitask/), [email](mailto:sita.krishnakumar@gmail.com)
 1. Andres Tiko, [LinkedIn](https://www.linkedin.com/in/tiko)
 1. Artem Ryblov
 1. Viktor Nikolaev, [email](mailto:viktor_andreevich@outlook.com), [LinkedIn](https://www.linkedin.com/in/ViktorAndreevich)
 1. Alexander Bunyatov, [email](mailto:bunalil@mail.ru)
 1. Maxim Yurchenko, [GitHub](https://github.com/mv-yurchenko/), [PersonalSite](https://mv-yurchenko.github.io), [email](mailto:maxonus2@gmail.com)
 1. Irina Telina
-1. Pavel Peskov, [GitHub](http://github.com/pchlq/), [twitter](https://www.twitter.com/Pchlq/), [email](mailto:peskovps@gmail.com), [LinkedIn](https://www.linkedin.com/in/pavel-peskov-8673a76/)
+1. Pavel Peskov, [GitHub](https://github.com/pchlq/), [twitter](https://www.twitter.com/Pchlq/), [email](mailto:peskovps@gmail.com), [LinkedIn](https://www.linkedin.com/in/pavel-peskov-8673a76/)
 1. Alexander Chernyshov, [GitHub](https://github.com/alexbolduin), [email](mailto:achernys123@gmail.com)
 1. Bruyako Maksim
 1. Chavalapalli Varun
@@ -245,7 +245,7 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Alexey Bykov, [GitHub](https://github.com/devcrab/), [LinkedIn](https://www.linkedin.com/in/alexey-bykov-mipt/), [email](mailto:alexey.bykov.mipt@gmail.com)
 1. Kseniia Terekhova, [LinkedIn](https://www.linkedin.com/in/kseniia-terekhova-41b371b8/), [GitHub](https://github.com/prickly-u), [email](mailto:kterehova@gmail.com)
 1. Alexander Kovalev, [GitHub](https://github.com/sankovalev/), [LinkedIn](https://www.linkedin.com/in/velavok/), [email](mailto:sankovalev@gmail.com)
-1. Andrew Trefilov, [GitHub](http://github.com/lalka1/), [LinkedIn](https://www.linkedin.com/in/andtre/), [email](mailto:trefik92@gmail.com)
+1. Andrew Trefilov, [GitHub](https://github.com/lalka1/), [LinkedIn](https://www.linkedin.com/in/andtre/), [email](mailto:trefik92@gmail.com)
 1. Nikolai Timonin, [GitHub](https://github.com/timoninn/), [LinkedIn](https://www.linkedin.com/in/timoninn/), [email](mailto:nikki.timonin@yandex.ru)
 1. Alexander Nichiporenko, [GitHub](https://github.com/alexnich), [LinkedIn](https://www.linkedin.com/in/alexnich), [email](mailto:avnichiporenko@gmail.com)
 1. Tatiana Nekrasova, [GitHub](https://github.com/polosataya/), [LinkedIn](https://www.linkedin.com/in/tnekrasova/), [email](mailto:gntv1977@gmail.com)
@@ -254,7 +254,7 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Denis Mironov, [GitHub](https://github.com/dmironov1993), [LinkedIn](https://www.linkedin.com/in/denismironov/), [email](mailto:mironovdenis1993@gmail.com)
 1. Valentin Kovalev, [GitHub](https://github.com/ValentinKovalev), [LinkedIn](https://www.linkedin.com/in/valentinkovalev/), [email](mailto:kovalev1580@gmail.com)
 1. Ivan Kalininskii, [email](mailto:kiavip@gmail.com)
-1. Irina Knyazeva, [email](mailto:iknyazeva@gmail.com), [ResearchGate](https://www.researchgate.net/profile/Irina_Knyazeva3 )
+1. Irina Knyazeva, [email](mailto:iknyazeva@gmail.com)
 1. Alexander Veramyev, [GitHub](https://github.com/rrobolit), [LinkedIn](https://www.linkedin.com/in/veramyev/), [email](mailto:rrobolit@gmail.com)
 1. Neeraj Agrawal, [GitHub](https://github.com/MagnIeeT/), [LinkedIn](https://www.linkedin.com/in/neeraj-agrawal/), [email](mailto:neeraj13788@gmail.com)
 1. Tatyana Kudasova, [email](mailto:kuzznetsova.t@gmail.com)
@@ -282,7 +282,7 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Gennadiy Mikhaylov, [email](mailto:genanady@gmail.com)
 1. Aleksandr Seliverstov, [GitHub](https://github.com/seliverstov/), [email](mailto:seliverstov.a@gmail.com)
 1. Alexander Nikolin, [GitHub](https://github.com/Howuhh), [LinkedIn](http://www.linkedin.com/in/howuhh), [email](mailto:hsehowuhh@gmail.com)
-1. Joris Fournel, [GitHub](http://github.com/Jorisfournel/),  [LinkedIn](https://www.linkedin.com/in/jorisfournel/), [email](mailto:jorisfournell@gmail.com)
+1. Joris Fournel, [GitHub](https://github.com/Jorisfournel/),  [LinkedIn](https://www.linkedin.com/in/jorisfournel/), [email](mailto:jorisfournell@gmail.com)
 21. Alexander Otrokov [GitHub](https://github.com/oav711), [LinkedIn](https://www.linkedin.com/in/otrokov/), [email](mailto:oav711@gmail.com)
 1. Alexey Bachurin
 1. Elvira Diaminova, [GitHub](https://github.com/eelvira), [LinkedIn](https://www.linkedin.com/in/elvira-diaminova/), [email](mailto:e.diaminova@yandex.ru)
@@ -294,7 +294,7 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Kirill Simakov, [email](mailto:kirill.simakov@gmail.com),  [LinkedIn](https://www.linkedin.com/in/kirill-simakov/), [GitHub](https://github.com/kirill-simakov)
 1. Kozlov Sergey, [GitHub](https://github.com/kozlovsv), [LinkedIn](https://www.linkedin.com/in/kozlovsv/), [email](mailto:kozlovsv78@gmail.com)
 1. Luis Herrera, [GitHub](https://github.com/luhego/), [LinkedIn](https://www.linkedin.com/in/luis-herrera-27263149/), [email](mailto:luhegoes@gmail.com)
-1. Yuri Maigur, [GitHub](http://github.com/yurimaigur/), [LinkedIn](https://www.linkedin.com/in/yurimaigur/), [email](mailto:yuri.maigur@gmail.com)
+1. Yuri Maigur, [GitHub](https://github.com/yurimaigur/), [LinkedIn](https://www.linkedin.com/in/yurimaigur/), [email](mailto:yuri.maigur@gmail.com)
 1. Andre Barbosa, [LinkedIn](https://www.linkedin.com/in/barbosaandre/), [email](mailto:abarbosa0494@gmail.com)
 1. Timur Sinyavsky, [GitHub](https://github.com/SinyTim/), [LinkedIn](https://www.linkedin.com/in/sinytim/), [email](mailto:sinytim@mail.ru)
 1. Mikhail Korshchikov, [GitHub](https://github.com/mikhailsergeevi4), [LinkedIn](https://www.linkedin.com/in/mike-korschikov-63604a14a/), [email](mailto:mikhailsergeevi4@yandex.ru)
@@ -308,13 +308,13 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Kozlov Maxim, [GitHub](https://github.com/komaksim), [email](mailto:komaksim@gmail.com)
 1. Vladimir Varfolomeev, [email](mailto:v.e.varfolomeev@gmail.com)
 1. Sergey Golubev
-1. Alim Gubzhokov, [GitHub](http://github.com/spectr747/), [LinkedIn](https://www.linkedin.com/in/alim-gubzhokov-071118177/), [email](mailto:spectr747@gmail.com)
-1. Wit Thanawitchayakarn, [GitHub](http://github.com/witwitchayakarn/), [LinkedIn](https://www.linkedin.com/in/wit-thanawitchayakarn-5ab27184/), [email](mailto:witwitchayakarn@gmail.com)
+1. Alim Gubzhokov, [GitHub](https://github.com/spectr747/), [LinkedIn](https://www.linkedin.com/in/alim-gubzhokov-071118177/), [email](mailto:spectr747@gmail.com)
+1. Wit Thanawitchayakarn, [GitHub](https://github.com/witwitchayakarn/), [LinkedIn](https://www.linkedin.com/in/wit-thanawitchayakarn-5ab27184/), [email](mailto:witwitchayakarn@gmail.com)
 1. Bill Guo
 1. Sergei Bulaev, [GitHub](https://github.com/ser-serege/BigDataBig), [LinkedIn](https://www.linkedin.com/in/sergei-bulaev), [email](mailto:s.a.bulaev@yandex.ru)
 1. Kirill Panin, [GitHub](https://github.com/KirillPanin), [LinkedIn](https://www.linkedin.com/in/kirill-panin/), [email](mailto:kirylpanin@gmail.com)
 1. Pavel Platonov, [email](mailto:scientist74@gmail.com)
-1. Anton Petrov, [GitHub](http://github.com/gsenseless), [LinkedIn](https://www.linkedin.com/in/anton-p-693b4875/), [email](mailto:gjobspam+mlcai@gmail.com)
+1. Anton Petrov, [GitHub](https://github.com/gsenseless), [LinkedIn](https://www.linkedin.com/in/anton-p-693b4875/), [email](mailto:gjobspam+mlcai@gmail.com)
 1. Daria Skakun, [email](mailto:theskada@gmail.com)
 1. Anna Kashcheeva, [LinkedIn](https://www.linkedin.com/in/anna-kashcheeva-0a004715b/), [email](mailto:l.oompa@yandex.ru)
 1. Aleksei Ashikhmin, [GitHub](https://github.com/apokrif333 ), [email](mailto:alex.ah@list.ru )
@@ -326,7 +326,7 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 1. Nikolai Pliev, [email](mailto:nickpliev@gmail.com)
 1. Gleb Levitskiy, [GitHub](https://github.com/GLevV), [LinkedIn](https://www.linkedin.com/in/gleb-levitskiy-0a9122177/), [email](mailto:gp.ultimum@gmail.com)
 1. Alexey Vinogradov, [LinkedIn](https://www.linkedin.com/in/aleksey-vinogradov-02846625/), [email](mailto:tenchi1988@gmail.com)
-1. Andrei Rem, [GitHub](http://github.com/andreirem), [LinkedIn](https://www.linkedin.com/in/andrei-rem), [email](mailto:andrei.rem.ds@gmail.com)
+1. Andrei Rem, [GitHub](https://github.com/andreirem), [LinkedIn](https://www.linkedin.com/in/andrei-rem), [email](mailto:andrei.rem.ds@gmail.com)
 1. Svetlana Sudarkova, [GitHub](https://github.com/sudarkova), [LinkedIn](https://www.linkedin.com/in/sudarkova), [email](mailto:sudarkova.sveta@gmail.com)
 1. Aleksandr Korotkov, [LinkedIn](https://www.linkedin.com/in/krotix/), [email](mailto:krotix@gmail.com)
 1. Haowen Jiang, [GitHub](https://github.com/Jianghaowen/), [LinkedIn](https://www.linkedin.com/in/jiang-haowen-618970158/), [email](mailto:j534878350@gmail.com)
@@ -345,15 +345,15 @@ According to the [final rating](https://goo.gl/vMHdED). The session took place f
 According to the [final rating](https://drive.google.com/open?id=1VlVgHJSQff0huK1hPsyNiImztc7wop0E8Gvw3qO5vBk) based on assignments and Kaggle competitions. The session took place from Feb 6 till April 27, 2018, there were about 200 participants.
 
 1. Yevgeni Berkovitch, [LinkedIn](https://www.linkedin.com/in/yberkovitch/), [e-mail](mailto:taoberkovitch@gmail.com)
-1. Alex Lee, [GitHub](https://www.github.com/alwc), [LinkedIn](https://www.linkedin.com/in/alexwclee/), [e-mail](mailto:alwc90@gmail.com)
-1. Sümeyra Bedir, [GitHub](https://www.github.com/smyrbdr), [LinkedIn](https://www.linkedin.com/in/sumeyrabedir), [e-mail](mailto:smyrbdr@gmail.com)
+1. Alex Lee, [GitHub](https://github.com/alwc), [LinkedIn](https://www.linkedin.com/in/alexwclee/), [e-mail](mailto:alwc90@gmail.com)
+1. Sümeyra Bedir, [GitHub](https://github.com/smyrbdr), [LinkedIn](https://www.linkedin.com/in/sumeyrabedir), [e-mail](mailto:smyrbdr@gmail.com)
 1. Mikhail Romanov, [LinkedIn](https://www.linkedin.com/in/mikhail-romanov-903aa7a0/), [e-mail](mailto:mikhail@buzzwoo.de)
-1. Muhammed Tan, [GitHub](https://www.github.com/intelmt), [LinkedIn](https://www.linkedin.com/in/muhammedtan), [e-mail](mailto:tanmuhammed@gmail.com)
+1. Muhammed Tan, [GitHub](https://github.com/intelmt), [LinkedIn](https://www.linkedin.com/in/muhammedtan), [e-mail](mailto:tanmuhammed@gmail.com)
 1. Ivan Reznikov, [LinkedIn](https://www.linkedin.com/in/reznikovivan/), [e-mail](mailto:ivanreznikov@gmail.com)
-1. Aditya Soni, [GitHub](https://www.github.com/AdityaSoni19031997), [LinkedIn](https://www.linkedin.com/in/aditya-soni-0505a9124/), [e-mail](mailto:adityafast.ai@gmail.com)
-1. Artem Kalchenko, [GitHub](https://www.github.com/kalkolab), [LinkedIn](https://www.linkedin.com/in/artem-kalchenko), [e-mail](mailto:artem@kalko.me)
-1. Nastassia Ryabkova, [GitHub](https://www.github.com/nastassiaryabkova), [LinkedIn](https://www.linkedin.com/in/nastassiaryabkova), [e-mail](mailto:nastassia.ryabkova@gmail.com)
-1. Henrique Silva, [GitHub](https://www.github.com/henriqueribeiro), [LinkedIn](https://www.linkedin.com/in/henrique-ribeiro-silva), [e-mail](mailto:henrique.rd.silva@gmail.com)
+1. Aditya Soni, [GitHub](https://github.com/AdityaSoni19031997), [LinkedIn](https://www.linkedin.com/in/aditya-soni-0505a9124/), [e-mail](mailto:adityafast.ai@gmail.com)
+1. Artem Kalchenko, [GitHub](https://github.com/kalkolab), [LinkedIn](https://www.linkedin.com/in/artem-kalchenko), [e-mail](mailto:artem@kalko.me)
+1. Nastassia Ryabkova, [GitHub](https://github.com/nastassiaryabkova), [LinkedIn](https://www.linkedin.com/in/nastassiaryabkova), [e-mail](mailto:nastassia.ryabkova@gmail.com)
+1. Henrique Silva, [GitHub](https://github.com/henriqueribeiro), [LinkedIn](https://www.linkedin.com/in/henrique-ribeiro-silva), [e-mail](mailto:henrique.rd.silva@gmail.com)
 
 ## Top-100 performers of the 3-rd session of [mlcourse.ai](http://mlcourse.ai) by ods.ai, spring 2018 (held in Russian)
 
@@ -436,7 +436,7 @@ According to the [final rating](https://drive.google.com/open?id=1HMn7uA8CwfBoWu
 1. Коргун Дмитрий Александрович, [GitHub](https://github.com/tbb), [e-mail](mailto:dmitry.tbb@yandex.ru)
 1. Мишин Александр Анатольевич, [e-mail](mailto:iscandmishin@gmail.com)
 1. Топорнин Дмитрий Дмитриевич, [GitHub](https://github.com/wilddima), [LinkedIn](https://www.linkedin.com/in/topornin/), [e-mail](mailto:dtopornin@gmail.com)
-1. Фатхутдинова Милия, [GitHub](https://github.com/MillaLady)
+1. Фатхутдинова Милия
 1. Большагин Никита Николаевич, [GitHub](https://github.com/bolshagin), [e-mail](mailto:bolshagin.nikita@gmail.com)
 1. Гомилко Степан Игоревич, [GitHub](https://github.com/Gromilko), [e-mail](mailto:gomilkostepan@gmail.com)
 1. Медников Андрей Олегович
@@ -465,25 +465,25 @@ According to the [final rating](https://drive.google.com/open?id=1HMn7uA8CwfBoWu
 
 According to the [final rating](https://drive.google.com/open?id=1NSdcHzMy_KoFx6hSZUuXUTwW5X6xsFY-POW2wQ4jjjs). The session took place in Sep-Nov 2017, there were 1305 participants.
 
-1. Бирюкова Валентина, [GitHub](https://www.github.com/MyLtYkRiTiK), [LinkedIn](https://www.linkedin.com/in/myltykritik/), [e-mail](mailto:myltykritik777@gmail.com)
+1. Бирюкова Валентина, [GitHub](https://github.com/MyLtYkRiTiK), [LinkedIn](https://www.linkedin.com/in/myltykritik/), [e-mail](mailto:myltykritik777@gmail.com)
 1. Куценко Андрей Кириллович, [e-mail](mailto:andrey.kc.data.science@yandex.ru)
 1. Щесняк Даниил Сергеевич
 1. Котенков Игорь Дмитриевич
-1. Лукьяненко Андрей Петрович, [GitHub](https://www.github.com/Erlemar), [LinkedIn](https://www.linkedin.com/in/andlukyane/), [e-mail](mailto:andlukyane@gmail.com)
-1. Уваров Максим Александрович, [GitHub](https://www.github.com/maxis42), [LinkedIn](https://www.linkedin.com/in/maxis42/), [e-mail](mailto:uvarov.max@gmail.com)
+1. Лукьяненко Андрей Петрович, [GitHub](https://github.com/Erlemar), [LinkedIn](https://www.linkedin.com/in/andlukyane/), [e-mail](mailto:andlukyane@gmail.com)
+1. Уваров Максим Александрович, [GitHub](https://github.com/maxis42), [LinkedIn](https://www.linkedin.com/in/maxis42/), [e-mail](mailto:uvarov.max@gmail.com)
 1. Васильев Леонид Валерьевич, [e-mail](mailto:vasiliev.leonid@gmail.com)
 1. Машкин Евгений Николаевич, [LinkedIn](https://www.linkedin.com/in/eugene-mashkin-88490883/), [e-mail](mailto:e.n.mashkin@gmail.com)
 1. Овчинников Григорий Олегович, [e-mail](mailto:ogowm@yandex.ru)
 1. Тетерников Илья Анатольевич
-1. Соколов Ярослав Сергеевич, [GitHub](https://www.github.com/SokolovYaroslav), [LinkedIn](https://www.linkedin.com/in/yaroslav-sokolov-768727125/), [e-mail](mailto:sokolov.yas@gmail.com)
-1. Немчинов Егор Игоревич, [GitHub](https://www.github.com/ImmortalTurtle), [LinkedIn](https://www.linkedin.com/in/egor-nemchinov-4a57a2150/), [e-mail](mailto:nemchegor@gmail.com)
+1. Соколов Ярослав Сергеевич, [GitHub](https://github.com/SokolovYaroslav), [LinkedIn](https://www.linkedin.com/in/yaroslav-sokolov-768727125/), [e-mail](mailto:sokolov.yas@gmail.com)
+1. Немчинов Егор Игоревич, [LinkedIn](https://www.linkedin.com/in/egor-nemchinov-4a57a2150/), [e-mail](mailto:nemchegor@gmail.com)
 1. Власов Кирилл Вячеславович, [e-mail](mailto:vlasoff.k@gmail.com)
 1. Данилов Денис Валерьевич, [e-mail](mailto:danilov.d8@gmail.com), [LinkedIn](https://www.linkedin.com/in/den-danilov-88326b7b/)
-1. Tetyana Gavrylenko, [e-mail](mailto:tegavrylenko@gmail.com), [LinkedIn](https://www.linkedin.com/in/tetyana-gavrylenko/), [github](https://www.github.com/taguka)
+1. Tetyana Gavrylenko, [e-mail](mailto:tegavrylenko@gmail.com), [LinkedIn](https://www.linkedin.com/in/tetyana-gavrylenko/), [github](https://github.com/taguka)
 1. Кузнецов Илья Ефимович, [LinkedIn](https://www.linkedin.com/in/efimich/), [e-mail](mailto:kuilef42@gmail.com)
-1. Челяпин Павел Сергеевич, [Kaggle](https://www.kaggle.com/ungvert/), [GitHub](https://www.github.com/ungvert/)
+1. Челяпин Павел Сергеевич, [Kaggle](https://www.kaggle.com/ungvert/), [GitHub](https://github.com/ungvert/)
 1. Малюгина Анастасия Алексеевна
-1. Кондратюк Вячеслав Юрьевич, [GitHub](https://www.github.com/viakondratiuk), [LinkedIn](https://www.linkedin.com/in/viacheslavkondratiuk/), [e-mail](mailto:viakondratiuk@gmail.com)
+1. Кондратюк Вячеслав Юрьевич, [GitHub](https://github.com/viakondratiuk), [LinkedIn](https://www.linkedin.com/in/viacheslavkondratiuk/), [e-mail](mailto:viakondratiuk@gmail.com)
 1. Козлова Надежда Вячеславовна
 1. Катренко Петр Вадимович
 1. Поливин Олег Сергеевич, [e-mail](mailto:olegpolivin@gmail.com) [LinkedIn](https://www.linkedin.com/in/polivin/)
@@ -496,23 +496,23 @@ According to the [final rating](https://drive.google.com/open?id=1NSdcHzMy_KoFx6
 1. Кудин Степан Сергеевич, [email](mailto:kudin.stepan@yandex.ru), [LinkedIn](https://www.linkedin.com/in/stepan-kudin-83164393/)
 1. Гуревич Андрей Александрович, [LinkedIn](https://www.linkedin.com/in/andrey-gurevich-245b5486/), [e-mail](mailto:andrey.a.gurevich@gmail.com)
 1. Ляхов Игорь Геннадиевич
-1. Анненкова Ольга, [GitHub](https://www.github.com/olga3n)
+1. Анненкова Ольга, [GitHub](https://github.com/olga3n)
 1. Акиньшин Евгений
-1. Evgeny Sushko, [GitHub](https://www.github.com/evgenysushko), [LinkedIn](https://www.linkedin.com/in/evgenysushko)
+1. Evgeny Sushko, [GitHub](https://github.com/evgenysushko), [LinkedIn](https://www.linkedin.com/in/evgenysushko)
 1. Евсеев Вадим Сергеевич
 1. Маловичко Галина, [LinkedIn](https://www.linkedin.com/in/malovichko/)
 1. Песков Роман, [LinkedIn](https://www.linkedin.com/in/romanpeskov/), [e-mail](mailto:peskovrn@gmail.com)
 1. Черкес Никита Викторович, [e-mail](mailto:paralid@gmail.com)
 1. Шерешевский Дмитрий Изяславович, [e-mail](mailto:d.shereshevskiy@gmail.com), [LinkedIn](https://www.linkedin.com/in/dmitry-shereshevskiy/)
-1. Барыков Вадим Юрьевич, [GitHub](https://www.github.com/Reshalkin), [Kaggle](https://www.kaggle.com/reshalkin), [e-mail](mailto:q-mind@yandex.ru)
+1. Барыков Вадим Юрьевич, [GitHub](https://github.com/Reshalkin), [Kaggle](https://www.kaggle.com/reshalkin), [e-mail](mailto:q-mind@yandex.ru)
 1. Уваров Александр Олегович
 1. Валиуллин Адель Марсович [e-mail](mailto:adel.valiullin@gmail.com)
-1. Попов Ярослав Игоревич, [GitHub](https://www.github.com/chilicoder), [LinkedIn](https://www.linkedin.com/in/chilicoder/)
+1. Попов Ярослав Игоревич, [GitHub](https://github.com/chilicoder), [LinkedIn](https://www.linkedin.com/in/chilicoder/)
 1. Канашов Андрей Вадимович
 1. Савицкий Арсений Олегович, [e-mail](mailto:quantumdiagram@gmail.com)
 1. Филиппова Ольга Валерьевна
 1. Кулага Иван Вадимович
-1. Урванов Егор Сергеевич [GitHub](https://www.github.com/hedgehogues), [e-mail](mailto:hedgehogues@bk.ru)
+1. Урванов Егор Сергеевич [GitHub](https://github.com/hedgehogues), [e-mail](mailto:hedgehogues@bk.ru)
 1. Девятайкина Елена Петровна, [e-mail](mailto:elenadevyataykina@gmail.com) , [LinkedIn](https://www.linkedin.com/in/edevyataykina/)
 1. Бадамшин Булат Ильдарович
 1. Пучков Кирилл Андреевич, [LinkedIn](https://www.linkedin.com/in/kirill-puchkov), [e-mail](mailto:kiramipt@gmail.com)
@@ -527,7 +527,7 @@ According to the [final rating](https://drive.google.com/open?id=1NSdcHzMy_KoFx6
 1. Нужный Данил Игоревич
 1. Супранович Дмитрий Александрович, [LinkedIn](https://www.linkedin.com/in/dsupranovich/)
 1. Баженов Александр Павлович
-1. Бахшецян Константин Альбертович, [GitHub](https://www.github.com/bahshetsian), [e-mail](mailto:bahshetsian@gmail.com)
+1. Бахшецян Константин Альбертович, [GitHub](https://github.com/bahshetsian), [e-mail](mailto:bahshetsian@gmail.com)
 1. Удод Алексей Витальевич, [LinkedIn](https://www.linkedin.com/in/alexudod/)
 1. Кучкаров Ильдус Ильдарович, [e-mail](mailto:kuchkarov.ildus@gmail.com)
 1. Жигалов Василий, [e-mail](mailto:zhigalov.va@ya.ru), [LinkedIn](https://www.linkedin.com/in/vasiliy-jigalov/)
@@ -537,26 +537,26 @@ According to the [final rating](https://drive.google.com/open?id=1NSdcHzMy_KoFx6
 1. Тараканова Мария Николаевна
 1. Торопов Василий Михайлович
 1. Костин Андрей Сергеевич
-1. Григорьев Алексей Сергеевич, [GitHub](https://www.github.com/alexeygrigorev)
+1. Григорьев Алексей Сергеевич, [GitHub](https://github.com/alexeygrigorev)
 1. Желубенков Александр Евгеньевич
 1. Джумакаев Тимур Казбекович
 1. Кобычев Кирилл, [e-mail](mailto:kirillkobychev@gmail.com)  [LinkedIn](https://www.linkedin.com/in/kirill-kobychev-68489a50/)
-1. Будакян Ян Сергеевич, [GitHub](https://www.github.com/astromid), [e-mail](mailto:ys.budakyan@physics.msu.ru), [Kaggle](https://www.kaggle.com/astromid)
+1. Будакян Ян Сергеевич, [GitHub](https://github.com/astromid), [e-mail](mailto:ys.budakyan@physics.msu.ru), [Kaggle](https://www.kaggle.com/astromid)
 1. Матиив Роман Александрович, [e-mail](mailto:matiiv.r.a@gmail.com)
 1. Кустиков Дмитрий
 1. Князятов Станислав Александрович
 1. Долгов Андрей Валерьевич
 1. Мальцев Александр Николаевич
-1. Almaz Sadenov, [GitHub](https://www.github.com/alm4z), [LinkedIn](https://www.linkedin.com/in/alm4z),  [e-mail](mailto:a.sadenov@gmail.com)
+1. Almaz Sadenov, [GitHub](https://github.com/alm4z), [LinkedIn](https://www.linkedin.com/in/alm4z),  [e-mail](mailto:a.sadenov@gmail.com)
 1. Мороз Денис Анатольевич [LinkedIn](https://www.linkedin.com/in/denis-moroz-51a138a), [e-mail](mailto:denismoroz81@gmail.com)
 1. Мальцев Даниил Сергеевич, [LinkedIn](https://www.linkedin.com/in/daniil-maltsev-503a6696), [e-mail](mailto:d.maltsev.0@gmail.com)
 1. Власов Роман Дмитриевич
 1. Введенский Вячеслав Владимирович
 1. Протопопов Антон Павлович
-1. Сидоренко Александр Александрович, [GitHub](https://www.github.com/alside), [LinkedIn](https://www.linkedin.com/in/alside/), [e-mail](mailto:asidorenkoa@yandex.ru)
+1. Сидоренко Александр Александрович, [GitHub](https://github.com/alside), [LinkedIn](https://www.linkedin.com/in/alside/), [e-mail](mailto:asidorenkoa@yandex.ru)
 1. Фушта Антон Игоревич
 1. Смирнов Артем Сергеевич
-1. Виктория Здановская, [GitHub](https://www.github.com/ladyyvii), [LinkedIn](https://www.linkedin.com/in/victoriazdanovskaya/), [e-mail](mailto:vik-zdanovskaya@yandex.ru)
+1. Виктория Здановская, [GitHub](https://github.com/ladyyvii), [LinkedIn](https://www.linkedin.com/in/victoriazdanovskaya/), [e-mail](mailto:vik-zdanovskaya@yandex.ru)
 1. Ивахненко Дарья Александровна, [e-mail](mailto:das875@yandex.ru)
 1. Ефремова Дина Борисовна
 1. Толкачев Иван Павлович [email](mailto:i.tolkachev1994@gmail.com)
@@ -640,7 +640,7 @@ According to the [final rating](https://drive.google.com/open?id=1thts1kTZev82aI
 1. Ломакина Ольга Михайловна, [e-mail](mailto:omlomakina@gmail.com), [LinkedIn](https://www.linkedin.com/in/olga-lomakina-349354ab/)
 1. Парфианович Владимир
 1. Крикливый Александр Владимирович
-1. Сердюк Дарья Сергеевна, [LinkedIn](https://www.linkedin.com/in/darya-serdyuk-71192a139/), [GitHub](https://github.com/DashaSerdyuk)
+1. Сердюк Дарья Сергеевна, [LinkedIn](https://www.linkedin.com/in/darya-serdyuk-71192a139/)
 1. Цуканова Анастасия Юрьевна, [e-mail](mailto:ayutsukanova@gmail.com),
 [LinkedIn](https://www.linkedin.com/in/анастасия-цуканова-7864369a/)
 1. Антонов Алексей

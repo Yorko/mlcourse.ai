@@ -47,7 +47,7 @@ In this article, we will look at [Prophet](https://facebook.github.io/prophet/),
 
 ## 1. Introduction
 
-According to the [article](https://research.fb.com/prophet-forecasting-at-scale/) on Facebook Research, Prophet was initially developed for the purpose of creating high quality business forecasts. This library tries to address the following difficulties common to many business time series:
+According to the [article](https://facebook.github.io/prophet/static/prophet_paper_20170113.pdf) by Facebook Research, Prophet was initially developed for the purpose of creating high quality business forecasts. This library tries to address the following difficulties common to many business time series:
 - Seasonal effects caused by human behavior: weekly, monthly and yearly cycles, dips and peaks on public holidays.
 - Changes in trend due to new products and market events.
 - Outliers.
@@ -157,7 +157,7 @@ In Python you can install Prophet using PyPI:
 $ pip install fbprophet
 ```
 
-In R you can find the corresponding CRAN package. Refer to the [documentation](https://facebookincubator.github.io/prophet/docs/installation.html) for details.
+In R you can find the corresponding CRAN package. Refer to the [documentation](https://facebook.github.io/prophet/docs/installation.html) for details.
 
 Let's import the modules that we will need, and initialize our environment:
 
@@ -518,7 +518,7 @@ First, we will plot the data for a shorter period of time to make the data point
 
 Third, we will use `Plotly` to make our chart interactive, which is great for exploring.
 
-We will define a custom helper function `show_forecast` and call it (for more on how it works please refer to the comments in the code and the [documentation](https://plot.ly/python/)):
+We will define a custom helper function `show_forecast` and call it (for more on how it works please refer to the comments in the code and the [documentation](https://plotly.com/python/)):
 
 
 ```{code-cell} ipython3
@@ -674,8 +674,8 @@ All in all, the Prophet library is worth being a part of your analytical toolbox
 
 ## 6. References
 
-- Official [Prophet repository](https://github.com/facebookincubator/prophet) on GitHub.
-- Official [Prophet documentation](https://facebookincubator.github.io/prophet/docs/quick_start.html).
-- Sean J. Taylor, Benjamin Letham ["Forecasting at scale"](https://facebookincubator.github.io/prophet/static/prophet_paper_20170113.pdf) — scientific paper explaining the algorithm which lays the foundation of `Prophet`.
+- Official [Prophet repository](https://github.com/facebook/prophet) on GitHub.
+- Official [Prophet documentation](https://facebook.github.io/prophet/docs/quick_start.html#python-api).
+- Sean J. Taylor, Benjamin Letham ["Forecasting at scale"](https://facebook.github.io/prophet/static/prophet_paper_20170113.pdf) — scientific paper explaining the algorithm which lays the foundation of `Prophet`.
 - [Forecasting Website Traffic Using Facebook’s Prophet Library](http://pbpython.com/prophet-overview.html) — `Prophet` overview with an example of website traffic forecasting.
 - Rob J. Hyndman, George Athanasopoulos ["Forecasting: principles and practice"](https://www.otexts.org/fpp) – a very good online book about time series forecasting.

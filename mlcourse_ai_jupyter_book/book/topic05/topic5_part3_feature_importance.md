@@ -310,7 +310,7 @@ Voila!
 
 ## 4. Practical example
 
-Let's consider the results of a survey given to visitors of hostels listed on Booking.com and TripAdvisor.com. Our features here are the average ratings for different categories including service quality, room condition, value for money, etc. Our target variable is the hostel's overall rating on the website.
+Let's consider the results of a survey given to visitors of hostels listed on [Booking.com](https://www.booking.com/) and [TripAdvisor.com](https://www.tripadvisor.com/). Our features here are the average ratings for different categories including service quality, room condition, value for money, etc. Our target variable is the hostel's overall rating on the website.
 
 
 ```{code-cell} ipython3

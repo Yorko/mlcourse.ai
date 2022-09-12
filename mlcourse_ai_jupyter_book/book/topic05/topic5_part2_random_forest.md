@@ -42,7 +42,7 @@ $\DeclareMathOperator{\Err}{Err}$
 $\DeclareMathOperator{\Bias}{Bias}$
 $\DeclareMathOperator{\E}{\mathbb{E}}$
 
-Leo Breiman managed to apply bootstrapping not only in statistics but also in machine learning. He, along with Adel Cutler, extended and improved the random forest algorithm [proposed by Tin Kam Ho](http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf). They combined the construction of uncorrelated trees using [CART](https://en.wikipedia.org/wiki/Predictive_analytics#Classification_and_regression_trees_.28CART.29), bagging, and the [random subspace method](https://en.wikipedia.org/wiki/Random_subspace_method).  
+Leo Breiman managed to apply bootstrapping not only in statistics but also in machine learning. He, along with Adel Cutler, extended and improved the random forest algorithm [proposed by Tin Kam Ho](https://ieeexplore.ieee.org/document/598994). They combined the construction of uncorrelated trees using [CART](https://en.wikipedia.org/wiki/Decision_tree_learning), bagging, and the [random subspace method](https://en.wikipedia.org/wiki/Random_subspace_method).  
 
 Decision trees are a good choice for the base classifier in bagging because they are quite sophisticated and can achieve zero classification error on any sample. The random subspace method reduces the correlation between the trees and thus prevents overfitting. With bagging, the base algorithms are trained on different random subsets of the original feature set.
 
@@ -602,7 +602,7 @@ For example, if the input appears in the first leaf, we assign $1$ as the featur
  - Unlike linear regression, Random Forest is unable to extrapolate. But, this can be also regarded as an advantage because outliers do not cause extreme values in Random Forests.
  - Prone to overfitting in some problems, especially, when dealing with noisy data.
  - In the case of categorical variables with varying level numbers, random forests favor variables with a greater number of levels. The tree will fit more towards a feature with many levels because this gains greater accuracy.
- - If a dataset contains groups of correlated features, preference might be given to groups of smaller size. See [this work](http://rnowling.github.io/machine/learning/2015/08/11/random-forest-correlation-bias.html)
+ - If a dataset contains groups of correlated features, preference might be given to groups of smaller size ("correlation bias"). See [this work](https://academic.oup.com/bioinformatics/article/27/14/1986/194387)
  - The resulting model is large and requires a lot of RAM.
 
 ## 10. Useful resources
@@ -614,3 +614,4 @@ For example, if the input appears in the first leaf, we assign $1$ as the featur
 - Chapter 15 of the book “[Elements of Statistical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/)” by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie.
 - More about practical applications of random forests and other algorithms can be found in the [official documentation](http://scikit-learn.org/stable/modules/ensemble.html) of `scikit-learn`.
 - For a more in-depth discussion of variance and decorrelation of random forests, see the [original paper](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf).
+http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf
