@@ -148,7 +148,7 @@ df_test
 # You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)
 ```
 
-### Additional: display the resulting tree using graphviz. You can use pydot or [web-service](https://www.coolutils.com/ru/online/DOT-to-PNG) dot2png.
+### Additional: display the resulting tree using graphviz. You can use pydot or a web-service, e.g. [this one](https://onlineconvertfree.com/convert-format/dot-to-png/).
 
 
 ```{code-cell} ipython3

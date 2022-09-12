@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -907,17 +904,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-4-linear-classification-and-regression">
 <span id="topic04-part4"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this headline">#</a></h1>
-<section id="part-4-when-logistic-regression-is-good-and-when-it-is-not">
+<div class="section" id="part-4-when-logistic-regression-is-good-and-when-it-is-not">
 <h2>Part 4. When Logistic Regression Is Good and When It Is Not<a class="headerlink" href="#part-4-when-logistic-regression-is-good-and-when-it-is-not" title="Permalink to this headline">#</a></h2>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-</section>
-<section id="article-outline">
+</div>
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#analysis-of-imdb-movie-reviews">Analysis of IMDB movie reviews</a></p></li>
@@ -925,12 +922,12 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#the-xor-problem">The XOR Problem</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="analysis-of-imdb-movie-reviews">
+</div>
+<div class="section" id="analysis-of-imdb-movie-reviews">
 <h2>1. Analysis of IMDB movie reviews<a class="headerlink" href="#analysis-of-imdb-movie-reviews" title="Permalink to this headline">#</a></h2>
 <p>Now for a little practice! We want to solve the problem of binary classification of IMDB movie reviews. We have a training set with marked reviews, 12500 reviews marked as good, another 12500 bad. Here, it’s not easy to get started with machine learning right away because we don’t have the matrix <span class="math notranslate nohighlight">\(X\)</span>; we need to prepare it. We will use a simple approach: bag of words model. Features of the review will be represented by indicators of the presence of each word from the whole corpus in this review. The corpus is the set of all user reviews. The idea is illustrated by a picture</p>
-<figure class="align-default">
-<img alt="../../_images/topic4_bag_of_words.svg" src="../../_images/topic4_bag_of_words.svg" /></figure>
+<div class="figure align-default">
+<img alt="../../_images/topic4_bag_of_words.svg" src="../../_images/topic4_bag_of_words.svg" /></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1090,8 +1087,8 @@ Number of documents in test data: 25000
 </div>
 </div>
 </div>
-</section>
-<section id="a-simple-word-count">
+</div>
+<div class="section" id="a-simple-word-count">
 <h2>2. A Simple Word Count<a class="headerlink" href="#a-simple-word-count" title="Permalink to this headline">#</a></h2>
 <p><strong>First, we will create a dictionary of all the words using CountVectorizer</strong></p>
 <div class="cell docutils container">
@@ -1530,15 +1527,15 @@ Wall time: 20.4 s
 </div>
 </div>
 </div>
-</section>
-<section id="the-xor-problem">
+</div>
+<div class="section" id="the-xor-problem">
 <h2>3. The XOR Problem<a class="headerlink" href="#the-xor-problem" title="Permalink to this headline">#</a></h2>
 <p>Let’s now consider an example where linear models are worse.</p>
 <p>Linear classification methods still define a very simple separating surface - a hyperplane. The most famous toy example of where classes cannot be divided by a hyperplane (or line) with no errors is “the XOR problem”.</p>
 <p>XOR is the “exclusive OR”, a Boolean function with the following truth table:</p>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/topic4_XOR_table.gif" src="../../_images/topic4_XOR_table.gif" />
-</figure>
+</div>
 <p>XOR is the name given to a simple binary classification problem in which the classes are presented as diagonally extended intersecting point clouds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1648,8 +1645,8 @@ Wall time: 20.4 s
 </div>
 <p>Here, logistic regression has still produced a hyperplane but in a 6-dimensional feature space <span class="math notranslate nohighlight">\(1, x_1, x_2, x_1^2, x_1x_2\)</span> and <span class="math notranslate nohighlight">\(x_2^2\)</span>. When we project to the original feature space, <span class="math notranslate nohighlight">\(x_1, x_2\)</span>, the boundary is nonlinear.</p>
 <p>In practice, polynomial features do help, but it is computationally inefficient to build them explicitly. SVM with the kernel trick works much faster. In this approach, only the distance between the objects (defined by the kernel function) in a high dimensional space is computed, and there is no need to produce a combinatorially large number of features.</p>
-</section>
-<section id="useful-resources">
+</div>
+<div class="section" id="useful-resources">
 <h2>4. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
@@ -1665,8 +1662,8 @@ Wall time: 20.4 s
 <li><p>One more <a class="reference external" href="https://github.com/diefimov/MTH594_MachineLearning">ML course</a> with very good materials.</p></li>
 <li><p><a class="reference external" href="https://github.com/rushter/MLAlgorithms">Implementations</a> of many ML algorithms. Search for linear regression and logistic regression.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

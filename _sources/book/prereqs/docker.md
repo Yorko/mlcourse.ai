@@ -44,7 +44,7 @@ You can still use [Docker Toolbox](https://docs.docker.com/toolbox/overview) whi
 - Typically, Docker containers need a lot of disk space. The official mlcourse image requires some 6Gb of space.
 - use `docker pull` to get new files from the repo to your locally downloaded repo.
 - when you work with an assignment notebook, duplicate it first, and work with the duplicate. This way it's easier to pull changes to the repo since there will be no conflicts on the file level. If you'd like to work on a lecture notebook, do the same.
-- You can install additional packages right in the Jupyter notebook with `pip install --user your_new_package`. They will be installed in mlcourse.ai/home folder and will persist across Jupyter restart.
+- You can install additional packages right in the Jupyter notebook with `pip install --user your_new_package`. They will be installed in mlcourse.ai `home` folder and will persist across Jupyter restart.
 - optionally, you can modify the [docker_files/Dockerfile](https://github.com/Yorko/mlcourse.ai/blob/main/docker_files/Dockerfile) file, build a new image locally with `docker build -t <tag_name>`) and run `run_docker_jupyter.sh <tag_name>` (only supported under Linux/MacOS).
 - Docker [documentation](https://docs.docker.com/engine/getstarted/) is full of concise and clear examples.
 

@@ -76,7 +76,7 @@ To start working with the course materials (i.e. Jupyter notebooks):
 - install jupyter, this depends on how you set up the environment in the previous step
 - download/clone [the course repo](https://github.com/Yorko/mlcourse.ai) repo
 - run `jupyter-notebook` from the downloaded directory mlcourse.ai.
-- this opens [http://localhost:8888/tree](http://localhost:8888/tree) (8888 is the default port) in your browser, from there you can run Jupyter notebooks in the `jupyter_english` folder
+- this opens [http://localhost:8888/tree](http://localhost:8888/tree) (8888 is the default port) in your browser, from there you can run Jupyter notebooks in the `jupyter_english` folder (_NB:_ the most up-to-date version of course materials is in the `mlcourse_ai_jupyter_book` folder, see below)
 - check Jupyter docs and the [interactive demo](https://jupyter.org/try) ("try classic notebook") to get hands dirty with Jupyter
 
 
@@ -97,3 +97,9 @@ jupyter-book build mlcourse_ai_jupyter_book
 _Note: this may take a long time, about an hour, to play around with a toy example, check [how a template JupyterBook is created.](https://jupyterbook.org/start/create.html)_
 
 Then, open the HTML file located at `mlcourse_ai_jupyter_book/_build/html/index.html.`
+
+You can also download any [mlcourse.ai](mlcourse.ai) page as a Jupyter Notebook and run it yourself:
+
+
+```{figure} /_static/img/download_as_jupyter.png
+```

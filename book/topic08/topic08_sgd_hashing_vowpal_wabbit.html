@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -999,13 +996,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-8-vowpal-wabbit-learning-with-gigabytes-of-data">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-8-vowpal-wabbit-learning-with-gigabytes-of-data">
 <span id="topic08"></span><h1>Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data<a class="headerlink" href="#topic-8-vowpal-wabbit-learning-with-gigabytes-of-data" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/sergeoreshkov/">Serge Oreshkov</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>This week, we’ll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.</p>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#stochastic-gradient-descent-and-online-learning">Stochastic gradient descent and online learning</a></p>
@@ -1033,7 +1030,7 @@ title="Print to PDF"
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1049,15 +1046,15 @@ title="Print to PDF"
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">&#39;retina&#39;</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="stochastic-gradient-descent-and-online-learning">
+</div>
+<div class="section" id="stochastic-gradient-descent-and-online-learning">
 <h2>1. Stochastic gradient descent and online learning<a class="headerlink" href="#stochastic-gradient-descent-and-online-learning" title="Permalink to this headline">#</a></h2>
-<section id="stochastic-gradient-descent">
+<div class="section" id="stochastic-gradient-descent">
 <h3>1.1. Stochastic gradient descent<a class="headerlink" href="#stochastic-gradient-descent" title="Permalink to this headline">#</a></h3>
 <p>Despite the fact that gradient descent is one of the first things learned in machine learning and optimization courses, it is one of its modifications, Stochastic Gradient Descent (SGD), that is hard to top.</p>
 <p>Recall that the idea of gradient descent is to minimize some function by making small steps in the direction of the fastest decrease. This method was named due to the following fact from calculus: vector <span class="math notranslate nohighlight">\(\nabla f = (\frac{\partial f}{\partial x_1}, \ldots \frac{\partial f}{\partial x_n})^\text{T}\)</span> of partial derivatives of the function <span class="math notranslate nohighlight">\(f(x) = f(x_1, \ldots x_n)\)</span> points to the direction of the fastest function growth. It means that, by moving in the opposite direction (antigradient), it is possible to decrease the function value with the fastest rate.</p>
@@ -1067,7 +1064,7 @@ title="Print to PDF"
 <p>The paired regression problem can be solved with gradient descent. Let us predict one variable using another: height with weight. Assume that these variables are linearly dependent. We will use the <a class="reference external" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data">SOCR</a> dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
 <span class="c1"># you can specify the data/ folder from the root of your cloned</span>
 <span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
 <span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
@@ -1077,7 +1074,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_WRITE_DATA</span> <span class="o">=</span> <span class="s2">&quot;../../../data/tmp/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_WRITE_DATA</span> <span class="o">=</span> <span class="s2">&quot;../../../data/tmp/&quot;</span>
 <span class="n">data_demo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;weights_heights.csv&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1085,11 +1082,14 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Weight&quot;</span><span class="p">],</span> <span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Height&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Weight&quot;</span><span class="p">],</span> <span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Height&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Weight in lb&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Height in inches&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic08_sgd_hashing_vowpal_wabbit_5_0.png" src="../../_images/topic08_sgd_hashing_vowpal_wabbit_5_0.png" />
 </div>
 </div>
 <p>Here we have a vector <span class="math notranslate nohighlight">\(x\)</span> of dimension <span class="math notranslate nohighlight">\(\ell\)</span> (weight of every person i.e. training sample) and <span class="math notranslate nohighlight">\(y\)</span>, a vector containing the height of every person in the dataset.</p>
@@ -1121,8 +1121,8 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Andrew Ng has a good illustration of this in his <a class="reference external" href="https://www.coursera.org/learn/machine-learning">machine learning course</a>. Let’s take a look.</p>
 <img src='https://habrastorage.org/files/f8d/90c/f83/f8d90cf83b044255bb07df3373f25fc7.png'>
 <p>These are the contour plots for some function, and we want to find the global minimum of this function. The red curve shows weight changes (in this picture, <span class="math notranslate nohighlight">\(\theta_0\)</span> and <span class="math notranslate nohighlight">\(\theta_1\)</span> correspond to our <span class="math notranslate nohighlight">\(w_0\)</span> and <span class="math notranslate nohighlight">\(w_1\)</span>). According to the properties of a gradient, the direction of change at every point is orthogonal to contour plots. With stochastic gradient descent, weights are changing in a less predictable manner, and it even may seem that some steps are wrong by leading away from minima; however, both procedures converge to the same solution.</p>
-</section>
-<section id="online-approach-to-learning">
+</div>
+<div class="section" id="online-approach-to-learning">
 <h3>1.2. Online approach to learning<a class="headerlink" href="#online-approach-to-learning" title="Permalink to this headline">#</a></h3>
 <p>Stochastic gradient descent gives us practical guidance for training both classifiers and regressors with large amounts of data up to hundreds of GBs (depending on computational resources).</p>
 <p>Considering the case of paired regression, we can store the training data set <span class="math notranslate nohighlight">\((X,y)\)</span> in HDD without loading it into RAM (where it simply won’t fit), read objects one by one, and update the weights of our model:</p>
@@ -1134,17 +1134,17 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>This approach to learning is called <strong>online learning</strong>, and this name emerged even before machine learning MOOC-s turned mainstream.</p>
 <p>We did not discuss many specifics about SGD here. If you want dive into theory, I highly recommend <a class="reference external" href="https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787">“Convex Optimization” by Stephen Boyd</a>. Now, we will introduce the Vowpal Wabbit library, which is good for training simple models with huge data sets thanks to stochastic optimization and another trick, feature hashing.</p>
 <p>In scikit-learn, classifiers and regressors trained with SGD are named  <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code> in <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model</span></code>. These are nice implementations of SGD, but we’ll focus on VW since it is more performant than sklearn’s SGD models in many aspects.</p>
-</section>
-</section>
-<section id="categorical-feature-processing">
+</div>
+</div>
+<div class="section" id="categorical-feature-processing">
 <h2>2. Categorical feature processing<a class="headerlink" href="#categorical-feature-processing" title="Permalink to this headline">#</a></h2>
-<section id="label-encoding">
+<div class="section" id="label-encoding">
 <h3>2.1. Label Encoding<a class="headerlink" href="#label-encoding" title="Permalink to this headline">#</a></h3>
 <p>Many classification and regression algorithms operate in Euclidean or metric space, implying that data is represented with vectors of real numbers. However, in real data, we often have categorical features with discrete values such as yes/no or January/February/…/December. We will see how to process this kind of data, particularly with linear models, and how to deal with many categorical features even when they have many unique values.</p>
 <p>Let’s explore the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">UCI bank marketing dataset</a> where most of  features are categorical.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;bank_train.csv&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;bank_train.csv&quot;</span><span class="p">))</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;bank_train_target.csv&quot;</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">)</span>
@@ -1153,20 +1153,183 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>month</th>
+      <th>day_of_week</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>emp.var.rate</th>
+      <th>cons.price.idx</th>
+      <th>cons.conf.idx</th>
+      <th>euribor3m</th>
+      <th>nr.employed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>26</td>
+      <td>student</td>
+      <td>single</td>
+      <td>high.school</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>telephone</td>
+      <td>jun</td>
+      <td>mon</td>
+      <td>901</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>1.4</td>
+      <td>94.465</td>
+      <td>-41.8</td>
+      <td>4.961</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>46</td>
+      <td>admin.</td>
+      <td>married</td>
+      <td>university.degree</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>aug</td>
+      <td>tue</td>
+      <td>208</td>
+      <td>2</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>1.4</td>
+      <td>93.444</td>
+      <td>-36.1</td>
+      <td>4.963</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49</td>
+      <td>blue-collar</td>
+      <td>married</td>
+      <td>basic.4y</td>
+      <td>unknown</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>telephone</td>
+      <td>jun</td>
+      <td>tue</td>
+      <td>131</td>
+      <td>5</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>1.4</td>
+      <td>94.465</td>
+      <td>-41.8</td>
+      <td>4.864</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31</td>
+      <td>technician</td>
+      <td>married</td>
+      <td>university.degree</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>jul</td>
+      <td>tue</td>
+      <td>404</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>-2.9</td>
+      <td>92.469</td>
+      <td>-33.6</td>
+      <td>1.044</td>
+      <td>5076.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>housemaid</td>
+      <td>married</td>
+      <td>university.degree</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>telephone</td>
+      <td>nov</td>
+      <td>mon</td>
+      <td>85</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>-0.1</td>
+      <td>93.200</td>
+      <td>-42.0</td>
+      <td>4.191</td>
+      <td>5195.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can see that most of features are not represented by numbers. This poses a problem because we cannot use most machine learning methods (at least those implemented in scikit-learn) out-of-the-box.</p>
 <p>Let’s dive into the “education” feature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic08_sgd_hashing_vowpal_wabbit_9_0.png" src="../../_images/topic08_sgd_hashing_vowpal_wabbit_9_0.png" />
 </div>
 </div>
 <p>The most straightforward solution is to map each value of this feature into a unique number. For example, we can map  <code class="docutils literal notranslate"><span class="pre">university.degree</span></code> to 0, <code class="docutils literal notranslate"><span class="pre">basic.9y</span></code> to 1, and so on. You can use <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.LabelEncoder</span></code> to perform this mapping.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1174,37 +1337,368 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method of this class finds all unique values and builds the actual mapping between categories and numbers, and the <code class="docutils literal notranslate"><span class="pre">transform</span></code> method  converts the categories into numbers. After <code class="docutils literal notranslate"><span class="pre">fit</span></code> is executed, <code class="docutils literal notranslate"><span class="pre">label_encoder</span></code> will have the <code class="docutils literal notranslate"><span class="pre">classes_</span></code> attribute with all unique values of the feature. Let us count them to make sure the transformation was correct.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapped_education</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapped_education</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]))</span>
 <span class="n">mapped_education</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">label_encoder</span><span class="o">.</span><span class="n">classes_</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: &#39;basic.4y&#39;, 1: &#39;basic.6y&#39;, 2: &#39;basic.9y&#39;, 3: &#39;high.school&#39;, 4: &#39;illiterate&#39;, 5: &#39;professional.course&#39;, 6: &#39;university.degree&#39;, 7: &#39;unknown&#39;}
+</pre></div>
+</div>
+<img alt="../../_images/topic08_sgd_hashing_vowpal_wabbit_13_1.png" src="../../_images/topic08_sgd_hashing_vowpal_wabbit_13_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_education</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_education</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>month</th>
+      <th>day_of_week</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>emp.var.rate</th>
+      <th>cons.price.idx</th>
+      <th>cons.conf.idx</th>
+      <th>euribor3m</th>
+      <th>nr.employed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>26</td>
+      <td>student</td>
+      <td>single</td>
+      <td>3</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>telephone</td>
+      <td>jun</td>
+      <td>mon</td>
+      <td>901</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>1.4</td>
+      <td>94.465</td>
+      <td>-41.8</td>
+      <td>4.961</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>46</td>
+      <td>admin.</td>
+      <td>married</td>
+      <td>6</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>aug</td>
+      <td>tue</td>
+      <td>208</td>
+      <td>2</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>1.4</td>
+      <td>93.444</td>
+      <td>-36.1</td>
+      <td>4.963</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49</td>
+      <td>blue-collar</td>
+      <td>married</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>telephone</td>
+      <td>jun</td>
+      <td>tue</td>
+      <td>131</td>
+      <td>5</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>1.4</td>
+      <td>94.465</td>
+      <td>-41.8</td>
+      <td>4.864</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31</td>
+      <td>technician</td>
+      <td>married</td>
+      <td>6</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>jul</td>
+      <td>tue</td>
+      <td>404</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>-2.9</td>
+      <td>92.469</td>
+      <td>-33.6</td>
+      <td>1.044</td>
+      <td>5076.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>housemaid</td>
+      <td>married</td>
+      <td>6</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>telephone</td>
+      <td>nov</td>
+      <td>mon</td>
+      <td>85</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>nonexistent</td>
+      <td>-0.1</td>
+      <td>93.200</td>
+      <td>-42.0</td>
+      <td>4.191</td>
+      <td>5195.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Let’s apply the transformation to other columns of type <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">categorical_columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s2">&quot;education&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categorical_columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">union</span><span class="p">([</span><span class="s2">&quot;education&quot;</span><span class="p">])</span>
 <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">categorical_columns</span><span class="p">:</span>
     <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>job</th>
+      <th>marital</th>
+      <th>education</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>month</th>
+      <th>day_of_week</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>emp.var.rate</th>
+      <th>cons.price.idx</th>
+      <th>cons.conf.idx</th>
+      <th>euribor3m</th>
+      <th>nr.employed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>26</td>
+      <td>8</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>901</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1.4</td>
+      <td>94.465</td>
+      <td>-41.8</td>
+      <td>4.961</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>46</td>
+      <td>0</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>208</td>
+      <td>2</td>
+      <td>999</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1.4</td>
+      <td>93.444</td>
+      <td>-36.1</td>
+      <td>4.963</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>49</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+      <td>131</td>
+      <td>5</td>
+      <td>999</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1.4</td>
+      <td>94.465</td>
+      <td>-41.8</td>
+      <td>4.864</td>
+      <td>5228.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31</td>
+      <td>9</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>404</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-2.9</td>
+      <td>92.469</td>
+      <td>-33.6</td>
+      <td>1.044</td>
+      <td>5076.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>3</td>
+      <td>1</td>
+      <td>6</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>1</td>
+      <td>85</td>
+      <td>1</td>
+      <td>999</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-0.1</td>
+      <td>93.200</td>
+      <td>-42.0</td>
+      <td>4.191</td>
+      <td>5195.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The main issue with this approach is that we have now introduced some relative ordering where it might not exist.</p>
 <p>For example, we implicitly introduced algebra over the values of the job feature where we can now substract the job of client #2 from the job of client #1 :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">job</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">job</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">job</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">job</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
 </pre></div>
 </div>
 </div>
@@ -1212,7 +1706,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Does this operation make any sense? Not really. Let’s try to train logistic regression with this feature transformation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">features</span> <span class="o">=</span> <span class="n">dataframe</span>
     <span class="n">train_features</span><span class="p">,</span> <span class="n">test_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
         <span class="n">features</span><span class="p">,</span> <span class="n">labels</span>
@@ -1227,57 +1721,321 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.89      1.00      0.94      6122
+           1       1.00      0.00      0.00       777
+
+    accuracy                           0.89      6899
+   macro avg       0.94      0.50      0.47      6899
+weighted avg       0.90      0.89      0.83      6899
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/utils/validation.py:1111: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can see that logistic regression never predicts class 1. In order to use linear models with categorical features, we will use a different approach: One-Hot Encoding.</p>
-</section>
-<section id="one-hot-encoding">
+</div>
+<div class="section" id="one-hot-encoding">
 <h3>2.2. One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">#</a></h3>
 <p>Suppose that some feature can have one of 10 unique values. One-hot encoding creates 10 new features corresponding to these unique values, all of them <em>except one</em> are zeros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">one_hot_example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="n">i</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_hot_example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="n">i</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}])</span>
 <span class="n">one_hot_example</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">one_hot_example</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>This idea is implemented in the <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> class from <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing</span></code>. By default <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> transforms data into a sparse matrix to save memory space because most of the values are zeroes and because we do not want to take up more RAM. However, in this particular example, we do not encounter such problems, so we are going to use a “dense” matrix representation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">onehot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">onehot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">encoded_categorical_columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoded_categorical_columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">onehot_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">categorical_columns</span><span class="p">])</span>
 <span class="p">)</span>
 <span class="n">encoded_categorical_columns</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+      <th>50</th>
+      <th>51</th>
+      <th>52</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 53 columns</p>
+</div></div></div>
 </div>
 <p>We have 53 columns that correspond to the number of unique values of categorical features in our data set. When transformed with One-Hot Encoding, this data can be used with linear models:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">encoded_categorical_columns</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">encoded_categorical_columns</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/utils/validation.py:1111: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.91      0.99      0.95      6153
+           1       0.63      0.19      0.30       746
+
+    accuracy                           0.90      6899
+   macro avg       0.77      0.59      0.62      6899
+weighted avg       0.88      0.90      0.88      6899
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="hashing-trick">
+</div>
+<div class="section" id="hashing-trick">
 <h3>2.3. Hashing trick<a class="headerlink" href="#hashing-trick" title="Permalink to this headline">#</a></h3>
 <p>Real data can be volatile, meaning we cannot guarantee that new values of categorical features will not occur. This issue hampers using a trained model on new data. Besides that, <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> requires preliminary analysis of the whole dataset and storage of constructed mappings in memory, which makes it difficult to work with large datasets.</p>
 <p>There is a simple approach to vectorization of categorical data based on hashing and is known as, not-so-surprisingly, the hashing trick.</p>
 <p>Hash functions can help us find unique codes for different feature values, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;university.degree&quot;</span><span class="p">,</span> <span class="s2">&quot;high.school&quot;</span><span class="p">,</span> <span class="s2">&quot;illiterate&quot;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;university.degree&quot;</span><span class="p">,</span> <span class="s2">&quot;high.school&quot;</span><span class="p">,</span> <span class="s2">&quot;illiterate&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 3403601280267260483
+high.school -&gt; 1396532024400791300
+illiterate -&gt; 2271976882373885413
 </pre></div>
 </div>
 </div>
@@ -1285,9 +2043,16 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>We will not use negative values or values of high magnitude, so we restrict the range of values for the hash function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hash_space</span> <span class="o">=</span> <span class="mi">25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hash_space</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;university.degree&quot;</span><span class="p">,</span> <span class="s2">&quot;high.school&quot;</span><span class="p">,</span> <span class="s2">&quot;illiterate&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="n">hash_space</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 8
+high.school -&gt; 0
+illiterate -&gt; 13
 </pre></div>
 </div>
 </div>
@@ -1295,7 +2060,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Imagine that our data set contains a single (i.e. not married) student, who received a call on Monday. His feature vectors will be created similarly as in the case of One-Hot Encoding but in the space with fixed range for all features:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hashing_example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="n">i</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hash_space</span><span class="p">)}])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hashing_example</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="n">i</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hash_space</span><span class="p">)}])</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;job=student&quot;</span><span class="p">,</span> <span class="s2">&quot;marital=single&quot;</span><span class="p">,</span> <span class="s2">&quot;day_of_week=mon&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="nb">hash</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="n">hash_space</span><span class="p">)</span>
     <span class="n">hashing_example</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">hash</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="n">hash_space</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1303,11 +2068,87 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 23
+marital=single -&gt; 7
+day_of_week=mon -&gt; 13
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 25 columns</p>
+</div></div></div>
 </div>
 <p>We want to point out that we hash not only feature values but also pairs of <strong>feature name + feature value</strong>. It is important to do this so that we can distinguish the same values of different features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;no&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;no&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;no&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;no&quot;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;housing=no&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;loan=no&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1317,15 +2158,36 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <img src="https://habrastorage.org/webt/4o/wx/59/4owx59vdvwc9mzrf81t2fa2rqrc.jpeg">
 <p>You may be saying “WTF?”; hashing seems counterintuitive. This is true, but these heuristics sometimes are, in fact, the only plausible approach to work with categorical data (what else can you do if you have 30M features?). Moreover, this technique has proven to just work. As you work more with data, you may see this for yourself.</p>
 <p>A good analysis of hash collisions, their dependency on feature space and hashing space dimensions and affecting classification/regression performance is done in <a class="reference external" href="https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087">this article</a> by <a class="reference external" href="http://Booking.com">Booking.com</a>.</p>
-</section>
-</section>
-<section id="vowpal-wabbit">
+</div>
+</div>
+<div class="section" id="vowpal-wabbit">
 <h2>3. Vowpal Wabbit<a class="headerlink" href="#vowpal-wabbit" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit">Vowpal Wabbit</a> (VW) is one of the most widespread machine learning libraries used in industry. It is prominent for its training speed and support of many training modes, especially for online learning with big and high-dimensional data. This is one of the major merits of the library. Also, with the hashing trick implemented, Vowpal Wabbit is a perfect choice for working with text data.</p>
 <p>Shell is the main interface for VW.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw --help | head
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw --help <span class="p">|</span> head
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num weight bits = 18
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = 
+num sources = 1
+driver:
+  --onethread           Disable parse thread
+VW options:
+  --ring_size arg (=256, ) size of example ring
+  --strict_parse           throw on malformed examples
+Update options:
+  -l [ --learning_rate ] arg Set learning rate
+  --power_t arg              t power value
+  --decay_learning_rate arg  Set Decay factor for learning_rate between passes
+  --initial_t arg            initial t value
 </pre></div>
 </div>
 </div>
@@ -1349,17 +2211,40 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Let’s check the format by running VW with this training sample:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! echo &#39;1 1.0 |Subject WHAT car is this |Organization University of Maryland:0.5 College Park&#39; | vw
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> <span class="nb">echo</span> <span class="s1">&#39;1 1.0 |Subject WHAT car is this |Organization University of Maryland:0.5 College Park&#39;</span> <span class="p">|</span> vw
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num weight bits = 18
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = 
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000            1            1.0   1.0000   0.0000       10
+
+finished run
+number of examples = 1
+weighted example sum = 1.000000
+weighted label sum = 1.000000
+average loss = 1.000000
+best constant = 1.000000
+best constant&#39;s loss = 0.000000
+total feature number = 10
 </pre></div>
 </div>
 </div>
 </div>
-<p>VW is a wonderful tool for working with text data. We’ll illustrate it with the <a class="reference external" href="http://scikit-learn.org/stable/datasets/twenty_newsgroups.html">20newsgroups dataset</a>, which contains letters from 20 different newsletters.</p>
-<section id="news-binary-classification">
+<p>VW is a wonderful tool for working with text data. We’ll illustrate it with the <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">20newsgroups dataset</a>, which contains letters from 20 different newsletters.</p>
+<div class="section" id="news-binary-classification">
 <h3>3.1. News. Binary classification.<a class="headerlink" href="#news-binary-classification" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data with sklearn&#39;s function</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data with sklearn&#39;s function</span>
 <span class="n">newsgroups</span> <span class="o">=</span> <span class="n">fetch_20newsgroups</span><span class="p">(</span><span class="n">data_home</span><span class="o">=</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1367,7 +2252,31 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;alt.atheism&#39;,
+ &#39;comp.graphics&#39;,
+ &#39;comp.os.ms-windows.misc&#39;,
+ &#39;comp.sys.ibm.pc.hardware&#39;,
+ &#39;comp.sys.mac.hardware&#39;,
+ &#39;comp.windows.x&#39;,
+ &#39;misc.forsale&#39;,
+ &#39;rec.autos&#39;,
+ &#39;rec.motorcycles&#39;,
+ &#39;rec.sport.baseball&#39;,
+ &#39;rec.sport.hockey&#39;,
+ &#39;sci.crypt&#39;,
+ &#39;sci.electronics&#39;,
+ &#39;sci.med&#39;,
+ &#39;sci.space&#39;,
+ &#39;soc.religion.christian&#39;,
+ &#39;talk.politics.guns&#39;,
+ &#39;talk.politics.mideast&#39;,
+ &#39;talk.politics.misc&#39;,
+ &#39;talk.religion.misc&#39;]
 </pre></div>
 </div>
 </div>
@@ -1375,7 +2284,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Lets look at the first document in this collection:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">target</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">][</span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----&quot;</span><span class="p">)</span>
@@ -1386,11 +2295,36 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-----
+rec.autos
+-----
+From: lerxst@wam.umd.edu (where&#39;s my thing)
+Subject: WHAT car is this!?
+Nntp-Posting-Host: rac3.wam.umd.edu
+Organization: University of Maryland, College Park
+Lines: 15
+
+ I was wondering if anyone out there could enlighten me on this car I saw
+the other day. It was a 2-door sports car, looked to be from the late 60s/
+early 70s. It was called a Bricklin. The doors were really small. In addition,
+the front bumper was separate from the rest of the body. This is 
+all I know. If anyone can tellme a model name, engine specs, years
+of production, where this car is made, history, or whatever info you
+have on this funky looking car, please e-mail.
+
+Thanks,
+- IL
+   ---- brought to you by your neighborhood Lerxst ----
+----
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we convert the data into something Vowpal Wabbit can understand. We will throw away words shorter than 3 symbols. Here, we will skip some important NLP stages such as stemming and lemmatization; however, we will later see that VW solves the problem even without these steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_vw_format</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_vw_format</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="nb">str</span><span class="p">(</span><span class="n">label</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="o">+</span> <span class="s2">&quot; |text &quot;</span>
@@ -1403,11 +2337,16 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1 |text from lerxst wam umd edu where thing subject what car this nntp posting host rac3 wam umd edu organization university maryland college park lines was wondering anyone out there could enlighten this car saw the other day was door sports car looked from the late 60s early 70s was called bricklin the doors were really small addition the front bumper was separate from the rest the body this all know anyone can tellme model name engine specs years production where this car made history whatever info you have this funky looking car please mail thanks brought you your neighborhood lerxst\n&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>We split the dataset into train and test and write these into separate files. We will consider a document as positive if it corresponds to <strong>rec.autos</strong>. Thus, we are constructing a model which distinguishes articles about cars from other topics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_documents</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_documents</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 <span class="n">all_targets</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">1</span> <span class="k">if</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">][</span><span class="n">target</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;rec.autos&quot;</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
@@ -1418,7 +2357,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_documents</span><span class="p">,</span> <span class="n">test_documents</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_documents</span><span class="p">,</span> <span class="n">test_documents</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">all_documents</span><span class="p">,</span> <span class="n">all_targets</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span>
 <span class="p">)</span>
 
@@ -1435,16 +2374,16 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Now, we pass the created training file to Vowpal Wabbit. We solve the classification problem with a hinge loss function (linear SVM). The trained model will be saved in the <code class="docutils literal notranslate"><span class="pre">20news_model.vw</span></code> file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -d $PATH_TO_WRITE_DATA/20news_train.vw \</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -d $PATH_TO_WRITE_DATA/20news_train.vw \</span>
 <span class="c1"># --loss_function hinge -f $PATH_TO_WRITE_DATA/20news_model.vw</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>VW prints a lot of interesting info while training (one can suppress it with the <code class="docutils literal notranslate"><span class="pre">--quiet</span></code> parameter). You can see documentation of the diagnostic output on <a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial#vws-diagnostic-information">GitHub</a>. Note how average loss drops while training. For loss computation, VW uses samples it has never seen before, so this measure is usually accurate. Now, we apply our trained model to the test set, saving predictions into a file with the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag:</p>
+<p>VW prints a lot of interesting info while training (one can suppress it with the <code class="docutils literal notranslate"><span class="pre">--quiet</span></code> parameter). You can see <a class="reference external" href="https://vowpalwabbit.org/docs/vowpal_wabbit/python/latest/tutorials/cmd_linear_regression.html#vowpal-wabbit-output">documentation</a> of the diagnostic output. Note how average loss drops while training. For loss computation, VW uses samples it has never seen before, so this measure is usually accurate. Now, we apply our trained model to the test set, saving predictions into a file with the <code class="docutils literal notranslate"><span class="pre">-p</span></code> flag:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -i $PATH_TO_WRITE_DATA/20news_model.vw -t -d $PATH_TO_WRITE_DATA/20news_test.vw \</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -i $PATH_TO_WRITE_DATA/20news_model.vw -t -d $PATH_TO_WRITE_DATA/20news_test.vw \</span>
 <span class="c1"># -p $PATH_TO_WRITE_DATA/20news_test_predictions.txt</span>
 </pre></div>
 </div>
@@ -1453,7 +2392,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Now we load our predictions, compute AUC, and plot the ROC curve:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;20news_test_predictions.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;20news_test_predictions.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
     <span class="n">test_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 
 <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">test_prediction</span><span class="p">)</span>
@@ -1469,15 +2408,18 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/topic08_sgd_hashing_vowpal_wabbit_55_0.png" src="../../_images/topic08_sgd_hashing_vowpal_wabbit_55_0.png" />
+</div>
 </div>
 <p>The AUC value we get shows that we have achieved high classification quality.</p>
-</section>
-<section id="news-multiclass-classification">
+</div>
+<div class="section" id="news-multiclass-classification">
 <h3>3.2. News. Multiclass classification<a class="headerlink" href="#news-multiclass-classification" title="Permalink to this headline">#</a></h3>
 <p>We will use the same news dataset, but, this time, we will solve a multiclass classification problem. <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code> is a little picky – it wants labels starting from 1 till K, where K – is the number of classes in the classification task (20 in our case). So we will use LabelEncoder and add 1 afterwards (recall that <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> maps labels into range from 0 to K-1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_documents</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_documents</span> <span class="o">=</span> <span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 <span class="n">topic_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">all_targets_mult</span> <span class="o">=</span> <span class="n">topic_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
@@ -1487,7 +2429,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p><strong>The data is the same, but we have changed the labels, train_labels_mult and test_labels_mult, into label vectors from 1 to 20.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_documents</span><span class="p">,</span> <span class="n">test_documents</span><span class="p">,</span> <span class="n">train_labels_mult</span><span class="p">,</span> <span class="n">test_labels_mult</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_documents</span><span class="p">,</span> <span class="n">test_documents</span><span class="p">,</span> <span class="n">train_labels_mult</span><span class="p">,</span> <span class="n">test_labels_mult</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">all_documents</span><span class="p">,</span> <span class="n">all_targets_mult</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span>
 <span class="p">)</span>
 
@@ -1511,7 +2453,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Additionally, we can try automatic Vowpal Wabbit parameter tuning with <a class="reference external" href="https://github.com/hyperopt/hyperopt">Hyperopt</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw --oaa 20 $PATH_TO_WRITE_DATA/20news_train_mult.vw -f $PATH_TO_WRITE_DATA/ \</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw --oaa 20 $PATH_TO_WRITE_DATA/20news_train_mult.vw -f $PATH_TO_WRITE_DATA/ \</span>
 <span class="c1">#20news_model_mult.vw --loss_function=hinge</span>
 </pre></div>
 </div>
@@ -1519,7 +2461,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#%%time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%%time</span>
 <span class="c1">#!vw -i $PATH_TO_WRITE_DATA/20news_model_mult.vw -t -d $PATH_TO_WRITE_DATA/20news_test_mult.vw \</span>
 <span class="c1">#-p $PATH_TO_WRITE_DATA/20news_test_predictions_mult.txt</span>
 </pre></div>
@@ -1528,7 +2470,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;20news_test_predictions_mult.txt&quot;</span><span class="p">)</span>
 <span class="p">)</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
     <span class="n">test_prediction_mult</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
@@ -1538,7 +2480,12 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_labels_mult</span><span class="p">,</span> <span class="n">test_prediction_mult</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_labels_mult</span><span class="p">,</span> <span class="n">test_prediction_mult</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8734535171438671
 </pre></div>
 </div>
 </div>
@@ -1546,21 +2493,30 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Here is how often the model misclassifies atheism with other topics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">test_labels_mult</span><span class="p">,</span> <span class="n">test_prediction_mult</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">test_labels_mult</span><span class="p">,</span> <span class="n">test_prediction_mult</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rec.autos 1
+rec.sport.baseball 1
+sci.med 1
+soc.religion.christian 3
+talk.religion.misc 5
+</pre></div>
 </div>
-</section>
-<section id="imdb-movie-reviews">
+</div>
+</div>
+</div>
+<div class="section" id="imdb-movie-reviews">
 <h3>3.3. IMDB movie reviews<a class="headerlink" href="#imdb-movie-reviews" title="Permalink to this headline">#</a></h3>
 <p>In this part we will do binary classification of <a class="reference external" href="http://www.imdb.com">IMDB</a> (International Movie DataBase) movie reviews. We will see how fast Vowpal Wabbit performs.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">load_files</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code>, we load the movie reviews datasets. It’s the same dataset we used in topic04 part4 notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tarfile</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tarfile</span>
 <span class="c1"># Download the dataset if not already in place</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 
@@ -1590,11 +2546,16 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading the dataset from:   http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+</pre></div>
+</div>
+</div>
 </div>
 <p>Read train data, separate labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_IMDB</span> <span class="o">=</span> <span class="n">PATH_TO_WRITE_DATA</span> <span class="o">+</span> <span class="s2">&quot;aclImdb&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_IMDB</span> <span class="o">=</span> <span class="n">PATH_TO_WRITE_DATA</span> <span class="o">+</span> <span class="s2">&quot;aclImdb&quot;</span>
 
 <span class="n">reviews_train</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_IMDB</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">),</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">,</span> <span class="s2">&quot;neg&quot;</span><span class="p">]</span>
@@ -1607,8 +2568,14 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents in training data: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_train</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents in training data: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_train</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents in training data: 25000
+[12500 12500]
 </pre></div>
 </div>
 </div>
@@ -1616,7 +2583,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Do the same for the test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reviews_test</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_IMDB</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">),</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">,</span> <span class="s2">&quot;neg&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews_test</span> <span class="o">=</span> <span class="n">load_files</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_IMDB</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">),</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pos&quot;</span><span class="p">,</span> <span class="s2">&quot;neg&quot;</span><span class="p">])</span>
 <span class="n">text_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">reviews_test</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">reviews_test</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 </div>
@@ -1624,8 +2591,14 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents in test data: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_test</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of documents in test data: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_test</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents in test data: 25000
+[12500 12500]
 </pre></div>
 </div>
 </div>
@@ -1633,35 +2606,60 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Take a look at examples of reviews and their corresponding labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&quot;Zero Day leads you to think, even re-think why two boys/young men would do what they did - commit mutual suicide via slaughtering their classmates. It captures what must be beyond a bizarre mode of being for two humans who have decided to withdraw from common civility in order to define their own/mutual world via coupled destruction.&lt;br /&gt;&lt;br /&gt;It is not a perfect movie but given what money/time the filmmaker and actors had - it is a remarkable product. In terms of explaining the motives and actions of the two young suicide/murderers it is better than &#39;Elephant&#39; - in terms of being a film that gets under our &#39;rationalistic&#39; skin it is a far, far better film than almost anything you are likely to see. &lt;br /&gt;&lt;br /&gt;Flawed but honest with a terrible honesty.&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># good review</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># good review</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">text_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;Words can\&#39;t describe how bad this movie is. I can\&#39;t explain it by writing only. You have too see it for yourself to get at grip of how horrible a movie really can be. Not that I recommend you to do that. There are so many clich\xc3\xa9s, mistakes (and all other negative things you can imagine) here that will just make you cry. To start with the technical first, there are a LOT of mistakes regarding the airplane. I won\&#39;t list them here, but just mention the coloring of the plane. They didn\&#39;t even manage to show an airliner in the colors of a fictional airline, but instead used a 747 painted in the original Boeing livery. Very bad. The plot is stupid and has been done many times before, only much, much better. There are so many ridiculous moments here that i lost count of it really early. Also, I was on the bad guys\&#39; side all the time in the movie, because the good guys were so stupid. &quot;Executive Decision&quot; should without a doubt be you\&#39;re choice over this one, even the &quot;Turbulence&quot;-movies are better. In fact, every other movie in the world is better than this one.&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># bad review</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># bad review</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">to_vw_format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">text_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_vw_format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">text_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1 |text words can describe how bad this movie can explain writing only you have too see for yourself get grip how horrible movie really can not that recommend you that there are many clich xc3 xa9s mistakes and all other negative things you can imagine here that will just make you cry start with the technical first there are lot mistakes regarding the airplane won list them here but just mention the coloring the plane they didn even manage show airliner the colors fictional airline but instead used 747 painted the original boeing livery very bad the plot stupid and has been done many times before only much much better there are many ridiculous moments here that lost count really early also was the bad guys side all the time the movie because the good guys were stupid executive decision should without doubt you choice over this one even the turbulence movies are better fact every other movie the world better than this one\n&#39;
 </pre></div>
 </div>
 </div>
@@ -1669,7 +2667,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Now, we prepare training (<code class="docutils literal notranslate"><span class="pre">movie_reviews_train.vw</span></code>), validation (<code class="docutils literal notranslate"><span class="pre">movie_reviews_valid.vw</span></code>), and test (<code class="docutils literal notranslate"><span class="pre">movie_reviews_test.vw</span></code>) sets for Vowpal Wabbit. We will use 70% for training, 30% for the hold-out set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_share</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_train</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_share</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_train</span><span class="p">))</span>
 <span class="n">train</span><span class="p">,</span> <span class="n">valid</span> <span class="o">=</span> <span class="n">text_train</span><span class="p">[:</span><span class="n">train_share</span><span class="p">],</span> <span class="n">text_train</span><span class="p">[</span><span class="n">train_share</span><span class="p">:]</span>
 <span class="n">train_labels</span><span class="p">,</span> <span class="n">valid_labels</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">train_share</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[</span><span class="n">train_share</span><span class="p">:]</span>
 </pre></div>
@@ -1678,14 +2676,19 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">train_labels</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_labels</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">train_labels</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(17500, 7500)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_reviews_train.vw&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span>
 <span class="p">)</span> <span class="k">as</span> <span class="n">vw_train_data</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">):</span>
@@ -1704,21 +2707,39 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!head -2 $PATH_TO_WRITE_DATA/movie_reviews_train.vw
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head -2 <span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_train.vw
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 |text zero day leads you think even think why two boys young men would what they did commit mutual suicide via slaughtering their classmates captures what must beyond bizarre mode being for two humans who have decided withdraw from common civility order define their own mutual world via coupled destruction not perfect movie but given what money time the filmmaker and actors had remarkable product terms explaining the motives and actions the two young suicide murderers better than elephant terms being film that gets under our rationalistic skin far far better film than almost anything you are likely see flawed but honest with terrible honesty
+-1 |text words can describe how bad this movie can explain writing only you have too see for yourself get grip how horrible movie really can not that recommend you that there are many clich xc3 xa9s mistakes and all other negative things you can imagine here that will just make you cry start with the technical first there are lot mistakes regarding the airplane won list them here but just mention the coloring the plane they didn even manage show airliner the colors fictional airline but instead used 747 painted the original boeing livery very bad the plot stupid and has been done many times before only much much better there are many ridiculous moments here that lost count really early also was the bad guys side all the time the movie because the good guys were stupid executive decision should without doubt you choice over this one even the turbulence movies are better fact every other movie the world better than this one
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!head -2 $PATH_TO_WRITE_DATA/movie_reviews_valid.vw
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head -2 <span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_valid.vw
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 |text matter life and death what can you really say that would properly justice the genius and beauty this film powell and pressburger visual imagination knows bounds every frame filled with fantastically bold compositions the switches between the bold colours the real world the stark black and white heaven ingenious showing visually just how much more vibrant life the final court scene also fantastic the judge and jury descend the stairway heaven hold court over peter david niven operation all the performances are spot roger livesey being standout and the romantic energy the film beautiful never has there been more romantic film than this there has haven seen matter life and death all about the power love and just how important life and jack cardiff cinematography reason enough watch the film alone the way lights kim hunter face makes her all the more beautiful what genius can make simple things such game table tennis look exciting and the sound design also impeccable the way the sound mutes vital points was decision way ahead its time this true classic that can restore anyone faith cinema under appreciated its initial release and today audiences but one all time favourites which why give this film word beautiful
+1 |text while this was better movie than 101 dalmations live action not animated version think still fell little short what disney could was well filmed the music was more suited the action and the effects were better done compared 101 the acting was perhaps better but then the human characters were given far more appropriate roles this sequel and glenn close really not missed the first movie she makes shine her poor lackey and the overzealous furrier sidekicks are wonderful characters play off and they add the spectacle disney has given this great family film with little objectionable material and yet remains fun and interesting for adults and children alike bound classic many disney films are here hoping the third will even better still because you know they probably want make one
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!head -2 $PATH_TO_WRITE_DATA/movie_reviews_test.vw
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head -2 <span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_test.vw
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |text don hate heather graham because she beautiful hate her because she fun watch this movie like the hip clothing and funky surroundings the actors this flick work well together casey affleck hysterical and heather graham literally lights the screen the minor characters goran visnjic sigh and patricia velazquez are talented they are gorgeous congratulations miramax director lisa krueger
+ |text don know how this movie has received many positive comments one can call artistic and beautifully filmed but those things don make for the empty plot that was filled with sexual innuendos wish had not wasted time watch this movie rather than being biographical was poor excuse for promoting strange and lewd behavior was just another hollywood attempt convince that that kind life normal and from the very beginning asked self what was the point this movie and continued watching hoping that would change and was quite disappointed that continued the same vein glad did not spend the money see this theater
 </pre></div>
 </div>
 </div>
@@ -1731,7 +2752,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
 -f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
 </pre></div>
 </div>
@@ -1746,7 +2767,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
 -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
 </pre></div>
 </div>
@@ -1755,7 +2776,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Read the predictions from the text file and estimate the accuracy and ROC AUC. Note that VW prints probability estimates of the +1 class. These estimates are distributed from  -1 to 1, so we can convert these into binary answers, assuming that positive values belong to class 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_valid_pred.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_valid_pred.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
     <span class="n">valid_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="s2">&quot;Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -1771,11 +2792,17 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.885
+AUC: 0.942
+</pre></div>
+</div>
+</div>
 </div>
 <p>Again, do the same for the test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
 -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
 -p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
 </pre></div>
@@ -1784,7 +2811,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_test_pred.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_test_pred.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
     <span class="n">test_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="s2">&quot;Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -1800,11 +2827,17 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.88
+AUC: 0.94
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s try to achieve a higher accuracy by incorporating bigrams.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
 --loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
 </pre></div>
 </div>
@@ -1812,7 +2845,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
 -p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
 </pre></div>
 </div>
@@ -1820,7 +2853,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_valid_pred2.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_valid_pred2.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
     <span class="n">valid_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="s2">&quot;Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -1836,10 +2869,16 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.894
+AUC: 0.954
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
 -p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
 </pre></div>
 </div>
@@ -1847,7 +2886,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_test_pred2.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;movie_test_pred2.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
     <span class="n">test_prediction2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="s2">&quot;Accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -1863,15 +2902,23 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.888
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUC: 0.952
+</pre></div>
+</div>
+</div>
 </div>
 <p>Adding bigrams really helped to improve our model!</p>
-</section>
-<section id="classifying-gigabytes-of-stackoverflow-questions">
+</div>
+<div class="section" id="classifying-gigabytes-of-stackoverflow-questions">
 <h3>3.4. Classifying gigabytes of StackOverflow questions<a class="headerlink" href="#classifying-gigabytes-of-stackoverflow-questions" title="Permalink to this headline">#</a></h3>
 <p>This section has been moved to Kaggle, please explore <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-8-online-learning-and-vowpal-wabbit">this Notebook</a>.</p>
-</section>
-</section>
-<section id="useful-resources">
+</div>
+</div>
+<div class="section" id="useful-resources">
 <h2>4. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as am interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-8-online-learning-and-vowpal-wabbit">Kaggle Kernel</a></p></li>
@@ -1883,12 +2930,12 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <li><p><a class="reference external" href="https://booking.ai/dont-be-tricked-by-the-hashing-trick-192a6aae3087">Don’t be tricked by the Hashing Trick</a> - analysis of hash collisions, their dependency on feature space and hashing space dimensions and affecting classification/regression performance</p></li>
 <li><p><a class="reference external" href="http://www.deeplearningbook.org/contents/numerical.html">“Numeric Computation” Chapter</a> of the <a class="reference external" href="http://www.deeplearningbook.org/">Deep Learning book</a></p></li>
 <li><p><a class="reference external" href="https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787">“Convex Optimization” by Stephen Boyd</a></p></li>
-<li><p>“Command-line Tools can be 235x Faster than your Hadoop Cluster” <a class="reference external" href="https://aadrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html">post</a></p></li>
+<li><p>“Command-line Tools can be 235x Faster than your Hadoop Cluster” <a class="reference external" href="https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html">post</a></p></li>
 <li><p>Benchmarking various ML algorithms on Criteo 1TB dataset on <a class="reference external" href="https://github.com/rambler-digital-solutions/criteo-1tb-benchmark">GitHub</a></p></li>
 <li><p><a class="reference external" href="http://fastml.com/blog/categories/vw/">VW on FastML.com</a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

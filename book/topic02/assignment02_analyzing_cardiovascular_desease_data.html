@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment #2 (demo) &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1083,22 +1080,22 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="assignment-2-demo">
+  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-2-demo">
 <span id="assignment02"></span><h1>Assignment #2 (demo)<a class="headerlink" href="#assignment-2-demo" title="Permalink to this headline">#</a></h1>
-<section id="analyzing-cardiovascular-disease-data">
+<div class="section" id="analyzing-cardiovascular-disease-data">
 <h2>Analyzing cardiovascular disease data<a class="headerlink" href="#analyzing-cardiovascular-disease-data" title="Permalink to this headline">#</a></h2>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshnikov-ilya/">Ilya Baryshnikov</a>, <a class="reference external" href="https://www.linkedin.com/in/maxis42/">Maxim Uvarov</a>, and <a class="reference external" href="https://www.linkedin.com/in/festline/">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/inga-kaidanova-a92398b1/">Inga Kaydanova</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
 <p><strong>Same assignment as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data">Kaggle Kernel</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data-solution">solution</a>.</strong></p>
 <p>In this assignment, you will answer questions about a dataset on cardiovascular disease. You do not need to download the data: it is already in the repository. There are some Tasks that will require you to write code. Complete them and then answer the questions in the <a class="reference external" href="https://docs.google.com/forms/d/13cE_tSIb6hsScQvvWUJeu1MEHE5L6vnxQUbDYpXsf24">form</a>.</p>
-<section id="problem">
+<div class="section" id="problem">
 <h3>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">#</a></h3>
 <p>Predict the presence or absence of cardiovascular disease (CVD) using the patient examination results.</p>
-</section>
-<section id="data-description">
+</div>
+<div class="section" id="data-description">
 <h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this headline">#</a></h3>
 <p>There are 3 types of input features:</p>
 <ul class="simple">
@@ -1179,9 +1176,9 @@ Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshn
 </table>
 <p>All of the dataset values were collected at the moment of medical examination.</p>
 <p>Let’s get to know our data by performing a preliminary data analysis.</p>
-</section>
-</section>
-<section id="part-1-preliminary-data-analysis">
+</div>
+</div>
+<div class="section" id="part-1-preliminary-data-analysis">
 <h2>Part 1. Preliminary data analysis<a class="headerlink" href="#part-1-preliminary-data-analysis" title="Permalink to this headline">#</a></h2>
 <p>First, we will initialize the environment:</p>
 <div class="cell docutils container">
@@ -1487,8 +1484,8 @@ cardio
 <li><p>7 categorical features;</p></li>
 <li><p>70000 records in total.</p></li>
 </ul>
-</section>
-<section id="basic-observations">
+</div>
+<div class="section" id="basic-observations">
 <h2>1.1. Basic observations<a class="headerlink" href="#basic-observations" title="Permalink to this headline">#</a></h2>
 <p><strong>Question 1.1. (1 point). How many men and women are present in this dataset? Values of the <code class="docutils literal notranslate"><span class="pre">gender</span></code> feature were not given (whether “1” stands for women or for men) – figure this out by looking analyzing height, making the assumption that men are taller on average.</strong></p>
 <ol class="simple">
@@ -1516,15 +1513,15 @@ cardio
 <li><p>15</p></li>
 <li><p>20</p></li>
 </ol>
-</section>
-<section id="risk-maps">
+</div>
+<div class="section" id="risk-maps">
 <h2>1.2. Risk maps<a class="headerlink" href="#risk-maps" title="Permalink to this headline">#</a></h2>
-<section id="task">
+<div class="section" id="task">
 <h3>Task:<a class="headerlink" href="#task" title="Permalink to this headline">#</a></h3>
 <p>On the website for the European Society of Cardiology, a <a class="reference external" href="https://www.escardio.org/Education/Practice-Tools/CVD-prevention-toolbox/SCORE-Risk-Charts">SCORE scale</a> is provided. It is used for calculating the risk of death from a cardiovascular decease in the next 10 years. Here it is:</p>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/SCORE_CVD_eng.png" src="../../_images/SCORE_CVD_eng.png" />
-</figure>
+</div>
 <p>Let’s take a look at the upper-right rectangle, which shows a subset of smoking men aged from 60 to 65. (It’s not obvious, but the values in the figure represent the upper bound).</p>
 <p>We see the value 9 in the lower-left corner of the rectangle and 47 in the upper-right. This means that, for people in this gender-age group whose systolic pressure is less than 120, the risk of a CVD is estimated to be 5 times lower than for those with the pressure in the interval [160,180).</p>
 <p>Let’s calculate that same ratio using our data.</p>
@@ -1547,11 +1544,11 @@ cardio
 <li><p>3</p></li>
 <li><p>4</p></li>
 </ol>
-</section>
-</section>
-<section id="analyzing-bmi">
+</div>
+</div>
+<div class="section" id="analyzing-bmi">
 <h2>1.3. Analyzing BMI<a class="headerlink" href="#analyzing-bmi" title="Permalink to this headline">#</a></h2>
-<section id="id1">
+<div class="section" id="id1">
 <h3>Task:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Create a new feature – BMI (<a class="reference external" href="https://en.wikipedia.org/wiki/Body_mass_index">Body Mass Index</a>). To do this, divide weight in kilograms by the square of the height in meters. Normal BMI values are said to be from 18.5 to 25.</p>
 <div class="cell docutils container">
@@ -1568,11 +1565,11 @@ cardio
 <li><p>Healthy people have higher median BMI than ill people.</p></li>
 <li><p>In the segment of healthy and non-drinking men BMI is closer to the norm than in the segment of healthy and non-drinking women</p></li>
 </ol>
-</section>
-</section>
-<section id="cleaning-data">
+</div>
+</div>
+<div class="section" id="cleaning-data">
 <h2>1.4. Cleaning data<a class="headerlink" href="#cleaning-data" title="Permalink to this headline">#</a></h2>
-<section id="id2">
+<div class="section" id="id2">
 <h3>Task:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>We can see that the data is not perfect. It contains “dirt” and inaccuracies. We’ll see this better as we visualize the data.</p>
 <p>Filter out the following patient segments (we consider these as erroneous data)</p>
@@ -1598,15 +1595,15 @@ cardio
 <li><p>10</p></li>
 <li><p>11</p></li>
 </ol>
-</section>
-</section>
-<section id="part-2-visual-data-analysis-a-class-tocskip">
+</div>
+</div>
+<div class="section" id="part-2-visual-data-analysis-a-class-tocskip">
 <h2>Part 2. Visual data analysis <a class="tocSkip"><a class="headerlink" href="#part-2-visual-data-analysis-a-class-tocskip" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="correlation-matrix-visualization">
+</div>
+<div class="section" id="correlation-matrix-visualization">
 <h2>2.1. Correlation matrix visualization<a class="headerlink" href="#correlation-matrix-visualization" title="Permalink to this headline">#</a></h2>
 <p>To understand the features better, you can create a matrix of the correlation coefficients between the features. Use the filtered dataset from now on.</p>
-<section id="id3">
+<div class="section" id="id3">
 <h3>Task:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>Plot a correlation matrix using <a class="reference external" href="http://seaborn.pydata.org/generated/seaborn.heatmap.html"><code class="docutils literal notranslate"><span class="pre">heatmap()</span></code></a>. You can create the matrix using the standard <code class="docutils literal notranslate"><span class="pre">pandas</span></code> tools with the default parameters.</p>
 <div class="cell docutils container">
@@ -1623,12 +1620,12 @@ cardio
 <li><p>Smoke, Alco</p></li>
 <li><p>Height, Weight</p></li>
 </ol>
-</section>
-</section>
-<section id="height-distribution-of-men-and-women">
+</div>
+</div>
+<div class="section" id="height-distribution-of-men-and-women">
 <h2>2.2. Height distribution of men and women<a class="headerlink" href="#height-distribution-of-men-and-women" title="Permalink to this headline">#</a></h2>
 <p>From our exploration of the unique values earlier, we know that the gender is encoded by the values <em>1</em> and <em>2</em>. Although you do not know the mapping of these values to gender, you can figure that out graphically by looking at the mean values of height and weight for each value of the <em>gender</em> feature.</p>
-<section id="id4">
+<div class="section" id="id4">
 <h3>Task:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Create a violin plot for the height and gender using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.violinplot.html"><code class="docutils literal notranslate"><span class="pre">violinplot()</span></code></a>. Use the parameters:</p>
 <ul class="simple">
@@ -1643,13 +1640,13 @@ cardio
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="rank-correlation">
+</div>
+</div>
+<div class="section" id="rank-correlation">
 <h2>2.3. Rank correlation<a class="headerlink" href="#rank-correlation" title="Permalink to this headline">#</a></h2>
 <p>In most cases, <em>the Pearson coefficient of linear correlation</em> is more than enough to discover patterns in data.
 But let’s go a little further and calculate a <a class="reference external" href="https://en.wikipedia.org/wiki/Rank_correlation">rank correlation</a>. It will help us to identify such feature pairs in which the lower rank in the variational series of one feature always precedes the higher rank in the another one (and we have the opposite in the case of negative correlation).</p>
-<section id="id5">
+<div class="section" id="id5">
 <h3>Task:<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>Calculate and plot a correlation matrix using the <a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman’s rank correlation coefficient</a>.</p>
 <div class="cell docutils container">
@@ -1674,12 +1671,12 @@ But let’s go a little further and calculate a <a class="reference external" hr
 <li><p>Relation is wrong, these features should not be related.</p></li>
 <li><p>Nature of the data.</p></li>
 </ol>
-</section>
-</section>
-<section id="age">
+</div>
+</div>
+<div class="section" id="age">
 <h2>2.4. Age<a class="headerlink" href="#age" title="Permalink to this headline">#</a></h2>
 <p>Previously, we calculated the age of the respondents in years at the moment of examination.</p>
-<section id="id6">
+<div class="section" id="id6">
 <h3>Task:<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <p>Create a <em>count plot</em> using <a class="reference external" href="http://seaborn.pydata.org/generated/seaborn.countplot.html"><code class="docutils literal notranslate"><span class="pre">countplot()</span></code></a> with the age on the <em>X</em> axis and the number of people on the <em>Y</em> axis. Your resulting plot should have two columns for each age, corresponding to the number of people for each <em>cardio</em> class of that age.</p>
 <div class="cell docutils container">
@@ -1696,9 +1693,9 @@ But let’s go a little further and calculate a <a class="reference external" hr
 <li><p>64</p></li>
 <li><p>70</p></li>
 </ol>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exploratory data analysis with Pandas &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -949,25 +946,25 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="exploratory-data-analysis-with-pandas">
+  <div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis-with-pandas">
 <span id="topic01"></span><h1>Exploratory data analysis with Pandas<a class="headerlink" href="#exploratory-data-analysis-with-pandas" title="Permalink to this headline">#</a></h1>
-<figure class="align-default" id="ods-stickers">
+<div class="figure align-default" id="ods-stickers">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina">Anastasia Manokhina</a>, Sergey Isaev and <a class="reference external" href="https://www.linkedin.com/in/datamove/">Artem Trunov</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-<figure class="align-default" id="pandas">
+<div class="figure align-default" id="pandas">
 <img alt="../../_images/pandas.jpg" src="../../_images/pandas.jpg" />
-</figure>
-<section id="article-outline">
+</div>
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#demonstration-of-the-main-pandas-methods">Demonstration of main Pandas methods</a></p></li>
 <li><p><a class="reference external" href="#first-attempt-at-predicting-telecom-churn">First attempt at predicting telecom churn</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="demonstration-of-the-main-pandas-methods">
+</div>
+<div class="section" id="demonstration-of-the-main-pandas-methods">
 <h2>1. Demonstration of the main Pandas methods<a class="headerlink" href="#demonstration-of-the-main-pandas-methods" title="Permalink to this headline">#</a></h2>
 <p>Well… There are dozens of cool tutorials on Pandas and visual data analysis. If you are already familiar with these topics, you can switch to the 3rd article in the series, where we get into machine learning.</p>
 <p><strong><a class="reference external" href="http://pandas.pydata.org">Pandas</a></strong> is a Python library that provides extensive means for data analysis. Data scientists often work with data stored in table formats like <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>. Pandas makes it very convenient to load, process, and analyze such tabular data using SQL-like queries. In conjunction with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> provides a wide range of opportunities for visual analysis of tabular data.</p>
@@ -1559,7 +1556,7 @@ Name: Churn, dtype: float64
 </div>
 </div>
 </div>
-<section id="sorting">
+<div class="section" id="sorting">
 <h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">#</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> can be sorted by the value of one of the variables (i.e columns). For example, we can sort by <em>Total day charge</em> (use <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> to sort in descending order):</p>
 <div class="cell docutils container">
@@ -1897,8 +1894,8 @@ Name: Churn, dtype: float64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="indexing-and-retrieving-data">
+</div>
+<div class="section" id="indexing-and-retrieving-data">
 <h3>Indexing and retrieving data<a class="headerlink" href="#indexing-and-retrieving-data" title="Permalink to this headline">#</a></h3>
 <p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> can be indexed in a few different ways.</p>
 <p>To get a single column, you can use a <code class="docutils literal notranslate"><span class="pre">DataFrame['Name']</span></code> construction. Let’s use this to answer a question about that column alone: <strong>what is the proportion of churned users in our dataframe?</strong></p>
@@ -2191,8 +2188,8 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="applying-functions-to-cells-columns-and-rows">
+</div>
+<div class="section" id="applying-functions-to-cells-columns-and-rows">
 <h3>Applying Functions to Cells, Columns and Rows<a class="headerlink" href="#applying-functions-to-cells-columns-and-rows" title="Permalink to this headline">#</a></h3>
 <p><strong>To apply functions to each column, use <code class="docutils literal notranslate"><span class="pre">apply()</span></code>:</strong></p>
 <div class="cell docutils container">
@@ -2755,8 +2752,8 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="grouping">
+</div>
+<div class="section" id="grouping">
 <h3>Grouping<a class="headerlink" href="#grouping" title="Permalink to this headline">#</a></h3>
 <p>In general, grouping data in Pandas works as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">grouping_columns</span><span class="p">)[</span><span class="n">columns_to_show</span><span class="p">]</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
@@ -2995,8 +2992,8 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="summary-tables">
+</div>
+<div class="section" id="summary-tables">
 <h3>Summary tables<a class="headerlink" href="#summary-tables" title="Permalink to this headline">#</a></h3>
 <p>Suppose we want to see how the observations in our dataset are distributed in the context of two variables - <code class="docutils literal notranslate"><span class="pre">Churn</span></code> and <code class="docutils literal notranslate"><span class="pre">International</span> <span class="pre">plan</span></code>. To do so, we can build a <strong>contingency table</strong> using the <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> method:</p>
 <div class="cell docutils container">
@@ -3168,8 +3165,8 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="dataframe-transformations">
+</div>
+<div class="section" id="dataframe-transformations">
 <h3>DataFrame transformations<a class="headerlink" href="#dataframe-transformations" title="Permalink to this headline">#</a></h3>
 <p>Like many other things in Pandas, adding columns to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is doable in many ways.</p>
 <p>For example, if we want to calculate the total number of calls for all users, let’s create the <code class="docutils literal notranslate"><span class="pre">total_calls</span></code> Series and paste it into the DataFrame:</p>
@@ -3712,9 +3709,9 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-<section id="first-attempt-at-predicting-telecom-churn">
+</div>
+</div>
+<div class="section" id="first-attempt-at-predicting-telecom-churn">
 <h2>2. First attempt at predicting telecom churn<a class="headerlink" href="#first-attempt-at-predicting-telecom-churn" title="Permalink to this headline">#</a></h2>
 <p>Let’s see how churn rate is related to the <em>International plan</em> feature. We’ll do this using a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> contingency table and also through visual analysis with <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> (however, visual analysis will be covered more thoroughly in the next article).</p>
 <div class="cell docutils container">
@@ -4044,8 +4041,8 @@ dtype: float64
 <li><p>We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, persay, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple “if-else” model with two conditions;</p></li>
 <li><p>Before training complex models, it is recommended to wrangle the data a bit, make some plots, and check simple assumptions. Moreover, in business applications of machine learning, they usually start with simple solutions and then experiment with more complex ones.</p></li>
 </ul>
-</section>
-<section id="useful-resources">
+</div>
+<div class="section" id="useful-resources">
 <h2>3. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas">Kaggle Kernel</a></p></li>
@@ -4055,14 +4052,14 @@ dtype: float64
 <li><p>Official Pandas <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/index.html">documentation</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68">“story”</a> based on this notebook</p></li>
-<li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/322626/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/dEFxoyJhm3Y">lecture</a> on YouTube</p></li>
+<li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/322626/">article</a> on <a class="reference external" href="https://habr.com/ru/all/">Habr</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/dEFxoyJhm3Y">lecture</a> on YouTube</p></li>
 <li><p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/10min.html">10 minutes to pandas</a></p></li>
 <li><p><a class="reference external" href="https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf">Pandas cheatsheet PDF</a></p></li>
 <li><p>GitHub repos: <a class="reference external" href="https://github.com/guipsamora/pandas_exercises/">Pandas exercises</a> and <a class="reference external" href="https://github.com/TomAugspurger/effective-pandas">“Effective Pandas”</a></p></li>
 <li><p><a class="reference external" href="http://www.scipy-lectures.org/index.html">scipy-lectures.org</a> – tutorials on pandas, numpy, matplotlib and scikit-learn</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

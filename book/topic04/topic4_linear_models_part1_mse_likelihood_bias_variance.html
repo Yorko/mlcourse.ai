@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -915,16 +914,16 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-4-linear-classification-and-regression">
 <span id="topic04-part1"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this headline">#</a></h1>
-<section id="part-1-ordinary-least-squares">
+<div class="section" id="part-1-ordinary-least-squares">
 <h2>Part 1. Ordinary Least Squares<a class="headerlink" href="#part-1-ordinary-least-squares" title="Permalink to this headline">#</a></h2>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p>Author: <a class="reference external" href="http://pavelnesterov.info/">Pavel Nesterov</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-</section>
-<section id="article-outline">
+</div>
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
@@ -933,8 +932,8 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#regularization-of-linear-regression">Regularization of Linear Regression</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="introduction">
+</div>
+<div class="section" id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>We will start studying linear models with linear regression. First of all, you must specify a model that relates the dependent variable <span class="math notranslate nohighlight">\(y\)</span> to the explanatory factors (or features); for linear models, the dependency function will take the following form: <span class="math notranslate nohighlight">\(\large y = w_0 + \sum_{i=1}^m w_i x_i\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> is the number of features. If we add a fictitious dimension <span class="math notranslate nohighlight">\(x_0 = 1\)</span> (called <em>bias</em> or <em>intercept</em> term) for each observation, then the linear form can be rewritten in a slightly more compact way by pulling the absolute term <span class="math notranslate nohighlight">\(w_0\)</span> into the sum: <span class="math notranslate nohighlight">\(\large y = \sum_{i=0}^m w_i x_i = \textbf{w}^\text{T} \textbf{x}\)</span>. If we have a matrix of <span class="math notranslate nohighlight">\(n\)</span> observations, where the rows are observations from a data set, we need to add a single column of ones on the left. We define the model as follows:</p>
 <div class="math notranslate nohighlight">
@@ -996,8 +995,8 @@ depend only on the samples from <span class="math notranslate nohighlight">\(\te
 &amp;\Leftrightarrow&amp; \textbf{w} = \left(\textbf{X}^{\text{T}} \textbf{X}\right)^{-1} \textbf{X}^{\text{T}} \textbf{y}
 \end{array}\end{split}\]</div>
 <p>Bearing in mind all the definitions and conditions described above, we can say that, based on the <a href="https://en.wikipedia.org/wiki/Gauss–Markov_theorem">Gauss–Markov theorem</a>, OLS estimators of the model parameters are optimal among all linear and unbiased estimators, i.e. they give the lowest variance.</p>
-</section>
-<section id="maximum-likelihood-estimation">
+</div>
+<div class="section" id="maximum-likelihood-estimation">
 <h2>2. Maximum Likelihood Estimation<a class="headerlink" href="#maximum-likelihood-estimation" title="Permalink to this headline">#</a></h2>
 <p>One could ask why we choose to minimize the mean square error instead of something else? After all, one can minimize the mean absolute value of the residual. The only thing that will happen, if we change the minimized value, is that we will exceed the Gauss-Markov theorem conditions, and our estimates will therefore cease to be the optimal over the linear and unbiased ones.</p>
 <p>Before we continue, let’s digress to illustrate maximum likelihood estimation with a simple example.</p>
@@ -1044,8 +1043,8 @@ p\left(y_i \mid \textbf X; \textbf{w}\right) &amp;=&amp; \mathcal{N}\left(\sum_{
 &amp;=&amp;  \arg \min_{\textbf w} \mathcal{L}\left(\textbf X, \textbf{y}, \textbf{w} \right)
 \end{array}\end{split}\]</div>
 <p>Thus, we have seen that the maximization of the likelihood of data is the same as the minimization of the mean squared error (given the above assumptions). It turns out that such a cost function is a consequence of the fact that the errors are distributed normally.</p>
-</section>
-<section id="bias-variance-decomposition">
+</div>
+<div class="section" id="bias-variance-decomposition">
 <h2>3. Bias-Variance Decomposition<a class="headerlink" href="#bias-variance-decomposition" title="Permalink to this headline">#</a></h2>
 <p>Let’s talk a little about the error properties of linear regression prediction (in fact, this discussion is valid for all machine learning algorithms). We just covered the following:</p>
 <ul class="simple">
@@ -1099,16 +1098,16 @@ p\left(y_i \mid \textbf X; \textbf{w}\right) &amp;=&amp; \mathcal{N}\left(\sum_{
 <li><p>irremovable error: <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p></li>
 </ul>
 <p>While we cannot do anything with the <span class="math notranslate nohighlight">\(\sigma^2\)</span> term, we can influence the first two. Ideally, we’d like to negate both of these terms (upper left square of the picture), but, in practice, it is often necessary to balance between the biased and unstable estimates (high variance).</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_bias_variance.png"><img alt="../../_images/topic4_bias_variance.png" src="../../_images/topic4_bias_variance.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>Generally, as the model becomes more computational (e.g. when the number of free parameters grows), the variance (dispersion) of the estimate also increases, but bias decreases. Due to the fact that the training set is memorized completely instead of generalizing, small changes lead to unexpected results (overfitting). On the other side, if the model is too weak, it will not be able to learn the pattern, resulting in learning something different that is offset with respect to the right solution.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_bias_variance2.png"><img alt="../../_images/topic4_bias_variance2.png" src="../../_images/topic4_bias_variance2.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>The Gauss-Markov theorem asserts that the OLS estimator of parameters of the linear model is the best for the class of linear unbiased estimator. This means that if there exists any other unbiased model <span class="math notranslate nohighlight">\(g\)</span>, from the same class of linear models, we can be sure that <span class="math notranslate nohighlight">\(Var\left(\widehat{f}\right) \leq Var\left(g\right)\)</span>.</p>
-</section>
-<section id="regularization-of-linear-regression">
+</div>
+<div class="section" id="regularization-of-linear-regression">
 <h2>4. Regularization of Linear Regression<a class="headerlink" href="#regularization-of-linear-regression" title="Permalink to this headline">#</a></h2>
 <p>There are situations where we might intentionally increase the bias of the model for the sake of stability i.e. to reduce the variance of the model <span class="math notranslate nohighlight">\(\text{Var}\left(\widehat{f}\right)\)</span>. One of the conditions of the Gauss-Markov theorem is the full column rank of matrix <span class="math notranslate nohighlight">\(\textbf{X}\)</span>. Otherwise, the OLS solution <span class="math notranslate nohighlight">\(\textbf{w} = \left(\textbf{X}^\text{T} \textbf{X}\right)^{-1} \textbf{X}^\text{T} \textbf{y}\)</span> does not exist since the inverse matrix <span class="math notranslate nohighlight">\(\left(\textbf{X}^\text{T} \textbf{X}\right)^{-1}\)</span> does not exist. In other words, matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> will be singular or degenerate. This problem is called an <a href="https://en.wikipedia.org/wiki/Well-posed_problem"> ill-posed problem</a>. Problems like this must be corrected, namely, matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> needs to become non-degenerate, or regular (which is why this process is called regularization). Often we observe the so-called multicollinearity in the data: when two or more features are strongly correlated, it is manifested in the matrix <span class="math notranslate nohighlight">\(\textbf{X}\)</span> in the form of “almost” linear dependence between the columns. For example, in the problem of predicting house prices by their parameters, attributes “area with balcony” and “area without balcony” will have an “almost” linear relationship. Formally, matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> for such data is reversible, but, due to multicollinearity, some of its eigenvalues will be close to zero. In the inverse matrix <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span>, some extremely large eigenvalues will appear, as eigenvalues of the inverse matrix are <span class="math notranslate nohighlight">\(\frac{1}{\lambda_i}\)</span>. The result of this vacillation of eigenvalues is an unstable estimate of model parameters, i.e. adding a new set of observations to the training data will lead to a completely different solution.
 One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Tikhonov regularization</a>, which generally looks like the addition of a new member to the mean squared error:</p>
@@ -1122,15 +1121,15 @@ One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_
 \textbf{w} &amp;=&amp; \left(\textbf{X}^{\text{T}} \textbf{X} + \lambda \textbf{E}\right)^{-1} \textbf{X}^{\text{T}} \textbf{y}
 \end{array}\]</div>
 <p>This type of regression is called ridge regression. The ridge is the diagonal matrix that we add to the <span class="math notranslate nohighlight">\(\textbf{X}^\text{T} \textbf{X}\)</span> matrix to ensure that we get a regular matrix as a result.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_ridge.png"><img alt="../../_images/topic4_ridge.png" src="../../_images/topic4_ridge.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>Such a solution reduces dispersion but becomes biased because the norm of the vector of parameters is also minimized, which makes the solution shift towards zero. On the figure below, the OLS solution is at the intersection of the white dotted lines. Blue dots represent different solutions of ridge regression. It can be seen that by increasing the regularization parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, we shift the solution towards zero.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_l2_regul.png"><img alt="../../_images/topic4_l2_regul.png" src="../../_images/topic4_l2_regul.png" style="width: 480px;" /></a>
-</figure>
-</section>
-<section id="useful-resources">
+</div>
+</div>
+<div class="section" id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
@@ -1146,8 +1145,8 @@ One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_
 <li><p>One more <a class="reference external" href="https://github.com/diefimov/MTH594_MachineLearning">ML course</a> with very good materials.</p></li>
 <li><p><a class="reference external" href="https://github.com/rushter/MLAlgorithms">Implementations</a> of many ML algorithms. Search for linear regression and logistic regression.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

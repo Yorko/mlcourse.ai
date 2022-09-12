@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 5. Ensembles and random forest. Part 2. Random Forest &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -995,12 +992,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-2-random-forest">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-5-ensembles-and-random-forest-part-2-random-forest">
 <span id="topic05-part2"></span><h1>Topic 5. Ensembles and random forest. Part 2. Random Forest<a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-2-random-forest" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, and <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#algorithm">Algorithm</a></p></li>
@@ -1020,7 +1017,7 @@ title="Print to PDF"
 <span class="math notranslate nohighlight">\(\DeclareMathOperator{\Err}{Err}\)</span>
 <span class="math notranslate nohighlight">\(\DeclareMathOperator{\Bias}{Bias}\)</span>
 <span class="math notranslate nohighlight">\(\DeclareMathOperator{\E}{\mathbb{E}}\)</span></p>
-<p>Leo Breiman managed to apply bootstrapping not only in statistics but also in machine learning. He, along with Adel Cutler, extended and improved the random forest algorithm <a class="reference external" href="http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf">proposed by Tin Kam Ho</a>. They combined the construction of uncorrelated trees using <a class="reference external" href="https://en.wikipedia.org/wiki/Predictive_analytics#Classification_and_regression_trees_.28CART.29">CART</a>, bagging, and the <a class="reference external" href="https://en.wikipedia.org/wiki/Random_subspace_method">random subspace method</a>.</p>
+<p>Leo Breiman managed to apply bootstrapping not only in statistics but also in machine learning. He, along with Adel Cutler, extended and improved the random forest algorithm <a class="reference external" href="https://ieeexplore.ieee.org/document/598994">proposed by Tin Kam Ho</a>. They combined the construction of uncorrelated trees using <a class="reference external" href="https://en.wikipedia.org/wiki/Decision_tree_learning">CART</a>, bagging, and the <a class="reference external" href="https://en.wikipedia.org/wiki/Random_subspace_method">random subspace method</a>.</p>
 <p>Decision trees are a good choice for the base classifier in bagging because they are quite sophisticated and can achieve zero classification error on any sample. The random subspace method reduces the correlation between the trees and thus prevents overfitting. With bagging, the base algorithms are trained on different random subsets of the original feature set.</p>
 <p>The following algorithm constructs an ensemble of models using the random subspace method:</p>
 <ol class="simple">
@@ -1031,8 +1028,8 @@ title="Print to PDF"
 <li><p>Train each model.</p></li>
 <li><p>Apply the resulting ensemble model to a new instance by combining the results from all the models in <span class="math notranslate nohighlight">\(\large L\)</span>. You can use either majority voting or aggregation of the posterior probabilities.</p></li>
 </ol>
-</section>
-<section id="algorithm">
+</div>
+<div class="section" id="algorithm">
 <h2>1. Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">#</a></h2>
 <p>The algorithm for constructing a random forest of <span class="math notranslate nohighlight">\(\large N\)</span> trees goes as follows:</p>
 <ul class="simple">
@@ -1054,8 +1051,8 @@ $<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k =
 <p>We use the majority voting for classification and the mean for regression.</p>
 <p>For classification problems, it is advisable to set <span class="math notranslate nohighlight">\(\large m = \sqrt{d}\)</span>. For regression problems, we usually take <span class="math notranslate nohighlight">\(\large m = \frac{d}{3}\)</span>, where <span class="math notranslate nohighlight">\(\large d\)</span> is the number of features. It is recommended to build each tree until all of its leaves contain only <span class="math notranslate nohighlight">\(\large n_\text{min} = 1\)</span> examples for classification and <span class="math notranslate nohighlight">\(\large n_\text{min} = 5\)</span> examples for regression.</p>
 <p>You can see random forest as bagging of decision trees with the modification of selecting a random subset of features at each split.</p>
-</section>
-<section id="comparison-with-decision-trees-and-bagging">
+</div>
+<div class="section" id="comparison-with-decision-trees-and-bagging">
 <h2>2. Comparison with Decision Trees and Bagging<a class="headerlink" href="#comparison-with-decision-trees-and-bagging" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1200,8 +1197,8 @@ $<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k =
 </div>
 <p>The figures above show that the decision boundary of the decision tree is quite jagged and has a lot of acute angles that suggest overfitting and a weak ability to generalize. We would have trouble making reliable predictions on new test data. In contrast, the bagging algorithm has a rather smooth boundary and has no obvious signs of overfitting.</p>
 <p>Now, let’s investigate some parameters which can help us increase the model accuracy.</p>
-</section>
-<section id="parameters">
+</div>
+<div class="section" id="parameters">
 <h2>3. Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn library</a> implements random forests by providing two estimators: <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code>.</p>
 <p>The full list of random forest parameters for regression is shown below:</p>
@@ -1235,7 +1232,7 @@ $<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k =
 <li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> — the minimum number of samples required to be at a leaf node;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> — the maximum depth of the tree.</p></li>
 </ul>
-<section id="practice-with-random-forests-in-a-real-problem">
+<div class="section" id="practice-with-random-forests-in-a-real-problem">
 <h3>Practice with random forests in a real problem<a class="headerlink" href="#practice-with-random-forests-in-a-real-problem" title="Permalink to this headline">#</a></h3>
 <p>In this example we will look at predicting customer churn. This is a classification problem, so we will use accuracy for model evaluation.</p>
 <p>First, let’s build a simple classifier which we will use as a baseline. For the sake of simplicity, we will use only numeric features.</p>
@@ -1546,9 +1543,9 @@ $<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k =
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="variance-and-decorrelation">
+</div>
+</div>
+<div class="section" id="variance-and-decorrelation">
 <h2>4. Variance and Decorrelation<a class="headerlink" href="#variance-and-decorrelation" title="Permalink to this headline">#</a></h2>
 <p>Let’s write the variance of a random forest as</p>
 <div class="math notranslate nohighlight">
@@ -1569,22 +1566,22 @@ $<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k =
 <p>The conditional covariance of any pair of trees is equal to 0 because bootstrapping and feature selection are independent and identically distributed.</p>
 <p>If we consider the variance of a single tree, it barely depends on the parameters of the splitting (<span class="math notranslate nohighlight">\(\large m\)</span>). But they are crucial for ensembles. The variance of a tree is much higher than the one of an ensemble. The book <em>The Elements of Statistical Learning (Trevor Hastie, Robert Tibshirani and Jerome Friedman)</em> has a great example that demonstrates this fact:</p>
 <p><img alt="image" src="../../_images/topic5_variance_rf.png" /></p>
-</section>
-<section id="bias">
+</div>
+<div class="section" id="bias">
 <h2>5. Bias<a class="headerlink" href="#bias" title="Permalink to this headline">#</a></h2>
 <p>Just as in bagging, the bias of a random forest is the same as the bias of a single tree <span class="math notranslate nohighlight">\(\large T(x,\Theta(Z))\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \large \begin{array}{rcl} \Bias &amp;=&amp; \mu(x) - \E_Z \, f_{rf}(x) \\
 &amp;=&amp; \mu(x) - \E_Z \, \E_{\Theta | Z} \, T(x,\Theta(Z))\end{array}\end{split}\]</div>
 <p>In absolute value, the bias is usually higher than that of an unpruned tree because randomization and sample space reduction impose their own restrictions on the model. Therefore, the improvements in prediction accuracy obtained by bagging and random forests are solely the result of variance reduction.</p>
-</section>
-<section id="extremely-randomized-trees">
+</div>
+<div class="section" id="extremely-randomized-trees">
 <h2>6. Extremely Randomized Trees<a class="headerlink" href="#extremely-randomized-trees" title="Permalink to this headline">#</a></h2>
 <p>Extremely Randomized Trees employ a greater degree of randomization at the cut-point choice when splitting a tree node. As in random forests, a random subset of features is used. But, instead of the search for the optimal thresholds, their values are selected at random for each possible feature, and the best one among these randomly generated thresholds is used as the best rule to split the node. This usually trades off a slight reduction in the model variance with a small increase of the bias.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library, there are 2 implementations of Extremely Randomized Trees: <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier">ExtraTreesClassifier</a> and <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor">ExtraTreesRegressor</a>.</p>
 <p>This method should be used if you have greatly overfit with random forests or gradient boosting.</p>
-</section>
-<section id="similarities-between-random-forest-and-k-nearest-neighbors">
+</div>
+<div class="section" id="similarities-between-random-forest-and-k-nearest-neighbors">
 <h2>7. Similarities between Random Forest and k-Nearest Neighbors<a class="headerlink" href="#similarities-between-random-forest-and-k-nearest-neighbors" title="Permalink to this headline">#</a></h2>
 <p>The random forest method is similar to the nearest neighbors technique. Random forests predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let’s prove this formally.</p>
 <p>Let’s consider a regression problem with the quadratic loss function. Let <span class="math notranslate nohighlight">\(\large T_n(x)\)</span> be the number of the leaf of the <span class="math notranslate nohighlight">\(\large n\)</span>-th tree in a random forest with input <span class="math notranslate nohighlight">\(\large x\)</span>.
@@ -1602,16 +1599,16 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 <p>It is also worth noting that the number of the leaf <span class="math notranslate nohighlight">\( \large T_n(x)\)</span>, where the instance <span class="math notranslate nohighlight">\(\large x\)</span> ended up, is a valuable feature by itself. For example, the following approach works well: 1) A composition of a small number of trees is trained on a sample using a random forest or gradient boosting. 2) The categorical features <span class="math notranslate nohighlight">\(\large T_1(x), \dots, T_n(x)\)</span> are added to the sample.</p>
 <p>These new features are the result of the non-linear space splitting, and they provide information about similarity between examples. In the book <em>The Elements of Statistical Learning</em>, there is a good illustrative example that demonstrates this similarity between random forests and the k-nearest neighbors technique:</p>
 <p><img alt="image" src="../../_images/topic5_knn_vs_rf.png" /></p>
-</section>
-<section id="transformation-of-a-dataset-into-a-high-dimensional-representation">
+</div>
+<div class="section" id="transformation-of-a-dataset-into-a-high-dimensional-representation">
 <h2>8. Transformation of a dataset into a high-dimensional representation<a class="headerlink" href="#transformation-of-a-dataset-into-a-high-dimensional-representation" title="Permalink to this headline">#</a></h2>
 <p>Random forests are mostly used in supervised learning, but there is a way to apply them in the unsupervised setting.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> method <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomTreesEmbedding.html#sklearn.ensemble.RandomTreesEmbedding">RandomTreesEmbedding</a>, we can transform our dataset into a high-dimensional, <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">sparse</a> representation. We first build extremely randomized trees and then use the index of the leaf containing the example as a new feature.</p>
 <p>For example, if the input appears in the first leaf, we assign <span class="math notranslate nohighlight">\(1\)</span> as the feature value; if not, we assign <span class="math notranslate nohighlight">\(0\)</span>. This is a so-called <em>binary coding</em>. We can control the number of features and the sparseness of data by increasing or decreasing the number of trees and their depth. Because nearby data points are likely to fall into the same leaf, this transformation provides an implicit nonparametric estimate of their density.</p>
-</section>
-<section id="pros-and-cons-of-random-forests">
+</div>
+<div class="section" id="pros-and-cons-of-random-forests">
 <h2>9. Pros and cons of random forests<a class="headerlink" href="#pros-and-cons-of-random-forests" title="Permalink to this headline">#</a></h2>
-<section id="pros">
+<div class="section" id="pros">
 <h3>Pros:<a class="headerlink" href="#pros" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>High prediction accuracy; will perform better than linear algorithms in most problems; the accuracy is comparable with that of boosting.</p></li>
@@ -1628,8 +1625,8 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 <li><p>The above functionality and properties may be extended to unlabeled data to enable unsupervised clustering, data visualization, and outlier detection.</p></li>
 <li><p>Easily parallelized and highly scalable.</p></li>
 </ul>
-</section>
-<section id="cons">
+</div>
+<div class="section" id="cons">
 <h3>Cons:<a class="headerlink" href="#cons" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>In comparison with a single decision tree, Random Forest’s output is more difficult to interpret.</p></li>
@@ -1638,12 +1635,12 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 <li><p>Unlike linear regression, Random Forest is unable to extrapolate. But, this can be also regarded as an advantage because outliers do not cause extreme values in Random Forests.</p></li>
 <li><p>Prone to overfitting in some problems, especially, when dealing with noisy data.</p></li>
 <li><p>In the case of categorical variables with varying level numbers, random forests favor variables with a greater number of levels. The tree will fit more towards a feature with many levels because this gains greater accuracy.</p></li>
-<li><p>If a dataset contains groups of correlated features, preference might be given to groups of smaller size. See <a class="reference external" href="http://rnowling.github.io/machine/learning/2015/08/11/random-forest-correlation-bias.html">this work</a></p></li>
+<li><p>If a dataset contains groups of correlated features, preference might be given to groups of smaller size (“correlation bias”). See <a class="reference external" href="https://academic.oup.com/bioinformatics/article/27/14/1986/194387">this work</a></p></li>
 <li><p>The resulting model is large and requires a lot of RAM.</p></li>
 </ul>
-</section>
-</section>
-<section id="useful-resources">
+</div>
+</div>
+<div class="section" id="useful-resources">
 <h2>10. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
@@ -1653,10 +1650,11 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 <li><p>If you read Russian: an <a class="reference external" href="https://habr.com/ru/company/ods/blog/324402/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/G0DmuuFeC30">lecture</a> on YouTube</p></li>
 <li><p>Chapter 15 of the book “<a class="reference external" href="https://statweb.stanford.edu/~tibs/ElemStatLearn/">Elements of Statistical Learning</a>” by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie.</p></li>
 <li><p>More about practical applications of random forests and other algorithms can be found in the <a class="reference external" href="http://scikit-learn.org/stable/modules/ensemble.html">official documentation</a> of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
-<li><p>For a more in-depth discussion of variance and decorrelation of random forests, see the <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf">original paper</a>.</p></li>
+<li><p>For a more in-depth discussion of variance and decorrelation of random forests, see the <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf">original paper</a>.
+<a class="reference external" href="http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf">http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf</a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

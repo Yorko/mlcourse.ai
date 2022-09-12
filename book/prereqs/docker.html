@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prerequisites &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -843,16 +840,16 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="prerequisites">
+  <div class="tex2jax_ignore mathjax_ignore section" id="prerequisites">
 <span id="prereq-docker"></span><h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h1>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
-<section id="docker">
+</div>
+<div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">#</a></h2>
 <p><em>Note: the following instruction was used in 2019 during live course session, it might be a bit outdated.</em></p>
 <p>All necessary software is already installed and distributed in the form of a <a class="reference external" href="https://cloud.docker.com/u/festline/repository/docker/festline/mlcourse_ai">Docker container</a>. Instructions:</p>
-<section id="docker-on-linux-and-macos">
+<div class="section" id="docker-on-linux-and-macos">
 <h3>Docker on Linux and macOS<a class="headerlink" href="#docker-on-linux-and-macos" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>install <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker</a></p></li>
@@ -864,8 +861,8 @@ title="Print to PDF"
 <li><p>aim your browser to <code class="docutils literal notranslate"><span class="pre">localhost:4545</span></code>. You should see files from the <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> folder</p></li>
 <li><p>To test your setup, click on <code class="docutils literal notranslate"><span class="pre">docker_files</span></code> directory, open <code class="docutils literal notranslate"><span class="pre">check_docker.ipynb</span></code> and  execute all cells to make sure all the libraries are installed and work fine.</p></li>
 </ul>
-</section>
-<section id="docker-on-windows">
+</div>
+<div class="section" id="docker-on-windows">
 <h3>Docker on Windows<a class="headerlink" href="#docker-on-windows" title="Permalink to this headline">#</a></h3>
 <p>If you meet the following requirements, install <a class="reference external" href="https://docs.docker.com/docker-for-windows/install/">Docker for Windows</a></p>
 <ul class="simple">
@@ -884,14 +881,14 @@ You can still use <a class="reference external" href="https://docs.docker.com/to
 <li><p>Change to <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> directory: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">mlcourse.ai</span></code> and run <code class="docutils literal notranslate"><span class="pre">run_docker_jupyter_windows.cmd</span></code>. Take a note on the local address the notebook reports, and aim your browser to this address. In the case of Windows 10 and Hyper-V, it should just be <code class="docutils literal notranslate"><span class="pre">http://localhost:4545</span></code>. In the case of Docker Toolbox, it’s different. We implemented the autostart of your default browser with the correct address, but beware, that it may not work in Internet Explorer or Edge (for unknown reason). Use Firefox or Chrome then.</p></li>
 <li><p>In the browser, you should see the directory tree from your <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> folder. Click on <code class="docutils literal notranslate"><span class="pre">docker_files</span></code>, open <code class="docutils literal notranslate"><span class="pre">check_docker.ipynb</span></code> and execute all cells to make sure all the libraries are installed and work fine.</p></li>
 </ul>
-</section>
-<section id="docker-tips">
+</div>
+<div class="section" id="docker-tips">
 <h3>Docker tips<a class="headerlink" href="#docker-tips" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Typically, Docker containers need a lot of disk space. The official mlcourse image requires some 6Gb of space.</p></li>
 <li><p>use <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span></code> to get new files from the repo to your locally downloaded repo.</p></li>
 <li><p>when you work with an assignment notebook, duplicate it first, and work with the duplicate. This way it’s easier to pull changes to the repo since there will be no conflicts on the file level. If you’d like to work on a lecture notebook, do the same.</p></li>
-<li><p>You can install additional packages right in the Jupyter notebook with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">your_new_package</span></code>. They will be installed in <a class="reference external" href="http://mlcourse.ai/home">mlcourse.ai/home</a> folder and will persist across Jupyter restart.</p></li>
+<li><p>You can install additional packages right in the Jupyter notebook with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--user</span> <span class="pre">your_new_package</span></code>. They will be installed in <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> <code class="docutils literal notranslate"><span class="pre">home</span></code> folder and will persist across Jupyter restart.</p></li>
 <li><p>optionally, you can modify the <a class="reference external" href="https://github.com/Yorko/mlcourse.ai/blob/main/docker_files/Dockerfile">docker_files/Dockerfile</a> file, build a new image locally with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">-t</span> <span class="pre">&lt;tag_name&gt;</span></code>) and run <code class="docutils literal notranslate"><span class="pre">run_docker_jupyter.sh</span> <span class="pre">&lt;tag_name&gt;</span></code> (only supported under Linux/MacOS).</p></li>
 <li><p>Docker <a class="reference external" href="https://docs.docker.com/engine/getstarted/">documentation</a> is full of concise and clear examples.</p></li>
 </ul>
@@ -903,9 +900,9 @@ You can still use <a class="reference external" href="https://docs.docker.com/to
 <li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">images</span></code> - list all docker images</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rmi</span> <span class="pre">&lt;image_id&gt;</span></code> – remove a docker image</p></li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

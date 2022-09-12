@@ -8,39 +8,21 @@
 }
 
 /* Toggle buttons inside admonitions so we see the title */
-.admonition.toggle {
+.toggle.admonition {
     position: relative;
 }
 
 /* Titles should cut off earlier to avoid overlapping w/ button */
-.admonition.toggle .admonition-title {
+.toggle.admonition .admonition-title {
     padding-right: 25%;
     cursor: pointer;
 }
 
-/* Hovering will cause a slight shift in color to make it feel interactive */
-.admonition.toggle .admonition-title:hover {
-    box-shadow: inset 0 0 0px 20px rgb(0 0 0 / 1%);
-}
-
-/* Hovering will cause a slight shift in color to make it feel interactive */
-.admonition.toggle .admonition-title:active {
-    box-shadow: inset 0 0 0px 20px rgb(0 0 0 / 3%);
-}
-
-/* Remove extra whitespace below the admonition title when hidden */
-.admonition.toggle-hidden {
-    padding-bottom: 0;
-}
-
-.admonition.toggle-hidden .admonition-title {
-    margin-bottom: 0;
-}
-
 /* hides all the content of a page until de-toggled */
-.admonition.toggle-hidden .admonition-title ~ * {
+.toggle-hidden.admonition .admonition-title ~ * {
     height: 0;
     margin: 0;
+    float: left; /* so they overlap when hidden */
     opacity: 0;
     visibility: hidden;
 }
@@ -55,12 +37,14 @@ button.toggle-button {
     border: none;
     outline: none;
 
-    /* Positioning just inside the admonition title */
+    /* Positioning just inside the amonition title */
+    margin-right: 0.5em;
     position: absolute;
-    right: 0.5em;
+    right: 0em;
+    top: .5em;
+    float: right;
     padding: 0px;
-    border: none;
-    outline: none;
+    display: flex;
 }
 
 /* Display the toggle hint on wide screens */
@@ -80,15 +64,15 @@ button.toggle-button {
     stroke: currentColor;  /* So that we inherit the color of other text */
 }
 
-/* The icon should point right when closed, down when open. */
-/* Open */
-.admonition.toggle button .tb-icon {
-    transform: rotate(90deg);
+/* Rotate icon with admonitions so that it points down */
+.admonition.toggle .tb-icon {
+    transform: rotate(-90deg);
 }
 
-/* Closed */
-.admonition.toggle button.toggle-button-hidden .tb-icon {
-    transform: rotate(0deg);
+/* When the admonition is hidden, icon should flip upwards but retain rotation */
+/* We scaleX, in order to flip along Y, because it is rotated */
+.admonition.toggle .toggle-button-hidden .tb-icon {
+    transform: rotate(-90deg) scaleX(-1);
 }
 
 /* With details toggles, we don't rotate the icon so it points right */
@@ -109,29 +93,29 @@ details.toggle-details {
     margin: 1em 0;
 }
 
-
 details.toggle-details summary {
     display: flex;
     align-items: center;
+    width: fit-content;
     cursor: pointer;
     list-style: none;
-    border-radius: .2em;
-    border-left: 3px solid #1976d2;
-    background-color: rgb(204 204 204 / 10%);
+    border-radius: .4em;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
     padding: 0.2em 0.7em 0.3em 0.5em; /* Less padding on left because the SVG has left margin */
-    font-size: 0.9em;
-}
-
-details.toggle-details summary:hover {
-    background-color: rgb(204 204 204 / 20%);
-}
-
-details.toggle-details summary:active {
-    background: rgb(204 204 204 / 28%);
+    font-size: 0.8em;
 }
 
 .toggle-details__summary-text {
     margin-left: 0.2em;
+}
+
+details.toggle-details summary:hover {
+    background: #f6f6f6;
+}
+
+details.toggle-details summary:active {
+    background: #eee;
 }
 
 details.toggle-details[open] summary {

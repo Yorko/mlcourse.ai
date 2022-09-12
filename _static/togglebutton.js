@@ -25,24 +25,20 @@ var initToggleItems = () => {
       }
       // This is the button that will be added to each item to trigger the toggle
       var collapseButton = `
-        <button type="button" id="${buttonID}" class="toggle-button" data-target="${toggleID}" data-button="${buttonID}" data-toggle-hint="${toggleHintShow}" aria-label="Toggle hidden content">
+        <button type="button" id="${buttonID}" class="toggle-button" data-target="${toggleID}" data-button="${buttonID}" data-toggle-hint="${toggleHintShow}" aria-label="Click to toggle content">
             ${toggleChevron}
         </button>`;
 
-      title = item.querySelector(".admonition-title")
-      title.insertAdjacentHTML("beforeend", collapseButton);
+      item.insertAdjacentHTML("afterbegin", collapseButton);
       thisButton = document.getElementById(buttonID);
 
       // Add click handlers for the button + admonition title (if admonition)
+      thisButton.addEventListener('click', toggleClickHandler);
       admonitionTitle = document.querySelector(`#${toggleID} > .admonition-title`)
       if (admonitionTitle) {
-        // If an admonition, then make the whole title block clickable
         admonitionTitle.addEventListener('click', toggleClickHandler);
         admonitionTitle.dataset.target = toggleID
         admonitionTitle.dataset.button = buttonID
-      } else {
-        // If not an admonition then we'll listen for the button click
-        thisButton.addEventListener('click', toggleClickHandler);
       }
 
       // Now hide the item for this toggle button unless explicitly noted to show
@@ -64,7 +60,6 @@ var initToggleItems = () => {
       // Now move the toggle-able content inside of the details block
       details = item.previousElementSibling
       details.appendChild(item)
-      item.classList.add("toggle-details__container")
 
       // Set up a click trigger to change the text as needed
       details.addEventListener('click', (click) => {
@@ -78,9 +73,9 @@ var initToggleItems = () => {
         }
         // Update the inner text for the proper hint
         if (details.open) {
-          summary.querySelector("span.toggle-details__summary-text").innerText = toggleHintShow;
+          summary.querySelector("span").innerText = toggleHintShow;
         } else {
-          summary.querySelector("span.toggle-details__summary-text").innerText = toggleHintHide;
+          summary.querySelector("span").innerText = toggleHintHide;
         }
         
       });
@@ -107,22 +102,12 @@ var toggleHidden = (button) => {
 }
 
 var toggleClickHandler = (click) => {
-  // Be cause the admonition title is clickable and extends to the whole admonition
-  // We only look for a click event on this title to trigger the toggle.
-
   if (click.target.classList.contains("admonition-title")) {
-    button = click.target.querySelector(".toggle-button");
-  } else if (click.target.classList.contains("tb-icon")) {
-    // We've clicked the icon and need to search up one parent for the button
-    button = click.target.parentElement;
-  } else if (click.target.tagName == "polyline") {
-    // We've clicked the SVG elements inside the button, need to up 2 layers
-    button = click.target.parentElement.parentElement;
-  } else if (click.target.classList.contains("toggle-button")) {
-    // We've clicked the button itself and so don't need to do anything
-    button = click.target;
+    // If it's an admonition title, the button will be just before
+    button = click.target.previousElementSibling;
   } else {
-    console.log(`[togglebutton]: Couldn't find button for ${click.target}`)
+    // If not, we've clicked the button itself or its content, so search upwards
+    button = click.currentTarget;
   }
   target = document.getElementById(button.dataset['button']);
   toggleHidden(target);

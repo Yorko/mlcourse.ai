@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 10. Gradient Boosting &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -999,14 +996,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-10-gradient-boosting">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-10-gradient-boosting">
 <span id="topic10"></span><h1>Topic 10. Gradient Boosting<a class="headerlink" href="#topic-10-gradient-boosting" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://www.linkedin.com/in/natekin/">Alexey Natekin</a>, OpenDataScience founder, Machine Learning Evangelist. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <img src='https://habrastorage.org/web/4a9/edb/082/4a9edb082408442ea47a12b75f19d122.jpg' align='right' width=40%>
 <p>Today we are going to have a look at one of the most popular and practical machine learning algorithms: gradient boosting.</p>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <p>We recommend going over this article in the order described below, but feel free to jump around between sections.</p>
 <ol class="simple">
@@ -1033,14 +1030,14 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#4conclusion">Conclusion</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="introduction-and-history-of-boosting">
+</div>
+<div class="section" id="introduction-and-history-of-boosting">
 <h2>1.  Introduction and history of boosting<a class="headerlink" href="#introduction-and-history-of-boosting" title="Permalink to this headline">#</a></h2>
 <p>Almost everyone in machine learning has heard about gradient boosting. Many data scientists include this algorithm in their data scientist’s toolbox because of the good results it yields on any given (unknown) problem.</p>
 <p>Furthermore, XGBoost is often the standard recipe for <a class="reference external" href="https://github.com/dmlc/xgboost/blob/master/demo/README.md#usecases">winning</a> <a class="reference external" href="http://blog.kaggle.com/tag/xgboost/">ML competitions</a>. It is so popular that the idea of stacking XGBoosts has become a meme. Moreover, boosting is an important component in <a class="reference external" href="https://en.wikipedia.org/wiki/Learning_to_rank#Practical_usage_by_search_engines">many recommender systems</a>; sometimes, it is even considered a <a class="reference external" href="https://yandex.com/company/technologies/matrixnet/">brand</a>.
 Let’s look at the history and development of boosting.</p>
 <p>Boosting was born out of <a class="reference external" href="http://www.cis.upenn.edu/~mkearns/papers/boostnote.pdf">the question:</a> is it possible to get one strong model from a large amount of relatively weak and simple models? By saying “weak models”, we do not mean simple basic models like decision trees but models with poor accuracy performance, where poor is a little bit better than random.</p>
-<p><a class="reference external" href="http://www.cs.princeton.edu/~schapire/papers/strengthofweak.pdf">A positive mathematical answer</a> to this question was identified, but it took a few years to develop fully functioning algorithms based on this solution e.g. AdaBoost. These algorithms take a greedy approach: first, they build a linear combination of simple models (basic algorithms) by re-weighing the input data. Then, the model (usually a decision tree) is built on earlier incorrectly predicted objects, which are now given larger weights.</p>
+<p>A positive mathematical answer to this question was found (see <a class="reference external" href="http://rob.schapire.net/papers/strengthofweak.pdf">“The Strength of Weak Learnability”</a> by Robert Shapire), but it took a few years to develop fully functioning algorithms based on this solution e.g. AdaBoost. These algorithms take a greedy approach: first, they build a linear combination of simple models (basic algorithms) by re-weighing the input data. Then, the model (usually a decision tree) is built on earlier incorrectly predicted objects, which are now given larger weights.</p>
 <spoiler title="More about AdaBoost">
 Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boosting Machine). However, since AdaBoost merged with GBM, it has become apparent that AdaBoost is just a particular variation of GBM.  
 <p>The algorithm itself has a very clear visual interpretation and intuition for defining weights. Let’s have a look at the following toy classification problem where we are going to split the data between the trees of depth 1 (also known as ‘stumps’) on each iteration of AdaBoost. For the first two iterations, we have the following picture:</p>
@@ -1068,7 +1065,7 @@ Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boo
 <p>There is also a great <a class="reference external" href="https://www.youtube.com/watch?v=zBk3PK3g-Fc">lecture</a> from Hastie, a retrospective on data analysis from one of the creators of methods that we use everyday.</p>
 <p>In general, there has been a transition from engineering and algorithmic research to a full-fledged approach to building and studying algorithms. From a mathematical perspective, this is not a big change - we are still adding (or boosting) weak algorithms and enlarging our ensemble with gradual improvements for parts of the data where the model was inaccurate. But, this time, the next simple model is not just built on re-weighted objects but improves its approximation of the gradient of overall objective function. This concept greatly opens up our algorithms for imagination and extensions.</p>
 <img src="https://habrastorage.org/webt/h2/v4/k9/h2v4k9r-4yn4jwvwz99fbss4ghi.png" />
-<section id="history-of-gbm">
+<div class="section" id="history-of-gbm">
 <h3>History of GBM<a class="headerlink" href="#history-of-gbm" title="Permalink to this headline">#</a></h3>
 <p>It took more than 10 years after the introduction of GBM for it to become an essential part of the data science toolbox.<br />
 GBM was extended to apply to different statistics problems: GLMboost and GAMboost for strengthening already existing GAM models, CoxBoost for survival curves, and RankBoost and LambdaMART for ranking.<br />
@@ -1076,11 +1073,11 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>At the same time, boosting had been actively used in search ranking. This problem was rewritten in terms of a loss function that penalizes errors in the output order, so it became convenient to simply insert it into GBM. AltaVista was one of the first companies who introduced boosting to ranking. Soon, the ideas spread to Yahoo, Yandex, Bing, etc. Once this happened, boosting became one of the main algorithms that was used not only in research but also in core technologies in industry.</p>
 <p><img src='https://habrastorage.org/web/48a/ea4/fff/48aea4fffdbe4e5f9205ba81110e6061.jpg' align='right' width=30%> ML competitions, especially Kaggle, played a major role in boosting’s popularization. Now, researchers had a common platform where they could compete in different data science problems with large number of participants from around the world. With Kaggle, one could test new algorithms on the real data, giving algorithms an opportunity to “shine”, and provide full information in sharing model performance results across competition data sets. This is exactly what happened to boosting when it was used at <a class="reference external" href="http://blog.kaggle.com/2011/12/21/score-xavier-conort-on-coming-second-in-give-me-some-credit/">Kaggle</a> (check interviews with Kaggle winners starting from 2011 who mostly used boosting). The <a class="reference external" href="https://github.com/dmlc/xgboost">XGBoost</a> library quickly gained popularity after its appearance. XGBoost is not a new, unique algorithm; it is just an extremely effective realization of classic GBM with additional heuristics.</p>
 <p>This algorithm has gone through very typical path for ML algorithms today: mathematical problem and algorithmic crafts to successful practical applications and mass adoption years after its first appearance.</p>
-</section>
-</section>
-<section id="gbm-algorithm">
+</div>
+</div>
+<div class="section" id="gbm-algorithm">
 <h2>2. GBM algorithm<a class="headerlink" href="#gbm-algorithm" title="Permalink to this headline">#</a></h2>
-<section id="ml-problem-statement">
+<div class="section" id="ml-problem-statement">
 <h3>ML problem statement<a class="headerlink" href="#ml-problem-statement" title="Permalink to this headline">#</a></h3>
 <p>We are going to solve the problem of function approximation in a general supervised learning setting. We have a set of features <span class="math notranslate nohighlight">\( \large x \)</span> and target variables <span class="math notranslate nohighlight">\(\large y, \large \left\{ (x_i, y_i) \right\}_{i=1, \ldots,n}\)</span> which we use to restore the dependence <span class="math notranslate nohighlight">\(\large y = f(x) \)</span>. We restore the dependence by approximating <span class="math notranslate nohighlight">\( \large \hat{f}(x) \)</span> and by understanding which approximation is better when we use the loss function <span class="math notranslate nohighlight">\( \large L(y,f) \)</span>, which we want to minimize: <span class="math notranslate nohighlight">\( \large y \approx \hat{f}(x), \large \hat{f}(x) = \underset{f(x)}{\arg\min} \ L(y,f(x)) \)</span>.</p>
 <img src='../../_static/img/topic10_help_with_func_compressed.png'  align='center'>
@@ -1109,8 +1106,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <li><p>Use the function that was found <span class="math notranslate nohighlight">\(\large \hat{f}(x) = f(x, \hat{\theta})\)</span></p></li>
 </ol>
 <img src='https://habrastorage.org/web/2b5/5d6/90d/2b55d690d99e4ec0976b360aae6ce4df.jpg'   align='center'>
-</section>
-<section id="functional-gradient-descent">
+</div>
+<div class="section" id="functional-gradient-descent">
 <h3>Functional gradient descent<a class="headerlink" href="#functional-gradient-descent" title="Permalink to this headline">#</a></h3>
 <p>Let’s imagine for a second that we can perform optimization in the function space and iteratively search for the approximations <span class="math notranslate nohighlight">\(\large \hat{f}(x)\)</span> as functions themselves. We will express our approximation as a sum of incremental improvements, each being a function. For convenience, we will immediately start with the sum from the initial approximation <span class="math notranslate nohighlight">\(\large \hat{f_0}(x)\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -1129,8 +1126,8 @@ Many realizations of GBM also appeared under different names and on different pl
 \large \theta_t = \underset{\theta}{\arg\min} \ \sum_{i = 1}^{n} (r_{it} - h(x_i, \theta))^2, \\
 \large \rho_t = \underset{\rho}{\arg\min} \ \sum_{i = 1}^{n} L(y_i, \hat{f}(x_i) + \rho \cdot h(x_i, \theta_t))\end{split}\]</div>
 <img src='../../_static/img/topic10_regression_for_everybody.jpg'   align='center' width=60%>
-</section>
-<section id="friedman-s-classic-gbm-algorithm">
+</div>
+<div class="section" id="friedman-s-classic-gbm-algorithm">
 <h3>Friedman’s classic GBM algorithm<a class="headerlink" href="#friedman-s-classic-gbm-algorithm" title="Permalink to this headline">#</a></h3>
 <p>We can now define the classic GBM algorithm suggested by Jerome Friedman in 1999. It is a supervised algorithm that has the following components:</p>
 <ul class="simple">
@@ -1157,8 +1154,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <span class="math notranslate nohighlight">\(\large \hat{f}(x) = \sum_{i = 0}^M \hat{f_i}(x) \)</span></p></li>
 <li><p>Conquer Kaggle and the rest of the world</p></li>
 </ol>
-</section>
-<section id="step-by-step-example-how-gbm-works">
+</div>
+<div class="section" id="step-by-step-example-how-gbm-works">
 <h3>Step-By-Step example: How GBM Works<a class="headerlink" href="#step-by-step-example-how-gbm-works" title="Permalink to this headline">#</a></h3>
 <p>Let’s see an example of how GBM works. In this toy example, we will restore a noisy function <span class="math notranslate nohighlight">\(\large y = cos(x) + \epsilon, \epsilon \sim \mathcal{N}(0, \frac{1}{5}), x \in [-5,5]\)</span>.</p>
 <img src='https://habrastorage.org/web/9fe/04d/7ba/9fe04d7ba5a645d49fc6aa3e875c8c41.jpg'   align='center'>
@@ -1177,13 +1174,13 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>By the second iteration, our trees have recovered the basic form of the function. However, at the first iteration, we see that the algorithm has built only the “left branch” of the function (<span class="math notranslate nohighlight">\(\large x \in [-5, -4]\)</span>). This was due to the fact that our trees simply did not have enough depth to build a symmetrical branch at once, and it focused on the left branch with the larger error. Therefore, the right branch appeared only after the second iteration.</p>
 <p>The rest of the process goes as expected – on every step, our pseudo-residuals decreased, and GBM approximated the original function better and better with each iteration. However, by construction, trees cannot approximate a continuous function, which means that GBM is not ideal in this example. To play with GBM function approximations, you can use the awesome interactive demo in this blog called <a class="reference external" href="http://arogozhnikov.github.io/2016/06/24/gradient_boosting_explained.html">Brilliantly wrong</a>:</p>
 <img src='https://habrastorage.org/web/779/3e0/e66/7793e0e66b7d4871b6391a94cd5d4cf2.jpg'   align='center'>
-</section>
-</section>
-<section id="loss-functions">
+</div>
+</div>
+<div class="section" id="loss-functions">
 <h2>3. Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">#</a></h2>
 <p>If we want to solve a classification problem instead of regression, what would change? We only need to choose a suitable loss function <span class="math notranslate nohighlight">\(\large L(y, f)\)</span>. This is the most important, high-level moment that determines exactly how we will optimize and what characteristics we can expect in the final model.</p>
 <p>As a rule, we do not need to invent this ourselves – researchers have already done it for us. Today, we will explore loss functions for the two most common objectives: regression <span class="math notranslate nohighlight">\(\large y \in \mathbb{R}\)</span> and binary classification <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>.</p>
-<section id="regression-loss-functions">
+<div class="section" id="regression-loss-functions">
 <h3>Regression loss functions<a class="headerlink" href="#regression-loss-functions" title="Permalink to this headline">#</a></h3>
 <p>Let’s start with a regression problem for <span class="math notranslate nohighlight">\(\large y \in \mathbb{R}\)</span>. In order to choose the appropriate loss function, we need to consider which of the properties of the conditional distribution <span class="math notranslate nohighlight">\(\large (y|x)\)</span> we want to restore. The most common options are:</p>
 <ul class="simple">
@@ -1216,8 +1213,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>In this example, we used splines as the base algorithm. See, it does not always have to be trees for boosting?</p>
 <p>We can clearly see the difference between the functions <span class="math notranslate nohighlight">\(\large L_2\)</span>, <span class="math notranslate nohighlight">\(\large L_1\)</span>, and Huber loss. If we choose optimal parameters for the Huber loss, we can get the best possible approximation among all our options. The difference can be seen as well in the 10%, 50%, and 90%-quantiles.</p>
 <p>Unfortunately, Huber loss function is supported only by very few popular libraries/packages; h2o supports it, but XGBoost does not. It is relevant to other things that are more exotic like <a class="reference external" href="https://www.slideshare.net/charthur/quantile-and-expectile-regression">conditional expectiles</a>, but it may still be interesting knowledge.</p>
-</section>
-<section id="classification-loss-functions">
+</div>
+<div class="section" id="classification-loss-functions">
 <h3>Classification loss functions<a class="headerlink" href="#classification-loss-functions" title="Permalink to this headline">#</a></h3>
 <p>Now, let’s look at the binary classification problem <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>. We saw that GBM can even optimize non-differentiable loss functions. Technically, it is possible to solve this problem with a regression <span class="math notranslate nohighlight">\(\large L_2\)</span> loss, but it wouldn’t be correct.</p>
 <p>The distribution of the target variable requires us to use log-likelihood, so we need to have different loss functions for targets multiplied by their predictions:  <span class="math notranslate nohighlight">\(\large y \cdot f\)</span>. The most common choices would be the following:</p>
@@ -1242,8 +1239,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>Our optimal initial approximation is around -0.273. You could have guessed that it was negative because it is more profitable to predict everything as the most popular class, but there is no formula for the exact value. Now let’s finally start GBM, and look what actually happens under the hood:</p>
 <img src='https://habrastorage.org/web/7b4/ab0/5fa/7b4ab05fa0a543bfad94950e47f91568.png'   align='center'>
 <p>The algorithm successfully restored the separation between our classes. You can see how the “lower” areas are separating because the trees are more confident in the correct prediction of the negative class and how the two steps of mixed classes are forming. It is clear that we have a lot of correctly classified observations and some amount of observations with large errors that appeared due to the noise in the data.</p>
-</section>
-<section id="weights">
+</div>
+<div class="section" id="weights">
 <h3>Weights<a class="headerlink" href="#weights" title="Permalink to this headline">#</a></h3>
 <p>Sometimes, there is a situation where we want a more specific loss function for our problem. For example, in financial time series, we may want to give bigger weight to large movements in the time series; for churn prediction, it is more useful to predict the churn of clients with high LTV (or lifetime value: how much money a client will bring in the future).</p>
 <img src='https://habrastorage.org/web/0c0/ad0/3a4/0c0ad03a4c4b46bfa5bcd5101678c9c4.jpg'   align='center'>
@@ -1266,9 +1263,9 @@ Many realizations of GBM also appeared under different names and on different pl
 <img src='https://habrastorage.org/web/afc/cca/72a/afccca72a0774990b685de37b0fe9d9f.png'   align='center'>
 <p>We achieved the result that we expected. First, we can see how strongly the pseudo-residuals differ; on the initial iteration, they look almost like the original cosine. Second, the left part of the function’s graph was often ignored in favor of the right one, which had larger weights. Third, the function that we got on the third iteration received enough attention and started looking similar to the original cosine (also started to slightly overfit).</p>
 <p>Weights are a powerful but risky tool that we can use to control the properties of our model. If you want to optimize your loss function, it is worth trying to solve a more simple problem first but add weights to the observations at your discretion.</p>
-</section>
-</section>
-<section id="conclusion">
+</div>
+</div>
+<div class="section" id="conclusion">
 <h2>4. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <p>Today, we learned the theory behind gradient boosting. GBM is not just some specific algorithm but a common methodology for building ensembles of models. In addition, this methodology is sufficiently flexible and expandable – it is possible to train a large number of models, taking into consideration different loss-functions with a variety of weighting functions.</p>
 <p>Practice and ML competitions show that, in standard problems (except for image, audio, and very sparse data), GBM is often the most effective algorithm (not to mention stacking and high-level ensembles, where GBM is almost always a part of them).  Also, there are many adaptations of GBM <a class="reference external" href="https://arxiv.org/abs/1603.04119">for Reinforcement Learning</a> (Minecraft, ICML 2016). By the way, the Viola-Jones algorithm, which is still used in computer vision, <a class="reference external" href="https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework#Learning_algorithm">is based on AdaBoost</a>.</p>
@@ -1277,8 +1274,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <img src='../../_static/img/topic10_overfitting.png'   align='center' width=60%>
 <img src='https://habrastorage.org/web/27f/0f5/3be/27f0f53be9424cb1afaffb9a0e32909f.jpg'   align='center'>
 <p><a class="reference external" href="http://arogozhnikov.github.io/2016/07/05/gradient_boosting_playground.html">Interactive demo</a></p>
-</section>
-<section id="useful-resources">
+</div>
+<div class="section" id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
@@ -1294,8 +1291,8 @@ Many realizations of GBM also appeared under different names and on different pl
 <li><p><a class="reference external" href="https://arxiv.org/abs/1809.04559">Benchmarking and Optimization of
 Gradient Boosting Decision Tree Algorithms</a>, <a class="reference external" href="https://arxiv.org/abs/1806.11248">XGBoost: Scalable GPU Accelerated Learning</a> - benchmarking CatBoost, Light GBM, and XGBoost (no 100% winner)</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

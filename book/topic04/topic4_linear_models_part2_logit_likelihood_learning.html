@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -925,17 +922,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-4-linear-classification-and-regression">
 <span id="topic04-part2"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this headline">#</a></h1>
-<section id="part-2-linear-classification">
+<div class="section" id="part-2-linear-classification">
 <h2>Part 2. Linear Classification<a class="headerlink" href="#part-2-linear-classification" title="Permalink to this headline">#</a></h2>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-</section>
-<section id="article-outline">
+</div>
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#linear-classifier">Linear Classifier</a></p></li>
@@ -944,13 +941,13 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#l-2-regularization-of-logistic-loss"><span class="math notranslate nohighlight">\(L_2\)</span>-Regularization of Logistic Loss</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="linear-classifier">
+</div>
+<div class="section" id="linear-classifier">
 <h2>1. Linear Classifier<a class="headerlink" href="#linear-classifier" title="Permalink to this headline">#</a></h2>
 <p>The basic idea behind a linear classifier two target classes can be separated by a hyperplane in the feature space. If this can be done without error, the training set is called <em>linearly separable</em>.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_linear_classifier.png"><img alt="../../_images/topic4_linear_classifier.png" src="../../_images/topic4_linear_classifier.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>We have already seen linear regression and Ordinary Least Squares (OLS). Let’s consider a binary classification problem, and denote target classes to be “+1” (positive examples) and “-1” (negative examples). One of the simplest linear classifiers can be defined using regression as follows:</p>
 <div class="math notranslate nohighlight">
 \[\Large a(\textbf{x}) = \text{sign}(\textbf{w}^\text{T}\textbf x),\]</div>
@@ -961,8 +958,8 @@ title="Print to PDF"
 <li><p><span class="math notranslate nohighlight">\(\text{sign}(\bullet)\)</span> – is the signum function that returns the sign of its argument;</p></li>
 <li><p><span class="math notranslate nohighlight">\(a(\textbf{x})\)</span> – is a classifier response for <span class="math notranslate nohighlight">\(\textbf{x}\)</span>.</p></li>
 </ul>
-</section>
-<section id="logistic-regression-as-a-linear-classifier">
+</div>
+<div class="section" id="logistic-regression-as-a-linear-classifier">
 <h2>2. Logistic Regression as a Linear Classifier<a class="headerlink" href="#logistic-regression-as-a-linear-classifier" title="Permalink to this headline">#</a></h2>
 <p>Logistic regression is a special case of the linear classifier, but it has an added benefit of predicting a probability <span class="math notranslate nohighlight">\(p_+\)</span> of referring example <span class="math notranslate nohighlight">\(\textbf{x}_\text{i}\)</span> to the class “+”:</p>
 <div class="math notranslate nohighlight">
@@ -970,14 +967,14 @@ title="Print to PDF"
 \Large p_+ = P\left(y_i = 1 \mid \textbf{x}_\text{i}, \textbf{w}\right)
 \]</div>
 <p>Being able to predict not just a response ( “+1” or “-1”) but the <em>probability</em> of assignment to class “+1” is a very important requirement in many business problems e.g. credit scoring where logistic regression is traditionally used. Customers who have applied for a loan are ranked based on this predicted probability (in descending order) to obtain a scoreboard that rates customers from bad to good. Below is an example of such a toy scoreboard.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_toy_scorecard_eng.png"><img alt="../../_images/topic4_toy_scorecard_eng.png" src="../../_images/topic4_toy_scorecard_eng.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>The bank chooses a threshold <span class="math notranslate nohighlight">\(p_*\)</span> to predict the probability of loan default (in the picture it’s <span class="math notranslate nohighlight">\(0.15\)</span>) and stops approving loans starting from that value. Moreover, it is possible to multiply this predicted probability by the loan amount to get the expectation of losses from the client, which can also constitute good business metrics (scoring experts may have more to add, but the main gist is this).</p>
 <p>To predict the probability <span class="math notranslate nohighlight">\(p_+ \in [0,1]\)</span>, we can start by constructing a linear prediction using OLS: <span class="math notranslate nohighlight">\(b(\textbf{x}) = \textbf{w}^\text{T} \textbf{x} \in \mathbb{R}\)</span>. But converting the resulting value to the probability within in the [0, 1] range requires some function <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow [0,1]\)</span>. Logistic regression uses a specific function for this: <span class="math notranslate nohighlight">\(\sigma(z) = \frac{1}{1 + \exp^{-z}}\)</span>. Now let’s understand what the prerequisites are.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_sigmoid.png"><img alt="../../_images/topic4_sigmoid.png" src="../../_images/topic4_sigmoid.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>Let’s denote the probability of an event <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(P(X)\)</span>. Then the odds  <span class="math notranslate nohighlight">\(OR(X)\)</span> are determined by <span class="math notranslate nohighlight">\(\frac{P(X)}{1-P(X)}\)</span>, which is the ratio of the probabilities of whether or not an event will happen. It is obvious that the probability and odds contain the same information, but, while <span class="math notranslate nohighlight">\(P(X)\)</span> ranges from 0 to 1, <span class="math notranslate nohighlight">\(OR(X)\)</span> is in the range of 0 to <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
 <p>If we calculate the logarithm of <span class="math notranslate nohighlight">\(OR(X)\)</span> (a logarithm of odds or log probability ratio), it is easy to notice that <span class="math notranslate nohighlight">\(\log{OR(X)} \in \mathbb{R}\)</span>. This is what we will use with OLS.</p>
 <p>Let’s see how logistic regression will make a prediction <span class="math notranslate nohighlight">\(p_+ = P\left(y_i = 1 \mid \textbf{x}_\text{i}, \textbf{w}\right)\)</span>. (For now, let’s assume that we have somehow obtained weights <span class="math notranslate nohighlight">\(\textbf{w}\)</span> i.e. trained the model. Later, we’ll look at how it is done.)</p>
@@ -991,8 +988,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\large p_+(\textbf{x}_\text{i}) = P\left(y_i = 1 \mid \textbf{x}_\text{i}, \textbf{w}\right) = \sigma(\textbf{w}^\text{T}\textbf{x}_\text{i}). \]</div>
 <p>Next, we will see how the model is trained. We will again rely on maximum likelihood estimation.</p>
-</section>
-<section id="maximum-likelihood-estimation-and-logistic-regression">
+</div>
+<div class="section" id="maximum-likelihood-estimation-and-logistic-regression">
 <h2>3. Maximum Likelihood Estimation and Logistic Regression<a class="headerlink" href="#maximum-likelihood-estimation-and-logistic-regression" title="Permalink to this headline">#</a></h2>
 <p>Now let’s see how an optimization problem for logistic regression is obtained from the MLE, namely, minimization of the <em>logistic</em> loss function. We have just seen that logistic regression models the probability of assigning an example to the class “+” as:</p>
 <div class="math notranslate nohighlight">
@@ -1015,9 +1012,9 @@ title="Print to PDF"
 \rho(\textbf{x}_A, \textbf{w}^\text{T}\textbf{x} = 0) = \frac{\textbf{w}^\text{T}\textbf{x}_A}{||\textbf{w}||}
 \]</div>
 </details>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_simple_linal_task.png"><img alt="../../_images/topic4_simple_linal_task.png" src="../../_images/topic4_simple_linal_task.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>When we get to the answer, we will understand that the greater the absolute value of the expression <span class="math notranslate nohighlight">\(\textbf{w}^\text{T}\textbf{x}_\text{i}\)</span>, the farther the point <span class="math notranslate nohighlight">\(\textbf{x}_\text{i}\)</span> is from the plane <span class="math notranslate nohighlight">\(\textbf{w}^\text{T}\textbf{x} = 0.\)</span></p>
 <p>Hence, our expression <span class="math notranslate nohighlight">\(M(\textbf{x}_\text{i}) = y_i\textbf{w}^\text{T}\textbf{x}_\text{i}\)</span> is a kind of “confidence” in our model’s classification of the object <span class="math notranslate nohighlight">\(\textbf{x}_\text{i}\)</span>:</p>
 <ul class="simple">
@@ -1025,9 +1022,9 @@ title="Print to PDF"
 <li><p>if the margin is large (in absolute value) and negative, then class label is set incorrectly, and the object is far from the separating hyperplane (the object is most likely an anomaly; for example, it could be improperly labeled in the training set). See Point <span class="math notranslate nohighlight">\(x_1\)</span> on the picture;</p></li>
 <li><p>if the margin is small (in absolute value), then the object is close to the separating hyperplane, and the margin sign determines whether the object is correctly classified. See Points <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_4\)</span> on the plot;</p></li>
 </ul>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_margin.png"><img alt="../../_images/topic4_margin.png" src="../../_images/topic4_margin.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>Let’s now compute the likelihood of the data set i.e. the probability of observing the given vector <span class="math notranslate nohighlight">\(\textbf{y}\)</span> from data set <span class="math notranslate nohighlight">\(X\)</span>. We’ll make a strong assumption: objects come independently from one distribution (<em>i.i.d.</em>). Then, we can write</p>
 <div class="math notranslate nohighlight">
 \[\Large P\left(\textbf{y} \mid \textbf{X}, \textbf{w}\right) = \prod_{i=1}^{\ell} P\left(y = y_i \mid \textbf{x}_\text{i}, \textbf{w}\right),\]</div>
@@ -1042,16 +1039,16 @@ title="Print to PDF"
 \[\Large \mathcal{L_{\log}} (\textbf X, \textbf{y}, \textbf{w}) = \sum_{i=1}^{\ell} \log (1 + \exp^{-y_i\textbf{w}^\text{T}\textbf{x}_\text{i}}).\]</div>
 <p>This is <em>logistic</em> loss function that is summed over all objects in the training set.</p>
 <p>Let’s look at the new function as a function of margin <span class="math notranslate nohighlight">\(L(M) = \log (1 + \exp^{-M})\)</span> and plot it along with <em>zero-one loss</em> graph, which simply penalizes the model for error on each object by 1 (negative margin): <span class="math notranslate nohighlight">\(L_{1/0}(M) = [M &lt; 0]\)</span>.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic4_logloss_margin_eng.png"><img alt="../../_images/topic4_logloss_margin_eng.png" src="../../_images/topic4_logloss_margin_eng.png" style="width: 480px;" /></a>
-</figure>
+</div>
 <p>The picture reflects the idea that, if we are not able to directly minimize the number of errors in the classification problem (at least not by gradient methods - derivative of the zero-one loss function at zero turns to infinity), we can minimize its upper bounds. For the logistic loss function (where the logarithm is binary, but this does not matter), the following is valid:</p>
 <div class="math notranslate nohighlight">
 \[\Large \mathcal{L_{1/0}} (\textbf X, \textbf{y}, \textbf{w}) = \sum_{i=1}^{\ell} [M(\textbf{x}_\text{i}) &lt; 0] \leq \sum_{i=1}^{\ell} \log (1 + \exp^{-y_i\textbf{w}^\text{T}\textbf{x}_\text{i}}) = \mathcal{L_{\log}} (\textbf X, \textbf{y}, \textbf{w}), \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathcal{L_{1/0}} (\textbf X, \textbf{y})\)</span> is simply the number of errors of logistic regression with weights <span class="math notranslate nohighlight">\(\textbf{w}\)</span> on a data set <span class="math notranslate nohighlight">\((\textbf X, \textbf{y})\)</span>.</p>
 <p>Thus, by reducing the upper bound of <span class="math notranslate nohighlight">\(\mathcal{L_{log}}\)</span> by the number of classification errors, we hope to reduce the number of errors itself.</p>
-</section>
-<section id="l-2-regularization-of-logistic-loss">
+</div>
+<div class="section" id="l-2-regularization-of-logistic-loss">
 <h2>4. <span class="math notranslate nohighlight">\(L_2\)</span>-Regularization of Logistic Loss<a class="headerlink" href="#l-2-regularization-of-logistic-loss" title="Permalink to this headline">#</a></h2>
 <p><span class="math notranslate nohighlight">\(L_2\)</span>-regularization of logistic regression is almost the same as in the case of ridge regression. Instead of minimizing the function <span class="math notranslate nohighlight">\(\mathcal{L_{\log}} (\textbf X, \textbf{y}, \textbf{w})\)</span> we minimize the following:</p>
 <div class="math notranslate nohighlight">
@@ -1060,8 +1057,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\Large \widehat{\textbf w}  = \arg \min_{\textbf{w}} \mathcal{J}(\textbf X, \textbf{y}, \textbf{w}) =  \arg \min_{\textbf{w}}\ (C\sum_{i=1}^{\ell} \log (1 + \exp^{-y_i\textbf{w}^\text{T}\textbf{x}_\text{i}})+ |\textbf{w}|^2)\]</div>
 <p>Next, we’ll look at an example that allows us to intuitively understand one of the interpretations of regularization.</p>
-</section>
-<section id="useful-resources">
+</div>
+<div class="section" id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
@@ -1077,8 +1074,8 @@ title="Print to PDF"
 <li><p>One more <a class="reference external" href="https://github.com/diefimov/MTH594_MachineLearning">ML course</a> with very good materials.</p></li>
 <li><p><a class="reference external" href="https://github.com/rushter/MLAlgorithms">Implementations</a> of many ML algorithms. Search for linear regression and logistic regression.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

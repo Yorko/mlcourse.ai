@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 6. Feature Engineering and Feature Selection &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1009,11 +1006,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-6-feature-engineering-and-feature-selection">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-6-feature-engineering-and-feature-selection">
 <span id="topic06"></span><h1>Topic 6. Feature Engineering and Feature Selection<a class="headerlink" href="#topic-6-feature-engineering-and-feature-selection" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
-<p>Author: <a class="reference external" href="http://arseny.info/pages/about-me.html">Arseny Kravchenko</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io/">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-larionova-74434689/">Anna Larionova</a>, <a class="reference external" href="https://www.linkedin.com/in/evgenysushko/">Evgeny Sushko</a> and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+<p>Author: <a class="reference external" href="https://arseny.info/pages/about_me.html#about_me">Arseny Kravchenko</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io/">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-larionova-74434689/">Anna Larionova</a>, <a class="reference external" href="https://www.linkedin.com/in/evgenysushko/">Evgeny Sushko</a> and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>In this course, we have already seen several key machine learning algorithms. However, before moving on to the more fancy ones, we’d like to take a small detour and talk about data preparation. The well-known concept of “garbage in — garbage out” applies 100% to any task in machine learning. Any experienced professional can recall numerous times when a simple model trained on high-quality data was proven to be better than a complicated multi-model ensemble built on data that wasn’t clean.</p>
 <p>To start, I wanted to review three similar but different tasks:</p>
 <ul class="simple">
@@ -1021,7 +1018,7 @@ title="Print to PDF"
 <li><p><strong>feature transformation</strong>: transformation of data to improve the accuracy of the algorithm;</p></li>
 <li><p><strong>feature selection</strong>: removing unnecessary features.</p></li>
 </ul>
-<p>This article will contain almost no math, but there will be a fair amount of code. Some examples will use the dataset from Renthop company, which is used in the <a class="reference external" href="https://www.kaggle.com/c/two-sigma-connect-rental-listing-inquiries">Two Sigma Connect: Rental Listing Inquiries Kaggle competition</a>. The file <code class="docutils literal notranslate"><span class="pre">train.json</span></code> is also kept <a class="reference external" href="https://drive.google.com/open?id=1_lqydkMrmyNAgG4vU4wVmp6-j7tV0XI8">here</a> as <code class="docutils literal notranslate"><span class="pre">renthop_train.json.gz</span></code> (so do unpack it first). In this task, you need to predict the popularity of a new rental listing, i.e. classify the listing into three classes: <code class="docutils literal notranslate"><span class="pre">['low',</span> <span class="pre">'medium'</span> <span class="pre">,</span> <span class="pre">'high']</span></code>. To evaluate the solutions, we will use the log loss metric (the smaller, the better). Those who do not have a Kaggle account, will have to register; you will also need to accept the rules of the competition in order to download the data.</p>
+<p>This article will contain almost no math, but there will be a fair amount of code. Some examples will use the dataset from Renthop company, which is used in the <a class="reference external" href="https://www.kaggle.com/c/two-sigma-connect-rental-listing-inquiries">Two Sigma Connect: Rental Listing Inquiries Kaggle competition</a>. The file <code class="docutils literal notranslate"><span class="pre">train.json</span></code> is also kept <a class="reference external" href="https://drive.google.com/file/d/1N8eav5HWd6A7rG0ZCRo7rNFryqZS4tVg/view?usp=sharing">here</a> as <code class="docutils literal notranslate"><span class="pre">renthop_train.json.gz</span></code> (so do unpack it first). In this task, you need to predict the popularity of a new rental listing, i.e. classify the listing into three classes: <code class="docutils literal notranslate"><span class="pre">['low',</span> <span class="pre">'medium'</span> <span class="pre">,</span> <span class="pre">'high']</span></code>. To evaluate the solutions, we will use the log loss metric (the smaller, the better). Those who do not have a Kaggle account, will have to register; you will also need to accept the rules of the competition in order to download the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preload dataset automatically, if not already in place.</span>
@@ -1060,7 +1057,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Feature Extraction
@@ -1078,11 +1075,11 @@ title="Print to PDF"
 2. Selection by modeling
 3. Grid search</p></li>
 </ol>
-</section>
-<section id="feature-extraction">
+</div>
+<div class="section" id="feature-extraction">
 <h2>Feature Extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">#</a></h2>
 <p>In practice, data rarely comes in the form of ready-to-use matrices. That’s why every task begins with feature extraction. Sometimes, it can be enough to read the csv file and convert it into <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>, but this is a rare exception. Let’s look at some of the popular types of data from which features can be extracted.</p>
-<section id="texts">
+<div class="section" id="texts">
 <h3>Texts<a class="headerlink" href="#texts" title="Permalink to this headline">#</a></h3>
 <p>Text is a type of data that can come in different formats; there are so many text processing methods that cannot fit in a single article. Nevertheless, we will review the most popular ones.</p>
 <p>Before working with text, one must tokenize it. Tokenization implies splitting the text into units (hence, tokens). Most simply, tokens are just the words. But splitting by word can lose some of the meaning – “Santa Barbara” is one token, not two, but “rock’n’roll” should not be split into two tokens. There are ready-to-use tokenizers that take into account peculiarities of the language, but they make mistakes as well, especially when you work with specific sources of text (newspapers, slang, misspellings, typos).</p>
@@ -1223,10 +1220,10 @@ Vectors:
 <p>Word2Vec is a special case of the word embedding algorithms. Using Word2Vec and similar models, we can not only vectorize words in a high-dimensional space (typically a few hundred dimensions) but also compare their semantic similarity. This is a classic example of operations that can be performed on vectorized concepts: king - man + woman = queen.</p>
 <p><img alt="image" src="https://cdn-images-1.medium.com/max/800/1*K5X4N-MJKt8FGFtrTHwidg.gif" /></p>
 <p>It is worth noting that this model does not comprehend the meaning of the words but simply tries to position the vectors such that words used in common context are close to each other. If this is not taken into account, a lot of fun examples will come up.</p>
-<p>Such models need to be trained on very large datasets in order for the vector coordinates to capture the semantics. A pretrained model for your own tasks can be downloaded <a class="reference external" href="https://github.com/3Top/word2vec-api#where-to-get-a-pretrained-models">here</a>.</p>
+<p>Such models need to be trained on very large datasets in order for the vector coordinates to capture the semantics. A pretrained model for your own tasks can be downloaded <a class="reference external" href="https://github.com/3Top/word2vec-api#where-to-get-a-pretrained-model">here</a>.</p>
 <p>Similar methods are applied in other areas such as bioinformatics. An unexpected application is <a class="reference external" href="https://jaan.io/food2vec-augmented-cooking-machine-intelligence/">food2vec</a>. You can probably think of a few other fresh ideas; the concept is universal enough.</p>
-</section>
-<section id="images">
+</div>
+<div class="section" id="images">
 <h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">#</a></h3>
 <p>Working with images is easier and harder at the same time. It is easier because it is possible to just use one of the popular pretrained networks without much thinking but harder because, if you need to dig into the details, you may end up going really deep. Let’s start from the beginning.</p>
 <p>In a time when GPUs were weaker and the “renaissance of neural networks” had not happened yet, feature generation from images was its own complex field. One had to work at a low level, determining corners, borders of regions, color distributions statistics, and so on. Experienced specialists in computer vision could draw a lot of parallels between older approaches and neural networks; in particular, convolutional layers in today’s networks are similar to <a class="reference external" href="https://en.wikipedia.org/wiki/Haar-like_feature">Haar cascades</a>. If you are interested in reading more, here are a couple of links to some interesting libraries: <a class="reference external" href="http://scikit-image.org/docs/stable/api/skimage.feature.html">skimage</a> and <a class="reference external" href="http://simplecv.readthedocs.io/en/latest/SimpleCV.Features.html">SimpleCV</a>.</p>
@@ -1268,7 +1265,7 @@ Vectors:
 </div>
 <img src='https://cdn-images-1.medium.com/max/800/1*Iw_cKFwLkTVO2SPrOZU2rQ.png' width=60%>
 <p><em>Here’s a classifier trained on one dataset and adapted for a different one by “detaching” the last layer and adding a new one instead.</em></p>
-<p>Nevertheless, we should not focus too much on neural network techniques. Features generated by hand are still very useful: for example, for predicting the popularity of a rental listing, we can assume that bright apartments attract more attention and create a feature such as “the average value of the pixel”. You can find some inspiring examples in the documentation of <a class="reference external" href="http://pillow.readthedocs.io/en/3.1.x/reference/ImageStat.html">relevant libraries</a>.</p>
+<p>Nevertheless, we should not focus too much on neural network techniques. Features generated by hand are still very useful: for example, for predicting the popularity of a rental listing, we can assume that bright apartments attract more attention and create a feature such as “the average value of the pixel”. You can find some inspiring examples in the documentation of <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/ImageStat.html">relevant libraries</a>.</p>
 <p>If there is text on the image, you can read it without unraveling a complicated neural network. For example, check out <a class="reference external" href="https://github.com/madmaze/pytesseract">pytesseract</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1295,9 +1292,9 @@ Vectors:
 </div>
 </div>
 <p>It’s good to keep in mind that <code class="docutils literal notranslate"><span class="pre">pytesseract</span></code> is not a “silver bullet”.</p>
-<figure class="align-default">
+<div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/topic6_apartment_plan.jpg"><img alt="../../_images/topic6_apartment_plan.jpg" src="../../_images/topic6_apartment_plan.jpg" style="width: 444px;" /></a>
-</figure>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="s2">&quot;https://habrastorage.org/webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg&quot;</span>
@@ -1330,8 +1327,8 @@ x1t0&quot;
 </div>
 </div>
 <p>Another case where neural networks cannot help is extracting features from meta-information. For images, EXIF stores many useful meta-information: manufacturer and camera model, resolution, use of the flash, geographic coordinates of shooting, software used to process image and more.</p>
-</section>
-<section id="geospatial-data">
+</div>
+<div class="section" id="geospatial-data">
 <h3>Geospatial data<a class="headerlink" href="#geospatial-data" title="Permalink to this headline">#</a></h3>
 <p>Geographic data is not so often found in problems, but it is still useful to master the basic techniques for working with it, especially since there are quite a number of ready-to-use solutions in this field.</p>
 <p>Geospatial data is often presented in the form of addresses or coordinates of (Latitude, Longitude). Depending on the task, you may need two mutually-inverse operations: geocoding (recovering a point from an address) and reverse geocoding (recovering an address from a point). Both operations are accessible in practice via external APIs from Google Maps or OpenStreetMap. Different geocoders have their own characteristics, and the quality varies from region to region. Fortunately, there are universal libraries like <a class="reference external" href="https://github.com/geopy/geopy">geopy</a> that act as wrappers for these external services.</p>
@@ -7360,8 +7357,8 @@ x1t0&quot;
 </div></blockquote>
 <p>The point is usually located among infrastructure. Here, you can really unleash your imagination and invent features based on your life experience and domain knowledge: the proximity of a point to the subway, the number of stories in the building, the distance to the nearest store, the number of ATMs around, etc. For any task, you can easily come up with dozens of features and extract them from various external sources. For problems outside an urban environment, you may consider features from more specific sources e.g. the height above sea level.</p>
 <p>If two or more points are interconnected, it may be worthwhile to extract features from the route between them. In that case, distances (great circle distance and road distance calculated by the routing graph), number of turns with the ratio of left to right turns, number of traffic lights, junctions, and bridges will be useful. In one of my own tasks, I generated a feature called “the complexity of the road”, which computed the graph-calculated distance divided by the GCD.</p>
-</section>
-<section id="date-and-time">
+</div>
+<div class="section" id="date-and-time">
 <h3>Date and time<a class="headerlink" href="#date-and-time" title="Permalink to this headline">#</a></h3>
 <p>You would think that date and time are standardized because of their prevalence, but, nevertheless, some pitfalls remain.</p>
 <p>Let’s start with the day of the week, which are easy to turn into 7 dummy variables using one-hot encoding. In addition, we will also create a separate binary feature for the weekend called <code class="docutils literal notranslate"><span class="pre">is_weekend</span></code>.</p>
@@ -7431,8 +7428,8 @@ x1t0&quot;
 </div>
 </div>
 <p>However, the difference between such coding methods is down to the third decimal place in the metric.</p>
-</section>
-<section id="time-series-web-etc">
+</div>
+<div class="section" id="time-series-web-etc">
 <h3>Time series, web, etc.<a class="headerlink" href="#time-series-web-etc" title="Permalink to this headline">#</a></h3>
 <p>Regarding time series — we will not go into too much detail here (mostly due to my personal lack of experience), but I will point you to a <a class="reference external" href="https://github.com/blue-yonder/tsfresh">useful library that automatically generates features for time series</a>.</p>
 <p>If you are working with web data, then you usually have information about the user’s User Agent. It is a wealth of information. First, one needs to extract the operating system from it. Secondly, make a feature <code class="docutils literal notranslate"><span class="pre">is_mobile</span></code>. Third, look at the browser.</p>
@@ -7472,11 +7469,11 @@ Browser Version:  (56, 0, 2924)
 <p>In addition to the operating system and browser, you can look at the referrer (not always available), <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language">http_accept_language</a>, and other meta information.</p>
 <p>The next useful piece of information is the IP-address, from which you can extract the country and possibly the city, provider, and connection type (mobile/stationary). You need to understand that there is a variety of proxy and outdated databases, so this feature can contain noise. Network administration gurus may try to extract even fancier features like suggestions for <a class="reference external" href="https://habrahabr.ru/post/216295/">using VPN</a>. By the way, the data from the IP-address is well combined with <code class="docutils literal notranslate"><span class="pre">http_accept_language</span></code>: if the user is sitting at the Chilean proxies and browser locale is <code class="docutils literal notranslate"><span class="pre">ru_RU</span></code>, something is unclean and worth a look in the corresponding column in the table (<code class="docutils literal notranslate"><span class="pre">is_traveler_or_proxy_user</span></code>).</p>
 <p>Any given area has so many specifics that it is too much for an individual to absorb completely. Therefore, I invite everyone to share their experiences and discuss feature extraction and generation in the comments section.</p>
-</section>
-</section>
-<section id="feature-transformations">
+</div>
+</div>
+<div class="section" id="feature-transformations">
 <h2>Feature transformations<a class="headerlink" href="#feature-transformations" title="Permalink to this headline">#</a></h2>
-<section id="normalization-and-changing-distribution">
+<div class="section" id="normalization-and-changing-distribution">
 <h3>Normalization and changing distribution<a class="headerlink" href="#normalization-and-changing-distribution" title="Permalink to this headline">#</a></h3>
 <p>Monotonic feature transformation is critical for some algorithms and has no effect on others. This is one of the reasons for the increased popularity of decision trees and all its derivative algorithms (random forest, gradient boosting). Not everyone can or want to tinker with transformations, and these algorithms are robust to unusual distributions.</p>
 <p>There are also purely engineering reasons: <code class="docutils literal notranslate"><span class="pre">np.log</span></code> is a way of dealing with large numbers that do not fit in <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>. This is an exception rather than a rule; often it’s driven by the desire to adapt the dataset to the requirements of the algorithm. Parametric methods usually require the data distribution to be at least symmetric and unimodal, which is not always the case. There may be more stringent requirements; recall <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">our earlier article about linear models</a>.</p>
@@ -7644,18 +7641,14 @@ Browser Version:  (56, 0, 2924)
 </div>
 <p>The lognormal distribution is suitable for describing salaries, price of securities, urban population, number of comments on articles on the internet, etc. However, to apply this procedure, the underlying distribution does not necessarily have to be lognormal; you can try to apply this transformation to any distribution with a heavy right tail. Furthermore, one can try to use other similar transformations, formulating their own hypotheses on how to approximate the available distribution to a normal. Examples of such transformations are <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.boxcox.html">Box-Cox transformation</a> (logarithm is a special case of the Box-Cox transformation) or <a class="reference external" href="https://gist.github.com/mesgarpour/f24769cd186e2db853957b10ff6b7a95">Yeo-Johnson transformation</a> (extends the range of applicability to negative numbers). In addition, you can also try adding a constant to the feature — <code class="docutils literal notranslate"><span class="pre">np.log</span> <span class="pre">(x</span> <span class="pre">+</span> <span class="pre">const)</span></code>.</p>
 <p>In the examples above, we have worked with synthetic data and strictly tested normality using the Shapiro-Wilk test. Let’s try to look at some real data and test for normality using a less formal method — <a class="reference external" href="https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot">Q-Q plot</a>. For a normal distribution, it will look like a smooth diagonal line, and visual anomalies should be intuitively understandable.</p>
-<figure class="align-default" id="qq-lognorm">
+<div class="figure align-default" id="qq-lognorm">
 <img alt="../../_images/topic6_qq_lognorm.png" src="../../_images/topic6_qq_lognorm.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Q-Q plot for lognormal distribution</span><a class="headerlink" href="#qq-lognorm" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="qq-log">
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Q-Q plot for lognormal distribution</span><a class="headerlink" href="#qq-lognorm" title="Permalink to this image">#</a></p>
+</div>
+<div class="figure align-default" id="qq-log">
 <img alt="../../_images/topic6_qq_log.png" src="../../_images/topic6_qq_log.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Q-Q plot for the same distribution after taking the logarithm</span><a class="headerlink" href="#qq-log" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Q-Q plot for the same distribution after taking the logarithm</span><a class="headerlink" href="#qq-log" title="Permalink to this image">#</a></p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s draw plots!</span>
@@ -7730,8 +7723,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <p>Let’s see whether transformations can somehow help the real model. There is no silver bullet here.</p>
-</section>
-<section id="interactions">
+</div>
+<div class="section" id="interactions">
 <h3>Interactions<a class="headerlink" href="#interactions" title="Permalink to this headline">#</a></h3>
 <p>If previous transformations seemed rather math-driven, this part is more about the nature of the data; it can be attributed to both feature transformations and feature creation.</p>
 <p>Let’s come back again to the Two Sigma Connect: Rental Listing Inquiries problem. Among the features in this problem are the number of rooms and the price. Logic suggests that the cost per single room is more indicative than the total cost, so we can generate such a feature.</p>
@@ -7745,8 +7738,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <p>You should limit yourself in this process. If there are a limited number of features, it is possible to generate all the possible interactions and then weed out the unnecessary ones using the techniques described in the next section. In addition, not all interactions between features must have a physical meaning; for example, polynomial features (see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html">sklearn.preprocessing.PolynomialFeatures</a>) are often used in linear models and are almost impossible to interpret.</p>
-</section>
-<section id="filling-in-the-missing-values">
+</div>
+<div class="section" id="filling-in-the-missing-values">
 <h3>Filling in the missing values<a class="headerlink" href="#filling-in-the-missing-values" title="Permalink to this headline">#</a></h3>
 <p>Not many algorithms can work with missing values, and the real world often provides data with gaps. Fortunately, this is one of the tasks for which one doesn’t need any creativity. Both key python libraries for data analysis provide easy-to-use solutions: <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.fillna.html">pandas.DataFrame.fillna</a> and <a class="reference external" href="http://scikit-learn.org/stable/modules/preprocessing.html#imputation">sklearn.preprocessing.Imputer</a>.</p>
 <p>These solutions do not have any magic happening behind the scenes. Approaches to handling missing values are pretty straightforward:</p>
@@ -7758,12 +7751,12 @@ Browser Version:  (56, 0, 2924)
 </ul>
 <p><img alt="image" src="https://cdn-images-1.medium.com/max/800/0*Ps-v8F0fBgmnG36S." /></p>
 <p>Easy-to-use library solutions sometimes suggest sticking to something like <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.fillna(0)</span></code> and not sweat the gaps. But this is not the best solution: data preparation takes more time than building models, so thoughtless gap-filling may hide a bug in processing and damage the model.</p>
-</section>
-</section>
-<section id="feature-selection">
+</div>
+</div>
+<div class="section" id="feature-selection">
 <h2>Feature selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">#</a></h2>
 <p>Why would it even be necessary to select features? To some, this idea may seem counterintuitive, but there are at least two important reasons to get rid of unimportant features. The first is clear to every engineer: the more data, the higher the computational complexity. As long as we work with toy datasets, the size of the data is not a problem, but, for real loaded production systems, hundreds of extra features will be quite tangible. The second reason is that some algorithms take noise (non-informative features) as a signal and overfit.</p>
-<section id="statistical-approaches">
+<div class="section" id="statistical-approaches">
 <h3>Statistical approaches<a class="headerlink" href="#statistical-approaches" title="Permalink to this headline">#</a></h3>
 <p>The most obvious candidate for removal is a feature whose value remains unchanged, i.e., it contains no information at all. If we build on this thought, it is reasonable to say that features with low variance are worse than those with high variance. So, one can consider cutting features with variance below a certain threshold.</p>
 <div class="cell docutils container">
@@ -7883,8 +7876,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <p>We can see that our selected features have improved the quality of the classifier. Of course, this example is purely artificial; however, it is worth using for real problems.</p>
-</section>
-<section id="selection-by-modeling">
+</div>
+<div class="section" id="selection-by-modeling">
 <h3>Selection by modeling<a class="headerlink" href="#selection-by-modeling" title="Permalink to this headline">#</a></h3>
 <p>Another approach is to use some baseline model for feature evaluation because the model will clearly show the importance of the features. Two types of models are usually used: some “wooden” composition such as <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">Random Forest</a> or a linear model with Lasso regularization so that it is prone to nullify weights of weak features. The logic is intuitive: if features are clearly useless in a simple model, there is no need to drag them to a more complex one.</p>
 <div class="cell docutils container">
@@ -7958,8 +7951,8 @@ RF:  -1.0264631122179806
 </div>
 </div>
 </div>
-</section>
-<section id="grid-search">
+</div>
+<div class="section" id="grid-search">
 <h3>Grid search<a class="headerlink" href="#grid-search" title="Permalink to this headline">#</a></h3>
 <p>Finally, we get to the most reliable method, which is also the most computationally complex: trivial grid search. Train a model on a subset of features, store results, repeat for different subsets, and compare the quality of models to identify the best feature set. This approach is called <a class="reference external" href="http://rasbt.github.io/mlxtend/user_guide/feature_selection/ExhaustiveFeatureSelector/">Exhaustive Feature Selection</a>.</p>
 <p>Searching all combinations usually takes too long, so you can try to reduce the search space. Fix a small number N, iterate through all combinations of N features, choose the best combination, and then iterate through the combinations of (N + 1) features so that the previous best combination of features is fixed and only a single new feature is considered. It is possible to iterate until we hit a maximum number of characteristics or until the quality of the model ceases to increase significantly. This algorithm is called <a class="reference external" href="http://rasbt.github.io/mlxtend/user_guide/feature_selection/SequentialFeatureSelector/">Sequential Feature Selection</a>.</p>
@@ -7979,9 +7972,9 @@ RF:  -1.0264631122179806
 </div>
 </div>
 <p>Take a look how this approach was done in one <a class="reference external" href="https://www.kaggle.com/arsenyinfo/easy-feature-selection-pipeline-0-55-at-lb">simple yet elegant Kaggle kernel</a>.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

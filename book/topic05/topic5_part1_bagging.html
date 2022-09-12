@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Topic 5. Ensembles and random forest. Part 1. Bagging &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -905,12 +904,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-1-bagging">
+  <div class="tex2jax_ignore mathjax_ignore section" id="topic-5-ensembles-and-random-forest-part-1-bagging">
 <span id="topic05-part1"></span><h1>Topic 5. Ensembles and random forest. Part 1. Bagging<a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-1-bagging" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, and <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#ensembles">Ensembles</a></p></li>
@@ -928,8 +927,8 @@ title="Print to PDF"
 <p>In previous articles, you explored different classification algorithms as well as techniques that can be used to properly validate and evaluate the quality of your models.</p>
 <p>Now, suppose that you have chosen the best possible model for a particular problem and are struggling to further improve its accuracy. In this case, you would need to apply some more advanced machine learning techniques that are collectively referred to as <em>ensembles</em>.</p>
 <p>An <em>ensemble</em> is a set of elements that collectively contribute to a whole. A familiar example is a musical ensemble, which blends the sounds of several musical instruments to create harmony, or architectural ensembles, which are a set of buildings designed as a unit. In ensembles, the (whole) harmonious outcome is more important than the performance of any individual part.</p>
-</section>
-<section id="ensembles">
+</div>
+<div class="section" id="ensembles">
 <h2>1. Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Condorcet%27s_jury_theorem">Condorcet’s jury theorem</a> (1784) is about an ensemble in some sense. It states that, if each member of the jury makes an independent judgement and the probability of the correct decision by each juror is more than 0.5, then the probability of the correct decision by the whole jury increases with the total number of jurors and tends to one. On the other hand, if the probability of being right is less than 0.5 for each juror, then the probability of the correct decision by the whole jury decreases with the number of jurors and tends to zero.</p>
 <p>Let’s write an analytic expression for this theorem:</p>
@@ -946,8 +945,8 @@ title="Print to PDF"
 <p>It can be seen that if <span class="math notranslate nohighlight">\(\large p &gt; 0.5\)</span>, then <span class="math notranslate nohighlight">\(\large \mu &gt; p\)</span>. In addition, if <span class="math notranslate nohighlight">\(\large N \rightarrow \infty \)</span>, then <span class="math notranslate nohighlight">\(\large \mu \rightarrow 1\)</span>.</p>
 <p>Let’s look at another example of ensembles: an observation known as <a class="reference external" href="https://en.wikipedia.org/wiki/Wisdom_of_the_crowd">Wisdom of the crowd</a>. <img src="../../_static/img/topic5_bull.png" align="right" width=15% height=15%> In 1906, <a class="reference external" href="https://en.wikipedia.org/wiki/Francis_Galton">Francis Galton</a> visited a country fair in Plymouth where he saw a contest being held for farmers.   800 participants tried to estimate the weight of a slaughtered bull. The real weight of the bull was 1198 pounds. Although none of the farmers could guess the exact weight of the animal, the average of their predictions was 1197 pounds.</p>
 <p>A similar idea for error reduction was adopted in the field of Machine Learning.</p>
-</section>
-<section id="bootstrapping">
+</div>
+<div class="section" id="bootstrapping">
 <h2>2. Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">#</a></h2>
 <p><em>Bagging</em> (also known as <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">Bootstrap aggregation</a>) is one of the first and most basic ensemble techniques. It was proposed by <a class="reference external" href="https://en.wikipedia.org/wiki/Leo_Breiman">Leo Breiman</a> in 1994. Bagging is based on the statistical method of <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_%28statistics%29">bootstrapping</a>, which makes the evaluation of many statistics of complex models feasible.</p>
 <p>The bootstrap method goes as follows. Let there be a sample <span class="math notranslate nohighlight">\(\large X\)</span> of size <span class="math notranslate nohighlight">\(\large N\)</span>. We can make a new sample from the original sample by drawing <span class="math notranslate nohighlight">\(\large N\)</span> elements from the latter randomly and uniformly, with replacement. In other words, we select a random element from the original sample of size <span class="math notranslate nohighlight">\(\large N\)</span> and do this <span class="math notranslate nohighlight">\(\large N\)</span> times. All elements are equally likely to be selected, thus each element is drawn with the equal probability <span class="math notranslate nohighlight">\(\large \frac{1}{N}\)</span>.</p>
@@ -1051,8 +1050,8 @@ Service calls from churn: mean interval [2.0621118  2.39761905]
 </div>
 </div>
 <p>For the interpretation of confidence intervals, you can address <a class="reference external" href="https://www.graphpad.com/guides/prism/7/statistics/stat_more_about_confidence_interval.htm?toc=0&amp;printWindow">this</a> concise note or any course on statistics. It’s not correct to say that a confidence interval contains 95% of values. Note that the interval for the loyal customers is narrower, which is reasonable since they make fewer calls (0, 1 or 2) in comparison with the churned clients who call until they are fed up and decide to switch providers.</p>
-</section>
-<section id="bagging">
+</div>
+<div class="section" id="bagging">
 <h2>3. Bagging<a class="headerlink" href="#bagging" title="Permalink to this headline">#</a></h2>
 <p>Now that you’ve grasped the idea of bootstrapping, we can move on to <em>bagging</em>.</p>
 <p>Suppose that we have a training set <span class="math notranslate nohighlight">\(\large X\)</span>. Using bootstrapping, we generate samples <span class="math notranslate nohighlight">\(\large X_1, \dots, X_M\)</span>. Now, for each bootstrap sample, we train its own classifier <span class="math notranslate nohighlight">\(\large a_i(x)\)</span>. The final classifier will average the outputs from all these individual classifiers. In the case of classification, this technique corresponds to voting:
@@ -1100,8 +1099,8 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <p>As you can see from the graph above, the variance in the error is much lower for bagging. Remember that we have already proved this theoretically.</p>
 <p>Bagging is effective on small datasets. Dropping even a small part of training data leads to constructing substantially different base classifiers. If you have a large dataset, you would generate bootstrap samples of a much smaller size.</p>
 <p>The example above is unlikely to be applicable to any real work. This is because we made a strong assumption that our individual errors are uncorrelated. More often than not, this is way too optimistic for real-world applications. When this assumption is false, the reduction in error will not be as significant. In the following lectures, we will discuss some more sophisticated ensemble methods, which enable more accurate predictions in real-world problems.</p>
-</section>
-<section id="out-of-bag-error">
+</div>
+<div class="section" id="out-of-bag-error">
 <h2>4. Out-of-bag error<a class="headerlink" href="#out-of-bag-error" title="Permalink to this headline">#</a></h2>
 <p>Looking ahead, in case of Random Forest, there is no need to use cross-validation or hold-out samples in order to get an unbiased error estimation. Why? Because, in ensemble techniques, the error estimation takes place internally.</p>
 <p>Random trees are constructed using different bootstrap samples of the original dataset. Approximately 37% of inputs are left out of a particular bootstrap sample and are not used in the construction of the <span class="math notranslate nohighlight">\(\large k\)</span>-th tree.</p>
@@ -1118,8 +1117,8 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <li><p>do this for all instances in the <em>Out-of-Bag dataset</em> and get the average OOB error.</p></li>
 </ul>
 <p>For further elaboration, see also visualizations in <a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-bag_error">this Wikipedia article</a>.</p>
-</section>
-<section id="useful-resources">
+</div>
+<div class="section" id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
@@ -1131,8 +1130,8 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <li><p>More about practical applications of random forests and other algorithms can be found in the <a class="reference external" href="http://scikit-learn.org/stable/modules/ensemble.html">official documentation</a> of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
 <li><p>For a more in-depth discussion of variance and decorrelation of random forests, see the <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf">original paper</a>.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

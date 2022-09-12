@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1115,11 +1112,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction">
+  <div class="tex2jax_ignore mathjax_ignore section" id="visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction">
 <span id="topic2-part1"></span><h1>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction<a class="headerlink" href="#visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction" title="Permalink to this headline">#</a></h1>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Author: <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>. Translated and edited by <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>In the field of Machine Learning, <em>data visualization</em> is not just making fancy graphics for reports; it is used extensively in day-to-day work for all phases of a project.</p>
@@ -1127,7 +1124,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>Next, when we analyze the performance of a model or report results, we also often use charts and images. Sometimes, for interpreting a complex model, we need to project high-dimensional spaces onto more visually intelligible 2D or 3D figures.</p>
 <p>All in all, visualization is a relatively fast way to learn something new about your data. Thus, it is vital to learn its most useful techniques and make them part of your everyday ML toolbox.</p>
 <p>In this article, we are going to get hands-on experience with visual exploration of data using popular libraries such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#1.-Dataset">Dataset</a></p></li>
@@ -1153,8 +1150,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </li>
 <li><p><a class="reference external" href="#5.-Useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="dataset">
+</div>
+<div class="section" id="dataset">
 <h2>1. Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
 <p>Before we get to the data, let’s initialize our environment:</p>
 <div class="cell docutils container">
@@ -1469,15 +1466,15 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </tbody>
 </table>
 <p>The last data column, <strong>Churn</strong>, is our target variable. It is binary: <em>True</em> indicates that that the company eventually lost this customer, and <em>False</em> indicates that the customer was retained. Later, we will build models that predict this feature based on the remaining features. This is why we call it a <em>target</em>.</p>
-</section>
-<section id="univariate-visualization">
+</div>
+<div class="section" id="univariate-visualization">
 <h2>2. Univariate visualization<a class="headerlink" href="#univariate-visualization" title="Permalink to this headline">#</a></h2>
 <p><em>Univariate</em> analysis looks at one feature at a time. When we analyze a feature independently, we are usually mostly interested in the <em>distribution of its values</em> and ignore other features in the dataset.</p>
 <p>Below, we will consider different statistical types of features and the corresponding tools for their individual visual analysis.</p>
-<section id="quantitative-features">
+<div class="section" id="quantitative-features">
 <h3>2.1 Quantitative features<a class="headerlink" href="#quantitative-features" title="Permalink to this headline">#</a></h3>
 <p><em>Quantitative features</em> take on ordered numerical values. Those values can be <em>discrete</em>, like integers, or <em>continuous</em>, like real numbers, and usually express a count or a measurement.</p>
-<section id="histograms-and-density-plots">
+<div class="section" id="histograms-and-density-plots">
 <h4>Histograms and density plots<a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this headline">#</a></h4>
 <p>The easiest way to take a look at the distribution of a numerical variable is to plot its <em>histogram</em> using the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.hist.html"><code class="docutils literal notranslate"><span class="pre">hist()</span></code></a>.</p>
 <div class="cell docutils container">
@@ -1519,8 +1516,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <img alt="../../_images/topic02_visual_data_analysis_12_1.svg" src="../../_images/topic02_visual_data_analysis_12_1.svg" /></div>
 </div>
 <p>The height of the histogram bars here is normed and shows the density rather than the number of examples in each bin.</p>
-</section>
-<section id="box-plot">
+</div>
+<div class="section" id="box-plot">
 <h4>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this headline">#</a></h4>
 <p>Another useful type of visualization is a <em>box plot</em>. <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> does a great job here:</p>
 <div class="cell docutils container">
@@ -1537,8 +1534,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>The whiskers are the lines extending from the box. They represent the entire scatter of data points, specifically the points that fall within the interval <span class="math notranslate nohighlight">\((\text{Q1} - 1.5 \cdot \text{IQR}, \text{Q3} + 1.5 \cdot \text{IQR})\)</span>, where <span class="math notranslate nohighlight">\(\text{IQR} = \text{Q3} - \text{Q1}\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Interquartile_range">interquartile range</a>.</p>
 <p>Outliers that fall outside of the range bounded by the whiskers are plotted individually as black points along the central axis.</p>
 <p>We can see that a large number of international calls is quite rare in our data.</p>
-</section>
-<section id="violin-plot">
+</div>
+<div class="section" id="violin-plot">
 <h4>Violin plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">#</a></h4>
 <p>The last type of distribution plots that we will consider is a <em>violin plot</em>.</p>
 <p>Look at the figures below. On the left, we see the already familiar box plot. To the right, there is a <em>violin plot</em> with the kernel density estimate on both sides.</p>
@@ -1555,8 +1552,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 <p>The difference between the box and violin plots is that the former illustrates certain statistics concerning individual examples in a dataset while the violin plot concentrates more on the smoothed distribution as a whole.</p>
 <p>In our case, the violin plot does not contribute any additional information about the data as everything is clear from the box plot alone.</p>
-</section>
-<section id="describe">
+</div>
+<div class="section" id="describe">
 <h4>describe()<a class="headerlink" href="#describe" title="Permalink to this headline">#</a></h4>
 <p>In addition to graphical tools, in order to get the exact numerical statistics of the distribution, we can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html"><code class="docutils literal notranslate"><span class="pre">describe()</span></code></a> of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
 <div class="cell docutils container">
@@ -1634,12 +1631,12 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div></div></div>
 </div>
 <p>Its output is mostly self-explanatory. <em>25%</em>, <em>50%</em> and <em>75%</em> are the corresponding <a class="reference external" href="https://en.wikipedia.org/wiki/Percentile">percentiles</a>.</p>
-</section>
-</section>
-<section id="categorical-and-binary-features">
+</div>
+</div>
+<div class="section" id="categorical-and-binary-features">
 <h3>2.2 Categorical and binary features<a class="headerlink" href="#categorical-and-binary-features" title="Permalink to this headline">#</a></h3>
 <p><em>Categorical features</em> take on a fixed number of values. Each of these values assigns an observation to a corresponding group, known as a <em>category</em>, which reflects some qualitative property of this example. <em>Binary</em> variables are an important special case of categorical variables when the number of possible values is exactly 2. If the values of a categorical variable are ordered, it is called <em>ordinal</em>.</p>
-<section id="frequency-table">
+<div class="section" id="frequency-table">
 <h4>Frequency table<a class="headerlink" href="#frequency-table" title="Permalink to this headline">#</a></h4>
 <p>Let’s check the class balance in our dataset by looking at the distribution of the target variable: the <em>churn rate</em>. First, we will get a frequency table, which shows how frequent each value of the categorical variable is. For this, we will use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html"><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code></a> method:</p>
 <div class="cell docutils container">
@@ -1658,8 +1655,8 @@ Name: Churn, dtype: int64
 </div>
 <p>By default, the entries in the output are sorted from the most to the least frequently-occurring values.</p>
 <p>In our case, the data is not <em>balanced</em>; that is, our two target classes, loyal and disloyal customers, are not represented equally in the dataset. Only a small part of the clients canceled their subscription to the telecom service. As we will see in the following articles, this fact may imply some restrictions on measuring the classification performance, and, in the future, we may want to additionally penalize our model errors in predicting the minority “Churn” class.</p>
-</section>
-<section id="bar-plot">
+</div>
+<div class="section" id="bar-plot">
 <h4>Bar plot<a class="headerlink" href="#bar-plot" title="Permalink to this headline">#</a></h4>
 <p>The bar plot is a graphical representation of the frequency table. The easiest way to create it is to use the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s function <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.countplot.html"><code class="docutils literal notranslate"><span class="pre">countplot()</span></code></a>. There is another function in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> that is somewhat confusingly called <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.barplot.html"><code class="docutils literal notranslate"><span class="pre">barplot()</span></code></a> and is mostly used for representation of some basic statistics of a numerical variable grouped by a categorical feature.</p>
 <p>Let’s plot the distributions for two categorical variables:</p>
@@ -1682,15 +1679,15 @@ Name: Churn, dtype: int64
 <li><p>The <em>histogram</em>’s X-axis is a <em>Cartesian coordinate axis</em> along which values cannot be changed; the ordering of the <em>bars</em> is not predefined. Still, it is useful to note that the bars are often sorted by height, that is, the frequency of the values. Also, when we consider <em>ordinal</em> variables (like <em>Customer service calls</em> in our data), the bars are usually ordered by variable value.</p></li>
 </ol>
 <p>The left chart above vividly illustrates the imbalance in our target variable. The bar plot for <em>Customer service calls</em> on the right gives a hint that the majority of customers resolve their problems in maximum 2–3 calls. But, as we want to be able to predict the minority class, we may be more interested in how the fewer dissatisfied customers behave. It may well be that the tail of that bar plot contains most of our churn. These are just hypotheses for now, so let’s move on to some more interesting and powerful visual techniques.</p>
-</section>
-</section>
-</section>
-<section id="multivariate-visualization">
+</div>
+</div>
+</div>
+<div class="section" id="multivariate-visualization">
 <h2>3. Multivariate visualization<a class="headerlink" href="#multivariate-visualization" title="Permalink to this headline">#</a></h2>
 <p><em>Multivariate</em> plots allow us to see relationships between two and more different variables, all in one figure. Just as in the case of univariate plots, the specific type of visualization will depend on the types of the variables being analyzed.</p>
-<section id="quantitative-vs-quantitative">
+<div class="section" id="quantitative-vs-quantitative">
 <h3>3.1 Quantitative vs. Quantitative<a class="headerlink" href="#quantitative-vs-quantitative" title="Permalink to this headline">#</a></h3>
-<section id="correlation-matrix">
+<div class="section" id="correlation-matrix">
 <h4>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">#</a></h4>
 <p>Let’s look at the correlations among the numerical variables in our dataset. This information is important to know as there are Machine Learning algorithms (for example, linear and logistic regression) that do not handle highly correlated input variables well.</p>
 <p>First, we will use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr.html"><code class="docutils literal notranslate"><span class="pre">corr()</span></code></a> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> that calculates the correlation between each pair of features. Then, we pass the resulting <em>correlation matrix</em> to <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.heatmap.html"><code class="docutils literal notranslate"><span class="pre">heatmap()</span></code></a> from <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, which renders a color-coded matrix for the provided values:</p>
@@ -1738,8 +1735,8 @@ Name: Churn, dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="scatter-plot">
+</div>
+<div class="section" id="scatter-plot">
 <h4>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">#</a></h4>
 <p>The <em>scatter plot</em> displays values of two numerical variables as <em>Cartesian coordinates</em> in 2D space. Scatter plots in 3D are also possible.</p>
 <p>Let’s try out the function <a class="reference external" href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">scatter()</span></code></a> from the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library:</p>
@@ -1781,8 +1778,8 @@ Name: Churn, dtype: int64
 <img alt="../../_images/topic02_visual_data_analysis_32_1.svg" src="../../_images/topic02_visual_data_analysis_32_1.svg" /></div>
 </div>
 <p>This is basically a bivariate version of the <em>Kernel Density Plot</em> discussed earlier.</p>
-</section>
-<section id="scatterplot-matrix">
+</div>
+<div class="section" id="scatterplot-matrix">
 <h4>Scatterplot matrix<a class="headerlink" href="#scatterplot-matrix" title="Permalink to this headline">#</a></h4>
 <p>In some cases, we may want to plot a <em>scatterplot matrix</em> such as the one shown below. Its diagonal contains the distributions of the corresponding variables, and the scatter plots for each pair of variables fill the rest of the matrix.</p>
 <div class="cell docutils container">
@@ -1805,9 +1802,9 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <p>Sometimes, such a visualization may help draw conclusions about data; but, in this case, everything is pretty clear with no surprises.</p>
-</section>
-</section>
-<section id="quantitative-vs-categorical">
+</div>
+</div>
+<div class="section" id="quantitative-vs-categorical">
 <h3>3.2 Quantitative vs. Categorical<a class="headerlink" href="#quantitative-vs-categorical" title="Permalink to this headline">#</a></h3>
 <p>In this section, we will make our simple quantitative plots a little more exciting. We will try to gain new insights for churn prediction from the interactions between the numerical and categorical features.</p>
 <p>More specifically, let’s see how the input variables are related to the target variable Churn.</p>
@@ -1883,8 +1880,8 @@ Name: Churn, dtype: int64
 <img alt="../../_images/topic02_visual_data_analysis_43_0.svg" src="../../_images/topic02_visual_data_analysis_43_0.svg" /></div>
 </div>
 <p>From this, we could conclude that, starting with 4 calls, <em>Total day minutes</em> may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.</p>
-</section>
-<section id="categorical-vs-categorical">
+</div>
+<div class="section" id="categorical-vs-categorical">
 <h3>3.3 Categorical vs. Categorical<a class="headerlink" href="#categorical-vs-categorical" title="Permalink to this headline">#</a></h3>
 <p>As we saw earlier in this article, the variable <em>Customer service calls</em> has few unique values and, thus, can be considered either numerical or ordinal. We have already seen its distribution with a <em>count plot</em>. Now, we are interested in the relationship between this ordinal feature and the target variable <em>Churn</em>.</p>
 <p>Let’s look at the distribution of the number of calls to customer service, again using a <em>count plot</em>. This time, let’s also pass the parameter <code class="docutils literal notranslate"><span class="pre">hue=Churn</span></code> that adds a categorical dimension to the plot:</p>
@@ -1912,7 +1909,7 @@ Name: Churn, dtype: int64
 <img alt="../../_images/topic02_visual_data_analysis_47_0.svg" src="../../_images/topic02_visual_data_analysis_47_0.svg" /></div>
 </div>
 <p><strong>An observation</strong>: when <em>International Plan</em> is enabled, the churn rate is much higher; the usage of the international plan by the customer is a strong feature. We do not observe the same effect with <em>Voice mail plan</em>.</p>
-<section id="contingency-table">
+<div class="section" id="contingency-table">
 <h4>Contingency table<a class="headerlink" href="#contingency-table" title="Permalink to this headline">#</a></h4>
 <p>In addition to using graphical means for categorical analysis, there is a traditional tool from statistics: a <em>contingency table</em>, also called a <em>cross tabulation</em>. It shows a multivariate frequency distribution of categorical variables in tabular form. In particular, it allows us to see the distribution of one variable conditional on the other by looking along a column or row.</p>
 <p>Let’s try to see how <em>Churn</em> is related to the categorical variable <em>State</em> by creating a cross tabulation:</p>
@@ -2122,24 +2119,24 @@ Name: Churn, dtype: int64
 </div></div></div>
 </div>
 <p>At first glance, it seems that the churn rate in <em>New Jersey</em> and <em>California</em> are above 25% and less than 6% for Hawaii and Alaska. However, these conclusions are based on too few examples, and our observation could be a mere property of our particular dataset. We can confirm this with the <a class="reference external" href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient">Matthews</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V">Cramer</a> correlation hypotheses, but this would be beyond the scope of this article.</p>
-</section>
-</section>
-</section>
-<section id="whole-dataset-visualizations">
+</div>
+</div>
+</div>
+<div class="section" id="whole-dataset-visualizations">
 <h2>4. Whole dataset visualizations<a class="headerlink" href="#whole-dataset-visualizations" title="Permalink to this headline">#</a></h2>
-<section id="a-naive-approach">
+<div class="section" id="a-naive-approach">
 <h3>4.1 A naive approach<a class="headerlink" href="#a-naive-approach" title="Permalink to this headline">#</a></h3>
 <p>We have been looking at different <em>facets</em> of our dataset by guessing interesting features and selecting a small number of them at a time for visualization. We have only dealt with two to three variables at once and were easily able to observe the structure and relationships in data. But, what if we want to display all the features and still be able to interpret the resulting visualization?</p>
 <p>We could use <code class="docutils literal notranslate"><span class="pre">hist()</span></code> or create a scatterplot matrix with <code class="docutils literal notranslate"><span class="pre">pairplot()</span></code> for the whole dataset to look at all of our features simultaneously. But, when the number of features is high enough, this kind of visual analysis quickly becomes slow and inefficient. Besides, we would still be analyzing our variables in a pairwise fashion, not all at once.</p>
-</section>
-<section id="dimensionality-reduction">
+</div>
+<div class="section" id="dimensionality-reduction">
 <h3>4.2 Dimensionality reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this headline">#</a></h3>
 <p>Most real-world datasets have many features, sometimes, many thousands of them. Each of them can be considered as a dimension in the space of data points. Consequently, more often than not, we deal with high-dimensional datasets, where entire visualization is quite hard.</p>
 <p>To look at a dataset as a whole, we need to decrease the number of dimensions used in visualization without losing much information about the data. This task is called <em>dimensionality reduction</em> and is an example of an <em>unsupervised learning</em> problem because we need to derive new, low-dimensional features from the data itself, without any supervised input.</p>
 <p>One of the well-known dimensionality reduction methods is <em>Principal Component Analysis</em> (PCA), which we will study later in this course. Its limitation is that it is a <em>linear</em> algorithm that implies certain restrictions on the data.</p>
 <p>There are also many non-linear methods, collectively called <em>Manifold Learning</em>. One of the best-known of them is <em>t-SNE</em>.</p>
-</section>
-<section id="t-sne">
+</div>
+<div class="section" id="t-sne">
 <h3>4.3 t-SNE<a class="headerlink" href="#t-sne" title="Permalink to this headline">#</a></h3>
 <p>Let’s create a <a class="reference external" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a> representation of the same churn data we have been using.</p>
 <p>The name of the method looks complex and a bit intimidating: <em>t-distributed Stochastic Neighbor Embedding</em>. Its math is also impressive (we will not delve into it here, but, if you feel brave, here is the <a class="reference external" href="http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">original article</a> by Laurens van der Maaten and Geoffrey Hinton from <a class="reference external" href="http://www.jmlr.org/">JMLR</a>). Its basic idea is simple: find a projection for a high-dimensional feature space onto a plane (or a 3D hyperplane, but it is almost always 2D) such that those points that were far apart in the initial n-dimensional space will end up far apart on the plane. Those that were originally close would remain close to each other.</p>
@@ -2246,12 +2243,12 @@ Wall time: 9.01 s
 <li><p>The plot can change a great deal depending on the random seed, which complicates interpretation. <a class="reference external" href="http://distill.pub/2016/misread-tsne/">Here</a> is a good tutorial on t-SNE. In general, you shouldn’t make any far-reaching conclusions based on such graphs because it can equate to plain guessing. Of course, some findings in t-SNE pictures can inspire an idea and be confirmed through more thorough research down the line, but that does not happen very often.</p></li>
 </ul>
 <p>Occasionally, using t-SNE, you can get a really good intuition for the data. The following is a good paper that shows an example of this for handwritten digits: <a class="reference external" href="https://colah.github.io/posts/2014-10-Visualizing-MNIST/">Visualizing MNIST</a>.</p>
-<figure class="align-default" id="tsne-mnist">
+<div class="figure align-default" id="tsne-mnist">
 <img alt="../../_images/tsne_mnist.png" src="../../_images/tsne_mnist.png" />
-</figure>
-</section>
-</section>
-<section id="useful-resources">
+</div>
+</div>
+</div>
+<div class="section" id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-2-visual-data-analysis-in-python">Kaggle Kernel</a></p></li>
@@ -2268,8 +2265,8 @@ Wall time: 9.01 s
 <li><p>Efficient t-SNE implementation <a class="reference external" href="https://github.com/DmitryUlyanov/Multicore-TSNE">Multicore-TSNE</a>.</p></li>
 <li><p>“How to Use t-SNE Effectively”, <a class="reference external" href="https://distill.pub/2016/misread-tsne/">Distill.pub</a>.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

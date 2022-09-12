@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prerequisites &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -52,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -911,12 +908,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="prerequisites">
+  <div class="tex2jax_ignore mathjax_ignore section" id="prerequisites">
 <span id="prereq-software-devops"></span><h1>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h1>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
-<section id="software-requirements">
+</div>
+<div class="section" id="software-requirements">
 <h2>Software requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">#</a></h2>
 <p>Here we cover:</p>
 <ul class="simple">
@@ -925,12 +922,12 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#jupyter-notebooks">Jupyter Notebooks</a></p></li>
 <li><p><a class="reference external" href="#jupyter-book">Jupyter Book</a></p></li>
 </ul>
-<section id="git-bash-and-all">
+<div class="section" id="git-bash-and-all">
 <h3>Git, bash, and all<a class="headerlink" href="#git-bash-and-all" title="Permalink to this headline">#</a></h3>
 <p>Apart from installing the environment, it’s highly recommended that you familiarize yourself with <code class="docutils literal notranslate"><span class="pre">git</span></code>, GitHub and <code class="docutils literal notranslate"><span class="pre">bash</span></code>. <a class="reference external" href="https://learngitbranching.js.org/">Learn git branching</a> and <a class="reference external" href="https://githowto.com/">GitHowTo</a> are nice interactive tutorials to grasp the basics of git.</p>
 <p>As for <code class="docutils literal notranslate"><span class="pre">bash</span></code>, it’s just very rewarding to be familiar with UNIX OS and command-line utils like <code class="docutils literal notranslate"><span class="pre">wc</span></code>, <code class="docutils literal notranslate"><span class="pre">cat</span></code>, <code class="docutils literal notranslate"><span class="pre">sed</span></code>, <code class="docutils literal notranslate"><span class="pre">sort</span></code>, etc. These utilities have been constantly optimized throughout several decades of UNIX existence, and many basic operations can be done with these <code class="docutils literal notranslate"><span class="pre">bash</span></code> utils very efficiently: counting the number of lines in a file, replacing an expression with another one for all files in a folder, etc.</p>
-</section>
-<section id="setting-the-environment">
+</div>
+<div class="section" id="setting-the-environment">
 <h3>Setting the environment<a class="headerlink" href="#setting-the-environment" title="Permalink to this headline">#</a></h3>
 <p>You’ve got several alternatives to set up your learning environment:</p>
 <ul class="simple">
@@ -938,19 +935,19 @@ title="Print to PDF"
 <li><p>Pip &amp; Anaconda or Poetry</p></li>
 <li><p>Docker</p></li>
 </ul>
-<section id="kaggle-notebooks-or-azure-ml">
+<div class="section" id="kaggle-notebooks-or-azure-ml">
 <h4>Kaggle Notebooks or Azure ML<a class="headerlink" href="#kaggle-notebooks-or-azure-ml" title="Permalink to this headline">#</a></h4>
 <p>The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">mlcourse.ai</a> and fork some Notebooks (better to keep them private). All your Jupyter notebooks with Anaconda are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.</p>
-</section>
-<section id="pip-anaconda-or-poetry">
+</div>
+<div class="section" id="pip-anaconda-or-poetry">
 <h4>Pip &amp; Anaconda or Poetry<a class="headerlink" href="#pip-anaconda-or-poetry" title="Permalink to this headline">#</a></h4>
 <p>Most python packages like <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, or  <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code> can be installed manually with <code class="docutils literal notranslate"><span class="pre">pip</span></code> – Python installer, e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code>. Additionally, you’ll need <code class="docutils literal notranslate"><span class="pre">Xgboost</span></code>, <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code>, and (maybe) <code class="docutils literal notranslate"><span class="pre">LightGBM</span></code> and <code class="docutils literal notranslate"><span class="pre">CatBoost</span></code> for competitions.</p>
 <p>However, to manage package dependencies, it’s better to use either <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> or <a class="reference external" href="https://python-poetry.org/">Poetry</a>.</p>
-<section id="anaconda">
+<div class="section" id="anaconda">
 <h5>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">#</a></h5>
 <p>The <a class="reference external" href="https://www.anaconda.com/download/">Anaconda 3</a> distribution is one of the best options as it already contains the latest Python with <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code>, <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code>, and lots of other libraries. However, some other packages are also used in our course – <code class="docutils literal notranslate"><span class="pre">Xgboost</span></code> and/or <code class="docutils literal notranslate"><span class="pre">LightGBM</span></code> and/or <code class="docutils literal notranslate"><span class="pre">CatBoost</span></code> and <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code> to name a few. In addition, the <code class="docutils literal notranslate"><span class="pre">Graphviz</span></code> library must be installed. Installing some of them on Windows might be painful.</p>
-</section>
-<section id="poetry">
+</div>
+<div class="section" id="poetry">
 <h5>Poetry<a class="headerlink" href="#poetry" title="Permalink to this headline">#</a></h5>
 <p>Poetry is an alternative Python packages and dependency manager.</p>
 <p>Installing Poetry:</p>
@@ -962,15 +959,15 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>This will install the required packages. For the rest, please refer to <a class="reference external" href="https://python-poetry.org/">Poetry docs</a>.</p>
-</section>
-</section>
-<section id="docker">
+</div>
+</div>
+<div class="section" id="docker">
 <h4>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">#</a></h4>
 <p>This part is pretty lengthy, so we moved it to a <a class="reference internal" href="docker.html#prereq-docker"><span class="std std-ref">separate next page</span></a>.</p>
 <p><em>Note: Using Docker is optional, you can set up your environment with Poetry or Anaconda as well. It’s hard to say which option is more challenging.</em></p>
-</section>
-</section>
-<section id="jupyter-notebooks">
+</div>
+</div>
+<div class="section" id="jupyter-notebooks">
 <h3>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">#</a></h3>
 <p>The recommended way of working with course materials is running Jupyter notebooks. If new to this, take a look at <a class="reference external" href="http://jupyter.org/">jupyter.org</a>. In a nutshell, this is a way of mixing code, graphics, MarkDown, latex, etc. in a single development environment. Perfect for sharing your work/ideas, for prototyping and for working with educative materials.</p>
 <p>To start working with the course materials (i.e. Jupyter notebooks):</p>
@@ -978,14 +975,14 @@ title="Print to PDF"
 <li><p>install jupyter, this depends on how you set up the environment in the previous step</p></li>
 <li><p>download/clone <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">the course repo</a> repo</p></li>
 <li><p>run <code class="docutils literal notranslate"><span class="pre">jupyter-notebook</span></code> from the downloaded directory <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a>.</p></li>
-<li><p>this opens <a class="reference external" href="http://localhost:8888/tree">http://localhost:8888/tree</a> (8888 is the default port) in your browser, from there you can run Jupyter notebooks in the <code class="docutils literal notranslate"><span class="pre">jupyter_english</span></code> folder</p></li>
+<li><p>this opens <a class="reference external" href="http://localhost:8888/tree">http://localhost:8888/tree</a> (8888 is the default port) in your browser, from there you can run Jupyter notebooks in the <code class="docutils literal notranslate"><span class="pre">jupyter_english</span></code> folder (<em>NB:</em> the most up-to-date version of course materials is in the <code class="docutils literal notranslate"><span class="pre">mlcourse_ai_jupyter_book</span></code> folder, see below)</p></li>
 <li><p>check Jupyter docs and the <a class="reference external" href="https://jupyter.org/try">interactive demo</a> (“try classic notebook”) to get hands dirty with Jupyter</p></li>
 </ul>
-<figure class="align-default">
+<div class="figure align-default">
 <img alt="../../_images/intro_running_jupyter.png" src="../../_images/intro_running_jupyter.png" />
-</figure>
-</section>
-<section id="jupyter-book">
+</div>
+</div>
+<div class="section" id="jupyter-book">
 <h3>Jupyter Book<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">#</a></h3>
 <p><em>Note: not to be confused with Jupyter Notebooks</em></p>
 <p>The <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> website now renders a <a class="reference external" href="https://jupyterbook.org/intro.html">Jupyter book</a>. A strong advantage of this type of content is that it’s actually a book with <strong>executable</strong> content meaning that the pages that you see are not just static but they are updated with each build of the book by running all Python code. This also guarantees (well, if the book is frequently re-built, say, through a CI/CD process) that the book actually shows working Python code.</p>
@@ -995,9 +992,13 @@ title="Print to PDF"
 </div>
 <p><em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/start/create.html">how a template JupyterBook is created.</a></em></p>
 <p>Then, open the HTML file located at <code class="docutils literal notranslate"><span class="pre">mlcourse_ai_jupyter_book/_build/html/index.html.</span></code></p>
-</section>
-</section>
-</section>
+<p>You can also download any <span class="xref myst">mlcourse.ai</span> page as a Jupyter Notebook and run it yourself:</p>
+<div class="figure align-default">
+<img alt="../../_images/download_as_jupyter.png" src="../../_images/download_as_jupyter.png" />
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

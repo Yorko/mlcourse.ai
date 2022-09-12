@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visual data analysis in Python. Part 2. Overview of Seaborn, Matplotlib and Plotly libraries &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -993,14 +992,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="visual-data-analysis-in-python-part-2-overview-of-seaborn-matplotlib-and-plotly-libraries">
+  <div class="tex2jax_ignore mathjax_ignore section" id="visual-data-analysis-in-python-part-2-overview-of-seaborn-matplotlib-and-plotly-libraries">
 <span id="topic2-part2"></span><h1>Visual data analysis in Python. Part 2. Overview of Seaborn, Matplotlib and Plotly libraries<a class="headerlink" href="#visual-data-analysis-in-python-part-2-overview-of-seaborn-matplotlib-and-plotly-libraries" title="Permalink to this headline">#</a></h1>
-<figure class="align-default" id="ods-stickers2-2">
+<div class="figure align-default" id="ods-stickers2-2">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</figure>
+</div>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>. Translated and edited by Alena Sharlo, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/datamove">Artem Trunov</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-<section id="article-outline">
+<div class="section" id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#dataset">Dataset</a></p></li>
@@ -1009,8 +1008,8 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#plotly">Plotly</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</section>
-<section id="dataset">
+</div>
+<div class="section" id="dataset">
 <h2>1. Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
 <p>First, we will set up our environment by importing all necessary libraries. We will also change the display settings to better show plots.</p>
 <div class="cell docutils container">
@@ -1225,8 +1224,8 @@ memory usage: 906.4+ KB
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="dataframe-plot">
+</div>
+<div class="section" id="dataframe-plot">
 <h2>2. DataFrame.plot()<a class="headerlink" href="#dataframe-plot" title="Permalink to this headline">#</a></h2>
 <p>Before we turn to Seaborn and Plotly, let’s discuss the simplest and often most convenient way to visualize data from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>: using its own <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method.</p>
 <p>As an example, we will create a plot of video game sales by country and year. First, let’s keep only the columns we need. Then, we will calculate the total sales by year and call the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method on the resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
@@ -1254,11 +1253,11 @@ memory usage: 906.4+ KB
 <div class="cell_output docutils container">
 <img alt="../../_images/topic02_additional_seaborn_matplotlib_plotly_14_0.svg" src="../../_images/topic02_additional_seaborn_matplotlib_plotly_14_0.svg" /></div>
 </div>
-</section>
-<section id="seaborn">
+</div>
+<div class="section" id="seaborn">
 <h2>3. Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">#</a></h2>
 <p>Now, let’s move on to the <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> library. <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> is essentially a higher-level API based on the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library. Among other things, it differs from the latter in that it contains more adequate default settings for plotting. By adding <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">seaborn</span> <span class="pre">as</span> <span class="pre">sns;</span> <span class="pre">sns.set()</span></code> in your code, the images of your plots will become much nicer. Also, this library contains a set of complex tools for visualization that would otherwise (i.e. when using bare <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>) require quite a large amount of code.</p>
-<section id="pairplot">
+<div class="section" id="pairplot">
 <h3>pairplot()<a class="headerlink" href="#pairplot" title="Permalink to this headline">#</a></h3>
 <p>Let’s take a look at the first of such complex plots, a <em>pairwise relationships plot</em>, which creates a matrix of scatter plots by default. This kind of plot helps us visualize the relationship between different variables in a single output.</p>
 <div class="cell docutils container">
@@ -1276,8 +1275,8 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <p>As you can see, the distribution histograms lie on the diagonal of the matrix. The remaining charts are scatter plots for the corresponding pairs of features.</p>
-</section>
-<section id="distplot">
+</div>
+<div class="section" id="distplot">
 <h3>distplot()<a class="headerlink" href="#distplot" title="Permalink to this headline">#</a></h3>
 <p>It is also possible to plot a distribution of observations with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <code class="docutils literal notranslate"><span class="pre">distplot()</span></code>. For example, let’s look at the distribution of critics’ ratings: <code class="docutils literal notranslate"><span class="pre">Critic_Score</span></code>. By default, the plot displays a histogram and the <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a>.</p>
 <div class="cell docutils container">
@@ -1294,8 +1293,8 @@ memory usage: 906.4+ KB
 </div>
 <img alt="../../_images/topic02_additional_seaborn_matplotlib_plotly_18_1.svg" src="../../_images/topic02_additional_seaborn_matplotlib_plotly_18_1.svg" /></div>
 </div>
-</section>
-<section id="jointplot">
+</div>
+<div class="section" id="jointplot">
 <h3>jointplot()<a class="headerlink" href="#jointplot" title="Permalink to this headline">#</a></h3>
 <p>To look more closely at the relationship between two numerical variables, you can use <em>joint plot</em>, which is a cross between a scatter plot and histogram. Let’s see how the <code class="docutils literal notranslate"><span class="pre">Critic_Score</span></code> and <code class="docutils literal notranslate"><span class="pre">User_Score</span></code> features are related.</p>
 <div class="cell docutils container">
@@ -1307,8 +1306,8 @@ memory usage: 906.4+ KB
 <div class="cell_output docutils container">
 <img alt="../../_images/topic02_additional_seaborn_matplotlib_plotly_20_0.svg" src="../../_images/topic02_additional_seaborn_matplotlib_plotly_20_0.svg" /></div>
 </div>
-</section>
-<section id="boxplot">
+</div>
+<div class="section" id="boxplot">
 <h3>boxplot()<a class="headerlink" href="#boxplot" title="Permalink to this headline">#</a></h3>
 <p>Another useful type of plot is a <em>box plot</em>. Let’s compare critics’ ratings for the top 5 biggest gaming platforms.</p>
 <div class="cell docutils container">
@@ -1332,8 +1331,8 @@ memory usage: 906.4+ KB
 <p>The box by itself illustrates the interquartile spread of the distribution; its length determined by the <span class="math notranslate nohighlight">\(25\% \, (\text{Q1})\)</span> and <span class="math notranslate nohighlight">\(75\% \, (\text{Q3})\)</span> percentiles. The vertical line inside the box marks the median (<span class="math notranslate nohighlight">\(50\%\)</span>) of the distribution.</p>
 <p>The whiskers are the lines extending from the box. They represent the entire scatter of data points, specifically the points that fall within the interval <span class="math notranslate nohighlight">\((\text{Q1} - 1.5 \cdot \text{IQR}, \text{Q3} + 1.5 \cdot \text{IQR})\)</span>, where <span class="math notranslate nohighlight">\(\text{IQR} = \text{Q3} - \text{Q1}\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Interquartile_range">interquartile range</a>.</p>
 <p>Outliers that fall out of the range bounded by the whiskers are plotted individually.</p>
-</section>
-<section id="heatmap">
+</div>
+<div class="section" id="heatmap">
 <h3>heatmap()<a class="headerlink" href="#heatmap" title="Permalink to this headline">#</a></h3>
 <p>The last type of plot that we will cover here is a <em>heat map</em>. A heat map allows you to view the distribution of a numerical variable over two categorical ones. Let’s visualize the total sales of games by genre and gaming platform.</p>
 <div class="cell docutils container">
@@ -1352,9 +1351,9 @@ memory usage: 906.4+ KB
 <div class="cell_output docutils container">
 <img alt="../../_images/topic02_additional_seaborn_matplotlib_plotly_24_0.svg" src="../../_images/topic02_additional_seaborn_matplotlib_plotly_24_0.svg" /></div>
 </div>
-</section>
-</section>
-<section id="plotly">
+</div>
+</div>
+<div class="section" id="plotly">
 <h2>4. Plotly<a class="headerlink" href="#plotly" title="Permalink to this headline">#</a></h2>
 <p>We have examined some visualization tools based on the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library. However, this is not the only option for plotting in <code class="docutils literal notranslate"><span class="pre">Python</span></code>. Let’s take a look at the <code class="docutils literal notranslate"><span class="pre">plotly</span></code> library. Plotly is an open-source library that allows creation of interactive plots within a Jupyter notebook without having to use Javascript.</p>
 <p>The real beauty of interactive plots is that they provide a user interface for detailed data exploration. For example, you can see exact numerical values by mousing over points, hide uninteresting series from the visualization, zoom in onto a specific part of the plot, etc.</p>
@@ -1403,7 +1402,7 @@ require(['plotly'], function(Plotly) {
 </script>
 </div></div>
 </div>
-<section id="line-plot">
+<div class="section" id="line-plot">
 <h3>Line plot<a class="headerlink" href="#line-plot" title="Permalink to this headline">#</a></h3>
 <p>First of all, let’s build a <em>line plot</em> showing the number of games released and their sales by year.</p>
 <div class="cell docutils container">
@@ -1468,8 +1467,8 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 </div>
-</section>
-<section id="bar-chart">
+</div>
+<div class="section" id="bar-chart">
 <h3>Bar chart<a class="headerlink" href="#bar-chart" title="Permalink to this headline">#</a></h3>
 <p>Let’s use a <em>bar chart</em> to compare the market share of different gaming platforms broken down by the number of new releases and by total revenue.</p>
 <div class="cell docutils container">
@@ -1526,8 +1525,8 @@ require(['plotly'], function(Plotly) {
 ></iframe>
 </div></div>
 </div>
-</section>
-<section id="box-plot">
+</div>
+<div class="section" id="box-plot">
 <h3>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">plotly</span></code> also supports <em>box plots</em>. Let’s consider the distribution of critics’ ratings by the genre of the game.</p>
 <div class="cell docutils container">
@@ -1560,9 +1559,9 @@ require(['plotly'], function(Plotly) {
 </div></div>
 </div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">plotly</span></code>, you can also create other types of visualization. Even with default settings, the plots look quite nice. Additionally, the library makes it easy to modify various parameters: colors, fonts, captions, annotations, and so on.</p>
-</section>
-</section>
-<section id="useful-resources">
+</div>
+</div>
+<div class="section" id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-2-part-2-seaborn-and-plotly">Kaggle Kernel</a></p></li>
@@ -1579,8 +1578,8 @@ require(['plotly'], function(Plotly) {
 <li><p>Efficient t-SNE implementation <a class="reference external" href="https://github.com/DmitryUlyanov/Multicore-TSNE">Multi-core-TSNE</a>.</p></li>
 <li><p>“How to Use t-SNE Effectively”, <a class="reference external" href="https://distill.pub/2016/misread-tsne/">Distill.pub</a>.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
