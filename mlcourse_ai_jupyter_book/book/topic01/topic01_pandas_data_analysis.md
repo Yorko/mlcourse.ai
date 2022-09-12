@@ -484,7 +484,7 @@ As we move on through this course, recall that, before the advent of machine lea
 * Official Pandas [documentation](http://pandas.pydata.org/pandas-docs/stable/index.html)
 * Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)
 * Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68) based on this notebook
-* If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/322626/) on Habr.com with ~ the same material. And a [lecture](https://youtu.be/dEFxoyJhm3Y) on YouTube
+* If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/322626/) on [Habr](https://habr.com/ru/all/) with ~ the same material. And a [lecture](https://youtu.be/dEFxoyJhm3Y) on YouTube
 * [10 minutes to pandas](http://pandas.pydata.org/pandas-docs/stable/10min.html)
 * [Pandas cheatsheet PDF](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
 * GitHub repos: [Pandas exercises](https://github.com/guipsamora/pandas_exercises/) and ["Effective Pandas"](https://github.com/TomAugspurger/effective-pandas)

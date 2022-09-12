@@ -18,7 +18,7 @@ kernelspec:
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
-Author: [Arseny Kravchenko](http://arseny.info/pages/about-me.html). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yury Kashnitsky](https://yorko.github.io/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), [Anna Larionova](https://www.linkedin.com/in/anna-larionova-74434689/), [Evgeny Sushko](https://www.linkedin.com/in/evgenysushko/) and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Author: [Arseny Kravchenko](https://arseny.info/pages/about_me.html#about_me). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yury Kashnitsky](https://yorko.github.io/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), [Anna Larionova](https://www.linkedin.com/in/anna-larionova-74434689/), [Evgeny Sushko](https://www.linkedin.com/in/evgenysushko/) and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 In this course, we have already seen several key machine learning algorithms. However, before moving on to the more fancy ones, we’d like to take a small detour and talk about data preparation. The well-known concept of “garbage in — garbage out” applies 100% to any task in machine learning. Any experienced professional can recall numerous times when a simple model trained on high-quality data was proven to be better than a complicated multi-model ensemble built on data that wasn’t clean.
 
@@ -28,7 +28,7 @@ To start, I wanted to review three similar but different tasks:
 * **feature transformation**: transformation of data to improve the accuracy of the algorithm;
 * **feature selection**: removing unnecessary features.
 
-This article will contain almost no math, but there will be a fair amount of code. Some examples will use the dataset from Renthop company, which is used in the [Two Sigma Connect: Rental Listing Inquiries Kaggle competition](https://www.kaggle.com/c/two-sigma-connect-rental-listing-inquiries). The file `train.json` is also kept [here](https://drive.google.com/open?id=1_lqydkMrmyNAgG4vU4wVmp6-j7tV0XI8) as `renthop_train.json.gz` (so do unpack it first). In this task, you need to predict the popularity of a new rental listing, i.e. classify the listing into three classes: `['low', 'medium' , 'high']`. To evaluate the solutions, we will use the log loss metric (the smaller, the better). Those who do not have a Kaggle account, will have to register; you will also need to accept the rules of the competition in order to download the data.
+This article will contain almost no math, but there will be a fair amount of code. Some examples will use the dataset from Renthop company, which is used in the [Two Sigma Connect: Rental Listing Inquiries Kaggle competition](https://www.kaggle.com/c/two-sigma-connect-rental-listing-inquiries). The file `train.json` is also kept [here](https://drive.google.com/file/d/1N8eav5HWd6A7rG0ZCRo7rNFryqZS4tVg/view?usp=sharing) as `renthop_train.json.gz` (so do unpack it first). In this task, you need to predict the popularity of a new rental listing, i.e. classify the listing into three classes: `['low', 'medium' , 'high']`. To evaluate the solutions, we will use the log loss metric (the smaller, the better). Those who do not have a Kaggle account, will have to register; you will also need to accept the rules of the competition in order to download the data.
 
 
 ```{code-cell} ipython3
@@ -190,7 +190,7 @@ Word2Vec is a special case of the word embedding algorithms. Using Word2Vec and 
 
 It is worth noting that this model does not comprehend the meaning of the words but simply tries to position the vectors such that words used in common context are close to each other. If this is not taken into account, a lot of fun examples will come up.
 
-Such models need to be trained on very large datasets in order for the vector coordinates to capture the semantics. A pretrained model for your own tasks can be downloaded [here](https://github.com/3Top/word2vec-api#where-to-get-a-pretrained-models).
+Such models need to be trained on very large datasets in order for the vector coordinates to capture the semantics. A pretrained model for your own tasks can be downloaded [here](https://github.com/3Top/word2vec-api#where-to-get-a-pretrained-model).
 
 Similar methods are applied in other areas such as bioinformatics. An unexpected application is [food2vec](https://jaan.io/food2vec-augmented-cooking-machine-intelligence/). You can probably think of a few other fresh ideas; the concept is universal enough.
 
@@ -237,7 +237,7 @@ Often for problems associated with images, a convolutional neural network is use
 
 *Here's a classifier trained on one dataset and adapted for a different one by "detaching" the last layer and adding a new one instead.*
 
-Nevertheless, we should not focus too much on neural network techniques. Features generated by hand are still very useful: for example, for predicting the popularity of a rental listing, we can assume that bright apartments attract more attention and create a feature such as "the average value of the pixel". You can find some inspiring examples in the documentation of [relevant libraries](http://pillow.readthedocs.io/en/3.1.x/reference/ImageStat.html).
+Nevertheless, we should not focus too much on neural network techniques. Features generated by hand are still very useful: for example, for predicting the popularity of a rental listing, we can assume that bright apartments attract more attention and create a feature such as "the average value of the pixel". You can find some inspiring examples in the documentation of [relevant libraries](https://pillow.readthedocs.io/en/stable/reference/ImageStat.html).
 
 If there is text on the image, you can read it without unraveling a complicated neural network. For example, check out [pytesseract](https://github.com/madmaze/pytesseract).
 
