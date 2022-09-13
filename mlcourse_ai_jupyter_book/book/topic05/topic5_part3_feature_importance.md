@@ -158,18 +158,20 @@ Gini impurity is a score of homogeneity with the range from  0  (homogeneous) to
 
 The algorithm of obtaining feature importance may be represented with the following sequence of steps:
 
-1. For each tree $t$ in ensemble $t\in\{1,...,N\}$:
+1\. For each tree $t$ in ensemble $t\in\{1,...,N\}$:
 
   1.1.  for each node $i$ calculate the reduction in impurity (such as MSE, Gini or entropy) as ${RI}_i^{(t)}=w_i^{(t)}\cdot I_i^{(t)} - w_{LEFT_i}^{(t)}\cdot I_{LEFT_i}^{(t)}-w_{RIGHT_i}^{(t)}\cdot I_{RIGHT_i}^{(t)}$, where:
-      - $w_i^{(t)}$, $w_{LEFT_i}^{(t)}$, and $w_{RIGHT_i}^{(t)}$ are respectively weighted number of samples reaching   node $i$ in tree $t$, and its left $LEFT_i$ and right $RIGHT_i$ children
-      - $I_i^{(t)}$, $I_{LEFT_i}^{(t)}$,   $I_{RIGHT_i}^{(t)}$ are impurities (such as MSE, Gini or entropy) of the nodes. For leaves ${RI}_i^{(t)}$ is equal to 0.
+
+  - $w_i^{(t)}$, $w_{LEFT_i}^{(t)}$, and $w_{RIGHT_i}^{(t)}$ are respectively weighted number of samples reaching   node $i$ in tree $t$, and its left $LEFT_i$ and right $RIGHT_i$ children
+  - $I_i^{(t)}$, $I_{LEFT_i}^{(t)}$,   $I_{RIGHT_i}^{(t)}$ are impurities (such as MSE, Gini or entropy) of the nodes. For leaves ${RI}_i^{(t)}$ is equal to 0.
 
   1.2.  for each feature $j$ calculate its importance in that particular tree as
 
 $${FI}_j^{(t)}=\frac{\sum_{i:\text{node }i\text{ splits on feature } j}{RI}_i^{(t)}}{\sum_{i\in\text{all nodes}}{RI}_i^{(t)}}$$
 
    That means that in numerator we sum the reduction in impurity only in those nodes where feature $j$ is situated.
-2. Calculate the average feature importances over all trees in ensemble:
+
+2\. Calculate the average feature importances over all trees in ensemble:
 
 $${FI}_j=\frac{\sum_{t=1}^N {FI}_j^{(t)}}{N}$$
 
