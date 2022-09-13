@@ -37,7 +37,7 @@ From the picture below, it is intuitively clear that, in our credit scoring prob
 
 <img src="../../_static/img/credit_scoring_toy_tree_english.png" align='center'>
 
-In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as the *Gini impurity*, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.
+In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as *Gini impurity*, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.
 
 Let's go a little deeper into the details.
 
@@ -250,7 +250,7 @@ tree.plot_tree(
 
 
 ```{code-cell} ipython3
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(8, 6))
 tree.plot_tree(
     tree_list[2],
     filled=True,
@@ -268,7 +268,7 @@ $${RI}_{{SL}_2}^{(1)}=\frac{56}{150}\cdot 0.035077 - \frac{7}{150}\cdot 0.244898
 
 Note: The impurity for each node was recalculated to gain more accuracy than given in the picture.
 
-By doing the same calculations we get the following reduction in impurity for `Petal width (cm)`, and `Petal width (cm)` features:
+By doing the same calculations we get the following reduction in impurity for `Petal length (cm)`, and `Petal width (cm)` features:
 
 $${RI}_{PL}^{(1)}=0.035785$$
 
