@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -928,7 +929,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution">
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution">
 <span id="assignment05-solution"></span><h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution<a class="headerlink" href="#assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
@@ -950,13 +951,13 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 <div class="math notranslate nohighlight">
 \[\large \mu = \sum_{i=3}^{5}{5 \choose i}0.7^i(1-0.7)^{5-i} = 83.70\%\]</div>
 <p>Great! Let’s move on to machine learning.</p>
-<div class="section" id="credit-scoring-problem-setup">
+<section id="credit-scoring-problem-setup">
 <h2>Credit scoring problem setup<a class="headerlink" href="#credit-scoring-problem-setup" title="Permalink to this headline">#</a></h2>
-<div class="section" id="problem">
+<section id="problem">
 <h3>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">#</a></h3>
 <p>Predict whether the customer will repay their credit within 90 days. This is a binary classification problem; we will assign customers into good or bad categories based on our prediction.</p>
-</div>
-<div class="section" id="data-description">
+</section>
+<section id="data-description">
 <h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -1234,9 +1235,9 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="bootstrapping">
+</section>
+</section>
+<section id="bootstrapping">
 <h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">#</a></h2>
 <p><strong>Question 2.</strong> Make an interval estimate of the average age for the customers who delayed the repayment with the confidence level equal 90%. Use the example from the article for reference. Also, use <code class="docutils literal notranslate"><span class="pre">np.random.seed(0)</span></code> as it was done in the article. What is the resulting interval estimate?</p>
 <ol class="simple">
@@ -1282,8 +1283,8 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="logistic-regression">
+</section>
+<section id="logistic-regression">
 <h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">#</a></h2>
 <p>Let’s set up to use logistic regression:</p>
 <div class="cell docutils container">
@@ -1427,8 +1428,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="feature-importance">
+</section>
+<section id="feature-importance">
 <h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
 <p><strong>Question 5.</strong> <em>Feature importance</em> is defined by the absolute value of its corresponding coefficient. First you need to normalize all the feature values so that it will be correct to compare them. What is the most important feature for the best logistic regression model?</p>
 <ol class="simple">
@@ -1636,8 +1637,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <p>It is <span class="math notranslate nohighlight">\(\exp^{\beta\delta}\)</span> times more likely that the customer won’t repay the debt, where <span class="math notranslate nohighlight">\(\delta\)</span> is the feature value increment. That means that if we increased the age by 20 years, the odds that the customer won’t repay would increase by 0.69 times.</p>
-</div>
-<div class="section" id="random-forest">
+</section>
+<section id="random-forest">
 <h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h2>
 <p>Import the Random Forest classifier:</p>
 <div class="cell docutils container">
@@ -1813,8 +1814,8 @@ Wall time: 1min 3s
 <p><strong>Solution:</strong></p>
 <p>On the one hand, the Random Forest model works better for our credit scoring problem. Its performance is 4% higher. The reason for such a result is a small number of features and the compositional property of random forests.</p>
 <p>On the other hand, the main advantage of Logistic Regression is that we can interpret the feature impact on the model outcome.</p>
-</div>
-<div class="section" id="bagging">
+</section>
+<section id="bagging">
 <h2>Bagging<a class="headerlink" href="#bagging" title="Permalink to this headline">#</a></h2>
 <p>Import modules and set up the parameters for bagging:</p>
 <div class="cell docutils container">
@@ -1882,8 +1883,8 @@ Wall time: 1min 3s
 <p><strong>Answer:</strong> 3.</p>
 <p><strong>Solution:</strong></p>
 <p>The advantage of <em>Random Forest</em> is that the trees in the composition are not highly correlated. Similarly, for bagging with logistic regression, the weaker correlation between single models, the higher the accuracy. Since in logistic regression there is almost no randomness, we have to change the set of features to minimize the correlation between our single models.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

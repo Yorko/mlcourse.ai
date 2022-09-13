@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -926,7 +927,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem">
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem">
 <span id="assignment05"></span><h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem<a class="headerlink" href="#assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
@@ -943,13 +944,13 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 <li><p>87.50%</p></li>
 </ol>
 <p>Great! Let’s move on to machine learning.</p>
-<div class="section" id="credit-scoring-problem-setup">
+<section id="credit-scoring-problem-setup">
 <h2>Credit scoring problem setup<a class="headerlink" href="#credit-scoring-problem-setup" title="Permalink to this headline">#</a></h2>
-<div class="section" id="problem">
+<section id="problem">
 <h3>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">#</a></h3>
 <p>Predict whether the customer will repay their credit within 90 days. This is a binary classification problem; we will assign customers into good or bad categories based on our prediction.</p>
-</div>
-<div class="section" id="data-description">
+</section>
+<section id="data-description">
 <h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
@@ -1227,9 +1228,9 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="bootstrapping">
+</section>
+</section>
+<section id="bootstrapping">
 <h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">#</a></h2>
 <p><strong>Question 2.</strong> Make an interval estimate of the average age for the customers who delayed repayment at the 90% confidence level. Use the example from the article as reference, if needed. Also, use <code class="docutils literal notranslate"><span class="pre">np.random.seed(0)</span></code> as before. What is the resulting interval estimate?</p>
 <ol class="simple">
@@ -1245,8 +1246,8 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="logistic-regression">
+</section>
+<section id="logistic-regression">
 <h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">#</a></h2>
 <p>Let’s set up to use logistic regression:</p>
 <div class="cell docutils container">
@@ -1310,8 +1311,8 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="feature-importance">
+</section>
+<section id="feature-importance">
 <h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
 <p><strong>Question 5.</strong> <em>Feature importance</em> is defined by the absolute value of its corresponding coefficient. First, you need to normalize all of the feature values so that it will be valid to compare them. What is the most important feature for the best logistic regression model?</p>
 <ol class="simple">
@@ -1358,8 +1359,8 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="random-forest">
+</section>
+<section id="random-forest">
 <h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h2>
 <p>Import the Random Forest classifier:</p>
 <div class="cell docutils container">
@@ -1430,8 +1431,8 @@ Name: SeriousDlqin2yrs, dtype: float64
 <li><p>Feature interpretability;</p></li>
 <li><p>Linear properties of the algorithm.</p></li>
 </ol>
-</div>
-<div class="section" id="bagging">
+</section>
+<section id="bagging">
 <h2>Bagging<a class="headerlink" href="#bagging" title="Permalink to this headline">#</a></h2>
 <p>Import modules and set up the parameters for bagging:</p>
 <div class="cell docutils container">
@@ -1469,8 +1470,8 @@ Name: SeriousDlqin2yrs, dtype: float64
 <li><p>Less correlation between single models;</p></li>
 <li><p>The higher the number of features, the lower the loss of information.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

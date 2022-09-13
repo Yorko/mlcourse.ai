@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Topic 7. Unsupervised learning: PCA and clustering &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -1020,7 +1021,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-7-unsupervised-learning-pca-and-clustering">
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-7-unsupervised-learning-pca-and-clustering">
 <span id="topic07"></span><h1>Topic 7. Unsupervised learning: PCA and clustering<a class="headerlink" href="#topic-7-unsupervised-learning-pca-and-clustering" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
@@ -1028,7 +1029,7 @@ title="Print to PDF"
 Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-golovchenko-b0ba5a112/">Anna Golovchenko</a>, <a class="reference external" href="https://www.linkedin.com/in/eugene-mashkin-88490883/">Eugene Mashkin</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>Welcome to the seventh part of our Open Machine Learning Course!</p>
 <p>In this lesson, we will work with unsupervised learning methods such as Principal Component Analysis (PCA) and clustering. You will learn why and how we can reduce the dimensionality of the original data and what the main approaches are for grouping similar data points.</p>
-<div class="section" id="article-outline">
+<section id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
@@ -1051,15 +1052,15 @@ Translated and edited by <a class="reference external" href="https://www.linkedi
 <ol class="simple">
 <li><p><a class="reference external" href="#useful-links">Useful links</a></p></li>
 </ol>
-</div>
-<div class="section" id="introduction">
+</section>
+<section id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>The main feature of unsupervised learning algorithms, when compared to classification and regression methods, is that input data are unlabeled (i.e. no labels or classes given) and that the algorithm learns the structure of the data without any assistance. This creates two main differences. First, it allows us to process large amounts of data because the data does not need to be manually labeled. Second, it is difficult to evaluate the quality of an unsupervised algorithm due to the absence of an explicit goodness metric as used in supervised learning.</p>
 <p>One of the most common tasks in unsupervised learning is dimensionality reduction. On one hand, dimensionality reduction may help with data visualization (e.g. t-SNE method) while, on the other hand, it may help deal with the multicollinearity of your data and prepare the data for a supervised learning method (e.g. decision trees).</p>
-</div>
-<div class="section" id="principal-component-analysis-pca">
+</section>
+<section id="principal-component-analysis-pca">
 <h2>2. Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">#</a></h2>
-<div class="section" id="intuition-theories-and-application-issues">
+<section id="intuition-theories-and-application-issues">
 <h3>Intuition, theories, and application issues<a class="headerlink" href="#intuition-theories-and-application-issues" title="Permalink to this headline">#</a></h3>
 <p>Principal Component Analysis is one of the easiest, most intuitive, and most frequently used methods for dimensionality reduction, projecting data onto its orthogonal feature subspace.</p>
 <img align="right" src="https://habrastorage.org/getpro/habr/post_images/bb6/fe7/f06/bb6fe7f06e114bcc9c354a1cb025b966.png" width="400">
@@ -1080,11 +1081,11 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 <p>Quick recap: matrices, as linear operators, have eigenvalues and eigenvectors. They are very convenient because they describe parts of our space that do not rotate and only stretch when we apply linear operators on them; eigenvectors remain in the same direction but are stretched by a corresponding eigenvalue. Formally, a matrix <span class="math notranslate nohighlight">\(M\)</span> with eigenvector <span class="math notranslate nohighlight">\(w_i\)</span> and eigenvalue <span class="math notranslate nohighlight">\(\lambda_i\)</span> satisfy this equation: <span class="math notranslate nohighlight">\(M w_i = \lambda_i w_i\)</span>.</p>
 <p>The covariance matrix for a sample <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> can be written as a product of <span class="math notranslate nohighlight">\(\mathbf{X}^{T} \mathbf{X}\)</span>. According to the <a class="reference external" href="https://en.wikipedia.org/wiki/Rayleigh_quotient">Rayleigh quotient</a>, the maximum variation of our sample lies along the eigenvector of this matrix and is consistent with the maximum eigenvalue. Therefore, the principal components we aim to retain from the data are just the eigenvectors corresponding to the top-<span class="math notranslate nohighlight">\(k\)</span> largest eigenvalues of the matrix.</p>
 <p>The next steps are easier to digest. We multiply the matrix of our data <span class="math notranslate nohighlight">\(X\)</span> by these components to get the projection of our data onto the orthogonal basis of the chosen components. If the number of components was smaller than the initial space dimensionality, remember that we will lose some information upon applying this transformation.</p>
-</div>
-</div>
-<div class="section" id="examples">
+</section>
+</section>
+<section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
-<div class="section" id="fisher-s-iris-dataset">
+<section id="fisher-s-iris-dataset">
 <h3>Fisher’s iris dataset<a class="headerlink" href="#fisher-s-iris-dataset" title="Permalink to this headline">#</a></h3>
 <p>Let’s start by uploading all of the essential modules and try out the iris example from the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> documentation.</p>
 <div class="cell docutils container">
@@ -1236,8 +1237,8 @@ Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdo
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="handwritten-numbers-dataset">
+</section>
+<section id="handwritten-numbers-dataset">
 <h3>Handwritten numbers dataset<a class="headerlink" href="#handwritten-numbers-dataset" title="Permalink to this headline">#</a></h3>
 <p>Let’s look at the handwritten numbers dataset that we used before in the <a class="reference external" href="https://habrahabr.ru/company/ods/blog/322534/#derevya-resheniy-i-metod-blizhayshih-sosedey-v-zadache-raspoznavaniya-rukopisnyh-cifr-mnist">3rd lesson</a>.</p>
 <div class="cell docutils container">
@@ -1358,14 +1359,14 @@ Wall time: 3.51 s
 <img alt="../../_images/topic7_pca_clustering_18_0.png" src="../../_images/topic7_pca_clustering_18_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="clustering">
+</section>
+</section>
+<section id="clustering">
 <h2>2. Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">#</a></h2>
 <p>The main idea behind clustering is pretty straightforward. Basically, we say to ourselves, “I have these points here, and I can see that they organize into groups. It would be nice to describe these things more concretely, and, when a new point comes in, assign it to the correct group.” This general idea encourages exploration and opens up a variety of algorithms for clustering.</p>
 <figure><img align="center" src="https://habrastorage.org/getpro/habr/post_images/8b9/ae5/586/8b9ae55861f22a2809e8b3a00ef815ad.png"><figcaption>*The examples of the outcomes from different algorithms from scikit-learn*</figcaption></figure>
 <p>The algorithms listed below do not cover all the clustering methods out there, but they are the most commonly used ones.</p>
-<div class="section" id="k-means">
+<section id="k-means">
 <h3>K-means<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h3>
 <p>K-means algorithm is the most popular and yet simplest of all the clustering algorithms. Here is how it works:</p>
 <ol class="simple">
@@ -1455,9 +1456,9 @@ Wall time: 3.51 s
 </div>
 <p>Here, we used Euclidean distance, but the algorithm will converge with any other metric. You can not only vary the number of steps or the convergence criteria but also the distance measure between the points and cluster centroids.</p>
 <p>Another “feature” of this algorithm is its sensitivity to the initial positions of the cluster centroids. You can run the algorithm several times and then average all the centroid results.</p>
-</div>
-</div>
-<div class="section" id="choosing-the-number-of-clusters-for-k-means">
+</section>
+</section>
+<section id="choosing-the-number-of-clusters-for-k-means">
 <h2>Choosing the number of clusters for K-means<a class="headerlink" href="#choosing-the-number-of-clusters-for-k-means" title="Permalink to this headline">#</a></h2>
 <p>In contrast to the supervised learning tasks such as classification and regression, clustering requires more effort to choose the optimization criterion. Usually, when working with k-means, we optimize the sum of squared distances between the observations and their centroids.</p>
 <div class="math notranslate nohighlight">
@@ -1498,13 +1499,13 @@ Wall time: 3.51 s
 </div>
 </div>
 <p>We see that <span class="math notranslate nohighlight">\(J(C_k)\)</span> decreases significantly until the number of clusters is 3 and then does not change as much anymore. This means that the optimal number of clusters is 3.</p>
-<div class="section" id="issues">
+<section id="issues">
 <h3>Issues<a class="headerlink" href="#issues" title="Permalink to this headline">#</a></h3>
 <p>Inherently, K-means is NP-hard. For <span class="math notranslate nohighlight">\(d\)</span> dimensions, <span class="math notranslate nohighlight">\(k\)</span> clusters, and <span class="math notranslate nohighlight">\(n\)</span> observations, we will find a solution in <span class="math notranslate nohighlight">\(O(n^{d k+1})\)</span> time. There are some heuristics to deal with this; an example is MiniBatch K-means, which takes portions (batches) of data instead of fitting the whole dataset and then moves centroids by taking the average of the previous steps. Compare the implementation of K-means and MiniBatch K-means in the <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/cluster/plot_mini_batch_kmeans.html">scikit-learn documentation</a>.</p>
 <p>The <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">implementation</a> of the algorithm using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> has its benefits such as the possibility to state the number of initializations with the <code class="docutils literal notranslate"><span class="pre">n_init</span></code> function parameter, which enables us to identify more robust centroids. Moreover, these runs can be done in parallel to decrease the computation time.</p>
-</div>
-</div>
-<div class="section" id="affinity-propagation">
+</section>
+</section>
+<section id="affinity-propagation">
 <h2>Affinity Propagation<a class="headerlink" href="#affinity-propagation" title="Permalink to this headline">#</a></h2>
 <p>Affinity propagation is another example of a clustering algorithm. As opposed to K-means, this approach does not require us to set the number of clusters beforehand. The main idea here is that we would like to cluster our data based on the similarity of the observations (or how they “correspond” to each other).</p>
 <p>Let’s define a similarity metric such that <span class="math notranslate nohighlight">\(s(x_i, x_j) &gt; s(x_i, x_k)\)</span> if an observation <span class="math notranslate nohighlight">\(x_i\)</span> is more similar to observation <span class="math notranslate nohighlight">\(x_j\)</span> and less similar to observation <span class="math notranslate nohighlight">\(x_k\)</span>. A simple example of such a similarity metric is a negative square of distance <span class="math notranslate nohighlight">\(s(x_i, x_j) = - ||x_i - x_j||^{2}\)</span>.</p>
@@ -1516,14 +1517,14 @@ Wall time: 3.51 s
 \[a_{i,k} \leftarrow \min \left( 0, r_{k,k} + \sum_{i' \not\in \{i,k\}} \max(0, r_{i',k}) \right), \ \ \  i \neq k\]</div>
 <div class="math notranslate nohighlight">
 \[a_{k,k} \leftarrow \sum_{i' \neq k} \max(0, r_{i',k})\]</div>
-</div>
-<div class="section" id="spectral-clustering">
+</section>
+<section id="spectral-clustering">
 <h2>Spectral clustering<a class="headerlink" href="#spectral-clustering" title="Permalink to this headline">#</a></h2>
 <p>Spectral clustering combines some of the approaches described above to create a stronger clustering method.</p>
 <p>First of all, this algorithm requires us to define the similarity matrix for observations called the adjacency matrix. This can be done in a similar fashion as in the Affinity Propagation algorithm: <span class="math notranslate nohighlight">\(A_{i, j} = - ||x_i - x_j||^{2}\)</span>. This matrix describes a full graph with the observations as vertices and the estimated similarity value between a pair of observations as edge weights for that pair of vertices. For the metric defined above and two-dimensional observations, this is pretty intuitive - two observations are similar if the edge between them is shorter.
 We’d like to split up the graph into two subgraphs in such a way that each observation in each subgraph would be similar to another observation in that subgraph. Formally, this is a Normalized cuts problem; for more details, we recommend reading <a class="reference external" href="http://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf">this paper</a>.</p>
-</div>
-<div class="section" id="agglomerative-clustering">
+</section>
+<section id="agglomerative-clustering">
 <h2>Agglomerative clustering<a class="headerlink" href="#agglomerative-clustering" title="Permalink to this headline">#</a></h2>
 <p>The following algorithm is the simplest and easiest to understand among all the the clustering algorithms without a fixed number of clusters.</p>
 <p>The algorithm is fairly simple:</p>
@@ -1577,8 +1578,8 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 <img alt="../../_images/topic7_pca_clustering_28_0.png" src="../../_images/topic7_pca_clustering_28_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="accuracy-metrics">
+</section>
+<section id="accuracy-metrics">
 <h2>Accuracy metrics<a class="headerlink" href="#accuracy-metrics" title="Permalink to this headline">#</a></h2>
 <p>As opposed to classification, it is difficult to assess the quality of results from clustering. Here, a metric cannot depend on the labels but only on the goodness of split. Secondly, we do not usually have true labels of the observations when we use clustering.</p>
 <p>There are <em>internal</em> and <em>external</em> goodness metrics. External metrics use the information about the known true split while internal metrics do not use any external information and assess the goodness of clusters based only on the initial data. The optimal number of clusters is usually defined with respect to some internal metrics.</p>
@@ -1722,16 +1723,16 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="useful-links">
+</section>
+<section id="useful-links">
 <h2>4. Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Overview of clustering methods in the <a class="reference external" href="http://scikit-learn.org/stable/modules/clustering.html">scikit-learn doc</a>.</p></li>
 <li><p><a class="reference external" href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues">Q&amp;A</a> for PCA with examples</p></li>
 <li><p><a class="reference external" href="https://github.com/diefimov/MTH594_MachineLearning/blob/master/ipython/Lecture10.ipynb">Notebook</a> on k-means and the EM-algorithm</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

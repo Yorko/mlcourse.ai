@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Time series analysis in Python &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -1070,15 +1071,15 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="time-series-analysis-in-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="time-series-analysis-in-python">
 <span id="topic09-part1"></span><h1>Time series analysis in Python<a class="headerlink" href="#time-series-analysis-in-python" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://github.com/DmitrySerg">Dmitriy Sergeyev</a>, Data Scientist &#64; Zeptolab, lecturer in the Center of Mathematical Finance in MSU. Translated by: &#64;borowis. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>We continue our open machine learning course with a new article on time series.</p>
 <p>Let’s take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost… In addition, all of this will be applied to (harsh) real world examples.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="article-outline">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="article-outline">
 <h1>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h1>
 <ol class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p>
@@ -1113,8 +1114,8 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
 <p>In my day-to-day job, I encounter time-series related tasks almost every day. The most frequent questions asked are the following: what will happen with our metrics in the next day/week/month/etc., how many users will install our app, how much time will they spend online, how many actions will users complete, and so on. We can approach these prediction tasks using different methods depending on the required quality of the prediction, length of the forecast period, and, of course, the time within which we have to choose features and tune parameters to achieve desired results.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
 <p>We begin with a simple <a class="reference external" href="https://en.wikipedia.org/wiki/Time_series">definition</a> of time series:</p>
 <blockquote>
@@ -1200,7 +1201,7 @@ title="Print to PDF"
 <img alt="../../_images/topic9_part1_time_series_python_6_0.png" src="../../_images/topic9_part1_time_series_python_6_0.png" />
 </div>
 </div>
-<div class="section" id="forecast-quality-metrics">
+<section id="forecast-quality-metrics">
 <h2>Forecast quality metrics<a class="headerlink" href="#forecast-quality-metrics" title="Permalink to this headline">#</a></h2>
 <p>Before we begin forecasting, let’s understand how to measure the quality of our predictions and take a look at the most commonly used metrics.</p>
 <ul class="simple">
@@ -1275,9 +1276,9 @@ title="Print to PDF"
 <p>You should be very careful with MAPE, MSLE and other metrics that are poorly defined around <span class="math notranslate nohighlight">\(y=0\)</span>. Formally, MAPE is not defined for any <span class="math notranslate nohighlight">\(y_i = 0\)</span>. In practice, these metric can “explode” even for small values of <span class="math notranslate nohighlight">\(y_i\)</span> around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values <span class="math notranslate nohighlight">\(y_i = 0\)</span> is indeed a workaround but a bad one: thus, we’d ignore those cases where the prediction is high (<span class="math notranslate nohighlight">\(\hat{y}_i \gg 1\)</span>) and the actual value is 0 (<span class="math notranslate nohighlight">\(y_i = 0\)</span>). More of this is <a class="reference external" href="https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape">discussed</a> on CrossValidated.</p>
 </div>
 <p>Now that we know how to measure the quality of the forecasts, let’s see what metrics we can use and how to translate the results for the boss. After that, one small detail remains - building the model.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="move-smoothe-evaluate">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="move-smoothe-evaluate">
 <h1>Move, smoothe, evaluate<a class="headerlink" href="#move-smoothe-evaluate" title="Permalink to this headline">#</a></h1>
 <p>Let’s start with a naive hypothesis: “tomorrow will be the same as today”. However, instead of a model like <span class="math notranslate nohighlight">\(\hat{y}_{t} = y_{t-1}\)</span> (which is actually a great baseline for any time series prediction problems and sometimes is impossible to beat), we will assume that the future value of our variable depends on the average of its <span class="math notranslate nohighlight">\(k\)</span> previous values. Therefore, we will use the <strong>moving average</strong>.</p>
 <p><span class="math notranslate nohighlight">\(\hat{y}_{t} = \frac{1}{k} \displaystyle\sum^{k}_{n=1} y_{t-n}\)</span></p>
@@ -1466,7 +1467,7 @@ dtype: float64
 </div>
 </div>
 </div>
-<div class="section" id="exponential-smoothing">
+<section id="exponential-smoothing">
 <h2>Exponential smoothing<a class="headerlink" href="#exponential-smoothing" title="Permalink to this headline">#</a></h2>
 <p>Now, let’s see what happens if, instead of weighting the last <span class="math notranslate nohighlight">\(k\)</span> values of the time series, we start weighting all available observations while exponentially decreasing the weights as we move further back in time. There exists a formula for <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_smoothing">exponential smoothing</a></strong> that will help us with this:</p>
 <div class="math notranslate nohighlight">
@@ -1533,8 +1534,8 @@ dtype: float64
 <img alt="../../_images/topic9_part1_time_series_python_36_0.png" src="../../_images/topic9_part1_time_series_python_36_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="double-exponential-smoothing">
+</section>
+<section id="double-exponential-smoothing">
 <h2>Double exponential smoothing<a class="headerlink" href="#double-exponential-smoothing" title="Permalink to this headline">#</a></h2>
 <p>Up to now, the methods that we’ve discussed have been for a single future point prediction (with some nice smoothing). That is cool, but it is also not enough. Let’s extend exponential smoothing so that we can predict two future points (of course, we will also include more smoothing).</p>
 <p>Series decomposition will help us – we obtain two components: intercept (i.e. level) <span class="math notranslate nohighlight">\(\ell\)</span> and slope (i.e. trend) <span class="math notranslate nohighlight">\(b\)</span>. We have learnt to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depends on the previous weighted changes. As a result, we get the following set of functions:</p>
@@ -1617,8 +1618,8 @@ dtype: float64
 </div>
 </div>
 <p>Now we have to tune two parameters: <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>. The former is responsible for the series smoothing around the trend, the latter for the smoothing of the trend itself. The larger the values, the more weight the most recent observations will have and the less smoothed the model series will be. Certain combinations of the parameters may produce strange results, especially if set manually. We’ll look into choosing parameters automatically in a bit; before that, let’s discuss triple exponential smoothing.</p>
-</div>
-<div class="section" id="triple-exponential-smoothing-a-k-a-holt-winters">
+</section>
+<section id="triple-exponential-smoothing-a-k-a-holt-winters">
 <h2>Triple exponential smoothing a.k.a. Holt-Winters<a class="headerlink" href="#triple-exponential-smoothing-a-k-a-holt-winters" title="Permalink to this headline">#</a></h2>
 <p>We’ve looked at exponential smoothing and double exponential smoothing. This time, we’re going into <em>triple</em> exponential smoothing.</p>
 <p>As you could have guessed, the idea is to add a third component - seasonality. This means that we should not use this method if our time series is not expected to have seasonality. Seasonal components in the model will explain repeated variations around intercept and trend, and it will be specified by the length of the season, in other words by the period after which the variations repeat. For each observation in the season, there is a separate component; for example, if the length of the season is 7 days (a weekly seasonality), we will have 7 seasonal components, one for each day of the week.</p>
@@ -1763,8 +1764,8 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="time-series-cross-validation">
+</section>
+<section id="time-series-cross-validation">
 <h2>Time series cross validation<a class="headerlink" href="#time-series-cross-validation" title="Permalink to this headline">#</a></h2>
 <p>Before we start building a model, let’s first discuss how to estimate model parameters automatically.</p>
 <p>There is nothing unusual here; as always, we have to choose a loss function suitable for the task that will tell us how closely the model approximates the data. Then, using cross-validation, we will evaluate our chosen loss function for the given model parameters, calculate the gradient, adjust the model parameters, and so on, eventually descending to the global minimum.</p>
@@ -2024,11 +2025,11 @@ Wall time: 692 ms
 <img alt="../../_images/topic9_part1_time_series_python_58_0.png" src="../../_images/topic9_part1_time_series_python_58_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="econometric-approach">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="econometric-approach">
 <h1>Econometric approach<a class="headerlink" href="#econometric-approach" title="Permalink to this headline">#</a></h1>
-<div class="section" id="stationarity">
+<section id="stationarity">
 <h2>Stationarity<a class="headerlink" href="#stationarity" title="Permalink to this headline">#</a></h2>
 <p>Before we start modeling, we should mention such an important property of time series: <a class="reference external" href="https://en.wikipedia.org/wiki/Stationary_process"><strong>stationarity</strong></a>.</p>
 <p>If a process is stationary, that means it does not change its statistical properties over time, namely its mean and variance. (The constancy of variance is called <a class="reference external" href="https://en.wikipedia.org/wiki/Homoscedasticity">homoscedasticity</a>)The covariance function does not depend on time; it should only depend on the distance between observations. You can see this visually on the images in the post by <a class="reference external" href="http://www.seanabu.com/2016/03/22/time-series-seasonal-ARIMA-model-in-python/">Sean Abu</a>:</p>
@@ -2094,8 +2095,8 @@ Wall time: 692 ms
 <p>On the first plot, you can see the same stationary white noise as before. On the second plot with <span class="math notranslate nohighlight">\(\rho\)</span> increased to 0.6, wider cycles appeared, but it still appears stationary overall. The third plot deviates even more from the 0 mean but still oscillates about the mean. Finally, with <span class="math notranslate nohighlight">\(\rho=1\)</span>, we have a random walk process i.e. a non-stationary time series.</p>
 <p>This happens because, after reaching the critical value, the series <span class="math notranslate nohighlight">\(x_t = \rho x_{t-1} + e_t\)</span> does not return to its mean value. If we subtract <span class="math notranslate nohighlight">\(x_{t-1}\)</span> from both sides, we will get <span class="math notranslate nohighlight">\(x_t - x_{t-1} = (\rho - 1) x_{t-1} + e_t\)</span>, where the expression on the left is referred to as the first difference. If <span class="math notranslate nohighlight">\(\rho=1\)</span>, then the first difference gives us stationary white noise <span class="math notranslate nohighlight">\(e_t\)</span>. This is the main idea behind the <a class="reference external" href="https://en.wikipedia.org/wiki/Dickey%E2%80%93Fuller_test">Dickey-Fuller test</a> for stationarity of time series (testing the presence of a unit root). If we can get a stationary series from a non-stationary series using the first difference, we call those series integrated of order 1. The null hypothesis of the test is that the time series is non-stationary, which was rejected on the first three plots and finally accepted on the last one. We have to say that the first difference is not always enough to get a stationary series as the process might be integrated of order d, d &gt; 1 (and have multiple unit roots). In such cases, the augmented Dickey-Fuller test is used, which checks multiple lags at once.</p>
 <p>We can fight non-stationarity using different approaches: various order differences, trend and seasonality removal, smoothing, and transformations like Box-Cox or logarithmic.</p>
-</div>
-<div class="section" id="getting-rid-of-non-stationarity-and-building-sarima">
+</section>
+<section id="getting-rid-of-non-stationarity-and-building-sarima">
 <h2>Getting rid of non-stationarity and building SARIMA<a class="headerlink" href="#getting-rid-of-non-stationarity-and-building-sarima" title="Permalink to this headline">#</a></h2>
 <p>Let’s build an ARIMA model by walking through all the ~~circles of hell~~ stages of making a series stationary.</p>
 <p>Here is the code to render plots.</p>
@@ -2166,8 +2167,8 @@ Wall time: 692 ms
 </div>
 </div>
 <p>Perfect! Our series now looks like something indescribable, oscillating around zero. The Dickey-Fuller test indicates that it is stationary, and the number of significant peaks in ACF has dropped. We can finally start modeling!</p>
-</div>
-<div class="section" id="arima-family-crash-course">
+</section>
+<section id="arima-family-crash-course">
 <h2>ARIMA-family Crash-Course<a class="headerlink" href="#arima-family-crash-course" title="Permalink to this headline">#</a></h2>
 <p>We will explain this model by building up letter by letter. <span class="math notranslate nohighlight">\(SARIMA(p, d, q)(P, D, Q, s)\)</span>, Seasonal Autoregression Moving Average model:</p>
 <ul class="simple">
@@ -2462,13 +2463,13 @@ Warnings:
 </div>
 </div>
 <p>In the end, we got very adequate predictions. Our model was wrong by 4.01% on average, which is very, very good. However, the overall costs of preparing data, making the series stationary, and selecting parameters might not be worth this accuracy.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="linear-and-not-only-models-for-time-series">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="linear-and-not-only-models-for-time-series">
 <h1>Linear (and not only) models for time series<a class="headerlink" href="#linear-and-not-only-models-for-time-series" title="Permalink to this headline">#</a></h1>
 <p>Often, in my job, I have to build models with <a class="reference external" href="http://fastgood.cheap"><em>fast, good, cheap</em></a> as my only guiding principle. That means that some of these models will never be considered “production ready” as they demand too much time for data preparation (as in SARIMA) or require frequent re-training on new data (again, SARIMA) or are difficult to tune (good example - SARIMA). Therefore, it’s very often much easier to select a few features from the existing time series and build a simple linear regression model or, say, a random forest. It is good and cheap.</p>
 <p>This approach is not backed by theory and breaks several assumptions (e.g. Gauss-Markov theorem, especially for errors being uncorrelated), but it is very useful in practice and is often used in machine learning competitions.</p>
-<div class="section" id="feature-extraction">
+<section id="feature-extraction">
 <h2>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">#</a></h2>
 <p>The model needs features, and all we have is a 1-dimensional time series. What features can we extract?</p>
 <ul class="simple">
@@ -2491,8 +2492,8 @@ Warnings:
 <li><p>Forecasts from other models (note that we can lose the speed of prediction this way)</p></li>
 </ul>
 <p>Let’s run through some of the methods and see what we can extract from our ads time series data.</p>
-</div>
-<div class="section" id="time-series-lags">
+</section>
+<section id="time-series-lags">
 <h2>Time series lags<a class="headerlink" href="#time-series-lags" title="Permalink to this headline">#</a></h2>
 <p>Shifting the series <span class="math notranslate nohighlight">\(n\)</span> steps back, we get a feature column where the current value of time series is aligned with its value at time <span class="math notranslate nohighlight">\(t-n\)</span>. If we make a 1 lag shift and train a model on that feature, the model will be able to forecast 1 step ahead from having observed the current state of the series. Increasing the lag, say, up to 6, will allow the model to make predictions 6 steps ahead; however it will use data observed 6 steps back. If something fundamentally changes the series during that unobserved period, the model will not catch these changes and will return forecasts with a large error. Therefore, during the initial lag selection, one has to find a balance between the optimal prediction quality and the length of the forecasting horizon.</p>
 <div class="cell docutils container">
@@ -3131,8 +3132,8 @@ Warnings:
 </div>
 </div>
 <p>The test error goes down a little bit. Judging by the coefficients plot, we can say that <code class="docutils literal notranslate"><span class="pre">weekday</span></code> and <code class="docutils literal notranslate"><span class="pre">is_weekend</span></code> are useful features.</p>
-</div>
-<div class="section" id="target-encoding">
+</section>
+<section id="target-encoding">
 <h2>Target encoding<a class="headerlink" href="#target-encoding" title="Permalink to this headline">#</a></h2>
 <p>I’d like to add another variant for encoding categorical variables: encoding by mean value. If it is undesirable to explode a dataset by using many dummy variables that can lead to the loss of information and if they cannot be used as real values because of the conflicts like “0 hours &lt; 23 hours”, then it’s possible to encode a variable with slightly more interpretable values. The natural idea is to encode with the mean value of the target variable. In our example, every day of the week and every hour of the day can be encoded by the corresponding average number of ads watched during that day or hour. It’s very important to make sure that the mean value is calculated over the training set only (or over the current cross-validation fold only) so that the model is not aware of the future.</p>
 <div class="cell docutils container">
@@ -3268,8 +3269,8 @@ Warnings:
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="regularization-and-feature-selection">
+</section>
+<section id="regularization-and-feature-selection">
 <h2>Regularization and feature selection<a class="headerlink" href="#regularization-and-feature-selection" title="Permalink to this headline">#</a></h2>
 <p>As we already know, not all features are equally healthy – some may lead to overfitting while others should be removed. Besides manual inspection, we can apply regularization. Two of the most popular regression models with regularization are Ridge and Lasso regressions. They both add some more constrains to our loss function.</p>
 <p>In the case of Ridge regression, those constraints are the sum of squares of the coefficients multiplied by the regularization coefficient. The bigger the coefficient a feature has, the bigger our loss will be. Hence, we will try to optimize the model while keeping the coefficients fairly low.</p>
@@ -3333,14 +3334,14 @@ Warnings:
 </div>
 </div>
 <p>Lasso regression turned out to be more conservative; it removed 23-rd lag from the most important features and dropped 5 features completely, which only made the quality of prediction better.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="boosting">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="boosting">
 <h1>Boosting<a class="headerlink" href="#boosting" title="Permalink to this headline">#</a></h1>
 <p>Why shouldn’t we try XGBoost now?</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/xgboost_the_things.jpg"><img alt="../../_images/xgboost_the_things.jpg" src="../../_images/xgboost_the_things.jpg" style="width: 200px;" /></a>
-</div>
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
@@ -3369,12 +3370,12 @@ Warnings:
 </div>
 <p>We have a winner! This is the smallest error on the test set among all the models we’ve tried so far.</p>
 <p>But, this victory is decieving, and it might not be the brightest idea to fit <code class="docutils literal notranslate"><span class="pre">xgboost</span></code> as soon as you get your hands on time series data. Generally, tree-based models handle trends in data poorly when compared with linear models. In that case, you would have to detrend your series first or use some tricks to make the magic happen. Ideally, you can make the series stationary and then use XGBoost. For example, you can forecast trend separately with a linear model and then add predictions from <code class="docutils literal notranslate"><span class="pre">xgboost</span></code> to get a final forecast.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
 <h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
 <p>We discussed different time series analysis and prediction methods. Unfortunately, or maybe luckily, there is no one way to solve these kind of problems. Methods developed in the 1960s (and some even in the beginning of the 21st century) are still popular, along with LSTMs and RNNs (not covered in this article). This is partially related to the fact that the prediction task, like any other data-related task, requires creativity in so many aspects and definitely requires research. In spite of the large number of formal quality metrics and approaches to parameters estimation, it is often necessary to try something different for each time series. Last but not least, the balance between quality and cost is important. As a good example, the SARIMA model can produce spectacular results after tuning but can require many hours of ~~tambourine dancing~~ time series manipulation while a simple linear regression model can be built in 10 minutes and can achieve more or less comparable results.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="useful-resources">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="useful-resources">
 <h1>Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-9-part-1-time-series-analysis-in-python">Kaggle Kernel</a></p></li>
@@ -3387,7 +3388,7 @@ Warnings:
 <li><p><a class="reference external" href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-15-276">Comparison of ARIMA and Random Forest time series models for prediction of avian influenza H5N1 outbreaks</a> - one of a few cases where using random forest for time series forecasting is actively defended</p></li>
 <li><p><a class="reference external" href="http://www.blackarbs.com/blog/time-series-analysis-in-python-linear-models-to-garch/11/1/2016">Time Series Analysis (TSA) in Python - Linear Models to GARCH</a> - applying the ARIMA models family to the task of modeling financial indicators (by Brian Christopher)</p></li>
 </ul>
-</div>
+</section>
 
 
 <script type="application/vnd.jupyter.widget-state+json">

@@ -37,7 +37,7 @@ From the picture below, it is intuitively clear that, in our credit scoring prob
 
 <img src="../../_static/img/credit_scoring_toy_tree_english.png" align='center'>
 
-In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as the *Gini impurity*, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.
+In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as *Gini impurity*, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.
 
 Let's go a little deeper into the details.
 
@@ -158,18 +158,20 @@ Gini impurity is a score of homogeneity with the range from  0  (homogeneous) to
 
 The algorithm of obtaining feature importance may be represented with the following sequence of steps:
 
-1. For each tree $t$ in ensemble $t\in\{1,...,N\}$:
+1\. For each tree $t$ in ensemble $t\in\{1,...,N\}$:
 
   1.1.  for each node $i$ calculate the reduction in impurity (such as MSE, Gini or entropy) as ${RI}_i^{(t)}=w_i^{(t)}\cdot I_i^{(t)} - w_{LEFT_i}^{(t)}\cdot I_{LEFT_i}^{(t)}-w_{RIGHT_i}^{(t)}\cdot I_{RIGHT_i}^{(t)}$, where:
-      - $w_i^{(t)}$, $w_{LEFT_i}^{(t)}$, and $w_{RIGHT_i}^{(t)}$ are respectively weighted number of samples reaching   node $i$ in tree $t$, and its left $LEFT_i$ and right $RIGHT_i$ children
-      - $I_i^{(t)}$, $I_{LEFT_i}^{(t)}$,   $I_{RIGHT_i}^{(t)}$ are impurities (such as MSE, Gini or entropy) of the nodes. For leaves ${RI}_i^{(t)}$ is equal to 0.
+
+  - $w_i^{(t)}$, $w_{LEFT_i}^{(t)}$, and $w_{RIGHT_i}^{(t)}$ are respectively weighted number of samples reaching   node $i$ in tree $t$, and its left $LEFT_i$ and right $RIGHT_i$ children
+  - $I_i^{(t)}$, $I_{LEFT_i}^{(t)}$,   $I_{RIGHT_i}^{(t)}$ are impurities (such as MSE, Gini or entropy) of the nodes. For leaves ${RI}_i^{(t)}$ is equal to 0.
 
   1.2.  for each feature $j$ calculate its importance in that particular tree as
 
 $${FI}_j^{(t)}=\frac{\sum_{i:\text{node }i\text{ splits on feature } j}{RI}_i^{(t)}}{\sum_{i\in\text{all nodes}}{RI}_i^{(t)}}$$
 
    That means that in numerator we sum the reduction in impurity only in those nodes where feature $j$ is situated.
-2. Calculate the average feature importances over all trees in ensemble:
+
+2\. Calculate the average feature importances over all trees in ensemble:
 
 $${FI}_j=\frac{\sum_{t=1}^N {FI}_j^{(t)}}{N}$$
 
@@ -248,7 +250,7 @@ tree.plot_tree(
 
 
 ```{code-cell} ipython3
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(8, 6))
 tree.plot_tree(
     tree_list[2],
     filled=True,
@@ -266,7 +268,7 @@ $${RI}_{{SL}_2}^{(1)}=\frac{56}{150}\cdot 0.035077 - \frac{7}{150}\cdot 0.244898
 
 Note: The impurity for each node was recalculated to gain more accuracy than given in the picture.
 
-By doing the same calculations we get the following reduction in impurity for `Petal width (cm)`, and `Petal width (cm)` features:
+By doing the same calculations we get the following reduction in impurity for `Petal length (cm)`, and `Petal width (cm)` features:
 
 $${RI}_{PL}^{(1)}=0.035785$$
 

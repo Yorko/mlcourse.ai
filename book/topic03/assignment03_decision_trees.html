@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Assignment #3 (demo). Decision trees with a toy task and the UCI Adult dataset &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -1006,11 +1007,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="assignment-3-demo-decision-trees-with-a-toy-task-and-the-uci-adult-dataset">
+  <section class="tex2jax_ignore mathjax_ignore" id="assignment-3-demo-decision-trees-with-a-toy-task-and-the-uci-adult-dataset">
 <span id="assignment03"></span><h1>Assignment #3 (demo). Decision trees with a toy task and the UCI Adult dataset<a class="headerlink" href="#assignment-3-demo-decision-trees-with-a-toy-task-and-the-uci-adult-dataset" title="Permalink to this headline">#</a></h1>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</div>
+</figure>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/mariya-sumarokova-230b4054/">Maria Sumarokova</a>, and <a class="reference external" href="https://www.linkedin.com/in/festline/">Yury Kashnitsky</a>. Translated and edited by Gleb Filatov, Aleksey Kiselev, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
 <p>Same assignment as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/a3-demo-decision-trees">Kaggle Kernel</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a3-demo-decision-trees-solution">solution</a>. Fill in the answers in the <a class="reference external" href="https://docs.google.com/forms/d/1wfWYYoqXTkZNOPy1wpewACXaj2MZjBdLOL58htGWYBA/edit">web-form</a>.</p>
@@ -1039,11 +1040,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="part-1-toy-dataset-will-they-won-t-they">
+<section id="part-1-toy-dataset-will-they-won-t-they">
 <h2>Part 1. Toy dataset “Will They? Won’t They?”<a class="headerlink" href="#part-1-toy-dataset-will-they-won-t-they" title="Permalink to this headline">#</a></h2>
 <p>Your goal is to figure out how decision trees work by walking through a toy problem. While a single decision tree does not yield outstanding results, other performant algorithms like gradient boosting and random forests are based on the same idea. That is why knowing how decision trees work might be useful.</p>
 <p>We’ll go through a toy example of binary classification - Person A is deciding whether they will go on a second date with Person B. It will depend on their looks, eloquence, alcohol consumption (only for example), and how much money was spent on the first date.</p>
-<div class="section" id="creating-the-dataset">
+<section id="creating-the-dataset">
 <h3>Creating the dataset<a class="headerlink" href="#creating-the-dataset" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1070,8 +1071,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="training-data">
+</section>
+<section id="training-data">
 <h3>Training data<a class="headerlink" href="#training-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1222,8 +1223,8 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="test-data">
+</section>
+<section id="test-data">
 <h3>Test data<a class="headerlink" href="#test-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1497,8 +1498,8 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="draw-a-decision-tree-by-hand-or-in-any-graphics-editor-for-this-dataset-optionally-you-can-also-implement-tree-construction-and-draw-it-here">
+</section>
+<section id="draw-a-decision-tree-by-hand-or-in-any-graphics-editor-for-this-dataset-optionally-you-can-also-implement-tree-construction-and-draw-it-here">
 <h3>Draw a decision tree (by hand or in any graphics editor) for this dataset. Optionally you can also implement tree construction and draw it here.<a class="headerlink" href="#draw-a-decision-tree-by-hand-or-in-any-graphics-editor-for-this-dataset-optionally-you-can-also-implement-tree-construction-and-draw-it-here" title="Permalink to this headline">#</a></h3>
 <p>1. What is the entropy <span class="math notranslate nohighlight">\(S_0\)</span> of the initial system? By system states, we mean values of the binary feature “Will_go” - 0 or 1 - two states in total.</p>
 <div class="cell docutils container">
@@ -1516,8 +1517,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="train-a-decision-tree-using-sklearn-on-the-training-data-you-may-choose-any-depth-for-the-tree">
+</section>
+<section id="train-a-decision-tree-using-sklearn-on-the-training-data-you-may-choose-any-depth-for-the-tree">
 <h3>Train a decision tree using sklearn on the training data. You may choose any depth for the tree.<a class="headerlink" href="#train-a-decision-tree-using-sklearn-on-the-training-data-you-may-choose-any-depth-for-the-tree" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1526,8 +1527,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="additional-display-the-resulting-tree-using-graphviz-you-can-use-pydot-or-a-web-service-e-g-this-one">
+</section>
+<section id="additional-display-the-resulting-tree-using-graphviz-you-can-use-pydot-or-a-web-service-e-g-this-one">
 <h3>Additional: display the resulting tree using graphviz. You can use pydot or a web-service, e.g. <a class="reference external" href="https://onlineconvertfree.com/convert-format/dot-to-png/">this one</a>.<a class="headerlink" href="#additional-display-the-resulting-tree-using-graphviz-you-can-use-pydot-or-a-web-service-e-g-this-one" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1536,9 +1537,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="part-2-functions-for-calculating-entropy-and-information-gain">
+</section>
+</section>
+<section id="part-2-functions-for-calculating-entropy-and-information-gain">
 <h2>Part 2. Functions for calculating entropy and information gain.<a class="headerlink" href="#part-2-functions-for-calculating-entropy-and-information-gain" title="Permalink to this headline">#</a></h2>
 <p>Consider the following warm-up example: we have 9 blue balls and 11 yellow balls. Let ball have label <strong>1</strong> if it is blue, <strong>0</strong> otherwise.</p>
 <div class="cell docutils container">
@@ -1559,7 +1560,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="implement-a-function-to-calculate-the-shannon-entropy">
+<section id="implement-a-function-to-calculate-the-shannon-entropy">
 <h3>Implement a function to calculate the Shannon Entropy<a class="headerlink" href="#implement-a-function-to-calculate-the-shannon-entropy" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1615,16 +1616,16 @@ None
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="optional">
+</section>
+<section id="optional">
 <h3>Optional:<a class="headerlink" href="#optional" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Implement a decision tree building algorithm by calling <code class="docutils literal notranslate"><span class="pre">information_gains</span></code> recursively</p></li>
 <li><p>Plot the resulting tree</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="part-3-the-adult-dataset">
+</section>
+</section>
+<section id="part-3-the-adult-dataset">
 <h2>Part 3. The “Adult” dataset<a class="headerlink" href="#part-3-the-adult-dataset" title="Permalink to this headline">#</a></h2>
 <p><strong>Dataset description:</strong></p>
 <p><a class="reference external" href="http://archive.ics.uci.edu/ml/machine-learning-databases/adult">Dataset</a> UCI Adult (no need to download it, we have a copy in the course repository): classify people using demographic data - whether they earn more than $50,000 per year or not.</p>
@@ -2708,7 +2709,7 @@ memory usage: 3.7+ MB
 </div>
 </div>
 </div>
-<div class="section" id="decision-tree-without-parameter-tuning">
+<section id="decision-tree-without-parameter-tuning">
 <h3>3.1 Decision tree without parameter tuning<a class="headerlink" href="#decision-tree-without-parameter-tuning" title="Permalink to this headline">#</a></h3>
 <p>Train a decision tree <strong>(DecisionTreeClassifier)</strong> with a maximum depth of 3, and evaluate the accuracy metric on the test data. Use parameter <strong>random_state = 17</strong> for results reproducibility.</p>
 <div class="cell docutils container">
@@ -2738,8 +2739,8 @@ memory usage: 3.7+ MB
 </div>
 </div>
 <p>6. What is the test set accuracy of a decision tree with maximum tree depth of 3 and <strong>random_state = 17</strong>?</p>
-</div>
-<div class="section" id="decision-tree-with-parameter-tuning">
+</section>
+<section id="decision-tree-with-parameter-tuning">
 <h3>3.2 Decision tree with parameter tuning<a class="headerlink" href="#decision-tree-with-parameter-tuning" title="Permalink to this headline">#</a></h3>
 <p>Train a decision tree <strong>(DecisionTreeClassifier, random_state = 17).</strong> Find the optimal maximum depth using 5-fold cross-validation <strong>(GridSearchCV)</strong>.</p>
 <div class="cell docutils container">
@@ -2772,8 +2773,8 @@ memory usage: 3.7+ MB
 </div>
 </div>
 <p>7. What is the test set accuracy of a decision tree with maximum depth of 9 and <strong>random_state = 17</strong>?</p>
-</div>
-<div class="section" id="optional-random-forest-without-parameter-tuning">
+</section>
+<section id="optional-random-forest-without-parameter-tuning">
 <h3>3.3 (Optional) Random forest without parameter tuning<a class="headerlink" href="#optional-random-forest-without-parameter-tuning" title="Permalink to this headline">#</a></h3>
 <p>Let’s take a sneak peek of upcoming lectures and try to use a random forest for our task. For now, you can imagine a random forest as a bunch of decision trees, trained on slightly different subsets of the training data.</p>
 <p>Train a random forest <strong>(RandomForestClassifier)</strong>. Set the number of trees to 100 and use <strong>random_state = 17</strong>.</p>
@@ -2794,8 +2795,8 @@ memory usage: 3.7+ MB
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="optional-random-forest-with-parameter-tuning">
+</section>
+<section id="optional-random-forest-with-parameter-tuning">
 <h3>3.4 (Optional) Random forest with parameter tuning<a class="headerlink" href="#optional-random-forest-with-parameter-tuning" title="Permalink to this headline">#</a></h3>
 <p>Train a random forest <strong>(RandomForestClassifier)</strong>. Tune the maximum depth and maximum number of features for each tree using <strong>GridSearchCV</strong>.</p>
 <div class="cell docutils container">
@@ -2818,9 +2819,9 @@ memory usage: 3.7+ MB
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

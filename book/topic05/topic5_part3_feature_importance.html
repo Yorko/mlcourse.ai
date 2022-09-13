@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Topic 5. Ensembles and random forest. Part 3. Feature importance &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -918,12 +919,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-5-ensembles-and-random-forest-part-3-feature-importance">
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-3-feature-importance">
 <span id="topic05-part3"></span><h1>Topic 5. Ensembles and random forest. Part 3. Feature importance<a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-3-feature-importance" title="Permalink to this headline">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, and Mikalai Parshutsich. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, Artem Gruzdev, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-<div class="section" id="article-outline">
+<section id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#intuition">Intuition</a></p></li>
@@ -933,15 +934,15 @@ title="Print to PDF"
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
 <p>It’s quite often that you want to make out the exact reasons of the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.</p>
-</div>
-<div class="section" id="intuition">
+</section>
+<section id="intuition">
 <h2>1. Intuition<a class="headerlink" href="#intuition" title="Permalink to this headline">#</a></h2>
 <p>From the picture below, it is intuitively clear that, in our credit scoring problem, <em>Age</em> is much more important than <em>Income</em>. This can be formally explained using the concept of <em>information gain</em>.</p>
 <img src="../../_static/img/credit_scoring_toy_tree_english.png" align='center'>
-<p>In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as the <em>Gini impurity</em>, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.</p>
+<p>In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as <em>Gini impurity</em>, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.</p>
 <p>Let’s go a little deeper into the details.</p>
 <p>There exist a lot of methods to assess feature importances. Leo Breinman in his works suggested to evaluate the importance of a variable by measuring decrease of accuracy of the forest when the variable is randomly permuted or decrease of impurity of a nodes where the given variable is used for splitting. The former method is often called <strong>permutation importance</strong>. The latter method is used in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
-<div class="section" id="permutation-importance">
+<section id="permutation-importance">
 <h3>Permutation importance<a class="headerlink" href="#permutation-importance" title="Permalink to this headline">#</a></h3>
 <p>Inspired by <a class="reference external" href="https://www.researchgate.net/publication/5231126_Conditional_Variable_Importance_for_Random_Forests">this</a> article.
 The average reduction in accuracy caused by a variable is determined during the calculation of the out-of-bag error. The greater the reduction in accuracy due to an exclusion or permutation of the variable, the higher its <em>importance score</em>. For this reason, variables with a greater average reduction in accuracy are generally more significant for classification.</p>
@@ -964,9 +965,9 @@ $<span class="math notranslate nohighlight">\({PI}\left(X_j\right)=\frac{\sum_{t
 <li><p>normalized by the standard deviation of the differences:
 $<span class="math notranslate nohighlight">\(z_j=\frac{{PI}\left(X_j\right)}{\frac{\hat{\sigma}}{\sqrt{N}}}\)</span>$</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="illustrating-permutation-importance">
+</section>
+</section>
+<section id="illustrating-permutation-importance">
 <h2>2. Illustrating permutation importance<a class="headerlink" href="#illustrating-permutation-importance" title="Permalink to this headline">#</a></h2>
 <p>Let’s assume that we have a toy dataset with 10 instances. Target variable can be either <strong>‘N’</strong> or <strong>‘P’</strong>.</p>
 <div class="math notranslate nohighlight">
@@ -1035,25 +1036,25 @@ $<span class="math notranslate nohighlight">\(z_j=\frac{{PI}\left(X_j\right)}{\f
 <p>The accuracy after permutation is <span class="math notranslate nohighlight">\(2/4=0.50\)</span>.</p>
 <p>Then the difference between accuracies is computed.</p>
 <p>The above mentioned steps are to be done for each out-of-bag sample <span class="math notranslate nohighlight">\(\overline{\mathfrak{B}}^{(t)}\)</span>. To get not normalized <em>permutation importance</em> we sum all computed differences and divide by the number of trees. Normalization is done by dividing <em>not normalized permutation importance</em> by standard error.</p>
-</div>
-<div class="section" id="sklearn-random-forest-feature-importance">
+</section>
+<section id="sklearn-random-forest-feature-importance">
 <h2>3. Sklearn Random Forest Feature Importance<a class="headerlink" href="#sklearn-random-forest-feature-importance" title="Permalink to this headline">#</a></h2>
 <p>Inspired by <a class="reference external" href="https://medium.com/&#64;srnghn/the-mathematics-of-decision-trees-random-forest-and-feature-importance-in-scikit-learn-and-spark-f2861df67e3">this</a> article.
 Sklearn library uses another approach to determine feature importance. The rationale for that method is that the more gain in information the node (with splitting feature <span class="math notranslate nohighlight">\(X_j\)</span>) provides, the higher its importance.</p>
 <p>The average reduction in the Gini impurity – or MSE for regression – represents the contribution of each feature to the homogeneity of nodes and leaves in the resulting Random Forest model. Each time a selected feature is used for splitting, the Gini impurity of the child nodes is calculated and compared with that of the original node.</p>
 <p>Gini impurity is a score of homogeneity with the range from  0  (homogeneous) to  1  (heterogeneous). The changes in the value of the splitting criterion are accumulated for each feature and normalized at the end of the calculation. A higher reduction in the Gini impurity signals that splitting results by this feature results in nodes with higher purity.</p>
 <p>The algorithm of obtaining feature importance may be represented with the following sequence of steps:</p>
-<ol class="simple">
-<li><p>For each tree <span class="math notranslate nohighlight">\(t\)</span> in ensemble <span class="math notranslate nohighlight">\(t\in\{1,...,N\}\)</span>:</p></li>
-</ol>
-<p>1.1.  for each node <span class="math notranslate nohighlight">\(i\)</span> calculate the reduction in impurity (such as MSE, Gini or entropy) as <span class="math notranslate nohighlight">\({RI}_i^{(t)}=w_i^{(t)}\cdot I_i^{(t)} - w_{LEFT_i}^{(t)}\cdot I_{LEFT_i}^{(t)}-w_{RIGHT_i}^{(t)}\cdot I_{RIGHT_i}^{(t)}\)</span>, where:
-- <span class="math notranslate nohighlight">\(w_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(w_{LEFT_i}^{(t)}\)</span>, and <span class="math notranslate nohighlight">\(w_{RIGHT_i}^{(t)}\)</span> are respectively weighted number of samples reaching   node <span class="math notranslate nohighlight">\(i\)</span> in tree <span class="math notranslate nohighlight">\(t\)</span>, and its left <span class="math notranslate nohighlight">\(LEFT_i\)</span> and right <span class="math notranslate nohighlight">\(RIGHT_i\)</span> children
-- <span class="math notranslate nohighlight">\(I_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(I_{LEFT_i}^{(t)}\)</span>,   <span class="math notranslate nohighlight">\(I_{RIGHT_i}^{(t)}\)</span> are impurities (such as MSE, Gini or entropy) of the nodes. For leaves <span class="math notranslate nohighlight">\({RI}_i^{(t)}\)</span> is equal to 0.</p>
+<p>1. For each tree <span class="math notranslate nohighlight">\(t\)</span> in ensemble <span class="math notranslate nohighlight">\(t\in\{1,...,N\}\)</span>:</p>
+<p>1.1.  for each node <span class="math notranslate nohighlight">\(i\)</span> calculate the reduction in impurity (such as MSE, Gini or entropy) as <span class="math notranslate nohighlight">\({RI}_i^{(t)}=w_i^{(t)}\cdot I_i^{(t)} - w_{LEFT_i}^{(t)}\cdot I_{LEFT_i}^{(t)}-w_{RIGHT_i}^{(t)}\cdot I_{RIGHT_i}^{(t)}\)</span>, where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(w_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(w_{LEFT_i}^{(t)}\)</span>, and <span class="math notranslate nohighlight">\(w_{RIGHT_i}^{(t)}\)</span> are respectively weighted number of samples reaching   node <span class="math notranslate nohighlight">\(i\)</span> in tree <span class="math notranslate nohighlight">\(t\)</span>, and its left <span class="math notranslate nohighlight">\(LEFT_i\)</span> and right <span class="math notranslate nohighlight">\(RIGHT_i\)</span> children</p></li>
+<li><p><span class="math notranslate nohighlight">\(I_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(I_{LEFT_i}^{(t)}\)</span>,   <span class="math notranslate nohighlight">\(I_{RIGHT_i}^{(t)}\)</span> are impurities (such as MSE, Gini or entropy) of the nodes. For leaves <span class="math notranslate nohighlight">\({RI}_i^{(t)}\)</span> is equal to 0.</p></li>
+</ul>
 <p>1.2.  for each feature <span class="math notranslate nohighlight">\(j\)</span> calculate its importance in that particular tree as</p>
 <div class="math notranslate nohighlight">
 \[{FI}_j^{(t)}=\frac{\sum_{i:\text{node }i\text{ splits on feature } j}{RI}_i^{(t)}}{\sum_{i\in\text{all nodes}}{RI}_i^{(t)}}\]</div>
-<p>That means that in numerator we sum the reduction in impurity only in those nodes where feature <span class="math notranslate nohighlight">\(j\)</span> is situated.
-2. Calculate the average feature importances over all trees in ensemble:</p>
+<p>That means that in numerator we sum the reduction in impurity only in those nodes where feature <span class="math notranslate nohighlight">\(j\)</span> is situated.</p>
+<p>2. Calculate the average feature importances over all trees in ensemble:</p>
 <div class="math notranslate nohighlight">
 \[{FI}_j=\frac{\sum_{t=1}^N {FI}_j^{(t)}}{N}\]</div>
 <p>Those are pretty confusing formulas so let’s demonstrate each step with the Iris Dataset.</p>
@@ -1210,7 +1211,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span>
     <span class="n">tree_list</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
     <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -1231,7 +1232,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 <div class="math notranslate nohighlight">
 \[{RI}_{{SL}_2}^{(1)}=\frac{56}{150}\cdot 0.035077 - \frac{7}{150}\cdot 0.244898 - \frac{49}{150}\cdot 0 = 0.001667\]</div>
 <p>Note: The impurity for each node was recalculated to gain more accuracy than given in the picture.</p>
-<p>By doing the same calculations we get the following reduction in impurity for <code class="docutils literal notranslate"><span class="pre">Petal</span> <span class="pre">width</span> <span class="pre">(cm)</span></code>, and <code class="docutils literal notranslate"><span class="pre">Petal</span> <span class="pre">width</span> <span class="pre">(cm)</span></code> features:</p>
+<p>By doing the same calculations we get the following reduction in impurity for <code class="docutils literal notranslate"><span class="pre">Petal</span> <span class="pre">length</span> <span class="pre">(cm)</span></code>, and <code class="docutils literal notranslate"><span class="pre">Petal</span> <span class="pre">width</span> <span class="pre">(cm)</span></code> features:</p>
 <div class="math notranslate nohighlight">
 \[{RI}_{PL}^{(1)}=0.035785\]</div>
 <div class="math notranslate nohighlight">
@@ -1276,8 +1277,8 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <p>Voila!</p>
-</div>
-<div class="section" id="practical-example">
+</section>
+<section id="practical-example">
 <h2>4. Practical example<a class="headerlink" href="#practical-example" title="Permalink to this headline">#</a></h2>
 <p>Let’s consider the results of a survey given to visitors of hostels listed on <a class="reference external" href="https://www.booking.com/">Booking.com</a> and <a class="reference external" href="https://www.tripadvisor.com/">TripAdvisor.com</a>. Our features here are the average ratings for different categories including service quality, room condition, value for money, etc. Our target variable is the hostel’s overall rating on the website.</p>
 <div class="cell docutils container">
@@ -1363,8 +1364,8 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <p>The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model’s accuracy. However, based on our analysis, we can recommend hostel owners to focus primarily on staff training and price-to-quality ratio.</p>
-</div>
-<div class="section" id="useful-resources">
+</section>
+<section id="useful-resources">
 <h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
@@ -1376,8 +1377,8 @@ Sklearn library uses another approach to determine feature importance. The ratio
 <li><p>More about practical applications of random forests and other algorithms can be found in the <a class="reference external" href="http://scikit-learn.org/stable/modules/ensemble.html">official documentation</a> of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
 <li><p>For a more in-depth discussion of variance and decorrelation of random forests, see the <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf">original paper</a>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

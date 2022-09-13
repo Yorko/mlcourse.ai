@@ -35,6 +35,7 @@ This article will contain almost no math, but there will be a fair amount of cod
 # preload dataset automatically, if not already in place.
 import os
 from pathlib import Path
+from pprint import pprint
 import numpy as np
 import pandas as pd
 
@@ -285,7 +286,9 @@ If you have a small amount of data, enough time, and no desire to extract fancy 
 ```{code-cell} ipython3
 import reverse_geocoder as revgc
 
-revgc.search(list(zip(df.latitude, df.longitude)))
+results = revgc.search(list(zip(df.latitude, df.longitude)))
+
+pprint(results[:2])
 ```
 
 When working with geocoding, we must not forget that addresses may contain typos, which makes the data cleaning step necessary. Coordinates contain fewer misprints, but its position can be incorrect due to GPS noise or bad accuracy in places like tunnels, downtown areas, etc. If the data source is a mobile device, the geolocation may not be determined by GPS but by WiFi networks in the area, which leads to holes in space and teleportation. While traveling along in Manhattan, there can suddenly be a WiFi location from Chicago.

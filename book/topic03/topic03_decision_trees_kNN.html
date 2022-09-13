@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Topic 3. Classification, Decision Trees and k Nearest Neighbors &#8212; mlcourse.ai</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -1178,14 +1179,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="topic-3-classification-decision-trees-and-k-nearest-neighbors">
+  <section class="tex2jax_ignore mathjax_ignore" id="topic-3-classification-decision-trees-and-k-nearest-neighbors">
 <span id="topic03"></span><h1>Topic 3. Classification, Decision Trees and k Nearest Neighbors<a class="headerlink" href="#topic-3-classification-decision-trees-and-k-nearest-neighbors" title="Permalink to this headline">#</a></h1>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
-</div>
+</figure>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, Gleb Filatov, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
-<div class="section" id="article-outline">
+<section id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
@@ -1196,8 +1197,8 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <li><p><a class="reference external" href="#pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method">Pros and Cons of Decision Trees and the Nearest Neighbors Method</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
-</div>
-<div class="section" id="introduction">
+</section>
+<section id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Before we dive into the material for this week’s article, let’s talk about the kind of problem that we are going to solve and its place in the exciting field of machine learning. T. Mitchell’s book “Machine Learning” (1997) gives a classic, general definition of machine learning as follows:</p>
 <blockquote>
@@ -1213,48 +1214,48 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </ul>
 <p>A good overview is provided in the “Machine Learning basics” chapter of <a class="reference external" href="http://www.deeplearningbook.org">“Deep Learning”</a> (by Ian Goodfellow, Yoshua Bengio, Aaron Courville, 2016).</p>
 <p>Experience E refers to data (we can’t go anywhere without it). Machine learning algorithms can be divided into those that are trained in supervised or unsupervised manner. In unsupervised learning tasks, one has a set consisting of instances described by a set of features. In supervised learning problems, there’s also a target variable, which is what we would like to be able to predict, known for each instance in a training set.</p>
-<div class="section" id="example">
+<section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
 <p>Classification and regression are supervised learning problems. For example, as a credit institution, we may want to predict loan defaults based on the data accumulated about our clients. Here, the experience E is the available training data: a set of instances (clients), a collection of features (such as age, salary, type of loan, past loan defaults, etc.) for each, and a target variable (whether they defaulted on the loan). This target variable is just a fact of loan default (1 or 0), so recall that this is a (binary) classification problem. If you were instead predicting by how much time the loan payment is overdue, this would become a regression problem.</p>
 <p>Finally, the third term used in the definition of machine learning is a metric of the algorithm’s performance evaluation P. Such metrics differ for various problems and algorithms, and we’ll discuss them as we study new algorithms. For now, we’ll refer to a simple metric for classification algorithms, the proportion of correct answers – accuracy – on the test set.</p>
 <p>Let’s take a look at two supervised learning problems: classification and regression.</p>
-</div>
-</div>
-<div class="section" id="decision-tree">
+</section>
+</section>
+<section id="decision-tree">
 <h2>2. Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">#</a></h2>
 <p>We begin our overview of classification and regression methods with one of the most popular ones – a decision tree. Decision trees are used in everyday life decisions, not just in machine learning. Flow diagrams are actually visual representations of decision trees. For example, Higher School of Economics publishes information diagrams to make the lives of its employees easier. Here is a snippet of instructions for publishing a paper on the Institution portal.</p>
-<div class="figure align-default" id="topic3-hse-instruction">
+<figure class="align-default" id="topic3-hse-instruction">
 <a class="reference internal image-reference" href="../../_images/topic3_hse_instruction.png"><img alt="../../_images/topic3_hse_instruction.png" src="../../_images/topic3_hse_instruction.png" style="width: 600px;" /></a>
-</div>
+</figure>
 <p>In terms of machine learning, one can see it as a simple classifier that determines the appropriate form of publication (book, article, chapter of the book, preprint, publication in the “Higher School of Economics and the Media”) based on the content (book, pamphlet, paper), type of journal, original publication type (scientific journal, proceedings), etc.</p>
 <p>A decision tree is often a generalization of the experts’ experience, a means of sharing knowledge of a particular process. For example, before the introduction of scalable machine learning algorithms, the credit scoring task in the banking sector was solved by experts. The decision to grant a loan was made on the basis of some intuitively (or empirically) derived rules that could be represented as a decision tree.</p>
-<div class="figure align-default" id="credit-scoring-toy-tree-english-png">
+<figure class="align-default" id="credit-scoring-toy-tree-english-png">
 <a class="reference internal image-reference" href="../../_images/credit_scoring_toy_tree_english.png"><img alt="../../_images/credit_scoring_toy_tree_english.png" src="../../_images/credit_scoring_toy_tree_english.png" style="width: 444px;" /></a>
-</div>
+</figure>
 <p>In our next case, we solve a binary classification problem (approve/deny a loan) based on the “Age”, “Home-ownership”, “Income”, and “Education” features.</p>
 <p>The decision tree as a machine learning algorithm is essentially the same thing as the diagram shown above; we incorporate a stream of logical rules of the form “feature <span class="math notranslate nohighlight">\(a\)</span> value is less than <span class="math notranslate nohighlight">\(x\)</span> and feature <span class="math notranslate nohighlight">\(b\)</span> value is less than <span class="math notranslate nohighlight">\(y\)</span> … =&gt; Category 1” into a tree-like data structure. The advantage of this algorithm is that they are easily interpretable. For example, using the above scheme, the bank can explain to the client why they were denied for a loan: e.g the client does not own a house and her income is less than 5,000.</p>
 <p>As we’ll see later, many other models, although more accurate, do not have this property and can be regarded as more of a “black box” approach, where it is harder to interpret how the input data was transformed into the output. Due to this “understandability” and similarity to human decision-making (you can easily explain your model to your boss), decision trees have gained immense popularity. C4.5, a representative of this group of classification methods, is even the first in the list of 10 best data mining algorithms (“Top 10 Algorithms in Data Mining”, Knowledge and Information Systems, 2008. <a class="reference external" href="https://www.researchgate.net/publication/29467751_Top_10_algorithms_in_data_mining">ResearchGate</a>).</p>
-<div class="section" id="how-to-build-a-decision-tree">
+<section id="how-to-build-a-decision-tree">
 <h3>How to Build a Decision Tree<a class="headerlink" href="#how-to-build-a-decision-tree" title="Permalink to this headline">#</a></h3>
 <p>Earlier, we saw that the decision to grant a loan is made based on age, assets, income, and other variables. But what variable to look at first? Let’s discuss a simple example where all the variables are binary.</p>
 <p>Recall the game of “20 Questions”, which is often referenced when introducing decision trees. You’ve probably played this game – one person thinks of a celebrity while the other tries to guess by asking only “Yes” or “No” questions. What question will the guesser ask first? Of course, they will ask the one that narrows down the number of the remaining options the most. Asking “Is it Angelina Jolie?” would, in the case of a negative response, leave all but one celebrity in the realm of possibility. In contrast, asking “Is the celebrity a woman?” would reduce the possibilities to roughly half. That is to say, the “gender” feature separates the celebrity dataset much better than other features like “Angelina Jolie”, “Spanish”, or “loves football.” This reasoning corresponds to the concept of information gain based on entropy.</p>
-<div class="section" id="entropy">
+<section id="entropy">
 <h4>Entropy<a class="headerlink" href="#entropy" title="Permalink to this headline">#</a></h4>
 <p>Shannon’s entropy is defined for a system with N possible states as follows:</p>
 <div class="math notranslate nohighlight">
 \[\Large S = -\sum_{i=1}^{N}p_i \log_2{p_i},\]</div>
 <p>where <span class="math notranslate nohighlight">\(p_i\)</span> is the probability of finding the system in the <span class="math notranslate nohighlight">\(i\)</span>-th state. This is a very important concept used in physics, information theory, and other areas. Entropy can be described as the degree of chaos in the system. The higher the entropy, the less ordered the system and vice versa. This will help us formalize “effective data splitting”, which we alluded to in the context of “20 Questions”.</p>
-</div>
-<div class="section" id="toy-example">
+</section>
+<section id="toy-example">
 <h4>Toy Example<a class="headerlink" href="#toy-example" title="Permalink to this headline">#</a></h4>
 <p>To illustrate how entropy can help us identify good features for building a decision tree, let’s look at a toy example. We will predict the color of the ball based on its position.</p>
-<div class="figure align-default" id="decision-tree3">
+<figure class="align-default" id="decision-tree3">
 <a class="reference internal image-reference" href="../../_images/decision_tree3.png"><img alt="../../_images/decision_tree3.png" src="../../_images/decision_tree3.png" style="width: 444px;" /></a>
-</div>
+</figure>
 <p>There are 9 blue balls and 11 yellow balls. If we randomly pull out a ball, then it will be blue with probability <span class="math notranslate nohighlight">\(p_1=\frac{9}{20}\)</span> and yellow with probability <span class="math notranslate nohighlight">\(p_2=\frac{11}{20}\)</span>, which gives us an entropy <span class="math notranslate nohighlight">\(S_0 = -\frac{9}{20}\log_2{\frac{9}{20}}-\frac{11}{20}\log_2{\frac{11}{20}} \approx 1\)</span>. This value by itself may not tell us much, but let’s see how the value changes if we were to break the balls into two groups: with the position less than or equal to 12 and greater than 12.</p>
-<div class="figure align-default" id="topic3-entropy-balls2">
+<figure class="align-default" id="topic3-entropy-balls2">
 <img alt="../../_images/topic3_entropy_balls2.png" src="../../_images/topic3_entropy_balls2.png" />
-</div>
+</figure>
 <p>The left group has 13 balls, 8 blue and 5 yellow. The entropy of this group is <span class="math notranslate nohighlight">\(S_1 = -\frac{5}{13}\log_2{\frac{5}{13}}-\frac{8}{13}\log_2{\frac{8}{13}} \approx 0.96\)</span>. The right group has 7 balls, 1 blue and 6 yellow. The entropy of the right group is <span class="math notranslate nohighlight">\(S_2 = -\frac{1}{7}\log_2{\frac{1}{7}}-\frac{6}{7}\log_2{\frac{6}{7}} \approx 0.6\)</span>. As you can see, entropy has decreased in both groups, more so in the right group. Since entropy is, in fact, the degree of chaos (or uncertainty) in the system, the reduction in entropy is called information gain. Formally, the information gain (IG) for a split based on the variable <span class="math notranslate nohighlight">\(Q\)</span> (in this example it’s a variable “<span class="math notranslate nohighlight">\(x \leq 12\)</span>”) is defined as</p>
 <div class="math notranslate nohighlight">
 \[\Large IG(Q) = S_O - \sum_{i=1}^{q}\frac{N_i}{N}S_i,\]</div>
@@ -1262,14 +1263,14 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <div class="math notranslate nohighlight">
 \[ \Large IG(x \leq 12) = S_0 - \frac{13}{20}S_1 - \frac{7}{20}S_2 \approx 0.16.\]</div>
 <p>It turns out that dividing the balls into two groups by splitting on “coordinate is less than or equal to 12” gave us a more ordered system. Let’s continue to divide them into groups until the balls in each group are all of the same color.</p>
-<div class="figure align-default" id="topic3-credit-scoring-entropy">
+<figure class="align-default" id="topic3-credit-scoring-entropy">
 <img alt="../../_images/topic3_credit_scoring_entropy.png" src="../../_images/topic3_credit_scoring_entropy.png" />
-</div>
+</figure>
 <p>For the right group, we can easily see that we only need one extra partition using “coordinate less than or equal to 18”. But, for the left group, we need three more. Note that the entropy of a group where all of the balls are the same color is equal to 0 (<span class="math notranslate nohighlight">\(\log_2{1} = 0\)</span>).</p>
 <p>We have successfully constructed a decision tree that predicts ball color based on its position. This decision tree may not work well if we add any balls because it has perfectly fit to the training set (initial 20 balls). If we wanted to do well in that case, a tree with fewer “questions” or splits would be more accurate, even if it does not perfectly fit the training set. We will discuss the problem of overfitting later.</p>
-</div>
-</div>
-<div class="section" id="tree-building-algorithm">
+</section>
+</section>
+<section id="tree-building-algorithm">
 <h3>Tree-building Algorithm<a class="headerlink" href="#tree-building-algorithm" title="Permalink to this headline">#</a></h3>
 <p>We can make sure that the tree built in the previous example is optimal: it took only 5 “questions” (conditioned on the variable <span class="math notranslate nohighlight">\(x\)</span>) to perfectly fit a decision tree to the training set. Under other split conditions, the resulting tree would be deeper, i.e. take more “questions” to reach an answer.</p>
 <p>At the heart of the popular algorithms for decision tree construction, such as ID3 or C4.5, lies the principle of greedy maximization of information gain: at each step, the algorithm chooses the variable that gives the greatest information gain upon splitting. Then the procedure is repeated recursively until the entropy is zero (or some small value to account for overfitting). Different algorithms use different heuristics for “early stopping” or “cut-off” to avoid constructing an overfitted tree.</p>
@@ -1284,8 +1285,8 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
     <span class="k">return</span> <span class="n">t</span>  
 </pre></div>
 </div>
-</div>
-<div class="section" id="other-quality-criteria-for-splits-in-classification-problems">
+</section>
+<section id="other-quality-criteria-for-splits-in-classification-problems">
 <h3>Other Quality Criteria for Splits in Classification Problems<a class="headerlink" href="#other-quality-criteria-for-splits-in-classification-problems" title="Permalink to this headline">#</a></h3>
 <p>We discussed how entropy allows us to formalize partitions in a tree. But this is only one heuristic; there exists others:</p>
 <ul class="simple">
@@ -1337,7 +1338,7 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <img alt="../../_images/topic03_decision_trees_kNN_2_0.png" src="../../_images/topic03_decision_trees_kNN_2_0.png" />
 </div>
 </div>
-<div class="section" id="id1">
+<section id="id1">
 <h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <p>Let’s consider fitting a decision tree to some synthetic data. We will generate samples from two classes, both normal distributions but with different means.</p>
 <div class="cell docutils container">
@@ -1441,16 +1442,16 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </div>
 </div>
 </div>
-<div class="figure align-default" id="topic3-decision-tree1">
+<figure class="align-default" id="topic3-decision-tree1">
 <img alt="../../_images/topic3_decision_tree1.png" src="../../_images/topic3_decision_tree1.png" />
-</div>
-</div>
-<div class="section" id="how-can-we-read-such-a-tree">
+</figure>
+</section>
+<section id="how-can-we-read-such-a-tree">
 <h4>How can we “read” such a tree?<a class="headerlink" href="#how-can-we-read-such-a-tree" title="Permalink to this headline">#</a></h4>
 <p>In the beginning, there were 200 samples (instances), 100 of each class. The entropy of the initial state was maximal, <span class="math notranslate nohighlight">\(S=1\)</span>. Then, the first partition of the samples into 2 groups was made by comparing the value of <span class="math notranslate nohighlight">\(x_2\)</span> with <span class="math notranslate nohighlight">\(1.211\)</span> (find this part of the border in the picture above). With that, the entropy of both left and right groups decreased. The process continues up to depth 3. In this visualization, the more samples of the first class, the darker the orange color of the vertex; the more samples of the second class, the darker the blue. At the beginning, the number of samples from two classes is equal, so the root node of the tree is white.</p>
-</div>
-</div>
-<div class="section" id="how-a-decision-tree-works-with-numerical-features">
+</section>
+</section>
+<section id="how-a-decision-tree-works-with-numerical-features">
 <h3>How a Decision Tree Works with Numerical Features<a class="headerlink" href="#how-a-decision-tree-works-with-numerical-features" title="Permalink to this headline">#</a></h3>
 <p>Suppose we have a numeric feature “Age” that has a lot of unique values. A decision tree will look for the best (according to some criterion of information gain) split by checking binary attributes such as “Age &lt;17”, “Age &lt; 22.87”, and so on. But what if the age range is large? Or what if another quantitative variable, “salary”, can also be “cut” in many ways? There will be too many binary attributes to select from at each step during tree construction. To resolve this problem, heuristics are usually used to limit the number of thresholds to which we compare the quantitative variable.</p>
 <p>Let’s consider an example. Suppose we have the following dataset:</p>
@@ -1653,9 +1654,9 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </div>
 </div>
 </div>
-<div class="figure align-default" id="topic3-decision-tree2">
+<figure class="align-default" id="topic3-decision-tree2">
 <img alt="../../_images/topic3_decision_tree2.png" src="../../_images/topic3_decision_tree2.png" />
-</div>
+</figure>
 <p>We see that the tree used the following 5 values to evaluate by age: 43.5, 19, 22.5, 30, and 32 years. If you look closely, these are exactly the mean values between the ages at which the target class “switches” from 1 to 0 or 0 to 1. To illustrate further, 43.5 is the average of 38 and 49 years; a 38-year-old customer failed to return the loan whereas the 49-year-old did. The tree looks for the values at which the target class switches its value as a threshold for “cutting” a quantitative variable.</p>
 <p>Given this information, why do you think it makes no sense here to consider a feature like “Age &lt;17.5”?</p>
 <p>Let’s consider a more complex example by adding the “Salary” variable (in the thousands of dollars per year).</p>
@@ -1888,9 +1889,9 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </div>
 </div>
 </div>
-<div class="figure align-default" id="topic3-decision-tree3">
+<figure class="align-default" id="topic3-decision-tree3">
 <img alt="../../_images/topic3_decision_tree3.png" src="../../_images/topic3_decision_tree3.png" />
-</div>
+</figure>
 <p>We see that the tree partitioned by both salary and age. Moreover, the thresholds for feature comparisons are 43.5 and 22.5 years of age and 95k and 30.5k per year. Again, we see that 95 is the average between 88 and 102; the individual with a salary of 88k proved to be “bad” while the one with 102k was “good”. The same goes for 30.5k. That is, only a few values for comparisons by age and salary were searched. Why did the tree choose these features? Because they gave better partitioning (according to Gini uncertainty).</p>
 <p><strong>Conclusion</strong>: the simplest heuristics for handling numeric features in a decision tree is to sort its values in ascending order and check only those thresholds where the value of the target variable changes.</p>
 <p>Furthermore, when there are a lot of numeric features in a dataset, each with a lot of unique values, only the top-N of the thresholds described above are selected, i.e. only use the top-N that give maximum gain. The process is to construct a tree of depth 1, compute the entropy (or Gini uncertainty), and select the best thresholds for comparison.</p>
@@ -1898,8 +1899,8 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 If we split by “Salary <span class="math notranslate nohighlight">\(\leq\)</span> 95”, the left subgroup will have the entropy of 0.97 (6 “bad” and 4 “good”), and the right one will have the entropy of 0 (a group containing only one object). The information gain is about 0.11.
 If we calculate information gain for each partition in that manner, we can select the thresholds for comparison of each numeric feature before the construction of a large tree (using all features).</p>
 <p>More examples of numeric feature discretization can be found in posts like <a class="reference external" href="https://natmeurer.com/a-simple-guide-to-entropy-based-discretization/">“A Simple Guide to Entropy-Based Discretization”</a> or <a class="reference external" href="https://brandewinder.com/2013/05/26/Discretizing-a-continuous-variable-using-Entropy/">“Discretizing a continuous variable using Entropy”</a>. One of the most prominent scientific papers on this subject is “On the handling of continuous-valued attributes in decision tree generation” (UM Fayyad. KB Irani, “Machine Learning”, 1992).</p>
-</div>
-<div class="section" id="crucial-tree-parameters">
+</section>
+<section id="crucial-tree-parameters">
 <h3>Crucial Tree Parameters<a class="headerlink" href="#crucial-tree-parameters" title="Permalink to this headline">#</a></h3>
 <p>Technically, you can build a decision tree until each leaf has exactly one instance, but this is not common in practice when building a single tree because it will be <em>overfitted</em>, or too tuned to the training set, and will not predict labels for new data well. At the bottom of the tree, at some great depth, there will be partitions on less important features (e.g. whether a client came from Leeds or New York). We can exaggerate this story further and find that all four clients who came to the bank for a loan in green trousers did not return the loan. Even if that were true in training, we do not want our classification model to generate such specific rules.</p>
 <p>There are two exceptions where the trees are built to the maximum depth:</p>
@@ -1908,16 +1909,16 @@ If we calculate information gain for each partition in that manner, we can selec
 <li><p><em>Pruning</em> trees. In this approach, the tree is first constructed to the maximum depth. Then, from the bottom up, some nodes of the tree are removed by comparing the quality of the tree with and without that partition (comparison is performed using <em>cross-validation</em>, more on this below).</p></li>
 </ul>
 <p>The picture below is an example of a dividing border built in an overfitted tree.</p>
-<div class="figure align-default" id="topic3-tree-border-overfitting">
+<figure class="align-default" id="topic3-tree-border-overfitting">
 <img alt="../../_images/topic3_tree_border_overfitting.png" src="../../_images/topic3_tree_border_overfitting.png" />
-</div>
+</figure>
 <p>The most common ways to deal with overfitting in decision trees are as follows:</p>
 <ul class="simple">
 <li><p>artificial limitation of the depth or a minimum number of samples in the leaves: the construction of a tree just stops at some point;</p></li>
 <li><p>pruning the tree.</p></li>
 </ul>
-</div>
-<div class="section" id="class-decisiontreeclassifier-in-scikit-learn">
+</section>
+<section id="class-decisiontreeclassifier-in-scikit-learn">
 <h3>Class DecisionTreeClassifier in Scikit-learn<a class="headerlink" href="#class-decisiontreeclassifier-in-scikit-learn" title="Permalink to this headline">#</a></h3>
 <p>The main parameters of the <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html"><code class="docutils literal notranslate"><span class="pre">sklearn.tree.DecisionTreeClassifier</span></code></a> class are:</p>
 <ul class="simple">
@@ -1926,8 +1927,8 @@ If we calculate information gain for each partition in that manner, we can selec
 <li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> – the minimum number of samples in a leaf. This parameter prevents creating trees where any leaf would have only a few members.</p></li>
 </ul>
 <p>The parameters of the tree need to be set depending on input data, and it is usually done by means of <em>cross-validation</em>, more on this below.</p>
-</div>
-<div class="section" id="decision-tree-in-a-regression-problem">
+</section>
+<section id="decision-tree-in-a-regression-problem">
 <h3>Decision Tree in a Regression Problem<a class="headerlink" href="#decision-tree-in-a-regression-problem" title="Permalink to this headline">#</a></h3>
 <p>When predicting a numeric variable, the idea of a tree construction remains the same, but the quality criteria changes:</p>
 <ul class="simple">
@@ -1936,7 +1937,7 @@ If we calculate information gain for each partition in that manner, we can selec
 <div class="math notranslate nohighlight">
 \[\Large D = \frac{1}{\ell} \sum\limits_{i =1}^{\ell} (y_i - \frac{1}{\ell} \sum\limits_{j=1}^{\ell} y_j)^2, \]</div>
 <p>where <span class="math notranslate nohighlight">\(\ell\)</span> is the number of samples in a leaf, <span class="math notranslate nohighlight">\(y_i\)</span> is the value of the target variable. Simply put, by minimizing the variance, we look for features that divide the training set in such a way that the values of the target feature in each leaf are roughly equal.</p>
-<div class="section" id="id2">
+<section id="id2">
 <h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <p>Let’s generate some data distributed by the function <span class="math notranslate nohighlight">\(f(x) = e^{-x ^ 2} + 1.5 * e^{-(x - 2) ^ 2}\)</span> with some noise. Then we will train a tree with this data and predictions that the tree makes.</p>
 <div class="cell docutils container">
@@ -1991,16 +1992,16 @@ If we calculate information gain for each partition in that manner, we can selec
 </div>
 </div>
 <p>We see that the decision tree approximates the data with a piecewise constant function.</p>
-</div>
-</div>
-</div>
-<div class="section" id="nearest-neighbors-method">
+</section>
+</section>
+</section>
+<section id="nearest-neighbors-method">
 <h2>3. Nearest Neighbors Method<a class="headerlink" href="#nearest-neighbors-method" title="Permalink to this headline">#</a></h2>
 <p><em>The nearest neighbors method</em> (k-Nearest Neighbors, or k-NN) is another very popular classification method that is also sometimes used in regression problems. This, like decision trees, is one of the most comprehensible approaches to classification. The underlying intuition is that you look like your neighbors. More formally, the method follows the compactness hypothesis: if the distance between the examples is measured well enough, then similar examples are much more likely to belong to the same class.</p>
 <p>According to the nearest neighbors method, the green ball would be classified as “blue” rather than “red”.</p>
-<div class="figure align-default" id="knn">
+<figure class="align-default" id="knn">
 <img alt="../../_images/kNN.png" src="../../_images/kNN.png" />
-</div>
+</figure>
 <p>For another example, if you do not know how to tag a Bluetooth-headset on an online listing, you can find 5 similar headsets, and, if 4 of them are tagged as “accessories” and only 1 as “Technology”, then you will also  label it under “accessories”.</p>
 <p>To classify each sample from the test set, one needs to perform the following operations in order:</p>
 <ol class="simple">
@@ -2011,7 +2012,7 @@ If we calculate information gain for each partition in that manner, we can selec
 <p>The method adapts quite easily for the regression problem: on step 3, it returns not the class, but the number – a mean (or median) of the target variable among neighbors.</p>
 <p>A notable feature of this approach is its laziness – calculations are only done during the prediction phase, when a test sample needs to be classified. No model is constructed from the training examples beforehand. In contrast, recall that for decision trees in the first half of this article the tree is constructed based on the training set, and the classification of test cases occurs relatively quickly by traversing through the tree.</p>
 <p>Nearest neighbors is a well-studied approach. There exist many important theorems claiming that, on “endless” datasets, it is the optimal method of classification. The authors of the classic book “The Elements of Statistical Learning” consider k-NN to be a theoretically ideal algorithm which usage is only limited by computation power and the <a class="reference external" href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.</p>
-<div class="section" id="nearest-neighbors-method-in-real-applications">
+<section id="nearest-neighbors-method-in-real-applications">
 <h3>Nearest Neighbors Method in Real Applications<a class="headerlink" href="#nearest-neighbors-method-in-real-applications" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>k-NN can serve as a good starting point (baseline) in some cases;</p></li>
@@ -2025,8 +2026,8 @@ If we calculate information gain for each partition in that manner, we can selec
 <li><p>The distance measure between samples (common ones include Hamming, Euclidean, cosine, and Minkowski distances). Note that most of these metrics require data to be scaled. Simply speaking, we do not want the “salary” feature, which is on the order of thousands, to affect the distance more than “age”, which is generally less than 100.</p></li>
 <li><p>Weights of neighbors (each neighbor may contribute different weights; for example, the further the sample, the lower the weight).</p></li>
 </ul>
-</div>
-<div class="section" id="class-kneighborsclassifier-in-scikit-learn">
+</section>
+<section id="class-kneighborsclassifier-in-scikit-learn">
 <h3>Class <code class="docutils literal notranslate"><span class="pre">KNeighborsClassifier</span></code> in Scikit-learn<a class="headerlink" href="#class-kneighborsclassifier-in-scikit-learn" title="Permalink to this headline">#</a></h3>
 <p>The main parameters of the class <code class="docutils literal notranslate"><span class="pre">sklearn.neighbors.KNeighborsClassifier</span></code> are:</p>
 <ul class="simple">
@@ -2035,9 +2036,9 @@ If we calculate information gain for each partition in that manner, we can selec
 <li><p>leaf_size (optional): threshold for switching to grid search if the algorithm for finding neighbors is BallTree or KDTree;</p></li>
 <li><p>metric: <code class="docutils literal notranslate"><span class="pre">minkowski</span></code>, <code class="docutils literal notranslate"><span class="pre">manhattan</span> </code>, <code class="docutils literal notranslate"><span class="pre">euclidean</span></code>, <code class="docutils literal notranslate"><span class="pre">chebyshev</span></code>, or other.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="choosing-model-parameters-and-cross-validation">
+</section>
+</section>
+<section id="choosing-model-parameters-and-cross-validation">
 <h2>4. Choosing Model Parameters and Cross-Validation<a class="headerlink" href="#choosing-model-parameters-and-cross-validation" title="Permalink to this headline">#</a></h2>
 <p>The main task of learning algorithms is to be able to <em>generalize</em> to unseen data. Since we cannot immediately check the model performance on new, incoming data (because we do not know the true values of the target variable yet), it is necessary to sacrifice a small portion of the data to check the quality of the model on it.</p>
 <p>This is often done in one of two ways:</p>
@@ -2045,17 +2046,17 @@ If we calculate information gain for each partition in that manner, we can selec
 <li><p>setting aside a part of the dataset (<em>held-out/hold-out set</em>). Thus we reserve a fraction of the training set (typically from 20% to 40%), train the model on the remaining data (60-80% of the original set), and compute performance metrics for the model (e.g accuracy) on the hold-out set.</p></li>
 <li><p><em>cross-validation</em>. The most frequent case here is <em>k-fold cross-validation</em>.</p></li>
 </ul>
-<div class="figure align-default" id="cross-validation-png">
+<figure class="align-default" id="cross-validation-png">
 <img alt="../../_images/cross_validation.png" src="../../_images/cross_validation.png" />
-</div>
+</figure>
 <p>In k-fold cross-validation, the model is trained <span class="math notranslate nohighlight">\(K\)</span> times on different (<span class="math notranslate nohighlight">\(K-1\)</span>) subsets of the original dataset (in white) and checked on the remaining subset (each time a different one, shown above in orange).
 We obtain <span class="math notranslate nohighlight">\(K\)</span> model quality assessments that are usually averaged to give an overall average quality of classification/regression.</p>
 <p>Cross-validation provides a better assessment of the model quality on new data compared to the hold-out set approach. However, cross-validation is computationally expensive when you have a lot of data.</p>
 <p>Cross-validation is a very important technique in machine learning and can also be applied in statistics and econometrics. It helps with hyperparameter tuning, model comparison, feature evaluation, etc. More details can be found <a class="reference external" href="https://sebastianraschka.com/blog/2016/model-evaluation-selection-part1.html">here</a> (blog post by Sebastian Raschka) or in any classic textbook on machine (statistical) learning.</p>
-</div>
-<div class="section" id="application-examples-and-complex-cases">
+</section>
+<section id="application-examples-and-complex-cases">
 <h2>5. Application Examples and Complex Cases<a class="headerlink" href="#application-examples-and-complex-cases" title="Permalink to this headline">#</a></h2>
-<div class="section" id="decision-trees-and-nearest-neighbors-method-in-a-customer-churn-prediction-task">
+<section id="decision-trees-and-nearest-neighbors-method-in-a-customer-churn-prediction-task">
 <h3>Decision trees and nearest neighbors method in a customer churn prediction task<a class="headerlink" href="#decision-trees-and-nearest-neighbors-method-in-a-customer-churn-prediction-task" title="Permalink to this headline">#</a></h3>
 <p>Let’s read data into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and preprocess it. Store <em>State</em> in a separate <code class="docutils literal notranslate"><span class="pre">Series</span></code> object for now and remove it from the dataframe. We will
 train the first model without the <em>State</em> feature, and then we will see if it helps.</p>
@@ -2370,9 +2371,9 @@ train the first model without the <em>State</em> feature, and then we will see i
 </div>
 </div>
 </div>
-<div class="figure align-default" id="topic3-decision-tree4">
+<figure class="align-default" id="topic3-decision-tree4">
 <img alt="../../_images/topic3_decision_tree4.png" src="../../_images/topic3_decision_tree4.png" />
-</div>
+</figure>
 <p>Now, let’s tune the number of neighbors <span class="math notranslate nohighlight">\(k\)</span> for k-NN:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2462,8 +2463,8 @@ train the first model without the <em>State</em> feature, and then we will see i
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="complex-case-for-decision-trees">
+</section>
+<section id="complex-case-for-decision-trees">
 <h3>Complex Case for Decision Trees<a class="headerlink" href="#complex-case-for-decision-trees" title="Permalink to this headline">#</a></h3>
 <p>To continue the discussion of the pros and cons of the methods in question, let’s consider a simple classification task, where a tree would perform well but does it in an “overly complicated” manner. Let’s create a set of points on a plane (2 features), each point will be one of two classes (+1 for red, or -1 for yellow). If you look at it as a classification problem, it seems very simple: the classes are separated by a line.</p>
 <div class="cell docutils container">
@@ -2520,9 +2521,9 @@ train the first model without the <em>State</em> feature, and then we will see i
 </div>
 </div>
 </div>
-<div class="figure align-default" id="topic3-decision-tree5">
+<figure class="align-default" id="topic3-decision-tree5">
 <img alt="../../_images/topic3_decision_tree5.png" src="../../_images/topic3_decision_tree5.png" />
-</div>
+</figure>
 <p>The method of one nearest neighbor does better than the tree but is still not as good as a linear classifier (our next topic).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2542,8 +2543,8 @@ train the first model without the <em>State</em> feature, and then we will see i
 <img alt="../../_images/topic03_decision_trees_kNN_56_0.png" src="../../_images/topic03_decision_trees_kNN_56_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="decision-trees-and-k-nn-in-a-task-of-mnist-handwritten-digits-recognition">
+</section>
+<section id="decision-trees-and-k-nn-in-a-task-of-mnist-handwritten-digits-recognition">
 <h3>Decision Trees and k-NN in a Task of MNIST Handwritten Digits Recognition<a class="headerlink" href="#decision-trees-and-k-nn-in-a-task-of-mnist-handwritten-digits-recognition" title="Permalink to this headline">#</a></h3>
 <p>Now let’s have a look at how these 2 algorithms perform on a real-world task. We will use the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> built-in dataset on handwritten digits. This task is an example where k-NN works surprisingly well.</p>
 <p>Pictures here are 8x8 matrices (intensity of white color for each pixel). Then each such matrix is ​​“unfolded” into a vector of length 64, and we obtain a feature description of an object.</p>
@@ -2725,8 +2726,8 @@ train the first model without the <em>State</em> feature, and then we will see i
 </tbody>
 </table>
 <p>The <strong>conclusion</strong> of this experiment (and general advice): first check simple models on your data: decision tree and nearest neighbors (next time we will also add logistic regression to this list). It might be the case that these methods already work well enough.</p>
-</div>
-<div class="section" id="complex-case-for-the-nearest-neighbors-method">
+</section>
+<section id="complex-case-for-the-nearest-neighbors-method">
 <h3>Complex Case for the Nearest Neighbors Method<a class="headerlink" href="#complex-case-for-the-nearest-neighbors-method" title="Permalink to this headline">#</a></h3>
 <p>Let’s consider another simple example. In the classification problem, one of the features will just be proportional to the vector of responses, but this won’t help for the nearest neighbors method.</p>
 <div class="cell docutils container">
@@ -2800,11 +2801,11 @@ train the first model without the <em>State</em> feature, and then we will see i
 </div>
 </div>
 <p>In the second example, the tree solved the problem perfectly while k-NN experienced difficulties. However, more likely, this a disadvantage of using Euclidian distance here. It did not allow us to reveal that one feature was much better than the others.</p>
-</div>
-</div>
-<div class="section" id="pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method">
+</section>
+</section>
+<section id="pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method">
 <h2>6. Pros and Cons of Decision Trees and the Nearest Neighbors Method<a class="headerlink" href="#pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method" title="Permalink to this headline">#</a></h2>
-<div class="section" id="decision-trees">
+<section id="decision-trees">
 <h3>Decision trees<a class="headerlink" href="#decision-trees" title="Permalink to this headline">#</a></h3>
 <p>Pros:</p>
 <ul class="simple">
@@ -2824,8 +2825,8 @@ train the first model without the <em>State</em> feature, and then we will see i
 <li><p>Difficulties to support missing values in the data. Friedman estimated that it took about 50% of the code to support gaps in data in CART (an improved version of this algorithm is implemented in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>).</p></li>
 <li><p>The model can only interpolate but not extrapolate (the same is true for random forests and tree boosting). That is, a decision tree makes constant prediction for the objects that lie beyond the bounding box set by the training set in the feature space. In our example with the yellow and blue balls, it would mean that the model gives the same predictions for all balls with positions &gt;19 or &lt;0.</p></li>
 </ul>
-</div>
-<div class="section" id="the-nearest-neighbors-method">
+</section>
+<section id="the-nearest-neighbors-method">
 <h3>The nearest neighbors method<a class="headerlink" href="#the-nearest-neighbors-method" title="Permalink to this headline">#</a></h3>
 <p>Pros:</p>
 <ul class="simple">
@@ -2844,9 +2845,9 @@ train the first model without the <em>State</em> feature, and then we will see i
 <li><p>As a rule, it does not work well when there are a lot of features due to the “curse of dimensionality”. Professor Pedro Domingos, a well-known member in the ML community, talks about it <a class="reference external" href="https://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf">here</a> in his popular paper, “A Few Useful Things to Know about Machine Learning”; also “the curse of dimensionality” is described in the Deep Learning book in <a class="reference external" href="http://www.deeplearningbook.org/contents/ml.html">this chapter</a>.</p></li>
 </ul>
 <p>This is a lot of information, but, hopefully, this article will be a great reference for you for a long time :)</p>
-</div>
-</div>
-<div class="section" id="useful-resources">
+</section>
+</section>
+<section id="useful-resources">
 <h2>7. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
@@ -2861,8 +2862,8 @@ train the first model without the <em>State</em> feature, and then we will see i
 <li><p>One more <a class="reference external" href="https://github.com/diefimov/MTH594_MachineLearning">ML course</a> with very good materials.</p></li>
 <li><p><a class="reference external" href="https://github.com/rushter/MLAlgorithms">Implementations</a> of many ML algorithms. Good to search for decision trees and k-NN.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
