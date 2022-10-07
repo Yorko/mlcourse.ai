@@ -265,10 +265,13 @@ for param in tqdm(parameters_list):
             train_df["y"],
             order=(param[0], param[1], param[2]),
             seasonal_order=(param[3], param[4], param[5], 7),
+            # train the model as is even if that would lead to a non-stationary / non-invertible model
+            # see https://github.com/statsmodels/statsmodels/issues/6225 for details
         ).fit(disp=-1)
-    # print parameters on which the model is not trained and proceed to the next set
+
     except (ValueError, np.linalg.LinAlgError):
         continue
+
     aic = model.aic
     # save the best model, aic, parameters
     if aic < best_aic:
@@ -287,13 +290,12 @@ print(result_table1.sort_values(by="aic", ascending=True).head())
 
 If we consider the variants proposed in the form:
 
-
 ```{code-cell} ipython3
 result_table1[
     result_table1["parameters"].isin(
         [(1, 0, 2, 3, 1, 0), (1, 1, 2, 3, 2, 1), (1, 1, 2, 3, 1, 1), (1, 0, 2, 3, 0, 0)]
     )
-]
+].sort_values(by="aic")
 ```
 
 Now do the same, but for the series with Box-Cox transformation.
@@ -318,10 +320,15 @@ for param in tqdm(parameters_list):
             train_df["y_box"],
             order=(param[0], param[1], param[2]),
             seasonal_order=(param[3], param[4], param[5], 7),
+            # train the model as is even if that would lead to a non-stationary / non-invertible model
+            # see https://github.com/statsmodels/statsmodels/issues/6225 for details
+            enforce_stationary=False,  
+            enforce_invertibility=False  
         ).fit(disp=-1)
-    # print parameters on which the model is not trained and proceed to the next set
+
     except (ValueError, np.linalg.LinAlgError):
         continue
+
     aic = model.aic
     # save the best model, aic, parameters
     if aic < best_aic:
@@ -342,7 +349,6 @@ print(result_table2.sort_values(by="aic", ascending=True).head())
 
 If we consider the variants proposed in the form:
 
-
 ```{code-cell} ipython3
 result_table2[
     result_table2["parameters"].isin(
@@ -360,11 +366,22 @@ result_table2[
 
 Let's look at the forecast of the best AIC model.
 
+**Note:** any AIC below 3000 is suspicious, probably caused by non-convergence with MLE optimization, we'll pick the 3rd-best model in terms of AIC to visualize predictions.
+
+
+```{code-cell} ipython3
+best_model = sm.tsa.statespace.SARIMAX(
+    train_df["y_box"],
+    order=(1, 0, 2),
+    seasonal_order=(3, 2, 1, 7),
+    enforce_stationary=False,  
+    enforce_invertibility=False  
+).fit(disp=-1)
+```
 
 ```{code-cell} ipython3
 print(best_model.summary())
 ```
-
 
 ```{code-cell} ipython3
 plt.subplot(211)
