@@ -65,6 +65,39 @@ The following are demo-assignments. Additionally, within the ["Bonus Assignments
 9. Time series analysis, [nbviewer](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/assignments_demo/assignment09_time_series.ipynb?flush_cache=true), [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-9-time-series-analysis), [solution](https://www.kaggle.com/kashnitsky/a9-demo-time-series-analysis-solution)
 10. Beating baseline in a competition, [Kaggle Notebook](https://www.kaggle.com/kashnitsky/assignment-10-gradient-boosting-and-flight-delays)
 
+### Bonus assignments
+
+Additionally, you can purchase a **Bonus Assignments pack** with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse) on Patreon or a [similar tier](https://boosty.to/ods_mlcourse/purchase/1142055?ssource=DIRECT&share=subscription_link) on Boosty (rus).
+
+<div class="row">
+  <div class="col-md-8" markdown="1">
+  <p align="center">
+  <a href="https://www.patreon.com/ods_mlcourse">
+         <img src="mlcourse_ai_jupyter_book/_static/img/become_a_patron.png">
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://boosty.to/ods_mlcourse">
+         <img src="mlcourse_ai_jupyter_book/_static/img/boosty_logo.png" width=200px%>
+  </a>
+  </p>
+
+</div>
+
+  <div class="col-md-4" markdown="1">
+  <details>
+  <summary>Details of the deal</summary>
+
+mlcourse.ai is still in self-paced mode but we offer you Bonus Assignments with solutions for a contribution of $17/month. The idea is that you pay for ~1-5 months while studying the course materials, but a single contribution is still fine and opens your access to the bonus pack.
+
+Note: the first payment is charged at the moment of joining the Tier Patreon, and the next payment is charged on the 1st day of the next month, thus it's better to purchase the pack in the 1st half of the month.
+
+mlcourse.ai is never supposed to go fully monetized (it's created in the wonderful open ODS.ai community and will remain open and free) but it'd help to cover some operational costs, and Yury also put in quite some effort into assembling all the best assignments into one pack. Please note that unlike the rest of the course content, Bonus Assignments are copyrighted. Informally, Yury's fine if you share the pack with 2-3 friends but public sharing of the Bonus Assignments pack is prohibited.
+</details>
+  </div>
+</div><br>
+
+The bonus pack contains 10 assignments, in some of them you are challenged to beat a baseline in a Kaggle competition under thorough guidance (["Alice"](https://mlcourse.ai/book/topic04/bonus_assignment04_alice_baselines.html) and ["Medium"](https://mlcourse.ai/book/topic06/bonus_assignment06.html)) or implement an algorithm from scratch -- efficient stochastic gradient descent [classifier](https://mlcourse.ai/book/topic08/bonus_assignment08.html) and [gradient boosting](https://mlcourse.ai/book/topic10/bonus_assignment10.html).
+
 ### Kaggle competitions
 
 1. Catch Me If You Can: Intruder Detection through Webpage Session Tracking. [Kaggle Inclass](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2)
