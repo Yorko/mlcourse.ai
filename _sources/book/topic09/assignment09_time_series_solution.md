@@ -268,10 +268,10 @@ for param in tqdm(parameters_list):
             # train the model as is even if that would lead to a non-stationary / non-invertible model
             # see https://github.com/statsmodels/statsmodels/issues/6225 for details
         ).fit(disp=-1)
-    
+
     except (ValueError, np.linalg.LinAlgError):
         continue
-        
+
     aic = model.aic
     # save the best model, aic, parameters
     if aic < best_aic:
@@ -322,13 +322,13 @@ for param in tqdm(parameters_list):
             seasonal_order=(param[3], param[4], param[5], 7),
             # train the model as is even if that would lead to a non-stationary / non-invertible model
             # see https://github.com/statsmodels/statsmodels/issues/6225 for details
-            enforce_stationary=False,    
+            enforce_stationary=False,  
             enforce_invertibility=False  
         ).fit(disp=-1)
-        
+
     except (ValueError, np.linalg.LinAlgError):
         continue
-        
+
     aic = model.aic
     # save the best model, aic, parameters
     if aic < best_aic:
@@ -374,7 +374,7 @@ best_model = sm.tsa.statespace.SARIMAX(
     train_df["y_box"],
     order=(1, 0, 2),
     seasonal_order=(3, 2, 1, 7),
-    enforce_stationary=False,   
+    enforce_stationary=False,  
     enforce_invertibility=False  
 ).fit(disp=-1)
 ```

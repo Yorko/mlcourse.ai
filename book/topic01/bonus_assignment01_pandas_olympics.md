@@ -7,13 +7,19 @@
 :width: 200px
 ```
 
-You can purchase a Bonus Assignments pack with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse).
+You can purchase a Bonus Assignments pack with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse) on Patreon or a [similar tier](https://boosty.to/ods_mlcourse/purchase/1142055?ssource=DIRECT&share=subscription_link) on Boosty (rus).
 
 <div class="row">
   <div class="col-md-8" markdown="1">
+  <p align="center">
   <a href="https://www.patreon.com/ods_mlcourse">
          <img src="../../_static/img/become_a_patron.png">
-      </a>
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://boosty.to/ods_mlcourse">
+         <img src="../../_static/img/boosty_logo.png" width=200px >
+  </a>
+  </p>
   </div>
   <div class="col-md-4" markdown="1">
   <details>
