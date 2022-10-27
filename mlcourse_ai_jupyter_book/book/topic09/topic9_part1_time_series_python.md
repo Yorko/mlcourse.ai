@@ -12,7 +12,7 @@ kernelspec:
 
 (topic09_part1)=
 
-# Time series analysis in Python
+# Topic 9. Part 1. Time series analysis in Python
 
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 

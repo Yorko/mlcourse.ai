@@ -263,12 +263,12 @@ print(
 
 
 ```{code-cell} ipython3
-# rf_importance = pd.DataFrame(
-#    locally_best_forest.best_estimator_.feature_importances_,
-#    columns=["coef"],
-#    index=data.columns[:-1],
-# )
-# rf_importance.sort_values(by="coef", ascending=False)
+rf_importance = pd.DataFrame(
+    locally_best_forest.best_estimator_.feature_importances_,
+    columns=["coef"],
+    index=data.columns[:-1],
+)
+rf_importance.sort_values(by="coef", ascending=False)
 ```
 
 **Make conclusions about the performance of the explored 3 models in this particular prediction task.**
