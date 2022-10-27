@@ -378,14 +378,14 @@ parameters = {
 
 Also, we will use the stratified k-fold validation again. You should still have the `skf` variable.
 
-**Question 8.** How much higher the *ROC AUC* of the best random forest model than that of the best logistic regression on validation?
+**Question 8.** How much higher is the *ROC AUC* of the best random forest model than that of the best logistic regression on validation? Select the closest answer.
 
-1. 4%
-2. 3%
-3. 2%
-4. 1%
+1. 0.04
+2. 0.03
+3. 0.02
+4. 0.01
 
-**Answer:** 1.
+**Answer:** 2.
 
 **Solution:**
 

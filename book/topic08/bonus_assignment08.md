@@ -33,7 +33,7 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
   </div>
 </div><br>
 
-This assignment is an extended version of the [demo assignment](assignment08) where SDG regressor is implemented. Also, we go deeper into the math behind this wonderful optimization algorithm. Here is one of the questions:
+This assignment is an extended version of the [demo assignment](assignment08) where the SGD regressor is implemented. Also, we go deeper into the math behind this wonderful optimization algorithm. Here is one of the questions:
 
 <br>
 <div align="center">

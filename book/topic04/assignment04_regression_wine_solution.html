@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1572,7 +1570,7 @@ Mean squared error (test): 0.372
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;max_depth&#39;: 21, &#39;max_features&#39;: 6}, -0.39773288191505934)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;max_depth&#39;: 21, &#39;max_features&#39;: 6}, -0.3977328819150594)
 </pre></div>
 </div>
 </div>
@@ -1611,15 +1609,85 @@ Mean squared error (test): 0.366
 <strong><font color='red'>Question 7:</font> What is the most important feature, according to the Random Forest model?</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rf_importance = pd.DataFrame(</span>
-<span class="c1">#    locally_best_forest.best_estimator_.feature_importances_,</span>
-<span class="c1">#    columns=[&quot;coef&quot;],</span>
-<span class="c1">#    index=data.columns[:-1],</span>
-<span class="c1"># )</span>
-<span class="c1"># rf_importance.sort_values(by=&quot;coef&quot;, ascending=False)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_importance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">locally_best_forest</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;coef&quot;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">rf_importance</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;coef&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coef</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>alcohol</th>
+      <td>0.206056</td>
+    </tr>
+    <tr>
+      <th>volatile acidity</th>
+      <td>0.117578</td>
+    </tr>
+    <tr>
+      <th>free sulfur dioxide</th>
+      <td>0.111556</td>
+    </tr>
+    <tr>
+      <th>density</th>
+      <td>0.088549</td>
+    </tr>
+    <tr>
+      <th>pH</th>
+      <td>0.073659</td>
+    </tr>
+    <tr>
+      <th>total sulfur dioxide</th>
+      <td>0.073640</td>
+    </tr>
+    <tr>
+      <th>chlorides</th>
+      <td>0.073366</td>
+    </tr>
+    <tr>
+      <th>residual sugar</th>
+      <td>0.072072</td>
+    </tr>
+    <tr>
+      <th>citric acid</th>
+      <td>0.062601</td>
+    </tr>
+    <tr>
+      <th>fixed acidity</th>
+      <td>0.061813</td>
+    </tr>
+    <tr>
+      <th>sulphates</th>
+      <td>0.059111</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p><strong>Make conclusions about the performance of the explored 3 models in this particular prediction task.</strong></p>
 <p>The dependency of wine quality on other features in hand is, presumable, non-linear. So Random Forest works better in this task.</p>
