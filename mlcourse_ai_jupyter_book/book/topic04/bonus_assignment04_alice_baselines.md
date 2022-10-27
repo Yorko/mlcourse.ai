@@ -42,6 +42,6 @@ The competition is about identifying a user ("Alice") on the Internet through tr
 :width: 600px
 ```
 
-For example, the figure above depicts the distribution of session start hours for Alice an others. You might see that distributions are quite different. Hence, such a feature can be added to the model and improve its quality. Such activity -- feature engineering -- is a very creative process (we touch it later in the course as well). And it turns out, this competition is very rewarding for thoughtful feature engineering. And well, coming up with good features via visual analysis, adding those to the model and climbing up the leaderboard -- that's an unforgettable adventure!
+For example, the figure above depicts the distribution of session start hours for Alice and others. You might see that distributions are quite different. Hence, such a feature can be added to the model and improve its quality. Such an activity -- feature engineering -- is a very creative process (we touch it later in the course as well). And it turns out, this competition is very rewarding for thoughtful feature engineering. And well, coming up with good features via visual analysis, adding those to the model, and climbing up the leaderboard -- that's an unforgettable adventure!
 
 In this task, we arm you with a fairly well-performing baseline, and then you are invited to come up with new features and beat baselines.
