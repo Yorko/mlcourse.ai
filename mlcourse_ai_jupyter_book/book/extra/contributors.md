@@ -16,4 +16,4 @@ Although led by [Yury Kashnitsky](https://yorko.github.io/), the course is devel
  -  [Kirill Vlasov](https://vlasov.info/) for continuous help with org stuff;
  -  [Tatiana Arkhipova](https://t.me/tatyana_arkhiipova) for org help with the [version of the course](https://ods.ai/tracks/mlcourse_ai) hosted at ods.ai.
 
-Many thanks for your support, guys! It was great to see your dedication and enthusiasm, just for the sake of doing the right thing, not to earn money.
+Many thanks for your support, guys! It was great to see your dedication and enthusiasm, for the greater good!
