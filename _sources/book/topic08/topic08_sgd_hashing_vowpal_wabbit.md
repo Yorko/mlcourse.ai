@@ -850,3 +850,4 @@ This section has been moved to Kaggle, please explore [this Notebook](https://ww
 - "Command-line Tools can be 235x Faster than your Hadoop Cluster" [post](https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html)
 - Benchmarking various ML algorithms on Criteo 1TB dataset on [GitHub](https://github.com/rambler-digital-solutions/criteo-1tb-benchmark)
 - [VW on FastML.com](http://fastml.com/blog/categories/vw/)
+q
