@@ -98,7 +98,7 @@ _Note: this may take a long time, about an hour, to play around with a toy examp
 
 Then, open the HTML file located at `mlcourse_ai_jupyter_book/_build/html/index.html.`
 
-You can also download any [mlcourse.ai](mlcourse.ai) page as a Jupyter Notebook and run it yourself:
+You can also download any [mlcourse.ai](https://mlcourse.ai) page as a Jupyter Notebook and run it yourself:
 
 
 ```{figure} /_static/img/download_as_jupyter.png
