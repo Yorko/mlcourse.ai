@@ -134,9 +134,9 @@ df_uniques = (
     .reset_index()
 )
 
-sns.factorplot(
-    x="variable", y="count", hue="value", data=df_uniques, kind="bar", size=12
-);
+sns.catplot(
+    x="variable", y="count", hue="value", data=df_uniques, kind="bar"
+)
 ```
 
 We can see that the target classes are balanced. That's great!
@@ -157,15 +157,14 @@ df_uniques = (
     .reset_index()
 )
 
-sns.factorplot(
+sns.catplot(
     x="variable",
     y="count",
     hue="value",
     col="cardio",
     data=df_uniques,
     kind="bar",
-    size=9,
-);
+)
 ```
 
 You can see that the distribution of cholesterol and glucose levels great differs by the value of the target variable. Is this a coincidence?
