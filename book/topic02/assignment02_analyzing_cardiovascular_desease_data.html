@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1376,14 +1378,17 @@ Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshn
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="p">)</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span>
-<span class="p">);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x13c8eb220&gt;
+</pre></div>
+</div>
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_1.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_1.png" />
 </div>
 </div>
 <p>We can see that the target classes are balanced. That’s great!</p>
@@ -1402,20 +1407,22 @@ Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshn
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="p">)</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
     <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
     <span class="n">col</span><span class="o">=</span><span class="s2">&quot;cardio&quot;</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
-    <span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
-<span class="p">);</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x13c8ea470&gt;
+</pre></div>
+</div>
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_1.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_1.png" />
 </div>
 </div>
 <p>You can see that the distribution of cholesterol and glucose levels great differs by the value of the target variable. Is this a coincidence?</p>

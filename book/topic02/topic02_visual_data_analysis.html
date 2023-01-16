@@ -1508,8 +1508,17 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_95940/4194307662.py:1: UserWarning: 
+
+`distplot` is a deprecated function and will be removed in seaborn v0.14.0.
+
+Please adapt your code to use either `displot` (a figure-level function with
+similar flexibility) or `histplot` (an axes-level function for histograms).
+
+For a guide to updating your code to use the new functions, please see
+https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
+
+  sns.distplot(df[&quot;Total intl calls&quot;]);
 </pre></div>
 </div>
 <img alt="../../_images/topic02_visual_data_analysis_12_1.svg" src="../../_images/topic02_visual_data_analysis_12_1.svg" /></div>
@@ -1764,17 +1773,13 @@ Name: Churn, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span>
-    <span class="s2">&quot;Total day minutes&quot;</span><span class="p">,</span> <span class="s2">&quot;Total night minutes&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Total day minutes&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Total night minutes&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span>
 <span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/topic02_visual_data_analysis_32_1.svg" src="../../_images/topic02_visual_data_analysis_32_1.svg" /></div>
+<img alt="../../_images/topic02_visual_data_analysis_32_0.svg" src="../../_images/topic02_visual_data_analysis_32_0.svg" /></div>
 </div>
 <p>This is basically a bivariate version of the <em>Kernel Density Plot</em> discussed earlier.</p>
 </section>
@@ -1811,17 +1816,13 @@ Name: Churn, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
-    <span class="s2">&quot;Total day minutes&quot;</span><span class="p">,</span> <span class="s2">&quot;Total night minutes&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Churn&quot;</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Total day minutes&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Total night minutes&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Churn&quot;</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/seaborn/_decorators.py:36: FutureWarning: Pass the following variables as keyword args: x, y. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  warnings.warn(
-</pre></div>
-</div>
-<img alt="../../_images/topic02_visual_data_analysis_37_1.svg" src="../../_images/topic02_visual_data_analysis_37_1.svg" /></div>
+<img alt="../../_images/topic02_visual_data_analysis_37_0.svg" src="../../_images/topic02_visual_data_analysis_37_0.svg" /></div>
 </div>
 <p>It seems that our small proportion of disloyal customers lean towards the top-right corner; that is, such customers tend to spend more time on the phone during both day and night. But this is not absolutely clear, and we won’t make any definitive conclusions from this chart.</p>
 <p>Now, let’s create box plots to visualize the distribution statistics of the numerical variables in two disjoint groups: the loyal customers (<code class="docutils literal notranslate"><span class="pre">Churn=False</span></code>) and those who left (<code class="docutils literal notranslate"><span class="pre">Churn=True</span></code>).</p>
@@ -2178,14 +2179,8 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sklearn/manifold/_t_sne.py:795: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
-  warnings.warn(
-/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sklearn/manifold/_t_sne.py:805: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
-  warnings.warn(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 16s, sys: 1.98 s, total: 1min 18s
-Wall time: 9.01 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 28s, sys: 3.56 s, total: 1min 32s
+Wall time: 8.26 s
 </pre></div>
 </div>
 </div>
