@@ -353,7 +353,7 @@ Previously, you learned about scatter plots. Additionally, their points can be c
 
 ```{code-cell} ipython3
 sns.lmplot(
-    "Total day minutes", "Total night minutes", data=df, hue="Churn", fit_reg=False
+    x="Total day minutes", y="Total night minutes", data=df, hue="Churn", fit_reg=False
 );
 ```
 
