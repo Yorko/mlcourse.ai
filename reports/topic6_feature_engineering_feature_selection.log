@@ -1,181 +1,115 @@
 Traceback (most recent call last):
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 646, in run_until_complete
+  File "/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-img = "https://habrastorage.org/webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg"
+import pytesseract
+from PIL import Image
+import requests
+from io import BytesIO
+
+##### Just a random picture from search
+img = "http://ohscurrent.org/wp-content/uploads/2015/09/domus-01-google.jpg"
 img = requests.get(img)
 img = Image.open(BytesIO(img.content))
+text = pytesseract.image_to_string(img)
 
-print(pytesseract.image_to_string(img))
+print(text)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTimeoutError[0m                              Traceback (most recent call last)
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connection.py:174[0m, in [0;36mHTTPConnection._new_conn[0;34m(self)[0m
-[1;32m    173[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 174[0m     conn [38;5;241m=[39m [43mconnection[49m[38;5;241;43m.[39;49m[43mcreate_connection[49m[43m([49m
-[1;32m    175[0m [43m        [49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_dns_host[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mport[49m[43m)[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mtimeout[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mextra_kw[49m
-[1;32m    176[0m [43m    [49m[43m)[49m
-[1;32m    178[0m [38;5;28;01mexcept[39;00m SocketTimeout:
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pytesseract/pytesseract.py:255[0m, in [0;36mrun_tesseract[0;34m(input_filename, output_filename_base, extension, lang, config, nice, timeout)[0m
+[1;32m    254[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 255[0m     proc [38;5;241m=[39m [43msubprocess[49m[38;5;241;43m.[39;49m[43mPopen[49m[43m([49m[43mcmd_args[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43msubprocess_args[49m[43m([49m[43m)[49m[43m)[49m
+[1;32m    256[0m [38;5;28;01mexcept[39;00m [38;5;167;01mOSError[39;00m [38;5;28;01mas[39;00m e:
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/util/connection.py:95[0m, in [0;36mcreate_connection[0;34m(address, timeout, source_address, socket_options)[0m
-[1;32m     94[0m [38;5;28;01mif[39;00m err [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[0;32m---> 95[0m     [38;5;28;01mraise[39;00m err
-[1;32m     97[0m [38;5;28;01mraise[39;00m socket[38;5;241m.[39merror([38;5;124m"[39m[38;5;124mgetaddrinfo returns an empty list[39m[38;5;124m"[39m)
+File [0;32m/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/subprocess.py:971[0m, in [0;36mPopen.__init__[0;34m(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask, pipesize)[0m
+[1;32m    968[0m             [38;5;28mself[39m[38;5;241m.[39mstderr [38;5;241m=[39m io[38;5;241m.[39mTextIOWrapper([38;5;28mself[39m[38;5;241m.[39mstderr,
+[1;32m    969[0m                     encoding[38;5;241m=[39mencoding, errors[38;5;241m=[39merrors)
+[0;32m--> 971[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_execute_child[49m[43m([49m[43margs[49m[43m,[49m[43m [49m[43mexecutable[49m[43m,[49m[43m [49m[43mpreexec_fn[49m[43m,[49m[43m [49m[43mclose_fds[49m[43m,[49m
+[1;32m    972[0m [43m                        [49m[43mpass_fds[49m[43m,[49m[43m [49m[43mcwd[49m[43m,[49m[43m [49m[43menv[49m[43m,[49m
+[1;32m    973[0m [43m                        [49m[43mstartupinfo[49m[43m,[49m[43m [49m[43mcreationflags[49m[43m,[49m[43m [49m[43mshell[49m[43m,[49m
+[1;32m    974[0m [43m                        [49m[43mp2cread[49m[43m,[49m[43m [49m[43mp2cwrite[49m[43m,[49m
+[1;32m    975[0m [43m                        [49m[43mc2pread[49m[43m,[49m[43m [49m[43mc2pwrite[49m[43m,[49m
+[1;32m    976[0m [43m                        [49m[43merrread[49m[43m,[49m[43m [49m[43merrwrite[49m[43m,[49m
+[1;32m    977[0m [43m                        [49m[43mrestore_signals[49m[43m,[49m
+[1;32m    978[0m [43m                        [49m[43mgid[49m[43m,[49m[43m [49m[43mgids[49m[43m,[49m[43m [49m[43muid[49m[43m,[49m[43m [49m[43mumask[49m[43m,[49m
+[1;32m    979[0m [43m                        [49m[43mstart_new_session[49m[43m)[49m
+[1;32m    980[0m [38;5;28;01mexcept[39;00m:
+[1;32m    981[0m     [38;5;66;03m# Cleanup if the child failed starting.[39;00m
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/util/connection.py:85[0m, in [0;36mcreate_connection[0;34m(address, timeout, source_address, socket_options)[0m
-[1;32m     84[0m     sock[38;5;241m.[39mbind(source_address)
-[0;32m---> 85[0m [43msock[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43msa[49m[43m)[49m
-[1;32m     86[0m [38;5;28;01mreturn[39;00m sock
+File [0;32m/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/subprocess.py:1847[0m, in [0;36mPopen._execute_child[0;34m(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session)[0m
+[1;32m   1846[0m         err_msg [38;5;241m=[39m os[38;5;241m.[39mstrerror(errno_num)
+[0;32m-> 1847[0m     [38;5;28;01mraise[39;00m child_exception_type(errno_num, err_msg, err_filename)
+[1;32m   1848[0m [38;5;28;01mraise[39;00m child_exception_type(err_msg)
 
-[0;31mTimeoutError[0m: [Errno 60] Operation timed out
-
-During handling of the above exception, another exception occurred:
-
-[0;31mConnectTimeoutError[0m                       Traceback (most recent call last)
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:703[0m, in [0;36mHTTPConnectionPool.urlopen[0;34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)[0m
-[1;32m    702[0m [38;5;66;03m# Make the request on the httplib connection object.[39;00m
-[0;32m--> 703[0m httplib_response [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_request[49m[43m([49m
-[1;32m    704[0m [43m    [49m[43mconn[49m[43m,[49m
-[1;32m    705[0m [43m    [49m[43mmethod[49m[43m,[49m
-[1;32m    706[0m [43m    [49m[43murl[49m[43m,[49m
-[1;32m    707[0m [43m    [49m[43mtimeout[49m[38;5;241;43m=[39;49m[43mtimeout_obj[49m[43m,[49m
-[1;32m    708[0m [43m    [49m[43mbody[49m[38;5;241;43m=[39;49m[43mbody[49m[43m,[49m
-[1;32m    709[0m [43m    [49m[43mheaders[49m[38;5;241;43m=[39;49m[43mheaders[49m[43m,[49m
-[1;32m    710[0m [43m    [49m[43mchunked[49m[38;5;241;43m=[39;49m[43mchunked[49m[43m,[49m
-[1;32m    711[0m [43m[49m[43m)[49m
-[1;32m    713[0m [38;5;66;03m# If we're going to release the connection in ``finally:``, then[39;00m
-[1;32m    714[0m [38;5;66;03m# the response doesn't need to know about the connection. Otherwise[39;00m
-[1;32m    715[0m [38;5;66;03m# it will also try to release it and we'll have a double-release[39;00m
-[1;32m    716[0m [38;5;66;03m# mess.[39;00m
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:386[0m, in [0;36mHTTPConnectionPool._make_request[0;34m(self, conn, method, url, timeout, chunked, **httplib_request_kw)[0m
-[1;32m    385[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 386[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_validate_conn[49m[43m([49m[43mconn[49m[43m)[49m
-[1;32m    387[0m [38;5;28;01mexcept[39;00m (SocketTimeout, BaseSSLError) [38;5;28;01mas[39;00m e:
-[1;32m    388[0m     [38;5;66;03m# Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.[39;00m
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1042[0m, in [0;36mHTTPSConnectionPool._validate_conn[0;34m(self, conn)[0m
-[1;32m   1041[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mgetattr[39m(conn, [38;5;124m"[39m[38;5;124msock[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m):  [38;5;66;03m# AppEngine might not have  `.sock`[39;00m
-[0;32m-> 1042[0m     [43mconn[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m
-[1;32m   1044[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m conn[38;5;241m.[39mis_verified:
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connection.py:358[0m, in [0;36mHTTPSConnection.connect[0;34m(self)[0m
-[1;32m    356[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m):
-[1;32m    357[0m     [38;5;66;03m# Add certificate verification[39;00m
-[0;32m--> 358[0m     [38;5;28mself[39m[38;5;241m.[39msock [38;5;241m=[39m conn [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_new_conn[49m[43m([49m[43m)[49m
-[1;32m    359[0m     hostname [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhost
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connection.py:179[0m, in [0;36mHTTPConnection._new_conn[0;34m(self)[0m
-[1;32m    178[0m [38;5;28;01mexcept[39;00m SocketTimeout:
-[0;32m--> 179[0m     [38;5;28;01mraise[39;00m ConnectTimeoutError(
-[1;32m    180[0m         [38;5;28mself[39m,
-[1;32m    181[0m         [38;5;124m"[39m[38;5;124mConnection to [39m[38;5;132;01m%s[39;00m[38;5;124m timed out. (connect timeout=[39m[38;5;132;01m%s[39;00m[38;5;124m)[39m[38;5;124m"[39m
-[1;32m    182[0m         [38;5;241m%[39m ([38;5;28mself[39m[38;5;241m.[39mhost, [38;5;28mself[39m[38;5;241m.[39mtimeout),
-[1;32m    183[0m     )
-[1;32m    185[0m [38;5;28;01mexcept[39;00m SocketError [38;5;28;01mas[39;00m e:
-
-[0;31mConnectTimeoutError[0m: (<urllib3.connection.HTTPSConnection object at 0x11dc22680>, 'Connection to habrastorage.org timed out. (connect timeout=None)')
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'tesseract'
 
 During handling of the above exception, another exception occurred:
 
-[0;31mMaxRetryError[0m                             Traceback (most recent call last)
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/requests/adapters.py:489[0m, in [0;36mHTTPAdapter.send[0;34m(self, request, stream, timeout, verify, cert, proxies)[0m
-[1;32m    488[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m chunked:
-[0;32m--> 489[0m     resp [38;5;241m=[39m [43mconn[49m[38;5;241;43m.[39;49m[43murlopen[49m[43m([49m
-[1;32m    490[0m [43m        [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mmethod[49m[43m,[49m
-[1;32m    491[0m [43m        [49m[43murl[49m[38;5;241;43m=[39;49m[43murl[49m[43m,[49m
-[1;32m    492[0m [43m        [49m[43mbody[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mbody[49m[43m,[49m
-[1;32m    493[0m [43m        [49m[43mheaders[49m[38;5;241;43m=[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43mheaders[49m[43m,[49m
-[1;32m    494[0m [43m        [49m[43mredirect[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[1;32m    495[0m [43m        [49m[43massert_same_host[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[1;32m    496[0m [43m        [49m[43mpreload_content[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[1;32m    497[0m [43m        [49m[43mdecode_content[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[1;32m    498[0m [43m        [49m[43mretries[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmax_retries[49m[43m,[49m
-[1;32m    499[0m [43m        [49m[43mtimeout[49m[38;5;241;43m=[39;49m[43mtimeout[49m[43m,[49m
-[1;32m    500[0m [43m    [49m[43m)[49m
-[1;32m    502[0m [38;5;66;03m# Send the request.[39;00m
-[1;32m    503[0m [38;5;28;01melse[39;00m:
+[0;31mTesseractNotFoundError[0m                    Traceback (most recent call last)
+Cell [0;32mIn[11], line 10[0m
+[1;32m      8[0m img [38;5;241m=[39m requests[38;5;241m.[39mget(img)
+[1;32m      9[0m img [38;5;241m=[39m Image[38;5;241m.[39mopen(BytesIO(img[38;5;241m.[39mcontent))
+[0;32m---> 10[0m text [38;5;241m=[39m [43mpytesseract[49m[38;5;241;43m.[39;49m[43mimage_to_string[49m[43m([49m[43mimg[49m[43m)[49m
+[1;32m     12[0m [38;5;28mprint[39m(text)
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:787[0m, in [0;36mHTTPConnectionPool.urlopen[0;34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)[0m
-[1;32m    785[0m     e [38;5;241m=[39m ProtocolError([38;5;124m"[39m[38;5;124mConnection aborted.[39m[38;5;124m"[39m, e)
-[0;32m--> 787[0m retries [38;5;241m=[39m [43mretries[49m[38;5;241;43m.[39;49m[43mincrement[49m[43m([49m
-[1;32m    788[0m [43m    [49m[43mmethod[49m[43m,[49m[43m [49m[43murl[49m[43m,[49m[43m [49m[43merror[49m[38;5;241;43m=[39;49m[43me[49m[43m,[49m[43m [49m[43m_pool[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43m_stacktrace[49m[38;5;241;43m=[39;49m[43msys[49m[38;5;241;43m.[39;49m[43mexc_info[49m[43m([49m[43m)[49m[43m[[49m[38;5;241;43m2[39;49m[43m][49m
-[1;32m    789[0m [43m[49m[43m)[49m
-[1;32m    790[0m retries[38;5;241m.[39msleep()
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pytesseract/pytesseract.py:423[0m, in [0;36mimage_to_string[0;34m(image, lang, config, nice, output_type, timeout)[0m
+[1;32m    418[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    419[0m [38;5;124;03mReturns the result of a Tesseract OCR run on the provided image to string[39;00m
+[1;32m    420[0m [38;5;124;03m"""[39;00m
+[1;32m    421[0m args [38;5;241m=[39m [image, [38;5;124m'[39m[38;5;124mtxt[39m[38;5;124m'[39m, lang, config, nice, timeout]
+[0;32m--> 423[0m [38;5;28;01mreturn[39;00m [43m{[49m
+[1;32m    424[0m [43m    [49m[43mOutput[49m[38;5;241;43m.[39;49m[43mBYTES[49m[43m:[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m:[49m[43m [49m[43mrun_and_get_output[49m[43m([49m[38;5;241;43m*[39;49m[43m([49m[43margs[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[43m[[49m[38;5;28;43;01mTrue[39;49;00m[43m][49m[43m)[49m[43m)[49m[43m,[49m
+[1;32m    425[0m [43m    [49m[43mOutput[49m[38;5;241;43m.[39;49m[43mDICT[49m[43m:[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m:[49m[43m [49m[43m{[49m[38;5;124;43m'[39;49m[38;5;124;43mtext[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43mrun_and_get_output[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m[43m}[49m[43m,[49m
+[1;32m    426[0m [43m    [49m[43mOutput[49m[38;5;241;43m.[39;49m[43mSTRING[49m[43m:[49m[43m [49m[38;5;28;43;01mlambda[39;49;00m[43m:[49m[43m [49m[43mrun_and_get_output[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m[43m,[49m
+[1;32m    427[0m [43m[49m[43m}[49m[43m[[49m[43moutput_type[49m[43m][49m[43m([49m[43m)[49m
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/urllib3/util/retry.py:592[0m, in [0;36mRetry.increment[0;34m(self, method, url, response, error, _pool, _stacktrace)[0m
-[1;32m    591[0m [38;5;28;01mif[39;00m new_retry[38;5;241m.[39mis_exhausted():
-[0;32m--> 592[0m     [38;5;28;01mraise[39;00m MaxRetryError(_pool, url, error [38;5;129;01mor[39;00m ResponseError(cause))
-[1;32m    594[0m log[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mIncremented Retry for (url=[39m[38;5;124m'[39m[38;5;132;01m%s[39;00m[38;5;124m'[39m[38;5;124m): [39m[38;5;132;01m%r[39;00m[38;5;124m"[39m, url, new_retry)
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pytesseract/pytesseract.py:426[0m, in [0;36mimage_to_string.<locals>.<lambda>[0;34m()[0m
+[1;32m    418[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    419[0m [38;5;124;03mReturns the result of a Tesseract OCR run on the provided image to string[39;00m
+[1;32m    420[0m [38;5;124;03m"""[39;00m
+[1;32m    421[0m args [38;5;241m=[39m [image, [38;5;124m'[39m[38;5;124mtxt[39m[38;5;124m'[39m, lang, config, nice, timeout]
+[1;32m    423[0m [38;5;28;01mreturn[39;00m {
+[1;32m    424[0m     Output[38;5;241m.[39mBYTES: [38;5;28;01mlambda[39;00m: run_and_get_output([38;5;241m*[39m(args [38;5;241m+[39m [[38;5;28;01mTrue[39;00m])),
+[1;32m    425[0m     Output[38;5;241m.[39mDICT: [38;5;28;01mlambda[39;00m: {[38;5;124m'[39m[38;5;124mtext[39m[38;5;124m'[39m: run_and_get_output([38;5;241m*[39margs)},
+[0;32m--> 426[0m     Output[38;5;241m.[39mSTRING: [38;5;28;01mlambda[39;00m: [43mrun_and_get_output[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m,
+[1;32m    427[0m }[output_type]()
 
-[0;31mMaxRetryError[0m: HTTPSConnectionPool(host='habrastorage.org', port=443): Max retries exceeded with url: /webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x11dc22680>, 'Connection to habrastorage.org timed out. (connect timeout=None)'))
-
-During handling of the above exception, another exception occurred:
-
-[0;31mConnectTimeout[0m                            Traceback (most recent call last)
-Cell [0;32mIn [12], line 2[0m
-[1;32m      1[0m img [38;5;241m=[39m [38;5;124m"[39m[38;5;124mhttps://habrastorage.org/webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg[39m[38;5;124m"[39m
-[0;32m----> 2[0m img [38;5;241m=[39m [43mrequests[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[43mimg[49m[43m)[49m
-[1;32m      3[0m img [38;5;241m=[39m Image[38;5;241m.[39mopen(BytesIO(img[38;5;241m.[39mcontent))
-[1;32m      5[0m [38;5;28mprint[39m(pytesseract[38;5;241m.[39mimage_to_string(img))
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/requests/api.py:73[0m, in [0;36mget[0;34m(url, params, **kwargs)[0m
-[1;32m     62[0m [38;5;28;01mdef[39;00m [38;5;21mget[39m(url, params[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
-[1;32m     63[0m     [38;5;124mr[39m[38;5;124;03m"""Sends a GET request.[39;00m
-[1;32m     64[0m 
-[1;32m     65[0m [38;5;124;03m    :param url: URL for the new :class:`Request` object.[39;00m
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pytesseract/pytesseract.py:288[0m, in [0;36mrun_and_get_output[0;34m(image, extension, lang, config, nice, timeout, return_bytes)[0m
+[1;32m    277[0m [38;5;28;01mwith[39;00m save(image) [38;5;28;01mas[39;00m (temp_name, input_filename):
+[1;32m    278[0m     kwargs [38;5;241m=[39m {
+[1;32m    279[0m         [38;5;124m'[39m[38;5;124minput_filename[39m[38;5;124m'[39m: input_filename,
+[1;32m    280[0m         [38;5;124m'[39m[38;5;124moutput_filename_base[39m[38;5;124m'[39m: temp_name,
 [0;32m   (...)[0m
-[1;32m     70[0m [38;5;124;03m    :rtype: requests.Response[39;00m
-[1;32m     71[0m [38;5;124;03m    """[39;00m
-[0;32m---> 73[0m     [38;5;28;01mreturn[39;00m [43mrequest[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mget[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43murl[49m[43m,[49m[43m [49m[43mparams[49m[38;5;241;43m=[39;49m[43mparams[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    285[0m         [38;5;124m'[39m[38;5;124mtimeout[39m[38;5;124m'[39m: timeout,
+[1;32m    286[0m     }
+[0;32m--> 288[0m     [43mrun_tesseract[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    289[0m     filename [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mkwargs[[38;5;124m'[39m[38;5;124moutput_filename_base[39m[38;5;124m'[39m][38;5;132;01m}[39;00m[38;5;132;01m{[39;00mextsep[38;5;132;01m}[39;00m[38;5;132;01m{[39;00mextension[38;5;132;01m}[39;00m[38;5;124m"[39m
+[1;32m    290[0m     [38;5;28;01mwith[39;00m [38;5;28mopen[39m(filename, [38;5;124m'[39m[38;5;124mrb[39m[38;5;124m'[39m) [38;5;28;01mas[39;00m output_file:
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/requests/api.py:59[0m, in [0;36mrequest[0;34m(method, url, **kwargs)[0m
-[1;32m     55[0m [38;5;66;03m# By using the 'with' statement we are sure the session is closed, thus we[39;00m
-[1;32m     56[0m [38;5;66;03m# avoid leaving sockets open which can trigger a ResourceWarning in some[39;00m
-[1;32m     57[0m [38;5;66;03m# cases, and look like a memory leak in others.[39;00m
-[1;32m     58[0m [38;5;28;01mwith[39;00m sessions[38;5;241m.[39mSession() [38;5;28;01mas[39;00m session:
-[0;32m---> 59[0m     [38;5;28;01mreturn[39;00m [43msession[49m[38;5;241;43m.[39;49m[43mrequest[49m[43m([49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43murl[49m[38;5;241;43m=[39;49m[43murl[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pytesseract/pytesseract.py:260[0m, in [0;36mrun_tesseract[0;34m(input_filename, output_filename_base, extension, lang, config, nice, timeout)[0m
+[1;32m    258[0m         [38;5;28;01mraise[39;00m
+[1;32m    259[0m     [38;5;28;01melse[39;00m:
+[0;32m--> 260[0m         [38;5;28;01mraise[39;00m TesseractNotFoundError()
+[1;32m    262[0m [38;5;28;01mwith[39;00m timeout_manager(proc, timeout) [38;5;28;01mas[39;00m error_string:
+[1;32m    263[0m     [38;5;28;01mif[39;00m proc[38;5;241m.[39mreturncode:
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/requests/sessions.py:587[0m, in [0;36mSession.request[0;34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[0m
-[1;32m    582[0m send_kwargs [38;5;241m=[39m {
-[1;32m    583[0m     [38;5;124m"[39m[38;5;124mtimeout[39m[38;5;124m"[39m: timeout,
-[1;32m    584[0m     [38;5;124m"[39m[38;5;124mallow_redirects[39m[38;5;124m"[39m: allow_redirects,
-[1;32m    585[0m }
-[1;32m    586[0m send_kwargs[38;5;241m.[39mupdate(settings)
-[0;32m--> 587[0m resp [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43msend[49m[43m([49m[43mprep[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43msend_kwargs[49m[43m)[49m
-[1;32m    589[0m [38;5;28;01mreturn[39;00m resp
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/requests/sessions.py:701[0m, in [0;36mSession.send[0;34m(self, request, **kwargs)[0m
-[1;32m    698[0m start [38;5;241m=[39m preferred_clock()
-[1;32m    700[0m [38;5;66;03m# Send the request[39;00m
-[0;32m--> 701[0m r [38;5;241m=[39m [43madapter[49m[38;5;241;43m.[39;49m[43msend[49m[43m([49m[43mrequest[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m    703[0m [38;5;66;03m# Total elapsed time of the request (approximately)[39;00m
-[1;32m    704[0m elapsed [38;5;241m=[39m preferred_clock() [38;5;241m-[39m start
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/requests/adapters.py:553[0m, in [0;36mHTTPAdapter.send[0;34m(self, request, stream, timeout, verify, cert, proxies)[0m
-[1;32m    550[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(e[38;5;241m.[39mreason, ConnectTimeoutError):
-[1;32m    551[0m     [38;5;66;03m# TODO: Remove this in 3.0.0: see #2811[39;00m
-[1;32m    552[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(e[38;5;241m.[39mreason, NewConnectionError):
-[0;32m--> 553[0m         [38;5;28;01mraise[39;00m ConnectTimeout(e, request[38;5;241m=[39mrequest)
-[1;32m    555[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(e[38;5;241m.[39mreason, ResponseError):
-[1;32m    556[0m     [38;5;28;01mraise[39;00m RetryError(e, request[38;5;241m=[39mrequest)
-
-[0;31mConnectTimeout[0m: HTTPSConnectionPool(host='habrastorage.org', port=443): Max retries exceeded with url: /webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x11dc22680>, 'Connection to habrastorage.org timed out. (connect timeout=None)'))
-ConnectTimeout: HTTPSConnectionPool(host='habrastorage.org', port=443): Max retries exceeded with url: /webt/mj/uv/6o/mjuv6olsh1x9xxe1a6zjy79u1w8.jpeg (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x11dc22680>, 'Connection to habrastorage.org timed out. (connect timeout=None)'))
+[0;31mTesseractNotFoundError[0m: tesseract is not installed or it's not in your PATH. See README file for more information.
+TesseractNotFoundError: tesseract is not installed or it's not in your PATH. See README file for more information.
 

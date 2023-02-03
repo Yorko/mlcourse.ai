@@ -269,6 +269,7 @@ from sklearn.tree import export_graphviz
 
 
 def tree_graph_to_png(tree, feature_names, png_file_to_save):
+    # needs graphviz to be installed
     tree_str = export_graphviz(
         tree, feature_names=feature_names, filled=True, out_file=None
     )

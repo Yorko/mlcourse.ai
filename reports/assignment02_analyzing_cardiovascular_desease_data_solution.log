@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.10/3.10.9/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+sns.FacetGrid(df, hue="gender", size=12).map(sns.kdeplot, "height").add_legend();
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[26], line 1[0m
+[0;32m----> 1[0m [43msns[49m[38;5;241;43m.[39;49m[43mFacetGrid[49m[43m([49m[43mdf[49m[43m,[49m[43m [49m[43mhue[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mgender[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43msize[49m[38;5;241;43m=[39;49m[38;5;241;43m12[39;49m[43m)[49m[38;5;241m.[39mmap(sns[38;5;241m.[39mkdeplot, [38;5;124m"[39m[38;5;124mheight[39m[38;5;124m"[39m)[38;5;241m.[39madd_legend();
+
+[0;31mTypeError[0m: FacetGrid.__init__() got an unexpected keyword argument 'size'
+TypeError: FacetGrid.__init__() got an unexpected keyword argument 'size'
+

@@ -1422,6 +1422,7 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 
 
 <span class="k">def</span> <span class="nf">tree_graph_to_png</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">png_file_to_save</span><span class="p">):</span>
+    <span class="c1"># needs graphviz to be installed</span>
     <span class="n">tree_str</span> <span class="o">=</span> <span class="n">export_graphviz</span><span class="p">(</span>
         <span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">)</span>

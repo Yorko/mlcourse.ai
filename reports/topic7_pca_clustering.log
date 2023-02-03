@@ -1,0 +1,82 @@
+Traceback (most recent call last):
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+sns.set(style="white")
+%matplotlib inline
+%config InlineBackend.figure_format = 'retina'
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn import datasets, decomposition
+
+# Loading the dataset
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
+
+# Let's create a beautiful 3d-plot
+fig = plt.figure(1, figsize=(6, 5))
+plt.clf()
+ax = Axes3D(fig, rect=[0, 0, 0.95, 1], elev=48, azim=134)
+
+plt.cla()
+
+for name, label in [("Setosa", 0), ("Versicolour", 1), ("Virginica", 2)]:
+    ax.text3D(
+        X[y == label, 0].mean(),
+        X[y == label, 1].mean() + 1.5,
+        X[y == label, 2].mean(),
+        name,
+        horizontalalignment="center",
+        bbox=dict(alpha=0.5, edgecolor="w", facecolor="w"),
+    )
+# Change the order of labels, so that they match
+y_clr = np.choose(y, [1, 2, 0]).astype(np.float)
+ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y_clr, cmap=plt.cm.nipy_spectral)
+
+ax.w_xaxis.set_ticklabels([])
+ax.w_yaxis.set_ticklabels([])
+ax.w_zaxis.set_ticklabels([]);
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[1], line 33[0m
+[1;32m     24[0m     ax[38;5;241m.[39mtext3D(
+[1;32m     25[0m         X[y [38;5;241m==[39m label, [38;5;241m0[39m][38;5;241m.[39mmean(),
+[1;32m     26[0m         X[y [38;5;241m==[39m label, [38;5;241m1[39m][38;5;241m.[39mmean() [38;5;241m+[39m [38;5;241m1.5[39m,
+[0;32m   (...)[0m
+[1;32m     30[0m         bbox[38;5;241m=[39m[38;5;28mdict[39m(alpha[38;5;241m=[39m[38;5;241m0.5[39m, edgecolor[38;5;241m=[39m[38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m, facecolor[38;5;241m=[39m[38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m),
+[1;32m     31[0m     )
+[1;32m     32[0m [38;5;66;03m# Change the order of labels, so that they match[39;00m
+[0;32m---> 33[0m y_clr [38;5;241m=[39m np[38;5;241m.[39mchoose(y, [[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m0[39m])[38;5;241m.[39mastype([43mnp[49m[38;5;241;43m.[39;49m[43mfloat[49m)
+[1;32m     34[0m ax[38;5;241m.[39mscatter(X[:, [38;5;241m0[39m], X[:, [38;5;241m1[39m], X[:, [38;5;241m2[39m], c[38;5;241m=[39my_clr, cmap[38;5;241m=[39mplt[38;5;241m.[39mcm[38;5;241m.[39mnipy_spectral)
+[1;32m     36[0m ax[38;5;241m.[39mw_xaxis[38;5;241m.[39mset_ticklabels([])
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/numpy/__init__.py:284[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    281[0m     [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mtesting[39;00m [38;5;28;01mimport[39;00m Tester
+[1;32m    282[0m     [38;5;28;01mreturn[39;00m Tester
+[0;32m--> 284[0m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([38;5;124m"[39m[38;5;124mmodule [39m[38;5;132;01m{!r}[39;00m[38;5;124m has no attribute [39m[38;5;124m"[39m
+[1;32m    285[0m                      [38;5;124m"[39m[38;5;132;01m{!r}[39;00m[38;5;124m"[39m[38;5;241m.[39mformat([38;5;18m__name__[39m, attr))
+
+[0;31mAttributeError[0m: module 'numpy' has no attribute 'float'
+AttributeError: module 'numpy' has no attribute 'float'
+

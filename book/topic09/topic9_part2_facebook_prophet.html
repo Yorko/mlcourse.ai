@@ -1191,7 +1191,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_file_from_gdrive</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Downloads a file from GDrive given an URL</span>
 <span class="sd">    :param file_url: a string formated as https://drive.google.com/uc?id=&lt;file_id&gt;</span>
 <span class="sd">    :param: the desired file name</span>
@@ -1523,7 +1523,7 @@ if (typeof require !== 'undefined') {
 require.undef("plotly");
 requirejs.config({
     paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.14.0.min']
+        'plotly': ['https://cdn.plot.ly/plotly-2.17.1.min']
     }
 });
 require(['plotly'], function(Plotly) {
@@ -1537,7 +1537,7 @@ require(['plotly'], function(Plotly) {
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotly_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Visualize all the dataframe columns as line plots.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize all the dataframe columns as line plots.&quot;&quot;&quot;</span>
     <span class="n">common_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="o">**</span><span class="n">common_kw</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
     <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
@@ -1793,10 +1793,10 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:36:37 - cmdstanpy - INFO - Chain [1] start processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:37:27 - cmdstanpy - INFO - Chain [1] start processing
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:36:37 - cmdstanpy - INFO - Chain [1] done processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:37:27 - cmdstanpy - INFO - Chain [1] done processing
 </pre></div>
 </div>
 </div>
@@ -1900,68 +1900,68 @@ require(['plotly'], function(Plotly) {
     <tr>
       <th>904</th>
       <td>2017-06-23</td>
-      <td>279.141091</td>
-      <td>256.670961</td>
-      <td>305.823111</td>
-      <td>278.704330</td>
-      <td>279.604370</td>
-      <td>2.071816</td>
-      <td>2.071816</td>
-      <td>2.071816</td>
-      <td>3.470071</td>
-      <td>3.470071</td>
-      <td>3.470071</td>
-      <td>-1.398255</td>
-      <td>-1.398255</td>
-      <td>-1.398255</td>
+      <td>278.890961</td>
+      <td>256.481605</td>
+      <td>304.601914</td>
+      <td>278.499283</td>
+      <td>279.315718</td>
+      <td>2.136612</td>
+      <td>2.136612</td>
+      <td>2.136612</td>
+      <td>3.470236</td>
+      <td>3.470236</td>
+      <td>3.470236</td>
+      <td>-1.333624</td>
+      <td>-1.333624</td>
+      <td>-1.333624</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>281.212907</td>
+      <td>281.027573</td>
     </tr>
     <tr>
       <th>905</th>
       <td>2017-06-24</td>
-      <td>279.870263</td>
-      <td>220.291280</td>
-      <td>269.486155</td>
-      <td>279.409885</td>
-      <td>280.393052</td>
-      <td>-35.236630</td>
-      <td>-35.236630</td>
-      <td>-35.236630</td>
-      <td>-34.022485</td>
-      <td>-34.022485</td>
-      <td>-34.022485</td>
-      <td>-1.214145</td>
-      <td>-1.214145</td>
-      <td>-1.214145</td>
+      <td>279.618618</td>
+      <td>220.242089</td>
+      <td>268.190330</td>
+      <td>279.196307</td>
+      <td>280.077472</td>
+      <td>-35.171070</td>
+      <td>-35.171070</td>
+      <td>-35.171070</td>
+      <td>-34.023126</td>
+      <td>-34.023126</td>
+      <td>-34.023126</td>
+      <td>-1.147944</td>
+      <td>-1.147944</td>
+      <td>-1.147944</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>244.633633</td>
+      <td>244.447548</td>
     </tr>
     <tr>
       <th>906</th>
       <td>2017-06-25</td>
-      <td>280.599434</td>
-      <td>223.215317</td>
-      <td>273.544348</td>
-      <td>280.113642</td>
-      <td>281.157277</td>
-      <td>-31.609154</td>
-      <td>-31.609154</td>
-      <td>-31.609154</td>
-      <td>-30.578824</td>
-      <td>-30.578824</td>
-      <td>-30.578824</td>
-      <td>-1.030330</td>
-      <td>-1.030330</td>
-      <td>-1.030330</td>
+      <td>280.346275</td>
+      <td>224.064602</td>
+      <td>274.387586</td>
+      <td>279.896021</td>
+      <td>280.836952</td>
+      <td>-31.541794</td>
+      <td>-31.541794</td>
+      <td>-31.541794</td>
+      <td>-30.579139</td>
+      <td>-30.579139</td>
+      <td>-30.579139</td>
+      <td>-0.962655</td>
+      <td>-0.962655</td>
+      <td>-0.962655</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>248.990280</td>
+      <td>248.804482</td>
     </tr>
   </tbody>
 </table>
@@ -2015,7 +2015,7 @@ require(['plotly'], function(Plotly) {
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_comparison_dataframe</span><span class="p">(</span><span class="n">historical</span><span class="p">,</span> <span class="n">forecast</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Join the history with the forecast.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Join the history with the forecast.</span>
 
 <span class="sd">       The resulting dataset will contain columns &#39;yhat&#39;, &#39;yhat_lower&#39;, &#39;yhat_upper&#39; and &#39;y&#39;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2069,23 +2069,23 @@ require(['plotly'], function(Plotly) {
   <tbody>
     <tr>
       <th>2017-06-23</th>
-      <td>281.212907</td>
-      <td>256.670961</td>
-      <td>305.823111</td>
+      <td>281.027573</td>
+      <td>256.481605</td>
+      <td>304.601914</td>
       <td>421</td>
     </tr>
     <tr>
       <th>2017-06-24</th>
-      <td>244.633633</td>
-      <td>220.291280</td>
-      <td>269.486155</td>
+      <td>244.447548</td>
+      <td>220.242089</td>
+      <td>268.190330</td>
       <td>277</td>
     </tr>
     <tr>
       <th>2017-06-25</th>
-      <td>248.990280</td>
-      <td>223.215317</td>
-      <td>273.544348</td>
+      <td>248.804482</td>
+      <td>224.064602</td>
+      <td>274.387586</td>
       <td>253</td>
     </tr>
   </tbody>
@@ -2096,7 +2096,7 @@ require(['plotly'], function(Plotly) {
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_forecast_errors</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Calculate MAPE and MAE of the forecast.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate MAPE and MAE of the forecast.</span>
 
 <span class="sd">       Args:</span>
 <span class="sd">           df: joined dataset with &#39;y&#39; and &#39;yhat&#39; columns.</span>
@@ -2134,8 +2134,8 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 22.473961701823175
-MAE 69.14515708200798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 22.491562351535272
+MAE 69.242268796982
 </pre></div>
 </div>
 </div>
@@ -2151,7 +2151,7 @@ MAE 69.14515708200798
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_forecast</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">num_predictions</span><span class="p">,</span> <span class="n">num_values</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Visualize the forecast.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize the forecast.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">create_go</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">points</span> <span class="o">=</span> <span class="n">cmp_df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
@@ -2275,10 +2275,10 @@ MAE 69.14515708200798
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:36:39 - cmdstanpy - INFO - Chain [1] start processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:37:29 - cmdstanpy - INFO - Chain [1] start processing
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:36:39 - cmdstanpy - INFO - Chain [1] done processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19:37:29 - cmdstanpy - INFO - Chain [1] done processing
 </pre></div>
 </div>
 </div>
@@ -2302,8 +2302,8 @@ MAE 69.14515708200798
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 11.885728697746027
-MAE 40.307998144104204
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 11.75113989114766
+MAE 39.760303261646214
 </pre></div>
 </div>
 </div>

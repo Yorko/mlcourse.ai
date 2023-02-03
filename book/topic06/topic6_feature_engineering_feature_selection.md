@@ -243,6 +243,7 @@ Nevertheless, we should not focus too much on neural network techniques. Feature
 If there is text on the image, you can read it without unraveling a complicated neural network. For example, check out [pytesseract](https://github.com/madmaze/pytesseract).
 
 ```{code-cell} ipython3
+# requires `tesseract` to be installed in the system
 import pytesseract
 from PIL import Image
 import requests

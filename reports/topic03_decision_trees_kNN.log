@@ -1,0 +1,79 @@
+Traceback (most recent call last):
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+tree_graph_to_png(
+    tree=clf_tree,
+    feature_names=["x1", "x2"],
+    png_file_to_save="topic3_decision_tree1.png",
+)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mInvocationException[0m                       Traceback (most recent call last)
+Cell [0;32mIn[7], line 1[0m
+[0;32m----> 1[0m [43mtree_graph_to_png[49m[43m([49m
+[1;32m      2[0m [43m    [49m[43mtree[49m[38;5;241;43m=[39;49m[43mclf_tree[49m[43m,[49m
+[1;32m      3[0m [43m    [49m[43mfeature_names[49m[38;5;241;43m=[39;49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mx1[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mx2[39;49m[38;5;124;43m"[39;49m[43m][49m[43m,[49m
+[1;32m      4[0m [43m    [49m[43mpng_file_to_save[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mtopic3_decision_tree1.png[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m      5[0m [43m)[49m
+
+Cell [0;32mIn[6], line 10[0m, in [0;36mtree_graph_to_png[0;34m(tree, feature_names, png_file_to_save)[0m
+[1;32m      6[0m tree_str [38;5;241m=[39m export_graphviz(
+[1;32m      7[0m     tree, feature_names[38;5;241m=[39mfeature_names, filled[38;5;241m=[39m[38;5;28;01mTrue[39;00m, out_file[38;5;241m=[39m[38;5;28;01mNone[39;00m
+[1;32m      8[0m )
+[1;32m      9[0m graph [38;5;241m=[39m pydotplus[38;5;241m.[39mgraph_from_dot_data(tree_str)
+[0;32m---> 10[0m [43mgraph[49m[38;5;241;43m.[39;49m[43mwrite_png[49m[43m([49m[43mpng_file_to_save[49m[43m)[49m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pydotplus/graphviz.py:1810[0m, in [0;36mDot.__init__.<locals>.<lambda>[0;34m(path, f, prog)[0m
+[1;32m   1800[0m     f[38;5;241m.[39m[38;5;18m__doc__[39m [38;5;241m=[39m (
+[1;32m   1801[0m [38;5;250m        [39m[38;5;124;03m'''Refer to the docstring accompanying the'''[39;00m
+[1;32m   1802[0m [38;5;250m        [39m[38;5;124;03m''''create' method for more information.'''[39;00m
+[1;32m   1803[0m     )
+[1;32m   1805[0m [38;5;28;01mfor[39;00m frmt [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mformats [38;5;241m+[39m [[38;5;124m'[39m[38;5;124mraw[39m[38;5;124m'[39m]:
+[1;32m   1806[0m     [38;5;28mself[39m[38;5;241m.[39m[38;5;21m__setattr__[39m(
+[1;32m   1807[0m         [38;5;124m'[39m[38;5;124mwrite_[39m[38;5;124m'[39m [38;5;241m+[39m frmt,
+[1;32m   1808[0m         [38;5;28;01mlambda[39;00m path,
+[1;32m   1809[0m         f[38;5;241m=[39mfrmt,
+[0;32m-> 1810[0m         prog[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mprog: [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mwrite[49m[43m([49m[43mpath[49m[43m,[49m[43m [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[43mf[49m[43m,[49m[43m [49m[43mprog[49m[38;5;241;43m=[39;49m[43mprog[49m[43m)[49m
+[1;32m   1811[0m     )
+[1;32m   1813[0m     f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m[38;5;18m__dict__[39m[[38;5;124m'[39m[38;5;124mwrite_[39m[38;5;124m'[39m [38;5;241m+[39m frmt]
+[1;32m   1814[0m     f[38;5;241m.[39m[38;5;18m__doc__[39m [38;5;241m=[39m (
+[1;32m   1815[0m [38;5;250m        [39m[38;5;124;03m'''Refer to the docstring accompanying the'''[39;00m
+[1;32m   1816[0m [38;5;250m        [39m[38;5;124;03m''''write' method for more information.'''[39;00m
+[1;32m   1817[0m     )
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pydotplus/graphviz.py:1918[0m, in [0;36mDot.write[0;34m(self, path, prog, format)[0m
+[1;32m   1915[0m         fobj[38;5;241m.[39mwrite(data)
+[1;32m   1917[0m     [38;5;28;01melse[39;00m:
+[0;32m-> 1918[0m         fobj[38;5;241m.[39mwrite([38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcreate[49m[43m([49m[43mprog[49m[43m,[49m[43m [49m[38;5;28;43mformat[39;49m[43m)[49m)
+[1;32m   1919[0m [38;5;28;01mfinally[39;00m:
+[1;32m   1920[0m     [38;5;28;01mif[39;00m close:
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/pydotplus/graphviz.py:1959[0m, in [0;36mDot.create[0;34m(self, prog, format)[0m
+[1;32m   1957[0m     [38;5;28mself[39m[38;5;241m.[39mprogs [38;5;241m=[39m find_graphviz()
+[1;32m   1958[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mprogs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 1959[0m         [38;5;28;01mraise[39;00m InvocationException(
+[1;32m   1960[0m             [38;5;124m'[39m[38;5;124mGraphViz[39m[38;5;130;01m\'[39;00m[38;5;124ms executables not found[39m[38;5;124m'[39m)
+[1;32m   1962[0m [38;5;28;01mif[39;00m prog [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mprogs:
+[1;32m   1963[0m     [38;5;28;01mraise[39;00m InvocationException(
+[1;32m   1964[0m         [38;5;124m'[39m[38;5;124mGraphViz[39m[38;5;130;01m\'[39;00m[38;5;124ms executable [39m[38;5;124m"[39m[38;5;132;01m%s[39;00m[38;5;124m"[39m[38;5;124m not found[39m[38;5;124m'[39m [38;5;241m%[39m prog)
+
+[0;31mInvocationException[0m: GraphViz's executables not found
+InvocationException: GraphViz's executables not found
+

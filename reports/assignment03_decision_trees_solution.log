@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.10/3.10.9/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+tree = DecisionTreeClassifier(max_depth=3, random_state=17)
+tree.fit(X_train, y_train)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[46], line 2[0m
+[1;32m      1[0m tree [38;5;241m=[39m DecisionTreeClassifier(max_depth[38;5;241m=[39m[38;5;241m3[39m, random_state[38;5;241m=[39m[38;5;241m17[39m)
+[0;32m----> 2[0m [43mtree[49m[38;5;241;43m.[39;49m[43mfit[49m[43m([49m[43mX_train[49m[43m,[49m[43m [49m[43my_train[49m[43m)[49m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/tree/_classes.py:889[0m, in [0;36mDecisionTreeClassifier.fit[0;34m(self, X, y, sample_weight, check_input)[0m
+[1;32m    859[0m [38;5;28;01mdef[39;00m [38;5;21mfit[39m([38;5;28mself[39m, X, y, sample_weight[38;5;241m=[39m[38;5;28;01mNone[39;00m, check_input[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m    860[0m [38;5;250m    [39m[38;5;124;03m"""Build a decision tree classifier from the training set (X, y).[39;00m
+[1;32m    861[0m 
+[1;32m    862[0m [38;5;124;03m    Parameters[39;00m
+[0;32m   (...)[0m
+[1;32m    886[0m [38;5;124;03m        Fitted estimator.[39;00m
+[1;32m    887[0m [38;5;124;03m    """[39;00m
+[0;32m--> 889[0m     [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mfit[49m[43m([49m
+[1;32m    890[0m [43m        [49m[43mX[49m[43m,[49m
+[1;32m    891[0m [43m        [49m[43my[49m[43m,[49m
+[1;32m    892[0m [43m        [49m[43msample_weight[49m[38;5;241;43m=[39;49m[43msample_weight[49m[43m,[49m
+[1;32m    893[0m [43m        [49m[43mcheck_input[49m[38;5;241;43m=[39;49m[43mcheck_input[49m[43m,[49m
+[1;32m    894[0m [43m    [49m[43m)[49m
+[1;32m    895[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/tree/_classes.py:224[0m, in [0;36mBaseDecisionTree.fit[0;34m(self, X, y, sample_weight, check_input)[0m
+[1;32m    221[0m [38;5;28mself[39m[38;5;241m.[39mn_outputs_ [38;5;241m=[39m y[38;5;241m.[39mshape[[38;5;241m1[39m]
+[1;32m    223[0m [38;5;28;01mif[39;00m is_classification:
+[0;32m--> 224[0m     [43mcheck_classification_targets[49m[43m([49m[43my[49m[43m)[49m
+[1;32m    225[0m     y [38;5;241m=[39m np[38;5;241m.[39mcopy(y)
+[1;32m    227[0m     [38;5;28mself[39m[38;5;241m.[39mclasses_ [38;5;241m=[39m []
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/utils/multiclass.py:207[0m, in [0;36mcheck_classification_targets[0;34m(y)[0m
+[1;32m    199[0m y_type [38;5;241m=[39m type_of_target(y, input_name[38;5;241m=[39m[38;5;124m"[39m[38;5;124my[39m[38;5;124m"[39m)
+[1;32m    200[0m [38;5;28;01mif[39;00m y_type [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [
+[1;32m    201[0m     [38;5;124m"[39m[38;5;124mbinary[39m[38;5;124m"[39m,
+[1;32m    202[0m     [38;5;124m"[39m[38;5;124mmulticlass[39m[38;5;124m"[39m,
+[0;32m   (...)[0m
+[1;32m    205[0m     [38;5;124m"[39m[38;5;124mmultilabel-sequences[39m[38;5;124m"[39m,
+[1;32m    206[0m ]:
+[0;32m--> 207[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mUnknown label type: [39m[38;5;132;01m%r[39;00m[38;5;124m"[39m [38;5;241m%[39m y_type)
+
+[0;31mValueError[0m: Unknown label type: 'unknown'
+ValueError: Unknown label type: 'unknown'
+

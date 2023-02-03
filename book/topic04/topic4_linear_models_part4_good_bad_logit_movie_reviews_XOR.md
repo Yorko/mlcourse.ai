@@ -160,8 +160,8 @@ len(cv.vocabulary_)
 
 
 ```{code-cell} ipython3
-print(cv.get_feature_names()[:50])
-print(cv.get_feature_names()[50000:50050])
+print(cv.get_feature_names_out()[:50])
+print(cv.get_feature_names_out()[50000:50050])
 ```
 
 **Secondly, we are encoding the sentences from the training set texts with the indices of incoming words. We'll use the sparse format.**
@@ -255,7 +255,7 @@ def plot_grid_scores(grid, param_name):
 
 
 ```{code-cell} ipython3
-visualize_coefficients(logit, cv.get_feature_names());
+visualize_coefficients(logit, cv.get_feature_names_out());
 ```
 
 **To make our model better, we can optimize the regularization coefficient for the `Logistic Regression`. We'll use `sklearn.pipeline` because `CountVectorizer` should only be applied to the training data (so as to not "peek" into the test set and not count word frequencies there). In this case, `pipeline` determines the correct sequence of actions: apply `CountVectorizer`, then train `Logistic Regression`.**

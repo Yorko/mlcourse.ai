@@ -1030,7 +1030,7 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="k">def</span> <span class="nf">download_file_from_gdrive</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Downloads a file from GDrive given an URL</span>
 <span class="sd">    :param file_url: a string formated as https://drive.google.com/uc?id=&lt;file_id&gt;</span>
 <span class="sd">    :param: the desired file name</span>
@@ -1116,11 +1116,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;and&#39;), (1, &#39;have&#39;), (2, &#39;you&#39;), (3, &#39;a&#39;), (4, &#39;i&#39;), (5, &#39;dog&#39;), (6, &#39;cat&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;dog&#39;), (1, &#39;you&#39;), (2, &#39;have&#39;), (3, &#39;i&#39;), (4, &#39;and&#39;), (5, &#39;a&#39;), (6, &#39;cat&#39;)]
 Vectors:
-[0. 1. 0. 1. 1. 0. 1.]
-[0. 1. 1. 1. 0. 1. 0.]
-[2. 1. 1. 2. 1. 1. 1.]
+[0. 0. 1. 1. 0. 1. 1.]
+[1. 1. 1. 0. 0. 1. 0.]
+[1. 1. 1. 1. 2. 2. 1.]
 </pre></div>
 </div>
 </div>
@@ -1271,7 +1271,8 @@ Vectors:
 <p>If there is text on the image, you can read it without unraveling a complicated neural network. For example, check out <a class="reference external" href="https://github.com/madmaze/pytesseract">pytesseract</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytesseract</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># requires `tesseract` to be installed in the system</span>
+<span class="kn">import</span> <span class="nn">pytesseract</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
@@ -1288,7 +1289,6 @@ Vectors:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Google
-
 </pre></div>
 </div>
 </div>
@@ -1308,22 +1308,19 @@ Vectors:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BEDROOM
-16 xI2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>‘BEDROOM
+1exI2
 
 DINING AREA
 11&quot; 100&quot;
 
-Livinc Room
+uvinc Room
 120&quot; 182&quot;
 
 KITCHEN
-102&quot; 710&quot;
+102&quot; x T10&quot;
 
 x1t0&quot;
-
- 
-
 </pre></div>
 </div>
 </div>
@@ -1510,7 +1507,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8726196885108948, pvalue=8.729185028297816e-28)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8658309578895569, pvalue=2.1172489361677473e-28)
 </pre></div>
 </div>
 </div>
@@ -1525,7 +1522,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8726196885108948, pvalue=8.729185028297816e-28)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8658309578895569, pvalue=2.1172489361677473e-28)
 </pre></div>
 </div>
 </div>
@@ -1637,7 +1634,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.6245273351669312, pvalue=4.590653769128101e-42)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.5917235612869263, pvalue=2.6624670822171524e-43)
 </pre></div>
 </div>
 </div>
@@ -1649,7 +1646,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9977580904960632, pvalue=0.19549916684627533)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9970758557319641, pvalue=0.0647953525185585)
 </pre></div>
 </div>
 </div>
@@ -1825,7 +1822,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 16)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 13)
 </pre></div>
 </div>
 </div>
@@ -1861,7 +1858,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.35087264738358914
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.13129755490970302
 </pre></div>
 </div>
 </div>
@@ -1875,7 +1872,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.2673163617021033
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1177830478195669
 </pre></div>
 </div>
 </div>
@@ -1889,7 +1886,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.35480439425288096
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.14101549225210946
 </pre></div>
 </div>
 </div>
@@ -1933,9 +1930,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.2859169109783656
--0.6307292826778921
--0.23095968536443912
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.44404805945624404
+-0.36730533520706043
+-0.3653830277952851
 </pre></div>
 </div>
 </div>
@@ -1963,9 +1960,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.24494026958041512
-LR:  -0.30063598371473965
-RF:  -0.6307292826778921
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.36357223327930743
+LR:  -0.4383180463165132
+RF:  -0.36730533520706043
 </pre></div>
 </div>
 </div>

@@ -133,8 +133,8 @@ df_uniques = (
     .reset_index()
 )
 
-sns.factorplot(
-    x="variable", y="count", hue="value", data=df_uniques, kind="bar", size=12
+sns.catplot(
+    x="variable", y="count", hue="value", data=df_uniques, kind="bar"
 );
 ```
 
@@ -156,14 +156,13 @@ df_uniques = (
     .reset_index()
 )
 
-sns.factorplot(
+sns.catplot(
     x="variable",
     y="count",
     hue="value",
     col="cardio",
     data=df_uniques,
-    kind="bar",
-    size=9,
+    kind="bar"
 );
 ```
 
@@ -462,7 +461,7 @@ df = filtered_df.copy()
 corr = df.corr(method="pearson")
 
 # Create a mask to hide the upper triangle of the correlation matrix (which is symmetric)
-mask = np.zeros_like(corr, dtype=np.bool)
+mask = np.zeros_like(corr, dtype=np.bool_)
 mask[np.triu_indices_from(mask)] = True
 
 f, ax = plt.subplots(figsize=(12, 9))
@@ -528,7 +527,7 @@ Create two [`kdeplot`](https://seaborn.pydata.org/generated/seaborn.kdeplot.html
 
 
 ```{code-cell} ipython3
-sns.FacetGrid(df, hue="gender", size=12).map(sns.kdeplot, "height").add_legend();
+sns.FacetGrid(df, hue="gender").map(sns.kdeplot, "height").add_legend();
 ```
 
 ## 2.3. Rank correlation
@@ -550,7 +549,7 @@ corr = df[
 ].corr(method="spearman")
 
 # Create a mask to hide the upper triangle of the correlation matrix (which is symmetric)
-mask = np.zeros_like(corr, dtype=np.bool)
+mask = np.zeros_like(corr, dtype=np.bool_)
 mask[np.triu_indices_from(mask)] = True
 
 f, ax = plt.subplots(figsize=(12, 10))

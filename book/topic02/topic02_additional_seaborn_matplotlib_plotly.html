@@ -1288,8 +1288,17 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse.ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_98104/2408025543.py:2: UserWarning: 
+
+`distplot` is a deprecated function and will be removed in seaborn v0.14.0.
+
+Please adapt your code to use either `displot` (a figure-level function with
+similar flexibility) or `histplot` (an axes-level function for histograms).
+
+For a guide to updating your code to use the new functions, please see
+https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
+
+  sns.distplot(df[&quot;Critic_Score&quot;]);
 </pre></div>
 </div>
 <img alt="../../_images/topic02_additional_seaborn_matplotlib_plotly_18_1.svg" src="../../_images/topic02_additional_seaborn_matplotlib_plotly_18_1.svg" /></div>
@@ -1370,7 +1379,7 @@ memory usage: 906.4+ KB
 
 <span class="k">def</span> <span class="nf">plotly_depict_figure_as_iframe</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
   <span class="n">plot_path</span><span class="o">=</span><span class="s1">&#39;../../_static/plotly_htmls/&#39;</span><span class="p">):</span>
-  <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  This is a helper method to visualizae PLotly plots as Iframes in a Jupyter book.</span>
 <span class="sd">  If you are running `jupyter-notebook`, you can just use iplot(fig).</span>
 <span class="sd">  &quot;&quot;&quot;</span>
@@ -1393,7 +1402,7 @@ if (typeof require !== 'undefined') {
 require.undef("plotly");
 requirejs.config({
     paths: {
-        'plotly': ['https://cdn.plot.ly/plotly-2.14.0.min']
+        'plotly': ['https://cdn.plot.ly/plotly-2.17.1.min']
     }
 });
 require(['plotly'], function(Plotly) {

@@ -1285,7 +1285,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">moving_average</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate average of last n observations</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">series</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">:])</span>
@@ -1308,7 +1308,7 @@ title="Print to PDF"
     <span class="n">series</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataframe with timeseries</span>
 <span class="sd">        window - rolling window size</span>
 <span class="sd">        plot_intervals - show confidence intervals</span>
@@ -1428,7 +1428,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weighted_average</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate weighted average on the series.</span>
 <span class="sd">        Assuming weights are sorted in descending order</span>
 <span class="sd">        (larger weights are assigned to more recent observations).</span>
@@ -1477,7 +1477,7 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exponential_smoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataset with timestamps</span>
 <span class="sd">        alpha - float [0.0, 1.0], smoothing parameter</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1492,7 +1492,7 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotExponentialSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alphas</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots exponential smoothing with different alphas</span>
 
 <span class="sd">        series - dataset with timestamps</span>
@@ -1549,7 +1549,7 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_exponential_smoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataset with timeseries</span>
 <span class="sd">        alpha - float [0.0, 1.0], smoothing parameter for level</span>
 <span class="sd">        beta - float [0.0, 1.0], smoothing parameter for trend</span>
@@ -1570,7 +1570,7 @@ dtype: float64
 
 
 <span class="k">def</span> <span class="nf">plotDoubleExponentialSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">betas</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots double exponential smoothing with different alphas and betas</span>
 
 <span class="sd">        series - dataset with timestamps</span>
@@ -1645,7 +1645,7 @@ dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HoltWinters</span><span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Holt-Winters model with the anomalies detection using Brutlag method</span>
 
 <span class="sd">    # series - initial time series</span>
@@ -1780,7 +1780,7 @@ dtype: float64
 
 
 <span class="k">def</span> <span class="nf">timeseriesCVscore</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">loss_function</span><span class="o">=</span><span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">slen</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns error on CV  </span>
 
 <span class="sd">        params - vector of parameters for optimization</span>
@@ -1857,8 +1857,8 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11676236693712227 0.0026881337430822994 0.055312622299154346
-CPU times: user 459 ms, sys: 2.26 ms, total: 461 ms
-Wall time: 460 ms
+CPU times: user 503 ms, sys: 3.17 ms, total: 506 ms
+Wall time: 505 ms
 </pre></div>
 </div>
 </div>
@@ -1867,7 +1867,7 @@ Wall time: 460 ms
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotHoltWinters</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataset with timeseries</span>
 <span class="sd">        plot_intervals - show confidence intervals</span>
 <span class="sd">        plot_anomalies - show anomalies</span>
@@ -1984,8 +1984,8 @@ Wall time: 460 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013190344846993662 0.047616267647338284 0.0
-CPU times: user 678 ms, sys: 25 ms, total: 703 ms
-Wall time: 692 ms
+CPU times: user 610 ms, sys: 10.3 ms, total: 620 ms
+Wall time: 611 ms
 </pre></div>
 </div>
 </div>
@@ -2103,7 +2103,7 @@ Wall time: 692 ms
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tsplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;bmh&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot time series, its ACF and PACF, calculate Dickey–Fuller test</span>
 
 <span class="sd">        y - timeseries</span>
@@ -2238,7 +2238,7 @@ Wall time: 692 ms
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimizeSARIMA</span><span class="p">(</span><span class="n">parameters_list</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return dataframe with parameters and corresponding AIC</span>
 
 <span class="sd">        parameters_list - list with (p, q, P, Q) tuples</span>
@@ -2289,9 +2289,9 @@ Wall time: 692 ms
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "05a7ffe8a3ce4bb397fef4df17fe5a7f", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7min 22s, sys: 1min 11s, total: 8min 34s
-Wall time: 1min 27s
+{"version_major": 2, "version_minor": 0, "model_id": "787f99a88d1048e28b6211a4f35f7066"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7min 11s, sys: 1min 13s, total: 8min 25s
+Wall time: 1min 25s
 </pre></div>
 </div>
 </div>
@@ -2372,8 +2372,8 @@ Wall time: 1min 27s
 ============================================================================================
 Dep. Variable:                                  Ads   No. Observations:                  216
 Model:             SARIMAX(2, 1, 3)x(1, 1, [1], 24)   Log Likelihood               -1936.321
-Date:                              Sat, 27 Aug 2022   AIC                           3888.642
-Time:                                      19:33:29   BIC                           3914.660
+Date:                              Fri, 03 Feb 2023   AIC                           3888.642
+Time:                                      19:37:07   BIC                           3914.660
 Sample:                                  09-13-2017   HQIC                          3899.181
                                        - 09-21-2017                                         
 Covariance Type:                                opg                                         
@@ -2397,7 +2397,7 @@ Prob(H) (two-sided):                  0.09   Kurtosis:                         4
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 3.98e+32. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 1.29e+32. Standard errors may be unstable.
 </pre></div>
 </div>
 </div>
@@ -2417,7 +2417,7 @@ Warnings:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotSARIMA</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots model vs predicted values</span>
 
 <span class="sd">        series - dataset with timeseries</span>
@@ -2766,7 +2766,7 @@ Warnings:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">timeseries_train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform train-test split with respect to time series structure</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -2810,7 +2810,7 @@ Warnings:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotModelResults</span><span class="p">(</span>
     <span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots modelled vs fact values, prediction intervals and anomalies</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2849,7 +2849,7 @@ Warnings:
 
 
 <span class="k">def</span> <span class="nf">plotCoefficients</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots sorted coefficient values of the model</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -3139,7 +3139,7 @@ Warnings:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">code_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cat_feature</span><span class="p">,</span> <span class="n">real_feature</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a dictionary where keys are unique categories of the cat_feature,</span>
 <span class="sd">    and values are means over real_feature</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -3167,7 +3167,7 @@ Warnings:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepareData</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">lag_start</span><span class="p">,</span> <span class="n">lag_end</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span> <span class="n">target_encoding</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series: pd.DataFrame</span>
 <span class="sd">            dataframe with timeseries</span>
 
@@ -3392,7 +3392,7 @@ Warnings:
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"05a7ffe8a3ce4bb397fef4df17fe5a7f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_3cab47dba5114aab8603c645c547682d", "IPY_MODEL_9ed6f4bcf12d4d6980facc032a8edb97", "IPY_MODEL_3741d82fc97146d492121f074957a184"], "layout": "IPY_MODEL_7859e5f238444c14a80529de5d435e0c"}}, "2d593d233de04743b64095ef0a9e87ec": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "3741d82fc97146d492121f074957a184": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_381936db265c45f5964b7d115f0536f2", "placeholder": "\u200b", "style": "IPY_MODEL_2d593d233de04743b64095ef0a9e87ec", "value": " 36/36 [01:27&lt;00:00,  5.32s/it]"}}, "37826ee955da4c52b9695820a346c30d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "381936db265c45f5964b7d115f0536f2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3cab47dba5114aab8603c645c547682d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_37826ee955da4c52b9695820a346c30d", "placeholder": "\u200b", "style": "IPY_MODEL_4b3f0210464243788ae27c129eb83076", "value": "100%"}}, "4b3f0210464243788ae27c129eb83076": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "614560f2e99e42a7aa80762d7455a3c3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "77105fea60ab422e8fc52e065e1d8bf5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7859e5f238444c14a80529de5d435e0c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9ed6f4bcf12d4d6980facc032a8edb97": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_77105fea60ab422e8fc52e065e1d8bf5", "max": 36.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_614560f2e99e42a7aa80762d7455a3c3", "value": 36.0}}}, "version_major": 2, "version_minor": 0}
+{"state": {"1a9e674d514f486c8704509a2e3bda8d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "447e0d33bc1843548eea634841ba4776": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "b5e2caa8ea9f466ebd97065a0440e17b": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_1a9e674d514f486c8704509a2e3bda8d", "max": 36.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_447e0d33bc1843548eea634841ba4776", "value": 36.0}}, "a8eb594828f24fbe9856c66791a29d61": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "400ae68cbbc94dbc83dd244e8a5659dd": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "ada6d98c551d4ff69a462ced6f135f04": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_a8eb594828f24fbe9856c66791a29d61", "placeholder": "\u200b", "style": "IPY_MODEL_400ae68cbbc94dbc83dd244e8a5659dd", "value": "100%"}}, "3ffc7cdd8c354b08a1b36f9e1834e393": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3838efe9e67d4d69b340abdc68e8779c": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "11301f6e4de441c380351f8825c76e00": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_3ffc7cdd8c354b08a1b36f9e1834e393", "placeholder": "\u200b", "style": "IPY_MODEL_3838efe9e67d4d69b340abdc68e8779c", "value": " 36/36 [01:25&lt;00:00,  5.03s/it]"}}, "2972be5c6f9f4258aa7dd994f981e2d6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "787f99a88d1048e28b6211a4f35f7066": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_ada6d98c551d4ff69a462ced6f135f04", "IPY_MODEL_b5e2caa8ea9f466ebd97065a0440e17b", "IPY_MODEL_11301f6e4de441c380351f8825c76e00"], "layout": "IPY_MODEL_2972be5c6f9f4258aa7dd994f981e2d6"}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 

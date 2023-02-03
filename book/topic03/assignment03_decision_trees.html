@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1334,10 +1332,10 @@ title="Print to PDF"
     <tr style="text-align: right;">
       <th></th>
       <th>Looks_handsome</th>
-      <th>Eloquence_high</th>
-      <th>Money_spent_little</th>
-      <th>Alcoholic_beverage_no</th>
       <th>Money_spent_lots</th>
+      <th>Money_spent_little</th>
+      <th>Eloquence_high</th>
+      <th>Alcoholic_beverage_no</th>
       <th>Alcoholic_beverage_yes</th>
       <th>Looks_repulsive</th>
       <th>Eloquence_average</th>
@@ -1349,8 +1347,8 @@ title="Print to PDF"
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -1369,9 +1367,9 @@ title="Print to PDF"
     <tr>
       <th>2</th>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -1382,8 +1380,8 @@ title="Print to PDF"
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
@@ -1391,10 +1389,10 @@ title="Print to PDF"
     <tr>
       <th>4</th>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
@@ -1404,8 +1402,8 @@ title="Print to PDF"
       <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
@@ -1413,10 +1411,10 @@ title="Print to PDF"
     <tr>
       <th>6</th>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -1451,10 +1449,10 @@ title="Print to PDF"
     <tr style="text-align: right;">
       <th></th>
       <th>Looks_handsome</th>
-      <th>Eloquence_high</th>
-      <th>Money_spent_little</th>
-      <th>Alcoholic_beverage_no</th>
       <th>Money_spent_lots</th>
+      <th>Money_spent_little</th>
+      <th>Eloquence_high</th>
+      <th>Alcoholic_beverage_no</th>
       <th>Alcoholic_beverage_yes</th>
       <th>Looks_repulsive</th>
       <th>Eloquence_average</th>
@@ -1464,9 +1462,9 @@ title="Print to PDF"
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -1475,9 +1473,9 @@ title="Print to PDF"
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -1486,10 +1484,10 @@ title="Print to PDF"
     <tr>
       <th>2</th>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
@@ -1596,7 +1594,7 @@ None
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># information gain calculation</span>
 <span class="k">def</span> <span class="nf">information_gain</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; root - initial data, left and right - two partitions of initial data&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; root - initial data, left and right - two partitions of initial data&quot;&quot;&quot;</span>
 
     <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
     <span class="k">pass</span>
@@ -1608,7 +1606,7 @@ None
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">information_gains</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Outputs information gain when splitting with each feature&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Outputs information gain when splitting with each feature&quot;&quot;&quot;</span>
 
     <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
     <span class="k">pass</span>
@@ -2327,6 +2325,15 @@ dtype: object
 </div>
 </div>
 </div>
+<p>Save targets separately.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">data_train</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Target&#39;</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">data_test</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Target&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Fill in missing data for continuous features with their median values, for categorical features with their mode.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2345,7 +2352,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>categorical_columns: [&#39;Workclass&#39;, &#39;Education&#39;, &#39;Martial_Status&#39;, &#39;Occupation&#39;, &#39;Relationship&#39;, &#39;Race&#39;, &#39;Sex&#39;, &#39;Country&#39;, &#39;Target&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>categorical_columns: [&#39;Workclass&#39;, &#39;Education&#39;, &#39;Martial_Status&#39;, &#39;Occupation&#39;, &#39;Relationship&#39;, &#39;Race&#39;, &#39;Sex&#39;, &#39;Country&#39;]
 numerical_columns: [&#39;Age&#39;, &#39;fnlwgt&#39;, &#39;Education_Num&#39;, &#39;Capital_Gain&#39;, &#39;Capital_Loss&#39;, &#39;Hours_per_week&#39;]
 </pre></div>
 </div>
@@ -2361,7 +2368,7 @@ numerical_columns: [&#39;Age&#39;, &#39;fnlwgt&#39;, &#39;Education_Num&#39;, &#
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 32561 entries, 0 to 32560
-Data columns (total 15 columns):
+Data columns (total 14 columns):
  #   Column          Non-Null Count  Dtype 
 ---  ------          --------------  ----- 
  0   Age             32561 non-null  int64 
@@ -2378,9 +2385,8 @@ Data columns (total 15 columns):
  11  Capital_Loss    32561 non-null  int64 
  12  Hours_per_week  32561 non-null  int64 
  13  Country         31978 non-null  object
- 14  Target          32561 non-null  object
-dtypes: int64(6), object(9)
-memory usage: 3.7+ MB
+dtypes: int64(6), object(8)
+memory usage: 3.5+ MB
 </pre></div>
 </div>
 </div>
@@ -2410,7 +2416,7 @@ memory usage: 3.7+ MB
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 32561 entries, 0 to 32560
-Data columns (total 15 columns):
+Data columns (total 14 columns):
  #   Column          Non-Null Count  Dtype 
 ---  ------          --------------  ----- 
  0   Age             32561 non-null  int64 
@@ -2427,9 +2433,8 @@ Data columns (total 15 columns):
  11  Capital_Loss    32561 non-null  int64 
  12  Hours_per_week  32561 non-null  int64 
  13  Country         32561 non-null  object
- 14  Target          32561 non-null  int64 
-dtypes: int64(7), object(8)
-memory usage: 3.7+ MB
+dtypes: int64(6), object(8)
+memory usage: 3.5+ MB
 </pre></div>
 </div>
 </div>
@@ -2469,7 +2474,7 @@ memory usage: 3.7+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((32561, 106), (16281, 105))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((32561, 105), (16281, 104))
 </pre></div>
 </div>
 </div>
@@ -2525,10 +2530,10 @@ memory usage: 3.7+ MB
       <th>Capital_Gain</th>
       <th>Capital_Loss</th>
       <th>Hours_per_week</th>
-      <th>Target</th>
       <th>Workclass_ Federal-gov</th>
       <th>Workclass_ Local-gov</th>
       <th>Workclass_ Never-worked</th>
+      <th>Workclass_ Private</th>
       <th>...</th>
       <th>Country_ Portugal</th>
       <th>Country_ Puerto-Rico</th>
@@ -2593,7 +2598,7 @@ memory usage: 3.7+ MB
     </tr>
   </tbody>
 </table>
-<p>2 rows × 106 columns</p>
+<p>2 rows × 105 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -2627,10 +2632,10 @@ memory usage: 3.7+ MB
       <th>Capital_Gain</th>
       <th>Capital_Loss</th>
       <th>Hours_per_week</th>
-      <th>Target</th>
       <th>Workclass_ Federal-gov</th>
       <th>Workclass_ Local-gov</th>
       <th>Workclass_ Never-worked</th>
+      <th>Workclass_ Private</th>
       <th>...</th>
       <th>Country_ Puerto-Rico</th>
       <th>Country_ Scotland</th>
@@ -2656,7 +2661,7 @@ memory usage: 3.7+ MB
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -2680,7 +2685,7 @@ memory usage: 3.7+ MB
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -2695,16 +2700,13 @@ memory usage: 3.7+ MB
     </tr>
   </tbody>
 </table>
-<p>2 rows × 106 columns</p>
+<p>2 rows × 105 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">data_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Target&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">data_train</span><span class="p">[</span><span class="s2">&quot;Target&quot;</span><span class="p">]</span>
-
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">data_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Target&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">data_test</span><span class="p">[</span><span class="s2">&quot;Target&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">data_train</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">data_test</span>
 </pre></div>
 </div>
 </div>

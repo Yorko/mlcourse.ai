@@ -353,6 +353,14 @@ data_test["Capital_Loss"] = data_test["Capital_Loss"].astype(int)
 data_test["Hours_per_week"] = data_test["Hours_per_week"].astype(int)
 ```
 
+Save targets separately.
+
+```{code-cell} ipython3
+y_train = data_train.pop('Target')
+y_test = data_test.pop('Target')
+```
+
+
 **Fill in missing data for continuous features with their median values, for categorical features with their mode.**
 
 
@@ -444,11 +452,8 @@ data_test.head(2)
 
 
 ```{code-cell} ipython3
-X_train = data_train.drop(["Target"], axis=1)
-y_train = data_train["Target"]
-
-X_test = data_test.drop(["Target"], axis=1)
-y_test = data_test["Target"]
+X_train = data_train
+X_test = data_test
 ```
 
 ### 3.1 Decision tree without parameter tuning
