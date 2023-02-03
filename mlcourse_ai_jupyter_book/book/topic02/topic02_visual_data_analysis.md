@@ -320,7 +320,7 @@ Using the same function, we can also get a smoothed version of our bivariate dis
 
 ```{code-cell} ipython3
 sns.jointplot(
-    "Total day minutes", "Total night minutes", data=df, kind="kde", color="g"
+    x="Total day minutes", y="Total night minutes", data=df, kind="kde", color="g"
 );
 ```
 
