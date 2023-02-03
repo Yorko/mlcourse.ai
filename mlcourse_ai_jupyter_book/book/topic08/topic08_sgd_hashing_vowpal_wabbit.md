@@ -261,7 +261,7 @@ This idea is implemented in the `OneHotEncoder` class from `sklearn.preprocessin
 
 
 ```{code-cell} ipython3
-onehot_encoder = OneHotEncoder(sparse=False)
+onehot_encoder = OneHotEncoder(sparse_output=False)
 ```
 
 
@@ -453,7 +453,7 @@ with open(os.path.join(PATH_TO_WRITE_DATA, "20news_test.vw"), "w") as vw_test_da
 Now, we pass the created training file to Vowpal Wabbit. We solve the classification problem with a hinge loss function (linear SVM). The trained model will be saved in the `20news_model.vw` file:
 
 
-```{code-cell} ipython3
+```
 #!vw -d $PATH_TO_WRITE_DATA/20news_train.vw \
 # --loss_function hinge -f $PATH_TO_WRITE_DATA/20news_model.vw
 ```
@@ -461,7 +461,7 @@ Now, we pass the created training file to Vowpal Wabbit. We solve the classifica
 VW prints a lot of interesting info while training (one can suppress it with the `--quiet` parameter). You can see [documentation](https://vowpalwabbit.org/docs/vowpal_wabbit/python/latest/tutorials/cmd_linear_regression.html#vowpal-wabbit-output) of the diagnostic output. Note how average loss drops while training. For loss computation, VW uses samples it has never seen before, so this measure is usually accurate. Now, we apply our trained model to the test set, saving predictions into a file with the `-p` flag:  
 
 
-```{code-cell} ipython3
+```
 #!vw -i $PATH_TO_WRITE_DATA/20news_model.vw -t -d $PATH_TO_WRITE_DATA/20news_test.vw \
 # -p $PATH_TO_WRITE_DATA/20news_test_predictions.txt
 ```
@@ -477,13 +477,13 @@ with open(os.path.join(PATH_TO_WRITE_DATA, "20news_test_predictions.txt")) as pr
 auc = roc_auc_score(test_labels, test_prediction)
 roc_curve = roc_curve(test_labels, test_prediction)
 
-with plt.xkcd():
-    plt.plot(roc_curve[0], roc_curve[1])
-    plt.plot([0, 1], [0, 1])
-    plt.xlabel("FPR")
-    plt.ylabel("TPR")
-    plt.title("test AUC = %f" % (auc))
-    plt.axis([-0.05, 1.05, -0.05, 1.05]);
+
+plt.plot(roc_curve[0], roc_curve[1])
+plt.plot([0, 1], [0, 1])
+plt.xlabel("FPR")
+plt.ylabel("TPR")
+plt.title("test AUC = %f" % (auc))
+plt.axis([-0.05, 1.05, -0.05, 1.05]);
 ```
 
 The AUC value we get shows that we have achieved high classification quality.
@@ -524,12 +524,12 @@ We train Vowpal Wabbit in multiclass classification mode, passing the `oaa` para
 Additionally, we can try automatic Vowpal Wabbit parameter tuning with [Hyperopt](https://github.com/hyperopt/hyperopt).
 
 
-```{code-cell} ipython3
+```
 #!vw --oaa 20 $PATH_TO_WRITE_DATA/20news_train_mult.vw -f $PATH_TO_WRITE_DATA/ \
 #20news_model_mult.vw --loss_function=hinge
 ```
 
-```{code-cell} ipython3
+```
 #%%time
 #!vw -i $PATH_TO_WRITE_DATA/20news_model_mult.vw -t -d $PATH_TO_WRITE_DATA/20news_test_mult.vw \
 #-p $PATH_TO_WRITE_DATA/20news_test_predictions_mult.txt

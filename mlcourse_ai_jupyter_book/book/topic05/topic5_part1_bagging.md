@@ -165,6 +165,7 @@ For the interpretation of confidence intervals, you can address [this](https://w
 Now that you've grasped the idea of bootstrapping, we can move on to *bagging*.
 
 Suppose that we have a training set $\large X$. Using bootstrapping, we generate samples $\large X_1, \dots, X_M$. Now, for each bootstrap sample, we train its own classifier $\large a_i(x)$. The final classifier will average the outputs from all these individual classifiers. In the case of classification, this technique corresponds to voting:
+
 $$\large a(x) = \frac{1}{M}\sum_{i = 1}^M a_i(x).$$
 
 The picture below illustrates this algorithm:

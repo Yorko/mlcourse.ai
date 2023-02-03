@@ -901,7 +901,7 @@ We can fight non-stationarity using different approaches: various order differen
 
 ## Getting rid of non-stationarity and building SARIMA
 
-Let's build an ARIMA model by walking through all the ~~circles of hell~~ stages of making a series stationary.
+Let's build an ARIMA model by walking through all the *circles of hell* stages of making a series stationary.
 
 Here is the code to render plots.
 
@@ -1555,7 +1555,7 @@ But, this victory is decieving, and it might not be the brightest idea to fit `x
 
 # Conclusion
 
-We discussed different time series analysis and prediction methods. Unfortunately, or maybe luckily, there is no one way to solve these kind of problems. Methods developed in the 1960s (and some even in the beginning of the 21st century) are still popular, along with LSTMs and RNNs (not covered in this article). This is partially related to the fact that the prediction task, like any other data-related task, requires creativity in so many aspects and definitely requires research. In spite of the large number of formal quality metrics and approaches to parameters estimation, it is often necessary to try something different for each time series. Last but not least, the balance between quality and cost is important. As a good example, the SARIMA model can produce spectacular results after tuning but can require many hours of ~~tambourine dancing~~ time series manipulation while a simple linear regression model can be built in 10 minutes and can achieve more or less comparable results.
+We discussed different time series analysis and prediction methods. Unfortunately, or maybe luckily, there is no one way to solve these kind of problems. Methods developed in the 1960s (and some even in the beginning of the 21st century) are still popular, along with LSTMs and RNNs (not covered in this article). This is partially related to the fact that the prediction task, like any other data-related task, requires creativity in so many aspects and definitely requires research. In spite of the large number of formal quality metrics and approaches to parameters estimation, it is often necessary to try something different for each time series. Last but not least, the balance between quality and cost is important. As a good example, the SARIMA model can produce spectacular results after tuning but can require many hours of *tambourine dancing* time series manipulation while a simple linear regression model can be built in 10 minutes and can achieve more or less comparable results.
 
 # Useful resources
 
