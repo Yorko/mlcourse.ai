@@ -373,7 +373,7 @@ rows = int(data_train.shape[1] / cols)
 for i, column in enumerate(data_train.columns):
     ax = fig.add_subplot(rows, cols, i + 1)
     ax.set_title(column)
-    if data_train.dtypes[column] == np.object:
+    if data_train.dtypes[column] == np.object_:
         data_train[column].value_counts().plot(kind="bar", axes=ax)
     else:
         data_train[column].hist(axes=ax)
@@ -409,6 +409,17 @@ data_test["Education_Num"] = data_test["Education_Num"].astype(int)
 data_test["Capital_Gain"] = data_test["Capital_Gain"].astype(int)
 data_test["Capital_Loss"] = data_test["Capital_Loss"].astype(int)
 data_test["Hours_per_week"] = data_test["Hours_per_week"].astype(int)
+
+# same for the target
+data_train["Target"] = data_train["Target"].astype(int)
+data_test["Target"] = data_test["Target"].astype(int)
+```
+
+Save targets separately.
+
+```{code-cell} ipython3
+y_train = data_train.pop('Target')
+y_test = data_test.pop('Target')
 ```
 
 **Fill in missing data for continuous features with their median values, for categorical features with their mode.**
@@ -502,11 +513,8 @@ data_test.head(2)
 
 
 ```{code-cell} ipython3
-X_train = data_train.drop(["Target"], axis=1)
-y_train = data_train["Target"]
-
-X_test = data_test.drop(["Target"], axis=1)
-y_test = data_test["Target"]
+X_train = data_train
+X_test = data_test
 ```
 
 ### 3.1 Decision tree without parameter tuning
@@ -561,7 +569,7 @@ Train a decision tree with maximum depth of 9 (it is the best **max_depth** in m
 ```{code-cell} ipython3
 tuned_tree = DecisionTreeClassifier(max_depth=9, random_state=17)
 tuned_tree.fit(X_train, y_train)
-tuned_tree_predictions = tuned_tree.predict(X_test)
+tuned_tree_predictions = tuned_tree.predict(X_test[X_train.columns])
 accuracy_score(y_test, tuned_tree_predictions)
 ```
 
@@ -598,7 +606,7 @@ Make predictions for the test data.
 
 
 ```{code-cell} ipython3
-forest_predictions = rf.predict(X_test)
+forest_predictions = rf.predict(X_test[X_train.columns])
 ```
 
 
@@ -634,7 +642,7 @@ Make predictions for the test data.
 
 
 ```{code-cell} ipython3
-tuned_forest_predictions = locally_best_forest.predict(X_test)
+tuned_forest_predictions = locally_best_forest.predict(X_test[X_train.columns])
 accuracy_score(y_test, tuned_forest_predictions)
 ```
 

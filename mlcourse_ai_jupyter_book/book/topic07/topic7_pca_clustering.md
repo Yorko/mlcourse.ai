@@ -123,7 +123,7 @@ for name, label in [("Setosa", 0), ("Versicolour", 1), ("Virginica", 2)]:
         bbox=dict(alpha=0.5, edgecolor="w", facecolor="w"),
     )
 # Change the order of labels, so that they match
-y_clr = np.choose(y, [1, 2, 0]).astype(np.float)
+y_clr = np.choose(y, [1, 2, 0]).astype(np.float32)
 ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y_clr, cmap=plt.cm.nipy_spectral)
 
 ax.w_xaxis.set_ticklabels([])
