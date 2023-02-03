@@ -8,7 +8,8 @@ license = "CC BY-NC-SA 4.0"
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
 eli5 = "0.11.0"
-jupyter-book = "^0.13.1"
+# there's a bug that will be fixed in the next release, issue 1907
+jupyter-book = {git = "https://github.com/executablebooks/jupyter-book.git", rev = "de46e274d89550a3a89e7259bcf78990068becc1"}
 matplotlib = "^3.5.3"
 numpy = "^1.23.2"
 pandas = "^1.4.4"
@@ -38,9 +39,7 @@ pylatexenc = "^2.10"
 pre-commit = "^2.20.0"
 pyyaml = "^6.0"
 sphinx-jupyterbook-latex = "^0.4.6"
-
-[tool.poetry.extras]
-jsonschema = ["format-nongpl"]
+#jsonschema = {version = "3.2.0", extras = ["format-nongpl"]}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
