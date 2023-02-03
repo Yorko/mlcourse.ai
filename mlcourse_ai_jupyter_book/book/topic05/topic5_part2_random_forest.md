@@ -69,6 +69,7 @@ The algorithm for constructing a random forest of $\large N$ trees goes as follo
         * For each split, we first randomly pick $\large m$ features from the $\large d$ original ones and then search for the next best split only among the subset.
 
 The final classifier is defined by:
+
 $$\large a(x) = \frac{1}{N}\sum_{k = 1}^N b_k(x)$$
 
 We use the majority voting for classification and the mean for regression.
