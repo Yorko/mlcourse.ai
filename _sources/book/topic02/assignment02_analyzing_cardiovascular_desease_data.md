@@ -119,7 +119,7 @@ df.head()
 
 It would be instructive to peek into the values of our variables.
 
-Let's convert the data into *long* format and depict the value counts of the categorical features using [`factorplot()`](https://seaborn.pydata.org/generated/seaborn.factorplot.html).
+Let's convert the data into *long* format and depict the value counts of the categorical features using [`catplot()`](https://seaborn.pydata.org/generated/seaborn.catplot.html).
 
 
 ```{code-cell} ipython3
@@ -137,6 +137,7 @@ df_uniques = (
 sns.catplot(
     x="variable", y="count", hue="value", data=df_uniques, kind="bar"
 )
+plt.xticks(rotation='vertical');
 ```
 
 We can see that the target classes are balanced. That's great!
@@ -165,6 +166,7 @@ sns.catplot(
     data=df_uniques,
     kind="bar",
 )
+plt.xticks(rotation='vertical');
 ```
 
 You can see that the distribution of cholesterol and glucose levels great differs by the value of the target variable. Is this a coincidence?

@@ -288,7 +288,8 @@ Calculate the Adjusted Rand Index (`sklearn.metrics`) for the resulting clusteri
 **Question 6:** <br>
 Select all the correct statements. <br>
 
-** Answer options:**
+**Answer options:**
+
 - According to ARI, KMeans handled clustering worse than Agglomerative Clustering
 - For ARI, it does not matter which tags are assigned to the cluster, only the partitioning of instances into clusters matters
 - In case of random partitioning into clusters, ARI will be close to zero

@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1364,7 +1362,7 @@ Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshn
 </div></div></div>
 </div>
 <p>It would be instructive to peek into the values of our variables.</p>
-<p>Let’s convert the data into <em>long</em> format and depict the value counts of the categorical features using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.factorplot.html"><code class="docutils literal notranslate"><span class="pre">factorplot()</span></code></a>.</p>
+<p>Let’s convert the data into <em>long</em> format and depict the value counts of the categorical features using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.catplot.html"><code class="docutils literal notranslate"><span class="pre">catplot()</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
@@ -1381,14 +1379,12 @@ Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshn
 <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span>
 <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1062bf520&gt;
-</pre></div>
-</div>
-<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_1.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_1.png" />
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_8_0.png" />
 </div>
 </div>
 <p>We can see that the target classes are balanced. That’s great!</p>
@@ -1415,14 +1411,12 @@ Authors: <a class="reference external" href="https://www.linkedin.com/in/baryshn
     <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1062bf1f0&gt;
-</pre></div>
-</div>
-<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_1.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_1.png" />
+<img alt="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_0.png" src="../../_images/assignment02_analyzing_cardiovascular_desease_data_10_0.png" />
 </div>
 </div>
 <p>You can see that the distribution of cholesterol and glucose levels great differs by the value of the target variable. Is this a coincidence?</p>

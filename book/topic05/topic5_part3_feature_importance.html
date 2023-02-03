@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -961,9 +959,9 @@ The average reduction in accuracy caused by a variable is determined during the 
 <p>Now, we can give the feature importance calculation for ensembles:</p>
 <ul class="simple">
 <li><p>not normalized:
-$<span class="math notranslate nohighlight">\({PI}\left(X_j\right)=\frac{\sum_{t=1}^N {PI}^{(t)}(X_j)}{N}\)</span>$</p></li>
+<span class="math notranslate nohighlight">\({PI}\left(X_j\right)=\frac{\sum_{t=1}^N {PI}^{(t)}(X_j)}{N}\)</span></p></li>
 <li><p>normalized by the standard deviation of the differences:
-$<span class="math notranslate nohighlight">\(z_j=\frac{{PI}\left(X_j\right)}{\frac{\hat{\sigma}}{\sqrt{N}}}\)</span>$</p></li>
+<span class="math notranslate nohighlight">\(z_j=\frac{{PI}\left(X_j\right)}{\frac{\hat{\sigma}}{\sqrt{N}}}\)</span></p></li>
 </ul>
 </section>
 </section>

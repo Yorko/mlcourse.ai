@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1116,11 +1114,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;dog&#39;), (1, &#39;you&#39;), (2, &#39;have&#39;), (3, &#39;i&#39;), (4, &#39;and&#39;), (5, &#39;a&#39;), (6, &#39;cat&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;and&#39;), (1, &#39;i&#39;), (2, &#39;have&#39;), (3, &#39;dog&#39;), (4, &#39;a&#39;), (5, &#39;cat&#39;), (6, &#39;you&#39;)]
 Vectors:
-[0. 0. 1. 1. 0. 1. 1.]
-[1. 1. 1. 0. 0. 1. 0.]
-[1. 1. 1. 1. 2. 2. 1.]
+[0. 1. 1. 0. 1. 1. 0.]
+[0. 0. 1. 1. 1. 0. 1.]
+[2. 1. 1. 1. 2. 1. 1.]
 </pre></div>
 </div>
 </div>
@@ -1507,7 +1505,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8658309578895569, pvalue=2.1172489361677473e-28)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8687546253204346, pvalue=3.869702185261761e-28)
 </pre></div>
 </div>
 </div>
@@ -1522,7 +1520,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8658309578895569, pvalue=2.1172489361677473e-28)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8687548041343689, pvalue=3.869905611612137e-28)
 </pre></div>
 </div>
 </div>
@@ -1634,7 +1632,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.5917235612869263, pvalue=2.6624670822171524e-43)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.5057604312896729, pvalue=0.0)
 </pre></div>
 </div>
 </div>
@@ -1646,7 +1644,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9970758557319641, pvalue=0.0647953525185585)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9977450966835022, pvalue=0.19157560169696808)
 </pre></div>
 </div>
 </div>
@@ -1798,7 +1796,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 18)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 20)
 </pre></div>
 </div>
 </div>
@@ -1810,7 +1808,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 18)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 19)
 </pre></div>
 </div>
 </div>
@@ -1822,7 +1820,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 13)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 18)
 </pre></div>
 </div>
 </div>
@@ -1858,7 +1856,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.13129755490970302
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.47974492258345747
 </pre></div>
 </div>
 </div>
@@ -1872,7 +1870,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.1177830478195669
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3489727807825937
 </pre></div>
 </div>
 </div>
@@ -1886,7 +1884,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.14101549225210946
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.4527796172165835
 </pre></div>
 </div>
 </div>
@@ -1930,9 +1928,11 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.44404805945624404
--0.36730533520706043
--0.3653830277952851
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.19304251938532485
+-0.29992489296189095
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.19995982311172394
 </pre></div>
 </div>
 </div>
@@ -1960,9 +1960,11 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.36357223327930743
-LR:  -0.4383180463165132
-RF:  -0.36730533520706043
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.21815009524893672
+LR:  -0.20041249977780362
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RF:  -0.29992489296189095
 </pre></div>
 </div>
 </div>

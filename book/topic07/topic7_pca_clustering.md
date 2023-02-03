@@ -91,44 +91,31 @@ Let's start by uploading all of the essential modules and try out the iris examp
 
 
 ```{code-cell} ipython3
-import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
 
-sns.set(style="white")
-%matplotlib inline
-%config InlineBackend.figure_format = 'retina'
-from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import pandas as pd
 from sklearn import datasets, decomposition
 
-# Loading the dataset
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="white")
+from mpl_toolkits.mplot3d import Axes3D
+%matplotlib inline
+%config InlineBackend.figure_format = 'retina'
+
+# Load the iris dataset
 iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
-# Let's create a beautiful 3d-plot
-fig = plt.figure(1, figsize=(6, 5))
-plt.clf()
-ax = Axes3D(fig, rect=[0, 0, 0.95, 1], elev=48, azim=134)
-
-plt.cla()
-
-for name, label in [("Setosa", 0), ("Versicolour", 1), ("Virginica", 2)]:
-    ax.text3D(
-        X[y == label, 0].mean(),
-        X[y == label, 1].mean() + 1.5,
-        X[y == label, 2].mean(),
-        name,
-        horizontalalignment="center",
-        bbox=dict(alpha=0.5, edgecolor="w", facecolor="w"),
-    )
-# Change the order of labels, so that they match
-y_clr = np.choose(y, [1, 2, 0]).astype(np.float32)
-ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=y_clr, cmap=plt.cm.nipy_spectral)
-
-ax.w_xaxis.set_ticklabels([])
-ax.w_yaxis.set_ticklabels([])
-ax.w_zaxis.set_ticklabels([]);
+# Plot the dataset in 3D ignoring Petal Width
+fig = plt.figure(figsize=(10, 10))
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(X[:, 0], X[:, 1], X[:, 2],  
+           c=y, cmap='viridis', alpha=0.7)
+ax.set_xlabel('Sepal Length')
+ax.set_ylabel('Sepal Width')
+ax.set_zlabel('Petal Length');
 ```
 
 Now let's see how PCA will improve the results of a simple model that is not able to correctly fit all of the training data:
@@ -293,7 +280,7 @@ plt.show();
 
 The main idea behind clustering is pretty straightforward. Basically, we say to ourselves, "I have these points here, and I can see that they organize into groups. It would be nice to describe these things more concretely, and, when a new point comes in, assign it to the correct group." This general idea encourages exploration and opens up a variety of algorithms for clustering.
 
-<figure><img align="center" src="https://habrastorage.org/getpro/habr/post_images/8b9/ae5/586/8b9ae55861f22a2809e8b3a00ef815ad.png"><figcaption>*The examples of the outcomes from different algorithms from scikit-learn*</figcaption></figure>
+<figure><img align="center" src="https://habrastorage.org/getpro/habr/post_images/8b9/ae5/586/8b9ae55861f22a2809e8b3a00ef815ad.png"><figcaption><it>The examples of the outcomes from different algorithms from scikit-learn</it></figcaption></figure>
 
 The algorithms listed below do not cover all the clustering methods out there, but they are the most commonly used ones.
 
@@ -402,7 +389,7 @@ from sklearn.cluster import KMeans
 ```{code-cell} ipython3
 inertia = []
 for k in range(1, 8):
-    kmeans = KMeans(n_clusters=k, random_state=1).fit(X)
+    kmeans = KMeans(n_clusters=k, random_state=1, n_init='auto').fit(X)
     inertia.append(np.sqrt(kmeans.inertia_))
 ```
 
@@ -561,7 +548,7 @@ data = datasets.load_digits()
 X, y = data.data, data.target
 
 algorithms = []
-algorithms.append(KMeans(n_clusters=10, random_state=1))
+algorithms.append(KMeans(n_clusters=10, random_state=1, n_init='auto'))
 algorithms.append(AffinityPropagation())
 algorithms.append(
     SpectralClustering(n_clusters=10, random_state=1, affinity="nearest_neighbors")

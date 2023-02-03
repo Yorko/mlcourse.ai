@@ -64,9 +64,9 @@ Note that by definition ${PI}^{(t)}=0$, if variable $X_j$ isn't in tree $t$.
 
 Now, we can give the feature importance calculation for ensembles:
 * not normalized:
-$${PI}\left(X_j\right)=\frac{\sum_{t=1}^N {PI}^{(t)}(X_j)}{N}$$
+${PI}\left(X_j\right)=\frac{\sum_{t=1}^N {PI}^{(t)}(X_j)}{N}$
 * normalized by the standard deviation of the differences:
-$$z_j=\frac{{PI}\left(X_j\right)}{\frac{\hat{\sigma}}{\sqrt{N}}}$$
+$z_j=\frac{{PI}\left(X_j\right)}{\frac{\hat{\sigma}}{\sqrt{N}}}$
 
 ## 2. Illustrating permutation importance
 

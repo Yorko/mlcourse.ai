@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1055,8 +1053,9 @@ Service calls from churn: mean interval [2.0621118  2.39761905]
 <section id="bagging">
 <h2>3. Bagging<a class="headerlink" href="#bagging" title="Permalink to this headline">#</a></h2>
 <p>Now that you’ve grasped the idea of bootstrapping, we can move on to <em>bagging</em>.</p>
-<p>Suppose that we have a training set <span class="math notranslate nohighlight">\(\large X\)</span>. Using bootstrapping, we generate samples <span class="math notranslate nohighlight">\(\large X_1, \dots, X_M\)</span>. Now, for each bootstrap sample, we train its own classifier <span class="math notranslate nohighlight">\(\large a_i(x)\)</span>. The final classifier will average the outputs from all these individual classifiers. In the case of classification, this technique corresponds to voting:
-$<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{M}\sum_{i = 1}^M a_i(x).\)</span>$</p>
+<p>Suppose that we have a training set <span class="math notranslate nohighlight">\(\large X\)</span>. Using bootstrapping, we generate samples <span class="math notranslate nohighlight">\(\large X_1, \dots, X_M\)</span>. Now, for each bootstrap sample, we train its own classifier <span class="math notranslate nohighlight">\(\large a_i(x)\)</span>. The final classifier will average the outputs from all these individual classifiers. In the case of classification, this technique corresponds to voting:</p>
+<div class="math notranslate nohighlight">
+\[\large a(x) = \frac{1}{M}\sum_{i = 1}^M a_i(x).\]</div>
 <p>The picture below illustrates this algorithm:</p>
 <img src="../../_static/img/topic5_bagging.png" alt="image"/>
 <p>Let’s consider a regression problem with base algorithms <span class="math notranslate nohighlight">\(\large b_1(x), \dots , b_n(x)\)</span>. Assume that there exists an ideal target function of true answers <span class="math notranslate nohighlight">\(\large y(x)\)</span> defined for all inputs and that the distribution <span class="math notranslate nohighlight">\(\large p(x)\)</span> is defined. We can then express the error for each regression function as follows:</p>

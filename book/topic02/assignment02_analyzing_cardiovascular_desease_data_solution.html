@@ -1491,7 +1491,7 @@ title="Print to PDF"
 </div></div></div>
 </div>
 <p>It would be instructive to peek into the values of our variables.</p>
-<p>Let’s convert the data into <em>long</em> format and depict the value counts of the categorical features using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.factorplot.html"><code class="docutils literal notranslate"><span class="pre">factorplot()</span></code></a>.</p>
+<p>Let’s convert the data into <em>long</em> format and depict the value counts of the categorical features using <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.catplot.html"><code class="docutils literal notranslate"><span class="pre">catplot()</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
@@ -1507,7 +1507,8 @@ title="Print to PDF"
 
 <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span>
-<span class="p">);</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1538,7 +1539,8 @@ title="Print to PDF"
     <span class="n">col</span><span class="o">=</span><span class="s2">&quot;cardio&quot;</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="n">df_uniques</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span>
-<span class="p">);</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1047,8 +1045,9 @@ title="Print to PDF"
 </ul>
 </li>
 </ul>
-<p>The final classifier is defined by:
-$<span class="math notranslate nohighlight">\(\large a(x) = \frac{1}{N}\sum_{k = 1}^N b_k(x)\)</span>$</p>
+<p>The final classifier is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\large a(x) = \frac{1}{N}\sum_{k = 1}^N b_k(x)\]</div>
 <p>We use the majority voting for classification and the mean for regression.</p>
 <p>For classification problems, it is advisable to set <span class="math notranslate nohighlight">\(\large m = \sqrt{d}\)</span>. For regression problems, we usually take <span class="math notranslate nohighlight">\(\large m = \frac{d}{3}\)</span>, where <span class="math notranslate nohighlight">\(\large d\)</span> is the number of features. It is recommended to build each tree until all of its leaves contain only <span class="math notranslate nohighlight">\(\large n_\text{min} = 1\)</span> examples for classification and <span class="math notranslate nohighlight">\(\large n_\text{min} = 5\)</span> examples for regression.</p>
 <p>You can see random forest as bagging of decision trees with the modification of selecting a random subset of features at each split.</p>
