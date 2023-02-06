@@ -2,12 +2,12 @@
 
 # Topic 1. Exploratory data analysis with Pandas
 
-```{figure} /_static/img/pandas.jpg
+```{figure} /_static/img/topic01/pandas.jpg
 :name: pandas
 :width: 300px
 ```
 
-You definitely want to immediately jump into Machine Learning and see math in action. But 70-80% of the time working on a real project is fussing with data, and here Pandas is very helpful, I use it in my work almost every day. This article describes the basic Pandas methods for preliminary data analysis. Then we analyze the dataset on the churn of telecom customers and try to predict churn without any model training, simply relying on common sense (and Pandas of course). By no means should you underestimate such an approach.
+Diving into Machine Learning and seeing the math in action is certainly an exciting prospect. However, a significant portion of working on real-world projects, around 70-80%, is actually spent on preparing and cleaning the data. This is where Pandas comes in handy and proves to be a valuable tool, as I use it on a daily basis in my work. This article outlines the essential Pandas methods for preliminary data analysis. We will then analyze a dataset on telecom customer churn and attempt to predict it using common sense alone (and Pandas of course), without any model training. Don't underestimate the power of such an approach.
 
 ## Steps in this block
 

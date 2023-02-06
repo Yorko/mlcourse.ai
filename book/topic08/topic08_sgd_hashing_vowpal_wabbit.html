@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
@@ -1723,12 +1725,12 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.88      1.00      0.94      6091
-           1       1.00      0.00      0.01       808
+           0       0.89      1.00      0.94      6120
+           1       1.00      0.00      0.00       779
 
-    accuracy                           0.88      6899
+    accuracy                           0.89      6899
    macro avg       0.94      0.50      0.47      6899
-weighted avg       0.90      0.88      0.83      6899
+weighted avg       0.90      0.89      0.83      6899
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/utils/validation.py:1143: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
@@ -1998,12 +2000,12 @@ weighted avg       0.90      0.88      0.83      6899
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.90      0.99      0.94      6129
-           1       0.62      0.17      0.27       770
+           0       0.90      0.99      0.94      6112
+           1       0.65      0.19      0.29       787
 
     accuracy                           0.90      6899
-   macro avg       0.76      0.58      0.61      6899
-weighted avg       0.87      0.90      0.87      6899
+   macro avg       0.78      0.59      0.62      6899
+weighted avg       0.88      0.90      0.87      6899
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
@@ -2032,9 +2034,9 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -145474801995255548
-high.school -&gt; 6400578542099655801
-illiterate -&gt; -8075877621452839531
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -8884884581918606426
+high.school -&gt; -7396360098454229381
+illiterate -&gt; -9043025875145704364
 </pre></div>
 </div>
 </div>
@@ -2049,9 +2051,9 @@ illiterate -&gt; -8075877621452839531
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 2
-high.school -&gt; 1
-illiterate -&gt; 19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 24
+high.school -&gt; 19
+illiterate -&gt; 11
 </pre></div>
 </div>
 </div>
@@ -2068,9 +2070,9 @@ illiterate -&gt; 19
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 4
-marital=single -&gt; 8
-day_of_week=mon -&gt; 9
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 5
+marital=single -&gt; 0
+day_of_week=mon -&gt; 8
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2117,6 +2119,7 @@ day_of_week=mon -&gt; 9
   <tbody>
     <tr>
       <th>0</th>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2124,9 +2127,8 @@ day_of_week=mon -&gt; 9
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2808,7 +2810,9 @@ AUC: 0.942
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.88
-AUC: 0.94
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUC: 0.94
 </pre></div>
 </div>
 </div>

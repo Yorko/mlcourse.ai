@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -951,23 +953,27 @@ title="Print to PDF"
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
 </figure>
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
-Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina">Anastasia Manokhina</a>, Sergey Isaev and <a class="reference external" href="https://www.linkedin.com/in/datamove/">Artem Trunov</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, Sergey Isaev and <a class="reference external" href="https://www.linkedin.com/in/datamove/">Artem Trunov</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <figure class="align-default" id="pandas">
 <img alt="../../_images/pandas.jpg" src="../../_images/pandas.jpg" />
 </figure>
+<p><em>Source: Getty Images</em></p>
 <section id="article-outline">
 <h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
-<li><p><a class="reference external" href="#demonstration-of-the-main-pandas-methods">Demonstration of main Pandas methods</a></p></li>
+<li><p><a class="reference external" href="#demonstration-of-the-main-pandas-methods">Demonstration of the main Pandas methods</a></p></li>
 <li><p><a class="reference external" href="#first-attempt-at-predicting-telecom-churn">First attempt at predicting telecom churn</a></p></li>
 <li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
 </ol>
 </section>
 <section id="demonstration-of-the-main-pandas-methods">
 <h2>1. Demonstration of the main Pandas methods<a class="headerlink" href="#demonstration-of-the-main-pandas-methods" title="Permalink to this headline">#</a></h2>
-<p>Well… There are dozens of cool tutorials on Pandas and visual data analysis. If you are already familiar with these topics, you can switch to the 3rd article in the series, where we get into machine learning.</p>
-<p><strong><a class="reference external" href="http://pandas.pydata.org">Pandas</a></strong> is a Python library that provides extensive means for data analysis. Data scientists often work with data stored in table formats like <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>. Pandas makes it very convenient to load, process, and analyze such tabular data using SQL-like queries. In conjunction with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> provides a wide range of opportunities for visual analysis of tabular data.</p>
-<p>The main data structures in <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> are implemented with <strong>Series</strong> and <strong>DataFrame</strong> classes. The former is a one-dimensional indexed array of some fixed data type. The latter is a two-dimensional data structure - a table - where each column contains data of the same type. You can see it as a dictionary of <code class="docutils literal notranslate"><span class="pre">Series</span></code> instances. <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> are great for representing real data: rows correspond to instances (examples, observations, etc.), and columns correspond to features of these instances.</p>
+<p>There are many excellent tutorials available on <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> and visual data analysis. If you already have a good understanding of these topics, you can move on to <a class="reference external" href="https://mlcourse.ai/book/topic03/topic03_decision_trees_kNN.html">the third article</a> in the series, which focuses on machine learning.</p>
+<p><strong><a class="reference external" href="http://pandas.pydata.org">Pandas</a></strong>  is a powerful Python library that makes it easy to analyze data. It is especially useful for working with data stored in table formats such as <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.tsv</span></code>, or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>. With <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, you can easily load, process, and analyze data using SQL-like commands. When used in conjunction with <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> provides a wealth of opportunities for visualizing and analyzing tabular data.</p>
+<p>The core data structures in Pandas are <strong>Series</strong> and <strong>DataFrames</strong>. A <code class="docutils literal notranslate"><span class="pre">Series</span></code> is a one-dimensional indexed array of a single data type, while a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a two-dimensional table where each column contains data of the same type. Think of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as a collection of <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects. DataFrames are ideal for representing real-world data, with each row representing an instance (such as an observation) and each column representing a feature of that instance.</p>
+<figure class="align-default" id="df-and-series">
+<img alt="../../_images/df_and_series.png" src="../../_images/df_and_series.png" />
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -978,12 +984,12 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </div>
 </div>
 </div>
-<p>We’ll demonstrate the main methods in action by analyzing a <a class="reference external" href="https://bigml.com/user/francisco/gallery/dataset/5163ad540c0b5e5b22000383">dataset</a> on the churn rate of telecom operator clients. Let’s read the data (using the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> method), and take a look at the first 5 lines using the <code class="docutils literal notranslate"><span class="pre">head</span></code> method:</p>
+<p>We demonstrate the main methods in action by analyzing a <a class="reference external" href="https://bigml.com/user/bigml/gallery/dataset/4f89bff4155268645c000030">dataset</a> on the churn rate of telecom operator clients. Let’s read the data (using the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> method), and take a look at the first 5 lines using the <code class="docutils literal notranslate"><span class="pre">head</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub. Locally, to save Internet traffic,</span>
 <span class="c1"># you can specify the data/ folder from the root of your cloned</span>
-<span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
+<span class="c1"># https://github.com/Yorko/mlcourse.ai repo</span>
 <span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/&quot;</span>
 </pre></div>
 </div>
@@ -1160,8 +1166,8 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <details>
 <summary>Printing DataFrames in Jupyter notebooks</summary>
 <p>
-In Jupyter notebooks, Pandas DataFrames are printed as these pretty tables seen above while `print(df.head())` is less nicely formatted.
-By default, Pandas displays 20 columns and 60 rows, so, if your DataFrame is bigger, use the `set_option` function as shown in the example below:<div class="cell docutils container">
+In Jupyter notebooks, Pandas DataFrames are printed as these pretty tables seen above while print(df.head()) is less nicely formatted.
+By default, Pandas displays 20 columns and 60 rows, so, if your DataFrame is bigger, use the set_option function as shown in the example below:<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -1911,20 +1917,17 @@ Name: Churn, dtype: float64
 </div>
 </div>
 <p>14.5% is actually quite bad for a company; such a churn rate can make the company go bankrupt.</p>
-<p><strong>Boolean indexing</strong> with one column is also very convenient. The syntax is <code class="docutils literal notranslate"><span class="pre">df[P(df['Name'])]</span></code>, where <code class="docutils literal notranslate"><span class="pre">P</span></code> is some logical condition that is checked for each element of the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column. The result of such indexing is the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> consisting only of rows that satisfy the <code class="docutils literal notranslate"><span class="pre">P</span></code> condition on the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column.</p>
+<p><strong>Boolean indexing</strong> with one column is also very convenient. The syntax is <code class="docutils literal notranslate"><span class="pre">df[P(df['Name'])]</span></code>, where <code class="docutils literal notranslate"><span class="pre">P</span></code> is some logical condition that is checked for each element of the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column. The result of such indexing is the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> consisting only of the rows that satisfy the <code class="docutils literal notranslate"><span class="pre">P</span></code> condition on the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column.</p>
 <p>Let’s use it to answer the question:</p>
-<p><strong>What are average values of numerical features for churned users?</strong></p>
+<p><strong>What are the average values of numerical features for churned users?</strong></p>
+<p>Here we’l resort to an additional method <code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code> to select all numeric columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_8331/507517496.py:1: FutureWarning: The default value of numeric_only in DataFrame.mean is deprecated. In a future version, it will default to False. In addition, specifying &#39;numeric_only=None&#39; is deprecated. Select only valid columns or specify the value of numeric_only to silence this warning.
-  df[df[&quot;Churn&quot;] == 1].mean()
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Account length            102.66
 Area code                 437.82
 Number vmail messages       5.12
@@ -2565,7 +2568,7 @@ dtype: object
 <details>
 <summary>Difference in treating values that are absent in the mapping dictionary</summary>
 <p>
-There's a slight difference. `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).<div class="cell docutils container">
+There's a slight difference. Еру `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 <span class="n">a_series</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>     <span class="c1"># 1, 2, c</span>
@@ -2994,7 +2997,7 @@ dtype: float64
 </section>
 <section id="summary-tables">
 <h3>Summary tables<a class="headerlink" href="#summary-tables" title="Permalink to this headline">#</a></h3>
-<p>Suppose we want to see how the observations in our dataset are distributed in the context of two variables - <code class="docutils literal notranslate"><span class="pre">Churn</span></code> and <code class="docutils literal notranslate"><span class="pre">International</span> <span class="pre">plan</span></code>. To do so, we can build a <strong>contingency table</strong> using the <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> method:</p>
+<p>Suppose we want to see how the observations in our dataset are distributed in the context of two variables – <code class="docutils literal notranslate"><span class="pre">Churn</span></code> and <code class="docutils literal notranslate"><span class="pre">International</span> <span class="pre">plan</span></code>. To do so, we can build a <strong>contingency table</strong> using the <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;International plan&quot;</span><span class="p">])</span>
@@ -3098,7 +3101,7 @@ dtype: float64
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">values</span></code> – a list of variables to calculate statistics for,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> – a list of variables to group data by,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">aggfunc</span></code> – what statistics we need to calculate for groups, ex. sum, mean, maximum, minimum or something else.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aggfunc</span></code> – what statistics we need to calculate for groups, e.g. sum, mean, maximum, minimum or something else.</p></li>
 </ul>
 <p>Let’s take a look at the average number of day, evening, and night calls by area code:</p>
 <div class="cell docutils container">
@@ -3712,7 +3715,7 @@ dtype: float64
 </section>
 <section id="first-attempt-at-predicting-telecom-churn">
 <h2>2. First attempt at predicting telecom churn<a class="headerlink" href="#first-attempt-at-predicting-telecom-churn" title="Permalink to this headline">#</a></h2>
-<p>Let’s see how churn rate is related to the <em>International plan</em> feature. We’ll do this using a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> contingency table and also through visual analysis with <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> (however, visual analysis will be covered more thoroughly in the next article).</p>
+<p>Let’s see how churn rate is related to the <em>International plan</em> feature. We’ll do this using a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> contingency table and also through visual analysis with <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code> (however, visual analysis will be covered more thoroughly in <a class="reference external" href="https://mlcourse.ai/book/topic02/topic02_additional_seaborn_matplotlib_plotly.html">the next topic</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;International plan&quot;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -3798,7 +3801,7 @@ dtype: float64
 <img alt="../../_images/topic01_pandas_data_analysis_68_0.png" src="../../_images/topic01_pandas_data_analysis_68_0.png" />
 </div>
 </div>
-<p>We see that, with <em>International Plan</em>, the churn rate is much higher, which is an interesting observation! Perhaps large and poorly controlled expenses with international calls are very conflict-prone and lead to dissatisfaction among the telecom operator’s customers.</p>
+<p>We observe that the churn rate is significantly higher with the <em>International Plan</em>. This is a noteworthy finding. Perhaps, high and poorly managed expenses for international calls cause conflicts and result in discontent among the telecom operator’s customers.</p>
 <p>Next, let’s look at another important feature – <em>Customer service calls</em>. Let’s also make a summary table and a picture.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3982,10 +3985,10 @@ dtype: float64
 <img alt="../../_images/topic01_pandas_data_analysis_74_0.png" src="../../_images/topic01_pandas_data_analysis_74_0.png" />
 </div>
 </div>
-<p>Let’s construct another contingency table that relates <em>Churn</em> with both <em>International plan</em> and freshly created <em>Many_service_calls</em>.</p>
+<p>Let’s construct another contingency table that relates <em>Churn</em> with both the <em>International plan</em> and the freshly created <em>Many_service_calls</em> feature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Many_service_calls&quot;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;International plan&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Many_service_calls&quot;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;International plan&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4010,9 +4013,11 @@ dtype: float64
       <th>Churn</th>
       <th>0</th>
       <th>1</th>
+      <th>All</th>
     </tr>
     <tr>
       <th>row_0</th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -4022,17 +4027,25 @@ dtype: float64
       <th>False</th>
       <td>2841</td>
       <td>464</td>
+      <td>3305</td>
     </tr>
     <tr>
       <th>True</th>
       <td>9</td>
       <td>19</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>2850</td>
+      <td>483</td>
+      <td>3333</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Therefore, predicting that a customer is not loyal (<em>Churn</em>=1) in the case when the number of calls to the service center is greater than 3 and the <em>International Plan</em> is added (and predicting <em>Churn</em>=0 otherwise), we might expect an accuracy of 85.8% (we are mistaken only 464 + 9 times). This number, 85.8%, that we got through this very simple reasoning serves as a good starting point (<em>baseline</em>) for the further machine learning models that we will build.</p>
+<p>Thus, by predicting that a customer will not remain loyal (<em>Churn</em>=1) if they have made more than 3 calls to the service center AND have added the <em>International Plan</em>, and predicting <em>Churn</em>=0 otherwise (and “otherwise” here means negation, i.e. <em>Many_service_calls</em> &lt;= 3 OR <em>International Plan</em> is not added ), we anticipate an accuracy of 85.8% (we will only be incorrect 464 + 9 times, look at the contingency table above; and <span class="math notranslate nohighlight">\(1 - \frac{464 + 9}{3333} \approx 85.8\%\)</span>). This 85.8% accuracy, obtained through such straightforward reasoning, serves as a useful starting point (<em>baseline</em>) for the development of future machine learning models.</p>
 <p>As we move on through this course, recall that, before the advent of machine learning, the data analysis process looked something like this. Let’s recap what we’ve covered:</p>
 <ul class="simple">
 <li><p>The share of loyal clients in the dataset is 85.5%. The most naive model that always predicts a “loyal customer” on such data will guess right in about 85.5% of all cases. That is, the proportion of correct answers (<em>accuracy</em>) of subsequent models should be no less than this number, and will hopefully be significantly higher;</p></li>
@@ -4040,6 +4053,9 @@ dtype: float64
 <li><p>We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, persay, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple “if-else” model with two conditions;</p></li>
 <li><p>Before training complex models, it is recommended to wrangle the data a bit, make some plots, and check simple assumptions. Moreover, in business applications of machine learning, they usually start with simple solutions and then experiment with more complex ones.</p></li>
 </ul>
+<figure class="align-default" id="no-ml">
+<img alt="../../_images/no_ml_meme.jpg" src="../../_images/no_ml_meme.jpg" />
+</figure>
 </section>
 <section id="useful-resources">
 <h2>3. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
