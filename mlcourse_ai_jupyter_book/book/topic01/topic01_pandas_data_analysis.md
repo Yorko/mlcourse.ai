@@ -19,25 +19,31 @@ kernelspec:
 ```
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
-Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina), Sergey Isaev and [Artem Trunov](https://www.linkedin.com/in/datamove/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiiamanokhina/), Sergey Isaev and [Artem Trunov](https://www.linkedin.com/in/datamove/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
-```{figure} /_static/img/pandas.jpg
+```{figure} /_static/img/topic01/pandas.jpg
 :name: pandas
 ```
+_Source: Getty Images_
 
 ## Article outline
 
-1. [Demonstration of main Pandas methods](#demonstration-of-the-main-pandas-methods)
+1. [Demonstration of the main Pandas methods](#demonstration-of-the-main-pandas-methods)
 2. [First attempt at predicting telecom churn](#first-attempt-at-predicting-telecom-churn)
 3. [Useful resources](#useful-resources)
 
 ## 1. Demonstration of the main Pandas methods
-Well... There are dozens of cool tutorials on Pandas and visual data analysis. If you are already familiar with these topics, you can switch to the 3rd article in the series, where we get into machine learning.  
 
-**[Pandas](http://pandas.pydata.org)** is a Python library that provides extensive means for data analysis. Data scientists often work with data stored in table formats like `.csv`, `.tsv`, or `.xlsx`. Pandas makes it very convenient to load, process, and analyze such tabular data using SQL-like queries. In conjunction with `Matplotlib` and `Seaborn`, `Pandas` provides a wide range of opportunities for visual analysis of tabular data.
+There are many excellent tutorials available on `Pandas` and visual data analysis. If you already have a good understanding of these topics, you can move on to [the third article](https://mlcourse.ai/book/topic03/topic03_decision_trees_kNN.html) in the series, which focuses on machine learning.
 
-The main data structures in `Pandas` are implemented with **Series** and **DataFrame** classes. The former is a one-dimensional indexed array of some fixed data type. The latter is a two-dimensional data structure - a table - where each column contains data of the same type. You can see it as a dictionary of `Series` instances. `DataFrames` are great for representing real data: rows correspond to instances (examples, observations, etc.), and columns correspond to features of these instances.
+**[Pandas](http://pandas.pydata.org)**  is a powerful Python library that makes it easy to analyze data. It is especially useful for working with data stored in table formats such as `.csv`, `.tsv`, or `.xlsx`. With `Pandas`, you can easily load, process, and analyze data using SQL-like commands. When used in conjunction with `Matplotlib` and `Seaborn`, `Pandas` provides a wealth of opportunities for visualizing and analyzing tabular data.
+
+The core data structures in Pandas are **Series** and **DataFrames**. A `Series` is a one-dimensional indexed array of a single data type, while a `DataFrame` is a two-dimensional table where each column contains data of the same type. Think of a `DataFrame` as a collection of `Series` objects. DataFrames are ideal for representing real-world data, with each row representing an instance (such as an observation) and each column representing a feature of that instance.
+
+```{figure} /_static/img/topic01/df_and_series.png
+:name: df_and_series
+```
 
 
 ```{code-cell} ipython3
@@ -48,14 +54,14 @@ pd.set_option("display.precision", 2)
 ```
 
 
-We’ll demonstrate the main methods in action by analyzing a [dataset](https://bigml.com/user/francisco/gallery/dataset/5163ad540c0b5e5b22000383) on the churn rate of telecom operator clients. Let’s read the data (using the `read_csv` method), and take a look at the first 5 lines using the `head` method:
+We demonstrate the main methods in action by analyzing a [dataset](https://bigml.com/user/bigml/gallery/dataset/4f89bff4155268645c000030) on the churn rate of telecom operator clients. Let’s read the data (using the `read_csv` method), and take a look at the first 5 lines using the `head` method:
 
 
 
 ```{code-cell} ipython3
-# for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
+# for Jupyter-book, we copy data from GitHub. Locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
-# https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
+# https://github.com/Yorko/mlcourse.ai repo
 DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
@@ -68,8 +74,8 @@ df.head()
 <details>
 <summary>Printing DataFrames in Jupyter notebooks</summary>
 <p>
-In Jupyter notebooks, Pandas DataFrames are printed as these pretty tables seen above while `print(df.head())` is less nicely formatted.
-By default, Pandas displays 20 columns and 60 rows, so, if your DataFrame is bigger, use the `set_option` function as shown in the example below:
+In Jupyter notebooks, Pandas DataFrames are printed as these pretty tables seen above while print(df.head()) is less nicely formatted.
+By default, Pandas displays 20 columns and 60 rows, so, if your DataFrame is bigger, use the set_option function as shown in the example below:
 
 ```{code-cell} ipython3
 pd.set_option('display.max_columns', 100)
@@ -177,16 +183,16 @@ df["Churn"].mean()
 
 14.5% is actually quite bad for a company; such a churn rate can make the company go bankrupt.
 
-**Boolean indexing** with one column is also very convenient. The syntax is `df[P(df['Name'])]`, where `P` is some logical condition that is checked for each element of the `Name` column. The result of such indexing is the `DataFrame` consisting only of rows that satisfy the `P` condition on the `Name` column.
+**Boolean indexing** with one column is also very convenient. The syntax is `df[P(df['Name'])]`, where `P` is some logical condition that is checked for each element of the `Name` column. The result of such indexing is the `DataFrame` consisting only of the rows that satisfy the `P` condition on the `Name` column.
 
 Let's use it to answer the question:
 
-**What are average values of numerical features for churned users?**
+**What are the average values of numerical features for churned users?**
 
-
+Here we'l resort to an additional method `select_dtypes` to select all numeric columns.
 
 ```{code-cell} ipython3
-df[df["Churn"] == 1].mean()
+df.select_dtypes(include=np.number)[df["Churn"] == 1].mean()
 ```
 
 **How much time (on average) do churned users spend on the phone during daytime?**
@@ -261,7 +267,7 @@ Almost the same thing can be done with the `replace` method.
 <details>
 <summary>Difference in treating values that are absent in the mapping dictionary</summary>
 <p>
-There's a slight difference. `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).
+There's a slight difference. Еру `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).
 
 ```{code-cell} ipython3
 a_series = pd.Series(['a', 'b', 'c'])
@@ -316,7 +322,7 @@ df.groupby(["Churn"])[columns_to_show].agg([np.mean, np.std, np.min, np.max])
 
 ### Summary tables
 
-Suppose we want to see how the observations in our dataset are distributed in the context of two variables - `Churn` and `International plan`. To do so, we can build a **contingency table** using the `crosstab` method:
+Suppose we want to see how the observations in our dataset are distributed in the context of two variables – `Churn` and `International plan`. To do so, we can build a **contingency table** using the `crosstab` method:
 
 
 
@@ -336,7 +342,7 @@ This will resemble **pivot tables** to those familiar with Excel. And, of course
 
 * `values` – a list of variables to calculate statistics for,
 * `index` – a list of variables to group data by,
-* `aggfunc` – what statistics we need to calculate for groups, ex. sum, mean, maximum, minimum or something else.
+* `aggfunc` – what statistics we need to calculate for groups, e.g. sum, mean, maximum, minimum or something else.
 
 Let’s take a look at the average number of day, evening, and night calls by area code:
 
@@ -398,7 +404,7 @@ df.drop([1, 2]).head()
 ## 2. First attempt at predicting telecom churn
 
 
-Let's see how churn rate is related to the *International plan* feature. We’ll do this using a `crosstab` contingency table and also through visual analysis with `Seaborn` (however, visual analysis will be covered more thoroughly in the next article).
+Let's see how churn rate is related to the *International plan* feature. We’ll do this using a `crosstab` contingency table and also through visual analysis with `Seaborn` (however, visual analysis will be covered more thoroughly in [the next topic](https://mlcourse.ai/book/topic02/topic02_additional_seaborn_matplotlib_plotly.html)).
 
 
 
@@ -425,16 +431,13 @@ sns.set()
 sns.countplot(x="International plan", hue="Churn", data=df);
 ```
 
-
-We see that, with *International Plan*, the churn rate is much higher, which is an interesting observation! Perhaps large and poorly controlled expenses with international calls are very conflict-prone and lead to dissatisfaction among the telecom operator's customers.
+We observe that the churn rate is significantly higher with the *International Plan*. This is a noteworthy finding. Perhaps, high and poorly managed expenses for international calls cause conflicts and result in discontent among the telecom operator's customers.
 
 Next, let’s look at another important feature – *Customer service calls*. Let’s also make a summary table and a picture.
-
 
 ```{code-cell} ipython3
 pd.crosstab(df["Churn"], df["Customer service calls"], margins=True)
 ```
-
 
 ```{code-cell} ipython3
 sns.countplot(x="Customer service calls", hue="Churn", data=df);
@@ -451,22 +454,19 @@ df["Many_service_calls"] = (df["Customer service calls"] > 3).astype("int")
 pd.crosstab(df["Many_service_calls"], df["Churn"], margins=True)
 ```
 
-
 ```{code-cell} ipython3
 sns.countplot(x="Many_service_calls", hue="Churn", data=df);
 ```
 
 
-Let’s construct another contingency table that relates *Churn* with both *International plan* and freshly created *Many_service_calls*.
-
-
+Let’s construct another contingency table that relates *Churn* with both the *International plan* and the freshly created *Many_service_calls* feature.
 
 
 ```{code-cell} ipython3
-pd.crosstab(df["Many_service_calls"] & df["International plan"], df["Churn"])
+pd.crosstab(df["Many_service_calls"] & df["International plan"], df["Churn"], margins=True)
 ```
 
-Therefore, predicting that a customer is not loyal (*Churn*=1) in the case when the number of calls to the service center is greater than 3 and the *International Plan* is added (and predicting *Churn*=0 otherwise), we might expect an accuracy of 85.8% (we are mistaken only 464 + 9 times). This number, 85.8%, that we got through this very simple reasoning serves as a good starting point (*baseline*) for the further machine learning models that we will build.
+Thus, by predicting that a customer will not remain loyal (*Churn*=1) if they have made more than 3 calls to the service center AND have added the *International Plan*, and predicting *Churn*=0 otherwise (and "otherwise" here means negation, i.e. *Many_service_calls* <= 3 OR *International Plan* is not added ), we anticipate an accuracy of 85.8% (we will only be incorrect 464 + 9 times, look at the contingency table above; and $1 - \frac{464 + 9}{3333} \approx 85.8\%$). This 85.8% accuracy, obtained through such straightforward reasoning, serves as a useful starting point (*baseline*) for the development of future machine learning models.
 
 As we move on through this course, recall that, before the advent of machine learning, the data analysis process looked something like this. Let's recap what we've covered:
 
@@ -475,15 +475,19 @@ As we move on through this course, recall that, before the advent of machine lea
 - We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, persay, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple "if-else" model with two conditions;
 - Before training complex models, it is recommended to wrangle the data a bit, make some plots, and check simple assumptions. Moreover, in business applications of machine learning, they usually start with simple solutions and then experiment with more complex ones.
 
+```{figure} /_static/img/topic01/no_ml_meme.jpg
+:name: no_ml
+```
+
 ## 3. Useful resources
 
 * The same notebook as an interactive web-based [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas)
-* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (full list of tutorials is [here](https://mlcourse.ai/tutorials))
+* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (the full list of tutorials is [here](https://mlcourse.ai/tutorials))
 * ["Handle different dataset with dask and trying a little dask ML"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb) -- a tutorial by Irina Knyazeva within mlcourse.ai
-* Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
+* [Course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
 * Official Pandas [documentation](http://pandas.pydata.org/pandas-docs/stable/index.html)
 * Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)
-* Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68) based on this notebook
+<!--* Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68) based on this notebook-->
 * If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/322626/) on [Habr](https://habr.com/ru/all/) with ~ the same material. And a [lecture](https://youtu.be/dEFxoyJhm3Y) on YouTube
 * [10 minutes to pandas](http://pandas.pydata.org/pandas-docs/stable/10min.html)
 * [Pandas cheatsheet PDF](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
