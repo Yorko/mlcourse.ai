@@ -120,9 +120,5 @@ If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can u
 ```
 
 ### Community
-Discussions are held in the **#mlcourse\_ai\_eng** channel of the [OpenDataScience (ods.ai)](https://ods.ai) Slack team (however, as of Sept. 2022, ODS Slack can't invite new users, and only 90-day history is retained, transition to [Matrix](https://chat.ods.ai/#/welcome) is in progress).
 
-*The course is free but you can support organizers by making a pledge on [Patreon](https://www.patreon.com/ods_mlcourse) (monthly support) or a one-time payment on [Ko-fi](https://ko-fi.com/mlcourse_ai).*
-
-[![Donate](https://img.shields.io/badge/support-patreon-red)](https://www.patreon.com/ods_mlcourse)
-[![Donate](https://img.shields.io/badge/support-ko--fi-red)](https://ko-fi.com/mlcourse_ai)
+You can join the [Singularis.ai](https://singularis.ai/) Slack community to ask questions on the course materials. The community is mostly Russian-speaking but questions in English are still welcome. 
