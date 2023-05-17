@@ -19,7 +19,7 @@ kernelspec:
 ```{figure} /_static/img/ods_stickers.jpg
 ```
 
-Author: [Yury Kashnitsky](https://www.linkedin.com/in/festline/). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+Author: [Yury Kashnitsky](https://www.linkedin.com/in/kashnitskiy/). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 
 **Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit) + [solution](https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit-solution).**

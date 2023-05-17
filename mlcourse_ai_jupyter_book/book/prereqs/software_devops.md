@@ -9,10 +9,10 @@
 
 Here we cover:
 
-- [Basics like git and bash](#git-bash-and-all)
-- [Setting the environment](#setting-the-environment)
-- [Jupyter Notebooks](#jupyter-notebooks)
-- [Jupyter Book](#jupyter-book)
+- [Basics like git and bash](git-bash-and-all)
+- [Setting the environment](setting-the-environment)
+- [Jupyter Notebooks](jupyter-notebooks)
+- [Jupyter Book](jupyter-book)
 
 ### Git, bash, and all
 

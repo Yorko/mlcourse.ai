@@ -8,38 +8,39 @@ license = "CC BY-NC-SA 4.0"
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
 eli5 = "0.11.0"
-# there's a bug that will be fixed in the next release, issue 1907
-jupyter-book = {git = "https://github.com/executablebooks/jupyter-book.git", rev = "de46e274d89550a3a89e7259bcf78990068becc1"}
-matplotlib = "^3.5.3"
-numpy = "^1.23.2"
+holidays = "0.24" # bugs in Prophet with later versions
+ipywidgets = "^8.0.6"
+jupyter = "^1.0.0"
+jupyter-book = "^0.15.1"
+matplotlib = "^3.7.1"
+numpy = "^1.24.3"
 pandas = "^1.4.4"
-pillow = "^9.2.0"
+pillow = "^9.5.0"
 plotly = "5.12.0"
 prophet = "^1.1"
 pydot = "^1.4.2"
 pydotplus = "^2.0.2"
 pytesseract = "^0.3.10"
 reverse-geocoder = "^1.5.1"
-seaborn = "^0.12.0"
-scikit-learn = "^1.1.2"
-scipy = "^1.9.1"
-statsmodels = "^0.13.2"
+seaborn = "^0.12.2"
+scikit-learn = "^1.2.2"
+scipy = "^1.10.1"
+statsmodels = "^0.14.0"
 ua-parser = "^0.16.1"
 user_agents = "^2.2.0"
-wordcloud = "^1.8.2"
-xgboost = "^1.6.2"
+wordcloud = "^1.9.1"
+xgboost = "^1.7.5"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.15.0"
 black = {version = "^21.12b0", allow-prereleases = true}
 fonttools = "^4.37.1"
-gdown = "^4.5.1"
+gdown = "^4.7.1"
 ghp-import = "^2.1.0"
-pylatexenc = "^2.10"
 pre-commit = "^2.20.0"
+pylatexenc = "^2.10"
+pylint = "^2.15.0"
 pyyaml = "^6.0"
-sphinx-jupyterbook-latex = "^0.4.6"
-#jsonschema = {version = "3.2.0", extras = ["format-nongpl"]}
+sphinx-jupyterbook-latex = "^0.5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

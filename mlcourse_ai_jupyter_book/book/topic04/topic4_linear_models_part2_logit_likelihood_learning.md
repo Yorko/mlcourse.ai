@@ -25,11 +25,11 @@ kernelspec:
 Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Nerses Bagiyan](https://www.linkedin.com/in/nersesbagiyan/), [Yulia Klimushina](https://www.linkedin.com/in/yuliya-klimushina-7168a9139), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 ## Article outline
-1. [Linear Classifier](#linear-classifier)
-2. [Logistic Regression as a Linear Classifier](#logistic-regression-as-a-linear-classifier)
-3. [Maximum Likelihood Estimation and Logistic Regression](#maximum-likelihood-estimation-and-logistic-regression)
-4. [$L_2$-Regularization of Logistic Loss](#l-2-regularization-of-logistic-loss)
-5. [Useful resources](#useful-resources)
+1. [Linear Classifier](linear-classifier)
+2. [Logistic Regression as a Linear Classifier](logistic-regression-as-a-linear-classifier)
+3. [Maximum Likelihood Estimation and Logistic Regression](maximum-likelihood-estimation-and-logistic-regression)
+4. [$L_2$-Regularization of Logistic Loss](l-2-regularization-of-logistic-loss)
+5. [Useful resources](useful-resources)
 
 ## 1. Linear Classifier
 
