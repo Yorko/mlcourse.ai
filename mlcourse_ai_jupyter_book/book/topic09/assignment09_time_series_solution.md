@@ -39,6 +39,7 @@ import requests
 from plotly import __version__
 from plotly import graph_objs as go
 from plotly.offline import download_plotlyjs, init_notebook_mode, iplot, plot
+from IPython.display import display, IFrame
 
 print(__version__)  # need 1.9.0 or greater
 init_notebook_mode(connected=True)
