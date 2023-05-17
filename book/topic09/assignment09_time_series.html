@@ -526,6 +526,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">__version__</span>
 <span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objs</span> <span class="k">as</span> <span class="n">go</span>
 <span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">download_plotlyjs</span><span class="p">,</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">iplot</span><span class="p">,</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">IFrame</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">__version__</span><span class="p">)</span>  <span class="c1"># need 1.9.0 or greater</span>
 <span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -706,20 +707,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plotly_df</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)[[</span><span class="s2">&quot;count&quot;</span><span class="p">]])</span>
-
-<span class="nn">Cell In[2], line 14,</span> in <span class="ni">plotly_df</span><span class="nt">(df, title, width, height)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plot_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../_static/plotly_htmls/</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">plot_path</span><span class="p">,</span> <span class="n">show_link</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auto_open</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">display</span><span class="p">(</span><span class="n">IFrame</span><span class="p">(</span><span class="n">plot_path</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;IFrame&#39; is not defined
-</pre></div>
-</div>
-</div>
+<div class="output text_html">
+        <iframe
+            width="800"
+            height="500"
+            src="../../_static/plotly_htmls/.html"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -738,6 +735,58 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ds</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>382</th>
+      <td>2016-01-16</td>
+      <td>1644</td>
+    </tr>
+    <tr>
+      <th>381</th>
+      <td>2016-01-17</td>
+      <td>1836</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>2016-01-18</td>
+      <td>2983</td>
+    </tr>
+    <tr>
+      <th>375</th>
+      <td>2016-01-19</td>
+      <td>3389</td>
+    </tr>
+    <tr>
+      <th>372</th>
+      <td>2016-01-20</td>
+      <td>3559</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p><strong><font color='red'>Question 1:</font></strong> What is the prediction of the number of views of the wiki page on January 20? Round to the nearest integer.</p>
 <ul class="simple">
