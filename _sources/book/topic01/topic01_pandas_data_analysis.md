@@ -29,9 +29,9 @@ _Source: Getty Images_
 
 ## Article outline
 
-1. [Demonstration of the main Pandas methods](#demonstration-of-the-main-pandas-methods)
-2. [First attempt at predicting telecom churn](#first-attempt-at-predicting-telecom-churn)
-3. [Useful resources](#useful-resources)
+1. [Demonstration of the main Pandas methods](demonstration-of-the-main-pandas-methods)
+2. [First attempt at predicting telecom churn](first-attempt-at-predicting-telecom-churn)
+3. [Useful resources](useful-resources)
 
 ## 1. Demonstration of the main Pandas methods
 
@@ -482,12 +482,12 @@ As we move on through this course, recall that, before the advent of machine lea
 ## 3. Useful resources
 
 * The same notebook as an interactive web-based [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas)
-* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (full list of tutorials is [here](https://mlcourse.ai/tutorials))
+* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (the full list of tutorials is [here](https://mlcourse.ai/tutorials))
 * ["Handle different dataset with dask and trying a little dask ML"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb) -- a tutorial by Irina Knyazeva within mlcourse.ai
-* Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
+* [Course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
 * Official Pandas [documentation](http://pandas.pydata.org/pandas-docs/stable/index.html)
 * Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)
-* Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68) based on this notebook
+<!--* Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-1-exploratory-data-analysis-with-pandas-de57880f1a68) based on this notebook-->
 * If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/322626/) on [Habr](https://habr.com/ru/all/) with ~ the same material. And a [lecture](https://youtu.be/dEFxoyJhm3Y) on YouTube
 * [10 minutes to pandas](http://pandas.pydata.org/pandas-docs/stable/10min.html)
 * [Pandas cheatsheet PDF](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)

@@ -22,13 +22,13 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Ch
 
 ## Article outline
 
-1. [Introduction](#introduction)
-2. [Decision Tree](#decision-tree)
-3. [Nearest Neighbors Method](#nearest-neighbors-nethod)
-4. [Choosing Model Parameters and Cross-Validation](#choosing-model-parameters-and-cross-validation)
-5. [Application Examples and Complex Cases](#application-examples-and-complex-cases)
-6. [Pros and Cons of Decision Trees and the Nearest Neighbors Method](#pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method)
-7. [Useful resources](#useful-resources)
+1. [Introduction](introduction)
+2. [Decision Tree](decision-tree)
+3. [Nearest Neighbors Method](nearest-neighbors-nethod)
+4. [Choosing Model Parameters and Cross-Validation](choosing-model-parameters-and-cross-validation)
+5. [Application Examples and Complex Cases](application-examples-and-complex-cases)
+6. [Pros and Cons of Decision Trees and the Nearest Neighbors Method](pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method)
+7. [Useful resources](useful-resources)
 
 ## 1. Introduction
 
@@ -553,7 +553,7 @@ Let's read data into a `DataFrame` and preprocess it. Store *State* in a separat
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 

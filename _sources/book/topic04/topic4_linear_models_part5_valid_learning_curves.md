@@ -59,7 +59,7 @@ We will work our data on customer churn of telecom operator.
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 

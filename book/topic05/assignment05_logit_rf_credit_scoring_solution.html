@@ -1,51 +1,69 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution &#8212; mlcourse.ai</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -54,70 +72,94 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic05/assignment05_logit_rf_credit_scoring_solution';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bonus Assignment 5. Logistic Regression vs. Random Forest" href="bonus_assignment05_logreg_rf.html" />
     <link rel="prev" title="Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem" href="assignment05_logit_rf_credit_scoring.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-CN7ZN59CQB');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -126,809 +168,355 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Prerequisites
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/python.html">
-   Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/math.html">
-   Math
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/software_devops.html">
-   Software &amp; DevOps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/docker.html">
-   Docker
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 1
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_intro.html">
-   Topic 1 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
-   Exploratory data analysis with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/videolecture01.html">
-   Videolecture 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
-   Demo Assignment 1 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
-   Demo Assignment 1 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
-   Bonus Assignment 1
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_intro.html">Topic 1 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">Exploratory data analysis with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/videolecture01.html">Videolecture 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">Demo Assignment 1 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">Demo Assignment 1 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">Bonus Assignment 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 2
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_intro.html">
-   Topic 2 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
-   Visual Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
-   Seaborn, Matplotlib, Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/videolecture02.html">
-   Videolecture 2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
-   Demo Assignment 2 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
-   Demo Assignment 2 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
-   Bonus Assignment 2
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_intro.html">Topic 2 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">Visual Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">Seaborn, Matplotlib, Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/videolecture02.html">Videolecture 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">Demo Assignment 2 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">Demo Assignment 2 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">Bonus Assignment 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 3
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_intro.html">
-   Topic 3 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
-   Classification, Decision Trees &amp; k Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/videolecture03.html">
-   Videolecture 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
-   Demo Assignment 3 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
-   Demo Assignment 3 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
-   Bonus Assignment 3
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_intro.html">Topic 3 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">Classification, Decision Trees &amp; k Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/videolecture03.html">Videolecture 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees.html">Demo Assignment 3 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">Demo Assignment 3 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">Bonus Assignment 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 4
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic04_intro.html">
-   Topic 4 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
-   Ordinary Least Squares
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
-   Linear classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
-   An illustrative example of logistic regression regularization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
-   When logistic regression is good and when it is not
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
-   Validation and learning curves
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/videolecture04.html">
-   Videolecture 4
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
-   Demo Assignment 4 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
-   Demo Assignment 4 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
-   Bonus Assignment 4
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic04_intro.html">Topic 4 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">Ordinary Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">An illustrative example of logistic regression regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">When logistic regression is good and when it is not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">Validation and learning curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/videolecture04.html">Videolecture 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine.html">Demo Assignment 4 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">Demo Assignment 4 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">Bonus Assignment 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 5
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 5</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="topic05_intro.html">
-   Topic 5 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="topic5_part1_bagging.html">
-   Bagging
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="topic5_part2_random_forest.html">
-   Random Forest
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="topic5_part3_feature_importance.html">
-   Feature importance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="videolecture05.html">
-   Videolecture 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment05_logit_rf_credit_scoring.html">
-   Demo Assignment 5
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo Assignment 5 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bonus_assignment05_logreg_rf.html">
-   Bonus Assignment 5
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="topic05_intro.html">Topic 5 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic5_part1_bagging.html">Bagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic5_part2_random_forest.html">Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic5_part3_feature_importance.html">Feature importance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videolecture05.html">Videolecture 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment05_logit_rf_credit_scoring.html">Demo Assignment 5</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo Assignment 5 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bonus_assignment05_logreg_rf.html">Bonus Assignment 5</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 6
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 6</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic06_intro.html">
-   Topic 6 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
-   Feature engineering &amp; feature selection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/demo_assignment06.html">
-   Demo Assignment 6 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/bonus_assignment06.html">
-   Bonus Assignment 6
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic06_intro.html">Topic 6 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">Feature engineering &amp; feature selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/demo_assignment06.html">Demo Assignment 6 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/bonus_assignment06.html">Bonus Assignment 6</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 7
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 7</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic07_intro.html">
-   Topic 7 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
-   Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/videolecture07.html">
-   Videolecture 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
-   Demo Assignment 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
-   Demo Assignment 7 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/bonus_assignment07.html">
-   Bonus Assignment 7
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic07_intro.html">Topic 7 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic7_pca_clustering.html">Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/videolecture07.html">Videolecture 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">Demo Assignment 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">Demo Assignment 7 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/bonus_assignment07.html">Bonus Assignment 7</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 8
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 8</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_intro.html">
-   Topic 8 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
-   Vowpal Wabbit: Learning with Gigabytes of Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/videolecture08.html">
-   Videolecture 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
-   Demo Assignment 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
-   Demo Assignment 8 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/bonus_assignment08.html">
-   Bonus Assignment 8
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_intro.html">Topic 8 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">Vowpal Wabbit: Learning with Gigabytes of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/videolecture08.html">Videolecture 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">Demo Assignment 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">Demo Assignment 8 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/bonus_assignment08.html">Bonus Assignment 8</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 9
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 9</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic09_intro.html">
-   Topic 9 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">
-   Predicting the future with Facebook Prophet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/videolecture09.html">
-   Videolecture 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series.html">
-   Demo Assignment 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series_solution.html">
-   Demo Assignment 9 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/bonus_assignment09.html">
-   Bonus Assignment 9
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic09_intro.html">Topic 9 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">Topic 9. Part 1. Time series analysis in Python</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/videolecture09.html">Videolecture 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series.html">Demo Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series_solution.html">Demo Assignment 9 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/bonus_assignment09.html">Bonus Assignment 9</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 10
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 10</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_intro.html">
-   Topic 10 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_gradient_boosting.html">
-   Gradient boosting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/videolecture10.html">
-   Videolecture 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">
-   Demo Assignment 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/bonus_assignment10.html">
-   Bonus Assignment 10
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_intro.html">Topic 10 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_gradient_boosting.html">Gradient boosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/videolecture10.html">Videolecture 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">Demo Assignment 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/bonus_assignment10.html">Bonus Assignment 10</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About the course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/tutorials.html">
-   Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/rating.html">
-   Rating
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/resources.html">
-   Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/contributors.html">
-   Contributors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/rating.html">Rating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/contributors.html">Contributors</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic05/assignment05_logit_rf_credit_scoring_solution.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic05/assignment05_logit_rf_credit_scoring_solution.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/issues/new?title=Issue%20on%20page%20%2Fbook/topic05/assignment05_logit_rf_credit_scoring_solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/topic05/assignment05_logit_rf_credit_scoring_solution.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic05/assignment05_logit_rf_credit_scoring_solution.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic05/assignment05_logit_rf_credit_scoring_solution.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/book/topic05/assignment05_logit_rf_credit_scoring_solution.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../../_sources/book/topic05/assignment05_logit_rf_credit_scoring_solution.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#credit-scoring-problem-setup">
-   Credit scoring problem setup
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem">
-     Problem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-description">
-     Data description
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bootstrapping">
-   Bootstrapping
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logistic-regression">
-   Logistic regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature importance
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-forest">
-   Random Forest
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bagging">
-   Bagging
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#credit-scoring-problem-setup">
-   Credit scoring problem setup
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem">
-     Problem
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-description">
-     Data description
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bootstrapping">
-   Bootstrapping
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#logistic-regression">
-   Logistic regression
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature importance
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-forest">
-   Random Forest
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bagging">
-   Bagging
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credit-scoring-problem-setup">Credit scoring problem setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data description</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrapping">Bootstrapping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature importance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">Bagging</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution">
-<span id="assignment05-solution"></span><h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution<a class="headerlink" href="#assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution" title="Permalink to this headline">#</a></h1>
+<span id="assignment05-solution"></span><h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution<a class="headerlink" href="#assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution" title="Permalink to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Author: Vitaly Radchenko. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
@@ -937,7 +525,7 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 <p>Please write your code in the cells with the “Your code here” placeholder. Then, answer the questions in the <a class="reference external" href="https://docs.google.com/forms/d/1gKt0DA4So8ohKAHZNCk58ezvg7K_tik26d9QND7WC6M/edit">form</a>.</p>
 <p>Let’s start with a warm-up exercise.</p>
 <p><strong>Question 1.</strong> There are 5 jurors in a courtroom. Each of them can correctly identify the guilt of the defendant with 70% probability, independent of one another. What is the probability that the jurors will jointly reach the correct verdict if the final decision is by majority vote?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>70.00%</p></li>
 <li><p>83.20%</p></li>
 <li><p>83.70%</p></li>
@@ -950,56 +538,56 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 \[\large \mu = \sum_{i=3}^{5}{5 \choose i}0.7^i(1-0.7)^{5-i} = 83.70\%\]</div>
 <p>Great! Let’s move on to machine learning.</p>
 <section id="credit-scoring-problem-setup">
-<h2>Credit scoring problem setup<a class="headerlink" href="#credit-scoring-problem-setup" title="Permalink to this headline">#</a></h2>
+<h2>Credit scoring problem setup<a class="headerlink" href="#credit-scoring-problem-setup" title="Permalink to this heading">#</a></h2>
 <section id="problem">
-<h3>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">#</a></h3>
+<h3>Problem<a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h3>
 <p>Predict whether the customer will repay their credit within 90 days. This is a binary classification problem; we will assign customers into good or bad categories based on our prediction.</p>
 </section>
 <section id="data-description">
-<h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this headline">#</a></h3>
-<table class="colwidths-auto table">
+<h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this heading">#</a></h3>
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Feature</p></th>
-<th class="text-align:left head"><p>Variable Type</p></th>
-<th class="text-align:left head"><p>Value Type</p></th>
-<th class="text-align:left head"><p>Description</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Feature</p></th>
+<th class="head text-left"><p>Variable Type</p></th>
+<th class="head text-left"><p>Value Type</p></th>
+<th class="head text-left"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>age</p></td>
-<td class="text-align:left"><p>Input Feature</p></td>
-<td class="text-align:left"><p>integer</p></td>
-<td class="text-align:left"><p>Customer age</p></td>
+<tr class="row-even"><td class="text-left"><p>age</p></td>
+<td class="text-left"><p>Input Feature</p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p>Customer age</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>DebtRatio</p></td>
-<td class="text-align:left"><p>Input Feature</p></td>
-<td class="text-align:left"><p>real</p></td>
-<td class="text-align:left"><p>Total monthly loan payments (loan, alimony, etc.) / Total monthly income percentage</p></td>
+<tr class="row-odd"><td class="text-left"><p>DebtRatio</p></td>
+<td class="text-left"><p>Input Feature</p></td>
+<td class="text-left"><p>real</p></td>
+<td class="text-left"><p>Total monthly loan payments (loan, alimony, etc.) / Total monthly income percentage</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>NumberOfTime30-59DaysPastDueNotWorse</p></td>
-<td class="text-align:left"><p>Input Feature</p></td>
-<td class="text-align:left"><p>integer</p></td>
-<td class="text-align:left"><p>The number of cases when client has overdue 30-59 days (not worse) on other loans during the last 2 years</p></td>
+<tr class="row-even"><td class="text-left"><p>NumberOfTime30-59DaysPastDueNotWorse</p></td>
+<td class="text-left"><p>Input Feature</p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p>The number of cases when client has overdue 30-59 days (not worse) on other loans during the last 2 years</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>NumberOfTimes90DaysLate</p></td>
-<td class="text-align:left"><p>Input Feature</p></td>
-<td class="text-align:left"><p>integer</p></td>
-<td class="text-align:left"><p>Number of cases when customer had 90+dpd overdue on other credits</p></td>
+<tr class="row-odd"><td class="text-left"><p>NumberOfTimes90DaysLate</p></td>
+<td class="text-left"><p>Input Feature</p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p>Number of cases when customer had 90+dpd overdue on other credits</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>NumberOfTime60-89DaysPastDueNotWorse</p></td>
-<td class="text-align:left"><p>Input Feature</p></td>
-<td class="text-align:left"><p>integer</p></td>
-<td class="text-align:left"><p>Number of cased when customer has 60-89dpd (not worse) during the last 2 years</p></td>
+<tr class="row-even"><td class="text-left"><p>NumberOfTime60-89DaysPastDueNotWorse</p></td>
+<td class="text-left"><p>Input Feature</p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p>Number of cased when customer has 60-89dpd (not worse) during the last 2 years</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>NumberOfDependents</p></td>
-<td class="text-align:left"><p>Input Feature</p></td>
-<td class="text-align:left"><p>integer</p></td>
-<td class="text-align:left"><p>The number of customer dependents</p></td>
+<tr class="row-odd"><td class="text-left"><p>NumberOfDependents</p></td>
+<td class="text-left"><p>Input Feature</p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p>The number of customer dependents</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>SeriousDlqin2yrs</p></td>
-<td class="text-align:left"><p>Target Variable</p></td>
-<td class="text-align:left"><p>binary: <br>0 or 1</p></td>
-<td class="text-align:left"><p>Customer hasn’t paid the loan debt within 90 days</p></td>
+<tr class="row-even"><td class="text-left"><p>SeriousDlqin2yrs</p></td>
+<td class="text-left"><p>Target Variable</p></td>
+<td class="text-left"><p>binary: <br>0 or 1</p></td>
+<td class="text-left"><p>Customer hasn’t paid the loan debt within 90 days</p></td>
 </tr>
 </tbody>
 </table>
@@ -1049,7 +637,7 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
 <span class="c1"># you can specify the data/ folder from the root of your cloned</span>
 <span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
-<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1193,7 +781,7 @@ dtype: object
 Name: SeriousDlqin2yrs, dtype: float64
 </pre></div>
 </div>
-<img alt="../../_images/assignment05_logit_rf_credit_scoring_solution_11_2.png" src="../../_images/assignment05_logit_rf_credit_scoring_solution_11_2.png" />
+<img alt="../../_images/9de1191ea1ed642577901e5be7828b4e36f53456e3ea8b7ded355695f02488f6.png" src="../../_images/9de1191ea1ed642577901e5be7828b4e36f53456e3ea8b7ded355695f02488f6.png" />
 </div>
 </div>
 <p>Separate the input variable names by excluding the target:</p>
@@ -1236,9 +824,9 @@ Name: SeriousDlqin2yrs, dtype: float64
 </section>
 </section>
 <section id="bootstrapping">
-<h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this headline">#</a></h2>
+<h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this heading">#</a></h2>
 <p><strong>Question 2.</strong> Make an interval estimate of the average age for the customers who delayed the repayment with the confidence level equal 90%. Use the example from the article for reference. Also, use <code class="docutils literal notranslate"><span class="pre">np.random.seed(0)</span></code> as it was done in the article. What is the resulting interval estimate?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>52.59 – 52.86</p></li>
 <li><p>45.71 – 46.13</p></li>
 <li><p>45.68 – 46.17</p></li>
@@ -1283,7 +871,7 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 </section>
 <section id="logistic-regression">
-<h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">#</a></h2>
+<h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h2>
 <p>Let’s set up to use logistic regression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1319,7 +907,7 @@ Name: SeriousDlqin2yrs, dtype: float64
 </div>
 <p>One of the important metrics of model quality is the <em>Area Under the Curve (AUC)</em>. <em>ROC AUC</em> varies from 0 to 1. The closer ROC AUC to 1, the better the quality of the classification model.</p>
 <p><strong>Question 3.</strong> Perform a <em>Grid Search</em> with the scoring metric “roc_auc” for the parameter <code class="docutils literal notranslate"><span class="pre">C</span></code>. Which value of the parameter <code class="docutils literal notranslate"><span class="pre">C</span></code> is optimal?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>0.0001</p></li>
 <li><p>0.001</p></li>
 <li><p>0.01</p></li>
@@ -1346,7 +934,9 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
@@ -1393,7 +983,7 @@ Please also refer to the documentation for alternative solver options:
 <div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(C=0.001, class_weight=&#x27;balanced&#x27;, random_state=5)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(C=0.001, class_weight=&#x27;balanced&#x27;, random_state=5)</pre></div></div></div></div></div></div></div>
 </div>
 <p><strong>Question 4.</strong> Can we consider the best model stable? The model is <em>stable</em> if the standard deviation on validation is less than 0.5%. Save the <em>ROC AUC</em> value of the best model, it will be useful for the following tasks.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Yes</p></li>
 <li><p>No</p></li>
 </ol>
@@ -1426,9 +1016,9 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </section>
 <section id="feature-importance">
-<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
+<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">#</a></h2>
 <p><strong>Question 5.</strong> <em>Feature importance</em> is defined by the absolute value of its corresponding coefficient. First you need to normalize all the feature values so that it will be correct to compare them. What is the most important feature for the best logistic regression model?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>age</p></li>
 <li><p>NumberOfTime30-59DaysPastDueNotWorse</p></li>
 <li><p>DebtRatio</p></li>
@@ -1517,7 +1107,7 @@ Please also refer to the documentation for alternative solver options:
 </div></div></div>
 </div>
 <p><strong>Question 6.</strong> Calculate how much <code class="docutils literal notranslate"><span class="pre">DebtRatio</span></code> affects the prediction using the <a class="reference external" href="https://en.wikipedia.org/wiki/Softmax_function">softmax function</a>. What is its value?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>0.38</p></li>
 <li><p>-0.02</p></li>
 <li><p>0.11</p></li>
@@ -1538,7 +1128,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <p><strong>Question 7.</strong> Let’s see how we can interpret the impact of our features. For this, recalculate the logistic regression with absolute values, that is without scaling. Next, modify the customer’s age by adding 20 years, keeping the other features unchanged. How many times will the chance that the customer will not repay their debt increase? You can find an example of the theoretical calculation <a class="reference external" href="https://www.unm.edu/~schrader/biostat/bio2/Spr06/lec11.pdf">here</a>.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>-0.01</p></li>
 <li><p>0.70</p></li>
 <li><p>8.32</p></li>
@@ -1635,7 +1225,7 @@ Please also refer to the documentation for alternative solver options:
 <p>It is <span class="math notranslate nohighlight">\(\exp^{\beta\delta}\)</span> times more likely that the customer won’t repay the debt, where <span class="math notranslate nohighlight">\(\delta\)</span> is the feature value increment. That means that if we increased the age by 20 years, the odds that the customer won’t repay would increase by 0.69 times.</p>
 </section>
 <section id="random-forest">
-<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h2>
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
 <p>Import the Random Forest classifier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1668,7 +1258,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <p>Also, we will use the stratified k-fold validation again. You should still have the <code class="docutils literal notranslate"><span class="pre">skf</span></code> variable.</p>
 <p><strong>Question 8.</strong> How much higher is the <em>ROC AUC</em> of the best random forest model than that of the best logistic regression on validation? Select the closest answer.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>0.04</p></li>
 <li><p>0.03</p></li>
 <li><p>0.02</p></li>
@@ -1691,15 +1281,15 @@ Please also refer to the documentation for alternative solver options:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 36 candidates, totalling 180 fits
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026866475306627002
-CPU times: user 5.21 s, sys: 287 ms, total: 5.5 s
-Wall time: 1min 14s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026866482423537952
+CPU times: user 7.03 s, sys: 456 ms, total: 7.49 s
+Wall time: 1min 48s
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Question 9.</strong> What feature has the weakest impact in Random Forest model?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>age</p></li>
 <li><p>NumberOfTime30-59DaysPastDueNotWorse</p></li>
 <li><p>DebtRatio</p></li>
@@ -1800,7 +1390,7 @@ Wall time: 1min 14s
 </div></div></div>
 </div>
 <p><strong>Question 10.</strong> What is the most significant advantage of using <em>Logistic Regression</em> versus <em>Random Forest</em> for this problem?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Spent less time for model fitting;</p></li>
 <li><p>Fewer variables to iterate;</p></li>
 <li><p>Feature interpretability;</p></li>
@@ -1812,7 +1402,7 @@ Wall time: 1min 14s
 <p>On the other hand, the main advantage of Logistic Regression is that we can interpret the feature impact on the model outcome.</p>
 </section>
 <section id="bagging">
-<h2>Bagging<a class="headerlink" href="#bagging" title="Permalink to this headline">#</a></h2>
+<h2>Bagging<a class="headerlink" href="#bagging" title="Permalink to this heading">#</a></h2>
 <p>Import modules and set up the parameters for bagging:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1829,7 +1419,7 @@ Wall time: 1min 14s
 </div>
 </div>
 <p><strong>Question 11.</strong> Fit a bagging classifier with <code class="docutils literal notranslate"><span class="pre">random_state=42</span></code>. For the base classifiers, use 100 logistic regressors and use <code class="docutils literal notranslate"><span class="pre">RandomizedSearchCV</span></code> instead of <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. It will take a lot of time to iterate over all 54 variants, so set the maximum number of iterations for <code class="docutils literal notranslate"><span class="pre">RandomizedSearchCV</span></code> to 20. Don’t forget to set the parameters <code class="docutils literal notranslate"><span class="pre">cv</span></code> and <code class="docutils literal notranslate"><span class="pre">random_state=1</span></code>. What is the best <em>ROC AUC</em> you achieve?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>80.75%</p></li>
 <li><p>80.12%</p></li>
 <li><p>79.62%</p></li>
@@ -1870,7 +1460,7 @@ Wall time: 1min 14s
 </div>
 </div>
 <p><strong>Question 12.</strong> Give an interpretation of the best parameters for bagging. Why are these values of <code class="docutils literal notranslate"><span class="pre">max_features</span></code> and <code class="docutils literal notranslate"><span class="pre">max_samples</span></code> the best?</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>For bagging it’s important to use as few features as possible;</p></li>
 <li><p>Bagging works better on small samples;</p></li>
 <li><p>Less correlation between single models;</p></li>
@@ -1894,7 +1484,7 @@ Wall time: 1min 14s
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./book/topic05"
         },
         predefinedOutput: true
@@ -1902,50 +1492,114 @@ Wall time: 1min 14s
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="assignment05_logit_rf_credit_scoring.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="assignment05_logit_rf_credit_scoring.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="bonus_assignment05_logreg_rf.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="bonus_assignment05_logreg_rf.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Bonus Assignment 5. Logistic Regression vs. Random Forest</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Yury Kashnitsky (yorko)<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#credit-scoring-problem-setup">Credit scoring problem setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data description</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bootstrapping">Bootstrapping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature importance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging">Bagging</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yury Kashnitsky (yorko)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

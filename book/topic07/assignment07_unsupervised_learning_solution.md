@@ -45,7 +45,7 @@ from tqdm import tqdm_notebook
 %matplotlib inline
 from matplotlib import pyplot as plt
 
-plt.style.use(["seaborn-darkgrid"])
+plt.style.use("seaborn-v0_8-darkgrid")
 plt.rcParams["figure.figsize"] = (12, 9)
 plt.rcParams["font.family"] = "DejaVu Sans"
 

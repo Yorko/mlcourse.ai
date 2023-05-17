@@ -33,19 +33,19 @@ In this article, we are going to get hands-on experience with visual exploration
 
 ## Article outline
 
-1. [Dataset](#1.-Dataset)
-2. [Univariate visualization](#2.-Univariate-visualization)
-    * 2.1 [Quantitative features](#2.1-Quantitative-features)
-    * 2.2 [Categorical and binary features](#2.2-Categorical-and-binary-features)
-3. [Multivariate visualization](#3.-Multivariate-visualization)
-    * 3.1 [Quantitative vs. Quantitative](#3.1-Quantitative-vs.-Quantitative)
-    * 3.2 [Quantitative vs. Categorical](#3.2-Quantitative-vs.-Categorical)
-    * 3.3 [Categorical vs. Categorical](#3.3-Categorical-vs.-Categorical)
-4. [Whole dataset visualizations](#4.-Whole-dataset-visualizations)
-    * 4.1 [Naive approach](#4.1-A-naive-approach)
-    * 4.2 [Dimensionality reduction](#4.2-Dimensionality-reduction)
-    * 4.3 [t-SNE](#4.3-t-SNE)
-5. [Useful resources](#5.-Useful-resources)
+1. [Dataset](dataset)
+2. [Univariate visualization](univariate-visualization)
+    * 2.1 [Quantitative features](quantitative-features)
+    * 2.2 [Categorical and binary features](categorical-and-binary-features)
+3. [Multivariate visualization](multivariate-visualization)
+    * 3.1 [Quantitative vs. Quantitative](quantitative-vs-quantitative)
+    * 3.2 [Quantitative vs. Categorical](quantitative-vs-categorical)
+    * 3.3 [Categorical vs. Categorical](categorical-vs-categorical)
+4. [Whole dataset visualizations](whole-dataset-visualizations)
+    * 4.1 [Naive approach](a-naive-approach)
+    * 4.2 [Dimensionality reduction](dimensionality-reduction)
+    * 4.3 [t-SNE](t-SNE)
+5. [Useful resources](useful-resources)
 
 ## 1. Dataset
 
@@ -74,7 +74,7 @@ In the first article, we looked at the data on customer churn for a telecom oper
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 

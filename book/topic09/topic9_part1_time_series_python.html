@@ -1,125 +1,168 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Topic 9. Part 1. Time series analysis in Python &#8212; mlcourse.ai</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"420faedfa1de43e3bfa20527c785bbff": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_68ff0d991bf84e8b879befa3d5e55c1e", "IPY_MODEL_b93388f584624155832c8bde57acf694", "IPY_MODEL_e6ed749b9ff04c6289fa20ae1279517f"], "layout": "IPY_MODEL_c48c739c2ef5476d88352e28cf86ca10", "tabbable": null, "tooltip": null}}, "447f8a57537c4aed91fbfca6fcd4cfc7": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "47b8edf08c1b413597f9ecf19e7f1625": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "68ff0d991bf84e8b879befa3d5e55c1e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_bc1c6d27495048ed9ad04bd902d05223", "placeholder": "\u200b", "style": "IPY_MODEL_ce5d8ceb5a604c7786921347f677ca2f", "tabbable": null, "tooltip": null, "value": "100%"}}, "98ba6df13d5b4bbfa3c2f3a97a0b4712": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b93388f584624155832c8bde57acf694": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_98ba6df13d5b4bbfa3c2f3a97a0b4712", "max": 36.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_47b8edf08c1b413597f9ecf19e7f1625", "tabbable": null, "tooltip": null, "value": 36.0}}, "bc1c6d27495048ed9ad04bd902d05223": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c48c739c2ef5476d88352e28cf86ca10": {"model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ce5d8ceb5a604c7786921347f677ca2f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "d5f99e74d28f45c381297331cac3d8a3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "e6ed749b9ff04c6289fa20ae1279517f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_447f8a57537c4aed91fbfca6fcd4cfc7", "placeholder": "\u200b", "style": "IPY_MODEL_d5f99e74d28f45c381297331cac3d8a3", "tabbable": null, "tooltip": null, "value": " 36/36 [01:44&lt;00:00,  6.14s/it]"}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic09/topic9_part1_time_series_python';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet" href="topic9_part2_facebook_prophet.html" />
     <link rel="prev" title="Topic 9. Time Series Analysis with Python" href="topic09_intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-CN7ZN59CQB');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -128,951 +171,375 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Prerequisites
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/python.html">
-   Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/math.html">
-   Math
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/software_devops.html">
-   Software &amp; DevOps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/docker.html">
-   Docker
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 1
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_intro.html">
-   Topic 1 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
-   Exploratory data analysis with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/videolecture01.html">
-   Videolecture 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
-   Demo Assignment 1 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
-   Demo Assignment 1 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
-   Bonus Assignment 1
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_intro.html">Topic 1 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">Exploratory data analysis with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/videolecture01.html">Videolecture 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">Demo Assignment 1 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">Demo Assignment 1 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">Bonus Assignment 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 2
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_intro.html">
-   Topic 2 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
-   Visual Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
-   Seaborn, Matplotlib, Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/videolecture02.html">
-   Videolecture 2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
-   Demo Assignment 2 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
-   Demo Assignment 2 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
-   Bonus Assignment 2
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_intro.html">Topic 2 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">Visual Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">Seaborn, Matplotlib, Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/videolecture02.html">Videolecture 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">Demo Assignment 2 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">Demo Assignment 2 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">Bonus Assignment 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 3
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_intro.html">
-   Topic 3 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
-   Classification, Decision Trees &amp; k Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/videolecture03.html">
-   Videolecture 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
-   Demo Assignment 3 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
-   Demo Assignment 3 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
-   Bonus Assignment 3
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_intro.html">Topic 3 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">Classification, Decision Trees &amp; k Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/videolecture03.html">Videolecture 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees.html">Demo Assignment 3 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">Demo Assignment 3 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">Bonus Assignment 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 4
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic04_intro.html">
-   Topic 4 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
-   Ordinary Least Squares
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
-   Linear classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
-   An illustrative example of logistic regression regularization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
-   When logistic regression is good and when it is not
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
-   Validation and learning curves
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/videolecture04.html">
-   Videolecture 4
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
-   Demo Assignment 4 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
-   Demo Assignment 4 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
-   Bonus Assignment 4
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic04_intro.html">Topic 4 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">Ordinary Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">An illustrative example of logistic regression regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">When logistic regression is good and when it is not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">Validation and learning curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/videolecture04.html">Videolecture 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine.html">Demo Assignment 4 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">Demo Assignment 4 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">Bonus Assignment 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 5
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 5</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic05_intro.html">
-   Topic 5 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
-   Bagging
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
-   Random Forest
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
-   Feature importance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/videolecture05.html">
-   Videolecture 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
-   Demo Assignment 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
-   Demo Assignment 5 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
-   Bonus Assignment 5
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic05_intro.html">Topic 5 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part1_bagging.html">Bagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part2_random_forest.html">Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">Feature importance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/videolecture05.html">Videolecture 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">Demo Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">Demo Assignment 5 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">Bonus Assignment 5</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 6
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 6</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic06_intro.html">
-   Topic 6 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
-   Feature engineering &amp; feature selection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/demo_assignment06.html">
-   Demo Assignment 6 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/bonus_assignment06.html">
-   Bonus Assignment 6
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic06_intro.html">Topic 6 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">Feature engineering &amp; feature selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/demo_assignment06.html">Demo Assignment 6 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/bonus_assignment06.html">Bonus Assignment 6</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 7
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 7</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic07_intro.html">
-   Topic 7 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
-   Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/videolecture07.html">
-   Videolecture 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
-   Demo Assignment 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
-   Demo Assignment 7 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/bonus_assignment07.html">
-   Bonus Assignment 7
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic07_intro.html">Topic 7 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic7_pca_clustering.html">Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/videolecture07.html">Videolecture 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">Demo Assignment 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">Demo Assignment 7 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/bonus_assignment07.html">Bonus Assignment 7</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 8
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 8</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_intro.html">
-   Topic 8 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
-   Vowpal Wabbit: Learning with Gigabytes of Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/videolecture08.html">
-   Videolecture 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
-   Demo Assignment 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
-   Demo Assignment 8 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/bonus_assignment08.html">
-   Bonus Assignment 8
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_intro.html">Topic 8 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">Vowpal Wabbit: Learning with Gigabytes of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/videolecture08.html">Videolecture 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">Demo Assignment 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">Demo Assignment 8 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/bonus_assignment08.html">Bonus Assignment 8</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 9
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 9</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="topic09_intro.html">
-   Topic 9 Intro
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="topic9_part2_facebook_prophet.html">
-   Predicting the future with Facebook Prophet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="videolecture09.html">
-   Videolecture 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment09_time_series.html">
-   Demo Assignment 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment09_time_series_solution.html">
-   Demo Assignment 9 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bonus_assignment09.html">
-   Bonus Assignment 9
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="topic09_intro.html">Topic 9 Intro</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Topic 9. Part 1. Time series analysis in Python</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videolecture09.html">Videolecture 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment09_time_series.html">Demo Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment09_time_series_solution.html">Demo Assignment 9 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bonus_assignment09.html">Bonus Assignment 9</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 10
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 10</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_intro.html">
-   Topic 10 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_gradient_boosting.html">
-   Gradient boosting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/videolecture10.html">
-   Videolecture 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">
-   Demo Assignment 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/bonus_assignment10.html">
-   Bonus Assignment 10
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_intro.html">Topic 10 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_gradient_boosting.html">Gradient boosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/videolecture10.html">Videolecture 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">Demo Assignment 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/bonus_assignment10.html">Bonus Assignment 10</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About the course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/tutorials.html">
-   Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/rating.html">
-   Rating
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/resources.html">
-   Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/contributors.html">
-   Contributors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/rating.html">Rating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/contributors.html">Contributors</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic09/topic9_part1_time_series_python.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic09/topic9_part1_time_series_python.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/issues/new?title=Issue%20on%20page%20%2Fbook/topic09/topic9_part1_time_series_python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/topic09/topic9_part1_time_series_python.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic09/topic9_part1_time_series_python.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic09/topic9_part1_time_series_python.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/book/topic09/topic9_part1_time_series_python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../../_sources/book/topic09/topic9_part1_time_series_python.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#article-outline">
-   Article outline
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#forecast-quality-metrics">
-     Forecast quality metrics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#move-smoothe-evaluate">
-   Move, smoothe, evaluate
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponential-smoothing">
-     Exponential smoothing
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#double-exponential-smoothing">
-     Double exponential smoothing
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#triple-exponential-smoothing-a-k-a-holt-winters">
-     Triple exponential smoothing a.k.a. Holt-Winters
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-series-cross-validation">
-     Time series cross validation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#econometric-approach">
-   Econometric approach
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stationarity">
-     Stationarity
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-rid-of-non-stationarity-and-building-sarima">
-     Getting rid of non-stationarity and building SARIMA
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arima-family-crash-course">
-     ARIMA-family Crash-Course
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-and-not-only-models-for-time-series">
-   Linear (and not only) models for time series
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feature-extraction">
-     Feature extraction
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-series-lags">
-     Time series lags
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#target-encoding">
-     Target encoding
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regularization-and-feature-selection">
-     Regularization and feature selection
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#boosting">
-   Boosting
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   Conclusion
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-resources">
-   Useful resources
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Topic 9. Part 1. Time series analysis in Python</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#article-outline">
-   Article outline
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#forecast-quality-metrics">
-     Forecast quality metrics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#move-smoothe-evaluate">
-   Move, smoothe, evaluate
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponential-smoothing">
-     Exponential smoothing
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#double-exponential-smoothing">
-     Double exponential smoothing
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#triple-exponential-smoothing-a-k-a-holt-winters">
-     Triple exponential smoothing a.k.a. Holt-Winters
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-series-cross-validation">
-     Time series cross validation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#econometric-approach">
-   Econometric approach
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stationarity">
-     Stationarity
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-rid-of-non-stationarity-and-building-sarima">
-     Getting rid of non-stationarity and building SARIMA
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arima-family-crash-course">
-     ARIMA-family Crash-Course
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-and-not-only-models-for-time-series">
-   Linear (and not only) models for time series
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feature-extraction">
-     Feature extraction
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-series-lags">
-     Time series lags
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#target-encoding">
-     Target encoding
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regularization-and-feature-selection">
-     Regularization and feature selection
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#boosting">
-   Boosting
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   Conclusion
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-resources">
-   Useful resources
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Topic 9. Part 1. Time series analysis in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Topic 9. Part 1. Time series analysis in Python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#article-outline">Article outline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-quality-metrics">Forecast quality metrics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#move-smoothe-evaluate">Move, smoothe, evaluate</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing">Exponential smoothing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-exponential-smoothing">Double exponential smoothing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triple-exponential-smoothing-a-k-a-holt-winters">Triple exponential smoothing a.k.a. Holt-Winters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-cross-validation">Time series cross validation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#econometric-approach">Econometric approach</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stationarity">Stationarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-rid-of-non-stationarity-and-building-sarima">Getting rid of non-stationarity and building SARIMA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-family-crash-course">ARIMA-family Crash-Course</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-not-only-models-for-time-series">Linear (and not only) models for time series</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-lags">Time series lags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-encoding">Target encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-feature-selection">Regularization and feature selection</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">Boosting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources">Useful resources</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="topic-9-part-1-time-series-analysis-in-python">
-<span id="topic09-part1"></span><h1>Topic 9. Part 1. Time series analysis in Python<a class="headerlink" href="#topic-9-part-1-time-series-analysis-in-python" title="Permalink to this headline">#</a></h1>
+<span id="topic09-part1"></span><h1>Topic 9. Part 1. Time series analysis in Python<a class="headerlink" href="#topic-9-part-1-time-series-analysis-in-python" title="Permalink to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://github.com/DmitrySerg">Dmitriy Sergeyev</a>, Data Scientist &#64; Zeptolab, lecturer in the Center of Mathematical Finance in MSU. Translated by: &#64;borowis. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
@@ -1080,43 +547,43 @@ title="Print to PDF"
 <p>Let’s take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost… In addition, all of this will be applied to (harsh) real world examples.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="article-outline">
-<h1>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h1>
-<ol class="simple">
-<li><p><a class="reference external" href="#introduction">Introduction</a></p>
+<h1>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Introduction</span></p>
 <ul class="simple">
-<li><p><a class="reference external" href="#forecast-quality-metrics">Forecast quality metrics</a></p></li>
+<li><p><span class="xref myst">Forecast quality metrics</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#move-smoothe-evaluate">Move, smoothe, evaluate</a></p>
+<li><p><span class="xref myst">Move, smoothe, evaluate</span></p>
 <ul class="simple">
 <li><p>Rolling window estimations</p></li>
 <li><p>Exponential smoothing, Holt-Winters model</p></li>
 <li><p>Time-series cross validation, parameters selection</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#econometric-approach">Econometric approach</a></p>
+<li><p><span class="xref myst">Econometric approach</span></p>
 <ul class="simple">
 <li><p>Stationarity, unit root</p></li>
 <li><p>Getting rid of non-stationarity</p></li>
 <li><p>SARIMA intuition and model building</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#linear-and-not-only-models-for-time-series">Linear (and not only) models for time series</a></p>
+<li><p><span class="xref myst">Linear (and not only) models for time series</span></p>
 <ul class="simple">
-<li><p><a class="reference external" href="#feature-extraction">Feature extraction</a></p></li>
-<li><p><a class="reference external" href="#time-series-lags">Time series lags</a></p></li>
-<li><p><a class="reference external" href="#target-encoding">Target encoding</a></p></li>
-<li><p><a class="reference external" href="#regularization-and-feature-selection">Regularization and feature selection</a></p></li>
-<li><p><a class="reference external" href="#boosting">Boosting</a></p></li>
+<li><p><span class="xref myst">Feature extraction</span></p></li>
+<li><p><span class="xref myst">Time series lags</span></p></li>
+<li><p><span class="xref myst">Target encoding</span></p></li>
+<li><p><span class="xref myst">Regularization and feature selection</span></p></li>
+<li><p><span class="xref myst">Boosting</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#conclusion">Conclusion</a></p></li>
-<li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
+<li><p><span class="xref myst">Conclusion</span></p></li>
+<li><p><span class="xref myst">Useful resources</span></p></li>
 </ol>
 <p>In my day-to-day job, I encounter time-series related tasks almost every day. The most frequent questions asked are the following: what will happen with our metrics in the next day/week/month/etc., how many users will install our app, how much time will they spend online, how many actions will users complete, and so on. We can approach these prediction tasks using different methods depending on the required quality of the prediction, length of the forecast period, and, of course, the time within which we have to choose features and tune parameters to achieve desired results.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
 <p>We begin with a simple <a class="reference external" href="https://en.wikipedia.org/wiki/Time_series">definition</a> of time series:</p>
 <blockquote>
 <div><p><em>Time series</em> is a series of data points indexed (or listed or graphed) in time order.</p>
@@ -1158,7 +625,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
 <span class="c1"># you can specify the data/ folder from the root of your cloned</span>
 <span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
-<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1184,7 +651,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_5_0.png" src="../../_images/topic9_part1_time_series_python_5_0.png" />
+<img alt="../../_images/85e92ca0c000cee76b331f9aa14965405beeb65a49280ed791670c374bb0e123.png" src="../../_images/85e92ca0c000cee76b331f9aa14965405beeb65a49280ed791670c374bb0e123.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1198,11 +665,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_6_0.png" src="../../_images/topic9_part1_time_series_python_6_0.png" />
+<img alt="../../_images/fdd4d7f7868116aea977b7a71c448814ef12aa068c0ee79a9144396d273d965b.png" src="../../_images/fdd4d7f7868116aea977b7a71c448814ef12aa068c0ee79a9144396d273d965b.png" />
 </div>
 </div>
 <section id="forecast-quality-metrics">
-<h2>Forecast quality metrics<a class="headerlink" href="#forecast-quality-metrics" title="Permalink to this headline">#</a></h2>
+<h2>Forecast quality metrics<a class="headerlink" href="#forecast-quality-metrics" title="Permalink to this heading">#</a></h2>
 <p>Before we begin forecasting, let’s understand how to measure the quality of our predictions and take a look at the most commonly used metrics.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination">R squared</a>: coefficient of determination (in econometrics, this can be interpreted as the percentage of variance explained by the model), <span class="math notranslate nohighlight">\((-\infty, 1]\)</span></p></li>
@@ -1279,7 +746,7 @@ title="Print to PDF"
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="move-smoothe-evaluate">
-<h1>Move, smoothe, evaluate<a class="headerlink" href="#move-smoothe-evaluate" title="Permalink to this headline">#</a></h1>
+<h1>Move, smoothe, evaluate<a class="headerlink" href="#move-smoothe-evaluate" title="Permalink to this heading">#</a></h1>
 <p>Let’s start with a naive hypothesis: “tomorrow will be the same as today”. However, instead of a model like <span class="math notranslate nohighlight">\(\hat{y}_{t} = y_{t-1}\)</span> (which is actually a great baseline for any time series prediction problems and sometimes is impossible to beat), we will assume that the future value of our variable depends on the average of its <span class="math notranslate nohighlight">\(k\)</span> previous values. Therefore, we will use the <strong>moving average</strong>.</p>
 <p><span class="math notranslate nohighlight">\(\hat{y}_{t} = \frac{1}{k} \displaystyle\sum^{k}_{n=1} y_{t-n}\)</span></p>
 <div class="cell docutils container">
@@ -1352,7 +819,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_15_0.png" src="../../_images/topic9_part1_time_series_python_15_0.png" />
+<img alt="../../_images/ac1733110d90aa5141836bf6f832a8108330541bf488736a37268947dbe7e364.png" src="../../_images/ac1733110d90aa5141836bf6f832a8108330541bf488736a37268947dbe7e364.png" />
 </div>
 </div>
 <p>Now let’s try smoothing by the previous 12 hours.</p>
@@ -1363,7 +830,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_17_0.png" src="../../_images/topic9_part1_time_series_python_17_0.png" />
+<img alt="../../_images/a7a7f046cf2c76e803046c9feccd6fbe6bd1dd7062047d758f533c9addc9b7a9.png" src="../../_images/a7a7f046cf2c76e803046c9feccd6fbe6bd1dd7062047d758f533c9addc9b7a9.png" />
 </div>
 </div>
 <p>Now smoothing with the previous 24 hours, we get the daily trend.</p>
@@ -1374,7 +841,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_19_0.png" src="../../_images/topic9_part1_time_series_python_19_0.png" />
+<img alt="../../_images/1b7cddb9f44453ac13f5422b5ee3ec0665f4b5d87e06d0d52f69cf7a2ee3634e.png" src="../../_images/1b7cddb9f44453ac13f5422b5ee3ec0665f4b5d87e06d0d52f69cf7a2ee3634e.png" />
 </div>
 </div>
 <p>When we applied daily smoothing on hourly data, we could clearly see the dynamics of ads watched. During the weekends, the values are higher (more time to play on the weekends) while fewer ads are watched on weekdays.</p>
@@ -1386,7 +853,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_21_0.png" src="../../_images/topic9_part1_time_series_python_21_0.png" />
+<img alt="../../_images/6af6cd42683717ad47b620bf9f35a6a81f4b0372ea3a6c61582b312a321b0717.png" src="../../_images/6af6cd42683717ad47b620bf9f35a6a81f4b0372ea3a6c61582b312a321b0717.png" />
 </div>
 </div>
 <p>Now, let’s create a simple anomaly detection system with the help of moving average. Unfortunately, in this particular dataset, everything is more or less normal, so we will intentionally make one of the values abnormal in our dataframe <code class="docutils literal notranslate"><span class="pre">ads_anomaly</span></code>.</p>
@@ -1406,7 +873,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_25_0.png" src="../../_images/topic9_part1_time_series_python_25_0.png" />
+<img alt="../../_images/ca7e85f756a4e3da86d625686da6a0435e905e84474860c06c4e1771f0c92cdf.png" src="../../_images/ca7e85f756a4e3da86d625686da6a0435e905e84474860c06c4e1771f0c92cdf.png" />
 </div>
 </div>
 <p>Neat! What about the second series?</p>
@@ -1419,7 +886,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_27_0.png" src="../../_images/topic9_part1_time_series_python_27_0.png" />
+<img alt="../../_images/fb2a7d2a92ccecaab390466e9840c68c8ee971f2c664c94ffbcf0210edd858da.png" src="../../_images/fb2a7d2a92ccecaab390466e9840c68c8ee971f2c664c94ffbcf0210edd858da.png" />
 </div>
 </div>
 <p>Oh no, this was not as great! Here, we can see the downside of our simple approach – it did not capture the monthly seasonality in our data and marked almost all 30-day peaks as anomalies. If you want to avoid false positives, it is best to consider more complex models.</p>
@@ -1468,7 +935,7 @@ dtype: float64
 </div>
 </div>
 <section id="exponential-smoothing">
-<h2>Exponential smoothing<a class="headerlink" href="#exponential-smoothing" title="Permalink to this headline">#</a></h2>
+<h2>Exponential smoothing<a class="headerlink" href="#exponential-smoothing" title="Permalink to this heading">#</a></h2>
 <p>Now, let’s see what happens if, instead of weighting the last <span class="math notranslate nohighlight">\(k\)</span> values of the time series, we start weighting all available observations while exponentially decreasing the weights as we move further back in time. There exists a formula for <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_smoothing">exponential smoothing</a></strong> that will help us with this:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y}_{t} = \alpha \cdot y_t + (1-\alpha) \cdot \hat y_{t-1} \]</div>
@@ -1521,7 +988,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_35_0.png" src="../../_images/topic9_part1_time_series_python_35_0.png" />
+<img alt="../../_images/4f0ed629a04f750e09db80dc9de22987ad161fe3b58b2edf7a4e58cf3a359b82.png" src="../../_images/4f0ed629a04f750e09db80dc9de22987ad161fe3b58b2edf7a4e58cf3a359b82.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1531,12 +998,12 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_36_0.png" src="../../_images/topic9_part1_time_series_python_36_0.png" />
+<img alt="../../_images/26a6927b0c123b13f0c4c1befea6bce68d85b8cb9c8fb05b9981fd1a3b9139c4.png" src="../../_images/26a6927b0c123b13f0c4c1befea6bce68d85b8cb9c8fb05b9981fd1a3b9139c4.png" />
 </div>
 </div>
 </section>
 <section id="double-exponential-smoothing">
-<h2>Double exponential smoothing<a class="headerlink" href="#double-exponential-smoothing" title="Permalink to this headline">#</a></h2>
+<h2>Double exponential smoothing<a class="headerlink" href="#double-exponential-smoothing" title="Permalink to this heading">#</a></h2>
 <p>Up to now, the methods that we’ve discussed have been for a single future point prediction (with some nice smoothing). That is cool, but it is also not enough. Let’s extend exponential smoothing so that we can predict two future points (of course, we will also include more smoothing).</p>
 <p>Series decomposition will help us – we obtain two components: intercept (i.e. level) <span class="math notranslate nohighlight">\(\ell\)</span> and slope (i.e. trend) <span class="math notranslate nohighlight">\(b\)</span>. We have learnt to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depends on the previous weighted changes. As a result, we get the following set of functions:</p>
 <div class="math notranslate nohighlight">
@@ -1602,7 +1069,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_39_0.png" src="../../_images/topic9_part1_time_series_python_39_0.png" />
+<img alt="../../_images/c5a2ce4848b0705390019ddfebb6ac4295cc6c85b7fb28e329c730ac921635b1.png" src="../../_images/c5a2ce4848b0705390019ddfebb6ac4295cc6c85b7fb28e329c730ac921635b1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1614,13 +1081,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_40_0.png" src="../../_images/topic9_part1_time_series_python_40_0.png" />
+<img alt="../../_images/82f90160473a20ab476ab98cb6f0d692a39630c1eb1be3cf318564bd11119505.png" src="../../_images/82f90160473a20ab476ab98cb6f0d692a39630c1eb1be3cf318564bd11119505.png" />
 </div>
 </div>
 <p>Now we have to tune two parameters: <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>. The former is responsible for the series smoothing around the trend, the latter for the smoothing of the trend itself. The larger the values, the more weight the most recent observations will have and the less smoothed the model series will be. Certain combinations of the parameters may produce strange results, especially if set manually. We’ll look into choosing parameters automatically in a bit; before that, let’s discuss triple exponential smoothing.</p>
 </section>
 <section id="triple-exponential-smoothing-a-k-a-holt-winters">
-<h2>Triple exponential smoothing a.k.a. Holt-Winters<a class="headerlink" href="#triple-exponential-smoothing-a-k-a-holt-winters" title="Permalink to this headline">#</a></h2>
+<h2>Triple exponential smoothing a.k.a. Holt-Winters<a class="headerlink" href="#triple-exponential-smoothing-a-k-a-holt-winters" title="Permalink to this heading">#</a></h2>
 <p>We’ve looked at exponential smoothing and double exponential smoothing. This time, we’re going into <em>triple</em> exponential smoothing.</p>
 <p>As you could have guessed, the idea is to add a third component - seasonality. This means that we should not use this method if our time series is not expected to have seasonality. Seasonal components in the model will explain repeated variations around intercept and trend, and it will be specified by the length of the season, in other words by the period after which the variations repeat. For each observation in the season, there is a separate component; for example, if the length of the season is 7 days (a weekly seasonality), we will have 7 seasonal components, one for each day of the week.</p>
 <p>With this, let’s write out a new system of equations:</p>
@@ -1766,7 +1233,7 @@ dtype: float64
 </div>
 </section>
 <section id="time-series-cross-validation">
-<h2>Time series cross validation<a class="headerlink" href="#time-series-cross-validation" title="Permalink to this headline">#</a></h2>
+<h2>Time series cross validation<a class="headerlink" href="#time-series-cross-validation" title="Permalink to this heading">#</a></h2>
 <p>Before we start building a model, let’s first discuss how to estimate model parameters automatically.</p>
 <p>There is nothing unusual here; as always, we have to choose a loss function suitable for the task that will tell us how closely the model approximates the data. Then, using cross-validation, we will evaluate our chosen loss function for the given model parameters, calculate the gradient, adjust the model parameters, and so on, eventually descending to the global minimum.</p>
 <p>You may be asking how to do cross-validation for time series because time series have this temporal structure and one cannot randomly mix values in a fold while preserving this structure. With randomization, all time dependencies between observations will be lost. This is why we will have to use a more tricky approach in optimizing the model parameters. I don’t know if there’s an official name to this, but on <a class="reference external" href="https://stats.stackexchange.com/questions/14099/using-k-fold-cross-validation-for-time-series-model-selection">CrossValidated</a>, where one can find all answers but the Answer to the Ultimate Question of Life, the Universe, and Everything, the proposed name for this method is “cross-validation on a rolling basis”.</p>
@@ -1857,8 +1324,8 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11676236693712227 0.0026881337430822994 0.055312622299154346
-CPU times: user 899 ms, sys: 8.92 ms, total: 908 ms
-Wall time: 913 ms
+CPU times: user 590 ms, sys: 10.3 ms, total: 600 ms
+Wall time: 598 ms
 </pre></div>
 </div>
 </div>
@@ -1921,7 +1388,7 @@ Wall time: 913 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_49_0.png" src="../../_images/topic9_part1_time_series_python_49_0.png" />
+<img alt="../../_images/e6604e0bb8576943d17bf1c0b365fe24c641d0ab9b8b26237b584c6c2c435a2c.png" src="../../_images/e6604e0bb8576943d17bf1c0b365fe24c641d0ab9b8b26237b584c6c2c435a2c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1931,7 +1398,7 @@ Wall time: 913 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_50_0.png" src="../../_images/topic9_part1_time_series_python_50_0.png" />
+<img alt="../../_images/aa31043f7cc557304c48971733d95263699a072a261ab283bbf6b4efe2e293ee.png" src="../../_images/aa31043f7cc557304c48971733d95263699a072a261ab283bbf6b4efe2e293ee.png" />
 </div>
 </div>
 <p>Judging by the plots, our model was able to successfully approximate the initial time series, capturing the daily seasonality, overall downwards trend, and even some anomalies. If you look at the model deviations, you can clearly see that the model reacts quite sharply to changes in the structure of the series but then quickly returns the deviation to the normal values, essentially “forgetting” the past. This feature of the model allows us to quickly build anomaly detection systems, even for noisy series data, without spending too much time and money on preparing the data and training the model.</p>
@@ -1946,7 +1413,7 @@ Wall time: 913 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_52_0.png" src="../../_images/topic9_part1_time_series_python_52_0.png" />
+<img alt="../../_images/fe61db585d476f9d32adffafd5400b0443707f9b31f610b78c394a15f73c9d31.png" src="../../_images/fe61db585d476f9d32adffafd5400b0443707f9b31f610b78c394a15f73c9d31.png" />
 </div>
 </div>
 <p>We’ll apply the same algorithm for the second series which, as you may recall, has trend and a 30-day seasonality.</p>
@@ -1984,8 +1451,8 @@ Wall time: 913 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013190344846993662 0.047616267647338284 0.0
-CPU times: user 963 ms, sys: 22.7 ms, total: 986 ms
-Wall time: 967 ms
+CPU times: user 687 ms, sys: 13.2 ms, total: 700 ms
+Wall time: 689 ms
 </pre></div>
 </div>
 </div>
@@ -1997,7 +1464,7 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_55_0.png" src="../../_images/topic9_part1_time_series_python_55_0.png" />
+<img alt="../../_images/b983ae1a0f9383a1cc59dc30d9d400117fb3527f823ba49f33e0c584460db19b.png" src="../../_images/b983ae1a0f9383a1cc59dc30d9d400117fb3527f823ba49f33e0c584460db19b.png" />
 </div>
 </div>
 <p>Looks good! The model caught both upwards trend and seasonal spikes and fits the data quite nicely.</p>
@@ -2008,7 +1475,7 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_57_0.png" src="../../_images/topic9_part1_time_series_python_57_0.png" />
+<img alt="../../_images/dbf54509f9bf3c31739606fa26d9d4d5c8dfe761c56b9149f268c23134b07246.png" src="../../_images/dbf54509f9bf3c31739606fa26d9d4d5c8dfe761c56b9149f268c23134b07246.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2022,15 +1489,15 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_58_0.png" src="../../_images/topic9_part1_time_series_python_58_0.png" />
+<img alt="../../_images/6c12b2261cbc25d157d82aa5cf2072f7084b3043904882c37bd435fe110b886f.png" src="../../_images/6c12b2261cbc25d157d82aa5cf2072f7084b3043904882c37bd435fe110b886f.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="econometric-approach">
-<h1>Econometric approach<a class="headerlink" href="#econometric-approach" title="Permalink to this headline">#</a></h1>
+<h1>Econometric approach<a class="headerlink" href="#econometric-approach" title="Permalink to this heading">#</a></h1>
 <section id="stationarity">
-<h2>Stationarity<a class="headerlink" href="#stationarity" title="Permalink to this headline">#</a></h2>
+<h2>Stationarity<a class="headerlink" href="#stationarity" title="Permalink to this heading">#</a></h2>
 <p>Before we start modeling, we should mention such an important property of time series: <a class="reference external" href="https://en.wikipedia.org/wiki/Stationary_process"><strong>stationarity</strong></a>.</p>
 <p>If a process is stationary, that means it does not change its statistical properties over time, namely its mean and variance. (The constancy of variance is called <a class="reference external" href="https://en.wikipedia.org/wiki/Homoscedasticity">homoscedasticity</a>)The covariance function does not depend on time; it should only depend on the distance between observations. You can see this visually on the images in the post by <a class="reference external" href="http://www.seanabu.com/2016/03/22/time-series-seasonal-ARIMA-model-in-python/">Sean Abu</a>:</p>
 <ul class="simple">
@@ -2058,7 +1525,7 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_60_0.png" src="../../_images/topic9_part1_time_series_python_60_0.png" />
+<img alt="../../_images/6c9f9bafec059995563beba63b660b959d06eb2d1a568c1d5e4996cbb38e3e99.png" src="../../_images/6c9f9bafec059995563beba63b660b959d06eb2d1a568c1d5e4996cbb38e3e99.png" />
 </div>
 </div>
 <p>The process generated by the standard normal distribution is stationary and oscillates around 0 with with deviation of 1. Now, based on this process, we will generate a new one where each subsequent value will depend on the previous one: <span class="math notranslate nohighlight">\(x_t = \rho x_{t-1} + e_t\)</span></p>
@@ -2086,10 +1553,10 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_62_0.png" src="../../_images/topic9_part1_time_series_python_62_0.png" />
-<img alt="../../_images/topic9_part1_time_series_python_62_1.png" src="../../_images/topic9_part1_time_series_python_62_1.png" />
-<img alt="../../_images/topic9_part1_time_series_python_62_2.png" src="../../_images/topic9_part1_time_series_python_62_2.png" />
-<img alt="../../_images/topic9_part1_time_series_python_62_3.png" src="../../_images/topic9_part1_time_series_python_62_3.png" />
+<img alt="../../_images/58b0469a3f1edba37431aecf83c688317bf77fc38341bb4f84e013d0c5474466.png" src="../../_images/58b0469a3f1edba37431aecf83c688317bf77fc38341bb4f84e013d0c5474466.png" />
+<img alt="../../_images/831d79c91a204cd995cd18d44e325d9beda19bdab7dd900567045784d9f2045f.png" src="../../_images/831d79c91a204cd995cd18d44e325d9beda19bdab7dd900567045784d9f2045f.png" />
+<img alt="../../_images/7af5d19c16cdd89277e75c488e931e2735e43e7be4a1b40de237f9959efaeb67.png" src="../../_images/7af5d19c16cdd89277e75c488e931e2735e43e7be4a1b40de237f9959efaeb67.png" />
+<img alt="../../_images/b7531c244f0f06bd9df5819fc06302fb8c55bb9a8706e624c62472584f506f98.png" src="../../_images/b7531c244f0f06bd9df5819fc06302fb8c55bb9a8706e624c62472584f506f98.png" />
 </div>
 </div>
 <p>On the first plot, you can see the same stationary white noise as before. On the second plot with <span class="math notranslate nohighlight">\(\rho\)</span> increased to 0.6, wider cycles appeared, but it still appears stationary overall. The third plot deviates even more from the 0 mean but still oscillates about the mean. Finally, with <span class="math notranslate nohighlight">\(\rho=1\)</span>, we have a random walk process i.e. a non-stationary time series.</p>
@@ -2097,7 +1564,7 @@ Wall time: 967 ms
 <p>We can fight non-stationarity using different approaches: various order differences, trend and seasonality removal, smoothing, and transformations like Box-Cox or logarithmic.</p>
 </section>
 <section id="getting-rid-of-non-stationarity-and-building-sarima">
-<h2>Getting rid of non-stationarity and building SARIMA<a class="headerlink" href="#getting-rid-of-non-stationarity-and-building-sarima" title="Permalink to this headline">#</a></h2>
+<h2>Getting rid of non-stationarity and building SARIMA<a class="headerlink" href="#getting-rid-of-non-stationarity-and-building-sarima" title="Permalink to this heading">#</a></h2>
 <p>Let’s build an ARIMA model by walking through all the <em>circles of hell</em> stages of making a series stationary.</p>
 <p>Here is the code to render plots.</p>
 <div class="cell docutils container">
@@ -2138,7 +1605,7 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_65_0.png" src="../../_images/topic9_part1_time_series_python_65_0.png" />
+<img alt="../../_images/e8953deb4fb5928a75ad2e2c990d776c8f437fb898eb47b76c8e87a0839ae3c2.png" src="../../_images/e8953deb4fb5928a75ad2e2c990d776c8f437fb898eb47b76c8e87a0839ae3c2.png" />
 </div>
 </div>
 <p><em>this outlier on partial autocorrelation plot looks like a statsmodels bug, partial autocorrelation shall be &lt;= 1 like any correlation.</em></p>
@@ -2151,7 +1618,7 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_67_0.png" src="../../_images/topic9_part1_time_series_python_67_0.png" />
+<img alt="../../_images/b4bebbe51a0ced08dc906e5c971caa5083eb6250cc6828e57c59e610089abe17.png" src="../../_images/b4bebbe51a0ced08dc906e5c971caa5083eb6250cc6828e57c59e610089abe17.png" />
 </div>
 </div>
 <p>It is now much better with the visible seasonality gone. However, the autocorrelation function still has too many significant lags. To remove them, we’ll take first differences, subtracting the series from itself with lag 1.</p>
@@ -2163,13 +1630,13 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_69_0.png" src="../../_images/topic9_part1_time_series_python_69_0.png" />
+<img alt="../../_images/20eafb91ddb417f90db6be46458358cc1df372cb276e84b974165899c31ae4f9.png" src="../../_images/20eafb91ddb417f90db6be46458358cc1df372cb276e84b974165899c31ae4f9.png" />
 </div>
 </div>
 <p>Perfect! Our series now looks like something indescribable, oscillating around zero. The Dickey-Fuller test indicates that it is stationary, and the number of significant peaks in ACF has dropped. We can finally start modeling!</p>
 </section>
 <section id="arima-family-crash-course">
-<h2>ARIMA-family Crash-Course<a class="headerlink" href="#arima-family-crash-course" title="Permalink to this headline">#</a></h2>
+<h2>ARIMA-family Crash-Course<a class="headerlink" href="#arima-family-crash-course" title="Permalink to this heading">#</a></h2>
 <p>We will explain this model by building up letter by letter. <span class="math notranslate nohighlight">\(SARIMA(p, d, q)(P, D, Q, s)\)</span>, Seasonal Autoregression Moving Average model:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(AR(p)\)</span> - autoregression model i.e. regression of the time series onto itself. The basic assumption is that the current series values depend on its previous values with some lag (or several lags). The maximum lag in the model is referred to as <span class="math notranslate nohighlight">\(p\)</span>. To determine the initial <span class="math notranslate nohighlight">\(p\)</span>, you need to look at the PACF plot and find the biggest significant lag after which <strong>most</strong> other lags become insignificant.</p></li>
@@ -2199,7 +1666,7 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_71_0.png" src="../../_images/topic9_part1_time_series_python_71_0.png" />
+<img alt="../../_images/20eafb91ddb417f90db6be46458358cc1df372cb276e84b974165899c31ae4f9.png" src="../../_images/20eafb91ddb417f90db6be46458358cc1df372cb276e84b974165899c31ae4f9.png" />
 </div>
 </div>
 <ul class="simple">
@@ -2288,10 +1755,8 @@ Wall time: 967 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "417a30c6bc754a01a19a6c6f179c9f2c"}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7min 16s, sys: 1min 13s, total: 8min 29s
-Wall time: 1min 26s
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "420faedfa1de43e3bfa20527c785bbff", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8min 33s, sys: 1min 34s, total: 10min 8s
+Wall time: 1min 44s
 </pre></div>
 </div>
 </div>
@@ -2372,8 +1837,8 @@ Wall time: 1min 26s
 ============================================================================================
 Dep. Variable:                                  Ads   No. Observations:                  216
 Model:             SARIMAX(2, 1, 3)x(1, 1, [1], 24)   Log Likelihood               -1936.321
-Date:                              Sat, 04 Feb 2023   AIC                           3888.642
-Time:                                      19:51:20   BIC                           3914.660
+Date:                              Wed, 17 May 2023   AIC                           3888.642
+Time:                                      14:45:18   BIC                           3914.660
 Sample:                                  09-13-2017   HQIC                          3899.181
                                        - 09-21-2017                                         
 Covariance Type:                                opg                                         
@@ -2410,7 +1875,7 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_79_0.png" src="../../_images/topic9_part1_time_series_python_79_0.png" />
+<img alt="../../_images/54f0a8438a6d3214ac7f5cf3c68bc3916322f562ec0fe22daef4d655960366b2.png" src="../../_images/54f0a8438a6d3214ac7f5cf3c68bc3916322f562ec0fe22daef4d655960366b2.png" />
 </div>
 </div>
 <p>It is clear that the residuals are stationary, and there are no apparent autocorrelations. Let’s make predictions using our model.</p>
@@ -2459,18 +1924,18 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_82_0.png" src="../../_images/topic9_part1_time_series_python_82_0.png" />
+<img alt="../../_images/ab8a46cd13e09c0dfa5761ded5d6c4f80f3bb90e70058b52818df6eca80e05df.png" src="../../_images/ab8a46cd13e09c0dfa5761ded5d6c4f80f3bb90e70058b52818df6eca80e05df.png" />
 </div>
 </div>
 <p>In the end, we got very adequate predictions. Our model was wrong by 4.01% on average, which is very, very good. However, the overall costs of preparing data, making the series stationary, and selecting parameters might not be worth this accuracy.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="linear-and-not-only-models-for-time-series">
-<h1>Linear (and not only) models for time series<a class="headerlink" href="#linear-and-not-only-models-for-time-series" title="Permalink to this headline">#</a></h1>
+<h1>Linear (and not only) models for time series<a class="headerlink" href="#linear-and-not-only-models-for-time-series" title="Permalink to this heading">#</a></h1>
 <p>Often, in my job, I have to build models with <a class="reference external" href="http://fastgood.cheap"><em>fast, good, cheap</em></a> as my only guiding principle. That means that some of these models will never be considered “production ready” as they demand too much time for data preparation (as in SARIMA) or require frequent re-training on new data (again, SARIMA) or are difficult to tune (good example - SARIMA). Therefore, it’s very often much easier to select a few features from the existing time series and build a simple linear regression model or, say, a random forest. It is good and cheap.</p>
 <p>This approach is not backed by theory and breaks several assumptions (e.g. Gauss-Markov theorem, especially for errors being uncorrelated), but it is very useful in practice and is often used in machine learning competitions.</p>
 <section id="feature-extraction">
-<h2>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">#</a></h2>
+<h2>Feature extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this heading">#</a></h2>
 <p>The model needs features, and all we have is a 1-dimensional time series. What features can we extract?</p>
 <ul class="simple">
 <li><p>Time series lags</p></li>
@@ -2494,7 +1959,7 @@ Warnings:
 <p>Let’s run through some of the methods and see what we can extract from our ads time series data.</p>
 </section>
 <section id="time-series-lags">
-<h2>Time series lags<a class="headerlink" href="#time-series-lags" title="Permalink to this headline">#</a></h2>
+<h2>Time series lags<a class="headerlink" href="#time-series-lags" title="Permalink to this heading">#</a></h2>
 <p>Shifting the series <span class="math notranslate nohighlight">\(n\)</span> steps back, we get a feature column where the current value of time series is aligned with its value at time <span class="math notranslate nohighlight">\(t-n\)</span>. If we make a 1 lag shift and train a model on that feature, the model will be able to forecast 1 step ahead from having observed the current state of the series. Increasing the lag, say, up to 6, will allow the model to make predictions 6 steps ahead; however it will use data observed 6 steps back. If something fundamentally changes the series during that unobserved period, the model will not catch these changes and will return forecasts with a large error. Therefore, during the initial lag selection, one has to find a balance between the optimal prediction quality and the length of the forecasting horizon.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2874,8 +2339,8 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_93_0.png" src="../../_images/topic9_part1_time_series_python_93_0.png" />
-<img alt="../../_images/topic9_part1_time_series_python_93_1.png" src="../../_images/topic9_part1_time_series_python_93_1.png" />
+<img alt="../../_images/9d0dd51eab94f64bb7277d93c432801ce4c710d0ecafbd6e1ac8c31ddb378da4.png" src="../../_images/9d0dd51eab94f64bb7277d93c432801ce4c710d0ecafbd6e1ac8c31ddb378da4.png" />
+<img alt="../../_images/02b1629370eee6fe6bbbb7ba081f410aae4a2ba5ec5f6b797149d574b39dc4ca.png" src="../../_images/02b1629370eee6fe6bbbb7ba081f410aae4a2ba5ec5f6b797149d574b39dc4ca.png" />
 </div>
 </div>
 <p>Simple lags and linear regression gave us predictions that are not that far off from SARIMA in terms of quality. There are many unnecessary features, so we’ll do feature selection in a little while. For now, let’s continue engineering!</p>
@@ -3095,7 +2560,7 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_97_0.png" src="../../_images/topic9_part1_time_series_python_97_0.png" />
+<img alt="../../_images/361450e00770966218be94e38bb1e5eae82579f11c666523475faae0928af5b4.png" src="../../_images/361450e00770966218be94e38bb1e5eae82579f11c666523475faae0928af5b4.png" />
 </div>
 </div>
 <p>Since we now have different scales in our variables, thousands for the lag features and tens for categorical, we need to transform them into same scale for exploring feature importance and, later, regularization.</p>
@@ -3127,14 +2592,14 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_100_0.png" src="../../_images/topic9_part1_time_series_python_100_0.png" />
-<img alt="../../_images/topic9_part1_time_series_python_100_1.png" src="../../_images/topic9_part1_time_series_python_100_1.png" />
+<img alt="../../_images/b4c607d327ea29ecd81ccaebad8cee7ca52d972b6d396878885ebbaf5afcaf28.png" src="../../_images/b4c607d327ea29ecd81ccaebad8cee7ca52d972b6d396878885ebbaf5afcaf28.png" />
+<img alt="../../_images/b3b7b433df1c1dea208c475197e65be024c22ad10dc283a4d8035b148ff67a18.png" src="../../_images/b3b7b433df1c1dea208c475197e65be024c22ad10dc283a4d8035b148ff67a18.png" />
 </div>
 </div>
 <p>The test error goes down a little bit. Judging by the coefficients plot, we can say that <code class="docutils literal notranslate"><span class="pre">weekday</span></code> and <code class="docutils literal notranslate"><span class="pre">is_weekend</span></code> are useful features.</p>
 </section>
 <section id="target-encoding">
-<h2>Target encoding<a class="headerlink" href="#target-encoding" title="Permalink to this headline">#</a></h2>
+<h2>Target encoding<a class="headerlink" href="#target-encoding" title="Permalink to this heading">#</a></h2>
 <p>I’d like to add another variant for encoding categorical variables: encoding by mean value. If it is undesirable to explode a dataset by using many dummy variables that can lead to the loss of information and if they cannot be used as real values because of the conflicts like “0 hours &lt; 23 hours”, then it’s possible to encode a variable with slightly more interpretable values. The natural idea is to encode with the mean value of the target variable. In our example, every day of the week and every hour of the day can be encoded by the corresponding average number of ads watched during that day or hour. It’s very important to make sure that the mean value is calculated over the training set only (or over the current cross-validation fold only) so that the model is not aware of the future.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3160,7 +2625,7 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_104_0.png" src="../../_images/topic9_part1_time_series_python_104_0.png" />
+<img alt="../../_images/2b1b0d67ec453c0afcfc4dbdb2603bee8d8b28cac4858298fc4af0d6fccff958.png" src="../../_images/2b1b0d67ec453c0afcfc4dbdb2603bee8d8b28cac4858298fc4af0d6fccff958.png" />
 </div>
 </div>
 <p>Finally, let’s put all the transformations together in a single function .</p>
@@ -3252,8 +2717,8 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_107_0.png" src="../../_images/topic9_part1_time_series_python_107_0.png" />
-<img alt="../../_images/topic9_part1_time_series_python_107_1.png" src="../../_images/topic9_part1_time_series_python_107_1.png" />
+<img alt="../../_images/fa59c8da98866dbf9ccab132c1568359cbedff2ab35bc127b289dce4369737c1.png" src="../../_images/fa59c8da98866dbf9ccab132c1568359cbedff2ab35bc127b289dce4369737c1.png" />
+<img alt="../../_images/1460dac18a50e8ca49e442139c1d489a9e476d93dcbd04091aa120d5541ab63a.png" src="../../_images/1460dac18a50e8ca49e442139c1d489a9e476d93dcbd04091aa120d5541ab63a.png" />
 </div>
 </div>
 <p>We see some <strong>overfitting</strong>! <code class="docutils literal notranslate"><span class="pre">Hour_average</span></code> was so great in the training dataset that the model decided to concentrate all of its forces on it. As a result, the quality of prediction dropped. This problem can be solved in a variety of ways; for example, we can calculate the target encoding not for the whole train set, but for some window instead. That way, encodings from the last observed window will most likely better describe the current series state. Alternatively, we can just drop it manually since we are sure that it makes things only worse in this case.</p>
@@ -3271,7 +2736,7 @@ Warnings:
 </div>
 </section>
 <section id="regularization-and-feature-selection">
-<h2>Regularization and feature selection<a class="headerlink" href="#regularization-and-feature-selection" title="Permalink to this headline">#</a></h2>
+<h2>Regularization and feature selection<a class="headerlink" href="#regularization-and-feature-selection" title="Permalink to this heading">#</a></h2>
 <p>As we already know, not all features are equally healthy – some may lead to overfitting while others should be removed. Besides manual inspection, we can apply regularization. Two of the most popular regression models with regularization are Ridge and Lasso regressions. They both add some more constrains to our loss function.</p>
 <p>In the case of Ridge regression, those constraints are the sum of squares of the coefficients multiplied by the regularization coefficient. The bigger the coefficient a feature has, the bigger our loss will be. Hence, we will try to optimize the model while keeping the coefficients fairly low.</p>
 <p>As a result of this <span class="math notranslate nohighlight">\(L2\)</span> regularization, we will have higher bias and lower variance, so the model will generalize better (at least that’s what we hope will happen).</p>
@@ -3285,7 +2750,7 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_111_0.png" src="../../_images/topic9_part1_time_series_python_111_0.png" />
+<img alt="../../_images/8b290b53660197e1eabdc47d853c9db5cfcfb2d6d36babbce1938e5f6bb1339c.png" src="../../_images/8b290b53660197e1eabdc47d853c9db5cfcfb2d6d36babbce1938e5f6bb1339c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3307,8 +2772,8 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_112_0.png" src="../../_images/topic9_part1_time_series_python_112_0.png" />
-<img alt="../../_images/topic9_part1_time_series_python_112_1.png" src="../../_images/topic9_part1_time_series_python_112_1.png" />
+<img alt="../../_images/f4a9426a3c1fc726e8b1c228f4ddf5cf2805320414d928058b15558e3cf75894.png" src="../../_images/f4a9426a3c1fc726e8b1c228f4ddf5cf2805320414d928058b15558e3cf75894.png" />
+<img alt="../../_images/b1ec217feb51f8cc54afa26965a65c570397739f1b7e3376670da25ec7441a14.png" src="../../_images/b1ec217feb51f8cc54afa26965a65c570397739f1b7e3376670da25ec7441a14.png" />
 </div>
 </div>
 <p>We can clearly see some coefficients are getting closer and closer to zero (though they never actually reach it) as their importance in the model drops.</p>
@@ -3329,15 +2794,15 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_114_0.png" src="../../_images/topic9_part1_time_series_python_114_0.png" />
-<img alt="../../_images/topic9_part1_time_series_python_114_1.png" src="../../_images/topic9_part1_time_series_python_114_1.png" />
+<img alt="../../_images/8bfc2586cfd354255395de3453d8ad711812499e7316ba221f413c3b75be734b.png" src="../../_images/8bfc2586cfd354255395de3453d8ad711812499e7316ba221f413c3b75be734b.png" />
+<img alt="../../_images/ae1aa4b96e93c8c9bfd68c23699b46234ad46b8cabaac4955bff62639329dcb3.png" src="../../_images/ae1aa4b96e93c8c9bfd68c23699b46234ad46b8cabaac4955bff62639329dcb3.png" />
 </div>
 </div>
 <p>Lasso regression turned out to be more conservative; it removed 23-rd lag from the most important features and dropped 5 features completely, which only made the quality of prediction better.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="boosting">
-<h1>Boosting<a class="headerlink" href="#boosting" title="Permalink to this headline">#</a></h1>
+<h1>Boosting<a class="headerlink" href="#boosting" title="Permalink to this heading">#</a></h1>
 <p>Why shouldn’t we try XGBoost now?</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/xgboost_the_things.jpg"><img alt="../../_images/xgboost_the_things.jpg" src="../../_images/xgboost_the_things.jpg" style="width: 200px;" /></a>
@@ -3365,18 +2830,18 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic9_part1_time_series_python_117_0.png" src="../../_images/topic9_part1_time_series_python_117_0.png" />
+<img alt="../../_images/6eee932b3d848a36b01249588d0c9625c7218d63a1b0a065ed11503dede6de77.png" src="../../_images/6eee932b3d848a36b01249588d0c9625c7218d63a1b0a065ed11503dede6de77.png" />
 </div>
 </div>
 <p>We have a winner! This is the smallest error on the test set among all the models we’ve tried so far.</p>
 <p>But, this victory is decieving, and it might not be the brightest idea to fit <code class="docutils literal notranslate"><span class="pre">xgboost</span></code> as soon as you get your hands on time series data. Generally, tree-based models handle trends in data poorly when compared with linear models. In that case, you would have to detrend your series first or use some tricks to make the magic happen. Ideally, you can make the series stationary and then use XGBoost. For example, you can forecast trend separately with a linear model and then add predictions from <code class="docutils literal notranslate"><span class="pre">xgboost</span></code> to get a final forecast.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h1>
 <p>We discussed different time series analysis and prediction methods. Unfortunately, or maybe luckily, there is no one way to solve these kind of problems. Methods developed in the 1960s (and some even in the beginning of the 21st century) are still popular, along with LSTMs and RNNs (not covered in this article). This is partially related to the fact that the prediction task, like any other data-related task, requires creativity in so many aspects and definitely requires research. In spite of the large number of formal quality metrics and approaches to parameters estimation, it is often necessary to try something different for each time series. Last but not least, the balance between quality and cost is important. As a good example, the SARIMA model can produce spectacular results after tuning but can require many hours of <em>tambourine dancing</em> time series manipulation while a simple linear regression model can be built in 10 minutes and can achieve more or less comparable results.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="useful-resources">
-<h1>Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h1>
+<h1>Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-9-part-1-time-series-analysis-in-python">Kaggle Kernel</a></p></li>
 <li><p>“LSTM (Long Short Term Memory) Networks for predicting Time Series” - a tutorial by Max Sergei Bulaev within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> (full list of tutorials is <a class="reference external" href="https://mlcourse.ai/tutorials">here</a>)</p></li>
@@ -3390,12 +2855,6 @@ Warnings:
 </ul>
 </section>
 
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"2cd5a5b923dd44cfa5dbad00dbbc4449": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "66594f92d6704800a887d06d3a1f153a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "4ed8c503e73a41cfb25771c9871ff968": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_2cd5a5b923dd44cfa5dbad00dbbc4449", "max": 36.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_66594f92d6704800a887d06d3a1f153a", "value": 36.0}}, "9eaf5c38f4ae43fbbd793f5e23f938b9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "850834ba945745ec89e075b283b80c00": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "407ecce080e64df084b1cba234e47117": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9eaf5c38f4ae43fbbd793f5e23f938b9", "placeholder": "\u200b", "style": "IPY_MODEL_850834ba945745ec89e075b283b80c00", "value": "100%"}}, "d48bd0a2874140d4870b3204a1488350": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "13f97d240d2748ebad7ae05439cb29e6": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "32ca228942f347ef8df1bdb6cddc8fe6": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_d48bd0a2874140d4870b3204a1488350", "placeholder": "\u200b", "style": "IPY_MODEL_13f97d240d2748ebad7ae05439cb29e6", "value": " 36/36 [01:26&lt;00:00,  4.94s/it]"}}, "8f0f345f1d2e4b40a745b022690c6c7e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "417a30c6bc754a01a19a6c6f179c9f2c": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_407ecce080e64df084b1cba234e47117", "IPY_MODEL_4ed8c503e73a41cfb25771c9871ff968", "IPY_MODEL_32ca228942f347ef8df1bdb6cddc8fe6"], "layout": "IPY_MODEL_8f0f345f1d2e4b40a745b022690c6c7e"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
-
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -3408,7 +2867,7 @@ Warnings:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./book/topic09"
         },
         predefinedOutput: true
@@ -3416,50 +2875,134 @@ Warnings:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="topic09_intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Topic 9. Time Series Analysis with Python</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="topic09_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Topic 9. Time Series Analysis with Python</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="topic9_part2_facebook_prophet.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="topic9_part2_facebook_prophet.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Yury Kashnitsky (yorko)<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Topic 9. Part 1. Time series analysis in Python</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#article-outline">Article outline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-quality-metrics">Forecast quality metrics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#move-smoothe-evaluate">Move, smoothe, evaluate</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing">Exponential smoothing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-exponential-smoothing">Double exponential smoothing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triple-exponential-smoothing-a-k-a-holt-winters">Triple exponential smoothing a.k.a. Holt-Winters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-cross-validation">Time series cross validation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#econometric-approach">Econometric approach</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stationarity">Stationarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-rid-of-non-stationarity-and-building-sarima">Getting rid of non-stationarity and building SARIMA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-family-crash-course">ARIMA-family Crash-Course</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-not-only-models-for-time-series">Linear (and not only) models for time series</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction">Feature extraction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-lags">Time series lags</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-encoding">Target encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization-and-feature-selection">Regularization and feature selection</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boosting">Boosting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources">Useful resources</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yury Kashnitsky (yorko)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

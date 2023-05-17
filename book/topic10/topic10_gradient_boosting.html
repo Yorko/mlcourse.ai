@@ -1,125 +1,165 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Topic 10. Gradient Boosting &#8212; mlcourse.ai</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic10/topic10_gradient_boosting';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videolecture 10. Gradient boosting" href="videolecture10.html" />
     <link rel="prev" title="Topic 10. Gradient Boosting" href="topic10_intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-CN7ZN59CQB');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -128,912 +168,400 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Prerequisites
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/python.html">
-   Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/math.html">
-   Math
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/software_devops.html">
-   Software &amp; DevOps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/docker.html">
-   Docker
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 1
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_intro.html">
-   Topic 1 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
-   Exploratory data analysis with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/videolecture01.html">
-   Videolecture 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
-   Demo Assignment 1 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
-   Demo Assignment 1 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
-   Bonus Assignment 1
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_intro.html">Topic 1 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">Exploratory data analysis with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/videolecture01.html">Videolecture 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">Demo Assignment 1 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">Demo Assignment 1 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">Bonus Assignment 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 2
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_intro.html">
-   Topic 2 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
-   Visual Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
-   Seaborn, Matplotlib, Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/videolecture02.html">
-   Videolecture 2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
-   Demo Assignment 2 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
-   Demo Assignment 2 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
-   Bonus Assignment 2
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_intro.html">Topic 2 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">Visual Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">Seaborn, Matplotlib, Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/videolecture02.html">Videolecture 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">Demo Assignment 2 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">Demo Assignment 2 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">Bonus Assignment 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 3
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_intro.html">
-   Topic 3 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
-   Classification, Decision Trees &amp; k Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/videolecture03.html">
-   Videolecture 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
-   Demo Assignment 3 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
-   Demo Assignment 3 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
-   Bonus Assignment 3
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_intro.html">Topic 3 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">Classification, Decision Trees &amp; k Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/videolecture03.html">Videolecture 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees.html">Demo Assignment 3 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">Demo Assignment 3 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">Bonus Assignment 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 4
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic04_intro.html">
-   Topic 4 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
-   Ordinary Least Squares
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
-   Linear classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
-   An illustrative example of logistic regression regularization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
-   When logistic regression is good and when it is not
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
-   Validation and learning curves
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/videolecture04.html">
-   Videolecture 4
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
-   Demo Assignment 4 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
-   Demo Assignment 4 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
-   Bonus Assignment 4
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic04_intro.html">Topic 4 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">Ordinary Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">An illustrative example of logistic regression regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">When logistic regression is good and when it is not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">Validation and learning curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/videolecture04.html">Videolecture 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine.html">Demo Assignment 4 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">Demo Assignment 4 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">Bonus Assignment 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 5
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 5</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic05_intro.html">
-   Topic 5 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
-   Bagging
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
-   Random Forest
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
-   Feature importance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/videolecture05.html">
-   Videolecture 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
-   Demo Assignment 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
-   Demo Assignment 5 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
-   Bonus Assignment 5
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic05_intro.html">Topic 5 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part1_bagging.html">Bagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part2_random_forest.html">Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">Feature importance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/videolecture05.html">Videolecture 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">Demo Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">Demo Assignment 5 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">Bonus Assignment 5</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 6
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 6</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic06_intro.html">
-   Topic 6 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
-   Feature engineering &amp; feature selection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/demo_assignment06.html">
-   Demo Assignment 6 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/bonus_assignment06.html">
-   Bonus Assignment 6
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic06_intro.html">Topic 6 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">Feature engineering &amp; feature selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/demo_assignment06.html">Demo Assignment 6 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/bonus_assignment06.html">Bonus Assignment 6</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 7
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 7</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic07_intro.html">
-   Topic 7 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
-   Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/videolecture07.html">
-   Videolecture 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
-   Demo Assignment 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
-   Demo Assignment 7 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/bonus_assignment07.html">
-   Bonus Assignment 7
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic07_intro.html">Topic 7 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic7_pca_clustering.html">Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/videolecture07.html">Videolecture 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">Demo Assignment 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">Demo Assignment 7 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/bonus_assignment07.html">Bonus Assignment 7</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 8
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 8</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_intro.html">
-   Topic 8 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
-   Vowpal Wabbit: Learning with Gigabytes of Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/videolecture08.html">
-   Videolecture 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
-   Demo Assignment 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
-   Demo Assignment 8 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/bonus_assignment08.html">
-   Bonus Assignment 8
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_intro.html">Topic 8 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">Vowpal Wabbit: Learning with Gigabytes of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/videolecture08.html">Videolecture 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">Demo Assignment 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">Demo Assignment 8 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/bonus_assignment08.html">Bonus Assignment 8</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 9
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 9</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic09_intro.html">
-   Topic 9 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">
-   Predicting the future with Facebook Prophet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/videolecture09.html">
-   Videolecture 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series.html">
-   Demo Assignment 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series_solution.html">
-   Demo Assignment 9 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/bonus_assignment09.html">
-   Bonus Assignment 9
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic09_intro.html">Topic 9 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">Topic 9. Part 1. Time series analysis in Python</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/videolecture09.html">Videolecture 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series.html">Demo Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series_solution.html">Demo Assignment 9 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/bonus_assignment09.html">Bonus Assignment 9</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 10
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 10</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="topic10_intro.html">
-   Topic 10 Intro
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Gradient boosting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="videolecture10.html">
-   Videolecture 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment10_flight_delays_kaggle.html">
-   Demo Assignment 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bonus_assignment10.html">
-   Bonus Assignment 10
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="topic10_intro.html">Topic 10 Intro</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gradient boosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videolecture10.html">Videolecture 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment10_flight_delays_kaggle.html">Demo Assignment 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bonus_assignment10.html">Bonus Assignment 10</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About the course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/tutorials.html">
-   Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/rating.html">
-   Rating
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/resources.html">
-   Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/contributors.html">
-   Contributors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/rating.html">Rating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/contributors.html">Contributors</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/issues/new?title=Issue%20on%20page%20%2Fbook/topic10/topic10_gradient_boosting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/topic10/topic10_gradient_boosting.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic10/topic10_gradient_boosting.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic10/topic10_gradient_boosting.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/book/topic10/topic10_gradient_boosting.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../../_sources/book/topic10/topic10_gradient_boosting.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#article-outline">
-   Article outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-and-history-of-boosting">
-   1.  Introduction and history of boosting
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#history-of-gbm">
-     History of GBM
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gbm-algorithm">
-   2. GBM algorithm
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ml-problem-statement">
-     ML problem statement
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functional-gradient-descent">
-     Functional gradient descent
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#friedman-s-classic-gbm-algorithm">
-     Friedman’s classic GBM algorithm
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-by-step-example-how-gbm-works">
-     Step-By-Step example: How GBM Works
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loss-functions">
-   3. Loss functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-loss-functions">
-     Regression loss functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-loss-functions">
-     Classification loss functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weights">
-     Weights
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   4. Conclusion
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-resources">
-   5. Useful resources
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Topic 10. Gradient Boosting</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#article-outline">
-   Article outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-and-history-of-boosting">
-   1.  Introduction and history of boosting
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#history-of-gbm">
-     History of GBM
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gbm-algorithm">
-   2. GBM algorithm
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ml-problem-statement">
-     ML problem statement
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functional-gradient-descent">
-     Functional gradient descent
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#friedman-s-classic-gbm-algorithm">
-     Friedman’s classic GBM algorithm
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-by-step-example-how-gbm-works">
-     Step-By-Step example: How GBM Works
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loss-functions">
-   3. Loss functions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regression-loss-functions">
-     Regression loss functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-loss-functions">
-     Classification loss functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#weights">
-     Weights
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   4. Conclusion
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-resources">
-   5. Useful resources
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Topic 10. Gradient Boosting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#article-outline">Article outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-and-history-of-boosting">1.  Introduction and history of boosting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-gbm">History of GBM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gbm-algorithm">2. GBM algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-problem-statement">ML problem statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-gradient-descent">Functional gradient descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#friedman-s-classic-gbm-algorithm">Friedman’s classic GBM algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-example-how-gbm-works">Step-By-Step example: How GBM Works</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-functions">3. Loss functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-loss-functions">Regression loss functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-loss-functions">Classification loss functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weights">Weights</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources">5. Useful resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="topic-10-gradient-boosting">
-<span id="topic10"></span><h1>Topic 10. Gradient Boosting<a class="headerlink" href="#topic-10-gradient-boosting" title="Permalink to this headline">#</a></h1>
+<span id="topic10"></span><h1>Topic 10. Gradient Boosting<a class="headerlink" href="#topic-10-gradient-boosting" title="Permalink to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
-<p>Author: <a class="reference external" href="https://www.linkedin.com/in/natekin/">Alexey Natekin</a>, OpenDataScience founder, Machine Learning Evangelist. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+<p>Author: <a class="reference external" href="https://www.linkedin.com/in/natekin/">Alexey Natekin</a>, OpenDataScience founder, Machine Learning Evangelist. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <img src='https://habrastorage.org/web/4a9/edb/082/4a9edb082408442ea47a12b75f19d122.jpg' align='right' width=40%>
 <p>Today we are going to have a look at one of the most popular and practical machine learning algorithms: gradient boosting.</p>
 <section id="article-outline">
-<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
+<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
 <p>We recommend going over this article in the order described below, but feel free to jump around between sections.</p>
-<ol class="simple">
-<li><p><a class="reference external" href="#introduction-and-history-of-boosting">Introduction and history of boosting</a></p>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Introduction and history of boosting</span></p>
 <ul class="simple">
-<li><p><a class="reference external" href="#history-of-gbm">History of Gradient Boosting Machine</a></p></li>
+<li><p><span class="xref myst">History of Gradient Boosting Machine</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#gbm-algorithm">GBM algorithm</a></p>
+<li><p><span class="xref myst">GBM algorithm</span></p>
 <ul class="simple">
-<li><p><a class="reference external" href="#ml-problem-statement">ML Problem statement</a></p></li>
-<li><p><a class="reference external" href="#functional-gradient-descent">Functional gradient descent</a></p></li>
-<li><p><a class="reference external" href="#friedmans-classic-gbm-algorithm">Friedman’s classic GBM algorithm</a></p></li>
-<li><p><a class="reference external" href="#step-by-step-example-how-gbm-works">Step-by-step example of the GBM algorithm</a></p></li>
+<li><p><span class="xref myst">ML Problem statement</span></p></li>
+<li><p><span class="xref myst">Functional gradient descent</span></p></li>
+<li><p><span class="xref myst">Friedman’s classic GBM algorithm</span></p></li>
+<li><p><span class="xref myst">Step-by-step example of the GBM algorithm</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#loss-functions">Loss functions</a></p>
+<li><p><span class="xref myst">Loss functions</span></p>
 <ul class="simple">
-<li><p><a class="reference external" href="#regression-loss-functions">Regression loss functions</a></p></li>
-<li><p><a class="reference external" href="#classification-loss-functions">Classification loss functions</a></p></li>
-<li><p><a class="reference external" href="#weights">Weights</a></p></li>
+<li><p><span class="xref myst">Regression loss functions</span></p></li>
+<li><p><span class="xref myst">Classification loss functions</span></p></li>
+<li><p><span class="xref myst">Weights</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#4conclusion">Conclusion</a></p></li>
-<li><p><a class="reference external" href="#useful-resources">Useful resources</a></p></li>
+<li><p><span class="xref myst">Conclusion</span></p></li>
+<li><p><span class="xref myst">Useful resources</span></p></li>
 </ol>
 </section>
 <section id="introduction-and-history-of-boosting">
-<h2>1.  Introduction and history of boosting<a class="headerlink" href="#introduction-and-history-of-boosting" title="Permalink to this headline">#</a></h2>
+<h2>1.  Introduction and history of boosting<a class="headerlink" href="#introduction-and-history-of-boosting" title="Permalink to this heading">#</a></h2>
 <p>Almost everyone in machine learning has heard about gradient boosting. Many data scientists include this algorithm in their data scientist’s toolbox because of the good results it yields on any given (unknown) problem.</p>
 <p>Furthermore, XGBoost is often the standard recipe for <a class="reference external" href="https://github.com/dmlc/xgboost/blob/master/demo/README.md#usecases">winning</a> <a class="reference external" href="http://blog.kaggle.com/tag/xgboost/">ML competitions</a>. It is so popular that the idea of stacking XGBoosts has become a meme. Moreover, boosting is an important component in <a class="reference external" href="https://en.wikipedia.org/wiki/Learning_to_rank#Practical_usage_by_search_engines">many recommender systems</a>; sometimes, it is even considered a <a class="reference external" href="https://yandex.com/company/technologies/matrixnet/">brand</a>.
 Let’s look at the history and development of boosting.</p>
@@ -1067,7 +595,7 @@ Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boo
 <p>In general, there has been a transition from engineering and algorithmic research to a full-fledged approach to building and studying algorithms. From a mathematical perspective, this is not a big change - we are still adding (or boosting) weak algorithms and enlarging our ensemble with gradual improvements for parts of the data where the model was inaccurate. But, this time, the next simple model is not just built on re-weighted objects but improves its approximation of the gradient of overall objective function. This concept greatly opens up our algorithms for imagination and extensions.</p>
 <img src="https://habrastorage.org/webt/h2/v4/k9/h2v4k9r-4yn4jwvwz99fbss4ghi.png" />
 <section id="history-of-gbm">
-<h3>History of GBM<a class="headerlink" href="#history-of-gbm" title="Permalink to this headline">#</a></h3>
+<h3>History of GBM<a class="headerlink" href="#history-of-gbm" title="Permalink to this heading">#</a></h3>
 <p>It took more than 10 years after the introduction of GBM for it to become an essential part of the data science toolbox.<br />
 GBM was extended to apply to different statistics problems: GLMboost and GAMboost for strengthening already existing GAM models, CoxBoost for survival curves, and RankBoost and LambdaMART for ranking.<br />
 Many realizations of GBM also appeared under different names and on different platforms: Stochastic GBM, GBDT (Gradient Boosted Decision Trees), GBRT (Gradient Boosted Regression Trees), MART (Multiple Additive Regression Trees), and more. In addition, the ML community was very segmented and dissociated, which made it hard to track just how widespread boosting had become.</p>
@@ -1077,9 +605,9 @@ Many realizations of GBM also appeared under different names and on different pl
 </section>
 </section>
 <section id="gbm-algorithm">
-<h2>2. GBM algorithm<a class="headerlink" href="#gbm-algorithm" title="Permalink to this headline">#</a></h2>
+<h2>2. GBM algorithm<a class="headerlink" href="#gbm-algorithm" title="Permalink to this heading">#</a></h2>
 <section id="ml-problem-statement">
-<h3>ML problem statement<a class="headerlink" href="#ml-problem-statement" title="Permalink to this headline">#</a></h3>
+<h3>ML problem statement<a class="headerlink" href="#ml-problem-statement" title="Permalink to this heading">#</a></h3>
 <p>We are going to solve the problem of function approximation in a general supervised learning setting. We have a set of features <span class="math notranslate nohighlight">\( \large x \)</span> and target variables <span class="math notranslate nohighlight">\(\large y, \large \left\{ (x_i, y_i) \right\}_{i=1, \ldots,n}\)</span> which we use to restore the dependence <span class="math notranslate nohighlight">\(\large y = f(x) \)</span>. We restore the dependence by approximating <span class="math notranslate nohighlight">\( \large \hat{f}(x) \)</span> and by understanding which approximation is better when we use the loss function <span class="math notranslate nohighlight">\( \large L(y,f) \)</span>, which we want to minimize: <span class="math notranslate nohighlight">\( \large y \approx \hat{f}(x), \large \hat{f}(x) = \underset{f(x)}{\arg\min} \ L(y,f(x)) \)</span>.</p>
 <img src='../../_static/img/topic10_help_with_func_compressed.png'  align='center'>
 <p>At this moment, we do not make any assumptions regarding the type of dependence <span class="math notranslate nohighlight">\( \large f(x) \)</span>, the model of our approximation <span class="math notranslate nohighlight">\( \large \hat{f}(x) \)</span>, or the distribution of the target variable <span class="math notranslate nohighlight">\( \large y \)</span>. We only expect the function <span class="math notranslate nohighlight">\( \large L(y,f) \)</span> to be differentiable. Our approach is very general: we define <span class="math notranslate nohighlight">\( \large \hat {f}(x) \)</span> by minimizing the loss:</p>
@@ -1093,7 +621,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <p><span class="math notranslate nohighlight">\( \large \hat{\theta} = \sum_{i = 1}^M \hat{\theta_i}, \\
 \large L_{\theta}(\hat{\theta}) =  \sum_{i = 1}^N L(y_i,f(x_i, \hat{\theta}))\)</span></p>
 <p>Then, the only thing left is to find a suitable, iterative algorithm to minimize <span class="math notranslate nohighlight">\(\large L_{\theta}(\hat{\theta})\)</span>. Gradient descent is the simplest and most frequently used option. We define the gradient as <span class="math notranslate nohighlight">\(\large \nabla L_{\theta}(\hat{\theta})\)</span> and add our iterative evaluations <span class="math notranslate nohighlight">\(\large \hat{\theta_i}\)</span> to it (since we are minimizing the loss, we add the minus sign). Our last step is to initialize our first approximation <span class="math notranslate nohighlight">\(\large \hat{\theta_0}\)</span> and choose the number of iterations <span class="math notranslate nohighlight">\(\large M\)</span>. Let’s review the steps for this inefficient and naive algorithm for approximating <span class="math notranslate nohighlight">\(\large \hat{\theta}\)</span>:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Define the initial approximation of the parameters <span class="math notranslate nohighlight">\(\large \hat{\theta} = \hat{\theta_0}\)</span></p></li>
 <li><p>For every iteration <span class="math notranslate nohighlight">\(\large t = 1, \dots, M\)</span> repeat steps 3-7:</p></li>
 <li><p>Calculate the gradient of the loss function <span class="math notranslate nohighlight">\(\large \nabla L_{\theta}(\hat{\theta})\)</span> for the current approximation <span class="math notranslate nohighlight">\(\large \hat{\theta}\)</span>
@@ -1109,7 +637,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <img src='https://habrastorage.org/web/2b5/5d6/90d/2b55d690d99e4ec0976b360aae6ce4df.jpg'   align='center'>
 </section>
 <section id="functional-gradient-descent">
-<h3>Functional gradient descent<a class="headerlink" href="#functional-gradient-descent" title="Permalink to this headline">#</a></h3>
+<h3>Functional gradient descent<a class="headerlink" href="#functional-gradient-descent" title="Permalink to this heading">#</a></h3>
 <p>Let’s imagine for a second that we can perform optimization in the function space and iteratively search for the approximations <span class="math notranslate nohighlight">\(\large \hat{f}(x)\)</span> as functions themselves. We will express our approximation as a sum of incremental improvements, each being a function. For convenience, we will immediately start with the sum from the initial approximation <span class="math notranslate nohighlight">\(\large \hat{f_0}(x)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\large \hat{f}(x) = \sum_{i = 0}^M \hat{f_i}(x)\]</div>
@@ -1129,7 +657,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <img src='../../_static/img/topic10_regression_for_everybody.jpg'   align='center' width=60%>
 </section>
 <section id="friedman-s-classic-gbm-algorithm">
-<h3>Friedman’s classic GBM algorithm<a class="headerlink" href="#friedman-s-classic-gbm-algorithm" title="Permalink to this headline">#</a></h3>
+<h3>Friedman’s classic GBM algorithm<a class="headerlink" href="#friedman-s-classic-gbm-algorithm" title="Permalink to this heading">#</a></h3>
 <p>We can now define the classic GBM algorithm suggested by Jerome Friedman in 1999. It is a supervised algorithm that has the following components:</p>
 <ul class="simple">
 <li><p>dataset <span class="math notranslate nohighlight">\(\large \left\{ (x_i, y_i) \right\}_{i=1, \ldots,n}\)</span>;</p></li>
@@ -1139,7 +667,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <li><p>additional hyperparameters <span class="math notranslate nohighlight">\(\large h(x, \theta)\)</span> (for example, in decision trees, the tree depth);</p></li>
 </ul>
 <p>The only thing left is the initial approximation <span class="math notranslate nohighlight">\(\large f_0(x)\)</span>. For simplicity, for an initial approximation, a constant value <span class="math notranslate nohighlight">\(\large \gamma\)</span> is used. The constant value, as well as the optimal coefficient <span class="math notranslate nohighlight">\(\large \rho \)</span>, are identified via binary search or another line search algorithm over the initial loss function (not a gradient). So, we have our GBM algorithm described as follows:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Initialize GBM with constant value <span class="math notranslate nohighlight">\(\large \hat{f}(x) = \hat{f}_0, \hat{f}_0 = \gamma,  \gamma \in \mathbb{R}\)</span>
 <span class="math notranslate nohighlight">\(\large \hat{f}_0 = \underset{\gamma}{\arg\min} \ \sum_{i = 1}^{n} L(y_i, \gamma)\)</span></p></li>
 <li><p>For each iteration <span class="math notranslate nohighlight">\(\large t = 1, \dots, M\)</span>, repeat:</p></li>
@@ -1157,7 +685,7 @@ Many realizations of GBM also appeared under different names and on different pl
 </ol>
 </section>
 <section id="step-by-step-example-how-gbm-works">
-<h3>Step-By-Step example: How GBM Works<a class="headerlink" href="#step-by-step-example-how-gbm-works" title="Permalink to this headline">#</a></h3>
+<h3>Step-By-Step example: How GBM Works<a class="headerlink" href="#step-by-step-example-how-gbm-works" title="Permalink to this heading">#</a></h3>
 <p>Let’s see an example of how GBM works. In this toy example, we will restore a noisy function <span class="math notranslate nohighlight">\(\large y = cos(x) + \epsilon, \epsilon \sim \mathcal{N}(0, \frac{1}{5}), x \in [-5,5]\)</span>.</p>
 <img src='https://habrastorage.org/web/9fe/04d/7ba/9fe04d7ba5a645d49fc6aa3e875c8c41.jpg'   align='center'>
 <p>This is a regression problem with a real-valued target, so we will choose to use the mean squared error loss function. We will generate 300 pairs of observations and approximate them with decision trees of depth 2. Let’s put together everything we need to use GBM:</p>
@@ -1178,11 +706,11 @@ Many realizations of GBM also appeared under different names and on different pl
 </section>
 </section>
 <section id="loss-functions">
-<h2>3. Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">#</a></h2>
+<h2>3. Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this heading">#</a></h2>
 <p>If we want to solve a classification problem instead of regression, what would change? We only need to choose a suitable loss function <span class="math notranslate nohighlight">\(\large L(y, f)\)</span>. This is the most important, high-level moment that determines exactly how we will optimize and what characteristics we can expect in the final model.</p>
 <p>As a rule, we do not need to invent this ourselves – researchers have already done it for us. Today, we will explore loss functions for the two most common objectives: regression <span class="math notranslate nohighlight">\(\large y \in \mathbb{R}\)</span> and binary classification <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>.</p>
 <section id="regression-loss-functions">
-<h3>Regression loss functions<a class="headerlink" href="#regression-loss-functions" title="Permalink to this headline">#</a></h3>
+<h3>Regression loss functions<a class="headerlink" href="#regression-loss-functions" title="Permalink to this heading">#</a></h3>
 <p>Let’s start with a regression problem for <span class="math notranslate nohighlight">\(\large y \in \mathbb{R}\)</span>. In order to choose the appropriate loss function, we need to consider which of the properties of the conditional distribution <span class="math notranslate nohighlight">\(\large (y|x)\)</span> we want to restore. The most common options are:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\large L(y, f) = (y - f)^2\)</span> a.k.a. <span class="math notranslate nohighlight">\(\large L_2\)</span> loss or Gaussian loss. It is the classical conditional mean, which is the simplest and most common case. If we do not have any additional information or requirements for a model to be robust, we can use the Gaussian loss.</p></li>
@@ -1216,7 +744,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>Unfortunately, Huber loss function is supported only by very few popular libraries/packages; h2o supports it, but XGBoost does not. It is relevant to other things that are more exotic like <a class="reference external" href="https://www.slideshare.net/charthur/quantile-and-expectile-regression">conditional expectiles</a>, but it may still be interesting knowledge.</p>
 </section>
 <section id="classification-loss-functions">
-<h3>Classification loss functions<a class="headerlink" href="#classification-loss-functions" title="Permalink to this headline">#</a></h3>
+<h3>Classification loss functions<a class="headerlink" href="#classification-loss-functions" title="Permalink to this heading">#</a></h3>
 <p>Now, let’s look at the binary classification problem <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>. We saw that GBM can even optimize non-differentiable loss functions. Technically, it is possible to solve this problem with a regression <span class="math notranslate nohighlight">\(\large L_2\)</span> loss, but it wouldn’t be correct.</p>
 <p>The distribution of the target variable requires us to use log-likelihood, so we need to have different loss functions for targets multiplied by their predictions:  <span class="math notranslate nohighlight">\(\large y \cdot f\)</span>. The most common choices would be the following:</p>
 <ul class="simple">
@@ -1242,7 +770,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>The algorithm successfully restored the separation between our classes. You can see how the “lower” areas are separating because the trees are more confident in the correct prediction of the negative class and how the two steps of mixed classes are forming. It is clear that we have a lot of correctly classified observations and some amount of observations with large errors that appeared due to the noise in the data.</p>
 </section>
 <section id="weights">
-<h3>Weights<a class="headerlink" href="#weights" title="Permalink to this headline">#</a></h3>
+<h3>Weights<a class="headerlink" href="#weights" title="Permalink to this heading">#</a></h3>
 <p>Sometimes, there is a situation where we want a more specific loss function for our problem. For example, in financial time series, we may want to give bigger weight to large movements in the time series; for churn prediction, it is more useful to predict the churn of clients with high LTV (or lifetime value: how much money a client will bring in the future).</p>
 <img src='https://habrastorage.org/web/0c0/ad0/3a4/0c0ad03a4c4b46bfa5bcd5101678c9c4.jpg'   align='center'>
 <p>The statistical warrior would invent their own loss function, write out the gradient for it (for more effective training, include the Hessian), and carefully check whether this function satisfies the required properties. However, there is a high probability of making a mistake somewhere, running up against computational difficulties, and spending an inordinate amount of time on research.</p>
@@ -1267,7 +795,7 @@ Many realizations of GBM also appeared under different names and on different pl
 </section>
 </section>
 <section id="conclusion">
-<h2>4. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<h2>4. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <p>Today, we learned the theory behind gradient boosting. GBM is not just some specific algorithm but a common methodology for building ensembles of models. In addition, this methodology is sufficiently flexible and expandable – it is possible to train a large number of models, taking into consideration different loss-functions with a variety of weighting functions.</p>
 <p>Practice and ML competitions show that, in standard problems (except for image, audio, and very sparse data), GBM is often the most effective algorithm (not to mention stacking and high-level ensembles, where GBM is almost always a part of them).  Also, there are many adaptations of GBM <a class="reference external" href="https://arxiv.org/abs/1603.04119">for Reinforcement Learning</a> (Minecraft, ICML 2016). By the way, the Viola-Jones algorithm, which is still used in computer vision, <a class="reference external" href="https://en.wikipedia.org/wiki/Viola%E2%80%93Jones_object_detection_framework#Learning_algorithm">is based on AdaBoost</a>.</p>
 <p>In this article, we intentionally omitted questions concerning GBM’s regularization, stochasticity, and hyper-parameters. It was not accidental that we used a small number of iterations <span class="math notranslate nohighlight">\(\large M = 3\)</span> throughout. If we used 30 trees instead of 3 and trained the GBM as described, the result would not be that predictable:</p>
@@ -1277,7 +805,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <p><a class="reference external" href="http://arogozhnikov.github.io/2016/07/05/gradient_boosting_playground.html">Interactive demo</a></p>
 </section>
 <section id="useful-resources">
-<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
+<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
@@ -1307,7 +835,7 @@ Gradient Boosting Decision Tree Algorithms</a>, <a class="reference external" hr
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./book/topic10"
         },
         predefinedOutput: true
@@ -1315,50 +843,124 @@ Gradient Boosting Decision Tree Algorithms</a>, <a class="reference external" hr
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="topic10_intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Topic 10. Gradient Boosting</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="topic10_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Topic 10. Gradient Boosting</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="videolecture10.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="videolecture10.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Videolecture 10. Gradient boosting</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Yury Kashnitsky (yorko)<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#article-outline">Article outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-and-history-of-boosting">1.  Introduction and history of boosting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-gbm">History of GBM</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gbm-algorithm">2. GBM algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ml-problem-statement">ML problem statement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-gradient-descent">Functional gradient descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#friedman-s-classic-gbm-algorithm">Friedman’s classic GBM algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step-example-how-gbm-works">Step-By-Step example: How GBM Works</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-functions">3. Loss functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-loss-functions">Regression loss functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-loss-functions">Classification loss functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weights">Weights</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">4. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources">5. Useful resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yury Kashnitsky (yorko)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

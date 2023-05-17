@@ -10,13 +10,14 @@ The course aims at a perfect balance between theory and practice. Therefore, pre
  - [Python](prereq_python)
  - [Math](prereq_math)
  - [Software & DevOps](prereq_software_devops)
+ - (opt.) [Docker](prereq_docker)
 
 
 ## Python
 
-Basic skills are required: writing loops, functions, classes, etc. Passing some interactive tutorials like DataQuest, DataCamp, or even CodeAcademy would suffice (no ads intended). However, a deeper dive into Python is appreciated, there will be some tasks where you have to implement an ML algorithm from scratch.
+Basic fluency in Python programming is a prerequisite for this course, which includes fundamental skills such as writing loops, functions, and classes. It is sufficient to have completed interactive tutorials like DataQuest, DataCamp, or CodeAcademy (no ads intended). However, a more comprehensive understanding of Python is encouraged, as there will be assignments that require implementing machine learning algorithms from scratch.
 
-You can check the placeholder below, it's from [bonus assignment 8](bonus08). If you have no clue what's happening there, better take an introductory Python course.
+To gauge your readiness, you can refer to the placeholder provided below, which is part of a [bonus assignment 8](bonus08). If you find it unfamiliar or difficult to comprehend, it is advisable to take an introductory Python course.
 
 ```{figure} /_static/img/assignment8_teaser_sdg_classifier.png
 :width: 600px

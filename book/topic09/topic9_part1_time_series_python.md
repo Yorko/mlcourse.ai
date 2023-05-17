@@ -27,24 +27,24 @@ We continue our open machine learning course with a new article on time series.
 Let's take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost... In addition, all of this will be applied to (harsh) real world examples.
 
 # Article outline
-1. [Introduction](#introduction)
-   - [Forecast quality metrics](#forecast-quality-metrics)
-2. [Move, smoothe, evaluate](#move-smoothe-evaluate)
+1. [Introduction](introduction)
+   - [Forecast quality metrics](forecast-quality-metrics)
+2. [Move, smoothe, evaluate](move-smoothe-evaluate)
    - Rolling window estimations
    - Exponential smoothing, Holt-Winters model
    - Time-series cross validation, parameters selection
-3. [Econometric approach](#econometric-approach)
+3. [Econometric approach](econometric-approach)
    - Stationarity, unit root
    - Getting rid of non-stationarity
    - SARIMA intuition and model building
-4. [Linear (and not only) models for time series](#linear-and-not-only-models-for-time-series)
-   - [Feature extraction](#feature-extraction)
-   - [Time series lags](#time-series-lags)
-   - [Target encoding](#target-encoding)
-   - [Regularization and feature selection](#regularization-and-feature-selection)
-   - [Boosting](#boosting)
-5. [Conclusion](#conclusion)
-6. [Useful resources](#useful-resources)
+4. [Linear (and not only) models for time series](linear-and-not-only-models-for-time-series)
+   - [Feature extraction](feature-extraction)
+   - [Time series lags](time-series-lags)
+   - [Target encoding](target-encoding)
+   - [Regularization and feature selection](regularization-and-feature-selection)
+   - [Boosting](boosting)
+5. [Conclusion](conclusion)
+6. [Useful resources](useful-resources)
 
 In my day-to-day job, I encounter time-series related tasks almost every day. The most frequent questions asked are the following: what will happen with our metrics in the next day/week/month/etc., how many users will install our app, how much time will they spend online, how many actions will users complete, and so on. We can approach these prediction tasks using different methods depending on the required quality of the prediction, length of the forecast period, and, of course, the time within which we have to choose features and tune parameters to achieve desired results.
 
@@ -91,7 +91,7 @@ As an example, let's look at real mobile game data. Specifically, we will look i
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 ```{code-cell} ipython3

@@ -1,51 +1,69 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Assignment #7 (demo). Unsupervised learning. Solution &#8212; mlcourse.ai</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -54,70 +72,97 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"2d8fa57e044d44efbd032f808ffd94b1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "54c5a7673a0f47c0aebac895e28ef49a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "26608aca401a4376baa20126885725d6": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_2d8fa57e044d44efbd032f808ffd94b1", "max": 6.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_54c5a7673a0f47c0aebac895e28ef49a", "tabbable": null, "tooltip": null, "value": 6.0}}, "b29ebba7748149a4a8343f5fd7f2cc12": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "fa5d0e2d25d9460183cc2306f2436ff2": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "e19a21ffbbd3487d97e39dcb8caa62dd": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_b29ebba7748149a4a8343f5fd7f2cc12", "placeholder": "\u200b", "style": "IPY_MODEL_fa5d0e2d25d9460183cc2306f2436ff2", "tabbable": null, "tooltip": null, "value": "100%"}}, "28b92a86da0842aca3eb74bffeba7adc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "95d26524def24d83bd6769ba5ecb9e38": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "ad63e3b27a3845508549823cf450e15c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_28b92a86da0842aca3eb74bffeba7adc", "placeholder": "\u200b", "style": "IPY_MODEL_95d26524def24d83bd6769ba5ecb9e38", "tabbable": null, "tooltip": null, "value": " 6/6 [00:09&lt;00:00,  2.07s/it]"}}, "982b3596500c48789a195466889d8a4d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7f2a0ea40c30442c9fa973353297615a": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_e19a21ffbbd3487d97e39dcb8caa62dd", "IPY_MODEL_26608aca401a4376baa20126885725d6", "IPY_MODEL_ad63e3b27a3845508549823cf450e15c"], "layout": "IPY_MODEL_982b3596500c48789a195466889d8a4d", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic07/assignment07_unsupervised_learning_solution';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bonus Assignment 7. Principal Component Analysis and Clustering" href="bonus_assignment07.html" />
     <link rel="prev" title="Assignment #7 (demo). Unsupervised learning" href="assignment07_unsupervised_learning.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-CN7ZN59CQB');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -126,698 +171,336 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Prerequisites
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/python.html">
-   Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/math.html">
-   Math
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/software_devops.html">
-   Software &amp; DevOps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/docker.html">
-   Docker
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 1
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_intro.html">
-   Topic 1 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
-   Exploratory data analysis with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/videolecture01.html">
-   Videolecture 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
-   Demo Assignment 1 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
-   Demo Assignment 1 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
-   Bonus Assignment 1
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_intro.html">Topic 1 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">Exploratory data analysis with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/videolecture01.html">Videolecture 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">Demo Assignment 1 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">Demo Assignment 1 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">Bonus Assignment 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 2
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_intro.html">
-   Topic 2 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">
-   Visual Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">
-   Seaborn, Matplotlib, Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/videolecture02.html">
-   Videolecture 2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">
-   Demo Assignment 2 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">
-   Demo Assignment 2 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">
-   Bonus Assignment 2
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_intro.html">Topic 2 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_visual_data_analysis.html">Visual Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/topic02_additional_seaborn_matplotlib_plotly.html">Seaborn, Matplotlib, Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/videolecture02.html">Videolecture 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data.html">Demo Assignment 2 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/assignment02_analyzing_cardiovascular_desease_data_solution.html">Demo Assignment 2 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic02/bonus_assignment02_visual_analysis.html">Bonus Assignment 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 3
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_intro.html">
-   Topic 3 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
-   Classification, Decision Trees &amp; k Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/videolecture03.html">
-   Videolecture 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
-   Demo Assignment 3 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
-   Demo Assignment 3 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
-   Bonus Assignment 3
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_intro.html">Topic 3 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">Classification, Decision Trees &amp; k Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/videolecture03.html">Videolecture 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees.html">Demo Assignment 3 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">Demo Assignment 3 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">Bonus Assignment 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 4
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic04_intro.html">
-   Topic 4 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
-   Ordinary Least Squares
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
-   Linear classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
-   An illustrative example of logistic regression regularization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
-   When logistic regression is good and when it is not
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
-   Validation and learning curves
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/videolecture04.html">
-   Videolecture 4
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
-   Demo Assignment 4 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
-   Demo Assignment 4 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
-   Bonus Assignment 4
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic04_intro.html">Topic 4 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">Ordinary Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">An illustrative example of logistic regression regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">When logistic regression is good and when it is not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">Validation and learning curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/videolecture04.html">Videolecture 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine.html">Demo Assignment 4 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">Demo Assignment 4 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">Bonus Assignment 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 5
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 5</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic05_intro.html">
-   Topic 5 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
-   Bagging
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
-   Random Forest
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
-   Feature importance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/videolecture05.html">
-   Videolecture 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
-   Demo Assignment 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
-   Demo Assignment 5 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
-   Bonus Assignment 5
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic05_intro.html">Topic 5 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part1_bagging.html">Bagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part2_random_forest.html">Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">Feature importance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/videolecture05.html">Videolecture 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">Demo Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">Demo Assignment 5 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">Bonus Assignment 5</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 6
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 6</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic06_intro.html">
-   Topic 6 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
-   Feature engineering &amp; feature selection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/demo_assignment06.html">
-   Demo Assignment 6 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/bonus_assignment06.html">
-   Bonus Assignment 6
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic06_intro.html">Topic 6 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">Feature engineering &amp; feature selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/demo_assignment06.html">Demo Assignment 6 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/bonus_assignment06.html">Bonus Assignment 6</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 7
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 7</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="topic07_intro.html">
-   Topic 7 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="topic7_pca_clustering.html">
-   Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="videolecture07.html">
-   Videolecture 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment07_unsupervised_learning.html">
-   Demo Assignment 7
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo Assignment 7 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bonus_assignment07.html">
-   Bonus Assignment 7
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="topic07_intro.html">Topic 7 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic7_pca_clustering.html">Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videolecture07.html">Videolecture 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment07_unsupervised_learning.html">Demo Assignment 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Demo Assignment 7 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bonus_assignment07.html">Bonus Assignment 7</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 8
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 8</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_intro.html">
-   Topic 8 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
-   Vowpal Wabbit: Learning with Gigabytes of Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/videolecture08.html">
-   Videolecture 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
-   Demo Assignment 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
-   Demo Assignment 8 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/bonus_assignment08.html">
-   Bonus Assignment 8
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_intro.html">Topic 8 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">Vowpal Wabbit: Learning with Gigabytes of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/videolecture08.html">Videolecture 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">Demo Assignment 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">Demo Assignment 8 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/bonus_assignment08.html">Bonus Assignment 8</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 9
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 9</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic09_intro.html">
-   Topic 9 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">
-   Predicting the future with Facebook Prophet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/videolecture09.html">
-   Videolecture 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series.html">
-   Demo Assignment 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series_solution.html">
-   Demo Assignment 9 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/bonus_assignment09.html">
-   Bonus Assignment 9
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic09_intro.html">Topic 9 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">Topic 9. Part 1. Time series analysis in Python</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/videolecture09.html">Videolecture 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series.html">Demo Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series_solution.html">Demo Assignment 9 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/bonus_assignment09.html">Bonus Assignment 9</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 10
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 10</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_intro.html">
-   Topic 10 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_gradient_boosting.html">
-   Gradient boosting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/videolecture10.html">
-   Videolecture 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">
-   Demo Assignment 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/bonus_assignment10.html">
-   Bonus Assignment 10
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_intro.html">Topic 10 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_gradient_boosting.html">Gradient boosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/videolecture10.html">Videolecture 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">Demo Assignment 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/bonus_assignment10.html">Bonus Assignment 10</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About the course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/tutorials.html">
-   Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/rating.html">
-   Rating
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/resources.html">
-   Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/contributors.html">
-   Contributors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/rating.html">Rating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/contributors.html">Contributors</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic07/assignment07_unsupervised_learning_solution.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic07/assignment07_unsupervised_learning_solution.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/issues/new?title=Issue%20on%20page%20%2Fbook/topic07/assignment07_unsupervised_learning_solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/topic07/assignment07_unsupervised_learning_solution.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic07/assignment07_unsupervised_learning_solution.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic07/assignment07_unsupervised_learning_solution.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/book/topic07/assignment07_unsupervised_learning_solution.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
+</div></div>
       
-      <li>
-        <a href="../../_sources/book/topic07/assignment07_unsupervised_learning_solution.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
+    </div>
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
 </div>
+</div>
+              
+              
 
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment #7 (demo). Unsupervised learning. Solution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Assignment #7 (demo). Unsupervised learning. Solution</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                    </div>
-                </div>
-            </div>
-            <main id="main-content" role="main">
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-7-demo-unsupervised-learning-solution">
-<span id="assignment07-solution"></span><h1>Assignment #7 (demo). Unsupervised learning. Solution<a class="headerlink" href="#assignment-7-demo-unsupervised-learning-solution" title="Permalink to this headline">#</a></h1>
+<span id="assignment07-solution"></span><h1>Assignment #7 (demo). Unsupervised learning. Solution<a class="headerlink" href="#assignment-7-demo-unsupervised-learning-solution" title="Permalink to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
@@ -841,7 +524,7 @@ title="Print to PDF"
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">([</span><span class="s2">&quot;seaborn-darkgrid&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;seaborn-v0_8-darkgrid&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DejaVu Sans&quot;</span>
 
@@ -853,12 +536,6 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span>
 
 <span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="mi">17</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_10506/157703169.py:14: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as &#39;seaborn-v0_8-&lt;style&gt;&#39;. Alternatively, directly use the seaborn API instead.
-  plt.style.use([&quot;seaborn-darkgrid&quot;])
 </pre></div>
 </div>
 </div>
@@ -1035,7 +712,7 @@ What percentage of the variance is covered by the first principal component? Rou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/assignment07_unsupervised_learning_solution_20_0.png" src="../../_images/assignment07_unsupervised_learning_solution_20_0.png" />
+<img alt="../../_images/be6d4567d1077640454d8a6d681aa1b86fef74d9eccecbb767d19d2c85702be4.png" src="../../_images/be6d4567d1077640454d8a6d681aa1b86fef74d9eccecbb767d19d2c85702be4.png" />
 </div>
 </div>
 <p><strong>Question 3:</strong><br>
@@ -1075,7 +752,7 @@ If everything worked out correctly, you will see a number of clusters, almost pe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/assignment07_unsupervised_learning_solution_24_0.png" src="../../_images/assignment07_unsupervised_learning_solution_24_0.png" />
+<img alt="../../_images/f6009fc80acc8fa92f9311e6a05baf9f4b31096ca237d48c189a2fea30a285e8.png" src="../../_images/f6009fc80acc8fa92f9311e6a05baf9f4b31096ca237d48c189a2fea30a285e8.png" />
 </div>
 </div>
 <p>Look at the correspondence between the cluster marks and the original class labels and what kinds of activities the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> algorithm is confused at.</p>
@@ -1251,14 +928,12 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_10506/301774213.py:3: TqdmDeprecationWarning: This function will be removed in tqdm==5.0.0
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_56228/301774213.py:3: TqdmDeprecationWarning: This function will be removed in tqdm==5.0.0
 Please use `tqdm.notebook.tqdm` instead of `tqdm.tqdm_notebook`
   for k in tqdm_notebook(range(1, n_classes + 1)):
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "de2032628f53423eb2b27927dc847d90"}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "7f2a0ea40c30442c9fa973353297615a"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1267,7 +942,7 @@ Please use `tqdm.notebook.tqdm` instead of `tqdm.tqdm_notebook`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/assignment07_unsupervised_learning_solution_31_0.png" src="../../_images/assignment07_unsupervised_learning_solution_31_0.png" />
+<img alt="../../_images/d80e9551941804c8df157bd2a2f5fa88b54d994d748fdcb5c0a0a32b01d3a478.png" src="../../_images/d80e9551941804c8df157bd2a2f5fa88b54d994d748fdcb5c0a0a32b01d3a478.png" />
 </div>
 </div>
 <p>We calculate <span class="math notranslate nohighlight">\( D(k) \)</span>, as described in <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-7-unsupervised-learning-pca-and-clustering-db7879568417">this</a> article in the section “Choosing the number of clusters for K-means”.</p>
@@ -1289,9 +964,9 @@ Please use `tqdm.notebook.tqdm` instead of `tqdm.tqdm_notebook`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2: 0.17344753560094114,
- 3: 0.41688555755864304,
- 4: 0.9332195900967303,
- 5: 0.6297019542007481}
+ 3: 0.416885557558641,
+ 4: 0.9332195900967398,
+ 5: 0.6297019542007448}
 </pre></div>
 </div>
 </div>
@@ -1339,7 +1014,7 @@ Select all the correct statements. <br></p>
 <li><p>In case of random partitioning into clusters, ARI will be close to zero <strong>[+]</strong></p></li>
 </ul>
 <p><strong>Comment:</strong></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Yes, the higher ARI, the better</p></li>
 <li><p>Yes, if you renumber clusters differently, ARI will not change</p></li>
 <li><p>True</p></li>
@@ -1419,17 +1094,15 @@ Select all the correct statements. <br></p>
   warnings.warn(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5.13 s, sys: 133 ms, total: 5.26 s
-Wall time: 28.1 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.23 s, sys: 184 ms, total: 6.41 s
+Wall time: 28.3 s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(cv=3, estimator=LinearSVC(random_state=17), n_jobs=4,
-             param_grid={&#x27;C&#x27;: [0.001, 0.01, 0.1, 1, 10]}, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(cv=3, estimator=LinearSVC(random_state=17), n_jobs=4,
-             param_grid={&#x27;C&#x27;: [0.001, 0.01, 0.1, 1, 10]}, verbose=1)</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: LinearSVC</label><div class="sk-toggleable__content"><pre>LinearSVC(random_state=17)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">LinearSVC</label><div class="sk-toggleable__content"><pre>LinearSVC(random_state=17)</pre></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1660,7 +1333,9 @@ What is the difference between the best quality (accuracy) for cross-validation 
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(
-/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(
 </pre></div>
 </div>
@@ -1672,8 +1347,6 @@ What is the difference between the best quality (accuracy) for cross-validation 
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(
-/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
-  warnings.warn(
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
@@ -1682,17 +1355,19 @@ What is the difference between the best quality (accuracy) for cross-validation 
   warnings.warn(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.46 s, sys: 231 ms, total: 1.7 s
-Wall time: 3.79 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.03 s, sys: 271 ms, total: 2.3 s
+Wall time: 6.05 s
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(
 </pre></div>
 </div>
-<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(cv=3, estimator=LinearSVC(random_state=17), n_jobs=4,
-             param_grid={&#x27;C&#x27;: [0.001, 0.01, 0.1, 1, 10]}, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(cv=3, estimator=LinearSVC(random_state=17), n_jobs=4,
-             param_grid={&#x27;C&#x27;: [0.001, 0.01, 0.1, 1, 10]}, verbose=1)</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: LinearSVC</label><div class="sk-toggleable__content"><pre>LinearSVC(random_state=17)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label sk-toggleable__label-arrow">LinearSVC</label><div class="sk-toggleable__content"><pre>LinearSVC(random_state=17)</pre></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1728,18 +1403,12 @@ Select all the correct statements:</p>
 <li><p>PCA builds linear combinations of initial features, and in some applications they might be poorly interpreted by humans <strong>[+]</strong></p></li>
 </ul>
 <p><strong>Comment:</strong></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The first statement is true, principal component analysis in this case allowed to significantly reduce the training time of the model, but the quality suffered not so much – by only 4%</p></li>
 <li><p>For multidimensional data visualization it is better to use manifold learning methods, in particular, tSNE. At the same time, metrics assessing the quality of visualization have not really been invented yet, but tSNE is widely used precisely because in some cases it builds “good” pictures showing the data structure, as in the case of MNIST</p></li>
 <li><p>Linear combinations of features, that PCA builds, are often poorly interpreted by humans, for example, 0.574 * salary + 0.234 * num_children</p></li>
 </ol>
 </section>
-
-
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"f6ec060b1f294d438d6c16757b4423d7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "73becd5594a542699ef1ade6f9b2e23a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "dd198445f521483099402e28c4737491": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_f6ec060b1f294d438d6c16757b4423d7", "max": 6.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_73becd5594a542699ef1ade6f9b2e23a", "value": 6.0}}, "39e265a217e64b5394edabcbbf288c0e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "55d326bbea104d69b3805212841e948c": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "c4c3fd1aff03457cb5ca28d058effdc8": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_39e265a217e64b5394edabcbbf288c0e", "placeholder": "\u200b", "style": "IPY_MODEL_55d326bbea104d69b3805212841e948c", "value": "100%"}}, "2f1d0232f5b54ac6b887635c729c50b7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "06605fd5b57c496ba0f20ee235e5c620": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "769c7241f7be446480402b080aff2a8a": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_2f1d0232f5b54ac6b887635c729c50b7", "placeholder": "\u200b", "style": "IPY_MODEL_06605fd5b57c496ba0f20ee235e5c620", "value": " 6/6 [00:07&lt;00:00,  1.68s/it]"}}, "d6bff8fc679c4dc983f9e7d22e64c890": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "de2032628f53423eb2b27927dc847d90": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_c4c3fd1aff03457cb5ca28d058effdc8", "IPY_MODEL_dd198445f521483099402e28c4737491", "IPY_MODEL_769c7241f7be446480402b080aff2a8a"], "layout": "IPY_MODEL_d6bff8fc679c4dc983f9e7d22e64c890"}}}, "version_major": 2, "version_minor": 0}
-</script>
-
 
     <script type="text/x-thebe-config">
     {
@@ -1753,7 +1422,7 @@ Select all the correct statements:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./book/topic07"
         },
         predefinedOutput: true
@@ -1761,50 +1430,91 @@ Select all the correct statements:</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="assignment07_unsupervised_learning.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Assignment #7 (demo). Unsupervised learning</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="assignment07_unsupervised_learning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignment #7 (demo). Unsupervised learning</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="bonus_assignment07.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="bonus_assignment07.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Bonus Assignment 7. Principal Component Analysis and Clustering</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Yury Kashnitsky (yorko)<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yury Kashnitsky (yorko)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

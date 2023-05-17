@@ -1,51 +1,69 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction &#8212; mlcourse.ai</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -54,70 +72,94 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic02/topic02_visual_data_analysis';</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Visual data analysis in Python. Part 2. Overview of Seaborn, Matplotlib and Plotly libraries" href="topic02_additional_seaborn_matplotlib_plotly.html" />
     <link rel="prev" title="Topic 2. Visual Data Analysis" href="topic02_intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-CN7ZN59CQB');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/mlcourse_ai_logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">mlcourse.ai</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -126,993 +168,383 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Prerequisites
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prerequisites</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/python.html">
-   Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/math.html">
-   Math
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/software_devops.html">
-   Software &amp; DevOps
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../prereqs/docker.html">
-   Docker
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 1
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_intro.html">
-   Topic 1 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">
-   Exploratory data analysis with Pandas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/videolecture01.html">
-   Videolecture 1
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">
-   Demo Assignment 1 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">
-   Demo Assignment 1 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">
-   Bonus Assignment 1
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_intro.html">Topic 1 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/topic01_pandas_data_analysis.html">Exploratory data analysis with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/videolecture01.html">Videolecture 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult.html">Demo Assignment 1 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/assignment01_pandas_uci_adult_solution.html">Demo Assignment 1 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic01/bonus_assignment01_pandas_olympics.html">Bonus Assignment 1</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 2
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 2</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="topic02_intro.html">
-   Topic 2 Intro
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Visual Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="topic02_additional_seaborn_matplotlib_plotly.html">
-   Seaborn, Matplotlib, Plotly
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="videolecture02.html">
-   Videolecture 2
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment02_analyzing_cardiovascular_desease_data.html">
-   Demo Assignment 2 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="assignment02_analyzing_cardiovascular_desease_data_solution.html">
-   Demo Assignment 2 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bonus_assignment02_visual_analysis.html">
-   Bonus Assignment 2
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="topic02_intro.html">Topic 2 Intro</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Visual Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topic02_additional_seaborn_matplotlib_plotly.html">Seaborn, Matplotlib, Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videolecture02.html">Videolecture 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment02_analyzing_cardiovascular_desease_data.html">Demo Assignment 2 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignment02_analyzing_cardiovascular_desease_data_solution.html">Demo Assignment 2 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bonus_assignment02_visual_analysis.html">Bonus Assignment 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 3
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 3</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_intro.html">
-   Topic 3 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">
-   Classification, Decision Trees &amp; k Nearest Neighbors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/videolecture03.html">
-   Videolecture 3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees.html">
-   Demo Assignment 3 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">
-   Demo Assignment 3 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">
-   Bonus Assignment 3
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_intro.html">Topic 3 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/topic03_decision_trees_kNN.html">Classification, Decision Trees &amp; k Nearest Neighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/videolecture03.html">Videolecture 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees.html">Demo Assignment 3 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/assignment03_decision_trees_solution.html">Demo Assignment 3 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic03/bonus_assignment03_decision_trees.html">Bonus Assignment 3</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 4
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 4</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic04_intro.html">
-   Topic 4 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">
-   Ordinary Least Squares
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">
-   Linear classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">
-   An illustrative example of logistic regression regularization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">
-   When logistic regression is good and when it is not
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">
-   Validation and learning curves
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/videolecture04.html">
-   Videolecture 4
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine.html">
-   Demo Assignment 4 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">
-   Demo Assignment 4 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">
-   Bonus Assignment 4
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic04_intro.html">Topic 4 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part1_mse_likelihood_bias_variance.html">Ordinary Least Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part2_logit_likelihood_learning.html">Linear classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part3_regul_example.html">An illustrative example of logistic regression regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html">When logistic regression is good and when it is not</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/topic4_linear_models_part5_valid_learning_curves.html">Validation and learning curves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/videolecture04.html">Videolecture 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine.html">Demo Assignment 4 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/assignment04_regression_wine_solution.html">Demo Assignment 4 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic04/bonus_assignment04_alice_baselines.html">Bonus Assignment 4</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 5
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 5</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic05_intro.html">
-   Topic 5 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part1_bagging.html">
-   Bagging
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part2_random_forest.html">
-   Random Forest
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">
-   Feature importance
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/videolecture05.html">
-   Videolecture 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">
-   Demo Assignment 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">
-   Demo Assignment 5 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">
-   Bonus Assignment 5
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic05_intro.html">Topic 5 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part1_bagging.html">Bagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part2_random_forest.html">Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/topic5_part3_feature_importance.html">Feature importance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/videolecture05.html">Videolecture 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring.html">Demo Assignment 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/assignment05_logit_rf_credit_scoring_solution.html">Demo Assignment 5 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic05/bonus_assignment05_logreg_rf.html">Bonus Assignment 5</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 6
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 6</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic06_intro.html">
-   Topic 6 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">
-   Feature engineering &amp; feature selection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/demo_assignment06.html">
-   Demo Assignment 6 Task
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic06/bonus_assignment06.html">
-   Bonus Assignment 6
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic06_intro.html">Topic 6 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/topic6_feature_engineering_feature_selection.html">Feature engineering &amp; feature selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/demo_assignment06.html">Demo Assignment 6 Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic06/bonus_assignment06.html">Bonus Assignment 6</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 7
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 7</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic07_intro.html">
-   Topic 7 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/topic7_pca_clustering.html">
-   Unsupervised learning
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/videolecture07.html">
-   Videolecture 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">
-   Demo Assignment 7
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">
-   Demo Assignment 7 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic07/bonus_assignment07.html">
-   Bonus Assignment 7
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic07_intro.html">Topic 7 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/topic7_pca_clustering.html">Unsupervised learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/videolecture07.html">Videolecture 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning.html">Demo Assignment 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/assignment07_unsupervised_learning_solution.html">Demo Assignment 7 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic07/bonus_assignment07.html">Bonus Assignment 7</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 8
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 8</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_intro.html">
-   Topic 8 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">
-   Vowpal Wabbit: Learning with Gigabytes of Data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/videolecture08.html">
-   Videolecture 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">
-   Demo Assignment 8
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">
-   Demo Assignment 8 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic08/bonus_assignment08.html">
-   Bonus Assignment 8
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_intro.html">Topic 8 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/topic08_sgd_hashing_vowpal_wabbit.html">Vowpal Wabbit: Learning with Gigabytes of Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/videolecture08.html">Videolecture 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor.html">Demo Assignment 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/assignment08_implement_sgd_regressor_solution.html">Demo Assignment 8 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic08/bonus_assignment08.html">Bonus Assignment 8</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 9
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 9</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic09_intro.html">
-   Topic 9 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">
-   Topic 9. Part 1. Time series analysis in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">
-   Predicting the future with Facebook Prophet
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/videolecture09.html">
-   Videolecture 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series.html">
-   Demo Assignment 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/assignment09_time_series_solution.html">
-   Demo Assignment 9 Solution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic09/bonus_assignment09.html">
-   Bonus Assignment 9
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic09_intro.html">Topic 9 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part1_time_series_python.html">Topic 9. Part 1. Time series analysis in Python</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/videolecture09.html">Videolecture 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series.html">Demo Assignment 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series_solution.html">Demo Assignment 9 Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic09/bonus_assignment09.html">Bonus Assignment 9</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Topic 10
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 10</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_intro.html">
-   Topic 10 Intro
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/topic10_gradient_boosting.html">
-   Gradient boosting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/videolecture10.html">
-   Videolecture 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">
-   Demo Assignment 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../topic10/bonus_assignment10.html">
-   Bonus Assignment 10
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_intro.html">Topic 10 Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/topic10_gradient_boosting.html">Gradient boosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/videolecture10.html">Videolecture 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/assignment10_flight_delays_kaggle.html">Demo Assignment 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic10/bonus_assignment10.html">Bonus Assignment 10</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About the course
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/tutorials.html">
-   Tutorials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/rating.html">
-   Rating
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/resources.html">
-   Resources
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../extra/contributors.html">
-   Contributors
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/rating.html">Rating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/contributors.html">Contributors</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/Yorko/mlcourse.ai/main?urlpath=tree/mlcourse_ai_jupyter_book/book/topic02/topic02_visual_data_analysis.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic02/topic02_visual_data_analysis.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Yorko/mlcourse.ai/issues/new?title=Issue%20on%20page%20%2Fbook/topic02/topic02_visual_data_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/topic02/topic02_visual_data_analysis.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai//issues/new?title=Issue%20on%20page%20%2Fbook/topic02/topic02_visual_data_analysis.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/Yorko/mlcourse.ai/edit/main/mlcourse_ai_jupyter_book/book/topic02/topic02_visual_data_analysis.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/book/topic02/topic02_visual_data_analysis.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download notebook file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="../../_sources/book/topic02/topic02_visual_data_analysis.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#article-outline">
-   Article outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   1. Dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#univariate-visualization">
-   2. Univariate visualization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-features">
-     2.1 Quantitative features
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#histograms-and-density-plots">
-       Histograms and density plots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#box-plot">
-       Box plot
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#violin-plot">
-       Violin plot
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#describe">
-       describe()
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#categorical-and-binary-features">
-     2.2 Categorical and binary features
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#frequency-table">
-       Frequency table
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bar-plot">
-       Bar plot
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multivariate-visualization">
-   3. Multivariate visualization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-vs-quantitative">
-     3.1 Quantitative vs. Quantitative
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#correlation-matrix">
-       Correlation matrix
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#scatter-plot">
-       Scatter plot
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#scatterplot-matrix">
-       Scatterplot matrix
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-vs-categorical">
-     3.2 Quantitative vs. Categorical
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#categorical-vs-categorical">
-     3.3 Categorical vs. Categorical
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#contingency-table">
-       Contingency table
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#whole-dataset-visualizations">
-   4. Whole dataset visualizations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-naive-approach">
-     4.1 A naive approach
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dimensionality-reduction">
-     4.2 Dimensionality reduction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#t-sne">
-     4.3 t-SNE
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-resources">
-   5. Useful resources
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#article-outline">
-   Article outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dataset">
-   1. Dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#univariate-visualization">
-   2. Univariate visualization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-features">
-     2.1 Quantitative features
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#histograms-and-density-plots">
-       Histograms and density plots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#box-plot">
-       Box plot
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#violin-plot">
-       Violin plot
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#describe">
-       describe()
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#categorical-and-binary-features">
-     2.2 Categorical and binary features
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#frequency-table">
-       Frequency table
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bar-plot">
-       Bar plot
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multivariate-visualization">
-   3. Multivariate visualization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-vs-quantitative">
-     3.1 Quantitative vs. Quantitative
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#correlation-matrix">
-       Correlation matrix
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#scatter-plot">
-       Scatter plot
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#scatterplot-matrix">
-       Scatterplot matrix
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quantitative-vs-categorical">
-     3.2 Quantitative vs. Categorical
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#categorical-vs-categorical">
-     3.3 Categorical vs. Categorical
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#contingency-table">
-       Contingency table
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#whole-dataset-visualizations">
-   4. Whole dataset visualizations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-naive-approach">
-     4.1 A naive approach
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dimensionality-reduction">
-     4.2 Dimensionality reduction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#t-sne">
-     4.3 t-SNE
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#useful-resources">
-   5. Useful resources
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#article-outline">Article outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-visualization">2. Univariate visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-features">2.1 Quantitative features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-and-density-plots">Histograms and density plots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#describe">describe()</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-and-binary-features">2.2 Categorical and binary features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-table">Frequency table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-visualization">3. Multivariate visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-vs-quantitative">3.1 Quantitative vs. Quantitative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-matrix">Scatterplot matrix</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-vs-categorical">3.2 Quantitative vs. Categorical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-vs-categorical">3.3 Categorical vs. Categorical</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contingency-table">Contingency table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whole-dataset-visualizations">4. Whole dataset visualizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-naive-approach">4.1 A naive approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction">4.2 Dimensionality reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">4.3 t-SNE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources">5. Useful resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction">
-<span id="topic2-part1"></span><h1>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction<a class="headerlink" href="#visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction" title="Permalink to this headline">#</a></h1>
+<span id="topic2-part1"></span><h1>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction<a class="headerlink" href="#visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction" title="Permalink to this heading">#</a></h1>
 <figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
 </figure>
@@ -1124,34 +556,34 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>All in all, visualization is a relatively fast way to learn something new about your data. Thus, it is vital to learn its most useful techniques and make them part of your everyday ML toolbox.</p>
 <p>In this article, we are going to get hands-on experience with visual exploration of data using popular libraries such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
 <section id="article-outline">
-<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p><a class="reference external" href="#1.-Dataset">Dataset</a></p></li>
-<li><p><a class="reference external" href="#2.-Univariate-visualization">Univariate visualization</a></p>
+<h2>Article outline<a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Dataset</span></p></li>
+<li><p><span class="xref myst">Univariate visualization</span></p>
 <ul class="simple">
-<li><p>2.1 <a class="reference external" href="#2.1-Quantitative-features">Quantitative features</a></p></li>
-<li><p>2.2 <a class="reference external" href="#2.2-Categorical-and-binary-features">Categorical and binary features</a></p></li>
+<li><p>2.1 <span class="xref myst">Quantitative features</span></p></li>
+<li><p>2.2 <span class="xref myst">Categorical and binary features</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#3.-Multivariate-visualization">Multivariate visualization</a></p>
+<li><p><span class="xref myst">Multivariate visualization</span></p>
 <ul class="simple">
-<li><p>3.1 <a class="reference external" href="#3.1-Quantitative-vs.-Quantitative">Quantitative vs. Quantitative</a></p></li>
-<li><p>3.2 <a class="reference external" href="#3.2-Quantitative-vs.-Categorical">Quantitative vs. Categorical</a></p></li>
-<li><p>3.3 <a class="reference external" href="#3.3-Categorical-vs.-Categorical">Categorical vs. Categorical</a></p></li>
+<li><p>3.1 <span class="xref myst">Quantitative vs. Quantitative</span></p></li>
+<li><p>3.2 <span class="xref myst">Quantitative vs. Categorical</span></p></li>
+<li><p>3.3 <span class="xref myst">Categorical vs. Categorical</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#4.-Whole-dataset-visualizations">Whole dataset visualizations</a></p>
+<li><p><span class="xref myst">Whole dataset visualizations</span></p>
 <ul class="simple">
-<li><p>4.1 <a class="reference external" href="#4.1-A-naive-approach">Naive approach</a></p></li>
-<li><p>4.2 <a class="reference external" href="#4.2-Dimensionality-reduction">Dimensionality reduction</a></p></li>
-<li><p>4.3 <a class="reference external" href="#4.3-t-SNE">t-SNE</a></p></li>
+<li><p>4.1 <span class="xref myst">Naive approach</span></p></li>
+<li><p>4.2 <span class="xref myst">Dimensionality reduction</span></p></li>
+<li><p>4.3 <span class="xref myst">t-SNE</span></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#5.-Useful-resources">Useful resources</a></p></li>
+<li><p><span class="xref myst">Useful resources</span></p></li>
 </ol>
 </section>
 <section id="dataset">
-<h2>1. Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
+<h2>1. Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <p>Before we get to the data, let’s initialize our environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1177,7 +609,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,</span>
 <span class="c1"># you can specify the data/ folder from the root of your cloned</span>
 <span class="c1"># https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic</span>
-<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/&quot;</span>
+<span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1358,7 +790,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div></div></div>
 </div>
 <p>Here is the description of our features:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -1467,14 +899,14 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>The last data column, <strong>Churn</strong>, is our target variable. It is binary: <em>True</em> indicates that that the company eventually lost this customer, and <em>False</em> indicates that the customer was retained. Later, we will build models that predict this feature based on the remaining features. This is why we call it a <em>target</em>.</p>
 </section>
 <section id="univariate-visualization">
-<h2>2. Univariate visualization<a class="headerlink" href="#univariate-visualization" title="Permalink to this headline">#</a></h2>
+<h2>2. Univariate visualization<a class="headerlink" href="#univariate-visualization" title="Permalink to this heading">#</a></h2>
 <p><em>Univariate</em> analysis looks at one feature at a time. When we analyze a feature independently, we are usually mostly interested in the <em>distribution of its values</em> and ignore other features in the dataset.</p>
 <p>Below, we will consider different statistical types of features and the corresponding tools for their individual visual analysis.</p>
 <section id="quantitative-features">
-<h3>2.1 Quantitative features<a class="headerlink" href="#quantitative-features" title="Permalink to this headline">#</a></h3>
+<h3>2.1 Quantitative features<a class="headerlink" href="#quantitative-features" title="Permalink to this heading">#</a></h3>
 <p><em>Quantitative features</em> take on ordered numerical values. Those values can be <em>discrete</em>, like integers, or <em>continuous</em>, like real numbers, and usually express a count or a measurement.</p>
 <section id="histograms-and-density-plots">
-<h4>Histograms and density plots<a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this headline">#</a></h4>
+<h4>Histograms and density plots<a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this heading">#</a></h4>
 <p>The easiest way to take a look at the distribution of a numerical variable is to plot its <em>histogram</em> using the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.hist.html"><code class="docutils literal notranslate"><span class="pre">hist()</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1484,7 +916,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_8_0.svg" src="../../_images/topic02_visual_data_analysis_8_0.svg" /></div>
+<img alt="../../_images/fde5220a0b189fca36f17818b48ec46f669f7876d364ce2fef01758a61d89a6e.svg" src="../../_images/fde5220a0b189fca36f17818b48ec46f669f7876d364ce2fef01758a61d89a6e.svg" /></div>
 </div>
 <p>A histogram groups values into <em>bins</em> of equal value range. The shape of the histogram may contain clues about the underlying distribution type: Gaussian, exponential, etc. You can also spot any skewness in its shape when the distribution is nearly regular but has some anomalies. Knowing the distribution of the feature values becomes important when you use Machine Learning methods that assume a particular type (most often Gaussian).</p>
 <p>In the above plot, we see that the variable <em>Total day minutes</em> is normally distributed, while <em>Total intl calls</em> is prominently skewed right (its tail is longer on the right).</p>
@@ -1498,7 +930,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_10_0.svg" src="../../_images/topic02_visual_data_analysis_10_0.svg" /></div>
+<img alt="../../_images/0f13d55ec1081f7a14e512aab5bc48a3a58c0baa6e581caaa11f7d6b33d5a49d.svg" src="../../_images/0f13d55ec1081f7a14e512aab5bc48a3a58c0baa6e581caaa11f7d6b33d5a49d.svg" /></div>
 </div>
 <p>It is also possible to plot a distribution of observations with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.distplot.html"><code class="docutils literal notranslate"><span class="pre">distplot()</span></code></a>. For example, let’s look at the distribution of <em>Total day minutes</em>. By default, the plot displays the histogram with the <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a> (KDE) on top.</p>
 <div class="cell docutils container">
@@ -1508,7 +940,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_8415/4194307662.py:1: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_54026/4194307662.py:1: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -1521,12 +953,12 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
   sns.distplot(df[&quot;Total intl calls&quot;]);
 </pre></div>
 </div>
-<img alt="../../_images/topic02_visual_data_analysis_12_1.svg" src="../../_images/topic02_visual_data_analysis_12_1.svg" /></div>
+<img alt="../../_images/05aba636756d03f643f97ca0268a95d099663230b5771aff0bccfbefc3dc2bda.svg" src="../../_images/05aba636756d03f643f97ca0268a95d099663230b5771aff0bccfbefc3dc2bda.svg" /></div>
 </div>
 <p>The height of the histogram bars here is normed and shows the density rather than the number of examples in each bin.</p>
 </section>
 <section id="box-plot">
-<h4>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this headline">#</a></h4>
+<h4>Box plot<a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h4>
 <p>Another useful type of visualization is a <em>box plot</em>. <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> does a great job here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1535,7 +967,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_14_0.svg" src="../../_images/topic02_visual_data_analysis_14_0.svg" /></div>
+<img alt="../../_images/88f9e384e87bc0fe1b30946a35f9278ad53250d58b3146bcb4ecc4d022f7eef2.svg" src="../../_images/88f9e384e87bc0fe1b30946a35f9278ad53250d58b3146bcb4ecc4d022f7eef2.svg" /></div>
 </div>
 <p>Let’s see how to interpret a box plot. Its components are a <em>box</em> (obviously, this is why it is called a <em>box plot</em>), the so-called <em>whiskers</em>, and a number of individual points (<em>outliers</em>).</p>
 <p>The box by itself illustrates the interquartile spread of the distribution; its length is determined by the <span class="math notranslate nohighlight">\(25th \, (\text{Q1})\)</span> and <span class="math notranslate nohighlight">\(75th \, (\text{Q3})\)</span> percentiles. The vertical line inside the box marks the median (<span class="math notranslate nohighlight">\(50\%\)</span>) of the distribution.</p>
@@ -1544,7 +976,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 <p>We can see that a large number of international calls is quite rare in our data.</p>
 </section>
 <section id="violin-plot">
-<h4>Violin plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">#</a></h4>
+<h4>Violin plot<a class="headerlink" href="#violin-plot" title="Permalink to this heading">#</a></h4>
 <p>The last type of distribution plots that we will consider is a <em>violin plot</em>.</p>
 <p>Look at the figures below. On the left, we see the already familiar box plot. To the right, there is a <em>violin plot</em> with the kernel density estimate on both sides.</p>
 <div class="cell docutils container">
@@ -1556,13 +988,13 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_16_0.svg" src="../../_images/topic02_visual_data_analysis_16_0.svg" /></div>
+<img alt="../../_images/49b1e7c2a61d15d48995bfd50a426faa6c469084416eb3909722c09bde5a88fd.svg" src="../../_images/49b1e7c2a61d15d48995bfd50a426faa6c469084416eb3909722c09bde5a88fd.svg" /></div>
 </div>
 <p>The difference between the box and violin plots is that the former illustrates certain statistics concerning individual examples in a dataset while the violin plot concentrates more on the smoothed distribution as a whole.</p>
 <p>In our case, the violin plot does not contribute any additional information about the data as everything is clear from the box plot alone.</p>
 </section>
 <section id="describe">
-<h4>describe()<a class="headerlink" href="#describe" title="Permalink to this headline">#</a></h4>
+<h4>describe()<a class="headerlink" href="#describe" title="Permalink to this heading">#</a></h4>
 <p>In addition to graphical tools, in order to get the exact numerical statistics of the distribution, we can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html"><code class="docutils literal notranslate"><span class="pre">describe()</span></code></a> of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1642,10 +1074,10 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </section>
 </section>
 <section id="categorical-and-binary-features">
-<h3>2.2 Categorical and binary features<a class="headerlink" href="#categorical-and-binary-features" title="Permalink to this headline">#</a></h3>
+<h3>2.2 Categorical and binary features<a class="headerlink" href="#categorical-and-binary-features" title="Permalink to this heading">#</a></h3>
 <p><em>Categorical features</em> take on a fixed number of values. Each of these values assigns an observation to a corresponding group, known as a <em>category</em>, which reflects some qualitative property of this example. <em>Binary</em> variables are an important special case of categorical variables when the number of possible values is exactly 2. If the values of a categorical variable are ordered, it is called <em>ordinal</em>.</p>
 <section id="frequency-table">
-<h4>Frequency table<a class="headerlink" href="#frequency-table" title="Permalink to this headline">#</a></h4>
+<h4>Frequency table<a class="headerlink" href="#frequency-table" title="Permalink to this heading">#</a></h4>
 <p>Let’s check the class balance in our dataset by looking at the distribution of the target variable: the <em>churn rate</em>. First, we will get a frequency table, which shows how frequent each value of the categorical variable is. For this, we will use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html"><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code></a> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1665,7 +1097,7 @@ Name: Churn, dtype: int64
 <p>In our case, the data is not <em>balanced</em>; that is, our two target classes, loyal and disloyal customers, are not represented equally in the dataset. Only a small part of the clients canceled their subscription to the telecom service. As we will see in the following articles, this fact may imply some restrictions on measuring the classification performance, and, in the future, we may want to additionally penalize our model errors in predicting the minority “Churn” class.</p>
 </section>
 <section id="bar-plot">
-<h4>Bar plot<a class="headerlink" href="#bar-plot" title="Permalink to this headline">#</a></h4>
+<h4>Bar plot<a class="headerlink" href="#bar-plot" title="Permalink to this heading">#</a></h4>
 <p>The bar plot is a graphical representation of the frequency table. The easiest way to create it is to use the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s function <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.countplot.html"><code class="docutils literal notranslate"><span class="pre">countplot()</span></code></a>. There is another function in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> that is somewhat confusingly called <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.barplot.html"><code class="docutils literal notranslate"><span class="pre">barplot()</span></code></a> and is mostly used for representation of some basic statistics of a numerical variable grouped by a categorical feature.</p>
 <p>Let’s plot the distributions for two categorical variables:</p>
 <div class="cell docutils container">
@@ -1678,10 +1110,10 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_22_0.svg" src="../../_images/topic02_visual_data_analysis_22_0.svg" /></div>
+<img alt="../../_images/be29f43f2b397db111172764005e59b9178634ba0fb9c7fc8bc6f39f54ac68d8.svg" src="../../_images/be29f43f2b397db111172764005e59b9178634ba0fb9c7fc8bc6f39f54ac68d8.svg" /></div>
 </div>
 <p>While the histograms, discussed above, and bar plots may look similar, there are several differences between them:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><em>Histograms</em> are best suited for looking at the distribution of numerical variables while <em>bar plots</em> are used for categorical features.</p></li>
 <li><p>The values on the X-axis in the <em>histogram</em> are numerical; a <em>bar plot</em> can have any type of values on the X-axis: numbers, strings, booleans.</p></li>
 <li><p>The <em>histogram</em>’s X-axis is a <em>Cartesian coordinate axis</em> along which values cannot be changed; the ordering of the <em>bars</em> is not predefined. Still, it is useful to note that the bars are often sorted by height, that is, the frequency of the values. Also, when we consider <em>ordinal</em> variables (like <em>Customer service calls</em> in our data), the bars are usually ordered by variable value.</p></li>
@@ -1691,12 +1123,12 @@ Name: Churn, dtype: int64
 </section>
 </section>
 <section id="multivariate-visualization">
-<h2>3. Multivariate visualization<a class="headerlink" href="#multivariate-visualization" title="Permalink to this headline">#</a></h2>
+<h2>3. Multivariate visualization<a class="headerlink" href="#multivariate-visualization" title="Permalink to this heading">#</a></h2>
 <p><em>Multivariate</em> plots allow us to see relationships between two and more different variables, all in one figure. Just as in the case of univariate plots, the specific type of visualization will depend on the types of the variables being analyzed.</p>
 <section id="quantitative-vs-quantitative">
-<h3>3.1 Quantitative vs. Quantitative<a class="headerlink" href="#quantitative-vs-quantitative" title="Permalink to this headline">#</a></h3>
+<h3>3.1 Quantitative vs. Quantitative<a class="headerlink" href="#quantitative-vs-quantitative" title="Permalink to this heading">#</a></h3>
 <section id="correlation-matrix">
-<h4>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">#</a></h4>
+<h4>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this heading">#</a></h4>
 <p>Let’s look at the correlations among the numerical variables in our dataset. This information is important to know as there are Machine Learning algorithms (for example, linear and logistic regression) that do not handle highly correlated input variables well.</p>
 <p>First, we will use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr.html"><code class="docutils literal notranslate"><span class="pre">corr()</span></code></a> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> that calculates the correlation between each pair of features. Then, we pass the resulting <em>correlation matrix</em> to <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.heatmap.html"><code class="docutils literal notranslate"><span class="pre">heatmap()</span></code></a> from <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, which renders a color-coded matrix for the provided values:</p>
 <div class="cell docutils container">
@@ -1723,7 +1155,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_24_0.svg" src="../../_images/topic02_visual_data_analysis_24_0.svg" /></div>
+<img alt="../../_images/c563ea247d05dc8e88e863138a1817d39e634ae051408661c349f1a2f340df57.svg" src="../../_images/c563ea247d05dc8e88e863138a1817d39e634ae051408661c349f1a2f340df57.svg" /></div>
 </div>
 <p>From the colored correlation matrix generated above, we can see that there are 4 variables such as <em>Total day charge</em> that have been calculated directly from the number of minutes spent on phone calls (<em>Total day minutes</em>). These are called <em>dependent</em> variables and can therefore be left out since they do not contribute any additional information. Let’s get rid of them:</p>
 <div class="cell docutils container">
@@ -1745,7 +1177,7 @@ Name: Churn, dtype: int64
 </div>
 </section>
 <section id="scatter-plot">
-<h4>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">#</a></h4>
+<h4>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this heading">#</a></h4>
 <p>The <em>scatter plot</em> displays values of two numerical variables as <em>Cartesian coordinates</em> in 2D space. Scatter plots in 3D are also possible.</p>
 <p>Let’s try out the function <a class="reference external" href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">scatter()</span></code></a> from the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library:</p>
 <div class="cell docutils container">
@@ -1755,7 +1187,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_28_0.svg" src="../../_images/topic02_visual_data_analysis_28_0.svg" /></div>
+<img alt="../../_images/150cbd2d41aa283963e76bead603f471fa3c6efd43f2d3a44889d70c9f6e9c11.svg" src="../../_images/150cbd2d41aa283963e76bead603f471fa3c6efd43f2d3a44889d70c9f6e9c11.svg" /></div>
 </div>
 <p>We get an uninteresting picture of two normally distributed variables. Also, it seems that these features are uncorrelated because the ellipse-like shape is aligned with the axes.</p>
 <p>There is a slightly fancier option to create a scatter plot with the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> library:</p>
@@ -1766,7 +1198,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_30_0.svg" src="../../_images/topic02_visual_data_analysis_30_0.svg" /></div>
+<img alt="../../_images/ee39a086c09d1cd18823d68202e24c1681c9be059a9f7de1b475c5c6ac335bcb.svg" src="../../_images/ee39a086c09d1cd18823d68202e24c1681c9be059a9f7de1b475c5c6ac335bcb.svg" /></div>
 </div>
 <p>The function <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.jointplot.html"><code class="docutils literal notranslate"><span class="pre">jointplot()</span></code></a> plots two histograms that may be useful in some cases.</p>
 <p>Using the same function, we can also get a smoothed version of our bivariate distribution:</p>
@@ -1779,12 +1211,12 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_32_0.svg" src="../../_images/topic02_visual_data_analysis_32_0.svg" /></div>
+<img alt="../../_images/80b4601501e34c24c49fa6978a45b0f8371856f6df9e3843711ff63f99123d42.svg" src="../../_images/80b4601501e34c24c49fa6978a45b0f8371856f6df9e3843711ff63f99123d42.svg" /></div>
 </div>
 <p>This is basically a bivariate version of the <em>Kernel Density Plot</em> discussed earlier.</p>
 </section>
 <section id="scatterplot-matrix">
-<h4>Scatterplot matrix<a class="headerlink" href="#scatterplot-matrix" title="Permalink to this headline">#</a></h4>
+<h4>Scatterplot matrix<a class="headerlink" href="#scatterplot-matrix" title="Permalink to this heading">#</a></h4>
 <p>In some cases, we may want to plot a <em>scatterplot matrix</em> such as the one shown below. Its diagonal contains the distributions of the corresponding variables, and the scatter plots for each pair of variables fill the rest of the matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1795,7 +1227,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_34_0.png" src="../../_images/topic02_visual_data_analysis_34_0.png" />
+<img alt="../../_images/ca3a0fb03f8b58b5c9b91ac273a78147ce38c6640ab5602e20141ffc6cc29e9e.png" src="../../_images/ca3a0fb03f8b58b5c9b91ac273a78147ce38c6640ab5602e20141ffc6cc29e9e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1809,7 +1241,7 @@ Name: Churn, dtype: int64
 </section>
 </section>
 <section id="quantitative-vs-categorical">
-<h3>3.2 Quantitative vs. Categorical<a class="headerlink" href="#quantitative-vs-categorical" title="Permalink to this headline">#</a></h3>
+<h3>3.2 Quantitative vs. Categorical<a class="headerlink" href="#quantitative-vs-categorical" title="Permalink to this heading">#</a></h3>
 <p>In this section, we will make our simple quantitative plots a little more exciting. We will try to gain new insights for churn prediction from the interactions between the numerical and categorical features.</p>
 <p>More specifically, let’s see how the input variables are related to the target variable Churn.</p>
 <p>Previously, you learned about scatter plots. Additionally, their points can be color or size coded so that the values of a third categorical variable are also presented in the same figure. We can achieve this with the <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> function seen above, but, let’s try a new function called <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lmplot.html"><code class="docutils literal notranslate"><span class="pre">lmplot()</span></code></a> and use the parameter <code class="docutils literal notranslate"><span class="pre">hue</span></code> to indicate our categorical feature of interest:</p>
@@ -1822,7 +1254,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_37_0.svg" src="../../_images/topic02_visual_data_analysis_37_0.svg" /></div>
+<img alt="../../_images/f39a42a1b9da5f1beaa315b2c48ced0fb152091675be770131078e1b9fd74708.svg" src="../../_images/f39a42a1b9da5f1beaa315b2c48ced0fb152091675be770131078e1b9fd74708.svg" /></div>
 </div>
 <p>It seems that our small proportion of disloyal customers lean towards the top-right corner; that is, such customers tend to spend more time on the phone during both day and night. But this is not absolutely clear, and we won’t make any definitive conclusions from this chart.</p>
 <p>Now, let’s create box plots to visualize the distribution statistics of the numerical variables in two disjoint groups: the loyal customers (<code class="docutils literal notranslate"><span class="pre">Churn=False</span></code>) and those who left (<code class="docutils literal notranslate"><span class="pre">Churn=True</span></code>).</p>
@@ -1842,7 +1274,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_39_0.svg" src="../../_images/topic02_visual_data_analysis_39_0.svg" /></div>
+<img alt="../../_images/ae0cf809976f327248ea8bb46cadad5f2f7e43d418b454aedaa1d857bffefccc.svg" src="../../_images/ae0cf809976f327248ea8bb46cadad5f2f7e43d418b454aedaa1d857bffefccc.svg" /></div>
 </div>
 <p>From this chart, we can see that the greatest discrepancy in distribution between the two groups is for three variables: <em>Total day minutes</em>, <em>Customer service calls</em>, and <em>Number vmail messages</em>. Later in this course, we will learn how to determine feature importance in classification using <em>Random Forest</em> or <em>Gradient Boosting</em>; there, we will see that the first two features are indeed very important for churn prediction.</p>
 <p>Let’s look at the distribution of day minutes spoken for the loyal and disloyal customers separately. We will create box and violin plots for <em>Total day minutes</em> grouped by the target variable.</p>
@@ -1856,7 +1288,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_41_0.svg" src="../../_images/topic02_visual_data_analysis_41_0.svg" /></div>
+<img alt="../../_images/1e73a6a8759efd4b82c99b56ca7cc168e9ba72e2a9f9378124d7b86fd8d257b0.svg" src="../../_images/1e73a6a8759efd4b82c99b56ca7cc168e9ba72e2a9f9378124d7b86fd8d257b0.svg" /></div>
 </div>
 <p>In this case, the violin plot does not contribute any additional information about our data as everything is clear from the box plot alone: disloyal customers tend to talk on the phone more.</p>
 <p><strong>An interesting observation</strong>: on average, customers that discontinue their contracts are more active users of communication services. Perhaps they are unhappy with the tariffs, so a possible measure to prevent churn could be a reduction in call rates. The company will need to undertake additional economic analysis to find out whether such measures would be beneficial.</p>
@@ -1877,12 +1309,12 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_43_0.svg" src="../../_images/topic02_visual_data_analysis_43_0.svg" /></div>
+<img alt="../../_images/31f834ff7509f721b1ef58ff4e4905771a8dcaa6076a72aa6487d42982a606c3.svg" src="../../_images/31f834ff7509f721b1ef58ff4e4905771a8dcaa6076a72aa6487d42982a606c3.svg" /></div>
 </div>
 <p>From this, we could conclude that, starting with 4 calls, <em>Total day minutes</em> may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.</p>
 </section>
 <section id="categorical-vs-categorical">
-<h3>3.3 Categorical vs. Categorical<a class="headerlink" href="#categorical-vs-categorical" title="Permalink to this headline">#</a></h3>
+<h3>3.3 Categorical vs. Categorical<a class="headerlink" href="#categorical-vs-categorical" title="Permalink to this heading">#</a></h3>
 <p>As we saw earlier in this article, the variable <em>Customer service calls</em> has few unique values and, thus, can be considered either numerical or ordinal. We have already seen its distribution with a <em>count plot</em>. Now, we are interested in the relationship between this ordinal feature and the target variable <em>Churn</em>.</p>
 <p>Let’s look at the distribution of the number of calls to customer service, again using a <em>count plot</em>. This time, let’s also pass the parameter <code class="docutils literal notranslate"><span class="pre">hue=Churn</span></code> that adds a categorical dimension to the plot:</p>
 <div class="cell docutils container">
@@ -1892,7 +1324,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_45_0.svg" src="../../_images/topic02_visual_data_analysis_45_0.svg" /></div>
+<img alt="../../_images/6065f319013ea0e36fbfacb5662ac4642a9385e9ce4ab4550bbecdb5ae2b3e6a.svg" src="../../_images/6065f319013ea0e36fbfacb5662ac4642a9385e9ce4ab4550bbecdb5ae2b3e6a.svg" /></div>
 </div>
 <p><strong>An observation</strong>: the churn rate increases significantly after 4 or more calls to customer service.</p>
 <p>Now, let’s look at the relationship between <em>Churn</em> and the binary features, <em>International plan</em> and <em>Voice mail plan</em>.</p>
@@ -1906,11 +1338,11 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_47_0.svg" src="../../_images/topic02_visual_data_analysis_47_0.svg" /></div>
+<img alt="../../_images/563c6b779881cd551d8847ed57edf98b35809dfc65c7ae29e840a816a53e30d4.svg" src="../../_images/563c6b779881cd551d8847ed57edf98b35809dfc65c7ae29e840a816a53e30d4.svg" /></div>
 </div>
 <p><strong>An observation</strong>: when <em>International Plan</em> is enabled, the churn rate is much higher; the usage of the international plan by the customer is a strong feature. We do not observe the same effect with <em>Voice mail plan</em>.</p>
 <section id="contingency-table">
-<h4>Contingency table<a class="headerlink" href="#contingency-table" title="Permalink to this headline">#</a></h4>
+<h4>Contingency table<a class="headerlink" href="#contingency-table" title="Permalink to this heading">#</a></h4>
 <p>In addition to using graphical means for categorical analysis, there is a traditional tool from statistics: a <em>contingency table</em>, also called a <em>cross tabulation</em>. It shows a multivariate frequency distribution of categorical variables in tabular form. In particular, it allows us to see the distribution of one variable conditional on the other by looking along a column or row.</p>
 <p>Let’s try to see how <em>Churn</em> is related to the categorical variable <em>State</em> by creating a cross tabulation:</p>
 <div class="cell docutils container">
@@ -2123,21 +1555,21 @@ Name: Churn, dtype: int64
 </section>
 </section>
 <section id="whole-dataset-visualizations">
-<h2>4. Whole dataset visualizations<a class="headerlink" href="#whole-dataset-visualizations" title="Permalink to this headline">#</a></h2>
+<h2>4. Whole dataset visualizations<a class="headerlink" href="#whole-dataset-visualizations" title="Permalink to this heading">#</a></h2>
 <section id="a-naive-approach">
-<h3>4.1 A naive approach<a class="headerlink" href="#a-naive-approach" title="Permalink to this headline">#</a></h3>
+<h3>4.1 A naive approach<a class="headerlink" href="#a-naive-approach" title="Permalink to this heading">#</a></h3>
 <p>We have been looking at different <em>facets</em> of our dataset by guessing interesting features and selecting a small number of them at a time for visualization. We have only dealt with two to three variables at once and were easily able to observe the structure and relationships in data. But, what if we want to display all the features and still be able to interpret the resulting visualization?</p>
 <p>We could use <code class="docutils literal notranslate"><span class="pre">hist()</span></code> or create a scatterplot matrix with <code class="docutils literal notranslate"><span class="pre">pairplot()</span></code> for the whole dataset to look at all of our features simultaneously. But, when the number of features is high enough, this kind of visual analysis quickly becomes slow and inefficient. Besides, we would still be analyzing our variables in a pairwise fashion, not all at once.</p>
 </section>
 <section id="dimensionality-reduction">
-<h3>4.2 Dimensionality reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this headline">#</a></h3>
+<h3>4.2 Dimensionality reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this heading">#</a></h3>
 <p>Most real-world datasets have many features, sometimes, many thousands of them. Each of them can be considered as a dimension in the space of data points. Consequently, more often than not, we deal with high-dimensional datasets, where entire visualization is quite hard.</p>
 <p>To look at a dataset as a whole, we need to decrease the number of dimensions used in visualization without losing much information about the data. This task is called <em>dimensionality reduction</em> and is an example of an <em>unsupervised learning</em> problem because we need to derive new, low-dimensional features from the data itself, without any supervised input.</p>
 <p>One of the well-known dimensionality reduction methods is <em>Principal Component Analysis</em> (PCA), which we will study later in this course. Its limitation is that it is a <em>linear</em> algorithm that implies certain restrictions on the data.</p>
 <p>There are also many non-linear methods, collectively called <em>Manifold Learning</em>. One of the best-known of them is <em>t-SNE</em>.</p>
 </section>
 <section id="t-sne">
-<h3>4.3 t-SNE<a class="headerlink" href="#t-sne" title="Permalink to this headline">#</a></h3>
+<h3>4.3 t-SNE<a class="headerlink" href="#t-sne" title="Permalink to this heading">#</a></h3>
 <p>Let’s create a <a class="reference external" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a> representation of the same churn data we have been using.</p>
 <p>The name of the method looks complex and a bit intimidating: <em>t-distributed Stochastic Neighbor Embedding</em>. Its math is also impressive (we will not delve into it here, but, if you feel brave, here is the <a class="reference external" href="http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">original article</a> by Laurens van der Maaten and Geoffrey Hinton from <a class="reference external" href="http://www.jmlr.org/">JMLR</a>). Its basic idea is simple: find a projection for a high-dimensional feature space onto a plane (or a 3D hyperplane, but it is almost always 2D) such that those points that were far apart in the initial n-dimensional space will end up far apart on the plane. Those that were originally close would remain close to each other.</p>
 <p>Essentially, <em>neighbor embedding</em> is a search for a new and less-dimensional data representation that preserves neighborship of examples.</p>
@@ -2179,8 +1611,8 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 27s, sys: 4.24 s, total: 1min 32s
-Wall time: 8.73 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 40s, sys: 7.57 s, total: 1min 47s
+Wall time: 11.5 s
 </pre></div>
 </div>
 </div>
@@ -2193,7 +1625,7 @@ Wall time: 8.73 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_61_0.svg" src="../../_images/topic02_visual_data_analysis_61_0.svg" /></div>
+<img alt="../../_images/8536ab5e62800e8ba9e7c064be956444271ae34201c5727360e1867980098026.svg" src="../../_images/8536ab5e62800e8ba9e7c064be956444271ae34201c5727360e1867980098026.svg" /></div>
 </div>
 <p>Let’s color this t-SNE representation according to the churn (blue for loyal customers, and orange for those who churned).</p>
 <div class="cell docutils container">
@@ -2208,7 +1640,7 @@ Wall time: 8.73 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_63_0.svg" src="../../_images/topic02_visual_data_analysis_63_0.svg" /></div>
+<img alt="../../_images/6ef8dfd1d0bde89ee1454a3db8a6035abb0a793645d93bbe1415f5ac57a391f1.svg" src="../../_images/6ef8dfd1d0bde89ee1454a3db8a6035abb0a793645d93bbe1415f5ac57a391f1.svg" /></div>
 </div>
 <p>We can see that customers who churned are concentrated in a few areas of the lower dimensional feature space.</p>
 <p>To better understand the picture, we can also color it with the remaining binary features: <em>International Plan</em> and <em>Voicemail</em>. Orange dots here indicate instances that are positive for the corresponding binary feature.</p>
@@ -2228,7 +1660,7 @@ Wall time: 8.73 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/topic02_visual_data_analysis_65_0.svg" src="../../_images/topic02_visual_data_analysis_65_0.svg" /></div>
+<img alt="../../_images/b851e9f922b6cd3c8486fbf1f1e4b8641362a754735f9daff8d44e91ee531749.svg" src="../../_images/b851e9f922b6cd3c8486fbf1f1e4b8641362a754735f9daff8d44e91ee531749.svg" /></div>
 </div>
 <p>Now it is clear that, for example, many dissatisfied customers who canceled their subscription are crowded together in one cluster representing the people with the international plan but no voice mail.</p>
 <p>Finally, let’s note some disadvantages of t-SNE:</p>
@@ -2243,7 +1675,7 @@ Wall time: 8.73 s
 </section>
 </section>
 <section id="useful-resources">
-<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
+<h2>5. Useful resources<a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-2-visual-data-analysis-in-python">Kaggle Kernel</a></p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/plotly_tutorial_for_interactive_plots_sankovalev.ipynb">“Plotly for interactive plots”</a> - a tutorial by Alexander Kovalev within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> (full list of tutorials is <a class="reference external" href="https://mlcourse.ai/tutorials">here</a>)</p></li>
@@ -2274,7 +1706,7 @@ Wall time: 8.73 s
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./book/topic02"
         },
         predefinedOutput: true
@@ -2282,50 +1714,142 @@ Wall time: 8.73 s
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="topic02_intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Topic 2. Visual Data Analysis</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="topic02_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Topic 2. Visual Data Analysis</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="topic02_additional_seaborn_matplotlib_plotly.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="topic02_additional_seaborn_matplotlib_plotly.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Visual data analysis in Python. Part 2. Overview of Seaborn, Matplotlib and Plotly libraries</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Yury Kashnitsky (yorko)<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#article-outline">Article outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#univariate-visualization">2. Univariate visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-features">2.1 Quantitative features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-and-density-plots">Histograms and density plots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#describe">describe()</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-and-binary-features">2.2 Categorical and binary features</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-table">Frequency table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-visualization">3. Multivariate visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-vs-quantitative">3.1 Quantitative vs. Quantitative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter plot</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-matrix">Scatterplot matrix</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-vs-categorical">3.2 Quantitative vs. Categorical</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-vs-categorical">3.3 Categorical vs. Categorical</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contingency-table">Contingency table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whole-dataset-visualizations">4. Whole dataset visualizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-naive-approach">4.1 A naive approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction">4.2 Dimensionality reduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">4.3 t-SNE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resources">5. Useful resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yury Kashnitsky (yorko)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

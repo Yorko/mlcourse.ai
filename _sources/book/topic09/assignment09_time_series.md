@@ -45,16 +45,20 @@ init_notebook_mode(connected=True)
 ```
 
 ```{code-cell} ipython3
-def plotly_df(df, title=""):
-    data = []
-
-    for column in df.columns:
-        trace = go.Scatter(x=df.index, y=df[column], mode="lines", name=column)
-        data.append(trace)
-
+def plotly_df(df, title="", width=800, height=500):
+    """Visualize all the dataframe columns as line plots."""
+    common_kw = dict(x=df.index, mode="lines")
+    data = [go.Scatter(y=df[c], name=c, **common_kw) for c in df.columns]
     layout = dict(title=title)
     fig = dict(data=data, layout=layout)
-    iplot(fig, show_link=False)
+
+    # in a Jupyter Notebook, the following should work
+    #iplot(fig, show_link=False)
+
+    # in a Jupyter Book, we save a plot offline and then render it with IFrame
+    plot_path = f"../../_static/plotly_htmls/{title}.html".replace(" ", "_")
+    plot(fig, filename=plot_path, show_link=False, auto_open=False);
+    display(IFrame(plot_path, width=width, height=height))
 ```
 
 ## Data preparation
@@ -64,7 +68,7 @@ def plotly_df(df, title=""):
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 

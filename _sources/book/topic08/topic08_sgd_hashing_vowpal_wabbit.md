@@ -24,19 +24,19 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Se
 This week, we'll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.
 
 ## Article outline
-1. [Stochastic gradient descent and online learning](#stochastic-gradient-descent-and-online-learning)
-    - 1.1. [SGD](#stochastic-gradient-descent)
-    - 1.2. [Online approach to learning](#online-approach-to-learning)
-2. [Categorical feature processing](#categorical-feature-processing)
-    - 2.1. [Label Encoding](#label-encoding)
-    - 2.2. [One-Hot Encoding](#one-hot-encoding)
-    - 2.3. [Hashing trick](#hashing-trick)
-3. [Vowpal Wabbit](#vowpal-Wabbit)
-    - 3.1. [News. Binary classification](#news-binary-classification)
-    - 3.2. [News. Multiclass classification](#news-multiclass-classification)
-    - 3.3. [IMDB movie reviews](#imdb-movie-reviews)
-    - 3.4. [Classifying gigabytes of StackOverflow questions](#classifying-gigabytes-of-stackoverflow-questionss)
-4. [Useful resources](#useful-resources)
+1. [Stochastic gradient descent and online learning](stochastic-gradient-descent-and-online-learning)
+    - 1.1. [SGD](stochastic-gradient-descent)
+    - 1.2. [Online approach to learning](online-approach-to-learning)
+2. [Categorical feature processing](categorical-feature-processing)
+    - 2.1. [Label Encoding](label-encoding)
+    - 2.2. [One-Hot Encoding](one-hot-encoding)
+    - 2.3. [Hashing trick](hashing-trick)
+3. [Vowpal Wabbit](vowpal-Wabbit)
+    - 3.1. [News. Binary classification](news-binary-classification)
+    - 3.2. [News. Multiclass classification](news-multiclass-classification)
+    - 3.3. [IMDB movie reviews](imdb-movie-reviews)
+    - 3.4. [Classifying gigabytes of StackOverflow questions](classifying-gigabytes-of-stackoverflow-questionss)
+4. [Useful resources](useful-resources)
 
 
 
@@ -59,6 +59,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 %config InlineBackend.figure_format = 'retina'
 ```
+
 ## 1. Stochastic gradient descent and online learning
 ###  1.1. Stochastic gradient descent
 
@@ -66,7 +67,9 @@ Despite the fact that gradient descent is one of the first things learned in mac
 
 Recall that the idea of gradient descent is to minimize some function by making small steps in the direction of the fastest decrease. This method was named due to the following fact from calculus: vector $\nabla f = (\frac{\partial f}{\partial x_1}, \ldots \frac{\partial f}{\partial x_n})^\text{T}$ of partial derivatives of the function $f(x) = f(x_1, \ldots x_n)$ points to the direction of the fastest function growth. It means that, by moving in the opposite direction (antigradient), it is possible to decrease the function value with the fastest rate.
 
-<img src='https://habrastorage.org/files/4f2/75d/a46/4f275da467a44fc4a8d1a11007776ed2.jpg' width=50%>
+<div align="center">
+<img src='../../_static/img/topic08/snowboarder_gesh.jpg' width=70%>  
+</div>
 
 Here is a snowboarder (me) in Sheregesh, Russia's most popular winter resort. (I highly recommended it if you like skiing or snowboarding). In addition to advertising the beautiful landscapes, this picture depicts the idea of gradient descent. If you want to ride as fast as possible, you need to choose the path of steepest descent. Calculating antigradients can be seen as evaluating the slope at various spots.
 
@@ -79,7 +82,7 @@ The paired regression problem can be solved with gradient descent. Let us predic
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 
@@ -121,7 +124,9 @@ $$
 This math works quite well as long as the amount of data is not large (we will not discuss issues with local minima, saddle points, choosing the learning rate, moments and other stuff –- these topics are covered very thoroughly in [the Numeric Computation chapter](http://www.deeplearningbook.org/contents/numerical.html) in "Deep Learning").
 There is an issue with batch gradient descent -- the gradient evaluation requires the summation of a number of values for every object from the training set. In other words, the algorithm requires a lot of iterations, and every iteration recomputes weights with formula which contains a sum $\sum_{i=1}^\ell$ over the whole training set. What happens when we have billions of training samples?
 
-<img src="https://habrastorage.org/webt/ow/ng/cs/owngcs-lzoguklv1pn9vz_r4ssm.jpeg" />
+<div align="center">
+<img src='../../_static/img/topic08/overfitting_meme.jpeg'
+</div>
 
 Hence the motivation for stochastic gradient descent! Simply put, we throw away the summation sign and update the weights only over single training samples (or a small number of them). In our case, we have the following:
 
@@ -133,7 +138,9 @@ With this approach, there is no guarantee that we will move in best possible dir
 
 Andrew Ng has a good illustration of this in his [machine learning course](https://www.coursera.org/learn/machine-learning). Let's take a look.
 
-<img src='https://habrastorage.org/files/f8d/90c/f83/f8d90cf83b044255bb07df3373f25fc7.png'>
+<div align="center">
+<img src='../../_static/img/topic08/ng_contour_plots.png'
+</div>
 
 These are the contour plots for some function, and we want to find the global minimum of this function. The red curve shows weight changes (in this picture, $\theta_0$ and $\theta_1$ correspond to our $w_0$ and $w_1$). According to the properties of a gradient, the direction of change at every point is orthogonal to contour plots. With stochastic gradient descent, weights are changing in a less predictable manner, and it even may seem that some steps are wrong by leading away from minima; however, both procedures converge to the same solution.
 
@@ -327,8 +334,9 @@ assert hash("housing=no") != hash("loan=no")
 
 Is it possible to have a collision when using hash codes? Sure, it is possible, but it is a rare case with large enough hashing spaces. Even if collision occurs, regression or classification metrics will not suffer much. In this case, hash collisions work as a form of regularization.
 
-
-<img src="https://habrastorage.org/webt/4o/wx/59/4owx59vdvwc9mzrf81t2fa2rqrc.jpeg">
+<div align="center">
+<img src='../../_static/img/topic08/hash_trick_wtf.jpeg'
+</div>
 
 You may be saying "WTF?"; hashing seems counterintuitive. This is true, but these heuristics sometimes are, in fact, the only plausible approach to work with categorical data (what else can you do if you have 30M features?). Moreover, this technique has proven to just work. As you work more with data, you may see this for yourself.
 
