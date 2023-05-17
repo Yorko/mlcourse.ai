@@ -29,9 +29,9 @@ _Source: Getty Images_
 
 ## Article outline
 
-1. [Demonstration of the main Pandas methods](#demonstration-of-the-main-pandas-methods)
-2. [First attempt at predicting telecom churn](#first-attempt-at-predicting-telecom-churn)
-3. [Useful resources](#useful-resources)
+1. [Demonstration of the main Pandas methods](demonstration-of-the-main-pandas-methods)
+2. [First attempt at predicting telecom churn](first-attempt-at-predicting-telecom-churn)
+3. [Useful resources](useful-resources)
 
 ## 1. Demonstration of the main Pandas methods
 

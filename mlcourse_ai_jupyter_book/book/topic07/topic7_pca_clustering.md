@@ -19,7 +19,7 @@ kernelspec:
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
 Author: [Sergey Korolev](https://www.linkedin.com/in/sokorolev/), Software Engineer at Snap Inc. <br>
-Translated and edited by [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), [Anna Golovchenko](https://www.linkedin.com/in/anna-golovchenko-b0ba5a112/), [Eugene Mashkin](https://www.linkedin.com/in/eugene-mashkin-88490883/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Translated and edited by [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiiamanokhina/), [Anna Golovchenko](https://www.linkedin.com/in/anna-golovchenko-b0ba5a112/), [Eugene Mashkin](https://www.linkedin.com/in/eugene-mashkin-88490883/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
 Welcome to the seventh part of our Open Machine Learning Course!  
@@ -28,17 +28,17 @@ In this lesson, we will work with unsupervised learning methods such as Principa
 
 
 ## Article outline
-1. [Introduction](#introduction)
-2. [Principal Component Analysis (PCA)](#principal-component-analysis-pca)
- - [Intuition, theories, and application issues](#intuition-theories-and-application-issues)
- - [Examples](#examples)
-3. [Clustering](#clustering)
- - [K-means](#k-means)
- - [Affinity Propagation](#affinity-propagation)
- - [Spectral clustering](#spectral-clustering)
- - [Agglomerative clustering](#agglomerative-clustering)
- - [Accuracy metrics](#accuracy-metrics)
-4. [Useful links](#useful-links)
+1. [Introduction](introduction)
+2. [Principal Component Analysis (PCA)](principal-component-analysis-pca)
+ - [Intuition, theories, and application issues](intuition-theories-and-application-issues)
+ - [Examples](examples)
+3. [Clustering](clustering)
+ - [K-means](k-means)
+ - [Affinity Propagation](affinity-propagation)
+ - [Spectral clustering](spectral-clustering)
+ - [Agglomerative clustering](agglomerative-clustering)
+ - [Accuracy metrics](accuracy-metrics)
+4. [Useful links](useful-links)
 
 ## 1. Introduction
 

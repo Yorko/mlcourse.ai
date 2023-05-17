@@ -19,21 +19,21 @@ kernelspec:
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
 
-Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), and [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), [Anna Shirshova](http://linkedin.com/in/anna-shirshova-b908458b), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), and [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiiamanokhina/), [Anna Shirshova](http://linkedin.com/in/anna-shirshova-b908458b), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
 ## Article outline
 
-1. [Algorithm](#algorithm)
-2. [Comparison with Decision Trees and Bagging](#comparison-with-decision-trees-and-bagging)
-3. [Parameters](#parameters)
-4. [Variance and Decorrelation](#variance-and-decorrelation)
-5. [Bias](#bias)
-6. [Extremely Randomized Trees](#extremely-randomized-trees)
-7. [Similarities between Random Forest and k-Nearest Neighbors](#similarities-between-random-forest-and-k-nearest-neighbors)
-8. [Transformation of a dataset into a high-dimensional representation](#transformation-of-a-dataset-into-a-high-dimensional-representation)
-9. [Pros and cons of random forests](#pros-and-cons-of-random-forests)
-10. [Useful resources](#useful-resources)
+1. [Algorithm](algorithm)
+2. [Comparison with Decision Trees and Bagging](comparison-with-decision-trees-and-bagging)
+3. [Parameters](parameters)
+4. [Variance and Decorrelation](variance-and-decorrelation)
+5. [Bias](bias)
+6. [Extremely Randomized Trees](extremely-randomized-trees)
+7. [Similarities between Random Forest and k-Nearest Neighbors](similarities-between-random-forest-and-k-nearest-neighbors)
+8. [Transformation of a dataset into a high-dimensional representation](transformation-of-a-dataset-into-a-high-dimensional-representation)
+9. [Pros and cons of random forests](pros-and-cons-of-random-forests)
+10. [Useful resources](useful-resources)
 
 $\DeclareMathOperator{\Var}{Var}$
 $\DeclareMathOperator{\Cov}{Cov}$
@@ -265,7 +265,7 @@ from sklearn.model_selection import (GridSearchCV, StratifiedKFold,
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 
 # Load data
 df = pd.read_csv(DATA_PATH + "telecom_churn.csv")

@@ -18,16 +18,16 @@ kernelspec:
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
-Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), [Yury Kashnitsky](https://yorko.github.io), and Mikalai Parshutsich. Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), Artem Gruzdev, [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiamanokhina/), [Anna Shirshova](http://linkedin.com/in/anna-shirshova-b908458b), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), [Yury Kashnitsky](https://yorko.github.io), and Mikalai Parshutsich. Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), Artem Gruzdev, [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiiamanokhina/), [Anna Shirshova](http://linkedin.com/in/anna-shirshova-b908458b), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
 ## Article outline
 
-1. [Intuition](#intuition)
-2. [Illustrating permutation importance](#illustrating-permutation-importance)
-3. [Sklearn Random Forest Feature Importance](#sklearn-random-forest-feature-importance)
-4. [Practical example](#practical-example)
-5. [Useful resources](#useful-resources)
+1. [Intuition](intuition)
+2. [Illustrating permutation importance](illustrating-permutation-importance)
+3. [Sklearn Random Forest Feature Importance](sklearn-random-forest-feature-importance)
+4. [Practical example](practical-example)
+5. [Useful resources](useful-resources)
 
 It's quite often that you want to make out the exact reasons of the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.
 
@@ -324,7 +324,7 @@ from sklearn.ensemble import RandomForestRegressor
 # for Jupyter-book, we copy data from GitHub, locally, to save Internet traffic,
 # you can specify the data/ folder from the root of your cloned
 # https://github.com/Yorko/mlcourse.ai repo, to save Internet traffic
-DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/master/data/"
+DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```
 
 
