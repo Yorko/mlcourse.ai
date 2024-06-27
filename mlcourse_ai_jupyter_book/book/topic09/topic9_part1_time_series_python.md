@@ -368,7 +368,7 @@ def plotExponentialSmoothing(series, alphas):
         alphas - list of floats, smoothing parameters
 
     """
-    with plt.style.context("seaborn-white"):
+    with plt.style.context("bmh"):
         plt.figure(figsize=(15, 7))
         for alpha in alphas:
             plt.plot(
@@ -437,7 +437,7 @@ def plotDoubleExponentialSmoothing(series, alphas, betas):
         betas - list of floats, smoothing parameters for trend
     """
 
-    with plt.style.context("seaborn-white"):
+    with plt.style.context("bmh"):
         plt.figure(figsize=(20, 8))
         for alpha in alphas:
             for beta in betas:
