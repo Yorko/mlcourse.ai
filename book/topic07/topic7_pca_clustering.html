@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -527,7 +544,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-7-unsupervised-learning-pca-and-clustering">
 <span id="topic07"></span><h1>Topic 7. Unsupervised learning: PCA and clustering<a class="headerlink" href="#topic-7-unsupervised-learning-pca-and-clustering" title="Permalink to this heading">#</a></h1>
@@ -626,7 +643,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/be59e5d1b02e1d614ab9a589dd314c57d053a2da033203511941ceb6470dee22.png" src="../../_images/be59e5d1b02e1d614ab9a589dd314c57d053a2da033203511941ceb6470dee22.png" />
+<img alt="../../_images/f6f7df0723522751246dc877b13b2b774a8daf985366b98c7b7596441f9b6818.png" src="../../_images/f6f7df0723522751246dc877b13b2b774a8daf985366b98c7b7596441f9b6818.png" />
 </div>
 </div>
 <p>Now let’s see how PCA will improve the results of a simple model that is not able to correctly fit all of the training data:</p>
@@ -673,7 +690,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4a9b91bd1d8f8916bc5c4862a7aa0a943db145abf60a6d741008cbc307af4086.png" src="../../_images/4a9b91bd1d8f8916bc5c4862a7aa0a943db145abf60a6d741008cbc307af4086.png" />
+<img alt="../../_images/0ae2b5f8402b69591dc8cfbc56f35318cc6e4795a2db2af698e5c6698607ca48.png" src="../../_images/0ae2b5f8402b69591dc8cfbc56f35318cc6e4795a2db2af698e5c6698607ca48.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -749,7 +766,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b054f6526476d88d3c8148f8d179f6eebfd55ce17806d6ae88f2b8da4dfc0ac2.png" src="../../_images/b054f6526476d88d3c8148f8d179f6eebfd55ce17806d6ae88f2b8da4dfc0ac2.png" />
+<img alt="../../_images/d039a317896547c725aefcdbfd07b51a785dad7903b0bfc9720d099076b84967.png" src="../../_images/d039a317896547c725aefcdbfd07b51a785dad7903b0bfc9720d099076b84967.png" />
 </div>
 </div>
 <p>Our data has 64 dimensions, but we are going to reduce it to only 2 and see that, even with just 2 dimensions, we can clearly see that digits separate into clusters.</p>
@@ -768,7 +785,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
     <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;MNIST. PCA projection&quot;</span><span class="p">);</span>
@@ -779,11 +796,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Projecting 64-dimensional data to 2D
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_49522/1923420135.py:14: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
-  cmap=plt.cm.get_cmap(&quot;nipy_spectral&quot;, 10),
-</pre></div>
-</div>
-<img alt="../../_images/da280a91add5d10b83f857af6d5c71080d61d7ce3977df6c3d8b6310d8a90171.png" src="../../_images/da280a91add5d10b83f857af6d5c71080d61d7ce3977df6c3d8b6310d8a90171.png" />
+<img alt="../../_images/43caa2233602fb7117c823a1d83380303b25c9bb69b4ff6684352a85923102e3.png" src="../../_images/43caa2233602fb7117c823a1d83380303b25c9bb69b4ff6684352a85923102e3.png" />
 </div>
 </div>
 <p>Indeed, with t-SNE, the picture looks better since PCA has a linear constraint while t-SNE does not. However, even with such a small dataset, the t-SNE algorithm takes significantly more time to complete than PCA.</p>
@@ -805,7 +818,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
     <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
     <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;MNIST. t-SNE projection&quot;</span><span class="p">);</span>
@@ -813,14 +826,11 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;timed exec&gt;:15: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.5 s, sys: 9.17 s, total: 27.7 s
+Wall time: 2.6 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 42.7 s, sys: 1.53 s, total: 44.2 s
-Wall time: 3.96 s
-</pre></div>
-</div>
-<img alt="../../_images/0d909679fa4a96e11bdb49f286f4807d30a2062723388ffb3b45fa2463986929.png" src="../../_images/0d909679fa4a96e11bdb49f286f4807d30a2062723388ffb3b45fa2463986929.png" />
+<img alt="../../_images/8de823457f05d77c46b3fa30620aed44df16c1cf2b96819ba5e3feda352b761e.png" src="../../_images/8de823457f05d77c46b3fa30620aed44df16c1cf2b96819ba5e3feda352b761e.png" />
 </div>
 </div>
 <p>In practice, we would choose the number of principal components such that we can explain 90% of the initial data dispersion (via the <code class="docutils literal notranslate"><span class="pre">explained_variance_ratio</span></code>). Here, that means retaining 21 principal components; therefore, we reduce the dimensionality from 64 features to 21.</p>
@@ -841,7 +851,7 @@ Wall time: 3.96 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e26e615a65e3be24e7a51a407ccf22c31368e1359ca04f03e8cde77b6c862532.png" src="../../_images/e26e615a65e3be24e7a51a407ccf22c31368e1359ca04f03e8cde77b6c862532.png" />
+<img alt="../../_images/832bb4f7cffea48e154326dbe0a5ff4925e31ad74cdd3d435d83b5bdaca3fb2f.png" src="../../_images/832bb4f7cffea48e154326dbe0a5ff4925e31ad74cdd3d435d83b5bdaca3fb2f.png" />
 </div>
 </div>
 </section>
@@ -883,7 +893,7 @@ Wall time: 3.96 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dd55d2003d66428c4ffc816909193127dd1606c6da298e0c0cbb55ae5e4895e5.png" src="../../_images/dd55d2003d66428c4ffc816909193127dd1606c6da298e0c0cbb55ae5e4895e5.png" />
+<img alt="../../_images/0ad009c47a0ee69c3000a45267e04e12d36f33349cb7f9da2989a9fcc5cd6a37.png" src="../../_images/0ad009c47a0ee69c3000a45267e04e12d36f33349cb7f9da2989a9fcc5cd6a37.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -936,7 +946,7 @@ Wall time: 3.96 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/470a5d4512dfc7ef7bdb7493c1e8cd73ceb8864e0ace14f379f525fe1d9879a3.png" src="../../_images/470a5d4512dfc7ef7bdb7493c1e8cd73ceb8864e0ace14f379f525fe1d9879a3.png" />
+<img alt="../../_images/baa7b2aa0d17deb22f55aae409610ac9dac68dc4cef097dea8d6ab388d571fe3.png" src="../../_images/baa7b2aa0d17deb22f55aae409610ac9dac68dc4cef097dea8d6ab388d571fe3.png" />
 </div>
 </div>
 <p>Here, we used Euclidean distance, but the algorithm will converge with any other metric. You can not only vary the number of steps or the convergence criteria but also the distance measure between the points and cluster centroids.</p>
@@ -980,7 +990,7 @@ Wall time: 3.96 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/da1a785bdd1ce54ade83aa172b57d528a9784935c4a2d3dc29901395747e1648.png" src="../../_images/da1a785bdd1ce54ade83aa172b57d528a9784935c4a2d3dc29901395747e1648.png" />
+<img alt="../../_images/2757da485ce4cdbf26e78856b570ea76e500720ac3ef0c7f52fcb6c92d156277.png" src="../../_images/2757da485ce4cdbf26e78856b570ea76e500720ac3ef0c7f52fcb6c92d156277.png" />
 </div>
 </div>
 <p>We see that <span class="math notranslate nohighlight">\(J(C_k)\)</span> decreases significantly until the number of clusters is 3 and then does not change as much anymore. This means that the optimal number of clusters is 3.</p>
@@ -1060,7 +1070,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d3d7759cf75a2ffd52b5e8ed58d022b752debe6b8b85261ebab0d223552630f3.png" src="../../_images/d3d7759cf75a2ffd52b5e8ed58d022b752debe6b8b85261ebab0d223552630f3.png" />
+<img alt="../../_images/92da9beabd85af0ec06e588db97840ded0af8c7cffea6a95e0d3c533a4cb00bb.png" src="../../_images/92da9beabd85af0ec06e588db97840ded0af8c7cffea6a95e0d3c533a4cb00bb.png" />
 </div>
 </div>
 </section>
@@ -1170,12 +1180,12 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
   <tbody>
     <tr>
       <th>K-means</th>
-      <td>0.664485</td>
-      <td>0.740999</td>
-      <td>0.738867</td>
-      <td>0.748360</td>
-      <td>0.743583</td>
-      <td>0.182596</td>
+      <td>0.666618</td>
+      <td>0.741068</td>
+      <td>0.741543</td>
+      <td>0.745751</td>
+      <td>0.743641</td>
+      <td>0.176213</td>
     </tr>
     <tr>
       <th>Affinity</th>
@@ -1244,11 +1254,10 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic07_intro.html"
@@ -1268,10 +1277,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1279,6 +1285,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1331,6 +1338,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1357,8 +1365,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

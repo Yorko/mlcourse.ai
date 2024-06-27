@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -524,7 +541,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-6-feature-engineering-and-feature-selection">
 <span id="topic06"></span><h1>Topic 6. Feature Engineering and Feature Selection<a class="headerlink" href="#topic-6-feature-engineering-and-feature-selection" title="Permalink to this heading">#</a></h1>
@@ -635,11 +652,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;cat&#39;), (1, &#39;dog&#39;), (2, &#39;and&#39;), (3, &#39;a&#39;), (4, &#39;you&#39;), (5, &#39;i&#39;), (6, &#39;have&#39;)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: [(0, &#39;i&#39;), (1, &#39;and&#39;), (2, &#39;you&#39;), (3, &#39;a&#39;), (4, &#39;have&#39;), (5, &#39;dog&#39;), (6, &#39;cat&#39;)]
 Vectors:
-[1. 0. 0. 1. 0. 1. 1.]
-[0. 1. 0. 1. 1. 0. 1.]
-[1. 1. 2. 2. 1. 1. 1.]
+[1. 0. 0. 1. 1. 0. 1.]
+[0. 0. 1. 1. 1. 1. 0.]
+[1. 2. 1. 2. 1. 1. 1.]
 </pre></div>
 </div>
 </div>
@@ -725,7 +742,9 @@ Vectors:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.8284271247461903, 3.1622776601683795, 3.3166247903554)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(2.8284271247461903),
+ np.float64(3.1622776601683795),
+ np.float64(3.3166247903554))
 </pre></div>
 </div>
 </div>
@@ -929,7 +948,7 @@ x1t0&quot;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5176380902050423
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5176380902050424
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1045,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8444570899009705, pvalue=3.430449865982085e-30)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=np.float64(0.8584622308590755), pvalue=np.float64(4.840065002002682e-29))
 </pre></div>
 </div>
 </div>
@@ -1041,7 +1060,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.8444570899009705, pvalue=3.430449865982085e-30)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=np.float64(0.8584622308590759), pvalue=np.float64(4.8400650020030644e-29))
 </pre></div>
 </div>
 </div>
@@ -1153,7 +1172,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.722102165222168, pvalue=8.861575509728751e-38)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=np.float64(0.5374207272599946), pvalue=np.float64(3.5465593735129234e-45))
 </pre></div>
 </div>
 </div>
@@ -1165,7 +1184,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=0.9981746077537537, pvalue=0.3636147975921631)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ShapiroResult(statistic=np.float64(0.9992335965405731), pvalue=np.float64(0.964095456746809))
 </pre></div>
 </div>
 </div>
@@ -1217,8 +1236,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c5400aaf035b612e1e24e23a45586e6634b537a66d7916f515c54a25e7c03b3b.png" src="../../_images/c5400aaf035b612e1e24e23a45586e6634b537a66d7916f515c54a25e7c03b3b.png" />
-<img alt="../../_images/c5400aaf035b612e1e24e23a45586e6634b537a66d7916f515c54a25e7c03b3b.png" src="../../_images/c5400aaf035b612e1e24e23a45586e6634b537a66d7916f515c54a25e7c03b3b.png" />
+<img alt="../../_images/1320fff5371b80cb9c2f2487a0cda7fe50464b062707726799ef0c35b846fbd0.png" src="../../_images/1320fff5371b80cb9c2f2487a0cda7fe50464b062707726799ef0c35b846fbd0.png" />
+<img alt="../../_images/1320fff5371b80cb9c2f2487a0cda7fe50464b062707726799ef0c35b846fbd0.png" src="../../_images/1320fff5371b80cb9c2f2487a0cda7fe50464b062707726799ef0c35b846fbd0.png" />
 </div>
 </div>
 <p>Q-Q plot after StandardScaler. Shape doesn’t change</p>
@@ -1229,8 +1248,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8be00565327f4e819261de5aeb0ceedec7b096473ab340529ea6a293ab31b3ec.png" src="../../_images/8be00565327f4e819261de5aeb0ceedec7b096473ab340529ea6a293ab31b3ec.png" />
-<img alt="../../_images/8be00565327f4e819261de5aeb0ceedec7b096473ab340529ea6a293ab31b3ec.png" src="../../_images/8be00565327f4e819261de5aeb0ceedec7b096473ab340529ea6a293ab31b3ec.png" />
+<img alt="../../_images/822f80d9f334350ab0d8cef74fbb633ec46250c5e87e752b6a3647eb71a4bb17.png" src="../../_images/822f80d9f334350ab0d8cef74fbb633ec46250c5e87e752b6a3647eb71a4bb17.png" />
+<img alt="../../_images/822f80d9f334350ab0d8cef74fbb633ec46250c5e87e752b6a3647eb71a4bb17.png" src="../../_images/822f80d9f334350ab0d8cef74fbb633ec46250c5e87e752b6a3647eb71a4bb17.png" />
 </div>
 </div>
 <p>Q-Q plot after MinMaxScaler. Shape doesn’t change</p>
@@ -1241,8 +1260,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0e78b492faff35a595b63fc14a580930db73585925b7d66b8840b9076327fe75.png" src="../../_images/0e78b492faff35a595b63fc14a580930db73585925b7d66b8840b9076327fe75.png" />
-<img alt="../../_images/0e78b492faff35a595b63fc14a580930db73585925b7d66b8840b9076327fe75.png" src="../../_images/0e78b492faff35a595b63fc14a580930db73585925b7d66b8840b9076327fe75.png" />
+<img alt="../../_images/97d3585d9c0f8053f32cbb3dc98b88c7838daf2c67a75ebc2d43b4881f582f63.png" src="../../_images/97d3585d9c0f8053f32cbb3dc98b88c7838daf2c67a75ebc2d43b4881f582f63.png" />
+<img alt="../../_images/97d3585d9c0f8053f32cbb3dc98b88c7838daf2c67a75ebc2d43b4881f582f63.png" src="../../_images/97d3585d9c0f8053f32cbb3dc98b88c7838daf2c67a75ebc2d43b4881f582f63.png" />
 </div>
 </div>
 <p>Q-Q plot after taking the logarithm. Things are getting better!</p>
@@ -1253,8 +1272,8 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ecc964babd2e22a7ca0d04b4ef8fbec16c10184be5a9e9a05b6236c08613ff8f.png" src="../../_images/ecc964babd2e22a7ca0d04b4ef8fbec16c10184be5a9e9a05b6236c08613ff8f.png" />
-<img alt="../../_images/ecc964babd2e22a7ca0d04b4ef8fbec16c10184be5a9e9a05b6236c08613ff8f.png" src="../../_images/ecc964babd2e22a7ca0d04b4ef8fbec16c10184be5a9e9a05b6236c08613ff8f.png" />
+<img alt="../../_images/5f05d1cb8539c1789873961034c26424ace5c81346189a90b860e510bfb08e21.png" src="../../_images/5f05d1cb8539c1789873961034c26424ace5c81346189a90b860e510bfb08e21.png" />
+<img alt="../../_images/5f05d1cb8539c1789873961034c26424ace5c81346189a90b860e510bfb08e21.png" src="../../_images/5f05d1cb8539c1789873961034c26424ace5c81346189a90b860e510bfb08e21.png" />
 </div>
 </div>
 <p>Let’s see whether transformations can somehow help the real model. There is no silver bullet here.</p>
@@ -1329,7 +1348,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 19)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 18)
 </pre></div>
 </div>
 </div>
@@ -1341,7 +1360,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 19)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 13)
 </pre></div>
 </div>
 </div>
@@ -1377,7 +1396,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3169056840051333
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-0.22032335871041653)
 </pre></div>
 </div>
 </div>
@@ -1391,7 +1410,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.22186625411803762
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-0.1814321774095736)
 </pre></div>
 </div>
 </div>
@@ -1405,7 +1424,7 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.3179661522693412
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-0.19134223736127728)
 </pre></div>
 </div>
 </div>
@@ -1449,9 +1468,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.49867657874185706
--0.789550674083791
--0.42466629171291836
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.4214382355740326
+-0.45855258889231926
+-0.3895625609572114
 </pre></div>
 </div>
 </div>
@@ -1479,9 +1498,9 @@ Browser Version:  (56, 0, 2924)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.42468271177235
-LR:  -0.4989253576441672
-RF:  -0.789550674083791
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LR + selection:  -0.3866982171529603
+LR:  -0.4228579568563545
+RF:  -0.45855258889231926
 </pre></div>
 </div>
 </div>
@@ -1536,11 +1555,10 @@ RF:  -0.789550674083791
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic06_intro.html"
@@ -1560,10 +1578,7 @@ RF:  -0.789550674083791
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1571,6 +1586,7 @@ RF:  -0.789550674083791
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1620,6 +1636,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1646,8 +1663,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

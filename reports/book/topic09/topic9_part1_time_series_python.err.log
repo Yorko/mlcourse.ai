@@ -1,0 +1,55 @@
+Traceback (most recent call last):
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+plotHoltWinters(ads.Ads, plot_intervals=True, plot_anomalies=True)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[32], line 1[0m
+[0;32m----> 1[0m [43mplotHoltWinters[49m[43m([49m[43mads[49m[38;5;241;43m.[39;49m[43mAds[49m[43m,[49m[43m [49m[43mplot_intervals[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mplot_anomalies[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+
+Cell [0;32mIn[30], line 15[0m, in [0;36mplotHoltWinters[0;34m(series, plot_intervals, plot_anomalies)[0m
+[1;32m     12[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mMean Absolute Percentage Error: [39m[38;5;132;01m{0:.2f}[39;00m[38;5;124m%[39m[38;5;124m"[39m[38;5;241m.[39mformat(error))
+[1;32m     14[0m [38;5;28;01mif[39;00m plot_anomalies:
+[0;32m---> 15[0m     anomalies [38;5;241m=[39m np[38;5;241m.[39marray([[43mnp[49m[38;5;241;43m.[39;49m[43mNaN[49m] [38;5;241m*[39m [38;5;28mlen[39m(series))
+[1;32m     16[0m     anomalies[series[38;5;241m.[39mvalues [38;5;241m<[39m model[38;5;241m.[39mLowerBond[: [38;5;28mlen[39m(series)]] [38;5;241m=[39m series[38;5;241m.[39mvalues[
+[1;32m     17[0m         series[38;5;241m.[39mvalues [38;5;241m<[39m model[38;5;241m.[39mLowerBond[: [38;5;28mlen[39m(series)]
+[1;32m     18[0m     ]
+[1;32m     19[0m     anomalies[series[38;5;241m.[39mvalues [38;5;241m>[39m model[38;5;241m.[39mUpperBond[: [38;5;28mlen[39m(series)]] [38;5;241m=[39m series[38;5;241m.[39mvalues[
+[1;32m     20[0m         series[38;5;241m.[39mvalues [38;5;241m>[39m model[38;5;241m.[39mUpperBond[: [38;5;28mlen[39m(series)]
+[1;32m     21[0m     ]
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:397[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    394[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
+[1;32m    396[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __expired_attributes__:
+[0;32m--> 397[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
+[1;32m    398[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m`np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` was removed in the NumPy 2.0 release. [39m[38;5;124m"[39m
+[1;32m    399[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m__expired_attributes__[attr][38;5;132;01m}[39;00m[38;5;124m"[39m
+[1;32m    400[0m     )
+[1;32m    402[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchararray[39m[38;5;124m"[39m:
+[1;32m    403[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    404[0m         [38;5;124m"[39m[38;5;124m`np.chararray` is deprecated and will be removed from [39m[38;5;124m"[39m
+[1;32m    405[0m         [38;5;124m"[39m[38;5;124mthe main namespace in the future. Use an array with a string [39m[38;5;124m"[39m
+[1;32m    406[0m         [38;5;124m"[39m[38;5;124mor bytes dtype instead.[39m[38;5;124m"[39m, [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+
+[0;31mAttributeError[0m: `np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.
+

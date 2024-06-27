@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -523,7 +540,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-8-vowpal-wabbit-learning-with-gigabytes-of-data">
 <span id="topic08"></span><h1>Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data<a class="headerlink" href="#topic-8-vowpal-wabbit-learning-with-gigabytes-of-data" title="Permalink to this heading">#</a></h1>
@@ -620,7 +637,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4368b501d7c7e55ddafb2de1cd23e5d372bec6bb9c5ff86e1de659a9e20e7436.png" src="../../_images/4368b501d7c7e55ddafb2de1cd23e5d372bec6bb9c5ff86e1de659a9e20e7436.png" />
+<img alt="../../_images/9ff71cb701a069f0fc02447124b060835ce2f02304eceba0800d747c9902b5d0.png" src="../../_images/9ff71cb701a069f0fc02447124b060835ce2f02304eceba0800d747c9902b5d0.png" />
 </div>
 </div>
 <p>Here we have a vector <span class="math notranslate nohighlight">\(x\)</span> of dimension <span class="math notranslate nohighlight">\(\ell\)</span> (weight of every person i.e. training sample) and <span class="math notranslate nohighlight">\(y\)</span>, a vector containing the height of every person in the dataset.</p>
@@ -858,7 +875,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f5a09106006b83c2810dceb46bad2c27898c85ab68490742626bcfcbc2baad10.png" src="../../_images/f5a09106006b83c2810dceb46bad2c27898c85ab68490742626bcfcbc2baad10.png" />
+<img alt="../../_images/887e8478a1a4b97c562f5e653d86338130df72e2de7a2b1146f8031b035503b7.png" src="../../_images/887e8478a1a4b97c562f5e653d86338130df72e2de7a2b1146f8031b035503b7.png" />
 </div>
 </div>
 <p>The most straightforward solution is to map each value of this feature into a unique number. For example, we can map  <code class="docutils literal notranslate"><span class="pre">university.degree</span></code> to 0, <code class="docutils literal notranslate"><span class="pre">basic.9y</span></code> to 1, and so on. You can use <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.LabelEncoder</span></code> to perform this mapping.</p>
@@ -882,7 +899,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: &#39;basic.4y&#39;, 1: &#39;basic.6y&#39;, 2: &#39;basic.9y&#39;, 3: &#39;high.school&#39;, 4: &#39;illiterate&#39;, 5: &#39;professional.course&#39;, 6: &#39;university.degree&#39;, 7: &#39;unknown&#39;}
 </pre></div>
 </div>
-<img alt="../../_images/80bf368796e5a3d6eb7e54feba939458282d0d610565acdfe3392a1c70ac6792.png" src="../../_images/80bf368796e5a3d6eb7e54feba939458282d0d610565acdfe3392a1c70ac6792.png" />
+<img alt="../../_images/d47271069ecf9475363dc1d3af707af43e8019984f84b74476b2a137c02d9263.png" src="../../_images/d47271069ecf9475363dc1d3af707af43e8019984f84b74476b2a137c02d9263.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1233,7 +1250,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-1.0)
 </pre></div>
 </div>
 </div>
@@ -1259,15 +1276,15 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.89      1.00      0.94      6165
-           1       0.50      0.00      0.00       734
+           0       0.89      1.00      0.94      6130
+           1       1.00      0.00      0.00       769
 
     accuracy                           0.89      6899
-   macro avg       0.70      0.50      0.47      6899
-weighted avg       0.85      0.89      0.84      6899
+   macro avg       0.94      0.50      0.47      6899
+weighted avg       0.90      0.89      0.84      6899
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/utils/validation.py:1143: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/utils/validation.py:1310: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   y = column_or_1d(y, warn=True)
 </pre></div>
 </div>
@@ -1528,28 +1545,18 @@ weighted avg       0.85      0.89      0.84      6899
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/utils/validation.py:1143: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.90      0.99      0.94      6097
-           1       0.73      0.19      0.30       802
+           0       0.90      0.99      0.94      6118
+           1       0.63      0.18      0.28       781
 
     accuracy                           0.90      6899
-   macro avg       0.81      0.59      0.62      6899
-weighted avg       0.88      0.90      0.87      6899
+   macro avg       0.77      0.58      0.61      6899
+weighted avg       0.87      0.90      0.87      6899
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/utils/validation.py:1310: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div>
 </div>
 </div>
@@ -1568,9 +1575,9 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 7027689790673350544
-high.school -&gt; 8381638959564176989
-illiterate -&gt; -4464465140742038797
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -8301455830773922005
+high.school -&gt; -7087776842577270240
+illiterate -&gt; -5724181697257202701
 </pre></div>
 </div>
 </div>
@@ -1585,9 +1592,9 @@ illiterate -&gt; -4464465140742038797
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 19
-high.school -&gt; 14
-illiterate -&gt; 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 20
+high.school -&gt; 10
+illiterate -&gt; 24
 </pre></div>
 </div>
 </div>
@@ -1604,9 +1611,9 @@ illiterate -&gt; 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 9
-marital=single -&gt; 2
-day_of_week=mon -&gt; 21
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 4
+marital=single -&gt; 24
+day_of_week=mon -&gt; 16
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1655,25 +1662,25 @@ day_of_week=mon -&gt; 21
       <th>0</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -1703,21 +1710,7 @@ day_of_week=mon -&gt; 21
 <p>Shell is the main interface for VW.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Diagnostic Options:
-    --version                               Version information (type: bool)
-    -a, --audit                             Print weights of features (type: bool)
-    -P, --progress arg                      Progress update frequency. int: additive, float: multiplicative
-                                            (type: str)
-    --dry_run                               Parse arguments and print corresponding metadata. Will not execute
-                                            driver (type: bool)
-    -h, --help                              More information on vowpal wabbit can be found here https://vowpalwabbit.org
-                                            (type: bool)
-Driver Options:
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw --help | head</span>
 </pre></div>
 </div>
 </div>
@@ -1746,28 +1739,8 @@ Driver Options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>using no cache
-Reading datafile = stdin
-num sources = 1
-Num weight bits = 18
-learning rate = 0.5
-initial_t = 0
-power_t = 0.5
-Enabled reductions: gd, scorer-identity, count_label
-Input label = SIMPLE
-Output pred = SCALAR
-average  since         example        example        current        current  current
-loss     last          counter         weight          label        predict features
-1.000000 1.000000            1            1.0         1.0000         0.0000       10
-
-finished run
-number of examples = 1
-weighted example sum = 1.000000
-weighted label sum = 1.000000
-average loss = 1.000000
-best constant = 1.000000
-best constant&#39;s loss = 0.000000
-total feature number = 10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/bin/bash: line 1: 41549 Done                    echo &#39;1 1.0 |Subject WHAT car is this |Organization University of Maryland:0.5 College Park&#39;
+     41550 Killed: 9               | vw
 </pre></div>
 </div>
 </div>
@@ -1871,6 +1844,12 @@ Thanks,
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_41494/1433298466.py:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+  + &quot; &quot;.join(re.findall(&quot;\w{3,}&quot;, document.lower()))
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1 |text from lerxst wam umd edu where thing subject what car this nntp posting host rac3 wam umd edu organization university maryland college park lines was wondering anyone out there could enlighten this car saw the other day was door sports car looked from the late 60s early 70s was called bricklin the doors were really small addition the front bumper was separate from the rest the body this all know anyone can tellme model name engine specs years production where this car made history whatever info you have this funky looking car please mail thanks brought you your neighborhood lerxst\n&#39;
 </pre></div>
 </div>
@@ -1934,7 +1913,25 @@ Thanks,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1145fd69b9c022880ee8fb38fc0dd3feb48c81ce70c62c2fa11331225df9b546.png" src="../../_images/1145fd69b9c022880ee8fb38fc0dd3feb48c81ce70c62c2fa11331225df9b546.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="s2">&quot;20news_test_predictions.txt&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">pred_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">test_prediction</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">pred_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">test_prediction</span><span class="p">)</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/IPython/core/interactiveshell.py:324,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">324</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../data/tmp/20news_test_predictions.txt&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>The AUC value we get shows that we have achieved high classification quality.</p>
@@ -2001,11 +1998,6 @@ Thanks,
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8734535171438671
-</pre></div>
-</div>
-</div>
 </div>
 <p>Here is how often the model misclassifies atheism with other topics:</p>
 <div class="cell docutils container">
@@ -2013,15 +2005,6 @@ Thanks,
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">test_labels_mult</span><span class="p">,</span> <span class="n">test_prediction_mult</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">newsgroups</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rec.autos 1
-rec.sport.baseball 1
-sci.med 1
-soc.religion.christian 3
-talk.religion.misc 5
 </pre></div>
 </div>
 </div>
@@ -2063,11 +2046,6 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IMDB dataset is already in place.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Read train data, separate labels.</p>
 <div class="cell docutils container">
@@ -2090,12 +2068,6 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents in training data: 25000
-[12500 12500]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Do the same for the test set.</p>
 <div class="cell docutils container">
@@ -2113,22 +2085,11 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of documents in test data: 25000
-[12500 12500]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Take a look at examples of reviews and their corresponding labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&quot;Zero Day leads you to think, even re-think why two boys/young men would do what they did - commit mutual suicide via slaughtering their classmates. It captures what must be beyond a bizarre mode of being for two humans who have decided to withdraw from common civility in order to define their own/mutual world via coupled destruction.&lt;br /&gt;&lt;br /&gt;It is not a perfect movie but given what money/time the filmmaker and actors had - it is a remarkable product. In terms of explaining the motives and actions of the two young suicide/murderers it is better than &#39;Elephant&#39; - in terms of being a film that gets under our &#39;rationalistic&#39; skin it is a far, far better film than almost anything you are likely to see. &lt;br /&gt;&lt;br /&gt;Flawed but honest with a terrible honesty.&quot;
 </pre></div>
 </div>
 </div>
@@ -2139,20 +2100,10 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;Words can\&#39;t describe how bad this movie is. I can\&#39;t explain it by writing only. You have too see it for yourself to get at grip of how horrible a movie really can be. Not that I recommend you to do that. There are so many clich\xc3\xa9s, mistakes (and all other negative things you can imagine) here that will just make you cry. To start with the technical first, there are a LOT of mistakes regarding the airplane. I won\&#39;t list them here, but just mention the coloring of the plane. They didn\&#39;t even manage to show an airliner in the colors of a fictional airline, but instead used a 747 painted in the original Boeing livery. Very bad. The plot is stupid and has been done many times before, only much, much better. There are so many ridiculous moments here that i lost count of it really early. Also, I was on the bad guys\&#39; side all the time in the movie, because the good guys were so stupid. &quot;Executive Decision&quot; should without a doubt be you\&#39;re choice over this one, even the &quot;Turbulence&quot;-movies are better. In fact, every other movie in the world is better than this one.&#39;
 </pre></div>
 </div>
 </div>
@@ -2163,20 +2114,10 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_vw_format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">text_train</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1 |text words can describe how bad this movie can explain writing only you have too see for yourself get grip how horrible movie really can not that recommend you that there are many clich xc3 xa9s mistakes and all other negative things you can imagine here that will just make you cry start with the technical first there are lot mistakes regarding the airplane won list them here but just mention the coloring the plane they didn even manage show airliner the colors fictional airline but instead used 747 painted the original boeing livery very bad the plot stupid and has been done many times before only much much better there are many ridiculous moments here that lost count really early also was the bad guys side all the time the movie because the good guys were stupid executive decision should without doubt you choice over this one even the turbulence movies are better fact every other movie the world better than this one\n&#39;
 </pre></div>
 </div>
 </div>
@@ -2194,11 +2135,6 @@ talk.religion.misc 5
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">train_labels</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_labels</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(17500, 7500)
 </pre></div>
 </div>
 </div>
@@ -2228,12 +2164,6 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 |text zero day leads you think even think why two boys young men would what they did commit mutual suicide via slaughtering their classmates captures what must beyond bizarre mode being for two humans who have decided withdraw from common civility order define their own mutual world via coupled destruction not perfect movie but given what money time the filmmaker and actors had remarkable product terms explaining the motives and actions the two young suicide murderers better than elephant terms being film that gets under our rationalistic skin far far better film than almost anything you are likely see flawed but honest with terrible honesty
--1 |text words can describe how bad this movie can explain writing only you have too see for yourself get grip how horrible movie really can not that recommend you that there are many clich xc3 xa9s mistakes and all other negative things you can imagine here that will just make you cry start with the technical first there are lot mistakes regarding the airplane won list them here but just mention the coloring the plane they didn even manage show airliner the colors fictional airline but instead used 747 painted the original boeing livery very bad the plot stupid and has been done many times before only much much better there are many ridiculous moments here that lost count really early also was the bad guys side all the time the movie because the good guys were stupid executive decision should without doubt you choice over this one even the turbulence movies are better fact every other movie the world better than this one
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2241,22 +2171,10 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 |text matter life and death what can you really say that would properly justice the genius and beauty this film powell and pressburger visual imagination knows bounds every frame filled with fantastically bold compositions the switches between the bold colours the real world the stark black and white heaven ingenious showing visually just how much more vibrant life the final court scene also fantastic the judge and jury descend the stairway heaven hold court over peter david niven operation all the performances are spot roger livesey being standout and the romantic energy the film beautiful never has there been more romantic film than this there has haven seen matter life and death all about the power love and just how important life and jack cardiff cinematography reason enough watch the film alone the way lights kim hunter face makes her all the more beautiful what genius can make simple things such game table tennis look exciting and the sound design also impeccable the way the sound mutes vital points was decision way ahead its time this true classic that can restore anyone faith cinema under appreciated its initial release and today audiences but one all time favourites which why give this film word beautiful
-1 |text while this was better movie than 101 dalmations live action not animated version think still fell little short what disney could was well filmed the music was more suited the action and the effects were better done compared 101 the acting was perhaps better but then the human characters were given far more appropriate roles this sequel and glenn close really not missed the first movie she makes shine her poor lackey and the overzealous furrier sidekicks are wonderful characters play off and they add the spectacle disney has given this great family film with little objectionable material and yet remains fun and interesting for adults and children alike bound classic many disney films are here hoping the third will even better still because you know they probably want make one
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head<span class="w"> </span>-2<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_test.vw
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |text don hate heather graham because she beautiful hate her because she fun watch this movie like the hip clothing and funky surroundings the actors this flick work well together casey affleck hysterical and heather graham literally lights the screen the minor characters goran visnjic sigh and patricia velazquez are talented they are gorgeous congratulations miramax director lisa krueger
- |text don know how this movie has received many positive comments one can call artistic and beautifully filmed but those things don make for the empty plot that was filled with sexual innuendos wish had not wasted time watch this movie rather than being biographical was poor excuse for promoting strange and lewd behavior was just another hollywood attempt convince that that kind life normal and from the very beginning asked self what was the point this movie and continued watching hoping that would change and was quite disappointed that continued the same vein glad did not spend the money see this theater
 </pre></div>
 </div>
 </div>
@@ -2269,8 +2187,8 @@ talk.religion.misc 5
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
--f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \</span>
+<span class="c1">#-f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2284,8 +2202,8 @@ talk.religion.misc 5
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
--d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \</span>
+<span class="c1">#-d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2309,19 +2227,13 @@ talk.religion.misc 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.885
-AUC: 0.942
-</pre></div>
-</div>
-</div>
 </div>
 <p>Again, do the same for the test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
--d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
--p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \</span>
+<span class="c1">#-d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \</span>
+<span class="c1">#-p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2344,26 +2256,20 @@ AUC: 0.942
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.88
-AUC: 0.94
-</pre></div>
-</div>
-</div>
 </div>
 <p>Let’s try to achieve a higher accuracy by incorporating bigrams.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
---loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \</span>
+<span class="c1"># --loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
--p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \</span>
+<span class="c1">#-p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2386,17 +2292,11 @@ AUC: 0.94
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.894
-AUC: 0.954
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
--p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \</span>
+<span class="c1">#-p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2416,12 +2316,6 @@ AUC: 0.954
     <span class="p">)</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_prediction2</span><span class="p">),</span> <span class="mi">3</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.888
-AUC: 0.952
 </pre></div>
 </div>
 </div>
@@ -2447,8 +2341,7 @@ AUC: 0.952
 <li><p><a class="reference external" href="https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787">“Convex Optimization” by Stephen Boyd</a></p></li>
 <li><p>“Command-line Tools can be 235x Faster than your Hadoop Cluster” <a class="reference external" href="https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html">post</a></p></li>
 <li><p>Benchmarking various ML algorithms on Criteo 1TB dataset on <a class="reference external" href="https://github.com/rambler-digital-solutions/criteo-1tb-benchmark">GitHub</a></p></li>
-<li><p><a class="reference external" href="http://fastml.com/blog/categories/vw/">VW on FastML.com</a>
-q</p></li>
+<li><p><a class="reference external" href="http://fastml.com/blog/categories/vw/">VW on FastML.com</a></p></li>
 </ul>
 </section>
 </section>
@@ -2478,11 +2371,10 @@ q</p></li>
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic08_intro.html"
@@ -2502,10 +2394,7 @@ q</p></li>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2513,6 +2402,7 @@ q</p></li>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2561,6 +2451,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -2587,8 +2478,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

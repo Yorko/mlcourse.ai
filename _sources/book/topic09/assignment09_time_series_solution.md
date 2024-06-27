@@ -94,7 +94,7 @@ df.date = pd.to_datetime(df.date)
 
 
 ```{code-cell} ipython3
-plotly_df(df.set_index("date")[["count"]])
+plotly_df(df=df.set_index("date")[["count"]], title="assign9_plot")
 ```
 
 

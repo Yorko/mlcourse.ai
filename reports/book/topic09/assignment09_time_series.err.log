@@ -1,33 +1,89 @@
 Traceback (most recent call last):
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/usr/local/Cellar/python@3.10/3.10.9/Frameworks/Python.framework/Versions/3.10/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.4/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
     return future.result()
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+           ^^^^^^^^^^^^^^^
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/kashnitskiyy/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-hdQs52Zw-py3.10/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-plotly_df(df.set_index("date")[["count"]])
+from prophet import Prophet
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[7], line 1[0m
-[0;32m----> 1[0m [43mplotly_df[49m[43m([49m[43mdf[49m[38;5;241;43m.[39;49m[43mset_index[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdate[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m[[49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43mcount[39;49m[38;5;124;43m"[39;49m[43m][49m[43m][49m[43m)[49m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[8], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mprophet[39;00m [38;5;28;01mimport[39;00m Prophet
 
-Cell [0;32mIn[2], line 14[0m, in [0;36mplotly_df[0;34m(df, title, width, height)[0m
-[1;32m     12[0m plot_path [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;124m../../_static/plotly_htmls/[39m[38;5;132;01m{[39;00mtitle[38;5;132;01m}[39;00m[38;5;124m.html[39m[38;5;124m"[39m[38;5;241m.[39mreplace([38;5;124m"[39m[38;5;124m [39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124m_[39m[38;5;124m"[39m)
-[1;32m     13[0m plot(fig, filename[38;5;241m=[39mplot_path, show_link[38;5;241m=[39m[38;5;28;01mFalse[39;00m, auto_open[38;5;241m=[39m[38;5;28;01mFalse[39;00m);
-[0;32m---> 14[0m display([43mIFrame[49m(plot_path, width[38;5;241m=[39mwidth, height[38;5;241m=[39mheight))
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/prophet/__init__.py:7[0m
+[1;32m      1[0m [38;5;66;03m# Copyright (c) 2017-present, Facebook, Inc.[39;00m
+[1;32m      2[0m [38;5;66;03m# All rights reserved.[39;00m
+[1;32m      3[0m [38;5;66;03m#[39;00m
+[1;32m      4[0m [38;5;66;03m# This source code is licensed under the BSD-style license found in the[39;00m
+[1;32m      5[0m [38;5;66;03m# LICENSE file in the root directory of this source tree. An additional grant[39;00m
+[1;32m      6[0m [38;5;66;03m# of patent rights can be found in the PATENTS file in the same directory.[39;00m
+[0;32m----> 7[0m [38;5;28;01mfrom[39;00m [38;5;21;01mprophet[39;00m[38;5;21;01m.[39;00m[38;5;21;01mforecaster[39;00m [38;5;28;01mimport[39;00m Prophet
+[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mpathlib[39;00m [38;5;28;01mimport[39;00m Path
+[1;32m     10[0m about [38;5;241m=[39m {}
 
-[0;31mNameError[0m: name 'IFrame' is not defined
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/prophet/forecaster.py:28[0m
+[1;32m     25[0m logger[38;5;241m.[39msetLevel(logging[38;5;241m.[39mINFO)
+[1;32m     26[0m NANOSECONDS_TO_SECONDS [38;5;241m=[39m [38;5;241m1000[39m [38;5;241m*[39m [38;5;241m1000[39m [38;5;241m*[39m [38;5;241m1000[39m
+[0;32m---> 28[0m [38;5;28;43;01mclass[39;49;00m[43m [49m[38;5;21;43;01mProphet[39;49;00m[43m([49m[38;5;28;43mobject[39;49m[43m)[49m[43m:[49m
+[1;32m     29[0m [38;5;250;43m    [39;49m[38;5;124;43;03m"""Prophet forecaster.[39;49;00m
+[1;32m     30[0m 
+[1;32m     31[0m [38;5;124;43;03m    Parameters[39;49;00m
+[0;32m   (...)[0m
+[1;32m     79[0m [38;5;124;43;03m    holidays_mode: 'additive' or 'multiplicative'. Defaults to seasonality_mode.[39;49;00m
+[1;32m     80[0m [38;5;124;43;03m    """[39;49;00m
+[1;32m     82[0m [43m    [49m[38;5;28;43;01mdef[39;49;00m[43m [49m[38;5;21;43m__init__[39;49m[43m([49m
+[1;32m     83[0m [43m            [49m[38;5;28;43mself[39;49m[43m,[49m
+[1;32m     84[0m [43m            [49m[43mgrowth[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mlinear[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m   (...)[0m
+[1;32m    101[0m [43m            [49m[43mholidays_mode[49m[38;5;241;43m=[39;49m[38;5;28;43;01mNone[39;49;00m[43m,[49m
+[1;32m    102[0m [43m    [49m[43m)[49m[43m:[49m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/prophet/forecaster.py:459[0m, in [0;36mProphet[0;34m()[0m
+[1;32m    451[0m     [38;5;28;01melse[39;00m:
+[1;32m    452[0m         [38;5;28mself[39m[38;5;241m.[39mchangepoints_t [38;5;241m=[39m np[38;5;241m.[39marray([[38;5;241m0[39m])  [38;5;66;03m# dummy changepoint[39;00m
+[1;32m    454[0m [38;5;129m@staticmethod[39m
+[1;32m    455[0m [38;5;28;01mdef[39;00m [38;5;21mfourier_series[39m(
+[1;32m    456[0m     dates: pd[38;5;241m.[39mSeries,
+[1;32m    457[0m     period: Union[[38;5;28mint[39m, [38;5;28mfloat[39m],
+[1;32m    458[0m     series_order: [38;5;28mint[39m,
+[0;32m--> 459[0m ) [38;5;241m-[39m[38;5;241m>[39m NDArray[[43mnp[49m[38;5;241;43m.[39;49m[43mfloat_[49m]:
+[1;32m    460[0m [38;5;250m    [39m[38;5;124;03m"""Provides Fourier series components with the specified frequency[39;00m
+[1;32m    461[0m [38;5;124;03m    and order.[39;00m
+[1;32m    462[0m 
+[0;32m   (...)[0m
+[1;32m    471[0m [38;5;124;03m    Matrix with seasonality features.[39;00m
+[1;32m    472[0m [38;5;124;03m    """[39;00m
+[1;32m    473[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m (series_order [38;5;241m>[39m[38;5;241m=[39m [38;5;241m1[39m):
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:397[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    394[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
+[1;32m    396[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __expired_attributes__:
+[0;32m--> 397[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
+[1;32m    398[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m`np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` was removed in the NumPy 2.0 release. [39m[38;5;124m"[39m
+[1;32m    399[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m__expired_attributes__[attr][38;5;132;01m}[39;00m[38;5;124m"[39m
+[1;32m    400[0m     )
+[1;32m    402[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchararray[39m[38;5;124m"[39m:
+[1;32m    403[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    404[0m         [38;5;124m"[39m[38;5;124m`np.chararray` is deprecated and will be removed from [39m[38;5;124m"[39m
+[1;32m    405[0m         [38;5;124m"[39m[38;5;124mthe main namespace in the future. Use an array with a string [39m[38;5;124m"[39m
+[1;32m    406[0m         [38;5;124m"[39m[38;5;124mor bytes dtype instead.[39m[38;5;124m"[39m, [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+
+[0;31mAttributeError[0m: `np.float_` was removed in the NumPy 2.0 release. Use `np.float64` instead.
 

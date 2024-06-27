@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -512,7 +529,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-3-feature-importance">
 <span id="topic05-part3"></span><h1>Topic 5. Ensembles and random forest. Part 3. Feature importance<a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-3-feature-importance" title="Permalink to this heading">#</a></h1>
@@ -784,7 +801,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/066cfdd4a64cce665a93ef09617bae28c27d30882ceaae8217a3c86c82f25e52.png" src="../../_images/066cfdd4a64cce665a93ef09617bae28c27d30882ceaae8217a3c86c82f25e52.png" />
+<img alt="../../_images/6e665bea707347ebf4fa2cee8271bac0bdd4c46454089914d650b45929d30654.png" src="../../_images/6e665bea707347ebf4fa2cee8271bac0bdd4c46454089914d650b45929d30654.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -801,7 +818,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/101f922362f55c48f3257f17376b8759d1fd693639a152d2d31c5d77fa214881.png" src="../../_images/101f922362f55c48f3257f17376b8759d1fd693639a152d2d31c5d77fa214881.png" />
+<img alt="../../_images/9bca1ac4788034847dd91051fb6f4f4663e460c7151e571c1b29487b9b185c59.png" src="../../_images/9bca1ac4788034847dd91051fb6f4f4663e460c7151e571c1b29487b9b185c59.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -818,7 +835,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/47587aa0edaeaabf15e3ea9c6bab2a9834a90399ed3f74fcac34e461d19733c3.png" src="../../_images/47587aa0edaeaabf15e3ea9c6bab2a9834a90399ed3f74fcac34e461d19733c3.png" />
+<img alt="../../_images/43a5ad9dec1b6a35d807ce7cf7a9ddcd028f39b5906e546861a7d8d4ec94f95c.png" src="../../_images/43a5ad9dec1b6a35d807ce7cf7a9ddcd028f39b5906e546861a7d8d4ec94f95c.png" />
 </div>
 </div>
 <p>Let’s start from the first tree and <code class="docutils literal notranslate"><span class="pre">Sepal</span> <span class="pre">length</span> <span class="pre">(cm)</span></code> feature. This feature is located in two nodes: the root (#0) and the rightmost node (#8). The reduction in impurity for these nodes are:</p>
@@ -943,19 +960,19 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature ranking:
-1. Staff 0.183150 
-2. Value for money 0.147704 
-3. Shared space condition 0.128188 
-4. Extra services 0.116819 
-5. Customer Co-creation 0.105748 
-6. General conditions &amp; conveniences 0.088730 
-7. Shared kitchen condition 0.074776 
-8. Check-in and check-out 0.061881 
-9. Hostel booking 0.053899 
-10. Room condition 0.039105 
+1. Staff 0.182942 
+2. Value for money 0.147975 
+3. Shared space condition 0.128082 
+4. Extra services 0.117003 
+5. Customer Co-creation 0.105896 
+6. General conditions &amp; conveniences 0.088431 
+7. Shared kitchen condition 0.074821 
+8. Check-in and check-out 0.061649 
+9. Hostel booking 0.054246 
+10. Room condition 0.038956 
 </pre></div>
 </div>
-<img alt="../../_images/702bef05aab644e4717b3b0cbebf52d87a1dcfaec0a83689ff96c6118b74984a.png" src="../../_images/702bef05aab644e4717b3b0cbebf52d87a1dcfaec0a83689ff96c6118b74984a.png" />
+<img alt="../../_images/ce979d0e02a767bb95d848f0478ec9dda8bde337456005206895f5bf51cd8a24.png" src="../../_images/ce979d0e02a767bb95d848f0478ec9dda8bde337456005206895f5bf51cd8a24.png" />
 </div>
 </div>
 <p>The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model’s accuracy. However, based on our analysis, we can recommend hostel owners to focus primarily on staff training and price-to-quality ratio.</p>
@@ -1000,11 +1017,10 @@ Sklearn library uses another approach to determine feature importance. The ratio
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic5_part2_random_forest.html"
@@ -1024,10 +1040,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1035,6 +1048,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1072,6 +1086,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1098,8 +1113,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

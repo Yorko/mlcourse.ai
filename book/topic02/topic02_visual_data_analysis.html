@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -541,7 +558,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction">
 <span id="topic2-part1"></span><h1>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction<a class="headerlink" href="#visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction" title="Permalink to this heading">#</a></h1>
@@ -790,7 +807,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div></div></div>
 </div>
 <p>Here is the description of our features:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Description</p></th>
@@ -896,6 +913,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </tr>
 </tbody>
 </table>
+</div>
 <p>The last data column, <strong>Churn</strong>, is our target variable. It is binary: <em>True</em> indicates that that the company eventually lost this customer, and <em>False</em> indicates that the customer was retained. Later, we will build models that predict this feature based on the remaining features. This is why we call it a <em>target</em>.</p>
 </section>
 <section id="univariate-visualization">
@@ -916,7 +934,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fde5220a0b189fca36f17818b48ec46f669f7876d364ce2fef01758a61d89a6e.svg" src="../../_images/fde5220a0b189fca36f17818b48ec46f669f7876d364ce2fef01758a61d89a6e.svg" /></div>
+<img alt="../../_images/dba734024e371ed65856dbcb9450d840de73df70948b5e43e93158a65bc0480a.svg" src="../../_images/dba734024e371ed65856dbcb9450d840de73df70948b5e43e93158a65bc0480a.svg" /></div>
 </div>
 <p>A histogram groups values into <em>bins</em> of equal value range. The shape of the histogram may contain clues about the underlying distribution type: Gaussian, exponential, etc. You can also spot any skewness in its shape when the distribution is nearly regular but has some anomalies. Knowing the distribution of the feature values becomes important when you use Machine Learning methods that assume a particular type (most often Gaussian).</p>
 <p>In the above plot, we see that the variable <em>Total day minutes</em> is normally distributed, while <em>Total intl calls</em> is prominently skewed right (its tail is longer on the right).</p>
@@ -930,7 +948,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0f13d55ec1081f7a14e512aab5bc48a3a58c0baa6e581caaa11f7d6b33d5a49d.svg" src="../../_images/0f13d55ec1081f7a14e512aab5bc48a3a58c0baa6e581caaa11f7d6b33d5a49d.svg" /></div>
+<img alt="../../_images/5ffc437406658cf98b14927182daee2793ae252fee8c396663d3705585f1051d.svg" src="../../_images/5ffc437406658cf98b14927182daee2793ae252fee8c396663d3705585f1051d.svg" /></div>
 </div>
 <p>It is also possible to plot a distribution of observations with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.distplot.html"><code class="docutils literal notranslate"><span class="pre">distplot()</span></code></a>. For example, let’s look at the distribution of <em>Total day minutes</em>. By default, the plot displays the histogram with the <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a> (KDE) on top.</p>
 <div class="cell docutils container">
@@ -940,7 +958,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_54026/4194307662.py:1: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23895/4194307662.py:1: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -953,7 +971,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
   sns.distplot(df[&quot;Total intl calls&quot;]);
 </pre></div>
 </div>
-<img alt="../../_images/05aba636756d03f643f97ca0268a95d099663230b5771aff0bccfbefc3dc2bda.svg" src="../../_images/05aba636756d03f643f97ca0268a95d099663230b5771aff0bccfbefc3dc2bda.svg" /></div>
+<img alt="../../_images/c665697afa154bb4e0f27ddc397f4ad7aeb77f18a767e1ca39883ce5bfb72bc7.svg" src="../../_images/c665697afa154bb4e0f27ddc397f4ad7aeb77f18a767e1ca39883ce5bfb72bc7.svg" /></div>
 </div>
 <p>The height of the histogram bars here is normed and shows the density rather than the number of examples in each bin.</p>
 </section>
@@ -967,7 +985,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/88f9e384e87bc0fe1b30946a35f9278ad53250d58b3146bcb4ecc4d022f7eef2.svg" src="../../_images/88f9e384e87bc0fe1b30946a35f9278ad53250d58b3146bcb4ecc4d022f7eef2.svg" /></div>
+<img alt="../../_images/89284a00171fb1f2dee2100a528dc7c83eba6e010a1e4495dcba12e56ea228e2.svg" src="../../_images/89284a00171fb1f2dee2100a528dc7c83eba6e010a1e4495dcba12e56ea228e2.svg" /></div>
 </div>
 <p>Let’s see how to interpret a box plot. Its components are a <em>box</em> (obviously, this is why it is called a <em>box plot</em>), the so-called <em>whiskers</em>, and a number of individual points (<em>outliers</em>).</p>
 <p>The box by itself illustrates the interquartile spread of the distribution; its length is determined by the <span class="math notranslate nohighlight">\(25th \, (\text{Q1})\)</span> and <span class="math notranslate nohighlight">\(75th \, (\text{Q3})\)</span> percentiles. The vertical line inside the box marks the median (<span class="math notranslate nohighlight">\(50\%\)</span>) of the distribution.</p>
@@ -988,7 +1006,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/49b1e7c2a61d15d48995bfd50a426faa6c469084416eb3909722c09bde5a88fd.svg" src="../../_images/49b1e7c2a61d15d48995bfd50a426faa6c469084416eb3909722c09bde5a88fd.svg" /></div>
+<img alt="../../_images/60993a27c315a758efa04a15d8004674e10df606f774487c12e93ba7e03b4465.svg" src="../../_images/60993a27c315a758efa04a15d8004674e10df606f774487c12e93ba7e03b4465.svg" /></div>
 </div>
 <p>The difference between the box and violin plots is that the former illustrates certain statistics concerning individual examples in a dataset while the violin plot concentrates more on the smoothed distribution as a whole.</p>
 <p>In our case, the violin plot does not contribute any additional information about the data as everything is clear from the box plot alone.</p>
@@ -1086,9 +1104,10 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    2850
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Churn
+False    2850
 True      483
-Name: Churn, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1110,7 +1129,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/be29f43f2b397db111172764005e59b9178634ba0fb9c7fc8bc6f39f54ac68d8.svg" src="../../_images/be29f43f2b397db111172764005e59b9178634ba0fb9c7fc8bc6f39f54ac68d8.svg" /></div>
+<img alt="../../_images/5fcc87fe31ecc817a5c73d382ffc16112b353b392e1381e27b63de73d7b18acc.svg" src="../../_images/5fcc87fe31ecc817a5c73d382ffc16112b353b392e1381e27b63de73d7b18acc.svg" /></div>
 </div>
 <p>While the histograms, discussed above, and bar plots may look similar, there are several differences between them:</p>
 <ol class="arabic simple">
@@ -1155,7 +1174,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c563ea247d05dc8e88e863138a1817d39e634ae051408661c349f1a2f340df57.svg" src="../../_images/c563ea247d05dc8e88e863138a1817d39e634ae051408661c349f1a2f340df57.svg" /></div>
+<img alt="../../_images/90ae8b6c921fc88534b1c2175b36013a5b6d8aaa47d875ea1af6d5bb74bda9fd.svg" src="../../_images/90ae8b6c921fc88534b1c2175b36013a5b6d8aaa47d875ea1af6d5bb74bda9fd.svg" /></div>
 </div>
 <p>From the colored correlation matrix generated above, we can see that there are 4 variables such as <em>Total day charge</em> that have been calculated directly from the number of minutes spent on phone calls (<em>Total day minutes</em>). These are called <em>dependent</em> variables and can therefore be left out since they do not contribute any additional information. Let’s get rid of them:</p>
 <div class="cell docutils container">
@@ -1187,7 +1206,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/150cbd2d41aa283963e76bead603f471fa3c6efd43f2d3a44889d70c9f6e9c11.svg" src="../../_images/150cbd2d41aa283963e76bead603f471fa3c6efd43f2d3a44889d70c9f6e9c11.svg" /></div>
+<img alt="../../_images/b67da111f378ab5335910934dee85b3ff5c38bf230d1c248d8da63e8f87f1e51.svg" src="../../_images/b67da111f378ab5335910934dee85b3ff5c38bf230d1c248d8da63e8f87f1e51.svg" /></div>
 </div>
 <p>We get an uninteresting picture of two normally distributed variables. Also, it seems that these features are uncorrelated because the ellipse-like shape is aligned with the axes.</p>
 <p>There is a slightly fancier option to create a scatter plot with the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> library:</p>
@@ -1198,7 +1217,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ee39a086c09d1cd18823d68202e24c1681c9be059a9f7de1b475c5c6ac335bcb.svg" src="../../_images/ee39a086c09d1cd18823d68202e24c1681c9be059a9f7de1b475c5c6ac335bcb.svg" /></div>
+<img alt="../../_images/009a4d9f52e831d6ab7028d146674650b9502ca7317fe5a072fd8f2d47b35d36.svg" src="../../_images/009a4d9f52e831d6ab7028d146674650b9502ca7317fe5a072fd8f2d47b35d36.svg" /></div>
 </div>
 <p>The function <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.jointplot.html"><code class="docutils literal notranslate"><span class="pre">jointplot()</span></code></a> plots two histograms that may be useful in some cases.</p>
 <p>Using the same function, we can also get a smoothed version of our bivariate distribution:</p>
@@ -1211,7 +1230,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/80b4601501e34c24c49fa6978a45b0f8371856f6df9e3843711ff63f99123d42.svg" src="../../_images/80b4601501e34c24c49fa6978a45b0f8371856f6df9e3843711ff63f99123d42.svg" /></div>
+<img alt="../../_images/7427b9775842cfeff8d9af384596ec7ac1f98548c17dda1e60ec52931aaea5da.svg" src="../../_images/7427b9775842cfeff8d9af384596ec7ac1f98548c17dda1e60ec52931aaea5da.svg" /></div>
 </div>
 <p>This is basically a bivariate version of the <em>Kernel Density Plot</em> discussed earlier.</p>
 </section>
@@ -1227,7 +1246,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ca3a0fb03f8b58b5c9b91ac273a78147ce38c6640ab5602e20141ffc6cc29e9e.png" src="../../_images/ca3a0fb03f8b58b5c9b91ac273a78147ce38c6640ab5602e20141ffc6cc29e9e.png" />
+<img alt="../../_images/97ad6c2e97c3f360524ab7c37cd93dc6dadecc7b00e269e44adebc4745f5172c.png" src="../../_images/97ad6c2e97c3f360524ab7c37cd93dc6dadecc7b00e269e44adebc4745f5172c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1254,7 +1273,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f39a42a1b9da5f1beaa315b2c48ced0fb152091675be770131078e1b9fd74708.svg" src="../../_images/f39a42a1b9da5f1beaa315b2c48ced0fb152091675be770131078e1b9fd74708.svg" /></div>
+<img alt="../../_images/862d65ba0f368ce6bf22f53f90157f949ce6ec7955dd79334485f5db6fe58d82.svg" src="../../_images/862d65ba0f368ce6bf22f53f90157f949ce6ec7955dd79334485f5db6fe58d82.svg" /></div>
 </div>
 <p>It seems that our small proportion of disloyal customers lean towards the top-right corner; that is, such customers tend to spend more time on the phone during both day and night. But this is not absolutely clear, and we won’t make any definitive conclusions from this chart.</p>
 <p>Now, let’s create box plots to visualize the distribution statistics of the numerical variables in two disjoint groups: the loyal customers (<code class="docutils literal notranslate"><span class="pre">Churn=False</span></code>) and those who left (<code class="docutils literal notranslate"><span class="pre">Churn=True</span></code>).</p>
@@ -1274,7 +1293,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ae0cf809976f327248ea8bb46cadad5f2f7e43d418b454aedaa1d857bffefccc.svg" src="../../_images/ae0cf809976f327248ea8bb46cadad5f2f7e43d418b454aedaa1d857bffefccc.svg" /></div>
+<img alt="../../_images/94848b223b8656ebd265a7551f153a3ab05fb942d77fc9ce0ad422cf7ba15e8b.svg" src="../../_images/94848b223b8656ebd265a7551f153a3ab05fb942d77fc9ce0ad422cf7ba15e8b.svg" /></div>
 </div>
 <p>From this chart, we can see that the greatest discrepancy in distribution between the two groups is for three variables: <em>Total day minutes</em>, <em>Customer service calls</em>, and <em>Number vmail messages</em>. Later in this course, we will learn how to determine feature importance in classification using <em>Random Forest</em> or <em>Gradient Boosting</em>; there, we will see that the first two features are indeed very important for churn prediction.</p>
 <p>Let’s look at the distribution of day minutes spoken for the loyal and disloyal customers separately. We will create box and violin plots for <em>Total day minutes</em> grouped by the target variable.</p>
@@ -1288,7 +1307,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e73a6a8759efd4b82c99b56ca7cc168e9ba72e2a9f9378124d7b86fd8d257b0.svg" src="../../_images/1e73a6a8759efd4b82c99b56ca7cc168e9ba72e2a9f9378124d7b86fd8d257b0.svg" /></div>
+<img alt="../../_images/9d62890b3aadd7d1b3db070b8fbd5319221675d47138f6625179243eb2b3ae40.svg" src="../../_images/9d62890b3aadd7d1b3db070b8fbd5319221675d47138f6625179243eb2b3ae40.svg" /></div>
 </div>
 <p>In this case, the violin plot does not contribute any additional information about our data as everything is clear from the box plot alone: disloyal customers tend to talk on the phone more.</p>
 <p><strong>An interesting observation</strong>: on average, customers that discontinue their contracts are more active users of communication services. Perhaps they are unhappy with the tariffs, so a possible measure to prevent churn could be a reduction in call rates. The company will need to undertake additional economic analysis to find out whether such measures would be beneficial.</p>
@@ -1309,7 +1328,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/31f834ff7509f721b1ef58ff4e4905771a8dcaa6076a72aa6487d42982a606c3.svg" src="../../_images/31f834ff7509f721b1ef58ff4e4905771a8dcaa6076a72aa6487d42982a606c3.svg" /></div>
+<img alt="../../_images/4f9386a97830d2d57337f02978c326e595ea7a9bdf5e60236d26de5580562239.svg" src="../../_images/4f9386a97830d2d57337f02978c326e595ea7a9bdf5e60236d26de5580562239.svg" /></div>
 </div>
 <p>From this, we could conclude that, starting with 4 calls, <em>Total day minutes</em> may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.</p>
 </section>
@@ -1324,7 +1343,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6065f319013ea0e36fbfacb5662ac4642a9385e9ce4ab4550bbecdb5ae2b3e6a.svg" src="../../_images/6065f319013ea0e36fbfacb5662ac4642a9385e9ce4ab4550bbecdb5ae2b3e6a.svg" /></div>
+<img alt="../../_images/4a27125eacda7acdbfad860ee5b19d360cc1ebcb38f02aae989d08160ad9e55e.svg" src="../../_images/4a27125eacda7acdbfad860ee5b19d360cc1ebcb38f02aae989d08160ad9e55e.svg" /></div>
 </div>
 <p><strong>An observation</strong>: the churn rate increases significantly after 4 or more calls to customer service.</p>
 <p>Now, let’s look at the relationship between <em>Churn</em> and the binary features, <em>International plan</em> and <em>Voice mail plan</em>.</p>
@@ -1338,7 +1357,7 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/563c6b779881cd551d8847ed57edf98b35809dfc65c7ae29e840a816a53e30d4.svg" src="../../_images/563c6b779881cd551d8847ed57edf98b35809dfc65c7ae29e840a816a53e30d4.svg" /></div>
+<img alt="../../_images/41e1a1fdd78488515fad28041d54938fe84f4ecf9a66ee88e18dbe27cf8f0717.svg" src="../../_images/41e1a1fdd78488515fad28041d54938fe84f4ecf9a66ee88e18dbe27cf8f0717.svg" /></div>
 </div>
 <p><strong>An observation</strong>: when <em>International Plan</em> is enabled, the churn rate is much higher; the usage of the international plan by the customer is a strong feature. We do not observe the same effect with <em>Voice mail plan</em>.</p>
 <section id="contingency-table">
@@ -1479,6 +1498,10 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23895/2535166661.py:1: FutureWarning: The provided callable &lt;function mean at 0x106086fc0&gt; is currently using SeriesGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;mean&quot; instead.
+  df.groupby([&quot;State&quot;])[&quot;Churn&quot;].agg([np.mean]).sort_values(by=&quot;mean&quot;, ascending=False).T
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1611,8 +1634,8 @@ Name: Churn, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 40s, sys: 7.57 s, total: 1min 47s
-Wall time: 11.5 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 38.1 s, sys: 14.3 s, total: 52.4 s
+Wall time: 4.73 s
 </pre></div>
 </div>
 </div>
@@ -1625,7 +1648,7 @@ Wall time: 11.5 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8536ab5e62800e8ba9e7c064be956444271ae34201c5727360e1867980098026.svg" src="../../_images/8536ab5e62800e8ba9e7c064be956444271ae34201c5727360e1867980098026.svg" /></div>
+<img alt="../../_images/7c2de744070b712683f23b49855dfb344db119d8e7cb694d1f3ab103e10c5364.svg" src="../../_images/7c2de744070b712683f23b49855dfb344db119d8e7cb694d1f3ab103e10c5364.svg" /></div>
 </div>
 <p>Let’s color this t-SNE representation according to the churn (blue for loyal customers, and orange for those who churned).</p>
 <div class="cell docutils container">
@@ -1640,7 +1663,7 @@ Wall time: 11.5 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6ef8dfd1d0bde89ee1454a3db8a6035abb0a793645d93bbe1415f5ac57a391f1.svg" src="../../_images/6ef8dfd1d0bde89ee1454a3db8a6035abb0a793645d93bbe1415f5ac57a391f1.svg" /></div>
+<img alt="../../_images/4e8c4063257efffff85ed9c0fd53af9bbf17068ddb318ece556df55340d984be.svg" src="../../_images/4e8c4063257efffff85ed9c0fd53af9bbf17068ddb318ece556df55340d984be.svg" /></div>
 </div>
 <p>We can see that customers who churned are concentrated in a few areas of the lower dimensional feature space.</p>
 <p>To better understand the picture, we can also color it with the remaining binary features: <em>International Plan</em> and <em>Voicemail</em>. Orange dots here indicate instances that are positive for the corresponding binary feature.</p>
@@ -1660,7 +1683,7 @@ Wall time: 11.5 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b851e9f922b6cd3c8486fbf1f1e4b8641362a754735f9daff8d44e91ee531749.svg" src="../../_images/b851e9f922b6cd3c8486fbf1f1e4b8641362a754735f9daff8d44e91ee531749.svg" /></div>
+<img alt="../../_images/a31b83c7f8abc2395557f6fc207b30cc049284bf7a4c0e55a73ffaeba7ea3cfd.svg" src="../../_images/a31b83c7f8abc2395557f6fc207b30cc049284bf7a4c0e55a73ffaeba7ea3cfd.svg" /></div>
 </div>
 <p>Now it is clear that, for example, many dissatisfied customers who canceled their subscription are crowded together in one cluster representing the people with the international plan but no voice mail.</p>
 <p>Finally, let’s note some disadvantages of t-SNE:</p>
@@ -1719,11 +1742,10 @@ Wall time: 11.5 s
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic02_intro.html"
@@ -1743,10 +1765,7 @@ Wall time: 11.5 s
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1754,6 +1773,7 @@ Wall time: 11.5 s
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1820,6 +1840,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1846,8 +1867,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

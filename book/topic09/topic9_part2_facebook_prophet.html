@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -525,7 +542,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-9-time-series-analysis-in-python-part-2-predicting-the-future-with-facebook-prophet">
 <span id="topic09-part2"></span><h1>Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet<a class="headerlink" href="#topic-9-time-series-analysis-in-python-part-2-predicting-the-future-with-facebook-prophet" title="Permalink to this heading">#</a></h1>
@@ -1017,7 +1034,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.17.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -1170,6 +1187,76 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">logging</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">prophet</span> <span class="kn">import</span> <span class="n">Prophet</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Caches</span><span class="o">/</span><span class="n">pypoetry</span><span class="o">/</span><span class="n">virtualenvs</span><span class="o">/</span><span class="n">mlcourse</span><span class="o">-</span><span class="n">ai</span><span class="o">-</span><span class="n">czBTtoES</span><span class="o">-</span><span class="n">py3</span><span class="mf">.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">prophet</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Copyright (c) 2017-present, Facebook, Inc.</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># All rights reserved.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># This source code is licensed under the BSD-style license found in the</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># LICENSE file in the root directory of this source tree. An additional grant</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># of patent rights can be found in the PATENTS file in the same directory.</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">prophet.forecaster</span> <span class="kn">import</span> <span class="n">Prophet</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">about</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Caches</span><span class="o">/</span><span class="n">pypoetry</span><span class="o">/</span><span class="n">virtualenvs</span><span class="o">/</span><span class="n">mlcourse</span><span class="o">-</span><span class="n">ai</span><span class="o">-</span><span class="n">czBTtoES</span><span class="o">-</span><span class="n">py3</span><span class="mf">.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">prophet</span><span class="o">/</span><span class="n">forecaster</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">NANOSECONDS_TO_SECONDS</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span>
+<span class="ne">---&gt; </span><span class="mi">28</span> <span class="k">class</span> <span class="nc">Prophet</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Prophet forecaster.</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd">     holidays_mode: &#39;additive&#39; or &#39;multiplicative&#39;. Defaults to seasonality_mode.</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>             <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>             <span class="n">growth</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>             <span class="n">holidays_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="p">):</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/prophet/forecaster.py:459,</span> in <span class="ni">Prophet</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="bp">self</span><span class="o">.</span><span class="n">changepoints_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># dummy changepoint</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="nd">@staticmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span> <span class="k">def</span> <span class="nf">fourier_series</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">456</span>     <span class="n">dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="n">period</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span>     <span class="n">series_order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">459</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float_</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Provides Fourier series components with the specified frequency</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span><span class="sd">     and order.</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">471</span><span class="sd">     Matrix with seasonality features.</span>
+<span class="g g-Whitespace">    </span><span class="mi">472</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">473</span>     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">series_order</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">):</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:397,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">397</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: `np.float_` was removed in the NumPy 2.0 release. Use `np.float64` instead.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s convert our dataframe to the format required by Prophet:</p>
 <div class="cell docutils container">
@@ -1182,48 +1269,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>904</th>
-      <td>2017-06-23</td>
-      <td>421</td>
-    </tr>
-    <tr>
-      <th>905</th>
-      <td>2017-06-24</td>
-      <td>277</td>
-    </tr>
-    <tr>
-      <th>906</th>
-      <td>2017-06-25</td>
-      <td>253</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The authors of the library generally advise to make predictions based on at least several months, ideally, more than a year of historical data. Luckily, in our case we have more than a couple of years of data to fit the model.</p>
 <p>To measure the quality of our forecast, we need to split our dataset into the <em>historical part</em>, which is the first and biggest slice of our data, and the <em>prediction part</em>, which will be located at the end of the timeline. We will remove the last month from the dataset in order to use it later as a prediction target:</p>
@@ -1235,62 +1280,12 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>874</th>
-      <td>2017-05-24</td>
-      <td>375</td>
-    </tr>
-    <tr>
-      <th>875</th>
-      <td>2017-05-25</td>
-      <td>298</td>
-    </tr>
-    <tr>
-      <th>876</th>
-      <td>2017-05-26</td>
-      <td>269</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Now we need to create a new <code class="docutils literal notranslate"><span class="pre">Prophet</span></code> object. Here we can pass the parameters of the model into the constructor. But in this article we will use the defaults. Then we train our model by invoking its <code class="docutils literal notranslate"><span class="pre">fit</span></code> method on our training dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
 <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14:45:40 - cmdstanpy - INFO - Chain [1] start processing
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14:45:40 - cmdstanpy - INFO - Chain [1] done processing
 </pre></div>
 </div>
 </div>
@@ -1303,44 +1298,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>904</th>
-      <td>2017-06-23</td>
-    </tr>
-    <tr>
-      <th>905</th>
-      <td>2017-06-24</td>
-    </tr>
-    <tr>
-      <th>906</th>
-      <td>2017-06-25</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>We predict values with <code class="docutils literal notranslate"><span class="pre">Prophet</span></code> by passing in the dates for which we want to create a forecast. If we also supply the historical dates (as in our case), then in addition to the prediction we will get an in-sample fit for the history. Let’s call the model’s <code class="docutils literal notranslate"><span class="pre">predict</span></code> method with our <code class="docutils literal notranslate"><span class="pre">future</span></code> dataframe as an input:</p>
 <div class="cell docutils container">
@@ -1350,116 +1307,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ds</th>
-      <th>trend</th>
-      <th>yhat_lower</th>
-      <th>yhat_upper</th>
-      <th>trend_lower</th>
-      <th>trend_upper</th>
-      <th>additive_terms</th>
-      <th>additive_terms_lower</th>
-      <th>additive_terms_upper</th>
-      <th>weekly</th>
-      <th>weekly_lower</th>
-      <th>weekly_upper</th>
-      <th>yearly</th>
-      <th>yearly_lower</th>
-      <th>yearly_upper</th>
-      <th>multiplicative_terms</th>
-      <th>multiplicative_terms_lower</th>
-      <th>multiplicative_terms_upper</th>
-      <th>yhat</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>904</th>
-      <td>2017-06-23</td>
-      <td>278.890961</td>
-      <td>256.375770</td>
-      <td>306.559028</td>
-      <td>278.454388</td>
-      <td>279.408749</td>
-      <td>2.136612</td>
-      <td>2.136612</td>
-      <td>2.136612</td>
-      <td>3.470236</td>
-      <td>3.470236</td>
-      <td>3.470236</td>
-      <td>-1.333624</td>
-      <td>-1.333624</td>
-      <td>-1.333624</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>281.027573</td>
-    </tr>
-    <tr>
-      <th>905</th>
-      <td>2017-06-24</td>
-      <td>279.618618</td>
-      <td>220.276869</td>
-      <td>268.498949</td>
-      <td>279.142999</td>
-      <td>280.174648</td>
-      <td>-35.171070</td>
-      <td>-35.171070</td>
-      <td>-35.171070</td>
-      <td>-34.023126</td>
-      <td>-34.023126</td>
-      <td>-34.023126</td>
-      <td>-1.147944</td>
-      <td>-1.147944</td>
-      <td>-1.147944</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>244.447548</td>
-    </tr>
-    <tr>
-      <th>906</th>
-      <td>2017-06-25</td>
-      <td>280.346275</td>
-      <td>223.918819</td>
-      <td>274.644847</td>
-      <td>279.852356</td>
-      <td>280.935247</td>
-      <td>-31.541794</td>
-      <td>-31.541794</td>
-      <td>-31.541794</td>
-      <td>-30.579139</td>
-      <td>-30.579139</td>
-      <td>-30.579139</td>
-      <td>-0.962655</td>
-      <td>-0.962655</td>
-      <td>-0.962655</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>248.804482</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>In the resulting dataframe you can see many columns characterizing the prediction, including trend and seasonality components as well as their confidence intervals. The forecast itself is stored in the <code class="docutils literal notranslate"><span class="pre">yhat</span></code> column.</p>
 <p>The Prophet library has its own built-in tools for visualization that enable us to quickly evaluate the result.</p>
@@ -1469,9 +1316,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/c6f8fcfde8da9913b3617c54680d1906788245a7030a877de5542fb156ca7ddb.png" src="../../_images/c6f8fcfde8da9913b3617c54680d1906788245a7030a877de5542fb156ca7ddb.png" />
 </div>
 </div>
 <p>This chart doesn’t look very informative. The only definitive conclusion that we can draw here is that the model treated many of the data points as outliers.</p>
@@ -1483,9 +1327,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/f517154783cd5e418b26445585ffe37992ca68d4207910741c3b4e3c32656a8a.png" src="../../_images/f517154783cd5e418b26445585ffe37992ca68d4207910741c3b4e3c32656a8a.png" />
-</div>
 </div>
 <p>As you can see from the trend graph, Prophet did a good job by fitting the accelerated growth of new posts at the end of 2016. The graph of weekly seasonality leads to the conclusion that usually there are less new posts on Saturdays and Sundays than on the other days of the week. In the yearly seasonality graph there is a prominent dip on Christmas Day.</p>
 </section>
@@ -1496,11 +1337,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">forecast</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ds, trend, yhat_lower, yhat_upper, trend_lower, trend_upper, additive_terms, additive_terms_lower, additive_terms_upper, weekly, weekly_lower, weekly_upper, yearly, yearly_lower, yearly_upper, multiplicative_terms, multiplicative_terms_lower, multiplicative_terms_upper, yhat
 </pre></div>
 </div>
 </div>
@@ -1528,63 +1364,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>yhat</th>
-      <th>yhat_lower</th>
-      <th>yhat_upper</th>
-      <th>y</th>
-    </tr>
-    <tr>
-      <th>ds</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017-06-23</th>
-      <td>281.027573</td>
-      <td>256.375770</td>
-      <td>306.559028</td>
-      <td>421</td>
-    </tr>
-    <tr>
-      <th>2017-06-24</th>
-      <td>244.447548</td>
-      <td>220.276869</td>
-      <td>268.498949</td>
-      <td>277</td>
-    </tr>
-    <tr>
-      <th>2017-06-25</th>
-      <td>248.804482</td>
-      <td>223.918819</td>
-      <td>274.644847</td>
-      <td>253</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>We are also going to define a helper function that we will use to gauge the quality of our forecasting with MAPE and MAE error measures:</p>
 <div class="cell docutils container">
@@ -1624,12 +1403,6 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span> <span class="ow">in</span> <span class="n">calculate_forecast_errors</span><span class="p">(</span><span class="n">cmp_df</span><span class="p">,</span> <span class="n">prediction_size</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">err_name</span><span class="p">,</span> <span class="n">err_value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 22.491562351535272
-MAE 69.242268796982
 </pre></div>
 </div>
 </div>
@@ -1693,17 +1466,6 @@ MAE 69.242268796982
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="800"
-            height="500"
-            src="../../_static/plotly_htmls/New_posts_on_Medium.html"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
 </div>
 <p>At first glance, the prediction of the mean values by our model seems to be sensible. The high value of MAPE that we got above may be explained by the fact that the model failed to catch on to increasing peak-to-peak amplitude of weakly seasonality.</p>
 <p>Also, we can conclude from the graph above that many of the actual values lie outside the confidence interval. Prophet may not be suitable for time series with unstable variance, at least when the default settings are used. We will try to fix this by applying a transform to our data.</p>
@@ -1768,14 +1530,6 @@ MAE 69.242268796982
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14:45:42 - cmdstanpy - INFO - Chain [1] start processing
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14:45:42 - cmdstanpy - INFO - Chain [1] done processing
-</pre></div>
-</div>
-</div>
 </div>
 <p>At this point, we need to revert the Box–Cox transformation with our inverse function and the known value of <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
 <div class="cell docutils container">
@@ -1795,12 +1549,6 @@ MAE 69.242268796982
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE 11.75113989114766
-MAE 39.760303261646214
-</pre></div>
-</div>
-</div>
 </div>
 <p>So, we can definitely state an increase in the quality of the model.</p>
 <p>Finally, let’s plot our previous performance with the latest results side-by-side. Note that we use <code class="docutils literal notranslate"><span class="pre">prediction_size</span></code> for the third parameter in order to zoom in on the interval being predicted:</p>
@@ -1811,26 +1559,6 @@ MAE 39.760303261646214
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="800"
-            height="500"
-            src="../../_static/plotly_htmls/No_transformations.html"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div><div class="output text_html">
-        <iframe
-            width="800"
-            height="500"
-            src="../../_static/plotly_htmls/Box–Cox_transformation.html"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
 </div>
 <p>We see that the forecast of weekly changes in the second graph is much closer to the real values now.</p>
 </section>
@@ -1878,11 +1606,10 @@ MAE 39.760303261646214
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic9_part1_time_series_python.html"
@@ -1902,10 +1629,7 @@ MAE 39.760303261646214
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1913,6 +1637,7 @@ MAE 39.760303261646214
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1963,6 +1688,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1989,8 +1715,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

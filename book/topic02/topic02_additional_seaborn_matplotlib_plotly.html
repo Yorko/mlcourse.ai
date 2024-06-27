@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -521,7 +538,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visual-data-analysis-in-python-part-2-overview-of-seaborn-matplotlib-and-plotly-libraries">
 <span id="topic2-part2"></span><h1>Visual data analysis in Python. Part 2. Overview of Seaborn, Matplotlib and Plotly libraries<a class="headerlink" href="#visual-data-analysis-in-python-part-2-overview-of-seaborn-matplotlib-and-plotly-libraries" title="Permalink to this heading">#</a></h1>
@@ -598,7 +615,7 @@ Some of the games in this dataset lack ratings; so, let’s filter for only thos
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 6825 entries, 0 to 16706
+Index: 6825 entries, 0 to 16706
 Data columns (total 16 columns):
  #   Column           Non-Null Count  Dtype  
 ---  ------           --------------  -----  
@@ -769,7 +786,7 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a970c5ed890b56f1114e76c48d618b9557fedbfb7c898b05d0c8114f56544c3f.svg" src="../../_images/a970c5ed890b56f1114e76c48d618b9557fedbfb7c898b05d0c8114f56544c3f.svg" /></div>
+<img alt="../../_images/fec09a6565f635bd792ba7e9d739d45927c0acce8c4620f9cf2ee6d75df7361b.svg" src="../../_images/fec09a6565f635bd792ba7e9d739d45927c0acce8c4620f9cf2ee6d75df7361b.svg" /></div>
 </div>
 <p>Note that the implementation of the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is based on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter, you can change the type of the plot to, for example, a <em>bar chart</em>. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is generally quite flexible for customizing plots. You can change almost everything in the chart, but you may need to dig into the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.plot.html">documentation</a> to find the corresponding parameters. For example, the parameter <code class="docutils literal notranslate"><span class="pre">rot</span></code> is responsible for the rotation angle of ticks on the x-axis (for vertical plots):</p>
@@ -782,7 +799,7 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8be05818f74b411d699c978aaf59cd473b7461313933a860ea859aecd590dd39.svg" src="../../_images/8be05818f74b411d699c978aaf59cd473b7461313933a860ea859aecd590dd39.svg" /></div>
+<img alt="../../_images/d4240042d2e7ace7a55ce31f490b2c4afc794ffa201055f4c6c477d9d0e0d2ac.svg" src="../../_images/d4240042d2e7ace7a55ce31f490b2c4afc794ffa201055f4c6c477d9d0e0d2ac.svg" /></div>
 </div>
 </section>
 <section id="seaborn">
@@ -802,7 +819,7 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01a79fbeb6c67a564f7d8239f6e11c71c99385171d177ccdc93080081f440d1a.png" src="../../_images/01a79fbeb6c67a564f7d8239f6e11c71c99385171d177ccdc93080081f440d1a.png" />
+<img alt="../../_images/e41997355d9178e5b5ea42aeafa7a3843fb8e627b87ecc7629c2d4baebc66cbc.png" src="../../_images/e41997355d9178e5b5ea42aeafa7a3843fb8e627b87ecc7629c2d4baebc66cbc.png" />
 </div>
 </div>
 <p>As you can see, the distribution histograms lie on the diagonal of the matrix. The remaining charts are scatter plots for the corresponding pairs of features.</p>
@@ -818,7 +835,7 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4z/y80ms1vs4yq74kf1_wfkqm580000gp/T/ipykernel_53975/2408025543.py:2: UserWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23869/2408025543.py:2: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -831,7 +848,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
   sns.distplot(df[&quot;Critic_Score&quot;]);
 </pre></div>
 </div>
-<img alt="../../_images/c8ddc939939a213f31371bd7ea6c259334a58ade47e714349e5bbf7d7d47855d.svg" src="../../_images/c8ddc939939a213f31371bd7ea6c259334a58ade47e714349e5bbf7d7d47855d.svg" /></div>
+<img alt="../../_images/fc3368530257e3355740a12c09d4cdc1d9892ee75e9131cdecf1ebf567725d1f.svg" src="../../_images/fc3368530257e3355740a12c09d4cdc1d9892ee75e9131cdecf1ebf567725d1f.svg" /></div>
 </div>
 </section>
 <section id="jointplot">
@@ -844,7 +861,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/786b2d7c919e1675bf58e595b236b003e14b36174fb6117078a8ff63955969e6.svg" src="../../_images/786b2d7c919e1675bf58e595b236b003e14b36174fb6117078a8ff63955969e6.svg" /></div>
+<img alt="../../_images/07776a4079f7de9c1bb3d68e3dcc26541237c07f5ab8cb3b9ce6626d246b8f5d.svg" src="../../_images/07776a4079f7de9c1bb3d68e3dcc26541237c07f5ab8cb3b9ce6626d246b8f5d.svg" /></div>
 </div>
 </section>
 <section id="boxplot">
@@ -865,7 +882,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ef933dc186537d1c9ece8e2565a0441fc55cd76ef389fa4affd8d85c41650c4a.svg" src="../../_images/ef933dc186537d1c9ece8e2565a0441fc55cd76ef389fa4affd8d85c41650c4a.svg" /></div>
+<img alt="../../_images/f3d3d372c374a9ee7b9cb81e85b4c44cadfaff1a76e7405317175ad16f4de3d4.svg" src="../../_images/f3d3d372c374a9ee7b9cb81e85b4c44cadfaff1a76e7405317175ad16f4de3d4.svg" /></div>
 </div>
 <p>It is worth spending a bit more time to discuss how to interpret a box plot. Its components are a <em>box</em> (obviously, this is why it is called a <em>box plot</em>), the so-called <em>whiskers</em>, and a number of individual points (<em>outliers</em>).</p>
 <p>The box by itself illustrates the interquartile spread of the distribution; its length determined by the <span class="math notranslate nohighlight">\(25\% \, (\text{Q1})\)</span> and <span class="math notranslate nohighlight">\(75\% \, (\text{Q3})\)</span> percentiles. The vertical line inside the box marks the median (<span class="math notranslate nohighlight">\(50\%\)</span>) of the distribution.</p>
@@ -889,7 +906,13 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e252777745eca08ccd2ab473e16ad49fc48ffa6313f744aaa0aecffd89454a92.svg" src="../../_images/e252777745eca08ccd2ab473e16ad49fc48ffa6313f744aaa0aecffd89454a92.svg" /></div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23869/688134482.py:2: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;sum&quot; instead.
+  df.pivot_table(
+/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23869/688134482.py:6: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  .applymap(float)
+</pre></div>
+</div>
+<img alt="../../_images/c56a0384039be07ec5c62ff6e2907c49748f3ed9c97bd87d5cefe7e3c2949453.svg" src="../../_images/c56a0384039be07ec5c62ff6e2907c49748f3ed9c97bd87d5cefe7e3c2949453.svg" /></div>
 </div>
 </section>
 </section>
@@ -932,7 +955,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.17.1.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -1146,11 +1169,10 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic02_visual_data_analysis.html"
@@ -1170,10 +1192,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1181,6 +1200,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1227,6 +1247,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1253,8 +1274,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

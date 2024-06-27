@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -87,19 +88,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +126,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,9 +154,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
+  
   
   
   
@@ -153,8 +168,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-light" alt="mlcourse.ai - Home"/>
+    <script>document.write(`<img src="../../_static/mlcourse_ai_logo.jpg" class="logo__image only-dark" alt="mlcourse.ai - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -308,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -454,20 +469,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -507,7 +524,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
 <span id="topic04-part3"></span><h1>Topic 4. Linear Classification and Regression<a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this heading">#</a></h1>
@@ -736,7 +753,7 @@ memory usage: 2.9 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/41230f4a6ab15ea5e4b298006d509d77230b74d4f5d12c902ebe422c9d80dde0.png" src="../../_images/41230f4a6ab15ea5e4b298006d509d77230b74d4f5d12c902ebe422c9d80dde0.png" />
+<img alt="../../_images/40915e6e2316947938069019a6a939381a21367320004de667e8e4546b6782d7.png" src="../../_images/40915e6e2316947938069019a6a939381a21367320004de667e8e4546b6782d7.png" />
 </div>
 </div>
 <p>Let’s define a function to display the separating curve of the classifier.</p>
@@ -808,10 +825,13 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set: 0.627
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set:
 </pre></div>
 </div>
-<img alt="../../_images/22978f421938b268371ce480867bc522a62372adc4265314881cf110071299d5.png" src="../../_images/22978f421938b268371ce480867bc522a62372adc4265314881cf110071299d5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.627
+</pre></div>
+</div>
+<img alt="../../_images/8f7bdcdfe9e5547f170cba04e379983237377f4cf5ee0343390eedcb1d55e828.png" src="../../_images/8f7bdcdfe9e5547f170cba04e379983237377f4cf5ee0343390eedcb1d55e828.png" />
 </div>
 </div>
 <p>We could now try increasing <span class="math notranslate nohighlight">\(C\)</span> to 1. In doing this, we weaken regularization, and the solution can now have greater values (in absolute value) of model weights than previously. Now the accuracy of the classifier on the training set improves to 0.831.</p>
@@ -838,7 +858,7 @@ The number of such features is exponentially large, and it can be costly to buil
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set: 0.831
 </pre></div>
 </div>
-<img alt="../../_images/27151dea1c0a6158a83adc5e94551a076b5a42c6f4dfe4ada1f4f0f3d9fd9f75.png" src="../../_images/27151dea1c0a6158a83adc5e94551a076b5a42c6f4dfe4ada1f4f0f3d9fd9f75.png" />
+<img alt="../../_images/8324cdbd4ea3199b1fcf34bb2b8069191efbb53d9c350982441577d16841c31b.png" src="../../_images/8324cdbd4ea3199b1fcf34bb2b8069191efbb53d9c350982441577d16841c31b.png" />
 </div>
 </div>
 <p>Then, why don’t we increase <span class="math notranslate nohighlight">\(C\)</span> even more - up to 10,000? Now, regularization is clearly not strong enough, and we see overfitting. Note that, with <span class="math notranslate nohighlight">\(C\)</span>=1 and a “smooth” boundary, the share of correct answers on the training set is not much lower than here. But one can easily imagine how our second model will work much better on new data.</p>
@@ -865,7 +885,7 @@ The number of such features is exponentially large, and it can be costly to buil
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set: 0.873
 </pre></div>
 </div>
-<img alt="../../_images/9a650f6bcc0a7fff19ed045ba2e7e3e3a891d75f13924149bcee47ce08d94646.png" src="../../_images/9a650f6bcc0a7fff19ed045ba2e7e3e3a891d75f13924149bcee47ce08d94646.png" />
+<img alt="../../_images/fc0901d085f9251081efc1502e695b5239903440fd08feec685adcb0ebcd11af.png" src="../../_images/fc0901d085f9251081efc1502e695b5239903440fd08feec685adcb0ebcd11af.png" />
 </div>
 </div>
 <p>To discuss the results, let’s rewrite the function that is optimized in logistic regression with the form:</p>
@@ -904,7 +924,7 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([150.78450459])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([165.36244071])
 </pre></div>
 </div>
 </div>
@@ -919,7 +939,7 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6ce224d56426407969bea34cb65e077887c899a7e698a6f8d94580eee1b1cca3.png" src="../../_images/6ce224d56426407969bea34cb65e077887c899a7e698a6f8d94580eee1b1cca3.png" />
+<img alt="../../_images/d491678a85ca5e9c7355bee73e4aaed1c4665cd0c8f3788c8803f66af6fc201a.png" src="../../_images/d491678a85ca5e9c7355bee73e4aaed1c4665cd0c8f3788c8803f66af6fc201a.png" />
 </div>
 </div>
 <p>Finally, select the area with the “best” values of <span class="math notranslate nohighlight">\(C\)</span>.</p>
@@ -933,7 +953,7 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b2105cac0c16062cef2629dffe62e654982f7009020e8f2245c6998f78422143.png" src="../../_images/b2105cac0c16062cef2629dffe62e654982f7009020e8f2245c6998f78422143.png" />
+<img alt="../../_images/3b6254eb6f4001fb45f20dcfe2cf1fc4da374d90b59715fb5a285ce57de3c7ea.png" src="../../_images/3b6254eb6f4001fb45f20dcfe2cf1fc4da374d90b59715fb5a285ce57de3c7ea.png" />
 </div>
 </div>
 <p>Recall that these curves are called validation curves. Previously, we built them manually, but sklearn has special methods to construct these that we will use going forward.</p>
@@ -982,11 +1002,10 @@ The number of such features is exponentially large, and it can be costly to buil
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="topic4_linear_models_part2_logit_likelihood_learning.html"
@@ -1006,10 +1025,7 @@ The number of such features is exponentially large, and it can be costly to buil
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1017,6 +1033,7 @@ The number of such features is exponentially large, and it can be costly to buil
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1049,6 +1066,7 @@ By Yury Kashnitsky (yorko)
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023.
@@ -1075,8 +1093,8 @@ By Yury Kashnitsky (yorko)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

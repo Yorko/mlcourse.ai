@@ -350,7 +350,7 @@ Shell is the main interface for VW.
 
 
 ```{code-cell} ipython3
-!vw --help | head
+#!vw --help | head
 ```
 
 Vowpal Wabbit reads data from files or from standard input stream (stdin) with the following format:
@@ -720,8 +720,8 @@ with open(os.path.join(PATH_TO_WRITE_DATA, "movie_reviews_test.vw"), "w") as vw_
 
 
 ```{code-cell} ipython3
-!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
--f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
+#!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
+#-f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
 ```
 
 Next, make the hold-out prediction with the following VW arguments:
@@ -732,8 +732,8 @@ Next, make the hold-out prediction with the following VW arguments:
 
 
 ```{code-cell} ipython3
-!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
--d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
+#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
+#-d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
 ```
 
 Read the predictions from the text file and estimate the accuracy and ROC AUC. Note that VW prints probability estimates of the +1 class. These estimates are distributed from  -1 to 1, so we can convert these into binary answers, assuming that positive values belong to class 1.
@@ -759,9 +759,9 @@ Again, do the same for the test set.
 
 
 ```{code-cell} ipython3
-!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
--d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
--p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
+#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
+#-d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
+#-p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
 ```
 
 
@@ -787,14 +787,14 @@ Let's try to achieve a higher accuracy by incorporating bigrams.
 
 
 ```{code-cell} ipython3
-!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
---loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
+#!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
+# --loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
 ```
 
 
 ```{code-cell} ipython3
-!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
--p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
+#!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
+#-p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
 ```
 
 
@@ -817,8 +817,8 @@ print("AUC: {}".format(round(roc_auc_score(valid_labels, valid_prediction), 3)))
 
 
 ```{code-cell} ipython3
-!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
--p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
+#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
+#-p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
 ```
 
 
@@ -858,4 +858,3 @@ This section has been moved to Kaggle, please explore [this Notebook](https://ww
 - "Command-line Tools can be 235x Faster than your Hadoop Cluster" [post](https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html)
 - Benchmarking various ML algorithms on Criteo 1TB dataset on [GitHub](https://github.com/rambler-digital-solutions/criteo-1tb-benchmark)
 - [VW on FastML.com](http://fastml.com/blog/categories/vw/)
-q
