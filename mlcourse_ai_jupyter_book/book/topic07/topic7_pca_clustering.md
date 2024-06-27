@@ -227,7 +227,7 @@ plt.scatter(
     edgecolor="none",
     alpha=0.7,
     s=40,
-    cmap=plt.cm.get_cmap("nipy_spectral", 10),
+    cmap=plt.get_cmap("nipy_spectral", 10),
 )
 plt.colorbar()
 plt.title("MNIST. PCA projection");
@@ -253,7 +253,7 @@ plt.scatter(
     edgecolor="none",
     alpha=0.7,
     s=40,
-    cmap=plt.cm.get_cmap("nipy_spectral", 10),
+    cmap=plt.get_cmap("nipy_spectral", 10),
 )
 plt.colorbar()
 plt.title("MNIST. t-SNE projection");
