@@ -1,0 +1,1930 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #10. Solution &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Assignment #10. Task" href="assignment10_implement_boosting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment10/assignment10_implement_boosting_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment10/assignment10_implement_boosting_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#center-implementation-of-the-gradient-boosting-algorithm-a-class-tocskip-center">
+   <center>
+    Implementation of the gradient boosting algorithm
+    <a class="tocSkip">
+    </a>
+   </center>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-task-is-to">
+     Your task is to:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deriving-gradients-for-log-loss-mse-and-rmsle">
+   Deriving gradients for log_loss, MSE and RMSLE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithm-implementation">
+   Algorithm implementation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-with-a-toy-example">
+   Regression with a toy example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ultimate-prediction-of-the-ensemble">
+       Ultimate prediction of the ensemble
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#residuals-at-each-iteration-and-the-corresponding-tree-prediction">
+       Residuals at each iteration and the corresponding tree prediction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-an-increase-in-the-number-of-trees-affects-the-whole-ensemble-s-prediction">
+       How an increase in the number of trees affects the whole ensemble’s prediction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mse-decrease-over-boosting-iterations">
+       MSE decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       How an increase in the number of trees affects the whole ensemble’s prediction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rmsle-decrease-over-boosting-iterations">
+       RMSLE decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-with-a-toy-example">
+   Classification with a toy example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Ultimate prediction of the ensemble
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#log-loss-decrease-over-boosting-iterations">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         log_loss
+        </span>
+       </code>
+       decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-with-the-boston-house-prices-dataset">
+   Regression with the Boston House-Prices Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       MSE decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-with-the-breast-cancer-wisconsin-dataset">
+   Classification with the Breast Cancer Wisconsin Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#histograms-of-the-predicted-probabilities-to-belong-to-class-for-positive-and-negative-examples">
+       Histograms of the predicted probabilities to belong to class
+       <span class="math notranslate nohighlight">
+        \(+\)
+       </span>
+       for positive and negative examples
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#roc-auc-and-the-share-of-correct-answers-on-the-test-set">
+       ROC AUC and the share of correct answers on the test set
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center> Assignment #10. Solution <a class="tocSkip"></center></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#center-implementation-of-the-gradient-boosting-algorithm-a-class-tocskip-center">
+   <center>
+    Implementation of the gradient boosting algorithm
+    <a class="tocSkip">
+    </a>
+   </center>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-task-is-to">
+     Your task is to:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deriving-gradients-for-log-loss-mse-and-rmsle">
+   Deriving gradients for log_loss, MSE and RMSLE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algorithm-implementation">
+   Algorithm implementation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-with-a-toy-example">
+   Regression with a toy example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ultimate-prediction-of-the-ensemble">
+       Ultimate prediction of the ensemble
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#residuals-at-each-iteration-and-the-corresponding-tree-prediction">
+       Residuals at each iteration and the corresponding tree prediction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-an-increase-in-the-number-of-trees-affects-the-whole-ensemble-s-prediction">
+       How an increase in the number of trees affects the whole ensemble’s prediction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mse-decrease-over-boosting-iterations">
+       MSE decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       How an increase in the number of trees affects the whole ensemble’s prediction
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rmsle-decrease-over-boosting-iterations">
+       RMSLE decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-with-a-toy-example">
+   Classification with a toy example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Ultimate prediction of the ensemble
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#log-loss-decrease-over-boosting-iterations">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         log_loss
+        </span>
+       </code>
+       decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression-with-the-boston-house-prices-dataset">
+   Regression with the Boston House-Prices Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       MSE decrease over boosting iterations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification-with-the-breast-cancer-wisconsin-dataset">
+   Classification with the Breast Cancer Wisconsin Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Solution:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#histograms-of-the-predicted-probabilities-to-belong-to-class-for-positive-and-negative-examples">
+       Histograms of the predicted probabilities to belong to class
+       <span class="math notranslate nohighlight">
+        \(+\)
+       </span>
+       for positive and negative examples
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#roc-auc-and-the-share-of-correct-answers-on-the-test-set">
+       ROC AUC and the share of correct answers on the test set
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a> (&#64;yorko). <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-10-solution-a-class-tocskip-center">
+<h1><center> Assignment #10. Solution <a class="tocSkip"></center><a class="headerlink" href="#center-assignment-10-solution-a-class-tocskip-center" title="Permalink to this headline">#</a></h1>
+<section id="center-implementation-of-the-gradient-boosting-algorithm-a-class-tocskip-center">
+<h2><center> Implementation of the gradient boosting algorithm <a class="tocSkip"></center><a class="headerlink" href="#center-implementation-of-the-gradient-boosting-algorithm-a-class-tocskip-center" title="Permalink to this headline">#</a></h2>
+<p>In this assignment we go through the math and implement a gradient boosting algorithm in a rather general form: the same class will implement a binary classifier that minimizes the logistic loss function and two regressors that minimize the mean squared error (MSE) and the root mean squared logarithmic error (<a class="reference external" href="https://www.kaggle.com/wiki/RootMeanSquaredLogarithmicError">RMSLE</a>). Thus, we will see that we can optimize arbitrary differentiable functions using gradient boosting, and how this technique adapts to different contexts.</p>
+<section id="your-task-is-to">
+<h3>Your task is to:<a class="headerlink" href="#your-task-is-to" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://forms.gle/jcn9ckFS9pXUji668">webform</a>.</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<p>We will use the algorithm version from the <a class="reference external" href="https://mlcourse.ai/articles/topic10-boosting/#Friedman%27s-classic-GBM-algorithm">article</a>, but with two simplifications:</p>
+<ol class="simple">
+<li><p>We initialize the algorithm with the mean value of the vector <span class="math notranslate nohighlight">\(\large y\)</span>, that is <span class="math notranslate nohighlight">\(\large \hat{f_0} = \frac{1}{n}\sum_{i=1}^{n}y_i\)</span>.</p></li>
+<li><p>We make the learning rate constant: <span class="math notranslate nohighlight">\(\large \rho_t = const\)</span>.</p></li>
+</ol>
+<p>There is a mapping between the pseudo code and the class parameters in <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code>:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>What</p></th>
+<th class="text-align:left head"><p>Pseudo code                                   </p></th>
+<th class="text-align:left head"><p><code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Training set</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large \{x_i, y_i\}_{i = 1,\ldots n}\)</span></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Loss function</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large L(y,f)\)</span></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">objective</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Loss function gradient</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large \frac{\partial L(y_i,f(x_i))}{\partial f(x_i)}\)</span></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">objective_grad</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Number of iterations</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large М\)</span></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Base algorithm (decision tree regressor)</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large h(x,\theta)\)</span></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">DecisionionTreeRegressor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Decision tree hyperparameters</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large \theta\)</span></p></td>
+<td class="text-align:left"><p>We will use only <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">random_state</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Learning rate<br>(coefficient for <span class="math notranslate nohighlight">\(\large h_t(x,\theta)\)</span> in the composition)</p></td>
+<td class="text-align:left"><p><span class="math notranslate nohighlight">\(\large \rho_t, \quad t=1,\ldots,M\)</span></p></td>
+<td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="deriving-gradients-for-log-loss-mse-and-rmsle">
+<h2>Deriving gradients for log_loss, MSE and RMSLE<a class="headerlink" href="#deriving-gradients-for-log-loss-mse-and-rmsle" title="Permalink to this headline">#</a></h2>
+<p>Let’s start with the traditional way of deriving formulas with pen and paper:
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\logloss}{log\_loss}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\MSE}{MSE}\)</span>
+<span class="math notranslate nohighlight">\(\DeclareMathOperator{\RMSLE}{RMSLE}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{rcl}
+\logloss(\y, \p) &amp;=&amp; -\y\log \p + (1 - \y)\log (1 - \p) \\
+&amp;=&amp; -\sum_{i=1}^{n}\left[y_i\log p_i + (1 - y_i)\log (1 - p_i)\right] \\
+\\
+\MSE(\y, \p) &amp;=&amp; \frac{1}{n}(\y - \p)^T(\y - \p) = \frac{1}{n}\sum_{i=1}^{n}(y_i - p_i)^2 \\
+\\
+\RMSLE(\y, \p) &amp;=&amp; \sqrt{\frac{1}{n} (\log (\p + 1) - \log (\y + 1))^T(\log (\p + 1) - \log (\y + 1))} \\
+&amp;=&amp; \sqrt{\frac{1}{n} \sum_{i=1}^{n}(\log (p_i + 1) - \log (y_i + 1))^2}
+\end{array}\end{split}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\y\)</span> and <span class="math notranslate nohighlight">\(\p\)</span> are <strong>vectors</strong> of values and predictions respectively.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\logloss\)</span> takes the same values as in <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>: <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> instead of <span class="math notranslate nohighlight">\(-1\)</span> and <span class="math notranslate nohighlight">\(1\)</span>, as it was described in the main article.</p></li>
+</ul>
+<p><strong><font color='red'>Question 1.</font> What is the formula of the <code class="docutils literal notranslate"><span class="pre">MSE</span></code> gradient?</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{rcl}
+&amp;&amp; \text{1. } (\p - \y) &amp;&amp; \text{3. } 2(\p - \y) \\
+&amp;&amp; \text{2. } \frac{2}{n}(\y - \p) &amp;&amp; \text{4. } \frac{2}{n}(\p - \y)
+\end{array}\)</span></p>
+<p><strong><font color='red'>Answer:</font></strong> 4.</p>
+<p><strong>Solution:</strong></p>
+<p><span class="math notranslate nohighlight">\(\large \frac{\partial}{\partial p_i} \MSE = \frac{1}{n} * 2(y_i-p_i)*(-1) = \frac{2}{n}(p_i - y_i)\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(\large \nabla \MSE = \frac{2}{n}(\p - \y)\)</span>.</p>
+<p><strong><font color='red'>Question 2.</font> What is the formula of the <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> gradient?</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{rcl}
+&amp;&amp; \text{1. } \large \frac{\y - \p}{\y(1 - \y)} &amp;&amp; \text{3. } \large \frac{\p - \y}{\p(1 - \p)} \\
+&amp;&amp; \text{2. } \large \frac{\y - \p}{\p(1 - \p)} &amp;&amp; \text{4. } \large \frac{\p - \y}{\y(1 - \y)}
+\end{array}\)</span></p>
+<p><em>Remark:</em> division by vector is element-wise, i.e. <span class="math notranslate nohighlight">\(\frac{1}{\p} = (\frac{1}{p_1}, \ldots \frac{1}{p_n})^T\)</span>.</p>
+<p><strong>Answer:</strong> 3.</p>
+<p><strong>Solution:</strong></p>
+<p><span class="math notranslate nohighlight">\(\large \frac{\partial}{\partial p_i} \logloss = -\frac{y_i}{p_i} - \frac{1 - y_i}{1 - p_i}(-1) = \frac{p_i - y_i}{p_i(1 - p_i)}\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(\large \nabla \logloss = \frac{\p - \y}{\p(1 - \p)}\)</span>.</p>
+<p><strong><font color='red'>Question 3.</font> What is the formula of the <code class="docutils literal notranslate"><span class="pre">RMSLE</span></code> gradient?</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{rcl}
+&amp;&amp; \text{1. } \frac{1}{n}(\p + 1)\RMSLE^{-1}(\y, \p) \log \frac{\p+1}{\y+1} &amp;&amp; \text{3. } [n(\y + 1)\RMSLE(\y, \p)]^{-1} \log \frac{\p+1}{\y+1} \\
+&amp;&amp; \text{2. } [n(\p + 1)\RMSLE(\y, \p)]^{-1} \log \frac{\p+1}{\y+1} &amp;&amp; \text{4. } \frac{1}{n}\frac{\y+1}{(\p + 1)}\RMSLE^{-1}(\y, \p) \log \frac{\p+1}{\y+1}
+\end{array}\)</span></p>
+<p><strong>Answer:</strong> 2.</p>
+<p><strong>Solution:</strong></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial}{\partial p_i} \RMSLE = \frac{1}{2\sqrt{\ldots}} \frac{1}{n}2(\log{(p_i+1)} - \log{(y_i+1)})\frac{1}{p_i+1} = [n(p_i + 1)\RMSLE]^{-1} \log \frac{p_i+1}{y_i+1}\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(\nabla \RMSLE = [n(\p + 1)\RMSLE(\y, \p)]^{-1} \log \frac{\p+1}{\y+1} \)</span>.</p>
+</section>
+<section id="algorithm-implementation">
+<h2>Algorithm implementation<a class="headerlink" href="#algorithm-implementation" title="Permalink to this headline">#</a></h2>
+<section id="task">
+<h3>Task:<a class="headerlink" href="#task" title="Permalink to this headline">#</a></h3>
+<p>Implement the <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code> class using the following specification:</p>
+<ul class="simple">
+<li><p>The class inherits from <code class="docutils literal notranslate"><span class="pre">sklearn.base.BaseEstimator</span></code>.</p></li>
+<li><p>The constructor has the following parameters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">loss</span></code> – a loss function to be optimized: <code class="docutils literal notranslate"><span class="pre">log_loss</span></code>, <code class="docutils literal notranslate"><span class="pre">mse</span></code> (by default) or <code class="docutils literal notranslate"><span class="pre">rmsle</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> – the number of trees, that is the number of boosting iterations (10 by default);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code> – the learning rate (<span class="math notranslate nohighlight">\(10^{-2}\)</span> by default);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> – the maximum depth of a tree (3 by default);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code> – the seed for the random number generator, used only for trees (17 by default).</p></li>
+</ul>
+</li>
+<li><p>Depending on the value of <code class="docutils literal notranslate"><span class="pre">loss</span></code>, <code class="docutils literal notranslate"><span class="pre">objective</span></code> and <code class="docutils literal notranslate"><span class="pre">objective_grad</span></code> are initialized differently:</p>
+<ul>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">mse</span></code> use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics.mean_squared_error</span></code>;</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics.log_loss</span></code>;</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">rmsle</span></code> you will need to implement the loss function by yourself as well as the gradients of all three loss functions. Also, don’t leave out constants like <span class="math notranslate nohighlight">\(2\)</span> or <span class="math notranslate nohighlight">\(n\)</span> while computing the gradients.</p></li>
+</ul>
+</li>
+<li><p>You will be using element-wise vector division in the implementations of the gradients for <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> and <code class="docutils literal notranslate"><span class="pre">rmsle</span></code>. In order to avoid division by zero, first replace all values less than <span class="math notranslate nohighlight">\(10^{-5}\)</span> for <span class="math notranslate nohighlight">\(10^{-5}\)</span>, but do it only where it is really neccesary. For example, when computing <span class="math notranslate nohighlight">\(\frac{y}{p}\)</span>, make the replacement only for the vector <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+<li><p>The constructor must create lists <code class="docutils literal notranslate"><span class="pre">loss_by_iter_</span></code> and <code class="docutils literal notranslate"><span class="pre">residuals_by_iter_</span></code> for debugging purposes and <code class="docutils literal notranslate"><span class="pre">trees_</span></code> for storing trained trees.</p></li>
+<li><p>The class must have methods <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code> and <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>:</p>
+<ul>
+<li><p>The method <code class="docutils literal notranslate"><span class="pre">fit</span></code> takes a matrix <code class="docutils literal notranslate"><span class="pre">X</span></code> and a vector <code class="docutils literal notranslate"><span class="pre">y</span></code> (both are instances of <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>) as arguments, and returns the current instance of <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code>, i.e <code class="docutils literal notranslate"><span class="pre">self</span></code>. This method will implement the main logic of the algorithm. At each iteration, the current value of the loss function is stored in <code class="docutils literal notranslate"><span class="pre">loss_by_iter</span></code>, the value of the anti gradient (what we called <em>pseudo residuals</em> in the article) is stored in <code class="docutils literal notranslate"><span class="pre">residuals_by_iter_</span></code>. Optionally, you could add a flag <code class="docutils literal notranslate"><span class="pre">debug=False</span></code> to the constructor arguments and store the anti gradient values only when it is on. Also, you must store each new trained tree in the <code class="docutils literal notranslate"><span class="pre">trees_</span></code> list.</p></li>
+<li><p>The method <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> returns a linear combination of predictions over all the trees. Also, don’t forget about the initial approximation. In the case of regression, the name of the method is somewhat misleading, but let’s keep it so that we don’t have to implement both the regressor and classifier. In the case of classification, apply <span class="math notranslate nohighlight">\(\sigma\)</span>-transformation to the returned value. In the impementation of the <span class="math notranslate nohighlight">\(\sigma\)</span>-function replace arguments with absolute values bigger than <span class="math notranslate nohighlight">\(100\)</span> for <span class="math notranslate nohighlight">\(100\)</span> or <span class="math notranslate nohighlight">\(-100\)</span> depending on the sign of the argument, to prevent underflow or overflow.</p></li>
+<li><p>In the case of regression, method <code class="docutils literal notranslate"><span class="pre">predict</span></code> returns a linear combination of predictions over all the trees (plus the initial aproximation), i.e. the same as the method <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>. In the case of classification, <code class="docutils literal notranslate"><span class="pre">predict</span></code> uses <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> and returns a vector composed of <span class="math notranslate nohighlight">\(0\)</span>’s and <span class="math notranslate nohighlight">\(1\)</span>’s obtained by comparing the predicted probabilities with a threshold that maximizes a share of correct answers on the training set. Here, it would be instructive to solve a one-dimensional optimization problem, but, for the sake of reproducibility, you should choose the threshold from <code class="docutils literal notranslate"><span class="pre">np.linspace(0.01,</span> <span class="pre">1.01,</span> <span class="pre">100)</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="solution">
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span><span class="p">,</span> <span class="n">load_breast_cancer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">log_loss</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm_notebook</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GradientBoosting</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>
+        <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span>
+        <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_estimators</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span> <span class="o">=</span> <span class="n">max_depth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_name</span> <span class="o">=</span> <span class="n">loss_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+
+        <span class="k">if</span> <span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;log_loss&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_loss</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective_grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_loss_grad</span>
+        <span class="k">elif</span> <span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;mse&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">mean_squared_error</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective_grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mse_grad</span>
+        <span class="k">elif</span> <span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;rmsle&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rmsle</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective_grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rmsle_grad</span>
+        <span class="k">elif</span> <span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;rmspe&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">rmspe</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective_grad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rmspe_grad</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">trees_</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_by_iter</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">residuals</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">temp_pred</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">z</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">z</span><span class="p">[</span><span class="n">z</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">log_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">log_loss_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">p</span> <span class="o">&lt;</span> <span class="mf">1e-5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-5</span>
+        <span class="n">p</span><span class="p">[</span><span class="n">p</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-5</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">p</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">mse_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]))</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">rmsle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+    <span class="k">def</span> <span class="nf">rmsle_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rmsle</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialization</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span><span class="p">):</span>
+
+            <span class="n">resid</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">objective_grad</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
+
+            <span class="c1"># In order to get insights about the algorithm on toy examples (debug=True),</span>
+            <span class="c1"># we will track residuals (anti gradient) at each iteration.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">residuals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resid</span><span class="p">)</span>
+
+            <span class="c1"># Train a regression tree on the residuals.</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+                <span class="n">max_depth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span>
+            <span class="p">)</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">resid</span><span class="p">)</span>
+
+            <span class="n">b</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span>
+
+            <span class="c1"># For debugging purposes, we will save the prediction at each iteration.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">temp_pred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">trees_</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+
+            <span class="n">prediction</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">b</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">prediction</span><span class="p">))</span>
+
+        <span class="c1"># Save the prediction on the train set.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_pred</span> <span class="o">=</span> <span class="n">prediction</span>
+
+        <span class="c1"># For the case of log_loss, apply the sigma transformation to get back to probabilities,</span>
+        <span class="c1"># that is the estimates of the positive class classification</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;log_loss&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">train_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_pred</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+        <span class="c1"># At first, our prediction is just the average of respones.</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Add the predictions of the trees.</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span><span class="p">):</span>
+            <span class="n">pred</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">trees_</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="c1"># In the case of log_loss, apply the sigmoid function to get back to probabilities.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;log_loss&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pred</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+
+        <span class="n">pred_probs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="c1"># In the case of classification, to predict a binary class (label),</span>
+        <span class="c1"># we will choose the threshold that yields the maximum accuracy.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_name</span> <span class="o">==</span> <span class="s2">&quot;log_loss&quot;</span><span class="p">:</span>
+            <span class="n">max_accuracy</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">best_thres</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">thres</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+                <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_pred</span> <span class="o">&gt;</span> <span class="n">thres</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">acc</span> <span class="o">&gt;</span> <span class="n">max_accuracy</span><span class="p">:</span>
+                    <span class="n">max_accuracy</span> <span class="o">=</span> <span class="n">acc</span>
+                    <span class="n">best_thres</span> <span class="o">=</span> <span class="n">thres</span>
+            <span class="k">return</span> <span class="n">pred_probs</span> <span class="o">&gt;</span> <span class="n">best_thres</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># This solution is not perfect: in the case of regression,</span>
+            <span class="c1"># `predict` will call `predict_proba` and return the same value.</span>
+            <span class="c1"># We do it so as not to implement the classifier and regressor as separate classes.</span>
+            <span class="c1"># Though, we could derive both of these classes from `GradientBoosting`.</span>
+            <span class="k">return</span> <span class="n">pred_probs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s also define a couple of helper functions that we will use later:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_1d_grid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_2d_grid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">eps</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="regression-with-a-toy-example">
+<h2>Regression with a toy example<a class="headerlink" href="#regression-with-a-toy-example" title="Permalink to this headline">#</a></h2>
+<p>Prepare the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_regr_toy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">y_regr_toy</span> <span class="o">=</span> <span class="p">((</span><span class="n">X_regr_toy</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_18_0.png" src="../../_images/assignment10_implement_boosting_solution_18_0.png" />
+</div>
+</div>
+<section id="id1">
+<h3>Task:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Train an instance of the <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code> regressor with the loss function <code class="docutils literal notranslate"><span class="pre">MSE</span></code> and the following input parameters: <code class="docutils literal notranslate"><span class="pre">learning_rate=0.1</span></code>, <code class="docutils literal notranslate"><span class="pre">max_depth=3</span></code>, <code class="docutils literal notranslate"><span class="pre">n_estimators=200</span></code>. Then, plot the change of the loss function over boosting iterations. You could also visualize the initial approximation and pseudo residuals on the first iterations, just as it was done in the article.</p>
+</section>
+<section id="id2">
+<h3>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boost_regr_mse</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">boost_regr_mse</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ultimate-prediction-of-the-ensemble">
+<h4>Ultimate prediction of the ensemble<a class="headerlink" href="#ultimate-prediction-of-the-ensemble" title="Permalink to this headline">#</a></h4>
+<p>There is a problem with regression trees (consequently, with random forests and boosting as well): they can not extrapolate, only interpolate. Hence, in our case the prediction beyond the range <span class="math notranslate nohighlight">\([0,6]\)</span> will be constant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span> <span class="o">=</span> <span class="n">get_1d_grid</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="p">((</span><span class="n">xx</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">boost_regr_mse</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_23_0.png" src="../../_images/assignment10_implement_boosting_solution_23_0.png" />
+</div>
+</div>
+</section>
+<section id="residuals-at-each-iteration-and-the-corresponding-tree-prediction">
+<h4>Residuals at each iteration and the corresponding tree prediction<a class="headerlink" href="#residuals-at-each-iteration-and-the-corresponding-tree-prediction" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tree_idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">boost_regr_mse</span><span class="o">.</span><span class="n">residuals</span><span class="p">[</span><span class="n">tree_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;resid&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">xx</span><span class="p">,</span>
+        <span class="n">boost_regr_mse</span><span class="o">.</span><span class="n">trees_</span><span class="p">[</span><span class="n">tree_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])),</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fitted&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_25_0.png" src="../../_images/assignment10_implement_boosting_solution_25_0.png" />
+</div>
+</div>
+</section>
+<section id="how-an-increase-in-the-number-of-trees-affects-the-whole-ensemble-s-prediction">
+<h4>How an increase in the number of trees affects the whole ensemble’s prediction<a class="headerlink" href="#how-an-increase-in-the-number-of-trees-affects-the-whole-ensemble-s-prediction" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n_trees</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="n">boost_regr</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+        <span class="n">n_estimators</span><span class="o">=</span><span class="n">n_trees</span><span class="p">,</span>
+        <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span>
+        <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">boost_regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="p">((</span><span class="n">xx</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;target&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">xx</span><span class="p">,</span>
+        <span class="n">boost_regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])),</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fitted&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> trees&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_trees</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_27_0.png" src="../../_images/assignment10_implement_boosting_solution_27_0.png" />
+</div>
+</div>
+</section>
+<section id="mse-decrease-over-boosting-iterations">
+<h4>MSE decrease over boosting iterations<a class="headerlink" href="#mse-decrease-over-boosting-iterations" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boost_regr_mse</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)),</span> <span class="n">boost_regr_mse</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# iter.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;MSE&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_29_0.png" src="../../_images/assignment10_implement_boosting_solution_29_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id3">
+<h3>Task:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Train another <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code> regressor with the same input parameters but with the loss function changed to <code class="docutils literal notranslate"><span class="pre">RMSLE</span></code>. Plot the same values as in the previous task.</p>
+</section>
+<section id="id4">
+<h3>Solution:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boost_regr_rmsle</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;rmsle&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">boost_regr_rmsle</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span> <span class="o">=</span> <span class="n">get_1d_grid</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="p">((</span><span class="n">xx</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">boost_regr_rmsle</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_33_0.png" src="../../_images/assignment10_implement_boosting_solution_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tree_idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">boost_regr_rmsle</span><span class="o">.</span><span class="n">residuals</span><span class="p">[</span><span class="n">tree_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;resid&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">xx</span><span class="p">,</span>
+        <span class="n">boost_regr_rmsle</span><span class="o">.</span><span class="n">trees_</span><span class="p">[</span><span class="n">tree_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])),</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fitted&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_34_0.png" src="../../_images/assignment10_implement_boosting_solution_34_0.png" />
+</div>
+</div>
+<section id="id5">
+<h4>How an increase in the number of trees affects the whole ensemble’s prediction<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n_trees</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="n">boost_regr</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+        <span class="n">n_estimators</span><span class="o">=</span><span class="n">n_trees</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;rmsle&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span>
+    <span class="n">boost_regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="p">((</span><span class="n">xx</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_regr_toy</span><span class="p">,</span> <span class="n">y_regr_toy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;target&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">xx</span><span class="p">,</span>
+        <span class="n">boost_regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">])),</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fitted&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> trees&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">n_trees</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_36_0.png" src="../../_images/assignment10_implement_boosting_solution_36_0.png" />
+</div>
+</div>
+</section>
+<section id="rmsle-decrease-over-boosting-iterations">
+<h4>RMSLE decrease over boosting iterations<a class="headerlink" href="#rmsle-decrease-over-boosting-iterations" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boost_regr_rmsle</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)),</span> <span class="n">boost_regr_rmsle</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# iter.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;RMSLE&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_38_0.png" src="../../_images/assignment10_implement_boosting_solution_38_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="classification-with-a-toy-example">
+<h2>Classification with a toy example<a class="headerlink" href="#classification-with-a-toy-example" title="Permalink to this headline">#</a></h2>
+<p>Prepare the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_clf_toy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_clf_toy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">X_clf_toy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">X_clf_toy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">y_clf_toy</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_42_0.png" src="../../_images/assignment10_implement_boosting_solution_42_0.png" />
+</div>
+</div>
+<section id="id6">
+<h3>Task:<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Train a classifier of type <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code> with the loss function <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> and the following parameters: <code class="docutils literal notranslate"><span class="pre">learning_rate=0.05</span></code>, <code class="docutils literal notranslate"><span class="pre">max_depth=3</span></code>, <code class="docutils literal notranslate"><span class="pre">n_estimators=10</span></code>. Then, plot the change of the loss function over boosting iterations. You could also visualize the initial approximation and pseudo residuals on the first iterations, just as it was done in the article.</p>
+</section>
+<section id="id7">
+<h3>Solution:<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boost_clf</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;log_loss&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span>
+<span class="p">)</span>
+<span class="n">boost_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clf_toy</span><span class="p">,</span> <span class="n">y_clf_toy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GradientBoosting(learning_rate=0.05, loss_name=&#x27;log_loss&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GradientBoosting</label><div class="sk-toggleable__content"><pre>GradientBoosting(learning_rate=0.05, loss_name=&#x27;log_loss&#x27;)</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_pred_probs</span> <span class="o">=</span> <span class="n">boost_clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_clf_toy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id8">
+<h4>Ultimate prediction of the ensemble<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<p>Unfortunately, this example turned out to be rather dull.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">get_2d_grid</span><span class="p">(</span><span class="n">X_clf_toy</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">boost_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">X_clf_toy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">X_clf_toy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">y_clf_toy</span><span class="p">,</span>
+    <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span>
+    <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/xs/x4nxtnxd4qq06sg5z0x951q1q7mkqq/T/ipykernel_8245/3285327446.py:3: MatplotlibDeprecationWarning: Auto-removal of grids by pcolor() and pcolormesh() is deprecated since 3.5 and will be removed two minor releases later; please call grid(False) first.
+  plt.pcolormesh(xx, yy, predicted, cmap=&quot;viridis&quot;, alpha=0.2, shading=&quot;auto&quot;)
+</pre></div>
+</div>
+<img alt="../../_images/assignment10_implement_boosting_solution_48_1.png" src="../../_images/assignment10_implement_boosting_solution_48_1.png" />
+</div>
+</div>
+<p>In this case, there is no need to plot the separating surface at each iteration because the change is not perceptible.</p>
+<p>Lets take two examples: the leftmost (purple, class 0) and the second from the left (yellow, class 1). For these examples, let’s look at how the probability of classifying as class <span class="math notranslate nohighlight">\(+\)</span> changing with an increase in the number of trees.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">pred_probs1_by_tree</span><span class="p">,</span> <span class="n">pred_probs2_by_tree</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">boost_clf_</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+        <span class="n">n_estimators</span><span class="o">=</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;log_loss&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_clf_toy</span><span class="p">,</span> <span class="n">y_clf_toy</span><span class="p">)</span>
+    <span class="n">pred_probs1_by_tree</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boost_clf_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_clf_toy</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">pred_probs2_by_tree</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boost_clf_</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_clf_toy</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pred_probs1_by_tree</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;instance #1 (neg.)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pred_probs2_by_tree</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;instance #2 (pos.)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# trees&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$p_+$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_50_0.png" src="../../_images/assignment10_implement_boosting_solution_50_0.png" />
+</div>
+</div>
+</section>
+<section id="log-loss-decrease-over-boosting-iterations">
+<h4><code class="docutils literal notranslate"><span class="pre">log_loss</span></code> decrease over boosting iterations<a class="headerlink" href="#log-loss-decrease-over-boosting-iterations" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boost_clf</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)),</span> <span class="n">boost_clf</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# iter.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;log_loss&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_52_0.png" src="../../_images/assignment10_implement_boosting_solution_52_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 4.</font> For all <span class="math notranslate nohighlight">\(7\)</span> examples in the toy dataset, calculate the predicted probabilities of being attributed to class <span class="math notranslate nohighlight">\(+1\)</span>? What are the two unique values in the computed vector?</strong></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(0.42\)</span> and <span class="math notranslate nohighlight">\(0.77\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.36\)</span> and <span class="math notranslate nohighlight">\(0.82\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.48\)</span> and <span class="math notranslate nohighlight">\(0.53\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.46\)</span> and <span class="math notranslate nohighlight">\(0.75\)</span></p></li>
+</ol>
+<p><strong>Answer:</strong> 4.</p>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_pred_probs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.45554883],
+       [0.75303888],
+       [0.45554883],
+       [0.75303888],
+       [0.45554883],
+       [0.75303888],
+       [0.45554883]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="regression-with-the-boston-house-prices-dataset">
+<h2>Regression with the Boston House-Prices Dataset<a class="headerlink" href="#regression-with-the-boston-house-prices-dataset" title="Permalink to this headline">#</a></h2>
+<p>Prepare the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boston</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">boston</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">boston</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/sklearn/utils/deprecation.py:87: FutureWarning: Function load_boston is deprecated; `load_boston` is deprecated in 1.0 and will be removed in 1.2.
+
+    The Boston housing prices dataset has an ethical problem. You can refer to
+    the documentation of this function for further details.
+
+    The scikit-learn maintainers therefore strongly discourage the use of this
+    dataset unless the purpose of the code is to study and educate about
+    ethical issues in data science and machine learning.
+
+    In this special case, you can fetch the dataset from the original
+    source::
+
+        import pandas as pd
+        import numpy as np
+
+        data_url = &quot;http://lib.stat.cmu.edu/datasets/boston&quot;
+        raw_df = pd.read_csv(data_url, sep=&quot;\s+&quot;, skiprows=22, header=None)
+        data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+        target = raw_df.values[1::2, 2]
+
+    Alternative datasets include the California housing dataset (i.e.
+    :func:`~sklearn.datasets.fetch_california_housing`) and the Ames housing
+    dataset. You can load the datasets as follows::
+
+        from sklearn.datasets import fetch_california_housing
+        housing = fetch_california_housing()
+
+    for the California housing dataset and::
+
+        from sklearn.datasets import fetch_openml
+        housing = fetch_openml(name=&quot;house_prices&quot;, as_frame=True)
+
+    for the Ames housing dataset.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id9">
+<h3>Task:<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Train a <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code> regressor with the loss function <code class="docutils literal notranslate"><span class="pre">MSE</span></code> and the following parameters: <code class="docutils literal notranslate"><span class="pre">learning_rate=3</span></code>,  <code class="docutils literal notranslate"><span class="pre">max_depth=10</span></code>, <code class="docutils literal notranslate"><span class="pre">n_estimators=300</span></code>.</p></li>
+<li><p>Plot the change of the loss function over boosting iterations.</p></li>
+<li><p>Make predictions on the test set.</p></li>
+<li><p>Plot the distribution of <code class="docutils literal notranslate"><span class="pre">y_test</span></code> that is the output variable values from the training set, along with the distribution of <code class="docutils literal notranslate"><span class="pre">test_pred</span></code>, which contains the values predicted by gradient boosting. Use the method <code class="docutils literal notranslate"><span class="pre">hist</span></code> from <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> with the parameter <code class="docutils literal notranslate"><span class="pre">bins=15</span></code>.</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GradientBoosting(learning_rate=3, max_depth=10, n_estimators=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">GradientBoosting</label><div class="sk-toggleable__content"><pre>GradientBoosting(learning_rate=3, max_depth=10, n_estimators=300)</pre></div></div></div></div></div></div></div>
+</div>
+<section id="id11">
+<h4>MSE decrease over boosting iterations<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">regr</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)),</span> <span class="n">regr</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# iter.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;MSE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;UCI Boston. MSE by boosting iter.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_63_0.png" src="../../_images/assignment10_implement_boosting_solution_63_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pred&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;median&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_64_0.png" src="../../_images/assignment10_implement_boosting_solution_64_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 5.</font> Choose the correct statement about the resulting histograms:</strong></p>
+<ol class="simple">
+<li><p>On average, boosting predictions are overestimated by 10.</p></li>
+<li><p>In that bin that contains the median of the answers on the test set (i.e. <code class="docutils literal notranslate"><span class="pre">numpy.median(y_test)</span></code>), there are more values from the vector of predictions <code class="docutils literal notranslate"><span class="pre">test_pred</span></code> than from the vector of answers <code class="docutils literal notranslate"><span class="pre">y_test</span></code>.</p></li>
+<li><p>Sometimes our boosting algorithm predicts values that are far beyond the range of the <code class="docutils literal notranslate"><span class="pre">y_test</span></code> vector.</p></li>
+</ol>
+<p><strong>Answer:</strong> 2.</p>
+</section>
+</section>
+</section>
+<section id="classification-with-the-breast-cancer-wisconsin-dataset">
+<h2>Classification with the Breast Cancer Wisconsin Dataset<a class="headerlink" href="#classification-with-the-breast-cancer-wisconsin-dataset" title="Permalink to this headline">#</a></h2>
+<p>Prepare the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cancer</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id12">
+<h3>Task:<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Train a <code class="docutils literal notranslate"><span class="pre">GradientBoosting</span></code> classifier with the loss function <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> and the parameters <code class="docutils literal notranslate"><span class="pre">learning_rate=0.01</span></code>, <code class="docutils literal notranslate"><span class="pre">max_depth=3</span></code>, <code class="docutils literal notranslate"><span class="pre">n_estimators=200</span></code>.</p></li>
+<li><p>Plot the change of the loss function over boosting iterations.</p></li>
+<li><p>Make predictions on the test set: both the probabilities of being in the class <span class="math notranslate nohighlight">\(+1\)</span> and binary predictions.</p></li>
+<li><p>Calculate ROC AUC for the case of probabilites and the share of correct answers for binary predictions.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>Solution:<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">GradientBoosting</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">loss_name</span><span class="o">=</span><span class="s2">&quot;log_loss&quot;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GradientBoosting(loss_name=&#x27;log_loss&#x27;, n_estimators=200)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">GradientBoosting</label><div class="sk-toggleable__content"><pre>GradientBoosting(loss_name=&#x27;log_loss&#x27;, n_estimators=200)</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)),</span> <span class="n">clf</span><span class="o">.</span><span class="n">loss_by_iter</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# iter.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;log_loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;UCI Breast Cancer. Log loss by boosting iter.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_73_0.png" src="../../_images/assignment10_implement_boosting_solution_73_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_probs</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="histograms-of-the-predicted-probabilities-to-belong-to-class-for-positive-and-negative-examples">
+<h4>Histograms of the predicted probabilities to belong to class <span class="math notranslate nohighlight">\(+\)</span> for positive and negative examples<a class="headerlink" href="#histograms-of-the-predicted-probabilities-to-belong-to-class-for-positive-and-negative-examples" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pred_probs</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pred for 0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pred_probs</span><span class="p">[</span><span class="n">y_train</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pred for 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment10_implement_boosting_solution_76_0.png" src="../../_images/assignment10_implement_boosting_solution_76_0.png" />
+</div>
+</div>
+</section>
+<section id="roc-auc-and-the-share-of-correct-answers-on-the-test-set">
+<h4>ROC AUC and the share of correct answers on the test set<a class="headerlink" href="#roc-auc-and-the-share-of-correct-answers-on-the-test-set" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)),</span> <span class="n">accuracy_score</span><span class="p">(</span>
+    <span class="n">y_test</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9885245901639345, 0.9707602339181286)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 6.</font> What are the ROC AUC value and the share of correct predictions on the test set <code class="docutils literal notranslate"><span class="pre">(X_test,</span> <span class="pre">y_test)</span></code>?</strong></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(0.99\)</span> and <span class="math notranslate nohighlight">\(0.97\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(0.97\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.98\)</span> and <span class="math notranslate nohighlight">\(0.96\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0.97\)</span> and <span class="math notranslate nohighlight">\(0.95\)</span></p></li>
+</ol>
+<p><strong>Answer:</strong> 1.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment10_implement_boosting.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><center> Assignment #10. Task <a class="tocSkip"></center></p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

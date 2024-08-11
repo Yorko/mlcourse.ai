@@ -1,0 +1,1673 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #4. Task &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #4. Solution" href="assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html" />
+    <link rel="prev" title="Topic 4. Linear Classification and Regression" href="assignment04_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center> Assignment #4. Task </center> <a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong>
+Authors: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a> (&#64;yorko), and Yury Isakov. Edited by Anna Tarelina (&#64;feuerengel), and Kolchenko Sergey (&#64;KolchenkoSergey). <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-4-task-center-a-class-tocskip">
+<h1><center> Assignment #4. Task </center> <a class="tocSkip"><a class="headerlink" href="#center-assignment-4-task-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-kaggle-competition-user-identification-with-logistic-regression-br-beating-baselines-in-the-alice-competition-center-a-class-tocskip">
+<h2><center>  Kaggle Competition. User Identification with Logistic Regression <br>(beating baselines in the “Alice” competition) </center>  <a class="tocSkip"><a class="headerlink" href="#center-kaggle-competition-user-identification-with-logistic-regression-br-beating-baselines-in-the-alice-competition-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p>Today we will reproduce a couple of baselines in the  Kaggle Inclass competition <a class="reference external" href="https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">“Catch Me If You Can: Intruder Detection through Webpage Session Tracking”</a> (a.k.a. “Alice”) and discuss ideas for further improvement. You’ll sense the spirit of Kaggle competitions: brainstorming model or validation scheme improvements, adding new features, implementing new ideas in code, climbing the leaderboard – that’s exciting! And that’s very useful as well, especially when you’re only starting your ML journey. In this assignment, we’ll also work with sparse matrices (which is often the only way to work with some types of data, from the computation perspective), train Logistic Regression models, and practice feature engineering.</p>
+<p>Prior to working on the assignment, you’d better check out the corresponding course material:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/topic3_decision_trees_kNN.ipynb?flush_cache=true">Classification, Decision Trees and k Nearest Neighbors</a>, the same as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-3-decision-trees-and-knn">Kaggle Notebook</a> (basics of machine learning are covered here)</p></li>
+<li><p>Linear classification and regression in 5 parts:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-1-ols">ordinary least squares</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-2-classification">linear classification</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-3-regularization">regularization</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-4-more-of-logit">logistic regression: pros and cons</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-4-linear-models-part-5-validation">validation</a></p></li>
+</ul>
+</li>
+<li><p>You can also practice with demo assignments, which are simpler and already shared with solutions:</p>
+<ul class="simple">
+<li><p>“Sarcasm detection with logistic regression”: <a class="reference external" href="https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit">assignment</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a4-demo-sarcasm-detection-with-logit-solution">solution</a></p></li>
+<li><p>“Linear regression as optimization”: <a class="reference external" href="https://www.kaggle.com/kashnitsky/a4-demo-linear-regression-as-optimization/edit">assignment</a> (solution cannot be officially shared as the assignment, also by &#64;yorko, is a part of a Coursera specialization)</p></li>
+<li><p>“Exploring OLS, Lasso and Random Forest in a regression task”: <a class="reference external" href="https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression">assignment</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a6-demo-regression-solution">solution</a></p></li>
+</ul>
+</li>
+<li><p>Alice baseline with logistic regression and “bag of sites”, <a class="reference external" href="https://www.kaggle.com/kashnitsky/alice-logistic-regression-baseline">Notebook</a></p></li>
+<li><p>Correct time-aware cross-validation scheme, more features, and hyperparameter optimization, <a class="reference external" href="https://www.kaggle.com/kashnitsky/correct-time-aware-cross-validation-scheme">Notebook</a></p></li>
+<li><p>Model validation in a competition, <a class="reference external" href="https://www.kaggle.com/kashnitsky/model-validation-in-a-competition">Notebook</a> – this one reproduces a solution with <strong>0.95055</strong> Public LB ROC AUC and gives a lot of hints how to proceed with this competition.</p></li>
+<li><p>Other <a class="reference external" href="https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/code?competitionId=7173&amp;sortBy=voteCount">Notebooks</a> in this competition. You can share yours as well, but not high-performing ones (Public LB ROC AUC shall be &lt; 0.95055). Please do not spoil the competitive spirit.</p></li>
+<li><p>Two videos on logistic regression: <a class="reference external" href="https://mlcourse.ai/video">mlcourse.ai/video</a></p></li>
+</ol>
+<p><strong>Your task is to:</strong></p>
+<ol class="simple">
+<li><p>“Follow me”. Complete the missing code and submit your answers via <a class="reference external" href="https://forms.gle/SmawpchSerqhK4C9A">the google form</a>.</p></li>
+<li><p>“Freeride”. Come up with good features to beat the baselines “A4 baseline (10 credits)” (<strong>0.95343</strong> Public LB ROC-AUC, press “Load more” in the bottom of the <a class="reference external" href="https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/leaderboard">Leaderboard</a> to actually see it) and “A4 strong baseline (20 credits)” (<strong>0.95965</strong> Public LB ROC-AUC).</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<section id="part-1-follow-me-a-class-tocskip">
+<h3>Part 1. Follow me <a class="tocSkip"><a class="headerlink" href="#part-1-follow-me-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<img src='../../_static/img/followme_alice.png' width=50%>
+<p><em>image credit <a class="reference external" href="https://www.instagram.com/muradosmann/?hl=en">&#64;muradosmann</a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries and set desired options</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span><span class="p">,</span> <span class="n">hstack</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem description</strong></p>
+<p>In this competition, we’ll analyze the sequence of websites consequently visited by a particular person and try to predict whether this person is Alice or someone else. As a metric we will use <a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">ROC AUC</a>.</p>
+<p><strong>1. Data Downloading and Transformation</strong>
+Register on <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>, if you have not done it before.
+Go to the competition <a class="reference external" href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">page</a> and download the data.</p>
+<p>First, read the training and test sets. Then we’ll explore the data in hand and do a couple of simple exercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../_static/data/assignment4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the training and test data sets, change paths if needed</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="c1"># customize the paths if needed</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">PATH_TO_DATA</span> <span class="o">/</span> <span class="s2">&quot;train_sessions.csv.zip&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;session_id&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="n">times</span>
+<span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">PATH_TO_DATA</span> <span class="o">/</span> <span class="s2">&quot;test_sessions.csv.zip&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;session_id&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="n">times</span>
+<span class="p">)</span>
+
+<span class="c1"># Sort the data by time</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;time1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Look at the first rows of the training set</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>time1</th>
+      <th>site2</th>
+      <th>time2</th>
+      <th>site3</th>
+      <th>time3</th>
+      <th>site4</th>
+      <th>time4</th>
+      <th>site5</th>
+      <th>time5</th>
+      <th>...</th>
+      <th>time6</th>
+      <th>site7</th>
+      <th>time7</th>
+      <th>site8</th>
+      <th>time8</th>
+      <th>site9</th>
+      <th>time9</th>
+      <th>site10</th>
+      <th>time10</th>
+      <th>target</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21669</th>
+      <td>56</td>
+      <td>2013-01-12 08:05:57</td>
+      <td>55.0</td>
+      <td>2013-01-12 08:05:57</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>...</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>54843</th>
+      <td>56</td>
+      <td>2013-01-12 08:37:23</td>
+      <td>55.0</td>
+      <td>2013-01-12 08:37:23</td>
+      <td>56.0</td>
+      <td>2013-01-12 09:07:07</td>
+      <td>55.0</td>
+      <td>2013-01-12 09:07:09</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>...</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>NaN</td>
+      <td>NaT</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 21 columns</p>
+</div></div></div>
+</div>
+<p>The training data set contains the following features:</p>
+<ul class="simple">
+<li><p><strong>site1</strong> – id of the first visited website in the session</p></li>
+<li><p><strong>time1</strong> – visiting time for the first website in the session</p></li>
+<li><p>…</p></li>
+<li><p><strong>site10</strong> – id of the tenth visited website in the session</p></li>
+<li><p><strong>time10</strong> – visiting time for the tenth website in the session</p></li>
+<li><p><strong>target</strong> – target variable, 1 for Alice’s sessions, and 0 for the other users’ sessions</p></li>
+</ul>
+<p>User sessions are chosen in the way that they are shorter than 30 min. long and contain no more than 10 websites. I.e. a session is considered over either if a user has visited 10 websites or if a session has lasted over 30 minutes.</p>
+<p>There are some empty values in the table, it means that some sessions contain less than ten websites. Replace empty values with 0 and change columns types to integer. Also load the websites dictionary and check how it looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change site1, ..., site10 columns type to integer and fill NA-values with zeros</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;site</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="n">train_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span>
+<span class="n">test_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">)</span>
+
+<span class="c1"># Load websites dictionary</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">PATH_TO_DATA</span> <span class="o">/</span> <span class="s2">&quot;site_dic.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+    <span class="n">site_dict</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+
+<span class="c1"># Create dataframe for the dictionary</span>
+<span class="n">sites_dict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="nb">list</span><span class="p">(</span><span class="n">site_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">site_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;site&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Websites total:&quot;</span><span class="p">,</span> <span class="n">sites_dict</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sites_dict</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Websites total: 48371
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25075</th>
+      <td>www.abmecatronique.com</td>
+    </tr>
+    <tr>
+      <th>13997</th>
+      <td>groups.live.com</td>
+    </tr>
+    <tr>
+      <th>42436</th>
+      <td>majeureliguefootball.wordpress.com</td>
+    </tr>
+    <tr>
+      <th>30911</th>
+      <td>cdt46.media.tourinsoft.eu</td>
+    </tr>
+    <tr>
+      <th>8104</th>
+      <td>www.hdwallpapers.eu</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>2. Brief Exploratory Data Analysis</strong></p>
+<p>Before we start training models, we have to perform Exploratory Data Analysis (<a class="reference external" href="https://en.wikipedia.org/wiki/Exploratory_data_analysis">EDA</a>). Today, we are going to perform a shorter version, but we will use other techniques as we move forward. Let’s check which websites in the training data set are the most visited. As you can see, they are Google services and a bioinformatics website (a website with ‘zero’-index is our missed values, just ignore it):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Top websites in the training data set</span>
+<span class="n">top_sites</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_sites</span><span class="p">)</span>
+<span class="n">sites_dict</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">top_sites</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21     123776
+0      122730
+23      87619
+782     77055
+22      58258
+dtype: int64
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21</th>
+      <td>www.google.fr</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>www.google.com</td>
+    </tr>
+    <tr>
+      <th>782</th>
+      <td>annotathon.org</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>apis.google.com</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong><font color = 'red'> <strong>Question 1:</strong> </font>  What kind of websites does Alice visit the most?</strong></p>
+<ul class="simple">
+<li><p>videohostings</p></li>
+<li><p>social networks</p></li>
+<li><p>torrent trackers</p></li>
+<li><p>news</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us look at the timestamps and try to characterize sessions as timeframes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a separate dataframe where we will work with timestamps</span>
+<span class="n">time_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">train_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
+
+<span class="c1"># Find sessions&#39; starting and ending</span>
+<span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">times</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">times</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Calculate sessions&#39; duration in seconds</span>
+<span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;seconds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_df</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+
+<span class="n">time_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>target</th>
+      <th>min</th>
+      <th>max</th>
+      <th>seconds</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21669</th>
+      <td>0</td>
+      <td>2013-01-12 08:05:57</td>
+      <td>2013-01-12 08:05:57</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>54843</th>
+      <td>0</td>
+      <td>2013-01-12 08:37:23</td>
+      <td>2013-01-12 09:07:09</td>
+      <td>1786.0</td>
+    </tr>
+    <tr>
+      <th>77292</th>
+      <td>0</td>
+      <td>2013-01-12 08:50:13</td>
+      <td>2013-01-12 08:50:17</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>114021</th>
+      <td>0</td>
+      <td>2013-01-12 08:50:17</td>
+      <td>2013-01-12 08:50:20</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>146670</th>
+      <td>0</td>
+      <td>2013-01-12 08:50:20</td>
+      <td>2013-01-12 08:50:22</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In order to perform the next task, generate descriptive statistics as you did in the first assignment.</p>
+<p><em>In the next question, we are using the notion of “approximately the same”. To be strict, let’s define it: <span class="math notranslate nohighlight">\(a\)</span> is approximately the same as <span class="math notranslate nohighlight">\(b\)</span> (<span class="math notranslate nohighlight">\(a \approx b \)</span>) if their difference is less than or equal to 5% of the maximum between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, i.e. <span class="math notranslate nohighlight">\(a \approx b \leftrightarrow \frac{|a-b|}{max(a,b)} \leq 0.05\)</span>.</em></p>
+<p><strong><font color = 'red'> <strong>Question 2:</strong> </font>  Select all correct statements:</strong></p>
+<ul class="simple">
+<li><p>on average, Alice’s session is shorter than that of other users</p></li>
+<li><p>more than 1% of all sessions in the dataset belong to Alice</p></li>
+<li><p>minimum and maximum duration of Alice’s and other users’ sessions are approximately the same</p></li>
+<li><p>standard deviation of Alice’s sessions duration is approximately the same as for non-Alice’s sessions</p></li>
+<li><p>less than a quarter of Alice’s sessions are greater than or equal to 40 seconds</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to train our first model, we need to prepare the data. First of all, exclude the target variable from the training set. Now both training and test sets have the same number of columns, therefore aggregate them into one dataframe.  Thus, all transformations will be performed simultaneously on both training and test data sets.</p>
+<p>On the one hand, it leads to the fact that both data sets have one feature space (you don’t have to worry that you forgot to transform a feature in some data sets). On the other hand, processing time will increase.
+For the enormously large sets it might turn out that it is impossible to transform both data sets simultaneously (and sometimes you have to split your transformations into several stages only for train/test data set).
+In our case, with this particular data set, we are going to perform all the transformations for the whole united dataframe at once, and before training the model or making predictions we will just take its appropriate part.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our target variable</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
+
+<span class="c1"># United dataframe of the initial data</span>
+<span class="n">full_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">test_df</span><span class="p">])</span>
+
+<span class="c1"># Index to split the training and test data sets</span>
+<span class="n">idx_split</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the very basic model, we will use only the visited websites in the session (but we will not take into account timestamp features). The point behind this data selection is: <em>Alice has her favorite sites, and the more often you see these sites in the session, the higher probability that this is Alice’s session, and vice versa.</em></p>
+<p>Let us prepare the data, we will take only features <code class="docutils literal notranslate"><span class="pre">site1,</span> <span class="pre">site2,</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">site10</span></code> from the whole dataframe. Keep in mind that the missing values are replaced with zero. Here is how the first rows of the dataframe look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataframe with indices of visited websites in session</span>
+<span class="n">full_sites</span> <span class="o">=</span> <span class="n">full_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span>
+<span class="n">full_sites</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>site2</th>
+      <th>site3</th>
+      <th>site4</th>
+      <th>site5</th>
+      <th>site6</th>
+      <th>site7</th>
+      <th>site8</th>
+      <th>site9</th>
+      <th>site10</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>21669</th>
+      <td>56</td>
+      <td>55</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>54843</th>
+      <td>56</td>
+      <td>55</td>
+      <td>56</td>
+      <td>55</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>77292</th>
+      <td>946</td>
+      <td>946</td>
+      <td>951</td>
+      <td>946</td>
+      <td>946</td>
+      <td>945</td>
+      <td>948</td>
+      <td>784</td>
+      <td>949</td>
+      <td>946</td>
+    </tr>
+    <tr>
+      <th>114021</th>
+      <td>945</td>
+      <td>948</td>
+      <td>949</td>
+      <td>948</td>
+      <td>945</td>
+      <td>946</td>
+      <td>947</td>
+      <td>945</td>
+      <td>946</td>
+      <td>946</td>
+    </tr>
+    <tr>
+      <th>146670</th>
+      <td>947</td>
+      <td>950</td>
+      <td>948</td>
+      <td>947</td>
+      <td>950</td>
+      <td>952</td>
+      <td>946</td>
+      <td>951</td>
+      <td>946</td>
+      <td>947</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sessions are sequences of website indices, and data in this representation is useless for machine learning method (just think, what happens if we switched all ids of all websites).</p>
+<p>According to our hypothesis (Alice has favorite websites), we need to transform this dataframe so each website has a corresponding feature (column) and its value is equal to number of this website visits in the session. It can be done in two lines:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sequence of indices</span>
+<span class="n">sites_flatten</span> <span class="o">=</span> <span class="n">full_sites</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># and the matrix we are looking for</span>
+<span class="c1"># (make sure you understand which of the `csr_matrix` constructors is used here)</span>
+<span class="c1"># a further toy example will help you with it</span>
+<span class="n">full_sites_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">sites_flatten</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">sites_flatten</span><span class="p">,</span>
+        <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sites_flatten</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="p">)[:,</span> <span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_sites_sparse</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(336358, 48371)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you understand what just happened here, then you can skip the next passage (perhaps, you can handle logistic regression too?), If not, then let us figure it out.</p>
+<p><strong>Important detour #1: Sparse Matrices</strong></p>
+<p>Let us estimate how much memory it will require to store our data in the example above. Our united dataframe contains 336 thousand samples of 48 thousand integer features in each. It’s easy to calculate the required amount of memory, roughly:</p>
+<div class="math notranslate nohighlight">
+\[336\ K * 48\ K * 8\ bytes \approx 16* 10^9 * 8\ bytes = 128\ GB,\]</div>
+<p>(that’s the <a class="reference external" href="http://www.wolframalpha.com/input/?i=336358*48371*8+bytes">exact</a> value). Obviously, ordinary mortals have no such volumes (strictly speaking, Python may allow you to create such a matrix, but it will not be easy to do anything with it). The interesting fact is that most of the elements of our matrix are zeros. If we count non-zero elements, then it will be about 1.8 million, i.е. slightly more than 10% of all matrix elements. Such a matrix, where most elements are zeros, is called sparse, and the ratio between the number of zero elements and the total number of elements is called the sparseness of the matrix.</p>
+<p>For the work with such matrices you can use <code class="docutils literal notranslate"><span class="pre">scipy.sparse</span></code> library, check <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.18.1/reference/sparse.html">documentation</a> to understand what possible types of sparse matrices are, how to work with them and in which cases their usage is most effective. You can learn how they are arranged, for example, in Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">article</a>.
+Note, that a sparse matrix contains only non-zero elements, and you can get the allocated memory size like this (significant memory savings are obvious):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How much memory does a sparse matrix occupy?</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> elements * </span><span class="si">{}</span><span class="s2"> bytes = </span><span class="si">{}</span><span class="s2"> bytes&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">full_sites_sparse</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(),</span> <span class="mi">8</span><span class="p">,</span> <span class="n">full_sites_sparse</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">()</span> <span class="o">*</span> <span class="mi">8</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+<span class="c1"># Or just like this:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sparse_matrix_size = </span><span class="si">{}</span><span class="s2"> bytes&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">full_sites_sparse</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">nbytes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1866898 elements * 8 bytes = 14935184 bytes
+sparse_matrix_size = 14935184 bytes
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us explore how the matrix with the websites has been formed using a mini example. Suppose we have the following table with user sessions:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>site1</p></th>
+<th class="head"><p>site2</p></th>
+<th class="head"><p>site3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are 3 sessions, and no more than 3 websites in each. Users visited four different sites in total (there are numbers from 1 to 4 in the table cells). And let us assume that the mapping is:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://vk.com">vk.com</a></p></li>
+<li><p><a class="reference external" href="http://habrahabr.ru">habrahabr.ru</a></p></li>
+<li><p><a class="reference external" href="http://yandex.ru">yandex.ru</a></p></li>
+<li><p><a class="reference external" href="http://ods.ai">ods.ai</a></p></li>
+</ol>
+<p>If the user has visited less than 3 websites during the session, the last few values will be zero. We want to convert the original dataframe in a way that each session has a corresponding row which shows the number of visits to each particular site. I.e. we want to transform the previous table into the following form:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p><a class="reference external" href="http://vk.com">vk.com</a></p></th>
+<th class="head"><p><a class="reference external" href="http://habrahabr.ru">habrahabr.ru</a></p></th>
+<th class="head"><p><a class="reference external" href="http://yandex.ru">yandex.ru</a></p></th>
+<th class="head"><p><a class="reference external" href="http://ods.ai">ods.ai</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>To do this, use the constructor: <code class="docutils literal notranslate"><span class="pre">csr_matrix</span> <span class="pre">((data,</span> <span class="pre">indices,</span> <span class="pre">indptr))</span></code> and create a frequency table (see examples, code and comments on the links above to see how it works). Here we set all the parameters explicitly for greater clarity:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data, create the list of ones, length of which equal to the number of elements in the initial dataframe (9)</span>
+<span class="c1"># By summing the number of ones in the cell, we get the frequency,</span>
+<span class="c1"># number of visits to a particular site per session</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">9</span>
+
+<span class="c1"># To do this, you need to correctly distribute the ones in cells</span>
+<span class="c1"># Indices - website ids, i.e. columns of a new matrix. We will sum ones up grouping them by sessions (ids)</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># Indices for the division into rows (sessions)</span>
+<span class="c1"># For example, line 0 is the elements between the indices [0; 3) - the rightmost value is not included</span>
+<span class="c1"># Line 1 is the elements between the indices [3; 6)</span>
+<span class="c1"># Line 2 is the elements between the indices [6; 9)</span>
+<span class="n">indptr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Aggregate these three variables into a tuple and compose a matrix</span>
+<span class="c1"># To display this matrix on the screen transform it into the usual &quot;dense&quot; matrix</span>
+<span class="n">csr_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">indptr</span><span class="p">))</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[2, 1, 0, 0, 0],
+        [0, 2, 0, 1, 0],
+        [0, 0, 1, 1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you might have noticed, there are not four columns in the resulting matrix (corresponding to number of different websites) but five. A zero column has been added, which indicates if the session was shorter (in our mini example we took sessions of three). This column is excessive and should be removed from the dataframe (do that yourself).</p>
+<p><strong><font color = 'red'> <strong>Question 3:</strong> </font> What is the sparseness of the matrix in our toy example?</strong></p>
+<ul class="simple">
+<li><p>42%</p></li>
+<li><p>47%</p></li>
+<li><p>50%</p></li>
+<li><p>53%</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another benefit of using sparse matrices is that there are special implementations of both matrix operations and machine learning algorithms for them, which sometimes allows to significantly accelerate operations due to the data structure peculiarities. This applies to logistic regression as well. Now everything is ready to build our first model.</p>
+<p><strong>3. Training the first model</strong></p>
+<p>So, we have an algorithm and data for it. Let us build our first model, using <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">logistic regression</a> implementation from <code class="docutils literal notranslate"> <span class="pre">Sklearn</span></code> with default parameters. We will use the first 90% of the data for training (the training data set is sorted by time), and the remaining 10% for validation. Let’s write a simple function that returns the quality of the model and then train our first classifier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_auc_lr_valid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+    <span class="c1"># Split the data into the training and validation sets</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">))</span>
+    <span class="c1"># Classifier training</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:</span><span class="n">idx</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># Prediction for validation set</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">:,</span> <span class="p">:])[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Calculate the quality</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">:],</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Select the training set from the united dataframe (where we have the answers)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">full_sites_sparse</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1"># Calculate metric on the validation set</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_auc_lr_valid</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9195230491186374
+CPU times: user 14 s, sys: 2.24 s, total: 16.2 s
+Wall time: 2.79 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first model demonstrated the quality  of 0.92 on the validation set. Let’s take it as the first baseline and starting point. To make a prediction on the test data set <strong>we need to train the model again on the entire training data set</strong> (until this moment, our model used only part of the data for training), which will increase its generalizing ability:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function for writing predictions to a file</span>
+<span class="k">def</span> <span class="nf">write_to_submission_file</span><span class="p">(</span>
+    <span class="n">predicted_labels</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="s2">&quot;session_id&quot;</span>
+<span class="p">):</span>
+    <span class="n">predicted_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">predicted_labels</span><span class="p">,</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">predicted_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="n">index_label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the model on the whole training data set</span>
+<span class="c1"># Use random_state=17 for repeatability</span>
+<span class="c1"># Parameter C=1 by default, but here we set it explicitly</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span>
+<span class="p">)</span>
+
+<span class="c1"># Make a prediction for test data set</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">full_sites_sparse</span><span class="p">[</span><span class="n">idx_split</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Write it to the file which could be submitted</span>
+<span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="s2">&quot;baseline_1.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you follow these steps and upload the answer to the competition <a class="reference external" href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">page</a>, you will get <code class="docutils literal notranslate"><span class="pre">ROC</span> <span class="pre">AUC</span> <span class="pre">=</span> <span class="pre">0.90812</span></code> on the public leaderboard (“A4 baseline 1”).</p>
+<p><strong>4. Model Improvement: Feature Engineering</strong></p>
+<p>Now we are going to improve the quality of our model by engineering new features.</p>
+<p>Create a feature that will be a number in YYYYMM format from the date when the session was held, for example 201407 – year 2014 and 7th month. Thus, we will take into account the monthly <a class="reference external" href="http://people.duke.edu/~rnau/411trend.htm">linear trend</a> for the entire period of the data provided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dataframe for new features</span>
+<span class="n">full_new_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">full_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Add start_month feature</span>
+<span class="n">full_new_feat</span><span class="p">[</span><span class="s2">&quot;start_month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">full_df</span><span class="p">[</span><span class="s2">&quot;time1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">ts</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">ts</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color = 'red'> <strong>Question 4:</strong> </font>  Plot the graph of the number of Alice sessions versus the new feature, start_month. Choose the correct statement:</strong></p>
+<ul class="simple">
+<li><p>Alice wasn’t online at all for the entire period</p></li>
+<li><p>From the beginning of 2013 to mid-2014, the number of Alice’s sessions per month decreased</p></li>
+<li><p>The number of Alice’s sessions per month is generally constant for the entire period</p></li>
+<li><p>From the beginning of 2013 to mid-2014, the number of Alice’s sessions per month increased</p></li>
+</ul>
+<p><em>Hint: the graph will be more explicit if you treat <code class="docutils literal notranslate"><span class="pre">start_month</span></code> as a categorical ordinal variable</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this way, we have an illustration and thoughts about the usefulness of the new feature, add it to the training sample and check the quality of the new model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add the new feature to the sparse matrix</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">full_new_feat</span><span class="p">[[</span><span class="s2">&quot;start_month&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">hstack</span><span class="p">([</span><span class="n">full_sites_sparse</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:],</span> <span class="n">tmp</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:]]))</span>
+
+<span class="c1"># Compute the metric on the validation set</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_auc_lr_valid</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7508354860175162
+</pre></div>
+</div>
+</div>
+</div>
+<p>The quality of the model has decreased significantly. We added a feature that definitely seemed useful to us, but its usage only worsened the model. Why did it happen?</p>
+<p><strong>Important detour #2: is it necessary to scale features?</strong></p>
+<p>Here we give an intuitive reasoning (a rigorous mathematical justification for one or another aspect in linear models you can easily find on the internet). Consider the features more closely: those of them that correspond to the number of visits to a particular web-site per session vary from 0 to 10. The feature <code class="docutils literal notranslate"><span class="pre">start_month</span></code> has a completely different range: from 201301 to 201412, this means the contribution of this variable is significantly greater than the others. It would seem that problem can be avoided if we put less weight in a linear combination of attributes in this case, but in our case logistic regression with regularization is used (by default, this parameter is <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">1</span></code>), which penalizes the model the stronger the greater its weights are. Therefore, for linear methods with regularization, it is recommended to convert features to the same scale (you can read more about the regularization, for example, <a class="reference external" href="https://habrahabr.ru/company/ods/blog/322076/">here</a>).</p>
+<p>One way to do this is standardization: for each observation you need to subtract the average value of the feature and divide this difference by the standard deviation:</p>
+<div class="math notranslate nohighlight">
+\[ x^{*}_{i} = \dfrac{x_{i} - \mu_x}{\sigma_x}\]</div>
+<p>The following practical tips can be given:</p>
+<ul class="simple">
+<li><p>It is recommended to scale features if they have essentially different ranges or different units of measurement (for example, the country’s population is indicated in units, and the country’s GNP in trillions)</p></li>
+<li><p>Scale features if you do not have a reason/expert opinion to give a greater weight to any of them</p></li>
+<li><p>Scaling can be excessive if the ranges of some of your features differ from each other, but they are in the same system of units (for example, the proportion of middle-aged people and people over 80 among the entire population)</p></li>
+<li><p>If you want to get an interpreted model, then build a model without regularization and scaling (most likely, its quality will be worse)</p></li>
+<li><p>Binary features (which take only values of 0 or 1) are usually left without conversion, (but)</p></li>
+<li><p>If the quality of the model is crucial, try different options and select one where the quality is better</p></li>
+</ul>
+<p>Getting back to <code class="docutils literal notranslate"><span class="pre">start_month</span></code>, let us rescale the new feature and train the model again. This time the quality has increased:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add the new standardized feature to the sparse matrix</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">full_new_feat</span><span class="p">[[</span><span class="s2">&quot;start_month&quot;</span><span class="p">]])</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">hstack</span><span class="p">([</span><span class="n">full_sites_sparse</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:],</span> <span class="n">tmp</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:]]))</span>
+
+<span class="c1"># Compute metric on the validation set</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_auc_lr_valid</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9196993699549294
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color = 'red'> <strong>Question 5:</strong> </font>  Add to the training set a new feature “n_unique_sites” – the number of the unique web-sites in a session. Calculate how the quality on the validation set has changed</strong></p>
+<ul class="simple">
+<li><p>It has decreased. It is better not to add a new feature.</p></li>
+<li><p>It has not changed</p></li>
+<li><p>It has decreased. The new feature should be scaled.</p></li>
+<li><p>I am confused, and I do not know if it’s necessary to scale a new feature.</p></li>
+</ul>
+<p><em>Tips: use the nunique() function from <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Do not forget to include the start_month in the set. Will you scale a new feature? Why?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color = 'red'> <strong>Question 6:</strong> </font>  Add two new features: start_hour and morning. Calculate the metric. Which of these features gives an improvement?</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">start_hour</span></code> feature is the hour at which the session started (from 0 to 23), and the binary feature <code class="docutils literal notranslate"><span class="pre">morning</span></code> is equal to 1 if the session started in the morning and 0 if the session started later (we assume that morning means <code class="docutils literal notranslate"><span class="pre">start_hour</span></code> is equal to 11 or less).</p>
+<p>Will you scale the new features? Make your assumptions and test them in practice.</p>
+<ul class="simple">
+<li><p>None of the features gave an improvement :(</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_hour</span></code> feature gave an improvement, and <code class="docutils literal notranslate"><span class="pre">morning</span></code> did not</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">morning</span></code> feature gave an improvement, and <code class="docutils literal notranslate"><span class="pre">start_hour</span></code> did not</p></li>
+<li><p>Both features gave an improvement</p></li>
+</ul>
+<p><em>Tip: find suitable functions for working with time series data in <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html">documentation</a>. Do not forget to include the <code class="docutils literal notranslate"><span class="pre">start_month</span></code> feature.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">full_new_feat</span><span class="p">[</span><span class="s2">&quot;morning&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># change this</span>
+<span class="n">full_new_feat</span><span class="p">[</span><span class="s2">&quot;start_hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># change this</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>5. Regularization and Parameter Tuning</strong></p>
+<p>We have introduced features that improve the quality of our model in comparison with the first baseline. Can we do even better? After we have changed the training and test sets, it almost always makes sense to search for the optimal hyperparameters - the parameters of the model that do not change during training.</p>
+<p>For example, in week 3, you learned that, in decision trees, the depth of the tree is a hyperparameter, but the feature by which splitting occurs and its threshold is not.</p>
+<p>In the logistic regression that we use, the weights of each feature are changing, and we find their optimal values during training; meanwhile, the regularization parameter remains constant. This is the hyperparameter that we are going to optimize now.</p>
+<p>Calculate the quality on a validation set with a regularization parameter, which is equal to 1 by default:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compose the training set</span>
+<span class="n">tmp_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
+    <span class="n">full_new_feat</span><span class="p">[[</span><span class="s2">&quot;start_month&quot;</span><span class="p">,</span> <span class="s2">&quot;start_hour&quot;</span><span class="p">,</span> <span class="s2">&quot;morning&quot;</span><span class="p">]]</span>
+<span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span>
+    <span class="n">hstack</span><span class="p">([</span><span class="n">full_sites_sparse</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:],</span> <span class="n">tmp_scaled</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:]])</span>
+<span class="p">)</span>
+
+<span class="c1"># Capture the quality with default parameters</span>
+<span class="n">score_C_1</span> <span class="o">=</span> <span class="n">get_auc_lr_valid</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">score_C_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9196984641972088
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will try to beat this result by optimizing the regularization parameter. We will take a list of possible values of C and calculate the quality metric on the validation set for each of C-values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of possible C-values</span>
+<span class="n">Cs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the graph of the quality metric (AUC-ROC) versus the value of the regularization parameter. The value of quality metric corresponding to the default value of C=1 is represented by a horizontal dotted line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color = 'red'> <strong>Question 7:</strong> </font>  What is the value of parameter C (if rounded to 2 decimals) that corresponds to the highest model quality?</strong></p>
+<ul class="simple">
+<li><p>0.17</p></li>
+<li><p>0.46</p></li>
+<li><p>1.29</p></li>
+<li><p>3.14</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># change this</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For the last task in this assignment: train the model using the optimal regularization parameter you found (do not round up to two digits like in the last question). If you do everything correctly and submit your solution, you should see <code class="docutils literal notranslate"><span class="pre">ROC</span> <span class="pre">AUC</span> <span class="pre">=</span> <span class="pre">0.92784</span></code> on the public leaderboard (“A4 baseline 2”):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare the training and test data</span>
+<span class="n">tmp_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
+    <span class="n">full_new_feat</span><span class="p">[[</span><span class="s2">&quot;start_month&quot;</span><span class="p">,</span> <span class="s2">&quot;start_hour&quot;</span><span class="p">,</span> <span class="s2">&quot;morning&quot;</span><span class="p">]]</span>
+<span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span>
+    <span class="n">hstack</span><span class="p">([</span><span class="n">full_sites_sparse</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:],</span> <span class="n">tmp_scaled</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:]])</span>
+<span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span>
+    <span class="n">hstack</span><span class="p">([</span><span class="n">full_sites_sparse</span><span class="p">[</span><span class="n">idx_split</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">tmp_scaled</span><span class="p">[</span><span class="n">idx_split</span><span class="p">:,</span> <span class="p">:]])</span>
+<span class="p">)</span>
+
+<span class="c1"># Train the model on the whole training data set using optimal regularization parameter</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Make a prediction for the test set</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Write it to the submission file</span>
+<span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="s2">&quot;baseline_2.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this part of the assignment, you have learned how to use sparse matrices, train logistic regression models, create new features and selected the best ones, learned why you need to scale features, and how to select hyperparameters. That’s a lot!</p>
+</section>
+<section id="part-2-freeride-a-class-tocskip">
+<h3>Part 2. Freeride <a class="tocSkip"><a class="headerlink" href="#part-2-freeride-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<img src='../../_static/img/snowboard.jpg' width=70%>
+<p><em>Yorko in Sheregesh, arguably, the best place in Russia for snowboarding and skiing.</em></p>
+<p>In this part, you’ll need to beat the 2 more baselines mentioned in the beginning of this assignment. No more step-by-step instructions. But it’ll be very helpful for you to study the Notebook “<a class="reference external" href="https://www.kaggle.com/kashnitsky/correct-time-aware-cross-validation-scheme">Correct time-aware cross-validation scheme</a>”.</p>
+<p>Here are a few tips for finding new features: think about what you can come up with using existing features, try multiplying or dividing two of them, justify or decline your hypotheses with plots, extract useful information from time series data (time1 … time10), do not hesitate to convert an existing feature (for example, take a logarithm), etc. Checkout other <a class="reference external" href="https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/kernels">Notebooks</a>. We encourage you to try new ideas and models - it’s fun!</p>
+<p>When you get into Kaggle and Xgboost, you’ll feel like that, and it’s fine :)</p>
+<img src='../../_static/img/xgboost_meme.jpg' width=30%></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment04_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 4. Linear Classification and Regression</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center> Assignment #4. Solution </center> <a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,862 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #6. Task &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #6. Solution" href="assignment06_medium_popularity_beat_baseline_solution.html" />
+    <link rel="prev" title="Topic 6. Feature Engineering and Feature Selection" href="assignment06_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment06/assignment06_medium_popularity_beat_baseline.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment06/assignment06_medium_popularity_beat_baseline.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center>Assignment #6. Task</center><a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitskiy</a> (&#64;yorko). <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-6-task-center-a-class-tocskip">
+<h1><center>Assignment #6. Task</center><a class="tocSkip"><a class="headerlink" href="#center-assignment-6-task-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-beating-benchmarks-in-how-good-is-your-medium-article-center-a-class-tocskip">
+<h2><center> Beating benchmarks in “How good is your Medium article?”</center><a class="tocSkip"><a class="headerlink" href="#center-beating-benchmarks-in-how-good-is-your-medium-article-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://www.kaggle.com/c/how-good-is-your-medium-article">Competition</a>. The task is to beat “Assignment 6 baseline” (~1.45 Public LB score). You can refer to <a class="reference external" href="https://www.kaggle.com/kashnitsky/ridge-countvectorizer-baseline?rvi=1">this simple Ridge baseline</a>.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span><span class="p">,</span> <span class="n">hstack</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code will help to throw away all HTML tags from an article content.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">html.parser</span> <span class="kn">import</span> <span class="n">HTMLParser</span>
+
+
+<span class="k">class</span> <span class="nc">MLStripper</span><span class="p">(</span><span class="n">HTMLParser</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strict</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convert_charrefs</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fed</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fed</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">strip_tags</span><span class="p">(</span><span class="n">html</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">MLStripper</span><span class="p">()</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Supplementary function to read a JSON line without crashing on escape characters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_json_line</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Find the offending character index:</span>
+        <span class="n">idx_to_replace</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+        <span class="c1"># Remove the offending character:</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="n">new_line</span><span class="p">[</span><span class="n">idx_to_replace</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+        <span class="n">new_line</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">new_line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">read_json_line</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="n">new_line</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extract features <code class="docutils literal notranslate"><span class="pre">content</span></code>, <code class="docutils literal notranslate"><span class="pre">published</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">author</span></code>, write them to separate files for train and test sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_features_and_write</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">,</span> <span class="n">inp_filename</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;published&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;author&quot;</span><span class="p">]</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;train&quot;</span> <span class="k">if</span> <span class="n">is_train</span> <span class="k">else</span> <span class="s2">&quot;test&quot;</span>
+    <span class="n">feature_files</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">open</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">feat</span><span class="p">)),</span>
+            <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+            <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">features</span>
+    <span class="p">]</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">,</span> <span class="n">inp_filename</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">inp_json_file</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">inp_json_file</span><span class="p">):</span>
+            <span class="n">json_data</span> <span class="o">=</span> <span class="n">read_json_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+
+<span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download the <a class="reference external" href="https://www.kaggle.com/c/how-good-is-your-medium-article/data">competition data</a> and place it where it’s convenient for you. You can modify the path to data below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="s2">&quot;../../_static/data/assignment6/&quot;</span>  <span class="c1"># modify this if you need to</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Add the following groups of features:</strong>
+- Tf-Idf with article content (ngram_range=(1, 2), max_features=100000 but you can try adding more)
+- Tf-Idf with article titles (ngram_range=(1, 2), max_features=100000 but you can try adding more)
+- Time features: publication hour, whether it’s morning, day, night, whether it’s a weekend
+- Bag of authors (i.e. One-Hot-Encoded author names)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_content_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>  <span class="c1"># change this</span>
+<span class="n">X_train_title_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>  <span class="c1"># change this</span>
+<span class="n">X_train_author_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>  <span class="c1"># change this</span>
+<span class="n">X_train_time_features_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># change this</span>
+
+<span class="n">X_test_content_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>  <span class="c1"># change this</span>
+<span class="n">X_test_title_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>  <span class="c1"># change this</span>
+<span class="n">X_test_author_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>  <span class="c1"># change this</span>
+<span class="n">X_test_time_features_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># change this</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Join all sparse matrices.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_sparse</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">X_train_content_sparse</span><span class="p">,</span>
+        <span class="n">X_train_title_sparse</span><span class="p">,</span>
+        <span class="n">X_train_author_sparse</span><span class="p">,</span>
+        <span class="n">X_train_time_features_sparse</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test_sparse</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">X_test_content_sparse</span><span class="p">,</span>
+        <span class="n">X_test_title_sparse</span><span class="p">,</span>
+        <span class="n">X_test_author_sparse</span><span class="p">,</span>
+        <span class="n">X_test_time_features_sparse</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Read train target and split data for validation.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s2">&quot;train_log1p_recommends.csv&quot;</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;id&quot;</span>
+<span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_target</span><span class="p">[</span><span class="s2">&quot;log_recommends&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_part_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="n">train_target</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">X_train_part_sparse</span> <span class="o">=</span> <span class="n">X_train_sparse</span><span class="p">[:</span><span class="n">train_part_size</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">y_train_part</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="n">train_part_size</span><span class="p">]</span>
+<span class="n">X_valid_sparse</span> <span class="o">=</span> <span class="n">X_train_sparse</span><span class="p">[</span><span class="n">train_part_size</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">y_valid</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="n">train_part_size</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Train a simple Ridge model and check MAE on the validation set.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Train the same Ridge with all available data, make predictions for the test set and form a submission file.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge_test_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">34645</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># change this</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_submission_file</span><span class="p">(</span>
+    <span class="n">prediction</span><span class="p">,</span>
+    <span class="n">filename</span><span class="p">,</span>
+    <span class="n">path_to_sample</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s2">&quot;sample_submission.csv&quot;</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_to_sample</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+
+    <span class="n">submission</span><span class="p">[</span><span class="s2">&quot;log_recommends&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prediction</span>
+    <span class="n">submission</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_submission_file</span><span class="p">(</span>
+    <span class="n">ridge_test_pred</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s2">&quot;assignment6_medium_submission.csv&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Now’s the time for dirty Kaggle hacks. Form a submission file with all zeros. Make a submission. What do you get if you think about it? How is it going to help you with modifying your predictions?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_submission_file</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">ridge_test_pred</span><span class="p">),</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s2">&quot;medium_all_zeros_submission.csv&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Modify predictions in an appropriate way (based on your all-zero submission) and make a new submission.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge_test_pred_modif</span> <span class="o">=</span> <span class="n">ridge_test_pred</span>
+<span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_submission_file</span><span class="p">(</span>
+    <span class="n">ridge_test_pred_modif</span><span class="p">,</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s2">&quot;assignment6_medium_submission_with_hack.csv&quot;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s it for the assignment. In case you’d like to try some more ideas for improvement:</p>
+<ul class="simple">
+<li><p>Engineer good features, this is the key to success. Some simple features will be based on publication time, authors, content length and so on</p></li>
+<li><p>You may not ignore HTML and extract some features from there</p></li>
+<li><p>You’d better experiment with your validation scheme. You should see a correlation between your local improvements and LB score</p></li>
+<li><p>Try TF-IDF, ngrams, Word2Vec and GloVe embeddings</p></li>
+<li><p>Try various NLP techniques like stemming and lemmatization</p></li>
+<li><p>Tune hyperparameters. In our example, we’ve left only 50k features and used C=1 as a regularization parameter, this can be changed</p></li>
+<li><p>SGD and Vowpal Wabbit will train much faster</p></li>
+<li><p>Play around with blending and/or stacking. An intro is given in <a class="reference external" href="https://www.kaggle.com/kashnitsky/ridge-and-lightgbm-simple-blending">this Kernel</a> by &#64;yorko</p></li>
+<li><p>And neural nets of course. We don’t cover them in this course byt still transformer-based architectures will likely perform well in such types of tasks</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment06_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 6. Feature Engineering and Feature Selection</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment06_medium_popularity_beat_baseline_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>Assignment #6. Solution</center><a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

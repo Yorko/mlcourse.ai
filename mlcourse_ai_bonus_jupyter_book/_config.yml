@@ -1,0 +1,32 @@
+title : mlcourse.ai bonus pack
+author: Yury Kashnitsky (yorko)
+logo: _static/img/mlcourse_ai_logo_bonus.jpg
+
+# Short description about the book
+description: >-
+  Open Machine Learning course – Bonus assignments
+
+execute:
+  execute_notebooks           : cache
+  run_in_temp: false
+  timeout: -1
+
+# exclude some content
+exclude_patterns: [_static/data/*]
+
+# HTML-specific settings
+html:
+  favicon                     : _static/img/favicon.ico
+  home_page_in_navbar         : true
+
+# Interact link settings
+notebook_interface            : "notebook"
+
+latex:
+  latex_engine                : "xelatex"
+  latex_documents:
+    targetname: book.tex
+
+sphinx:
+  config:
+    html_extra_path: ['_static']

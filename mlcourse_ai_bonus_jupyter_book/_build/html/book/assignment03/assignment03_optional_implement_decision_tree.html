@@ -1,0 +1,839 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #3. Optional part. Task &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #3. Optional part. Solution" href="assignment03_optional_implement_decision_tree_solution.html" />
+    <link rel="prev" title="Assignment #3. Solution" href="assignment03_decision_trees_solution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment03/assignment03_optional_implement_decision_tree.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment03/assignment03_optional_implement_decision_tree.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center>Assignment #3. Optional part. Task </center> <a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a> (&#64;yorko). Edited by Anna Tarelina (&#64;feuerengel).<a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2021</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-3-optional-part-task-center-a-class-tocskip">
+<h1><center>Assignment #3. Optional part. Task </center> <a class="tocSkip"><a class="headerlink" href="#center-assignment-3-optional-part-task-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-implementation-of-the-decision-tree-algorithm-center-a-class-tocskip">
+<h2><center>Implementation of the decision tree algorithm </center><a class="tocSkip"><a class="headerlink" href="#center-implementation-of-the-decision-tree-algorithm-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p>If you want to truly understand the algorithm that you are using, it’s good to implement it from scratch. Have to say, it’s not necessary if you just want to apply an algorithm in practice. However, if you love math, algorithms and programming, you’ll enjoy this task.<br />
+<img src='../../_static/img/quote_feynman.jpg' width=50%></p>
+<section id="your-task-is-to">
+<h3>Your task is to:<a class="headerlink" href="#your-task-is-to" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://docs.google.com/forms/d/1SYwUD0Yx_bcykq6EqFQ4Ug0KaQWG4L7bAlL5yGedZnw">webform</a>.</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># if seaborn is not yet installed, run `pip install seaborn` in terminal</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_boston</span><span class="p">,</span>
+    <span class="n">load_digits</span><span class="p">,</span>
+    <span class="n">make_classification</span><span class="p">,</span>
+    <span class="n">make_regression</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">train_test_split</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s fix <code class="docutils literal notranslate"><span class="pre">random_state</span></code> (a.k.a. random seed) beforehand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Implement the class <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code></strong>
+<strong>Specification:</strong></p>
+<ul class="simple">
+<li><p>the class is inherited from <code class="docutils literal notranslate"><span class="pre">sklearn.BaseEstimator</span></code>;</p></li>
+<li><p>class constructor has the following parameters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> - maximum depth of the tree (<code class="docutils literal notranslate"><span class="pre">numpy.inf</span></code> by default);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code> - the minimum number of instances in a node for a splitting to be done (2 by default);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">criterion</span></code> - split criterion (‘gini’ or ‘entropy’ for classification, ‘variance’ or ‘mad_median’ for regression; ‘gini’ by default);</p></li>
+</ul>
+</li>
+<li><p>the class has several methods: <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code> and <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>;</p></li>
+<li><p>the<code class="docutils literal notranslate"><span class="pre">fit</span></code> method takes the matrix of instances <code class="docutils literal notranslate"><span class="pre">X</span></code> and a target vector <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> objects) and returns an instance of the class <code class="docutils literal notranslate"><span class="pre">DecisionTree</span></code> representing the decision tree trained on the dataset <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">y)</span></code> according to parameters set in the constructor;</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method takes the matrix of instances <code class="docutils literal notranslate"><span class="pre">X</span></code> and returns the matrix <code class="docutils literal notranslate"><span class="pre">P</span></code> of a size <code class="docutils literal notranslate"><span class="pre">X.shape[0]</span> <span class="pre">x</span> <span class="pre">K</span></code>, where <code class="docutils literal notranslate"><span class="pre">K</span></code> is the number of classes and <span class="math notranslate nohighlight">\(p_{ij}\)</span> is the probability of an instance in <span class="math notranslate nohighlight">\(i\)</span>-th row of <code class="docutils literal notranslate"><span class="pre">X</span></code> to belong to class <span class="math notranslate nohighlight">\(j \in \{1, \dots, K\}\)</span>.</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method takes the matrix of instances <code class="docutils literal notranslate"><span class="pre">X</span></code> and returns a prediction vector; in case of classification, prediction for an instance <span class="math notranslate nohighlight">\(x_i\)</span> falling into leaf <span class="math notranslate nohighlight">\(L\)</span> will be the class, mostly represented among instances in <span class="math notranslate nohighlight">\(L\)</span>. In case of regression, it’ll be the mean value of targets for all instances in leaf <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
+</ul>
+<p>A note on <code class="docutils literal notranslate"><span class="pre">criterion</span></code>: this is the functional to be maximized to find an optimal partition at a given node has the form <span class="math notranslate nohighlight">\(Q(X, j, t) = F(X) - \dfrac{|X_l|}{|X|} F(X_l) - \dfrac{|X_r|}{|X|} F(X_r),\)</span> where <span class="math notranslate nohighlight">\(X\)</span> are samples at a given node, <span class="math notranslate nohighlight">\(X_l\)</span> and <span class="math notranslate nohighlight">\(X_r\)</span> are partitions of samples <span class="math notranslate nohighlight">\(X\)</span> into two parts with the following condition <span class="math notranslate nohighlight">\([x_j &lt; t]\)</span>, and <span class="math notranslate nohighlight">\(F(X)\)</span> is a partition criterion.</p>
+<p>For classification: let <span class="math notranslate nohighlight">\(p_i\)</span> be the fraction of the instances of the <span class="math notranslate nohighlight">\(i\)</span>-th class in the dataset <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<ul class="simple">
+<li><p>‘gini’: Gini impurity <span class="math notranslate nohighlight">\(F(X) = 1 -\sum_{i = 1}^K p_i^2\)</span>.</p></li>
+<li><p>‘entropy’: Entropy <span class="math notranslate nohighlight">\(F(X) = -\sum_{i = 1}^K p_i \log_2(p_i)\)</span>.</p></li>
+</ul>
+<p>For regression: <span class="math notranslate nohighlight">\(y_j = y(x_j)\)</span> - is a target for an instance <span class="math notranslate nohighlight">\(x_j\)</span>, <span class="math notranslate nohighlight">\(y = (y_1, \dots, y_{|X|})\)</span> - is a target vector.</p>
+<ul class="simple">
+<li><p>‘variance’: Variance (mean quadratic deviation from average) <span class="math notranslate nohighlight">\(F(X) = \dfrac{1}{|X|} \sum_{x_j \in X}(y_j - \dfrac{1}{|X|}\sum_{x_i \in X}y_i)^2\)</span></p></li>
+<li><p>‘mad_median’: Mean deviation from the median <span class="math notranslate nohighlight">\(F(X) = \dfrac{1}{|X|} \sum_{x_j \in X}|y_j - \mathrm{med}(y)|\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+
+
+<span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">gini</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">variance</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">mad_median</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Node</span></code> class implements a node in the decision tree.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_idx</span> <span class="o">=</span> <span class="n">feature_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s determine the function for calculating a prediction in a leaf. For regression, let’s take the mean for all values in a leaf, for classification - the most popular class in leaf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+
+<span class="k">def</span> <span class="nf">regression_leaf</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">classification_leaf</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">DecisionTree</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s2">&quot;gini&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="testing-the-implemented-algorithm">
+<h2>Testing the implemented algorithm<a class="headerlink" href="#testing-the-implemented-algorithm" title="Permalink to this headline">#</a></h2>
+<section id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h3>
+<p>Download the dataset <code class="docutils literal notranslate"><span class="pre">digits</span></code> using the method <code class="docutils literal notranslate"><span class="pre">load_digits</span></code>. Split the data into train and test with the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> method, use parameter values <code class="docutils literal notranslate"><span class="pre">test_size=0.2</span></code>, and <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code>. Try to train shallow decision trees and make sure that gini and entropy criteria return different results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using 5-folds cross-validation (<code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>) pick up the optimal values of the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameters. For the parameter <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> use range(3, 11), for criterion use {‘gini’, ‘entropy’}. Quality measure is <code class="docutils literal notranslate"><span class="pre">scoring</span></code>=’accuracy’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Draw the plot of the mean quality measure <code class="docutils literal notranslate"><span class="pre">accuracy</span></code> for criteria <code class="docutils literal notranslate"><span class="pre">gini</span></code> and <code class="docutils literal notranslate"><span class="pre">entropy</span></code> depending on <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 1.</font> Choose all correct statements:</strong></p>
+<ol class="simple">
+<li><p>Optimal value of the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> parameter is on the interval [4, 9] for both criteria.</p></li>
+<li><p>Created plots have no intersection on the interval [3, 10]</p></li>
+<li><p>Created plots intersect each other only once on the interval [3, 10].</p></li>
+<li><p>The best quality for <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> on the interval [3, 10] is reached using <code class="docutils literal notranslate"><span class="pre">gini</span></code> criterion .</p></li>
+<li><p>Accuracy is strictly increasing at least for one of the criteria, when <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> is also increasing on the interval [3, 10]</p></li>
+</ol>
+<p><strong><font color='red'>Question 2.</font> What are the optimal values for max_depth and criterion parameters?</strong></p>
+<ol class="simple">
+<li><p>max_depth = 7, criterion = ‘gini’;</p></li>
+<li><p>max_depth = 7, criterion = ‘entropy’;</p></li>
+<li><p>max_depth = 10, criterion = ‘entropy’;</p></li>
+<li><p>max_depth = 10, criterion = ‘gini’;</p></li>
+<li><p>max_depth = 9, criterion = ‘entropy’;</p></li>
+<li><p>max_depth = 9, criterion = ‘gini’;</p></li>
+</ol>
+<p>Train decision tree on <code class="docutils literal notranslate"><span class="pre">(X_train,</span> <span class="pre">y_train)</span></code> using the optimal values of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">criterion</span></code>. Compute class probabilities for <code class="docutils literal notranslate"><span class="pre">X_test</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the given matrix, compute the mean class probabilities for all instances in <code class="docutils literal notranslate"><span class="pre">X_test</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 3.</font> What is the maximum probability in a resulted vector?</strong></p>
+<ol class="simple">
+<li><p>0.127</p></li>
+<li><p>0.118</p></li>
+<li><p>1.0</p></li>
+<li><p>0.09</p></li>
+</ol>
+</section>
+</section>
+<section id="regression">
+<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h2>
+<p>Download the dataset <code class="docutils literal notranslate"><span class="pre">boston</span></code> using the method <code class="docutils literal notranslate"><span class="pre">load_boston</span></code>. Split the data into train and test with the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> method, use parameter values <code class="docutils literal notranslate"><span class="pre">test_size=0.2</span></code>, <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code>. Try to train shallow regression decision trees and make sure that <code class="docutils literal notranslate"><span class="pre">variance</span></code> and <code class="docutils literal notranslate"><span class="pre">mad_median</span></code> criteria return different results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using 5-folds cross-validation (<code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>) pick up the optimal values of the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameters. For the parameter <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> use <code class="docutils literal notranslate"><span class="pre">range(2,</span> <span class="pre">9)</span></code>, for <code class="docutils literal notranslate"><span class="pre">criterion</span></code> use {‘variance’, ‘mad_median’}. Quality measure is <code class="docutils literal notranslate"><span class="pre">scoring</span></code>=’neg_mean_squared_error’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Draw the plot of the mean quality measure <code class="docutils literal notranslate"><span class="pre">neg_mean_squared_error</span></code> for criteria <code class="docutils literal notranslate"><span class="pre">variance</span></code> and <code class="docutils literal notranslate"><span class="pre">mad_median</span></code> depending on <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 4.</font> Choose all correct statements:</strong></p>
+<ol class="simple">
+<li><p>Created plots have no intersection on the interval [2, 8].</p></li>
+<li><p>Created plots intersect each other only once on the interval [2, 8].</p></li>
+<li><p>Optimal value of the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> for each of the criteria is on the border of the interval [2, 8].</p></li>
+<li><p>The best quality at <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> on the interval [2, 8] is reached using <code class="docutils literal notranslate"><span class="pre">mad_median</span></code> criterion.</p></li>
+</ol>
+<p><strong><font color='red'>Question 5.</font> What are the optimal values for <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">criterion</span></code> parameters?</strong></p>
+<ol class="simple">
+<li><p>max_depth = 9, criterion = ‘variance’;</p></li>
+<li><p>max_depth = 5, criterion = ‘mad_median’;</p></li>
+<li><p>max_depth = 4, criterion = ‘variance’;</p></li>
+<li><p>max_depth = 2, criterion = ‘mad_median’;</p></li>
+<li><p>max_depth = 4, criterion = ‘mad_median’;</p></li>
+<li><p>max_depth = 5, criterion = ‘variance’.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment03_decision_trees_solution.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><center> Assignment #3. Solution </center> <a class="tocSkip"></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment03_optional_implement_decision_tree_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>Assignment #3. Optional part. Solution </center> <a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

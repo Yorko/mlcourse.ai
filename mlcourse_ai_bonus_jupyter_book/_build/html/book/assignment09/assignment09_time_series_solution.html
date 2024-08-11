@@ -1,0 +1,1229 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #9. Solution &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Topic 10. Gradient Boosting" href="../assignment10/assignment10_intro.html" />
+    <link rel="prev" title="Assignment #9. Task" href="assignment09_time_series.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment09/assignment09_time_series_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment09/assignment09_time_series_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center>Assignment #9. Solution </center> <a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Author: <a class="reference external" href="https://github.com/DmitrySerg">Dmitry Sergeyev</a>, Zeptolab. <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-9-solution-center-a-class-tocskip">
+<h1><center>Assignment #9. Solution </center> <a class="tocSkip"><a class="headerlink" href="#center-assignment-9-solution-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-times-series-analysis-center-a-class-tocskip">
+<h2><center> Times Series Analysis </center><a class="tocSkip"><a class="headerlink" href="#center-times-series-analysis-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p>In this assignment, we’ll engineer some features and apply an ML model to a time series prediction task.</p>
+<section id="your-task-is-to">
+<h3>Your task is to:<a class="headerlink" href="#your-task-is-to" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://forms.gle/K54dgp8VYZzrKxvF8">webform</a>.</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<p>Importing necessary libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LassoCV</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">RidgeCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">TimeSeriesSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+
+<span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will take real time-series data of total ads watched by hour in one of our games.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;../../_static/data/assignment9/ads_hour.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s2">&quot;bmh&quot;</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ads watched (hour ticks)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">ads</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment09_time_series_solution_5_0.png" src="../../_images/assignment09_time_series_solution_5_0.png" />
+</div>
+</div>
+<p>We have everything you could ask for - trend, seasonality, even some outliers.</p>
+<p>In this assignment we will concentrate on methods that have proven to be working in practice and can provide quality, comparable to ARIMA models. Namely, feature engineering, selecting and machine learning</p>
+<p>But before digging into practice - a tiny bit of theory on how to create even more features. In this hometask we will be working with linear models. That means we assume there’s a linear dependance between our target variable and the featureset, and we try to model that dependance. Now remember the <code class="docutils literal notranslate"><span class="pre">hour</span></code> variable we’ve created in the lecture? That variable showed on which hour a given observation arrived. Naturally, we expect hour plays a huge role, since at night the amount ofactive users who can watch ads drops significantly, at during the day it rises to its peak. However, if we use a single feature with number of an hour, linear models will not be able to model that dependance correctly. Why? Because look at the feature itself. It has values from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(23\)</span> and even though we know that 0:00 is closer to 23:00 than, say, 20:00 to 23:00, the model will only see the numbers, not the logic behind them. And, of course, number 0 is way further from number 23 than number 20 from 23.</p>
+<p>How will we solve that problem?</p>
+<ul class="simple">
+<li><p>First possible solution - let’s get dummies and make 24 new columns out of one. Clear disadvantages - we explode the dimentionality of our data and lose any trace of the cyclical nature of hours.</p></li>
+<li><p>Second solution - sine/cosine transformation. To fully understand that approach, read <a class="reference external" href="https://ianlondon.github.io/blog/encoding-cyclical-features-24hour-time/">this short article</a>. But in short - we want to encode hour feature with two new columns, which are sine and cosine transformations of “hour from midnight”</p></li>
+</ul>
+<p>We will use the already familiar <code class="docutils literal notranslate"><span class="pre">prepareData</span></code> function with some modifications - sine/cosine transformation for <code class="docutils literal notranslate"><span class="pre">hour</span></code> and dummy transformation for <code class="docutils literal notranslate"><span class="pre">weekday</span></code> features</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepareData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lag_start</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">lag_end</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.15</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    series: pd.DataFrame</span>
+<span class="sd">        dataframe with timeseries</span>
+
+<span class="sd">    lag_start: int</span>
+<span class="sd">        initial step back in time to slice target variable </span>
+<span class="sd">        example - lag_start = 1 means that the model </span>
+<span class="sd">                  will see yesterday&#39;s values to predict today</span>
+
+<span class="sd">    lag_end: int</span>
+<span class="sd">        final step back in time to slice target variable</span>
+<span class="sd">        example - lag_end = 4 means that the model </span>
+<span class="sd">                  will see up to 4 days back in time to predict today</span>
+
+<span class="sd">    test_size: float</span>
+<span class="sd">        size of the test dataset after train/test split as percentage of dataset</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+    <span class="c1"># calculate test index start position to split data on train test</span>
+    <span class="n">test_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">test_size</span><span class="p">))</span>
+
+    <span class="c1"># adding lags of original time series data as features</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lag_start</span><span class="p">,</span> <span class="n">lag_end</span><span class="p">):</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;lag_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="c1"># transforming df index to datetime and creating new variables</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;weekday&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span>
+
+    <span class="c1"># since we will be using only linear models we need to get dummies from weekdays</span>
+    <span class="c1"># to avoid imposing weird algebraic rules on day numbers</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;weekday&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;weekday&quot;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;weekday&quot;</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># encode hour with sin/cos transformation</span>
+    <span class="c1"># credits - https://ianlondon.github.io/blog/encoding-cyclical-features-24hour-time/</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sin_hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;cos_hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">24</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;hour&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># splitting whole dataset on train and test</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">test_index</span><span class="p">][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">:]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_index</span><span class="p">:][</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the functions on original <code class="docutils literal notranslate"><span class="pre">df</span></code> to prepare datasets necessary for model training. Reserve 30% of data for testing, use initial lag 12 and final lag 48. This way the model will be able to make forecasts twelve steps ahead, having observed data from the previous 1.5 day.</p>
+<p>Scale the resulting datasets with the help of <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> and create new variables - <code class="docutils literal notranslate"><span class="pre">X_train_scaled</span></code> and <code class="docutils literal notranslate"><span class="pre">X_test_scaled</span></code>. Don’t forget that <code class="docutils literal notranslate"><span class="pre">scaler</span></code> should be trained on train set only to prevent information about future from leaking.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">prepareData</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lag_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">lag_end</span><span class="o">=</span><span class="mi">48</span>
+<span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now train a simple linear regression on scaled data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
+</div>
+<p>Check the quality of the model on the training set with the help of cross-validation. To do so you need to create an  object-generator of time series cv folds with the help of  <code class="docutils literal notranslate"><span class="pre">TimeSeriesSplit</span></code>. Set the number of folds to be equal to 5. Then use <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code>, feeding it’s <code class="docutils literal notranslate"><span class="pre">cv</span></code> parameter with the created generator. Quality metrics should be <code class="docutils literal notranslate"><span class="pre">neg_mean_absolute_error</span></code>.</p>
+<p>Don’t forget to take an average of the result and multiply it by -1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tscv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+    <span class="n">cross_val_score</span><span class="p">(</span>
+        <span class="n">lr</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">tscv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_absolute_error&quot;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4490.0642733984405
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 1.</font> What is the value of MAE on cross-validation?</strong></p>
+<ul class="simple">
+<li><p>4876</p></li>
+<li><p>41454725</p></li>
+<li><p>4490 <strong><font color='red'>[+]</font></strong></p></li>
+<li><p>0.712</p></li>
+</ul>
+<p>Now let’s have a look at the forecast itself. We’ll need <code class="docutils literal notranslate"><span class="pre">plotModelResults</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotModelResults</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span> <span class="n">df_train</span><span class="p">,</span> <span class="n">df_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">tscv</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots modelled vs fact values</span>
+<span class="sd">    </span>
+<span class="sd">    model: fitted model </span>
+<span class="sd">    </span>
+<span class="sd">    df_train, df_test: splitted featuresets</span>
+<span class="sd">    </span>
+<span class="sd">    y_train, y_test: targets</span>
+<span class="sd">    </span>
+<span class="sd">    plot_intervals: bool, if True, plot prediction intervals</span>
+<span class="sd">    </span>
+<span class="sd">    scale: float, sets the width of the intervals</span>
+<span class="sd">    </span>
+<span class="sd">    cv: cross validation method, needed for intervals</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># making predictions for test</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;actual&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">plot_intervals</span><span class="p">:</span>
+        <span class="c1"># calculate cv scores</span>
+        <span class="n">cv</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
+            <span class="n">model</span><span class="p">,</span> <span class="n">df_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># calculate cv error deviation</span>
+        <span class="n">deviation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+
+        <span class="c1"># calculate lower and upper intervals</span>
+        <span class="n">lower</span> <span class="o">=</span> <span class="n">prediction</span> <span class="o">-</span> <span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">)</span>
+        <span class="n">upper</span> <span class="o">=</span> <span class="n">prediction</span> <span class="o">+</span> <span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">deviation</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="s2">&quot;r--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;upper bond / lower bond&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="s2">&quot;r--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="c1"># calculate overall quality on test set</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;MAE </span><span class="si">{}</span><span class="s2">, MAPE </span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">mae</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">mape</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For model coefficients visualization use the following functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getCoefficients</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns sorted coefficient values of the model&quot;&quot;&quot;</span>
+    <span class="n">coefs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">coefs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;coef&quot;</span><span class="p">]</span>
+    <span class="n">coefs</span><span class="p">[</span><span class="s2">&quot;abs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefs</span><span class="o">.</span><span class="n">coef</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">coefs</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;abs&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;abs&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plotCoefficients</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plots sorted coefficient values of the model&quot;&quot;&quot;</span>
+    <span class="n">coefs</span> <span class="o">=</span> <span class="n">getCoefficients</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+    <span class="n">coefs</span><span class="o">.</span><span class="n">coef</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">coefs</span><span class="p">),</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the model results and plot the coefficients</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotModelResults</span><span class="p">(</span>
+    <span class="n">lr</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">plotCoefficients</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment09_time_series_solution_22_0.png" src="../../_images/assignment09_time_series_solution_22_0.png" />
+<img alt="../../_images/assignment09_time_series_solution_22_1.png" src="../../_images/assignment09_time_series_solution_22_1.png" />
+</div>
+</div>
+<p>Wonderful, the intervals are plotted, forecast quality is great and everything seems to be fine, but…We might be having too many variables in our model and, possibly, some of them are not that important and can be dropped, reducing the dimentionality of data and reducing the chances of overfit. To make sure we have extra features, plot a heatmape of <code class="docutils literal notranslate"><span class="pre">X_train</span></code> data correlations with the help of <code class="docutils literal notranslate"><span class="pre">heatmap</span></code> function from <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">corr</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment09_time_series_solution_24_0.png" src="../../_images/assignment09_time_series_solution_24_0.png" />
+</div>
+</div>
+<p>Indeed, features are highly  correlated and you can even observe some kind of “seasonality” in those correlations on each 24-th lag. Let’s try to add regularization to our models and remove some features.</p>
+<p>Train Lasso regression on cross-validation (<code class="docutils literal notranslate"><span class="pre">LassoCV</span></code>) again feeding the <code class="docutils literal notranslate"><span class="pre">cv</span></code> parameter with the created generator-object.</p>
+<p>Plot the forecast of the model and notice that the error on test dataset has not increased significantly</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">LassoCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="n">tscv</span><span class="p">)</span>
+<span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plotModelResults</span><span class="p">(</span>
+    <span class="n">lasso</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">plotCoefficients</span><span class="p">(</span><span class="n">lasso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment09_time_series_solution_27_0.png" src="../../_images/assignment09_time_series_solution_27_0.png" />
+<img alt="../../_images/assignment09_time_series_solution_27_1.png" src="../../_images/assignment09_time_series_solution_27_1.png" />
+</div>
+</div>
+<p>Perfect, we are still having practically the same model quality, while having less features. Use the function <code class="docutils literal notranslate"><span class="pre">getCoefficients</span></code> and find, how many features are now dropped (coefficient equals zero).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">getCoefficients</span><span class="p">(</span><span class="n">lasso</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>coef</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cos_hour</th>
+      <td>5130.599909</td>
+    </tr>
+    <tr>
+      <th>lag_12</th>
+      <td>4702.879114</td>
+    </tr>
+    <tr>
+      <th>sin_hour</th>
+      <td>-4002.881516</td>
+    </tr>
+    <tr>
+      <th>lag_24</th>
+      <td>3124.229452</td>
+    </tr>
+    <tr>
+      <th>lag_47</th>
+      <td>2214.624814</td>
+    </tr>
+    <tr>
+      <th>weekday_4</th>
+      <td>-1955.972849</td>
+    </tr>
+    <tr>
+      <th>lag_14</th>
+      <td>-1128.727385</td>
+    </tr>
+    <tr>
+      <th>weekday_1</th>
+      <td>1063.876179</td>
+    </tr>
+    <tr>
+      <th>lag_18</th>
+      <td>1007.208450</td>
+    </tr>
+    <tr>
+      <th>weekday_5</th>
+      <td>-979.154157</td>
+    </tr>
+    <tr>
+      <th>weekday_2</th>
+      <td>926.384153</td>
+    </tr>
+    <tr>
+      <th>lag_25</th>
+      <td>763.603788</td>
+    </tr>
+    <tr>
+      <th>lag_40</th>
+      <td>-550.079845</td>
+    </tr>
+    <tr>
+      <th>lag_29</th>
+      <td>547.456849</td>
+    </tr>
+    <tr>
+      <th>lag_28</th>
+      <td>468.098759</td>
+    </tr>
+    <tr>
+      <th>lag_26</th>
+      <td>467.772143</td>
+    </tr>
+    <tr>
+      <th>lag_33</th>
+      <td>401.308667</td>
+    </tr>
+    <tr>
+      <th>lag_19</th>
+      <td>258.591298</td>
+    </tr>
+    <tr>
+      <th>lag_41</th>
+      <td>-223.102569</td>
+    </tr>
+    <tr>
+      <th>lag_31</th>
+      <td>131.995528</td>
+    </tr>
+    <tr>
+      <th>lag_36</th>
+      <td>-119.403415</td>
+    </tr>
+    <tr>
+      <th>lag_23</th>
+      <td>113.644315</td>
+    </tr>
+    <tr>
+      <th>lag_30</th>
+      <td>75.213980</td>
+    </tr>
+    <tr>
+      <th>lag_15</th>
+      <td>-67.085676</td>
+    </tr>
+    <tr>
+      <th>lag_32</th>
+      <td>48.656385</td>
+    </tr>
+    <tr>
+      <th>lag_27</th>
+      <td>42.775380</td>
+    </tr>
+    <tr>
+      <th>weekday_0</th>
+      <td>22.957689</td>
+    </tr>
+    <tr>
+      <th>weekday_6</th>
+      <td>-22.482290</td>
+    </tr>
+    <tr>
+      <th>weekday_3</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_44</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_46</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_45</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_35</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_43</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_42</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_39</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_38</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_37</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_13</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_22</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_21</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_20</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_17</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_16</th>
+      <td>-0.000000</td>
+    </tr>
+    <tr>
+      <th>lag_34</th>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 2.</font> How many coefficients of Lasso model equal zero? (with 6 digit precision)?</strong></p>
+<ul class="simple">
+<li><p>11</p></li>
+<li><p>12</p></li>
+<li><p>15</p></li>
+<li><p>17 <strong><font color='red'>[+]</font></strong></p></li>
+</ul>
+<p>Alright, we have some features dropped. But what if we want to go further and transform our linear-dependant features into more compact representation? To do so we’ll use principal component analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+
+
+<span class="k">def</span> <span class="nf">plotPCA</span><span class="p">(</span><span class="n">pca</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots accumulated percentage of explained variance by component</span>
+<span class="sd">    </span>
+<span class="sd">    pca: fitted PCA object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">components</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pca</span><span class="o">.</span><span class="n">n_components_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">variance</span><span class="p">)</span>
+
+    <span class="c1"># additionally mark the level of 95% of explained variance</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">components</span><span class="p">),</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;PCA components&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;variance&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create PCA object: pca</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+
+<span class="c1"># Train PCA on scaled data</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
+
+<span class="c1"># plot explained variance</span>
+<span class="n">plotPCA</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment09_time_series_solution_34_0.png" src="../../_images/assignment09_time_series_solution_34_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 3.</font> What is the minimal number of components needed to explain <em>at least</em> 95% of variance of the train dataset?</strong></p>
+<ul class="simple">
+<li><p>5</p></li>
+<li><p>7</p></li>
+<li><p>9 <strong><font color='red'>[+]</font></strong></p></li>
+<li><p>12</p></li>
+</ul>
+<p>Create the <code class="docutils literal notranslate"><span class="pre">pca</span></code> object once again, this time setting inside it the optimal number of components (explaining at least 95% of variance). After that create two new variables - <code class="docutils literal notranslate"><span class="pre">pca_features_train</span></code> and <code class="docutils literal notranslate"><span class="pre">pca_features_test</span></code>, assigning to them pca-transformed scaled datasets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">pca_features_train</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
+<span class="n">pca_features_test</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now train linear regression on pca features and plot its forecast.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit) (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_features_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plotModelResults</span><span class="p">(</span>
+    <span class="n">lr</span><span class="p">,</span> <span class="n">pca_features_train</span><span class="p">,</span> <span class="n">pca_features_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment09_time_series_solution_39_0.png" src="../../_images/assignment09_time_series_solution_39_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 4.</font> What is the MAE of linear regression, trained on pca-transformed features?</strong></p>
+<ul class="simple">
+<li><p>5140</p></li>
+<li><p>4917</p></li>
+<li><p>6719</p></li>
+<li><p>4663 <strong><font color='red'>[+]</font></strong></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment09"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment09_time_series.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><center>Assignment #9. Task </center> <a class="tocSkip"></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../assignment10/assignment10_intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Topic 10. Gradient Boosting</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

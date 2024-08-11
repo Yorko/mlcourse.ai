@@ -1,0 +1,1573 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #3. Solution &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #3. Optional part. Task" href="assignment03_optional_implement_decision_tree.html" />
+    <link rel="prev" title="Assignment #3. Task" href="assignment03_decision_trees.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment03/assignment03_decision_trees_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment03/assignment03_decision_trees_solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center> Assignment #3. Solution </center> <a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a> (&#64;yorko). Edited by Anna Tarelina (&#64;feuerengel), and Mikhail Korshchikov (&#64;MS4). <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-3-solution-center-a-class-tocskip">
+<h1><center> Assignment #3. Solution </center> <a class="tocSkip"><a class="headerlink" href="#center-assignment-3-solution-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-decision-trees-for-classification-and-regression-center-a-class-tocskip">
+<h2><center> Decision trees for classification and regression </center> <a class="tocSkip"><a class="headerlink" href="#center-decision-trees-for-classification-and-regression-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p>In this assignment, we will find out how a decision tree works in a regression task, then will build and tune classification decision trees for identifying heart diseases.</p>
+<section id="your-task-is-to">
+<h3>Your task is to:<a class="headerlink" href="#your-task-is-to" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://docs.google.com/forms/d/1ZUYREiTJjg8IiZAIIMdWRODtPe1qfC0UBYq_i2WFe1c/">webform</a>.</p></li>
+</ol>
+<p><em>f you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># if seaborn is not yet installed, run `pip install seaborn` in terminal</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="decision-trees-for-regression-a-toy-example">
+<h2>1. Decision trees for regression: a toy example<a class="headerlink" href="#decision-trees-for-regression-a-toy-example" title="Permalink to this headline">#</a></h2>
+<p>Let’s consider the following one-dimensional regression problem. We need to build a function <span class="math notranslate nohighlight">\(\large a(x)\)</span> to approximate the dependency <span class="math notranslate nohighlight">\(\large y = f(x)\)</span> using the mean-squared error criterion: <span class="math notranslate nohighlight">\(\large \min \sum_i {(a(x_i) - f(x_i))}^2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># original dependecy</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_6_0.png" src="../../_images/assignment03_decision_trees_solution_6_0.png" />
+</div>
+</div>
+<p>Let’s make several steps to build a decision tree. In the case of a <strong>regression</strong> task, at prediction time, the leaf returns the average value for all observations in this leaf.</p>
+<p>Let’s start with a tree of depth 0, i.e. all observations placed in a single leaf.</p>
+<p><br>You’ll need to build a tree with only one node (also called <strong>root</strong>) that contains all train observations (instances).
+<br>How will predictions of this tree look like for <span class="math notranslate nohighlight">\(x \in [-2, 2]\)</span>? <br> Create an appropriate plot using a pen, paper and Python if needed (but no <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> is needed yet).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">]</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">**</span> <span class="mi">3</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_8_0.png" src="../../_images/assignment03_decision_trees_solution_8_0.png" />
+</div>
+</div>
+<p><strong>Making first splits.</strong>
+<br>Let’s split the data according to the following condition <span class="math notranslate nohighlight">\([x &lt; 0]\)</span>. It gives us the tree of depth 1 with two leaves. To clarify, for all instances with <span class="math notranslate nohighlight">\(x \geqslant 0\)</span> the tree will return some value, for all instances with <span class="math notranslate nohighlight">\(x &lt; 0\)</span> it will return another value. Let’s create a similar plot for predictions of this tree.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">]</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">**</span> <span class="mi">3</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_10_0.png" src="../../_images/assignment03_decision_trees_solution_10_0.png" />
+</div>
+</div>
+<p>In the decision tree algorithm, the feature and the threshold for splitting are chosen according to some criterion. The commonly used criterion for regression is based on variance:</p>
+<div class="math notranslate nohighlight">
+\[\large Q(X, y, j, t) = D(X, y) - \dfrac{|X_l|}{|X|} D(X_l, y_l) - \dfrac{|X_r|}{|X|} D(X_r, y_r),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\large X\)</span> and <span class="math notranslate nohighlight">\(\large y\)</span> are a feature matrix and a target vector (correspondingly) for training instances in a current node, <span class="math notranslate nohighlight">\(\large X_l, y_l\)</span> and <span class="math notranslate nohighlight">\(\large X_r, y_r\)</span> are splits of samples <span class="math notranslate nohighlight">\(\large X, y\)</span> into two parts w.r.t. <span class="math notranslate nohighlight">\(\large [x_j &lt; t]\)</span> (by <span class="math notranslate nohighlight">\(\large j\)</span>-th feature and threshold <span class="math notranslate nohighlight">\(\large t\)</span>), <span class="math notranslate nohighlight">\(\large |X|\)</span>, <span class="math notranslate nohighlight">\(\large |X_l|\)</span>, <span class="math notranslate nohighlight">\(\large |X_r|\)</span> (or, the same, <span class="math notranslate nohighlight">\(\large |y|\)</span>, <span class="math notranslate nohighlight">\(\large |y_l|\)</span>, <span class="math notranslate nohighlight">\(\large |y_r|\)</span>) are sizes of appropriate samples, and <span class="math notranslate nohighlight">\(\large D(X, y)\)</span> is variance of answers <span class="math notranslate nohighlight">\(\large y\)</span> for all instances in <span class="math notranslate nohighlight">\(\large X\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\large D(X, y) = \dfrac{1}{|X|} \sum_{j=1}^{|X|}(y_j – \dfrac{1}{|X|}\sum_{i = 1}^{|X|}y_i)^2\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\large y_i = y(x_i)\)</span> is the answer for the <span class="math notranslate nohighlight">\(\large x_i\)</span> instance. Feature index <span class="math notranslate nohighlight">\(\large j\)</span> and threshold <span class="math notranslate nohighlight">\(\large t\)</span> are chosen to maximize the value of criterion  <span class="math notranslate nohighlight">\(\large Q(X, y, j, t)\)</span> for each split.</p>
+<p>In our 1D case,  there’s only one feature so <span class="math notranslate nohighlight">\(\large Q\)</span> depends only on threshold <span class="math notranslate nohighlight">\(\large t\)</span> and training data <span class="math notranslate nohighlight">\(\large X\)</span> and <span class="math notranslate nohighlight">\(\large y\)</span>. Let’s designate it <span class="math notranslate nohighlight">\(\large Q_{1d}(X, y, t)\)</span> meaning that the criterion no longer depends on feature index <span class="math notranslate nohighlight">\(\large j\)</span>, i.e. in 1D case <span class="math notranslate nohighlight">\(\large j = 1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regression_var_criterion</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="c1"># Solution code</span>
+    <span class="n">X_left</span><span class="p">,</span> <span class="n">X_right</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">]</span>
+    <span class="n">y_left</span><span class="p">,</span> <span class="n">y_right</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">X</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="n">t</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="o">-</span> <span class="n">X_left</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_left</span><span class="p">)</span>
+        <span class="o">-</span> <span class="n">X_right</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">y_right</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the plot of criterion <span class="math notranslate nohighlight">\(\large Q_{1d}(X, y, t)\)</span>  as a function of threshold value <span class="math notranslate nohighlight">\(t\)</span> on the interval <span class="math notranslate nohighlight">\(\large [-1.9, 1.9]\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.9</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">crit_by_thres</span> <span class="o">=</span> <span class="p">[</span><span class="n">regression_var_criterion</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">thres</span><span class="p">)</span> <span class="k">for</span> <span class="n">thres</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="n">crit_by_thres</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;threshold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Regression criterion&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_14_0.png" src="../../_images/assignment03_decision_trees_solution_14_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 1.</font> What is the worst threshold value (to perform a split) according to the variance criterion?</strong></p>
+<ul class="simple">
+<li><p>-1.9</p></li>
+<li><p>-1.3</p></li>
+<li><p>0 <strong><font color='red'>[+]</font></strong></p></li>
+<li><p>1.3</p></li>
+<li><p>1.9</p></li>
+</ul>
+<p>Then let’s make splitting in each of the leaves nodes.
+<br> Take your tree with first threshold [<span class="math notranslate nohighlight">\(x&lt;0\)</span>].
+<br> Now add a split in the left branch (where previous split was <span class="math notranslate nohighlight">\(x &lt; 0\)</span>) using the criterion <span class="math notranslate nohighlight">\([x &lt; -1.5]\)</span>, in the right branch (where previous split was <span class="math notranslate nohighlight">\(x \geqslant 0\)</span>) with the following criterion <span class="math notranslate nohighlight">\([x &lt; 1.5]\)</span>.
+<br>It gives us a tree of depth 2 with 7 nodes and 4 leaves. Create a plot of this tree predictions for <span class="math notranslate nohighlight">\(x \in [-2, 2]\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">prediction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">1.5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mf">1.5</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">1.5</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">[(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mf">1.5</span><span class="p">)])</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">1.5</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">[(</span><span class="n">X</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">X</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">])</span>
+
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">[</span><span class="n">prediction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xx</span><span class="p">]</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">**</span> <span class="mi">3</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_17_0.png" src="../../_images/assignment03_decision_trees_solution_17_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 2.</font> Tree predictions is a piecewise-constant function, right? How many “pieces” (horizontal segments in the plot that you’ve just built) are there in the interval [-2, 2]?</strong></p>
+<ul class="simple">
+<li><p>2</p></li>
+<li><p>4 <strong><font color='red'>[+]</font></strong></p></li>
+<li><p>6</p></li>
+<li><p>8</p></li>
+</ul>
+</section>
+<section id="building-a-decision-tree-for-predicting-heart-diseases">
+<h2>2. Building a decision tree for predicting heart diseases<a class="headerlink" href="#building-a-decision-tree-for-predicting-heart-diseases" title="Permalink to this headline">#</a></h2>
+<p>Let’s read the data on heart diseases. The dataset can be downloaded from the course repo from <a class="reference external" href="https://github.com/Yorko/mlcourse.ai/blob/master/data/mlbootcamp5_train.csv">here</a> by clicking on <code class="docutils literal notranslate"><span class="pre">Download</span></code> and then selecting <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">As</span></code> option. If you work with Git, then the dataset is already there in <code class="docutils literal notranslate"><span class="pre">data/mlbootcamp5_train.csv</span></code>.</p>
+<p><strong>Problem</strong></p>
+<p>Predict presence or absence of cardiovascular disease (CVD) using the patient examination results.</p>
+<p><strong>Data description</strong></p>
+<p>There are 3 types of input features:</p>
+<ul class="simple">
+<li><p><em>Objective</em>: factual information;</p></li>
+<li><p><em>Examination</em>: results of medical examination;</p></li>
+<li><p><em>Subjective</em>: information given by the patient.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Variable Type</p></th>
+<th class="head"><p>Variable</p></th>
+<th class="head"><p>Value Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Age</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>age</p></td>
+<td><p>int (days)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Height</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>height</p></td>
+<td><p>int (cm)</p></td>
+</tr>
+<tr class="row-even"><td><p>Weight</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>weight</p></td>
+<td><p>float (kg)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gender</p></td>
+<td><p>Objective Feature</p></td>
+<td><p>gender</p></td>
+<td><p>categorical code</p></td>
+</tr>
+<tr class="row-even"><td><p>Systolic blood pressure</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>ap_hi</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-odd"><td><p>Diastolic blood pressure</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>ap_lo</p></td>
+<td><p>int</p></td>
+</tr>
+<tr class="row-even"><td><p>Cholesterol</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>cholesterol</p></td>
+<td><p>1: normal, 2: above normal, 3: well above normal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Glucose</p></td>
+<td><p>Examination Feature</p></td>
+<td><p>gluc</p></td>
+<td><p>1: normal, 2: above normal, 3: well above normal</p></td>
+</tr>
+<tr class="row-even"><td><p>Smoking</p></td>
+<td><p>Subjective Feature</p></td>
+<td><p>smoke</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>Alcohol intake</p></td>
+<td><p>Subjective Feature</p></td>
+<td><p>alco</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-even"><td><p>Physical activity</p></td>
+<td><p>Subjective Feature</p></td>
+<td><p>active</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>Presence or absence of cardiovascular disease</p></td>
+<td><p>Target Variable</p></td>
+<td><p>cardio</p></td>
+<td><p>binary</p></td>
+</tr>
+</tbody>
+</table>
+<p>All of the dataset values were collected at the moment of medical examination.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;../../_static/data/assignment3/mlbootcamp5_train.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>gender</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>ap_hi</th>
+      <th>ap_lo</th>
+      <th>cholesterol</th>
+      <th>gluc</th>
+      <th>smoke</th>
+      <th>alco</th>
+      <th>active</th>
+      <th>cardio</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18393</td>
+      <td>2</td>
+      <td>168</td>
+      <td>62.0</td>
+      <td>110</td>
+      <td>80</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20228</td>
+      <td>1</td>
+      <td>156</td>
+      <td>85.0</td>
+      <td>140</td>
+      <td>90</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18857</td>
+      <td>1</td>
+      <td>165</td>
+      <td>64.0</td>
+      <td>130</td>
+      <td>70</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17623</td>
+      <td>2</td>
+      <td>169</td>
+      <td>82.0</td>
+      <td>150</td>
+      <td>100</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17474</td>
+      <td>1</td>
+      <td>156</td>
+      <td>56.0</td>
+      <td>100</td>
+      <td>60</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Transform the features:</p>
+<ul class="simple">
+<li><p>create “age in years” dividing age by 365.25 and taking floor (<span class="math notranslate nohighlight">\(\lfloor{x}\rfloor\)</span> is the largest integer that is less than or equal to <span class="math notranslate nohighlight">\(x\)</span>)</p></li>
+<li><p>create 3 binary features based on <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code>.</p></li>
+<li><p>create 3 binary features based on <code class="docutils literal notranslate"><span class="pre">gluc</span></code>.
+<br> Binary features equal to 1, 2 or 3. This method is called dummy-encoding or One Hot Encoding (OHE). It is more convenient to use <code class="docutils literal notranslate"><span class="pre">pandas.get_dummies</span></code>. There is no need to use the original features <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code> and <code class="docutils literal notranslate"><span class="pre">gluc</span></code> after encoding.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;age_years&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cholesterol&quot;</span><span class="p">,</span> <span class="s2">&quot;gluc&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;cardio&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">cardio</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>gender</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>ap_hi</th>
+      <th>ap_lo</th>
+      <th>smoke</th>
+      <th>alco</th>
+      <th>active</th>
+      <th>age_years</th>
+      <th>cholesterol_1</th>
+      <th>cholesterol_2</th>
+      <th>cholesterol_3</th>
+      <th>gluc_1</th>
+      <th>gluc_2</th>
+      <th>gluc_3</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18393</td>
+      <td>2</td>
+      <td>168</td>
+      <td>62.0</td>
+      <td>110</td>
+      <td>80</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20228</td>
+      <td>1</td>
+      <td>156</td>
+      <td>85.0</td>
+      <td>140</td>
+      <td>90</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>55</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18857</td>
+      <td>1</td>
+      <td>165</td>
+      <td>64.0</td>
+      <td>130</td>
+      <td>70</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>51</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17623</td>
+      <td>2</td>
+      <td>169</td>
+      <td>82.0</td>
+      <td>150</td>
+      <td>100</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>48</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17474</td>
+      <td>1</td>
+      <td>156</td>
+      <td>56.0</td>
+      <td>100</td>
+      <td>60</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>47</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Split data into train and holdout parts in the proportion of 7/3 using <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection.train_test_split</span></code> with <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">train_df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train a decision tree on the dataset <code class="docutils literal notranslate"><span class="pre">(X_train,</span> <span class="pre">y_train)</span></code> with <strong>max depth equal to 3</strong> and <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code>. Plot this tree with <code class="docutils literal notranslate"><span class="pre">sklearn.tree.export_graphviz</span></code> and Graphviz. Here we need to mention that <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> doesn’t draw decision trees on its own, but is able to output a tree in the <code class="docutils literal notranslate"><span class="pre">.dot</span></code> format that can be used by Graphviz for visualization.</p>
+<p>How to plot a decision tree, alternatives:</p>
+<ol class="simple">
+<li><p>Install Graphviz and pydotplus yourself (see below)</p></li>
+<li><p>Use our docker image with all needed packages already installed</p></li>
+<li><p>Easy way: execute <code class="docutils literal notranslate"><span class="pre">print(dot_data.getvalue())</span></code> with <code class="docutils literal notranslate"><span class="pre">dot_data</span></code> defined below (this can be done without pydotplus and Graphviz), go to <a class="reference external" href="http://www.webgraphviz.com">http://www.webgraphviz.com</a>, paste the graph code string (digraph Tree {…) and generate a nice picture</p></li>
+</ol>
+<p>Take a look how trees are visualized in the <a class="reference external" href="https://mlcourse.ai/articles/topic3-dt-knn/">3rd part</a> of course materials.</p>
+<p>There are may be some troubles with graphviz for Windows users.
+The error is ‘GraphViz’s executables not found’.
+<br>To fix that – install Graphviz from <a class="reference external" href="https://graphviz.gitlab.io/_pages/Download/Download_windows.html">here</a>.
+<br>Then add graphviz path to your system PATH variable. You can do this manually, but don’t forget to restart kernel.
+<br>Or just run this code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import os</span>
+<span class="c1"># path_to_graphviz = &#39;&#39; # your path to graphviz (C:\\Program Files (x86)\\Graphviz2.38\\bin\\ for example)</span>
+<span class="c1"># os.environ[&quot;PATH&quot;] += os.pathsep + path_to_graphviz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># pip install pydotplus</span>
+<span class="kn">import</span> <span class="nn">pydotplus</span>
+
+<span class="c1"># Solution code</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">train_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_34_0.png" src="../../_images/assignment03_decision_trees_solution_34_0.png" />
+</div>
+</div>
+<p><strong><font color='red'>Question 3.</font> Which 3 features are used to make predictions in the created decision tree?</strong></p>
+<ul class="simple">
+<li><p>age, ap_lo, chol=1</p></li>
+<li><p>age, ap_hi, chol=3 <strong><font color='red'>[+]</font></strong></p></li>
+<li><p>smoke, age, gender</p></li>
+<li><p>alco, weight, gluc=3</p></li>
+</ul>
+<p>Make predictions for holdout data <code class="docutils literal notranslate"><span class="pre">(X_valid,</span> <span class="pre">y_valid)</span></code> with the trained decision tree. Calculate accuracy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">tree_pred_valid</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">tree_acc_valid</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">tree_pred_valid</span><span class="p">)</span>
+<span class="n">tree_acc_valid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7212857142857143
+</pre></div>
+</div>
+</div>
+</div>
+<p>Set up the depth of the tree using cross-validation on the dataset <code class="docutils literal notranslate"><span class="pre">(X_train,</span> <span class="pre">y_train)</span></code> in order to increase quality of the model. Use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> with 5 folds. Fix <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code> and change  <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> from 2 to 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="c1"># Solution code</span>
+<span class="n">tree_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))}</span>
+
+<span class="n">tree_grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+    <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">),</span> <span class="n">tree_params</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span>
+<span class="p">)</span>
+
+<span class="n">tree_grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.78 s, sys: 23.7 ms, total: 2.8 s
+Wall time: 2.81 s
+</pre></div>
+</div>
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(cv=5, estimator=DecisionTreeClassifier(random_state=17),
+             param_grid={&#x27;max_depth&#x27;: [2, 3, 4, 5, 6, 7, 8, 9, 10]},
+             scoring=&#x27;accuracy&#x27;)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(cv=5, estimator=DecisionTreeClassifier(random_state=17),
+             param_grid={&#x27;max_depth&#x27;: [2, 3, 4, 5, 6, 7, 8, 9, 10]},
+             scoring=&#x27;accuracy&#x27;)</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">estimator: DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier(random_state=17)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier(random_state=17)</pre></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>
+<p>Draw the plot to show how mean accuracy is changing in regards to <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> value on cross-validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tree_params</span><span class="p">[</span><span class="s2">&quot;max_depth&quot;</span><span class="p">],</span> <span class="n">tree_grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Max depth&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Mean CV accuracy&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_42_0.png" src="../../_images/assignment03_decision_trees_solution_42_0.png" />
+</div>
+</div>
+<p>Print the best value of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> where the mean value of cross-validation quality metric reaches maximum. Also compute accuracy on holdout data. This can be done with the trained instance of the class <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best params:&quot;</span><span class="p">,</span> <span class="n">tree_grid</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best cross validaton score&quot;</span><span class="p">,</span> <span class="n">tree_grid</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best params: {&#39;max_depth&#39;: 6}
+Best cross validaton score 0.7319591836734693
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">tuned_tree_acc_valid</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">tree_grid</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid</span><span class="p">))</span>
+<span class="n">tuned_tree_acc_valid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7258095238095238
+</pre></div>
+</div>
+</div>
+</div>
+<p>Сalculate the effect of <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>: check out the expression (acc2 - acc1) / acc1 * 100%, where acc1 and acc2 are accuracies on holdout data before and after tuning max_depth with GridSearchCV respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="p">(</span><span class="n">tuned_tree_acc_valid</span> <span class="o">-</span> <span class="n">tree_acc_valid</span><span class="p">)</span> <span class="o">/</span> <span class="n">tree_acc_valid</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6271869016967002
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 4.</font> Choose all correct statements:</strong></p>
+<ul class="simple">
+<li><p>There exists a local maximum of accuracy on the built validation curve <strong><font color='red'>[+]</font></strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> increased holdout accuracy by <strong>more</strong> than 1%</p></li>
+<li><p>There is <strong>no</strong> local maximum of accuracy on the built validation curve</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> increased holdout accuracy by <strong>less</strong> than 1% <strong><font color='red'>[+]</font></strong></p></li>
+</ul>
+<p>Take a look at the SCORE table to estimate ten-year risk of fatal cardiovascular disease in Europe. <a class="reference external" href="https://academic.oup.com/eurheartj/article/24/11/987/427645">Source paper</a>.</p>
+<img src='../../_static/img/SCORE2007-eng.png' width=70%>
+<p>Let’s create new features according to this picture:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(age \in [40,50), age \in [50,55), age \in [55,60), age \in [60,65) \)</span> (4 features)</p></li>
+<li><p>systolic blood pressure: <span class="math notranslate nohighlight">\(ap\_hi \in [120,140), ap\_hi \in [140,160), ap\_hi \in [160,180),\)</span> (3 features)</p></li>
+</ul>
+<p>If the values of age or blood pressure don’t fall into any of the intervals then all binary features will be equal to zero.</p>
+<p><br>Add a <code class="docutils literal notranslate"><span class="pre">smoke</span></code> feature.
+<br>Build the <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code>  and <code class="docutils literal notranslate"><span class="pre">gender</span></code> features. Transform the <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code> to 3 binary features according to it’s 3 unique values ( <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code>=1,  <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code>=2 and  <code class="docutils literal notranslate"><span class="pre">cholesterol</span></code>=3). Transform the <code class="docutils literal notranslate"><span class="pre">gender</span></code> from 1 and 2 into 0 and 1. It is better to rename it to <code class="docutils literal notranslate"><span class="pre">male</span></code> (0 – woman, 1 – man). In general, this is typically done with <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.LabelEncoder</span></code> but here in case of only 2 unique values it’s not necessary.</p>
+<p>Finally, the decision tree is built using these 12 binary features (excluding all original features that we had before this feature engineering part).</p>
+<p>Create a decision tree with the limitation <code class="docutils literal notranslate"><span class="pre">max_depth=3</span></code> and train it on the whole train data. Use the <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> class with fixed <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code>, but all other arguments (except for <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">random_state</span></code>) should be left with their default values.</p>
+<p><strong><font color='red'>Question 5.</font> Which binary feature is the most important for heart disease detection (i.e., it is placed in the root of the tree)?</strong></p>
+<ul class="simple">
+<li><p>Systolic blood pressure from 160 to 180 (mmHg)</p></li>
+<li><p>Cholesterol level == 3</p></li>
+<li><p>Systolic blood pressure from 140 to 160 (mmHg) <strong><font color='red'>[+]</font></strong></p></li>
+<li><p>Age from 50 to 55 (years)</p></li>
+<li><p>Smokes / doesn’t smoke</p></li>
+<li><p>Age from 60 to 65 (years)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">sub_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">smoke</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;male&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">gender</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;age_40_50&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;age_50_55&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&lt;</span> <span class="mi">55</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;age_55_60&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&gt;=</span> <span class="mi">55</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;age_60_65&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age_years</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;ap_hi_120_140&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">ap_hi</span> <span class="o">&gt;=</span> <span class="mi">120</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">ap_hi</span> <span class="o">&lt;</span> <span class="mi">140</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;ap_hi_140_160&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">ap_hi</span> <span class="o">&gt;=</span> <span class="mi">140</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">ap_hi</span> <span class="o">&lt;</span> <span class="mi">160</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;ap_hi_160_180&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">ap_hi</span> <span class="o">&gt;=</span> <span class="mi">160</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">ap_hi</span> <span class="o">&lt;</span> <span class="mi">180</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;chol=1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cholesterol</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;chol=2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cholesterol</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sub_df</span><span class="p">[</span><span class="s2">&quot;chol=3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cholesterol</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">sub_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>smoke</th>
+      <th>male</th>
+      <th>age_40_50</th>
+      <th>age_50_55</th>
+      <th>age_55_60</th>
+      <th>age_60_65</th>
+      <th>ap_hi_120_140</th>
+      <th>ap_hi_140_160</th>
+      <th>ap_hi_160_180</th>
+      <th>chol=1</th>
+      <th>chol=2</th>
+      <th>chol=3</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">sub_df</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment03_decision_trees_solution_53_0.png" src="../../_images/assignment03_decision_trees_solution_53_0.png" />
+</div>
+</div>
+<p>Although it is possible to improve such plots, still it is clear that the decision tree first checks whether the systolic blood pressure is in range from 140 to 160 mmHg.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment03_decision_trees.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><center>Assignment #3. Task </center> <a class="tocSkip"></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment03_optional_implement_decision_tree.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>Assignment #3. Optional part. Task </center> <a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

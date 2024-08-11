@@ -1,0 +1,1220 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #5. Task &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #5. Solution" href="assignment05_rf_logit_scoring_texts_solution.html" />
+    <link rel="prev" title="Topic 5. Bagging and Random Forest" href="assignment05_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment05/assignment05_rf_logit_scoring_texts.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment05/assignment05_rf_logit_scoring_texts.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center> Assignment #5. Task </center> <a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong>
+Authors: Vitaly Radchenko (&#64;vradchenko), and <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a> (&#64;yorko). Edited by Sergey Volkov (&#64;sevaspb). <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-5-task-center-a-class-tocskip">
+<h1><center> Assignment #5. Task </center> <a class="tocSkip"><a class="headerlink" href="#center-assignment-5-task-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-random-forest-and-logistic-regression-in-credit-scoring-and-movie-reviews-classification-center-a-class-tocskip">
+<h2><center> Random Forest and Logistic Regression in credit scoring and movie reviews classification </center> <a class="tocSkip"><a class="headerlink" href="#center-random-forest-and-logistic-regression-in-credit-scoring-and-movie-reviews-classification-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p>Random Forest and logistic regression are two algorithms that I personally use most often in day-to-day DS tasks. In this part of the assignment, we’ll explore pros and cons of these two algorithms in two different tasks.</p>
+<p>Prior to working on the assignment, you’d better check out the corresponding course material:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic03_decision_trees_kNN/topic3_decision_trees_kNN.ipynb?flush_cache=true">Classification, Decision Trees and k Nearest Neighbors</a>, the same as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-3-decision-trees-and-knn">Kaggle Notebook</a></p></li>
+<li><p>Ensembles:</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic05_ensembles_random_forests/topic5_part1_bagging.ipynb?flush_cache=true">Bagging</a>, the same as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-1-bagging">Kaggle Notebook</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic05_ensembles_random_forests/topic5_part2_random_forest.ipynb?flush_cache=true">Random Forest</a>, the same as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-2-random-forest">Kaggle Notebook</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic05_ensembles_random_forests/topic5_part3_feature_importance.ipynb?flush_cache=true">Feature Importance</a>, the same as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-3-feature-importance">Kaggle Notebook</a></p></li>
+</ul>
+<ol class="simple">
+<li><ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic10_boosting/topic10_gradient_boosting.ipynb?flush_cache=true">Gradient boosting</a>, the same as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting">Kaggle Notebook</a></p></li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p>Logistic regression, Random Forest, and LightGBM in the “Kaggle Forest Cover Type Prediction” competition: <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-10-practice-with-logit-rf-and-lightgbm">Notebook</a></p></li>
+</ul>
+<ol class="simple">
+<li><p>You can also practice with demo assignments, which are simpler and already shared with solutions:</p></li>
+</ol>
+<ul class="simple">
+<li><p>“Decision trees with a toy task and the UCI Adult dataset”: <a class="reference external" href="https://www.kaggle.com/kashnitsky/a3-demo-decision-trees">assignment</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a3-demo-decision-trees-solution">solution</a></p></li>
+<li><p>“Logistic Regression and Random Forest in the credit scoring problem”: <a class="reference external" href="https://www.kaggle.com/kashnitsky/assignment-5-logit-and-rf-for-credit-scoring">assignment</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a5-demo-logit-and-rf-for-credit-scoring-sol">solution</a></p></li>
+</ul>
+<ol class="simple">
+<li><p>There are also 7 video lectures on trees, forests, boosting and their applications: <a class="reference external" href="https://mlcourse.ai/lectures">mlcourse.ai/lectures</a></p></li>
+</ol>
+<p><strong>Your task is to:</strong></p>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://forms.gle/VvfLZiXfssf4aTBv7">webform</a>.</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<p><font color = 'red'> <strong>Question 1:</strong> </font> There are 9 jurors in the courtroom. Each of them individually can correctly determine whether the defendant is guilty or not with 75% probability. What is the probability that the jurors will jointly reach the correct verdict if the final decision is made by majority vote?</p>
+<p><font color = 'red'> <strong>Answer options:</strong> </font></p>
+<ul class="simple">
+<li><p>60.97%</p></li>
+<li><p>80.00%</p></li>
+<li><p>95.11%</p></li>
+<li><p>96.66%</p></li>
+</ul>
+<p>Now let’s move directly to machine learning.</p>
+<p><strong>Problem</strong></p>
+<p>Predict whether the customer will repay their credit within 90 days. This is a binary classification problem; we will assign customers into good or bad categories based on our prediction.</p>
+<p><strong>Data description</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Feature</p></th>
+<th class="text-align:left head"><p>Variable Type</p></th>
+<th class="text-align:left head"><p>Value Type</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>age</p></td>
+<td class="text-align:left"><p>Input Feature</p></td>
+<td class="text-align:left"><p>integer</p></td>
+<td class="text-align:left"><p>Customer age</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>DebtRatio</p></td>
+<td class="text-align:left"><p>Input Feature</p></td>
+<td class="text-align:left"><p>real</p></td>
+<td class="text-align:left"><p>Total monthly loan payments (loan, alimony, etc.) / Total monthly income percentage</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>NumberOfTime30-59DaysPastDueNotWorse</p></td>
+<td class="text-align:left"><p>Input Feature</p></td>
+<td class="text-align:left"><p>integer</p></td>
+<td class="text-align:left"><p>The number of cases when client has overdue 30-59 days (not worse) on other loans during the last 2 years</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>NumberOfTimes90DaysLate</p></td>
+<td class="text-align:left"><p>Input Feature</p></td>
+<td class="text-align:left"><p>integer</p></td>
+<td class="text-align:left"><p>Number of cases when customer had 90+dpd overdue on other credits</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>NumberOfTime60-89DaysPastDueNotWorse</p></td>
+<td class="text-align:left"><p>Input Feature</p></td>
+<td class="text-align:left"><p>integer</p></td>
+<td class="text-align:left"><p>Number of cased when customer has 60-89dpd (not worse) during the last 2 years</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>NumberOfDependents</p></td>
+<td class="text-align:left"><p>Input Feature</p></td>
+<td class="text-align:left"><p>integer</p></td>
+<td class="text-align:left"><p>The number of customer dependents</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>SeriousDlqin2yrs</p></td>
+<td class="text-align:left"><p>Target Variable</p></td>
+<td class="text-align:left"><p>binary: <br>0 or 1</p></td>
+<td class="text-align:left"><p>Customer hasn’t paid the loan debt within 90 days</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us implement a function that will replace the NaN values by the median in each column of the table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">impute_nan_with_median</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">table</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further, we read the data into a dataframe. No need to download anything, the requisite file <code class="docutils literal notranslate"><span class="pre">data/credit_scoring_sample.csv.zip</span></code> is not large and it goes with the archive with bonus assignments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../_static/data/assignment5/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH_TO_DATA</span> <span class="o">/</span> <span class="s2">&quot;credit_scoring_sample.csv.zip&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SeriousDlqin2yrs</th>
+      <th>age</th>
+      <th>NumberOfTime30-59DaysPastDueNotWorse</th>
+      <th>DebtRatio</th>
+      <th>NumberOfTimes90DaysLate</th>
+      <th>NumberOfTime60-89DaysPastDueNotWorse</th>
+      <th>MonthlyIncome</th>
+      <th>NumberOfDependents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>64</td>
+      <td>0</td>
+      <td>0.249908</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8158.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>58</td>
+      <td>0</td>
+      <td>3870.000000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>41</td>
+      <td>0</td>
+      <td>0.456127</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6666.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>43</td>
+      <td>0</td>
+      <td>0.000190</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10500.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>49</td>
+      <td>0</td>
+      <td>0.271820</td>
+      <td>0</td>
+      <td>0</td>
+      <td>400.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>View data types of the features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SeriousDlqin2yrs                          int64
+age                                       int64
+NumberOfTime30-59DaysPastDueNotWorse      int64
+DebtRatio                               float64
+NumberOfTimes90DaysLate                   int64
+NumberOfTime60-89DaysPastDueNotWorse      int64
+MonthlyIncome                           float64
+NumberOfDependents                      float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at the distribution of the target variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;SeriousDlqin2yrs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;number_of_observations&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;unique_value&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Target distribution&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distribution of target:&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;SeriousDlqin2yrs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distribution of target:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.777511
+1    0.222489
+Name: SeriousDlqin2yrs, dtype: float64
+</pre></div>
+</div>
+<img alt="../../_images/assignment05_rf_logit_scoring_texts_13_2.png" src="../../_images/assignment05_rf_logit_scoring_texts_13_2.png" />
+</div>
+</div>
+<p>Select all the features and drop the target:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">independent_columns_names</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+<span class="n">independent_columns_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;SeriousDlqin2yrs&quot;</span><span class="p">]</span>
+<span class="n">independent_columns_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;age&#39;,
+ &#39;NumberOfTime30-59DaysPastDueNotWorse&#39;,
+ &#39;DebtRatio&#39;,
+ &#39;NumberOfTimes90DaysLate&#39;,
+ &#39;NumberOfTime60-89DaysPastDueNotWorse&#39;,
+ &#39;MonthlyIncome&#39;,
+ &#39;NumberOfDependents&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We apply a function that replaces all NaN values with the median value of the corresponding feature.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">impute_nan_with_median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Split the target and features - now we get a training set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">independent_columns_names</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s2">&quot;SeriousDlqin2yrs&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="bootstrap-a-class-tocskip">
+<h3>Bootstrap  <a class="tocSkip"><a class="headerlink" href="#bootstrap-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<p><strong><font color = 'red'> Question 2. </font></strong> Make an interval estimate based on the bootstrap (2000 samples) of the average income (MonthlyIncome)  of customers who had overdue loan payments, and of those who paid in time, make 80% confidence interval. Use target value (SeriousDlqin2yrs) to split data. Find the difference between the lower limit of the derived interval for those who paid in time and the upper limit for those who are overdue.
+So, you are asked to build 80% intervals for the income of “good” customers <code class="docutils literal notranslate"><span class="pre">[good_income_lower,</span> <span class="pre">good_income_upper]</span></code> and for “bad” – [<code class="docutils literal notranslate"><span class="pre">bad_income_lower</span></code>, <code class="docutils literal notranslate"><span class="pre">bad_income_upper</span></code>] and find the difference  <code class="docutils literal notranslate"><span class="pre">good_income_upper</span> <span class="pre">-</span> <span class="pre">bad_income_lower</span></code>.</p>
+<p>Use the example from the <a class="reference external" href="https://mlcourse.ai/articles/topic5-part1-bagging/">article</a>. Set <code class="docutils literal notranslate"><span class="pre">np.random.seed(17)</span></code>. Round your answer to the closest integer.</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>654</p></li>
+<li><p>714</p></li>
+<li><p>834</p></li>
+<li><p>996</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># you&#39;ll be asked to fix this seed (`random_state`) everywhere in this notebook</span>
+<span class="n">SEED</span> <span class="o">=</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="decision-tree-hyperparameter-tuning-a-class-tocskip">
+<h3>Decision tree, hyperparameter tuning  <a class="tocSkip"><a class="headerlink" href="#decision-tree-hyperparameter-tuning-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<p>One of the main performance metrics of a model is the area under the ROC curve. The ROC-AUC values lay between 0 and 1. The closer the value of ROC-AUC to 1, the better the classification is done.</p>
+<p>Find the values of <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> hyperparameters using the <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>, which maximize the area under the ROC curve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> class to create a decision tree. Due to the imbalance of the classes in the target, we add the balancing parameter. We also use the parameter <code class="docutils literal notranslate"><span class="pre">random_state</span> <span class="pre">=</span> <span class="pre">17</span></code> for the reproducibility of the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will look through such values of hyperparameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_depth_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">max_features_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">tree_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="n">max_depth_values</span><span class="p">,</span> <span class="s2">&quot;max_features&quot;</span><span class="p">:</span> <span class="n">max_features_values</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fix cross-validation parameters: stratified, 5 partitions with shuffle,
+<code class="docutils literal notranslate"><span class="pre">random_state</span></code>. We will use this splitting throughout the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 3.</font></strong>
+Run GridSearch with the ROC AUC metric using the hyperparameters from the <code class="docutils literal notranslate"><span class="pre">tree_params</span></code> dictionary. What is the maximum ROC AUC value (round up to 2 decimals)? We call cross-validation stable if the standard deviation of the metric on the cross-validation is less than 0.01. Was cross-validation stable under optimal combinations of hyperparameters (i.e., providing a maximum of the mean ROC AUC value for cross-validation)?</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>0.82, no</p></li>
+<li><p>0.84, no</p></li>
+<li><p>0.82, yes</p></li>
+<li><p>0.84, yes</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-randomforest-implementation-a-class-tocskip">
+<h3>Simple RandomForest implementation <a class="tocSkip"><a class="headerlink" href="#simple-randomforest-implementation-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<p><strong><font color='red'>Question 4.</font></strong>
+Implement your own random forest using <code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifier</span></code> with the best parameters from the previous task. There will be 10 trees, the predicted probabilities of which you need to average.</p>
+<p>Brief specification:</p>
+<ul class="simple">
+<li><p>Use the base code below</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method in the loop (<code class="docutils literal notranslate"><span class="pre">i</span></code> from 0 to <code class="docutils literal notranslate"><span class="pre">n_estimators-1</span></code>):</p>
+<ul>
+<li><p>fix the seed equal to (<code class="docutils literal notranslate"><span class="pre">random_state</span> <span class="pre">+</span> <span class="pre">i</span></code>). The idea is that at each iteration there’s a new value of random seed to add more “randomness”, but at the same time results are reproducible</p></li>
+<li><p>After fixing the seed, select <code class="docutils literal notranslate"><span class="pre">max_features</span></code> features <strong>without replacement</strong>, save the list of selected feature ids in <code class="docutils literal notranslate"><span class="pre">self.feat_ids_by_tree</span></code></p></li>
+<li><p>Also make a bootstrap sample (i.e. <strong>sampling with replacement</strong>) of training instances. For that, resort to <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> and its argument <code class="docutils literal notranslate"><span class="pre">replace</span></code></p></li>
+<li><p>Train a decision tree with specified (in a constructor) arguments <code class="docutils literal notranslate"><span class="pre">max_depth</span></code>, <code class="docutils literal notranslate"><span class="pre">max_features</span></code> and <code class="docutils literal notranslate"><span class="pre">random_state</span></code> (do not specify <code class="docutils literal notranslate"><span class="pre">class_weight</span></code>) on a corresponding subset of training data.</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method returns the current instance of the class <code class="docutils literal notranslate"><span class="pre">RandomForestClassifierCustom</span></code>, that is <code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method, we need to loop through all the trees. For each prediction, obviously, we need to take only those features which we used for training the corresponding tree. The method returns predicted probabilities (<code class="docutils literal notranslate"><span class="pre">predict_proba</span></code>), averaged for all trees</p></li>
+</ul>
+<p>Perform cross-validation with <code class="docutils literal notranslate"><span class="pre">StratifiedKFold</span></code>.  What is the average cross-validation ROC AUC of the custom Random Forest implementation? Select the closest value.</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>0.823</p></li>
+<li><p>0.833</p></li>
+<li><p>0.843</p></li>
+<li><p>0.853</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+
+<span class="k">class</span> <span class="nc">RandomForestClassifierCustom</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_estimators</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span> <span class="o">=</span> <span class="n">max_depth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_features</span> <span class="o">=</span> <span class="n">max_features</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">trees</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feat_ids_by_tree</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 5.</font></strong>
+Let us compare our own implementation of a random forest with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> version of it. To do this, use <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span> <span class="pre">(class_weight='balanced',</span> <span class="pre">n_estimators=10,</span> <span class="pre">random_state=17)</span></code>, specify all the same values for <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">max_features</span></code> as before. What average value of ROC AUC on cross-validation we finally got? Select the closest value.</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>0.814</p></li>
+<li><p>0.827</p></li>
+<li><p>0.843</p></li>
+<li><p>0.856</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sklearn-randomforest-hyperparameter-tuning-a-class-tocskip">
+<h3><code class="docutils literal notranslate"><span class="pre">sklearn</span></code> RandomForest, hyperparameter tuning  <a class="tocSkip"><a class="headerlink" href="#sklearn-randomforest-hyperparameter-tuning-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<p><strong><font color='red'>Question 6.</font></strong>
+In the third task, we found the optimal hyperparameters for one tree. However it could be that these parameters are not optimal for an ensemble. Let’s check this assumption with <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> <code class="docutils literal notranslate"><span class="pre">(RandomForestClassifier</span> <span class="pre">(class_weight='balanced',</span> <span class="pre">n_estimators=10,</span> <span class="pre">random_state=17)</span></code> ). Now we extend the value of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> up to 15, because the trees need to be deeper in the forest (you should be aware of it from the <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">article</a>). What are the best values of hyperparameters now?</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth=8,</span> <span class="pre">max_features=4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth=9,</span> <span class="pre">max_features=5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth=10,</span> <span class="pre">max_features=6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth=11,</span> <span class="pre">max_features=7</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_depth_values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">max_features_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">forest_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="n">max_depth_values</span><span class="p">,</span> <span class="s2">&quot;max_features&quot;</span><span class="p">:</span> <span class="n">max_features_values</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistic-regression-hyperparameter-tuning-a-class-tocskip">
+<h3>Logistic regression, hyperparameter tuning  <a class="tocSkip"><a class="headerlink" href="#logistic-regression-hyperparameter-tuning-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<p><strong><font color='red'>Question 7.</font></strong>  Now let’s compare our results with logistic regression (we indicate <code class="docutils literal notranslate"><span class="pre">class_weight</span> <span class="pre">=</span> <span class="pre">'balanced'</span></code>, <code class="docutils literal notranslate"><span class="pre">solver='liblinear'</span></code> and <code class="docutils literal notranslate"><span class="pre">random_state=17</span></code>). Do a full search by the parameter <code class="docutils literal notranslate"><span class="pre">C</span></code> from a wide range of values <code class="docutils literal notranslate"><span class="pre">np.logspace</span> <span class="pre">(-8,</span> <span class="pre">8,</span> <span class="pre">17)</span></code>.
+Now we will build a pipeline - first apply scaling, then train the model.</p>
+<p>Learn about the pipelines and make cross-validation. What is the best average ROC AUC? Select the closest value.</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>0.788</p></li>
+<li><p>0.798</p></li>
+<li><p>0.808</p></li>
+<li><p>0.818</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span>
+<span class="p">)</span>
+
+<span class="n">logit_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">scaler</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;logit&quot;</span><span class="p">,</span> <span class="n">logit</span><span class="p">)])</span>
+<span class="n">logit_pipe_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;logit__C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistic-regression-and-randomforest-on-sparse-features-a-class-tocskip">
+<h3>Logistic regression and RandomForest on sparse features  <a class="tocSkip"><a class="headerlink" href="#logistic-regression-and-randomforest-on-sparse-features-a-class-tocskip" title="Permalink to this headline">#</a></h3>
+<p>In case of a small number of features, random forest was proved to be better than logistic regression. However, one of the main disadvantages of trees is how they work with sparse data, for example, with texts. Let’s compare logistic regression and random forest in a new task.
+Download the dataset with movie reviews from <a class="reference external" href="https://drive.google.com/file/d/12OPgwkx5Q63iqxXGR3MqZQpiMev_aB7g/view?usp=sharing">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH_TO_DATA</span> <span class="o">/</span> <span class="s2">&quot;movie_reviews_train.csv.zip&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+
+<span class="c1"># Split data to train and test</span>
+<span class="n">X_text</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="n">y_text</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+
+<span class="c1"># Classes counts</span>
+<span class="n">df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    32492
+0    17508
+Name: label, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="c1"># Split on 3 folds</span>
+<span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+
+<span class="c1"># In Pipeline we will modify the text and train logistic regression</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;vectorizer&quot;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
+        <span class="p">(</span><span class="s2">&quot;clf&quot;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;liblinear&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question  8.</font></strong> For Logistic Regression: iterate parameter <code class="docutils literal notranslate"><span class="pre">C</span></code> with values from the list [0.1, 1, 10, 100] and find the best ROC AUC in cross-validation. Select the closest answer.</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>0.71</p></li>
+<li><p>0.75</p></li>
+<li><p>0.81</p></li>
+<li><p>0.85</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 9.</font></strong> Now try to perform the same operation with random forest. Similarly, look over all the values and get the maximum ROC AUC, select the closest value. Keep in mind that in this case training may take a lot of time (up to ah hour).</p>
+<p><strong><font color='red'>Answer options:</font></strong></p>
+<ul class="simple">
+<li><p>0.71</p></li>
+<li><p>0.75</p></li>
+<li><p>0.81</p></li>
+<li><p>0.85</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classifier</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;vectorizer&quot;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))),</span>
+        <span class="p">(</span><span class="s2">&quot;clf&quot;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">min_samples_leaf</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">max_features</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+<span class="n">max_depth</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment05_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 5. Bagging and Random Forest</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment05_rf_logit_scoring_texts_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center> Assignment #5. Solution </center><a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

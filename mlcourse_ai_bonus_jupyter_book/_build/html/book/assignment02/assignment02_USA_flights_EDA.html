@@ -1,0 +1,1984 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #2. Task &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #2. Solution" href="assignment02_USA_flights_EDA_solution.html" />
+    <link rel="prev" title="Topic 2. Visual Data Analysis" href="assignment02_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf.html">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment08/assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment02/assignment02_USA_flights_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment02/assignment02_USA_flights_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center>Assignment #2. Task </center><a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Authors: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, and <a class="reference external" href="https://www.linkedin.com/in/maximkeremet/">Maxim Keremet</a>. Translated and edited by  <a class="reference external" href="https://www.linkedin.com/in/datamove/">Artem Trunov</a>, and <a class="reference external" href="https://www.linkedin.com/in/aditya-soni-0505a9124/">Aditya Soni</a>. <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-2-task-center-a-class-tocskip">
+<h1><center>Assignment #2. Task </center><a class="tocSkip"><a class="headerlink" href="#center-assignment-2-task-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-exploratory-data-analysis-eda-of-us-flights-with-pandas-matplotlib-and-seaborn-center-a-class-tocskip">
+<h2><center>Exploratory Data Analysis (EDA) of US flights with Pandas, Matplotlib, and Seaborn </center><a class="tocSkip"><a class="headerlink" href="#center-exploratory-data-analysis-eda-of-us-flights-with-pandas-matplotlib-and-seaborn-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<img src='https://habrastorage.org/webt/z9/io/wb/z9iowbwlya0sadrr0rf_am0ffm0.jpeg' width=50%>
+<p>Prior to working on the assignment, you’d better check out the corresponding course material:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse_open/blob/master/jupyter_english/topic01_pandas_data_analysis/topic1_pandas_data_analysis.ipynb?flush_cache=true">Exploratory data analysis with Pandas</a>, the same as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas">Kaggle Notebook</a></p></li>
+<li><p><a class="reference external" href="https://mlcourse.ai/notebooks/blob/master/jupyter_english/topic02_visual_data_analysis/topic2_visual_data_analysis.ipynb?flush_cache=true">Visualization: from Simple Distributions to Dimensionality Reduction</a>, the same as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-2-visual-data-analysis-in-python">Kaggle Notebook</a></p></li>
+<li><p><a class="reference external" href="https://mlcourse.ai/notebooks/blob/master/jupyter_english/topic02_visual_data_analysis/topic2_additional_seaborn_matplotlib_plotly.ipynb?flush_cache=true">Overview of Seaborn, Matplotlib and Plotly libraries</a>, the same as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-2-part-2-seaborn-and-plotly">Kaggle Notebook</a></p></li>
+<li><p>first lectures in <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">this</a> YouTube playlist</p></li>
+<li><p>you can also practice with demo assignments, which are simpler and already shared with solutions: <a class="reference external" href="https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset">A1 demo</a>, <a class="reference external" href="https://www.kaggle.com/kashnitsky/a1-demo-pandas-and-uci-adult-dataset-solution">solution</a>, <a class="reference external" href="https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data">A2 demo</a>, <a class="reference external" href="https://www.kaggle.com/kashnitsky/a2-demo-analyzing-cardiovascular-data-solution">solution</a></p></li>
+</ul>
+<section id="your-task-is-to">
+<h3>Your task is to:<a class="headerlink" href="#your-task-is-to" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://docs.google.com/forms/d/1GXgR4TsqoTH_nQkrgluqWBElpK0emfhNzdZWZQObtnw">webform</a>.</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># if seaborn is not yet installed, run `pip install seaborn` in terminal</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Download the data <a class="reference external" href="https://drive.google.com/file/d/1kOEcWtcTbbrlhVf1wlYtFQUF_kY92U5O/view?usp=sharing">archive</a> (Archived ~ 114 Mb, unzipped – ~ 690 Mb). No need to unzip – pandas can unzip on the fly.</p></li>
+<li><p>Place it in the <code class="docutils literal notranslate"><span class="pre">&quot;../../_static/data/assignment2&quot;</span></code> folder, or change the path below according to your location.</p></li>
+<li><p>The dataset has information about carriers and flights between US airports during the year 2008.</p></li>
+<li><p>Column description is available <a class="reference external" href="https://www.transtats.bts.gov/Fields.asp?gnoyr_VQ=FGJ">here</a>. Visit this site to find ex. meaning of flight cancellation codes.</p></li>
+</ul>
+<p>Consider the following terms we use:</p>
+<ul class="simple">
+<li><p>unique flight – a record (row) in the dataset</p></li>
+<li><p>completed flight – flight that is not cancelled (Cancelled==0 in the dataset)</p></li>
+<li><p>flight code – a combination of [‘UniqueCarrier’,’FlightNum’], i.e.  UA52</p></li>
+<li><p>airport code – a three letter airport alias from ‘Origin or ‘Dest’ columns</p></li>
+</ul>
+<p><strong>Reading data into memory and creating a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object</strong></p>
+<p>(This may take a while, be patient)</p>
+<p>We are not going to read in the whole dataset. In order to reduce memory footprint, we instead load only needed columns and cast them to suitable data types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;DayOfWeek&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+    <span class="s2">&quot;DayofMonth&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+    <span class="s2">&quot;Month&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+    <span class="s2">&quot;Cancelled&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+    <span class="s2">&quot;Year&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">,</span>
+    <span class="s2">&quot;FlightNum&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">,</span>
+    <span class="s2">&quot;Distance&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">,</span>
+    <span class="s2">&quot;UniqueCarrier&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;CancellationCode&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;Origin&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;Dest&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;ArrDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;DepDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;CarrierDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;WeatherDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;NASDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;SecurityDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;LateAircraftDelay&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+    <span class="s2">&quot;DepTime&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../../_static/data/assignment2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the path if needed</span>
+<span class="n">flights_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">PATH_TO_DATA</span> <span class="o">/</span> <span class="s2">&quot;flights_2008.csv.bz2&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">dtype</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Check the number of rows and columns and print column names.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">flights_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flights_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7009728, 19)
+Index([&#39;Year&#39;, &#39;Month&#39;, &#39;DayofMonth&#39;, &#39;DayOfWeek&#39;, &#39;DepTime&#39;, &#39;UniqueCarrier&#39;,
+       &#39;FlightNum&#39;, &#39;ArrDelay&#39;, &#39;DepDelay&#39;, &#39;Origin&#39;, &#39;Dest&#39;, &#39;Distance&#39;,
+       &#39;Cancelled&#39;, &#39;CancellationCode&#39;, &#39;CarrierDelay&#39;, &#39;WeatherDelay&#39;,
+       &#39;NASDelay&#39;, &#39;SecurityDelay&#39;, &#39;LateAircraftDelay&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Print first 5 rows of the dataset.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Month</th>
+      <th>DayofMonth</th>
+      <th>DayOfWeek</th>
+      <th>DepTime</th>
+      <th>UniqueCarrier</th>
+      <th>FlightNum</th>
+      <th>ArrDelay</th>
+      <th>DepDelay</th>
+      <th>Origin</th>
+      <th>Dest</th>
+      <th>Distance</th>
+      <th>Cancelled</th>
+      <th>CancellationCode</th>
+      <th>CarrierDelay</th>
+      <th>WeatherDelay</th>
+      <th>NASDelay</th>
+      <th>SecurityDelay</th>
+      <th>LateAircraftDelay</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2008</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>2003.0</td>
+      <td>WN</td>
+      <td>335</td>
+      <td>-14.0</td>
+      <td>8.0</td>
+      <td>IAD</td>
+      <td>TPA</td>
+      <td>810</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2008</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>754.0</td>
+      <td>WN</td>
+      <td>3231</td>
+      <td>2.0</td>
+      <td>19.0</td>
+      <td>IAD</td>
+      <td>TPA</td>
+      <td>810</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2008</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>628.0</td>
+      <td>WN</td>
+      <td>448</td>
+      <td>14.0</td>
+      <td>8.0</td>
+      <td>IND</td>
+      <td>BWI</td>
+      <td>515</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2008</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>926.0</td>
+      <td>WN</td>
+      <td>1746</td>
+      <td>-6.0</td>
+      <td>-4.0</td>
+      <td>IND</td>
+      <td>BWI</td>
+      <td>515</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2008</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1829.0</td>
+      <td>WN</td>
+      <td>3920</td>
+      <td>34.0</td>
+      <td>34.0</td>
+      <td>IND</td>
+      <td>BWI</td>
+      <td>515</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>32.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Transpose the frame to see all features at once.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Year</th>
+      <td>2008</td>
+      <td>2008</td>
+      <td>2008</td>
+      <td>2008</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>Month</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>DayofMonth</th>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>DayOfWeek</th>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>DepTime</th>
+      <td>2003.0</td>
+      <td>754.0</td>
+      <td>628.0</td>
+      <td>926.0</td>
+      <td>1829.0</td>
+    </tr>
+    <tr>
+      <th>UniqueCarrier</th>
+      <td>WN</td>
+      <td>WN</td>
+      <td>WN</td>
+      <td>WN</td>
+      <td>WN</td>
+    </tr>
+    <tr>
+      <th>FlightNum</th>
+      <td>335</td>
+      <td>3231</td>
+      <td>448</td>
+      <td>1746</td>
+      <td>3920</td>
+    </tr>
+    <tr>
+      <th>ArrDelay</th>
+      <td>-14.0</td>
+      <td>2.0</td>
+      <td>14.0</td>
+      <td>-6.0</td>
+      <td>34.0</td>
+    </tr>
+    <tr>
+      <th>DepDelay</th>
+      <td>8.0</td>
+      <td>19.0</td>
+      <td>8.0</td>
+      <td>-4.0</td>
+      <td>34.0</td>
+    </tr>
+    <tr>
+      <th>Origin</th>
+      <td>IAD</td>
+      <td>IAD</td>
+      <td>IND</td>
+      <td>IND</td>
+      <td>IND</td>
+    </tr>
+    <tr>
+      <th>Dest</th>
+      <td>TPA</td>
+      <td>TPA</td>
+      <td>BWI</td>
+      <td>BWI</td>
+      <td>BWI</td>
+    </tr>
+    <tr>
+      <th>Distance</th>
+      <td>810</td>
+      <td>810</td>
+      <td>515</td>
+      <td>515</td>
+      <td>515</td>
+    </tr>
+    <tr>
+      <th>Cancelled</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CancellationCode</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CarrierDelay</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>WeatherDelay</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>NASDelay</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>SecurityDelay</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>LateAircraftDelay</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>32.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Examine data types of all features and total dataframe size in memory.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 7009728 entries, 0 to 7009727
+Data columns (total 19 columns):
+ #   Column             Dtype  
+---  ------             -----  
+ 0   Year               uint16 
+ 1   Month              uint8  
+ 2   DayofMonth         uint8  
+ 3   DayOfWeek          uint8  
+ 4   DepTime            float16
+ 5   UniqueCarrier      object 
+ 6   FlightNum          uint16 
+ 7   ArrDelay           float16
+ 8   DepDelay           float16
+ 9   Origin             object 
+ 10  Dest               object 
+ 11  Distance           uint16 
+ 12  Cancelled          uint8  
+ 13  CancellationCode   object 
+ 14  CarrierDelay       float16
+ 15  WeatherDelay       float16
+ 16  NASDelay           float16
+ 17  SecurityDelay      float16
+ 18  LateAircraftDelay  float16
+dtypes: float16(8), object(4), uint16(3), uint8(4)
+memory usage: 387.7+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Get basic statistics of each feature.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Year</th>
+      <td>7009728.0</td>
+      <td>2008.000000</td>
+      <td>0.000000</td>
+      <td>2008.0</td>
+      <td>2008.0</td>
+      <td>2008.0</td>
+      <td>2008.0</td>
+      <td>2008.0</td>
+    </tr>
+    <tr>
+      <th>Month</th>
+      <td>7009728.0</td>
+      <td>6.375130</td>
+      <td>3.406737</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>9.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>DayofMonth</th>
+      <td>7009728.0</td>
+      <td>15.728015</td>
+      <td>8.797068</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>16.0</td>
+      <td>23.0</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>DayOfWeek</th>
+      <td>7009728.0</td>
+      <td>3.924182</td>
+      <td>1.988259</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>DepTime</th>
+      <td>6873482.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>928.0</td>
+      <td>1325.0</td>
+      <td>1728.0</td>
+      <td>2400.0</td>
+    </tr>
+    <tr>
+      <th>FlightNum</th>
+      <td>7009728.0</td>
+      <td>2224.200105</td>
+      <td>1961.715999</td>
+      <td>1.0</td>
+      <td>622.0</td>
+      <td>1571.0</td>
+      <td>3518.0</td>
+      <td>9743.0</td>
+    </tr>
+    <tr>
+      <th>ArrDelay</th>
+      <td>6855029.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-519.0</td>
+      <td>-10.0</td>
+      <td>-2.0</td>
+      <td>12.0</td>
+      <td>2460.0</td>
+    </tr>
+    <tr>
+      <th>DepDelay</th>
+      <td>6873482.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-534.0</td>
+      <td>-4.0</td>
+      <td>-1.0</td>
+      <td>8.0</td>
+      <td>2468.0</td>
+    </tr>
+    <tr>
+      <th>Distance</th>
+      <td>7009728.0</td>
+      <td>726.387029</td>
+      <td>562.101803</td>
+      <td>11.0</td>
+      <td>325.0</td>
+      <td>581.0</td>
+      <td>954.0</td>
+      <td>4962.0</td>
+    </tr>
+    <tr>
+      <th>Cancelled</th>
+      <td>7009728.0</td>
+      <td>0.019606</td>
+      <td>0.138643</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>CarrierDelay</th>
+      <td>1524735.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>16.0</td>
+      <td>2436.0</td>
+    </tr>
+    <tr>
+      <th>WeatherDelay</th>
+      <td>1524735.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1352.0</td>
+    </tr>
+    <tr>
+      <th>NASDelay</th>
+      <td>1524735.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>21.0</td>
+      <td>1357.0</td>
+    </tr>
+    <tr>
+      <th>SecurityDelay</th>
+      <td>1524735.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>392.0</td>
+    </tr>
+    <tr>
+      <th>LateAircraftDelay</th>
+      <td>1524735.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>26.0</td>
+      <td>1316.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Count unique Carriers and plot their relative share of flights:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="p">[</span><span class="s2">&quot;UniqueCarrier&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;UniqueCarrier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_USA_flights_EDA_21_0.png" src="../../_images/assignment02_USA_flights_EDA_21_0.png" />
+</div>
+</div>
+<p><strong>We can also <em>group by</em> category/categories in order to calculate different aggregated statistics.</strong></p>
+<p><strong>For example, finding top-3 flight codes, that have the largest total distance traveled in year 2008.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;UniqueCarrier&quot;</span><span class="p">,</span> <span class="s2">&quot;FlightNum&quot;</span><span class="p">])[</span><span class="s2">&quot;Distance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UniqueCarrier  FlightNum
+CO             15           1796244.0
+               14           1796244.0
+UA             52           1789722.0
+Name: Distance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Another way:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;UniqueCarrier&quot;</span><span class="p">,</span> <span class="s2">&quot;FlightNum&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;Distance&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">],</span> <span class="s2">&quot;Cancelled&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="3" halign="left">Distance</th>
+      <th>Cancelled</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>mean</th>
+      <th>sum</th>
+      <th>count</th>
+      <th>sum</th>
+    </tr>
+    <tr>
+      <th>UniqueCarrier</th>
+      <th>FlightNum</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">CO</th>
+      <th>15</th>
+      <td>4962.000000</td>
+      <td>1796244.0</td>
+      <td>362</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>4962.000000</td>
+      <td>1796244.0</td>
+      <td>362</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>UA</th>
+      <th>52</th>
+      <td>2465.181818</td>
+      <td>1789722.0</td>
+      <td>726</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Number of flights by days of week and months:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">flights_df</span><span class="o">.</span><span class="n">Month</span><span class="p">,</span> <span class="n">flights_df</span><span class="o">.</span><span class="n">DayOfWeek</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>DayOfWeek</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+    </tr>
+    <tr>
+      <th>Month</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>80807</td>
+      <td>97298</td>
+      <td>100080</td>
+      <td>102043</td>
+      <td>81940</td>
+      <td>67178</td>
+      <td>76419</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>81504</td>
+      <td>79700</td>
+      <td>80587</td>
+      <td>82158</td>
+      <td>102726</td>
+      <td>66462</td>
+      <td>76099</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>103210</td>
+      <td>81159</td>
+      <td>82307</td>
+      <td>82831</td>
+      <td>82936</td>
+      <td>86153</td>
+      <td>97494</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>82463</td>
+      <td>100785</td>
+      <td>102586</td>
+      <td>82799</td>
+      <td>82964</td>
+      <td>68304</td>
+      <td>78225</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>80626</td>
+      <td>79884</td>
+      <td>81264</td>
+      <td>102572</td>
+      <td>102878</td>
+      <td>84493</td>
+      <td>74576</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>104168</td>
+      <td>82160</td>
+      <td>82902</td>
+      <td>83617</td>
+      <td>83930</td>
+      <td>72322</td>
+      <td>99566</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>84095</td>
+      <td>103429</td>
+      <td>103315</td>
+      <td>105035</td>
+      <td>79349</td>
+      <td>72219</td>
+      <td>80489</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>82983</td>
+      <td>80895</td>
+      <td>81773</td>
+      <td>82625</td>
+      <td>103878</td>
+      <td>86155</td>
+      <td>93970</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>94300</td>
+      <td>91533</td>
+      <td>74057</td>
+      <td>75589</td>
+      <td>75881</td>
+      <td>58343</td>
+      <td>71205</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>75131</td>
+      <td>72195</td>
+      <td>91900</td>
+      <td>94123</td>
+      <td>93894</td>
+      <td>58168</td>
+      <td>70794</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>74214</td>
+      <td>72443</td>
+      <td>73653</td>
+      <td>68071</td>
+      <td>70484</td>
+      <td>76031</td>
+      <td>88376</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>92700</td>
+      <td>90568</td>
+      <td>85241</td>
+      <td>70761</td>
+      <td>74306</td>
+      <td>61708</td>
+      <td>69674</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>It can also be handy to color such tables in order to easily notice outliers:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">flights_df</span><span class="o">.</span><span class="n">Month</span><span class="p">,</span> <span class="n">flights_df</span><span class="o">.</span><span class="n">DayOfWeek</span><span class="p">),</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;seismic&quot;</span><span class="p">,</span>
+    <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_USA_flights_EDA_29_0.png" src="../../_images/assignment02_USA_flights_EDA_29_0.png" />
+</div>
+</div>
+<p><strong>Flight distance histogram:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_USA_flights_EDA_31_0.png" src="../../_images/assignment02_USA_flights_EDA_31_0.png" />
+</div>
+</div>
+<p><strong>Making a histogram of flight frequency by date.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+    <span class="n">flights_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;DayofMonth&quot;</span><span class="p">:</span> <span class="s2">&quot;Day&quot;</span><span class="p">})[[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="s2">&quot;Day&quot;</span><span class="p">]]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_flights_by_date</span> <span class="o">=</span> <span class="n">flights_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_flights_by_date</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_USA_flights_EDA_35_0.png" src="../../_images/assignment02_USA_flights_EDA_35_0.png" />
+</div>
+</div>
+<p><strong>Do you see a weekly pattern above? And below?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_flights_by_date</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment02_USA_flights_EDA_37_0.png" src="../../_images/assignment02_USA_flights_EDA_37_0.png" />
+</div>
+</div>
+<p><strong>We’ll need a new column in our dataset - departure hour, let’s create it.</strong></p>
+<p>As we see, <code class="docutils literal notranslate"><span class="pre">DepTime</span></code> is distributed from 1 to 2400 (it is given in the <code class="docutils literal notranslate"><span class="pre">hhmm</span></code> format, check the <a class="reference external" href="https://www.transtats.bts.gov/Fields.asp?Table_ID=236">column description</a> again). We’ll treat departure hour as <code class="docutils literal notranslate"><span class="pre">DepTime</span></code> // 100 (divide by 100 and apply the <code class="docutils literal notranslate"><span class="pre">floor</span></code> function). However, now we’ll have both hour 0 and hour 24. Hour 24 sounds strange, we’ll set it to be 0 instead (a typical imperfectness of real data, however, you can check that it affects only 521 rows, which is sort of not a big deal). So now values of a new column <code class="docutils literal notranslate"><span class="pre">DepHour</span></code> will be distributed from 0 to 23. There are some missing values, for now we won’t fill in them, just ignore them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="p">[</span><span class="s2">&quot;DepHour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flights_df</span><span class="p">[</span><span class="s2">&quot;DepTime&quot;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">100</span>
+<span class="n">flights_df</span><span class="p">[</span><span class="s2">&quot;DepHour&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flights_df</span><span class="p">[</span><span class="s2">&quot;DepHour&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    6873482.0
+mean           NaN
+std            0.0
+min            0.0
+25%            9.0
+50%           13.0
+75%           17.0
+max           23.0
+Name: DepHour, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="now-it-s-your-turn-answer-the-questions-below">
+<h3>Now it’s your turn. Answer the questions below.<a class="headerlink" href="#now-it-s-your-turn-answer-the-questions-below" title="Permalink to this headline">#</a></h3>
+<p><strong><font color='red'>Question 1.</font> How many unique carriers are there in our dataset?</strong></p>
+<ul class="simple">
+<li><p>10</p></li>
+<li><p>15</p></li>
+<li><p>20</p></li>
+<li><p>25</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 2.</font>  We have  both cancelled and completed flights in the dataset. Check if there are more completed or cancelled flights. What is the difference?</strong> <br></p>
+<ul class="simple">
+<li><p>Cancelled overweights completed by 329 flights</p></li>
+<li><p>Completed overweights cancelled by 6734860 flights</p></li>
+<li><p>Cancelled overweights completed by 671 flights</p></li>
+<li><p>Completed overweights cancelled by 11088967 flights</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 3.</font> Find a flight with the longest departure delay and a flight with the longest arrival delay. Do they have the same destination airport, and if yes, what is its code?</strong></p>
+<ul class="simple">
+<li><p>yes, ATL</p></li>
+<li><p>yes, HNL</p></li>
+<li><p>yes, MSP</p></li>
+<li><p>no</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 4.</font> Find the carrier that has the greatest number of cancelled flights.</strong></p>
+<ul class="simple">
+<li><p>AA</p></li>
+<li><p>MQ</p></li>
+<li><p>WN</p></li>
+<li><p>CO</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 5.</font> Let’s examine departure time and consider distribution by hour (column <code class="docutils literal notranslate"><span class="pre">DepHour</span></code> that we’ve created earlier). Which hour has the highest percentage of flights?</strong><br></p>
+<p><em>Hint:</em> Check time format <a class="reference external" href="https://www.transtats.bts.gov/Fields.asp?Table_ID=236">here</a>.</p>
+<ul class="simple">
+<li><p>1 am</p></li>
+<li><p>5 am</p></li>
+<li><p>8 am</p></li>
+<li><p>3 pm</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 6.</font> OK, now let’s examine cancelled flight distribution by time. Which hour has the least percentage of cancelled flights?</strong><br></p>
+<ul class="simple">
+<li><p>2 am</p></li>
+<li><p>9 pm</p></li>
+<li><p>8 am</p></li>
+<li><p>3 am</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 7.</font>  Is there any hour that didn’t have any cancelled flights at all? Check all that apply.</strong></p>
+<ul class="simple">
+<li><p>3</p></li>
+<li><p>19</p></li>
+<li><p>22</p></li>
+<li><p>4</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 8.</font> Find the busiest hour, or in other words, the hour when the number of departed flights reaches its maximum.</strong><br></p>
+<p><em>Hint:</em> Consider only <em>completed</em> flights.</p>
+<ul class="simple">
+<li><p>4</p></li>
+<li><p>7</p></li>
+<li><p>8</p></li>
+<li><p>17</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 9.</font> Since we know the departure hour, it might be interesting to examine the average delay for corresponding hour. Are there any cases, when the planes on average departed earlier than they should have done? And if yes, at what departure hours did it happen?</strong><br></p>
+<p><em>Hint:</em> Consider only <em>completed</em> flights.</p>
+<ul class="simple">
+<li><p>no, there are no such cases</p></li>
+<li><p>yes, at 5-6 am</p></li>
+<li><p>yes, at 9-10 am</p></li>
+<li><p>yes, at 2-4 pm</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 10.</font>  Considering only the completed flights by the carrier, that you have found in Question 4, find the distribution of these flights by hour. At what time does the greatest number of its planes depart?</strong><br></p>
+<ul class="simple">
+<li><p>at noon</p></li>
+<li><p>at 7 am</p></li>
+<li><p>at 8 am</p></li>
+<li><p>at 10 am</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 11.</font> Find top-10 carriers in terms of the number of <em>completed</em> flights (<em>UniqueCarrier</em> column)?</strong></p>
+<p><strong>Which of the listed below is <em>not</em> in your top-10 list?</strong></p>
+<ul class="simple">
+<li><p>DL</p></li>
+<li><p>AA</p></li>
+<li><p>OO</p></li>
+<li><p>EV</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 12.</font>  Plot distributions of flight cancellation reasons (CancellationCode).</strong></p>
+<p><strong>What is the most frequent reason for flight cancellation? (Use this <a class="reference external" href="https://www.transtats.bts.gov/Fields.asp?Table_ID=236">link</a> to translate codes into reasons)</strong></p>
+<ul class="simple">
+<li><p>Carrier</p></li>
+<li><p>Weather conditions</p></li>
+<li><p>National Air System</p></li>
+<li><p>Security reasons</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 13.</font> Which route is the most frequent, in terms of the number of flights?</strong></p>
+<p>(Take a look at <em>‘Origin’</em> and <em>‘Dest’</em> features. Consider <em>A-&gt;B</em> and <em>B-&gt;A</em> directions as <em>different</em> routes)</p>
+<ul class="simple">
+<li><p>New-York – Washington (JFK-IAD)</p></li>
+<li><p>San-Francisco – Los-Angeles (SFO-LAX)</p></li>
+<li><p>San-Jose – Dallas (SJC-DFW)</p></li>
+<li><p>New-York – San-Francisco (JFK-SFO)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 14.</font> Find top-5 delayed routes (count how many times they were delayed on departure). From all flights on these 5 routes, count all flights with weather conditions contributing to a delay.</strong></p>
+<p><em>Hint</em>: consider only positive delays</p>
+<ul class="simple">
+<li><p>449</p></li>
+<li><p>539</p></li>
+<li><p>549</p></li>
+<li><p>668</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 15.</font> Examine the hourly distribution of departure times. Choose all correct statements:</strong></p>
+<ul class="simple">
+<li><p>Flights are normally distributed within time interval [0-23] (Search for: Normal distribution, bell curve).</p></li>
+<li><p>Flights are uniformly distributed within time interval [0-23].</p></li>
+<li><p>In the period from 0 am to 4 am there are considerably less flights than from 7 pm to 8 pm.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 16.</font> Show how the number of flights changes through time (on the daily/weekly/monthly basis) and interpret the findings.</strong></p>
+<p><strong>Choose all correct statements:</strong></p>
+<ul class="simple">
+<li><p>The number of flights during weekends is less than during weekdays (working days).</p></li>
+<li><p>The lowest number of flights is on Sunday.</p></li>
+<li><p>There are less flights during winter than during summer.</p></li>
+</ul>
+<p><em>Hint</em>: Look for official meteorological winter months for the Northern Hemisphere.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 17.</font> Examine the distribution of cancellation reasons with time. Make a bar plot of cancellation reasons aggregated by months.</strong></p>
+<p><strong>Choose all correct statements:</strong></p>
+<ul class="simple">
+<li><p>October has the lowest number of cancellations due to weather.</p></li>
+<li><p>The highest number of cancellations in September is due to Security reasons.</p></li>
+<li><p>April’s top cancellation reason is carriers.</p></li>
+<li><p>Flights cancellations due to National Air System are more frequent than those due to carriers.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Reminder on Cancellatoin codes:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">-</span> <span class="n">Carrier</span> 
+<span class="n">B</span> <span class="o">-</span> <span class="n">Weather</span> 
+<span class="n">C</span> <span class="o">-</span> <span class="n">National</span> <span class="n">Air</span> <span class="n">System</span> 
+<span class="n">D</span> <span class="o">-</span> <span class="n">Security</span>
+</pre></div>
+</div>
+<p><strong><font color='red'>Question 18.</font> Which month has the greatest number of cancellations due to Carrier?</strong></p>
+<ul class="simple">
+<li><p>May</p></li>
+<li><p>January</p></li>
+<li><p>September</p></li>
+<li><p>April</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 19.</font> Identify the carrier with the greatest number of cancellations due to carrier in the corresponding month from the previous question.</strong></p>
+<ul class="simple">
+<li><p>9E</p></li>
+<li><p>EV</p></li>
+<li><p>HA</p></li>
+<li><p>AA</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 20.</font> Examine median arrival and departure delays (in time) by carrier. Which carrier has the lowest median delay time for both arrivals and departures? Leave only non-negative values of delay times (‘ArrDelay’, ‘DepDelay’).
+(<a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.boxplot.html">Boxplots</a> can be helpful in this exercise, as well as it might be a good idea to remove outliers in order to build nice graphs. You can exclude delay time values higher than a corresponding .95 percentile).</strong></p>
+<ul class="simple">
+<li><p>EV</p></li>
+<li><p>OO</p></li>
+<li><p>AA</p></li>
+<li><p>AQ</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment02_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 2. Visual Data Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment02_USA_flights_EDA_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>Assignment #2. Solution </center><a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

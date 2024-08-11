@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment #8. Task &#8212; mlcourse.ai bonus pack</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Assignment #8. Solution" href="assignment08_implement_sgd_regr_and_clf_solution.html" />
+    <link rel="prev" title="Topic 8. Stochastic Gradient Descent for regression and classification" href="assignment08_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/mlcourse_ai_logo_bonus.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">mlcourse.ai bonus pack</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 1
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_intro.html">
+   Assignment 1 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic.html">
+   Assignment 1 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment01/assignment01_pandas_olympic_solution.html">
+   Assignment 1 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 2
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_intro.html">
+   Assignment 2 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA.html">
+   Assignment 2 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment02/assignment02_USA_flights_EDA_solution.html">
+   Assignment 2 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_intro.html">
+   Assignment 3 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees.html">
+   Assignment 3 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_decision_trees_solution.html">
+   Assignment 3 Solution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree.html">
+   Assignment 3 (opt.) Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment03/assignment03_optional_implement_decision_tree_solution.html">
+   Assignment 3 (opt.) Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_intro.html">
+   Assignment 4 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering.html">
+   Assignment 4 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment04/assignment04_kaggle_alice_logistic_regression_sparse_data_feature_engineering_solution.html">
+   Assignment 4 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 5
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_intro.html">
+   Assignment 5 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts.html">
+   Assignment 5 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment05/assignment05_rf_logit_scoring_texts_solution.html">
+   Assignment 5 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 6
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_intro.html">
+   Assignment 6 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline.html">
+   Assignment 6 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment06/assignment06_medium_popularity_beat_baseline_solution.html">
+   Assignment 6 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 7
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_intro.html">
+   Assignment 7 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering.html">
+   Assignment 7 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment07/assignment07_pca_clustering_solution.html">
+   Assignment 7 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 8
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment08_intro.html">
+   Assignment 8 Intro
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Assignment 8 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="assignment08_implement_sgd_regr_and_clf_solution.html">
+   Assignment 8 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 9
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_intro.html">
+   Assignment 9 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series.html">
+   Assignment 9 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment09/assignment09_time_series_solution.html">
+   Assignment 9 Solution
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Assignment 10
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_intro.html">
+   Assignment 10 Intro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting.html">
+   Assignment 10 Task
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../assignment10/assignment10_implement_boosting_solution.html">
+   Assignment 10 Solution
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/book/assignment08/assignment08_implement_sgd_regr_and_clf.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/book/assignment08/assignment08_implement_sgd_regr_and_clf.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><center>Assignment #8. Task </center><a class="tocSkip"></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
+<p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
+Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a> (&#64;yorko). Translated by Sergey Oreshkov.  <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> is powered by <a class="reference external" href="https://ods.ai/">OpenDataScience (ods.ai)</a> © 2017—2022</p>
+<section class="tex2jax_ignore mathjax_ignore" id="center-assignment-8-task-center-a-class-tocskip">
+<h1><center>Assignment #8. Task </center><a class="tocSkip"><a class="headerlink" href="#center-assignment-8-task-center-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<section id="center-implementing-stochastic-gradient-descent-for-regression-and-classification-center-a-class-tocskip">
+<h2><center>Implementing Stochastic Gradient Descent for regression and classification  </center><a class="tocSkip"><a class="headerlink" href="#center-implementing-stochastic-gradient-descent-for-regression-and-classification-center-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="center">
+<h2><center><a class="headerlink" href="#center" title="Permalink to this headline">#</a></h2>
+<p>Here we implement two algorithms  – a regressor and a classifier – driven by stochastic gradient descent (SGD).</p>
+<section id="your-task-is-to">
+<h3>Your task is to:<a class="headerlink" href="#your-task-is-to" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>write code and perform computations in the cells below;</p></li>
+<li><p>choose answers in the <a class="reference external" href="https://forms.gle/gC4PN9ntDru4sbZU7">webform</a>.</p></li>
+</ol>
+<p><em>If you are sure that something is not 100% correct with the assignment/solution, please leave your feedback via the mentioned webform ↑</em></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="plan">
+<h2>Plan<a class="headerlink" href="#plan" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#1.-Linear-regression-and-Stochastic-Gradient-Descent-">Linear regression and SGD</a></p></li>
+<li><p><a class="reference external" href="#2.-Logistic-Regression-and-SGD">Logistic regression and SGD</a></p></li>
+<li><p><a class="reference external" href="#3.-Logistic-regression-and-SGDClassifier-and-movie-review-classification-task">Logistic regression and SGDClassifier for movie review sentiment analysis</a></p></li>
+</ol>
+</section>
+<section id="linear-regression-and-stochastic-gradient-descent-a-class-tocskip">
+<h2>1. Linear regression and Stochastic Gradient Descent <a class="tocSkip"><a class="headerlink" href="#linear-regression-and-stochastic-gradient-descent-a-class-tocskip" title="Permalink to this headline">#</a></h2>
+<p>In <a class="reference external" href="https://mlcourse.ai/articles/topic8-sgd-vw/">this article</a> we described how to train an online regressor, while minimizing squared error function. Let’s implement this algorithm.</p>
+<p><strong>Note:</strong> the implementation closely follows the mentioned article. It’s vanilla MSE minimization with no regularization (just to make it easier a bit). We’ll add <span class="math notranslate nohighlight">\(L_2\)</span>-regularization later when we implement the SGD version of logistic regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># sharper plots</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implement class <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code>. Specs for the class:</p>
+<ul class="simple">
+<li><p>class is inherited from <code class="docutils literal notranslate"><span class="pre">sklearn.base.BaseEstimator</span></code></p></li>
+<li><p>constructor takes parameters <code class="docutils literal notranslate"><span class="pre">eta</span></code> – gradient step (<span class="math notranslate nohighlight">\(10^{-3}\)</span> by default) and <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> – dataset pass count (10 by default)</p></li>
+<li><p>constructor also must create <code class="docutils literal notranslate"><span class="pre">mse_</span></code> and <code class="docutils literal notranslate"><span class="pre">weights_</span></code> lists in order to track mean squared error and weight vector during gradient descent iterations</p></li>
+<li><p>Class has <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">predict</span></code> methods</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method takes matrix <code class="docutils literal notranslate"><span class="pre">X</span></code> and vector <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> objects) as parameters, appends column of ones to  <code class="docutils literal notranslate"><span class="pre">X</span></code> on the left side, initializes the weight vector <code class="docutils literal notranslate"><span class="pre">w</span></code> with <strong>zeros</strong> and then does <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> iterations of weight updates (check <a class="reference external" href="https://mlcourse.ai/articles/topic8-sgd-vw/">the article</a>, and for every iteration logs mean squared error and the weight vector <code class="docutils literal notranslate"><span class="pre">w</span></code> in corresponding lists that were created in the constructor.</p></li>
+<li><p>Additionally the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method will create <code class="docutils literal notranslate"><span class="pre">w_</span></code> variable to store weights which produce the best mean squared error</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method must return current object of <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code> class, i.e. <code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">predict</span></code> method takes <code class="docutils literal notranslate"><span class="pre">X</span></code> matrix, adds column of ones to the left of this matrix and returns a prediction vector, using weight vector <code class="docutils literal notranslate"><span class="pre">w_</span></code>, created by the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SGDRegressor</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us test out the algorithm on basic example of height/weight data. We will predict height(in inches) having a weight (lbs).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_demo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../_static/data/assignment8/weights_heights.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Weight&quot;</span><span class="p">],</span> <span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Height&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Weight (lbs)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Height (Inch)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/assignment08_implement_sgd_regr_and_clf_10_0.png" src="../../_images/assignment08_implement_sgd_regr_and_clf_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">data_demo</span><span class="p">[</span><span class="s2">&quot;Height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We leave 70% of the data as a training set, and 30% as a test set. Also we scale the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="n">X_valid_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_valid</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train the created <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code> with <code class="docutils literal notranslate"><span class="pre">(X_train_scaled,</span> <span class="pre">y_train)</span></code> data. Leave default parameter values for now.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Draw a chart with the training process – the dependency of mean squared error on the i-th SGD iteration number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print the minimal value of mean squared error and the best weights vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Draw the chart of model weights (<span class="math notranslate nohighlight">\(w_0\)</span> and <span class="math notranslate nohighlight">\(w_1\)</span>) as they changed during training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a prediction for the hold-out test set <code class="docutils literal notranslate"><span class="pre">(X_valid_scaled,</span> <span class="pre">y_valid)</span></code> and check the corresponding MSE value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now do the same thing for the <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> class from <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model</span></code>. Evaluate MSE for the same hold-out set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 1.</font> In which decimal do we see the difference between MSE for linear regressor and <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code>?</strong></p>
+<ul class="simple">
+<li><p>2</p></li>
+<li><p>3</p></li>
+<li><p>4</p></li>
+<li><p>5</p></li>
+</ul>
+</section>
+<section id="logistic-regression-and-sgd">
+<h2>2. Logistic Regression and SGD<a class="headerlink" href="#logistic-regression-and-sgd" title="Permalink to this headline">#</a></h2>
+<p>Let us sort out now, how the very same stochastic approach can help to train logistic regression.</p>
+<p>Let’s consider a classification task, where <span class="math notranslate nohighlight">\(X\)</span> – is a training dataset with size <span class="math notranslate nohighlight">\(\ell \times (d+1)\)</span> (first column is a vector of ones), and <span class="math notranslate nohighlight">\(y\)</span> – is the target vector, <span class="math notranslate nohighlight">\(y_i \in \{-1, 1\}\)</span>. In <a class="reference external" href="https://mlcourse.ai/book/topic04/topic4_linear_models_part2_logit_likelihood_learning.html">topic 4, part 2</a> of this course we described how logistic regression with <span class="math notranslate nohighlight">\(L_2\)</span>-regularization yields the following minimization problem:</p>
+<div class="math notranslate nohighlight">
+\[\large C\sum_{i=1}^\ell \log{(1 + e^{-y_iw^Tx_i})} + \frac{1}{2}\sum_{j=1}^d w_j^2 \rightarrow min_w\]</div>
+<p><strong><font color='red'>Question 2.</font> Which formula will be used for update of logistic regression weights during stochastic gradient descent training?</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(w_j^{(t+1)} = w_j^{(t)} + \eta (Cy_i x_{ij} \sigma(y_iw^Tx_i) +  \delta_{j\neq0} w_j)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(w_j^{(t+1)} = w_j^{(t)} - \eta (Cy_i x_{ij} \sigma(-y_iw^Tx_i) +  \delta_{j\neq0}w_j)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(w_j^{(t+1)} = w_j^{(t)} - \eta (Cy_i x_{ij} \sigma(y_iw^Tx_i) -  \delta_{j\neq0}w_j )\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(w_j^{(t+1)} = w_j^{(t)} + \eta (Cy_i x_{ij} \sigma(-y_iw^Tx_i) -  \delta_{j\neq0}w_j)\)</span></p></li>
+</ul>
+<p>Here:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(i \in {0,\ldots, \ell-1}, j \in {0,\ldots, d}\)</span></p></li>
+<li><p>C – regularization coefficient</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{ij} \)</span> – element of the X matrix at row <span class="math notranslate nohighlight">\(i\)</span> and column <span class="math notranslate nohighlight">\(j\)</span> (indexing starts from 0),</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> – <span class="math notranslate nohighlight">\(i\)</span>-th row of <span class="math notranslate nohighlight">\(X\)</span> matrix (indexing from 0),</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_j^{(t)}\)</span> – value of <span class="math notranslate nohighlight">\(j\)</span>-th element of weights vector <span class="math notranslate nohighlight">\(w\)</span> during step <span class="math notranslate nohighlight">\(t\)</span> of stochastic gradient descent</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta\)</span> – small constant value, step of gradient descent</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta_{j\neq0}\)</span> – Kronecker symbol, i.e. 1, if <span class="math notranslate nohighlight">\(j\neq0\)</span> and <span class="math notranslate nohighlight">\(0\)</span> otherwise</p></li>
+</ul>
+<p>Let’s implement the <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> class. Specs for this class:</p>
+<ul class="simple">
+<li><p>we inherit our class from <code class="docutils literal notranslate"><span class="pre">sklearn.base.BaseEstimator</span></code></p></li>
+<li><p>constructor has the following parameters: <code class="docutils literal notranslate"><span class="pre">eta</span></code> – gradient descent step (default value is <span class="math notranslate nohighlight">\(10^{-3}\)</span>), <code class="docutils literal notranslate"><span class="pre">n_iter</span></code> – iterations count (default is 10) and <code class="docutils literal notranslate"><span class="pre">C</span></code> – regularization coefficient</p></li>
+<li><p>additionally, let’s create  <code class="docutils literal notranslate"><span class="pre">loss_</span></code> and <code class="docutils literal notranslate"><span class="pre">weights_</span></code> lists in order to track values of logistic loss and weight vector over gradient descent iterations</p></li>
+<li><p>class has <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code> and <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> methods</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method has parameters <code class="docutils literal notranslate"><span class="pre">X</span></code>(matrix) and <code class="docutils literal notranslate"><span class="pre">y</span></code>(vector) (<code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> objects, we assume we have binary classification, and values in vector <code class="docutils literal notranslate"><span class="pre">y</span></code> can only be either -1 or 1). We add a column of ones to <code class="docutils literal notranslate"><span class="pre">X</span></code> from the left, initialize <code class="docutils literal notranslate"><span class="pre">w</span></code> vector with <strong>zeros</strong> and iteratively (<code class="docutils literal notranslate"><span class="pre">n_iter</span></code> times) update weights with expression we got earlier, also logging log_loss and weight <code class="docutils literal notranslate"><span class="pre">w</span></code> values into corresponding lists.</p></li>
+<li><p>In the end <code class="docutils literal notranslate"><span class="pre">fit</span></code> must create <code class="docutils literal notranslate"><span class="pre">w_</span></code> and store weight vector with the smallest loss value</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method must return object of <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> type, i.e. <code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> method gets <code class="docutils literal notranslate"><span class="pre">X</span></code> matrix, adds column of ones from the left and returns matrix with predictions (you get same matrices from <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> methods in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>), using vector <code class="docutils literal notranslate"><span class="pre">w_</span></code> we created by <code class="docutils literal notranslate"><span class="pre">fit</span></code> method</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict</span></code> method calls <code class="docutils literal notranslate"><span class="pre">predict_proba</span></code> and returns answer vector: -1, if predicted probability of 1 is less than 0.5 and 1 otherwise</p></li>
+<li><p>And <strong>important</strong>: in order to avoid problems with computation of big and small values with exponent (overflow &amp; underflow) use the following <code class="docutils literal notranslate"><span class="pre">sigma</span></code> function.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SGDClassifier</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+
+<span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s test <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> with breast cancer UCI dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cancer</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="c1"># change labels in y from 0 to -1</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cancer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cancer</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s split dataset - 70% for training and 30% – as a holdout set. Let’s also scale the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_valid_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> with the scaled training set with the following parameters: <code class="docutils literal notranslate"><span class="pre">C</span></code>=1, <code class="docutils literal notranslate"><span class="pre">eta</span></code>=<span class="math notranslate nohighlight">\(10^{-3}\)</span> and <code class="docutils literal notranslate"><span class="pre">n_iter</span></code>=3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a plot of <code class="docutils literal notranslate"><span class="pre">log_loss</span></code> as it’s changing during training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now train <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> with <code class="docutils literal notranslate"><span class="pre">C</span></code>=1000 increasing the number of iterations over the training set to 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now check out the model weights vector with minimal loss on the training set.</p>
+<p><strong><font color='red'>Question 3.</font> Which feature has the highest impact on probability of benign tumour, according to  <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> model? (be careful to check the length of the weight vector you get after training,  and compare with number of features in our task)</strong></p>
+<ul class="simple">
+<li><p>worst compactness</p></li>
+<li><p>worst smoothness</p></li>
+<li><p>worst concavity</p></li>
+<li><p>concave points error</p></li>
+<li><p>concavity error</p></li>
+<li><p>compactness error</p></li>
+<li><p>worst fractal dimension</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compute log_loss and ROC AUC for hold-out validation set, and do all the same with  <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model.LogisticRegression</span></code> (leave default parameters for this object, only set random_state=17) and compare results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistic-regression-and-sgdclassifier-and-movie-review-classification-task">
+<h2>3. Logistic regression and SGDClassifier and movie review classification task<a class="headerlink" href="#logistic-regression-and-sgdclassifier-and-movie-review-classification-task" title="Permalink to this headline">#</a></h2>
+<p>Let’s look at logistic regression and its SGD variation for classification of reviews from IMDB. We know this task from the 4-th and the 8-th topics of the course, and we also used it here in the 5-th bonus assignment.</p>
+<p>We will import the data and train <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> with the available data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../_static/data/assignment5/movie_reviews_train.csv.zip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>To an entire generation of filmgoers, it just ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Pixar classic is one of the best kids' movies ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Apesar de representar um imenso avanço tecnoló...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>When Woody perks up in the opening scene, it's...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Introduced not one but two indelible character...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Perform train/validation split.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews_train</span><span class="p">,</span> <span class="n">reviews_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">],</span> <span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are going to train <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> with data we have, while counting bigrams. By doing this we come to sparse data representation, where we have a feature for each unique word and pair of consecutive words. We get over 1.5 billion of features therefore.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">reviews_train</span><span class="p">)</span>
+<span class="n">X_valid</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">reviews_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 28.9 s, sys: 651 ms, total: 29.5 s
+Wall time: 29.6 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_valid</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((106827, 2238247), (45783, 2238247))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Train logistic regression with data <code class="docutils literal notranslate"><span class="pre">(X_train,</span> <span class="pre">y_train)</span></code> and default parameters (except for <code class="docutils literal notranslate"><span class="pre">random_state</span></code>= 17 to get reproducible result) and calculate ROC AUC with the validation set. Measure the time of the model’s training. We don’t need to scale the data because our features are counters and they are already spread across roughly the same ranges.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Now we move to the online algorithm. We implemented our <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> and understood how it works, but additional efforts are required to make it effective, for example, to support sparse features. Let’s now switch to the <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>-implementation of the SGD-algorithm. Check out <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html">SGDClassifier</a> docs, and make a note in which aspects <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> from <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code> is more advanced than our own SGD.</p>
+<p><strong><font color='red'>Question 4.</font> In which aspects is the <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code> implementation more advanced than the <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> that we implemented? Select all correct options.</strong></p>
+<ul class="simple">
+<li><p>Gradient descent step can be varied</p></li>
+<li><p>Linear SVM is implemented</p></li>
+<li><p>Early stopping is implemented to avoid overfitting</p></li>
+<li><p>Can be run on multiple CPUs</p></li>
+<li><p>LASSO is supported</p></li>
+<li><p>Online learning of decision trees is supported</p></li>
+<li><p>Mini-batch training is supported (i.e. weight updates weights with several training examples at a time)</p></li>
+</ul>
+<p>Run 100 iterations of SGD-logistic regression (again, <code class="docutils literal notranslate"><span class="pre">random_state</span></code>=17) with the same data. Measure the training time and note how faster the SGD version is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><font color='red'>Question 5.</font> In which decimal do we see the difference between validation ROC AUC-s for logistic regression and <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code> SGD classifier with logistic loss function?</strong></p>
+<ul class="simple">
+<li><p>2</p></li>
+<li><p>3 <strong>[+]</strong></p></li>
+<li><p>4</p></li>
+<li><p>5</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./book/assignment08"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="assignment08_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Topic 8. Stochastic Gradient Descent for regression and classification</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="assignment08_implement_sgd_regr_and_clf_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><center>Assignment #8. Solution </center><a class="tocSkip"></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Yury Kashnitsky (yorko)<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
