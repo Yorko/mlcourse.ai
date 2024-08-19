@@ -28,7 +28,6 @@ This week, we'll cover two reasons for Vowpal Wabbit’s exceptional training sp
 ```{contents}
 ```
 
-
 ```{code-cell} ipython3
 import os
 import re
