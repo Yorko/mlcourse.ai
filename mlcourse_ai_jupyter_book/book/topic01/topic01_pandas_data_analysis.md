@@ -316,7 +316,7 @@ Let’s do the same thing, but slightly differently by passing a list of functio
 ```{code-cell} ipython3
 columns_to_show = ["Total day minutes", "Total eve minutes", "Total night minutes"]
 
-df.groupby(["Churn"])[columns_to_show].agg([np.mean, np.std, np.min, np.max])
+df.groupby(["Churn"])[columns_to_show].agg(["mean", "std", "min", "max"])
 ```
 
 
