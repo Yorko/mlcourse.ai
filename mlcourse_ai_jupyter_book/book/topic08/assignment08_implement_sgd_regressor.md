@@ -36,7 +36,6 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
 from matplotlib import pyplot as plt
-from matplotlib import pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 ```
