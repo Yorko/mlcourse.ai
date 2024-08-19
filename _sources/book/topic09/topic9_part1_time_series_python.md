@@ -26,25 +26,10 @@ We continue our open machine learning course with a new article on time series.
 
 Let's take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost... In addition, all of this will be applied to (harsh) real world examples.
 
-# Article outline
-1. [Introduction](introduction)
-   - [Forecast quality metrics](forecast-quality-metrics)
-2. [Move, smoothe, evaluate](move-smoothe-evaluate)
-   - Rolling window estimations
-   - Exponential smoothing, Holt-Winters model
-   - Time-series cross validation, parameters selection
-3. [Econometric approach](econometric-approach)
-   - Stationarity, unit root
-   - Getting rid of non-stationarity
-   - SARIMA intuition and model building
-4. [Linear (and not only) models for time series](linear-and-not-only-models-for-time-series)
-   - [Feature extraction](feature-extraction)
-   - [Time series lags](time-series-lags)
-   - [Target encoding](target-encoding)
-   - [Regularization and feature selection](regularization-and-feature-selection)
-   - [Boosting](boosting)
-5. [Conclusion](conclusion)
-6. [Useful resources](useful-resources)
+## Article outline
+
+```{contents}
+```
 
 In my day-to-day job, I encounter time-series related tasks almost every day. The most frequent questions asked are the following: what will happen with our metrics in the next day/week/month/etc., how many users will install our app, how much time will they spend online, how many actions will users complete, and so on. We can approach these prediction tasks using different methods depending on the required quality of the prediction, length of the forecast period, and, of course, the time within which we have to choose features and tune parameters to achieve desired results.
 
@@ -727,7 +712,7 @@ def plotHoltWinters(series, plot_intervals=False, plot_anomalies=False):
     plt.title("Mean Absolute Percentage Error: {0:.2f}%".format(error))
 
     if plot_anomalies:
-        anomalies = np.array([np.NaN] * len(series))
+        anomalies = np.array([np.nan] * len(series))
         anomalies[series.values < model.LowerBond[: len(series)]] = series.values[
             series.values < model.LowerBond[: len(series)]
         ]
@@ -1110,7 +1095,7 @@ def plotSARIMA(series, model, n_steps):
     data["arima_model"] = model.fittedvalues
     # making a shift on s+d steps, because these values were unobserved by the model
     # due to the differentiating
-    data["arima_model"][: s + d] = np.NaN
+    data["arima_model"][: s + d] = np.nan
 
     # forecasting on n_steps forward
     forecast = model.predict(start=data.shape[0], end=data.shape[0] + n_steps)
@@ -1260,7 +1245,7 @@ def plotModelResults(
         plt.plot(upper, "r--", alpha=0.5)
 
         if plot_anomalies:
-            anomalies = np.array([np.NaN] * len(y_test))
+            anomalies = np.array([np.nan] * len(y_test))
             anomalies[y_test < lower] = y_test[y_test < lower]
             anomalies[y_test > upper] = y_test[y_test > upper]
             plt.plot(anomalies, "o", markersize=10, label="Anomalies")

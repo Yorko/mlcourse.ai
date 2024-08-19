@@ -25,10 +25,9 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Ch
 
 
 ## Article outline
-1. [Analysis of IMDB movie reviews](analysis-of-imdb-movie-reviews)
-2. [A Simple Word Count](a-simple-word-count)
-3. [The XOR Problem](the-xor-problem)
-4. [Useful resources](useful-resources)
+
+```{contents}
+```
 
 ## 1. Analysis of IMDB movie reviews
 

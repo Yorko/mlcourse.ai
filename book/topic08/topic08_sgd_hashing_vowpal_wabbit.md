@@ -24,20 +24,9 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Se
 This week, we'll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.
 
 ## Article outline
-1. [Stochastic gradient descent and online learning](stochastic-gradient-descent-and-online-learning)
-    - 1.1. [SGD](stochastic-gradient-descent)
-    - 1.2. [Online approach to learning](online-approach-to-learning)
-2. [Categorical feature processing](categorical-feature-processing)
-    - 2.1. [Label Encoding](label-encoding)
-    - 2.2. [One-Hot Encoding](one-hot-encoding)
-    - 2.3. [Hashing trick](hashing-trick)
-3. [Vowpal Wabbit](vowpal-Wabbit)
-    - 3.1. [News. Binary classification](news-binary-classification)
-    - 3.2. [News. Multiclass classification](news-multiclass-classification)
-    - 3.3. [IMDB movie reviews](imdb-movie-reviews)
-    - 3.4. [Classifying gigabytes of StackOverflow questions](classifying-gigabytes-of-stackoverflow-questionss)
-4. [Useful resources](useful-resources)
 
+```{contents}
+```
 
 
 ```{code-cell} ipython3
@@ -61,7 +50,9 @@ import seaborn as sns
 ```
 
 ## 1. Stochastic gradient descent and online learning
+(stochastic-gradient-descent-and-online-learning)=
 ###  1.1. Stochastic gradient descent
+(stochastic-gradient-descent)=
 
 Despite the fact that gradient descent is one of the first things learned in machine learning and optimization courses, it is one of its modifications, Stochastic Gradient Descent (SGD), that is hard to top.
 
@@ -145,6 +136,7 @@ Andrew Ng has a good illustration of this in his [machine learning course](https
 These are the contour plots for some function, and we want to find the global minimum of this function. The red curve shows weight changes (in this picture, $\theta_0$ and $\theta_1$ correspond to our $w_0$ and $w_1$). According to the properties of a gradient, the direction of change at every point is orthogonal to contour plots. With stochastic gradient descent, weights are changing in a less predictable manner, and it even may seem that some steps are wrong by leading away from minima; however, both procedures converge to the same solution.
 
 ### 1.2. Online approach to learning
+(online-approach-to-learning)=
 Stochastic gradient descent gives us practical guidance for training both classifiers and regressors with large amounts of data up to hundreds of GBs (depending on computational resources).
 
 Considering the case of paired regression, we can store the training data set $(X,y)$ in HDD without loading it into RAM (where it simply won't fit), read objects one by one, and update the weights of our model:
@@ -350,7 +342,7 @@ Shell is the main interface for VW.
 
 
 ```{code-cell} ipython3
-#!vw --help | head
+!vw --help | head
 ```
 
 Vowpal Wabbit reads data from files or from standard input stream (stdin) with the following format:
@@ -462,18 +454,14 @@ Now, we pass the created training file to Vowpal Wabbit. We solve the classifica
 
 
 ```
-#!vw -d $PATH_TO_WRITE_DATA/20news_train.vw \
-# --loss_function hinge -f $PATH_TO_WRITE_DATA/20news_model.vw
+!vw -d $PATH_TO_WRITE_DATA/20news_train.vw --loss_function hinge -f $PATH_TO_WRITE_DATA/20news_model.vw
 ```
 
 VW prints a lot of interesting info while training (one can suppress it with the `--quiet` parameter). You can see [documentation](https://vowpalwabbit.org/docs/vowpal_wabbit/python/latest/tutorials/cmd_linear_regression.html#vowpal-wabbit-output) of the diagnostic output. Note how average loss drops while training. For loss computation, VW uses samples it has never seen before, so this measure is usually accurate. Now, we apply our trained model to the test set, saving predictions into a file with the `-p` flag:  
 
-
 ```
-#!vw -i $PATH_TO_WRITE_DATA/20news_model.vw -t -d $PATH_TO_WRITE_DATA/20news_test.vw \
-# -p $PATH_TO_WRITE_DATA/20news_test_predictions.txt
+!vw -i $PATH_TO_WRITE_DATA/20news_model.vw -t -d $PATH_TO_WRITE_DATA/20news_test.vw -p $PATH_TO_WRITE_DATA/20news_test_predictions.txt
 ```
-
 
 Now we load our predictions, compute AUC, and plot the ROC curve:
 
@@ -499,7 +487,6 @@ The AUC value we get shows that we have achieved high classification quality.
 ### 3.2. News. Multiclass classification
 
 We will use the same news dataset, but, this time, we will solve a multiclass classification problem. `Vowpal Wabbit` is a little picky – it wants labels starting from 1 till K, where K – is the number of classes in the classification task (20 in our case). So we will use LabelEncoder and add 1 afterwards (recall that `LabelEncoder` maps labels into range from 0 to K-1).
-
 
 ```{code-cell} ipython3
 all_documents = newsgroups["data"]
@@ -531,18 +518,13 @@ We train Vowpal Wabbit in multiclass classification mode, passing the `oaa` para
 
 Additionally, we can try automatic Vowpal Wabbit parameter tuning with [Hyperopt](https://github.com/hyperopt/hyperopt).
 
-
 ```
-#!vw --oaa 20 $PATH_TO_WRITE_DATA/20news_train_mult.vw -f $PATH_TO_WRITE_DATA/ \
-#20news_model_mult.vw --loss_function=hinge
+!vw --oaa 20 $PATH_TO_WRITE_DATA/20news_train_mult.vw -f $PATH_TO_WRITE_DATA/20news_model_mult.vw --loss_function=hinge
 ```
 
 ```
-#%%time
-#!vw -i $PATH_TO_WRITE_DATA/20news_model_mult.vw -t -d $PATH_TO_WRITE_DATA/20news_test_mult.vw \
-#-p $PATH_TO_WRITE_DATA/20news_test_predictions_mult.txt
+!vw -i $PATH_TO_WRITE_DATA/20news_model_mult.vw -t -d $PATH_TO_WRITE_DATA/20news_test_mult.vw -p $PATH_TO_WRITE_DATA/20news_test_predictions_mult.txt
 ```
-
 
 ```{code-cell} ipython3
 with open(
@@ -551,12 +533,9 @@ with open(
     test_prediction_mult = [float(label) for label in pred_file.readlines()]
 ```
 
-
 ```{code-cell} ipython3
 accuracy_score(test_labels_mult, test_prediction_mult)
 ```
-
-
 
 Here is how often the model misclassifies atheism with other topics:
 
@@ -720,8 +699,8 @@ with open(os.path.join(PATH_TO_WRITE_DATA, "movie_reviews_test.vw"), "w") as vw_
 
 
 ```{code-cell} ipython3
-#!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
-#-f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
+!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
+-f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
 ```
 
 Next, make the hold-out prediction with the following VW arguments:
@@ -732,8 +711,8 @@ Next, make the hold-out prediction with the following VW arguments:
 
 
 ```{code-cell} ipython3
-#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
-#-d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
+!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
+-d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
 ```
 
 Read the predictions from the text file and estimate the accuracy and ROC AUC. Note that VW prints probability estimates of the +1 class. These estimates are distributed from  -1 to 1, so we can convert these into binary answers, assuming that positive values belong to class 1.
@@ -759,9 +738,9 @@ Again, do the same for the test set.
 
 
 ```{code-cell} ipython3
-#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
-#-d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
-#-p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
+!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
+-d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
+-p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
 ```
 
 
@@ -787,14 +766,14 @@ Let's try to achieve a higher accuracy by incorporating bigrams.
 
 
 ```{code-cell} ipython3
-#!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
-# --loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
+!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
+ --loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
 ```
 
 
 ```{code-cell} ipython3
-#!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
-#-p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
+!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
+-p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
 ```
 
 
@@ -817,8 +796,8 @@ print("AUC: {}".format(round(roc_auc_score(valid_labels, valid_prediction), 3)))
 
 
 ```{code-cell} ipython3
-#!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
-#-p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
+!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
+-p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
 ```
 
 

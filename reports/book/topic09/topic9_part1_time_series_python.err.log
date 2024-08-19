@@ -18,38 +18,31 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-plotHoltWinters(ads.Ads, plot_intervals=True, plot_anomalies=True)
+plotSARIMA(ads, best_model, 50)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-Cell [0;32mIn[32], line 1[0m
-[0;32m----> 1[0m [43mplotHoltWinters[49m[43m([49m[43mads[49m[38;5;241;43m.[39;49m[43mAds[49m[43m,[49m[43m [49m[43mplot_intervals[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mplot_anomalies[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+[0;32m/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_41749/2337694703.py[0m in [0;36m?[0;34m()[0m
+[0;32m----> 1[0;31m [0mplotSARIMA[0m[0;34m([0m[0mads[0m[0;34m,[0m [0mbest_model[0m[0;34m,[0m [0;36m50[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_41749/3069305344.py[0m in [0;36m?[0;34m(series, model, n_steps)[0m
+[1;32m     16[0m     [0mdata[0m[0;34m[[0m[0;34m"arima_model"[0m[0;34m][0m[0;34m[[0m[0;34m:[0m [0ms[0m [0;34m+[0m [0md[0m[0;34m][0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mnan[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     17[0m [0;34m[0m[0m
+[1;32m     18[0m     [0;31m# forecasting on n_steps forward[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m     [0mforecast[0m [0;34m=[0m [0mmodel[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mstart[0m[0;34m=[0m[0mdata[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mend[0m[0;34m=[0m[0mdata[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m+[0m [0mn_steps[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m     [0mforecast[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0marima_model[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mforecast[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     21[0m     [0;31m# calculate error, again having shifted on s+d steps from the beginning[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m     error = mean_absolute_percentage_error(
+[1;32m     23[0m         [0mdata[0m[0;34m[[0m[0;34m"actual"[0m[0;34m][0m[0;34m[[0m[0ms[0m [0;34m+[0m [0md[0m [0;34m:[0m[0;34m][0m[0;34m,[0m [0mdata[0m[0;34m[[0m[0;34m"arima_model"[0m[0;34m][0m[0;34m[[0m[0ms[0m [0;34m+[0m [0md[0m [0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 
-Cell [0;32mIn[30], line 15[0m, in [0;36mplotHoltWinters[0;34m(series, plot_intervals, plot_anomalies)[0m
-[1;32m     12[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mMean Absolute Percentage Error: [39m[38;5;132;01m{0:.2f}[39;00m[38;5;124m%[39m[38;5;124m"[39m[38;5;241m.[39mformat(error))
-[1;32m     14[0m [38;5;28;01mif[39;00m plot_anomalies:
-[0;32m---> 15[0m     anomalies [38;5;241m=[39m np[38;5;241m.[39marray([[43mnp[49m[38;5;241;43m.[39;49m[43mNaN[49m] [38;5;241m*[39m [38;5;28mlen[39m(series))
-[1;32m     16[0m     anomalies[series[38;5;241m.[39mvalues [38;5;241m<[39m model[38;5;241m.[39mLowerBond[: [38;5;28mlen[39m(series)]] [38;5;241m=[39m series[38;5;241m.[39mvalues[
-[1;32m     17[0m         series[38;5;241m.[39mvalues [38;5;241m<[39m model[38;5;241m.[39mLowerBond[: [38;5;28mlen[39m(series)]
-[1;32m     18[0m     ]
-[1;32m     19[0m     anomalies[series[38;5;241m.[39mvalues [38;5;241m>[39m model[38;5;241m.[39mUpperBond[: [38;5;28mlen[39m(series)]] [38;5;241m=[39m series[38;5;241m.[39mvalues[
-[1;32m     20[0m         series[38;5;241m.[39mvalues [38;5;241m>[39m model[38;5;241m.[39mUpperBond[: [38;5;28mlen[39m(series)]
-[1;32m     21[0m     ]
-
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:397[0m, in [0;36m__getattr__[0;34m(attr)[0m
-[1;32m    394[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
-[1;32m    396[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __expired_attributes__:
-[0;32m--> 397[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
-[1;32m    398[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m`np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` was removed in the NumPy 2.0 release. [39m[38;5;124m"[39m
-[1;32m    399[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m__expired_attributes__[attr][38;5;132;01m}[39;00m[38;5;124m"[39m
-[1;32m    400[0m     )
-[1;32m    402[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchararray[39m[38;5;124m"[39m:
-[1;32m    403[0m     warnings[38;5;241m.[39mwarn(
-[1;32m    404[0m         [38;5;124m"[39m[38;5;124m`np.chararray` is deprecated and will be removed from [39m[38;5;124m"[39m
-[1;32m    405[0m         [38;5;124m"[39m[38;5;124mthe main namespace in the future. Use an array with a string [39m[38;5;124m"[39m
-[1;32m    406[0m         [38;5;124m"[39m[38;5;124mor bytes dtype instead.[39m[38;5;124m"[39m, [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
-
-[0;31mAttributeError[0m: `np.NaN` was removed in the NumPy 2.0 release. Use `np.nan` instead.
+[0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/pandas/core/generic.py[0m in [0;36m?[0;34m(self, name)[0m
+[1;32m   6295[0m             [0;32mand[0m [0mname[0m [0;32mnot[0m [0;32min[0m [0mself[0m[0;34m.[0m[0m_accessors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6296[0m             [0;32mand[0m [0mself[0m[0;34m.[0m[0m_info_axis[0m[0;34m.[0m[0m_can_hold_identifiers_and_holds_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6297[0m         [0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6298[0m             [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 6299[0;31m         [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'Series' object has no attribute 'append'
 

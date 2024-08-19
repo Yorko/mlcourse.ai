@@ -29,9 +29,8 @@ _Source: Getty Images_
 
 ## Article outline
 
-1. [Demonstration of the main Pandas methods](#1-demonstration-of-the-main-pandas-methods)
-2. [First attempt at predicting telecom churn](#2-first-attempt-at-predicting-telecom-churn)
-3. [Useful resources](#3-useful-resources)
+```{contents}
+```
 
 ## 1. Demonstration of the main Pandas methods
 
@@ -316,7 +315,7 @@ Let’s do the same thing, but slightly differently by passing a list of functio
 ```{code-cell} ipython3
 columns_to_show = ["Total day minutes", "Total eve minutes", "Total night minutes"]
 
-df.groupby(["Churn"])[columns_to_show].agg([np.mean, np.std, np.min, np.max])
+df.groupby(["Churn"])[columns_to_show].agg(["mean", "std", "min", "max"])
 ```
 
 

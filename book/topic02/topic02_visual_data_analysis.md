@@ -33,19 +33,8 @@ In this article, we are going to get hands-on experience with visual exploration
 
 ## Article outline
 
-1. [Dataset](1-dataset)
-2. [Univariate visualization](2-univariate-visualization)
-    * 2.1 [Quantitative features](21-quantitative-features)
-    * 2.2 [Categorical and binary features](22-categorical-and-binary-features)
-3. [Multivariate visualization](3-multivariate-visualization)
-    * 3.1 [Quantitative vs. Quantitative](31-quantitative-vs-quantitative)
-    * 3.2 [Quantitative vs. Categorical](32-quantitative-vs-categorical)
-    * 3.3 [Categorical vs. Categorical](33-categorical-vs-categorical)
-4. [Whole dataset visualizations](4-whole-dataset-visualizations)
-    * 4.1 [Naive approach](41-a-naive-approach)
-    * 4.2 [Dimensionality reduction](42-dimensionality-reduction)
-    * 4.3 [t-SNE](43-t-SNE)
-5. [Useful resources](5-useful-resources)
+```{contents}
+```
 
 ## 1. Dataset
 

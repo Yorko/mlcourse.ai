@@ -28,17 +28,9 @@ In this lesson, we will work with unsupervised learning methods such as Principa
 
 
 ## Article outline
-1. [Introduction](introduction)
-2. [Principal Component Analysis (PCA)](principal-component-analysis-pca)
- - [Intuition, theories, and application issues](intuition-theories-and-application-issues)
- - [Examples](examples)
-3. [Clustering](clustering)
- - [K-means](k-means)
- - [Affinity Propagation](affinity-propagation)
- - [Spectral clustering](spectral-clustering)
- - [Agglomerative clustering](agglomerative-clustering)
- - [Accuracy metrics](accuracy-metrics)
-4. [Useful links](useful-links)
+
+```{contents}
+```
 
 ## 1. Introduction
 

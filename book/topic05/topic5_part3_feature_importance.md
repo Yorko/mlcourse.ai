@@ -23,11 +23,8 @@ Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), [Yu
 
 ## Article outline
 
-1. [Intuition](intuition)
-2. [Illustrating permutation importance](illustrating-permutation-importance)
-3. [Sklearn Random Forest Feature Importance](sklearn-random-forest-feature-importance)
-4. [Practical example](practical-example)
-5. [Useful resources](useful-resources)
+```{contents}
+```
 
 It's quite often that you want to make out the exact reasons of the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.
 

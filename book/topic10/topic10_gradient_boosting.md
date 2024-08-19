@@ -29,19 +29,8 @@ Today we are going to have a look at one of the most popular and practical machi
 ## Article outline
 We recommend going over this article in the order described below, but feel free to jump around between sections.  
 
-1. [Introduction and history of boosting](introduction-and-history-of-boosting)
-   - [History of Gradient Boosting Machine](history-of-gbm)
-1. [GBM algorithm](gbm-algorithm)
-   - [ML Problem statement](ml-problem-statement)
-   - [Functional gradient descent](functional-gradient-descent)
-   - [Friedman's classic GBM algorithm](friedmans-classic-gbm-algorithm)
-   - [Step-by-step example of the GBM algorithm](step-by-step-example-how-gbm-works)
-1. [Loss functions](loss-functions)
-   - [Regression loss functions](regression-loss-functions)
-   - [Classification loss functions](classification-loss-functions)
-   - [Weights](weights)
-1. [Conclusion](4conclusion)
-1. [Useful resources](useful-resources)
+```{contents}
+```
 
 ## 1.  Introduction and history of boosting
 Almost everyone in machine learning has heard about gradient boosting. Many data scientists include this algorithm in their data scientist's toolbox because of the good results it yields on any given (unknown) problem.  

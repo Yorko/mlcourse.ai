@@ -78,18 +78,19 @@ File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/li
 [1;32m    472[0m [38;5;124;03m    """[39;00m
 [1;32m    473[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m (series_order [38;5;241m>[39m[38;5;241m=[39m [38;5;241m1[39m):
 
-File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:397[0m, in [0;36m__getattr__[0;34m(attr)[0m
-[1;32m    394[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr])
-[1;32m    396[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __expired_attributes__:
-[0;32m--> 397[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
-[1;32m    398[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m`np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` was removed in the NumPy 2.0 release. [39m[38;5;124m"[39m
-[1;32m    399[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m__expired_attributes__[attr][38;5;132;01m}[39;00m[38;5;124m"[39m
-[1;32m    400[0m     )
-[1;32m    402[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchararray[39m[38;5;124m"[39m:
-[1;32m    403[0m     warnings[38;5;241m.[39mwarn(
-[1;32m    404[0m         [38;5;124m"[39m[38;5;124m`np.chararray` is deprecated and will be removed from [39m[38;5;124m"[39m
-[1;32m    405[0m         [38;5;124m"[39m[38;5;124mthe main namespace in the future. Use an array with a string [39m[38;5;124m"[39m
-[1;32m    406[0m         [38;5;124m"[39m[38;5;124mor bytes dtype instead.[39m[38;5;124m"[39m, [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:400[0m, in [0;36m__getattr__[0;34m(attr)[0m
+[1;32m    397[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(__former_attrs__[attr], name[38;5;241m=[39m[38;5;28;01mNone[39;00m)
+[1;32m    399[0m [38;5;28;01mif[39;00m attr [38;5;129;01min[39;00m __expired_attributes__:
+[0;32m--> 400[0m     [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m(
+[1;32m    401[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m`np.[39m[38;5;132;01m{[39;00mattr[38;5;132;01m}[39;00m[38;5;124m` was removed in the NumPy 2.0 release. [39m[38;5;124m"[39m
+[1;32m    402[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m__expired_attributes__[attr][38;5;132;01m}[39;00m[38;5;124m"[39m,
+[1;32m    403[0m         name[38;5;241m=[39m[38;5;28;01mNone[39;00m
+[1;32m    404[0m     )
+[1;32m    406[0m [38;5;28;01mif[39;00m attr [38;5;241m==[39m [38;5;124m"[39m[38;5;124mchararray[39m[38;5;124m"[39m:
+[1;32m    407[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    408[0m         [38;5;124m"[39m[38;5;124m`np.chararray` is deprecated and will be removed from [39m[38;5;124m"[39m
+[1;32m    409[0m         [38;5;124m"[39m[38;5;124mthe main namespace in the future. Use an array with a string [39m[38;5;124m"[39m
+[1;32m    410[0m         [38;5;124m"[39m[38;5;124mor bytes dtype instead.[39m[38;5;124m"[39m, [38;5;167;01mDeprecationWarning[39;00m, stacklevel[38;5;241m=[39m[38;5;241m2[39m)
 
 [0;31mAttributeError[0m: `np.float_` was removed in the NumPy 2.0 release. Use `np.float64` instead.
 

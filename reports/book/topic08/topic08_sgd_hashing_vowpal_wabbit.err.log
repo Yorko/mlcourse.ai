@@ -18,28 +18,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-with open(os.path.join(PATH_TO_WRITE_DATA, "20news_test_predictions.txt")) as pred_file:
-    test_prediction = [float(label) for label in pred_file.readlines()]
-
-auc = roc_auc_score(test_labels, test_prediction)
-roc_curve = roc_curve(test_labels, test_prediction)
-
-
-plt.plot(roc_curve[0], roc_curve[1])
-plt.plot([0, 1], [0, 1])
-plt.xlabel("FPR")
-plt.ylabel("TPR")
-plt.title("test AUC = %f" % (auc))
-plt.axis([-0.05, 1.05, -0.05, 1.05]);
+with open(
+    os.path.join(PATH_TO_WRITE_DATA, "20news_test_predictions_mult.txt")
+) as pred_file:
+    test_prediction_mult = [float(label) for label in pred_file.readlines()]
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[29], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mos[49m[38;5;241;43m.[39;49m[43mpath[49m[38;5;241;43m.[39;49m[43mjoin[49m[43m([49m[43mPATH_TO_WRITE_DATA[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43m20news_test_predictions.txt[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m)[49m [38;5;28;01mas[39;00m pred_file:
-[1;32m      2[0m     test_prediction [38;5;241m=[39m [[38;5;28mfloat[39m(label) [38;5;28;01mfor[39;00m label [38;5;129;01min[39;00m pred_file[38;5;241m.[39mreadlines()]
-[1;32m      4[0m auc [38;5;241m=[39m roc_auc_score(test_labels, test_prediction)
+Cell [0;32mIn[32], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m
+[1;32m      2[0m [43m    [49m[43mos[49m[38;5;241;43m.[39;49m[43mpath[49m[38;5;241;43m.[39;49m[43mjoin[49m[43m([49m[43mPATH_TO_WRITE_DATA[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43m20news_test_predictions_mult.txt[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m      3[0m [43m)[49m [38;5;28;01mas[39;00m pred_file:
+[1;32m      4[0m     test_prediction_mult [38;5;241m=[39m [[38;5;28mfloat[39m(label) [38;5;28;01mfor[39;00m label [38;5;129;01min[39;00m pred_file[38;5;241m.[39mreadlines()]
 
 File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/IPython/core/interactiveshell.py:324[0m, in [0;36m_modified_open[0;34m(file, *args, **kwargs)[0m
 [1;32m    317[0m [38;5;28;01mif[39;00m file [38;5;129;01min[39;00m {[38;5;241m0[39m, [38;5;241m1[39m, [38;5;241m2[39m}:
@@ -50,5 +42,5 @@ File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/li
 [1;32m    322[0m     )
 [0;32m--> 324[0m [38;5;28;01mreturn[39;00m [43mio_open[49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions.txt'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions_mult.txt'
 

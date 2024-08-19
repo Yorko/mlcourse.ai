@@ -24,11 +24,9 @@ Author: [Pavel Nesterov](http://pavelnesterov.info/). Translated and edited by [
 
 
 ## Article outline
-1. [Introduction](introduction)
-2. [Maximum Likelihood Estimation](maximum-likelihood-estimation)
-3. [Bias-Variance Decomposition](bias-variance-decomposition)
-4. [Regularization of Linear Regression](regularization-of-linear-regression)
-5. [Useful resources](useful-resources)
+
+```{contents}
+```
 
 
 ## 1. Introduction
