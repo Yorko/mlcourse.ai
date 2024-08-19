@@ -24,16 +24,8 @@ Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), and
 
 ## Article outline
 
-1. [Algorithm](algorithm)
-2. [Comparison with Decision Trees and Bagging](comparison-with-decision-trees-and-bagging)
-3. [Parameters](parameters)
-4. [Variance and Decorrelation](variance-and-decorrelation)
-5. [Bias](bias)
-6. [Extremely Randomized Trees](extremely-randomized-trees)
-7. [Similarities between Random Forest and k-Nearest Neighbors](similarities-between-random-forest-and-k-nearest-neighbors)
-8. [Transformation of a dataset into a high-dimensional representation](transformation-of-a-dataset-into-a-high-dimensional-representation)
-9. [Pros and cons of random forests](pros-and-cons-of-random-forests)
-10. [Useful resources](useful-resources)
+```{contents}
+```
 
 $\DeclareMathOperator{\Var}{Var}$
 $\DeclareMathOperator{\Cov}{Cov}$

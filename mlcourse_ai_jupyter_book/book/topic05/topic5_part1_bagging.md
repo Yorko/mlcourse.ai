@@ -23,11 +23,8 @@ Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), and
 
 ## Article outline
 
-1. [Ensembles](ensembles)
-2. [Bootstrapping](bootstrapping)
-3. [Bagging](bagging)
-4. [Out-of-bag error](out-of-bag-error)
-5. [Useful resources](useful-resources)
+```{contents}
+```
 
 $\DeclareMathOperator{\Var}{Var}$
 $\DeclareMathOperator{\Cov}{Cov}$

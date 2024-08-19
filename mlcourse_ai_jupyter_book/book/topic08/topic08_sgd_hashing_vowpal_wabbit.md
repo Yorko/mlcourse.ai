@@ -24,20 +24,9 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Se
 This week, we'll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.
 
 ## Article outline
-1. Stochastic gradient descent and online learning
-    - 1.1. SGD
-    - 1.2. Online approach to learning
-2. Categorical feature processing
-    - 2.1. Label Encoding
-    - 2.2. One-Hot Encoding
-    - 2.3. Hashing trick
-3. Vowpal Wabbit
-    - 3.1. News. Binary classification
-    - 3.2. News. Multiclass classification
-    - 3.3. IMDB movie reviews
-    - 3.4. Classifying gigabytes of StackOverflow questions
-4. Useful resources
 
+```{contents}
+```
 
 ```{code-cell} ipython3
 import os

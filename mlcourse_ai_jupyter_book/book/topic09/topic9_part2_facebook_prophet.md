@@ -32,18 +32,8 @@ In this article, we will look at [Prophet](https://facebook.github.io/prophet/),
 
 ## Article outline
 
-1. Introduction
-2. [The Prophet Forecasting Model](the-prophet-forecasting-model)
-3. [Practice with Prophet](practice-with-facebook-prophet)
-    * 3.1 Installation in Python
-    * 3.2 Dataset
-    * 3.3 Exploratory visual analysis
-    * 3.4 Making a forecast
-    * 3.5 Forecast quality evaluation
-    * 3.6 Visualization
-4. [Box-Cox Transformation](box-cox-transformation)
-5. [Summary](summary)
-6. [References](references)
+```{contents}
+```
 
 ## 1. Introduction
 

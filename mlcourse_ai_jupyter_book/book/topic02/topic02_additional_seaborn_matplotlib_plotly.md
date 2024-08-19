@@ -27,11 +27,8 @@ Author: [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/). Translated 
 
 ## Article outline
 
-1. [Dataset](1-dataset)
-2. [DataFrame.plot()](2-dataframe-plot)
-3. [Seaborn](3-seaborn)
-4. [Plotly](4-plotly)
-5. [Useful resources](5-useful-resources)
+```{contents}
+```
 
 ## 1. Dataset
 
