@@ -22,13 +22,8 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Ch
 
 ## Article outline
 
-1. [Introduction](introduction)
-2. [Decision Tree](decision-tree)
-3. [Nearest Neighbors Method](nearest-neighbors-nethod)
-4. [Choosing Model Parameters and Cross-Validation](choosing-model-parameters-and-cross-validation)
-5. [Application Examples and Complex Cases](application-examples-and-complex-cases)
-6. [Pros and Cons of Decision Trees and the Nearest Neighbors Method](pros-and-cons-of-decision-trees-and-the-nearest-neighbors-method)
-7. [Useful resources](useful-resources)
+```{contents}
+```
 
 ## 1. Introduction
 
