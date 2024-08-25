@@ -149,14 +149,14 @@ sns.pairplot(
 
 As you can see, the distribution histograms lie on the diagonal of the matrix. The remaining charts are scatter plots for the corresponding pairs of features.
 
-### distplot()
+### histplot()
 
-It is also possible to plot a distribution of observations with `seaborn`'s `distplot()`. For example, let's look at the distribution of critics' ratings: `Critic_Score`. By default, the plot displays a histogram and the [kernel density estimate](https://en.wikipedia.org/wiki/Kernel_density_estimation).
+It is also possible to plot a distribution of observations with `seaborn`'s `histplot()`. For example, let's look at the distribution of critics' ratings: `Critic_Score`.
 
 
 ```{code-cell} ipython3
 %config InlineBackend.figure_format = 'svg'
-sns.distplot(df["Critic_Score"]);
+sns.histplot(df["Critic_Score"], kde=True, stat="density");
 ```
 
 ### jointplot()
@@ -201,10 +201,10 @@ The last type of plot that we will cover here is a *heat map*. A heat map allows
 ```{code-cell} ipython3
 platform_genre_sales = (
     df.pivot_table(
-        index="Platform", columns="Genre", values="Global_Sales", aggfunc=sum
+        index="Platform", columns="Genre", values="Global_Sales", aggfunc="sum"
     )
     .fillna(0)
-    .applymap(float)
+    .map(float)
 )
 sns.heatmap(platform_genre_sales, annot=True, fmt=".1f", linewidths=0.5);
 ```
