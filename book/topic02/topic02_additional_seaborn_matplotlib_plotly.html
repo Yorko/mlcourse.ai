@@ -517,7 +517,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-plot">2. DataFrame.plot()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">3. Seaborn</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot">pairplot()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distplot">distplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histplot">histplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jointplot">jointplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">boxplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">heatmap()</a></li>
@@ -561,7 +561,7 @@ document.write(`
 <li><p><a class="reference internal" href="#seaborn" id="id5">3. Seaborn</a></p>
 <ul>
 <li><p><a class="reference internal" href="#pairplot" id="id6">pairplot()</a></p></li>
-<li><p><a class="reference internal" href="#distplot" id="id7">distplot()</a></p></li>
+<li><p><a class="reference internal" href="#histplot" id="id7">histplot()</a></p></li>
 <li><p><a class="reference internal" href="#jointplot" id="id8">jointplot()</a></p></li>
 <li><p><a class="reference internal" href="#boxplot" id="id9">boxplot()</a></p></li>
 <li><p><a class="reference internal" href="#heatmap" id="id10">heatmap()</a></p></li>
@@ -809,7 +809,7 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fec09a6565f635bd792ba7e9d739d45927c0acce8c4620f9cf2ee6d75df7361b.svg" src="../../_images/fec09a6565f635bd792ba7e9d739d45927c0acce8c4620f9cf2ee6d75df7361b.svg" /></div>
+<img alt="../../_images/45c7bb1e807d1c1e5d8af46248a4203522398465fa672f8c545389fc3b0bb772.svg" src="../../_images/45c7bb1e807d1c1e5d8af46248a4203522398465fa672f8c545389fc3b0bb772.svg" /></div>
 </div>
 <p>Note that the implementation of the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is based on <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter, you can change the type of the plot to, for example, a <em>bar chart</em>. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is generally quite flexible for customizing plots. You can change almost everything in the chart, but you may need to dig into the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.plot.html">documentation</a> to find the corresponding parameters. For example, the parameter <code class="docutils literal notranslate"><span class="pre">rot</span></code> is responsible for the rotation angle of ticks on the x-axis (for vertical plots):</p>
@@ -822,7 +822,7 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d4240042d2e7ace7a55ce31f490b2c4afc794ffa201055f4c6c477d9d0e0d2ac.svg" src="../../_images/d4240042d2e7ace7a55ce31f490b2c4afc794ffa201055f4c6c477d9d0e0d2ac.svg" /></div>
+<img alt="../../_images/759b1d05f94607147a3c2314f6749e6166b6298a13ce104b094db14bd701f6ee.svg" src="../../_images/759b1d05f94607147a3c2314f6749e6166b6298a13ce104b094db14bd701f6ee.svg" /></div>
 </div>
 </section>
 <section id="seaborn">
@@ -842,36 +842,23 @@ memory usage: 906.4+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e41997355d9178e5b5ea42aeafa7a3843fb8e627b87ecc7629c2d4baebc66cbc.png" src="../../_images/e41997355d9178e5b5ea42aeafa7a3843fb8e627b87ecc7629c2d4baebc66cbc.png" />
+<img alt="../../_images/d43c9786119c41cf19def44ed2e93204505bda4889e7fe0db3823a737b7762d4.png" src="../../_images/d43c9786119c41cf19def44ed2e93204505bda4889e7fe0db3823a737b7762d4.png" />
 </div>
 </div>
 <p>As you can see, the distribution histograms lie on the diagonal of the matrix. The remaining charts are scatter plots for the corresponding pairs of features.</p>
 </section>
-<section id="distplot">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">distplot()</a><a class="headerlink" href="#distplot" title="Permalink to this heading">#</a></h3>
-<p>It is also possible to plot a distribution of observations with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <code class="docutils literal notranslate"><span class="pre">distplot()</span></code>. For example, let’s look at the distribution of critics’ ratings: <code class="docutils literal notranslate"><span class="pre">Critic_Score</span></code>. By default, the plot displays a histogram and the <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a>.</p>
+<section id="histplot">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">histplot()</a><a class="headerlink" href="#histplot" title="Permalink to this heading">#</a></h3>
+<p>It is also possible to plot a distribution of observations with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <code class="docutils literal notranslate"><span class="pre">histplot()</span></code>. For example, let’s look at the distribution of critics’ ratings: <code class="docutils literal notranslate"><span class="pre">Critic_Score</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;svg&#39;
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Critic_Score&quot;</span><span class="p">]);</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Critic_Score&quot;</span><span class="p">],</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23869/2408025543.py:2: UserWarning: 
-
-`distplot` is a deprecated function and will be removed in seaborn v0.14.0.
-
-Please adapt your code to use either `displot` (a figure-level function with
-similar flexibility) or `histplot` (an axes-level function for histograms).
-
-For a guide to updating your code to use the new functions, please see
-https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
-
-  sns.distplot(df[&quot;Critic_Score&quot;]);
-</pre></div>
-</div>
-<img alt="../../_images/fc3368530257e3355740a12c09d4cdc1d9892ee75e9131cdecf1ebf567725d1f.svg" src="../../_images/fc3368530257e3355740a12c09d4cdc1d9892ee75e9131cdecf1ebf567725d1f.svg" /></div>
+<img alt="../../_images/2689443d1bd51eade664332628719f104a38880d78b68d49b7a8ee61df59f3c9.svg" src="../../_images/2689443d1bd51eade664332628719f104a38880d78b68d49b7a8ee61df59f3c9.svg" /></div>
 </div>
 </section>
 <section id="jointplot">
@@ -884,7 +871,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/07776a4079f7de9c1bb3d68e3dcc26541237c07f5ab8cb3b9ce6626d246b8f5d.svg" src="../../_images/07776a4079f7de9c1bb3d68e3dcc26541237c07f5ab8cb3b9ce6626d246b8f5d.svg" /></div>
+<img alt="../../_images/4d145af275a38893e7e8a490dee9f7ef910c5943f2f088fd0c7a778af2af894a.svg" src="../../_images/4d145af275a38893e7e8a490dee9f7ef910c5943f2f088fd0c7a778af2af894a.svg" /></div>
 </div>
 </section>
 <section id="boxplot">
@@ -905,7 +892,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f3d3d372c374a9ee7b9cb81e85b4c44cadfaff1a76e7405317175ad16f4de3d4.svg" src="../../_images/f3d3d372c374a9ee7b9cb81e85b4c44cadfaff1a76e7405317175ad16f4de3d4.svg" /></div>
+<img alt="../../_images/bdb2b625106887e24c0bd10432db123702a9414403c566a130e4f999a815333c.svg" src="../../_images/bdb2b625106887e24c0bd10432db123702a9414403c566a130e4f999a815333c.svg" /></div>
 </div>
 <p>It is worth spending a bit more time to discuss how to interpret a box plot. Its components are a <em>box</em> (obviously, this is why it is called a <em>box plot</em>), the so-called <em>whiskers</em>, and a number of individual points (<em>outliers</em>).</p>
 <p>The box by itself illustrates the interquartile spread of the distribution; its length determined by the <span class="math notranslate nohighlight">\(25\% \, (\text{Q1})\)</span> and <span class="math notranslate nohighlight">\(75\% \, (\text{Q3})\)</span> percentiles. The vertical line inside the box marks the median (<span class="math notranslate nohighlight">\(50\%\)</span>) of the distribution.</p>
@@ -919,23 +906,17 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_genre_sales</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
-        <span class="n">index</span><span class="o">=</span><span class="s2">&quot;Platform&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Genre&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Global_Sales&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="nb">sum</span>
+        <span class="n">index</span><span class="o">=</span><span class="s2">&quot;Platform&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Genre&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Global_Sales&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span>
     <span class="p">)</span>
     <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">platform_genre_sales</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.1f&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23869/688134482.py:2: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string &quot;sum&quot; instead.
-  df.pivot_table(
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_23869/688134482.py:6: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
-  .applymap(float)
-</pre></div>
-</div>
-<img alt="../../_images/c56a0384039be07ec5c62ff6e2907c49748f3ed9c97bd87d5cefe7e3c2949453.svg" src="../../_images/c56a0384039be07ec5c62ff6e2907c49748f3ed9c97bd87d5cefe7e3c2949453.svg" /></div>
+<img alt="../../_images/fbde3c51bcc2cf442f71d840f118ce791252b4b56c2c534c103c479795ede7c0.svg" src="../../_images/fbde3c51bcc2cf442f71d840f118ce791252b4b56c2c534c103c479795ede7c0.svg" /></div>
 </div>
 </section>
 </section>
@@ -978,7 +959,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.32.0.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.34.0.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -1236,7 +1217,7 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-plot">2. DataFrame.plot()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">3. Seaborn</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot">pairplot()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distplot">distplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histplot">histplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jointplot">jointplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">boxplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">heatmap()</a></li>

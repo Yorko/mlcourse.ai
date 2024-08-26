@@ -28,7 +28,6 @@ This week, we'll cover two reasons for Vowpal Wabbit’s exceptional training sp
 ```{contents}
 ```
 
-
 ```{code-cell} ipython3
 import os
 import re
@@ -234,7 +233,7 @@ def logistic_regression_accuracy_on(dataframe, labels):
     )
 
     logit = LogisticRegression()
-    logit.fit(train_features, train_labels)
+    logit.fit(train_features, train_labels.values.ravel())
     return classification_report(test_labels, logit.predict(test_features))
 
 

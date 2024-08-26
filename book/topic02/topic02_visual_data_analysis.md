@@ -25,7 +25,7 @@ In the field of Machine Learning, *data visualization* is not just making fancy 
 
 To start with, visual exploration of data is the first thing one tends to do when dealing with a new task. We do preliminary checks and analysis using graphics and tables to summarize the data and leave out the less important details. It is much more convenient for us, humans, to grasp the main points this way than by reading many lines of raw data. It is amazing how much insight can be gained from seemingly simple charts created with available visualization tools.
 
-Next, when we analyze the performance of a model or report results, we also often use charts and images. Sometimes, for interpreting a complex model, we need to project high-dimensional spaces onto more visually intelligible 2D or 3D figures.
+Next, when we analyze a model's performance or report results, we often use charts and images. Sometimes, to interpret a complex model, we need to project high-dimensional spaces onto more visually intelligible 2D or 3D figures.
 
 All in all, visualization is a relatively fast way to learn something new about your data. Thus, it is vital to learn its most useful techniques and make them part of your everyday ML toolbox.
 
@@ -56,7 +56,7 @@ sns.set()
 %config InlineBackend.figure_format = 'svg'
 ```
 
-In the first article, we looked at the data on customer churn for a telecom operator. We will reload the same dataset into a `DataFrame`:
+In the [first topic](topic01), we looked at the data on customer churn for a telecom operator. We will reload the same dataset into a `DataFrame`:
 
 
 ```{code-cell} ipython3
@@ -71,14 +71,14 @@ DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 df = pd.read_csv(DATA_URL + "telecom_churn.csv")
 ```
 
-To get acquainted with our data, let’s look at the first 5 entries using `head()`:
+To get a glimpse of the data, let’s look at the first 5 entries using `head()`:
 
 
 ```{code-cell} ipython3
 df.head()
 ```
 
-Here is the description of our features:
+Here is the description of the features:
 
 |  Name  | Description | Value Type | Statistical Type |
 |---         |---       |---     |---
@@ -102,7 +102,7 @@ Here is the description of our features:
 | **Total intl charge** | Total charge for international calls | Numerical | Quantitative |
 | **Customer service calls** | Number of calls to customer service | Numerical | Categorical/Ordinal |
 
-The last data column, **Churn**, is our target variable. It is binary: *True* indicates that that the company eventually lost this customer, and *False* indicates that the customer was retained. Later, we will build models that predict this feature based on the remaining features. This is why we call it a *target*.
+The last data column, **Churn**, is our target variable. It is binary: *True* indicates that the company eventually lost the customer, and *False* indicates that the customer was retained. Later, we will build models that predict this feature based on the remaining features. This is why we call it a *target*.
 
 ## 2. Univariate visualization
 
@@ -124,7 +124,7 @@ features = ["Total day minutes", "Total intl calls"]
 df[features].hist(figsize=(10, 4));
 ```
 
-A histogram groups values into *bins* of equal value range. The shape of the histogram may contain clues about the underlying distribution type: Gaussian, exponential, etc. You can also spot any skewness in its shape when the distribution is nearly regular but has some anomalies. Knowing the distribution of the feature values becomes important when you use Machine Learning methods that assume a particular type (most often Gaussian).
+A histogram groups values into *bins* of equal value range. The shape of the histogram may contain clues about the underlying distribution type: Gaussian, exponential, etc. You can also spot any skewness in its shape when the distribution is nearly regular but has some anomalies. Knowing the distribution of the feature values becomes essential when you use Machine Learning methods that assume a particular type (most often Gaussian).
 
 In the above plot, we see that the variable *Total day minutes* is normally distributed, while *Total intl calls* is prominently skewed right (its tail is longer on the right).
 
@@ -137,11 +137,11 @@ df[features].plot(
 );
 ```
 
-It is also possible to plot a distribution of observations with `seaborn`'s [`distplot()`](https://seaborn.pydata.org/generated/seaborn.distplot.html). For example, let's look at the distribution of *Total day minutes*. By default, the plot displays the histogram with the [kernel density estimate](https://en.wikipedia.org/wiki/Kernel_density_estimation) (KDE) on top.
+It is also possible to plot a distribution of observations with `seaborn`'s [`histplot()`](https://seaborn.pydata.org/generated/seaborn.histplot.html). For example, let's look at the distribution of *Total day minutes*. Let's plot the histogram with the [kernel density estimate](https://en.wikipedia.org/wiki/Kernel_density_estimation) (KDE) on top.
 
 
 ```{code-cell} ipython3
-sns.distplot(df["Total intl calls"]);
+sns.histplot(df["Total intl calls"], kde=True, stat="density");
 ```
 
 The height of the histogram bars here is normed and shows the density rather than the number of examples in each bin.
@@ -157,7 +157,7 @@ sns.boxplot(x="Total intl calls", data=df);
 
 Let's see how to interpret a box plot. Its components are a *box* (obviously, this is why it is called a *box plot*), the so-called *whiskers*, and a number of individual points (*outliers*).
 
-The box by itself illustrates the interquartile spread of the distribution; its length is determined by the $25th \, (\text{Q1})$ and $75th \, (\text{Q3})$ percentiles. The vertical line inside the box marks the median ($50\%$) of the distribution.
+The box by itself illustrates the interquartile spread of the distribution; its length is determined by the $25^{th} \, (\text{Q1})$ and $75^{th} \, (\text{Q3})$ percentiles. The vertical line inside the box marks the median ($50\%$) of the distribution.
 
 The whiskers are the lines extending from the box. They represent the entire scatter of data points, specifically the points that fall within the interval $(\text{Q1} - 1.5 \cdot \text{IQR}, \text{Q3} + 1.5 \cdot \text{IQR})$, where $\text{IQR} = \text{Q3} - \text{Q1}$ is the [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range).
 
@@ -180,7 +180,7 @@ sns.violinplot(data=df["Total intl calls"], ax=axes[1]);
 
 The difference between the box and violin plots is that the former illustrates certain statistics concerning individual examples in a dataset while the violin plot concentrates more on the smoothed distribution as a whole.
 
-In our case, the violin plot does not contribute any additional information about the data as everything is clear from the box plot alone.
+In our case, the violin plot does not contribute any additional information about the data, as everything is clear from the box plot alone.
 
 #### describe()
 
@@ -206,13 +206,13 @@ Let’s check the class balance in our dataset by looking at the distribution of
 df["Churn"].value_counts()
 ```
 
-By default, the entries in the output are sorted from the most to the least frequently-occurring values.
+By default, the entries in the output are sorted from the most to the least frequently occurring values.
 
-In our case, the data is not *balanced*; that is, our two target classes, loyal and disloyal customers, are not represented equally in the dataset. Only a small part of the clients canceled their subscription to the telecom service. As we will see in the following articles, this fact may imply some restrictions on measuring the classification performance, and, in the future, we may want to additionally penalize our model errors in predicting the minority "Churn" class.
+In our case, the data is not *balanced*; that is, our two target classes, loyal and disloyal customers, are not represented equally in the dataset. Only a small part of the clients canceled their subscriptions to the telecom service. As we will see in the following articles, this fact may imply some restrictions on measuring the classification performance, and, in the future, we may want to additionally penalize our model errors in predicting the minority "Churn" class.
 
 #### Bar plot
 
-The bar plot is a graphical representation of the frequency table. The easiest way to create it is to use the `seaborn`'s function [`countplot()`](https://seaborn.pydata.org/generated/seaborn.countplot.html). There is another function in `seaborn` that is somewhat confusingly called [`barplot()`](https://seaborn.pydata.org/generated/seaborn.barplot.html) and is mostly used for representation of some basic statistics of a numerical variable grouped by a categorical feature.
+The bar plot is a graphical representation of the frequency table. The easiest way to create it is to use the `seaborn`'s function [`countplot()`](https://seaborn.pydata.org/generated/seaborn.countplot.html). There is another function in `seaborn` that is somewhat confusingly called [`barplot()`](https://seaborn.pydata.org/generated/seaborn.barplot.html) and is mostly used for the representation of some basic statistics of a numerical variable grouped by a categorical feature.
 
 Let's plot the distributions for two categorical variables:
 
@@ -225,7 +225,7 @@ sns.countplot(x="Customer service calls", data=df, ax=axes[1]);
 ```
 
 While the histograms, discussed above, and bar plots may look similar, there are several differences between them:
-1. *Histograms* are best suited for looking at the distribution of numerical variables while *bar plots* are used for categorical features.
+1. *Histograms* are best suited for looking at the distribution of numerical variables, while *bar plots* are used for categorical features.
 2. The values on the X-axis in the *histogram* are numerical; a *bar plot* can have any type of values on the X-axis: numbers, strings, booleans.
 3. The *histogram*'s X-axis is a *Cartesian coordinate axis* along which values cannot be changed; the ordering of the *bars* is not predefined. Still, it is useful to note that the bars are often sorted by height, that is, the frequency of the values. Also, when we consider *ordinal* variables (like *Customer service calls* in our data), the bars are usually ordered by variable value.
 
@@ -337,7 +337,7 @@ In this section, we will make our simple quantitative plots a little more exciti
 
 More specifically, let's see how the input variables are related to the target variable Churn.
 
-Previously, you learned about scatter plots. Additionally, their points can be color or size coded so that the values of a third categorical variable are also presented in the same figure. We can achieve this with the `scatter()` function seen above, but, let's try a new function called [`lmplot()`](https://seaborn.pydata.org/generated/seaborn.lmplot.html) and use the parameter `hue` to indicate our categorical feature of interest:
+Previously, you learned about scatter plots. Additionally, their points can be color- or size-coded so that the values of a third categorical variable are also presented in the same figure. We can achieve this with the `scatter()` function seen above, but let's try a new function called [`lmplot()`](https://seaborn.pydata.org/generated/seaborn.lmplot.html) and use the parameter `hue` to indicate our categorical feature of interest:
 
 
 ```{code-cell} ipython3
@@ -396,7 +396,7 @@ sns.catplot(
 );
 ```
 
-From this, we could conclude that, starting with 4 calls, *Total day minutes* may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.
+From this, we could conclude that starting with four calls, *Total day minutes* may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.
 
 ### 3.3 Categorical vs. Categorical
 
@@ -438,16 +438,16 @@ In the case of *State*, the number of distinct values is rather high: 51. We see
 
 
 ```{code-cell} ipython3
-df.groupby(["State"])["Churn"].agg([np.mean]).sort_values(by="mean", ascending=False).T
+df.groupby(["State"])["Churn"].agg(["mean"]).sort_values(by="mean", ascending=False).T
 ```
 
-At first glance, it seems that the churn rate in *New Jersey* and *California* are above 25% and less than 6% for Hawaii and Alaska. However, these conclusions are based on too few examples, and our observation could be a mere property of our particular dataset. We can confirm this with the [Matthews](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) and [Cramer](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) correlation hypotheses, but this would be beyond the scope of this article.
+At first glance, it seems that the churn rate in *New Jersey* and *California* is above 25% and less than 6% for Hawaii and Alaska. However, these conclusions are based on too few examples, and our observation could be a mere property of our particular dataset. We can confirm this with the [Matthews](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) and [Cramer](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) correlation hypotheses, but this would be beyond the scope of this article.
 
 ## 4. Whole dataset visualizations
 
 ### 4.1 A naive approach
 
-We have been looking at different *facets* of our dataset by guessing interesting features and selecting a small number of them at a time for visualization. We have only dealt with two to three variables at once and were easily able to observe the structure and relationships in data. But, what if we want to display all the features and still be able to interpret the resulting visualization?
+We have been looking at different *facets* of our dataset by guessing interesting features and selecting a small number of them at a time for visualization. We have only dealt with two to three variables at once and were easily able to observe the structure and relationships in the data. But what if we want to display all the features and still be able to interpret the resulting visualization?
 
 We could use `hist()` or create a scatterplot matrix with `pairplot()` for the whole dataset to look at all of our features simultaneously. But, when the number of features is high enough, this kind of visual analysis quickly becomes slow and inefficient. Besides, we would still be analyzing our variables in a pairwise fashion, not all at once.
 
@@ -465,7 +465,7 @@ There are also many non-linear methods, collectively called *Manifold Learning*.
 
 Let’s create a [t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding) representation of the same churn data we have been using.
 
-The name of the method looks complex and a bit intimidating: *t-distributed Stochastic Neighbor Embedding*. Its math is also impressive (we will not delve into it here, but, if you feel brave, here is the [original article](http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) by Laurens van der Maaten and Geoffrey Hinton from [JMLR](http://www.jmlr.org/)). Its basic idea is simple: find a projection for a high-dimensional feature space onto a plane (or a 3D hyperplane, but it is almost always 2D) such that those points that were far apart in the initial n-dimensional space will end up far apart on the plane. Those that were originally close would remain close to each other.
+The name of the method looks complex and a bit intimidating: *t-distributed Stochastic Neighbor Embedding*. Its math is also impressive (we will not delve into it here, but if you feel brave, here is the [original article](http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf) by Laurens van der Maaten and Geoffrey Hinton from [JMLR](http://www.jmlr.org/)). Its basic idea is simple: find a projection for a high-dimensional feature space onto a plane (or a 3D hyperplane, but it is almost always 2D) such that those points that were far apart in the initial n-dimensional space will end up far apart on the plane. Those that were originally close would remain close to each other.
 
 Essentially, *neighbor embedding* is a search for a new and less-dimensional data representation that preserves neighborship of examples.
 
@@ -540,7 +540,7 @@ for i, name in enumerate(["International plan", "Voice mail plan"]):
     axes[i].set_title(name);
 ```
 
-Now it is clear that, for example, many dissatisfied customers who canceled their subscription are crowded together in one cluster representing the people with the international plan but no voice mail.
+Now it is clear that, for example, many dissatisfied customers who canceled their subscriptions are crowded together in one cluster, representing the people with the international plan but no voice mail.
 
 Finally, let's note some disadvantages of t-SNE:
 - High computational complexity. The [implementation](http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) in `scikit-learn` is unlikely to be feasible in a real task. If you have a large number of samples, you should try [Multicore-TSNE](https://github.com/DmitryUlyanov/Multicore-TSNE) instead.

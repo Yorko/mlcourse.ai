@@ -1274,7 +1274,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
     <span class="p">)</span>
 
     <span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-    <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
+    <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_features</span><span class="p">))</span>
 
 
@@ -1285,16 +1285,12 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.89      1.00      0.94      6138
-           1       0.50      0.00      0.01       761
+           0       0.89      1.00      0.94      6141
+           1       0.00      0.00      0.00       758
 
     accuracy                           0.89      6899
-   macro avg       0.70      0.50      0.47      6899
-weighted avg       0.85      0.89      0.84      6899
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/utils/validation.py:1339: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
+   macro avg       0.45      0.50      0.47      6899
+weighted avg       0.79      0.89      0.84      6899
 </pre></div>
 </div>
 </div>
@@ -1556,16 +1552,12 @@ weighted avg       0.85      0.89      0.84      6899
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.91      0.99      0.95      6138
-           1       0.63      0.18      0.28       761
+           0       0.90      0.99      0.95      6129
+           1       0.67      0.17      0.27       770
 
     accuracy                           0.90      6899
-   macro avg       0.77      0.58      0.61      6899
+   macro avg       0.79      0.58      0.61      6899
 weighted avg       0.88      0.90      0.87      6899
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/utils/validation.py:1339: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
 </pre></div>
 </div>
 </div>
@@ -1584,9 +1576,9 @@ weighted avg       0.88      0.90      0.87      6899
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -5365863362206201901
-high.school -&gt; -6175710651683509550
-illiterate -&gt; 451700672476230947
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -6570551753604382266
+high.school -&gt; 6474175424192702820
+illiterate -&gt; -134044616707330102
 </pre></div>
 </div>
 </div>
@@ -1601,9 +1593,9 @@ illiterate -&gt; 451700672476230947
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 24
-high.school -&gt; 0
-illiterate -&gt; 22
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 9
+high.school -&gt; 20
+illiterate -&gt; 23
 </pre></div>
 </div>
 </div>
@@ -1620,9 +1612,9 @@ illiterate -&gt; 22
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 3
-marital=single -&gt; 15
-day_of_week=mon -&gt; 12
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 18
+marital=single -&gt; 4
+day_of_week=mon -&gt; 22
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1672,22 +1664,22 @@ day_of_week=mon -&gt; 12
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.0</td>
       <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1889,7 +1881,7 @@ Thanks,
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_33876/1433298466.py:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
+/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_75585/1433298466.py:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
   + &quot; &quot;.join(re.findall(&quot;\w{3,}&quot;, document.lower()))
 </pre></div>
 </div>
@@ -2092,11 +2084,7 @@ talk.religion.misc 19
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading the dataset from:   http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_33876/700416260.py:24: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
-  data = tar.extractall(extract_path)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IMDB dataset is already in place.
 </pre></div>
 </div>
 </div>
