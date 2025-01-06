@@ -87,7 +87,7 @@ currency = pd.read_csv(
 ```
 
 ```{code-cell} ipython3
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(12, 8))
 plt.plot(ads.Ads)
 plt.title("Ads watched (hourly data)")
 plt.grid(True)
@@ -1099,7 +1099,6 @@ def plotSARIMA(series, model, n_steps):
 
     # forecasting on n_steps forward
     forecast = model.predict(start=data.shape[0], end=data.shape[0] + n_steps)
-    forecast = data.arima_model.append(forecast)
     # calculate error, again having shifted on s+d steps from the beginning
     error = mean_absolute_percentage_error(
         data["actual"][s + d :], data["arima_model"][s + d :]
@@ -1530,7 +1529,7 @@ plotModelResults(
     X_train=X_train_scaled,
     X_test=X_test_scaled,
     plot_intervals=True,
-    plot_anomalies=True,
+    plot_anomalies=True
 )
 ```
 

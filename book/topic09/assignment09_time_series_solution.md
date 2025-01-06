@@ -119,7 +119,7 @@ train_df = df[:-predictions].copy()
 
 ```{code-cell} ipython3
 m = Prophet()
-m.fit(train_df);
+m.fit(train_df)
 ```
 
 

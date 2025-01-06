@@ -18,31 +18,125 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-plotSARIMA(ads, best_model, 50)
+plotModelResults(
+    xgb,
+    X_train=X_train_scaled,
+    X_test=X_test_scaled,
+    plot_intervals=True,
+    plot_anomalies=True,
+)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_36977/2337694703.py[0m in [0;36m?[0;34m()[0m
-[0;32m----> 1[0;31m [0mplotSARIMA[0m[0;34m([0m[0mads[0m[0;34m,[0m [0mbest_model[0m[0;34m,[0m [0;36m50[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_36977/3069305344.py[0m in [0;36m?[0;34m(series, model, n_steps)[0m
-[1;32m     16[0m     [0mdata[0m[0;34m[[0m[0;34m"arima_model"[0m[0;34m][0m[0;34m[[0m[0;34m:[0m [0ms[0m [0;34m+[0m [0md[0m[0;34m][0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0mnan[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     17[0m [0;34m[0m[0m
-[1;32m     18[0m     [0;31m# forecasting on n_steps forward[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     19[0m     [0mforecast[0m [0;34m=[0m [0mmodel[0m[0;34m.[0m[0mpredict[0m[0;34m([0m[0mstart[0m[0;34m=[0m[0mdata[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mend[0m[0;34m=[0m[0mdata[0m[0;34m.[0m[0mshape[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m+[0m [0mn_steps[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 20[0;31m     [0mforecast[0m [0;34m=[0m [0mdata[0m[0;34m.[0m[0marima_model[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mforecast[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     21[0m     [0;31m# calculate error, again having shifted on s+d steps from the beginning[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     22[0m     error = mean_absolute_percentage_error(
-[1;32m     23[0m         [0mdata[0m[0;34m[[0m[0;34m"actual"[0m[0;34m][0m[0;34m[[0m[0ms[0m [0;34m+[0m [0md[0m [0;34m:[0m[0;34m][0m[0;34m,[0m [0mdata[0m[0;34m[[0m[0;34m"arima_model"[0m[0;34m][0m[0;34m[[0m[0ms[0m [0;34m+[0m [0md[0m [0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+Cell [0;32mIn[75], line 1[0m
+[0;32m----> 1[0m [43mplotModelResults[49m[43m([49m
+[1;32m      2[0m [43m    [49m[43mxgb[49m[43m,[49m
+[1;32m      3[0m [43m    [49m[43mX_train[49m[38;5;241;43m=[39;49m[43mX_train_scaled[49m[43m,[49m
+[1;32m      4[0m [43m    [49m[43mX_test[49m[38;5;241;43m=[39;49m[43mX_test_scaled[49m[43m,[49m
+[1;32m      5[0m [43m    [49m[43mplot_intervals[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m      6[0m [43m    [49m[43mplot_anomalies[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m
+[1;32m      7[0m [43m)[49m
 
-[0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/pandas/core/generic.py[0m in [0;36m?[0;34m(self, name)[0m
-[1;32m   6295[0m             [0;32mand[0m [0mname[0m [0;32mnot[0m [0;32min[0m [0mself[0m[0;34m.[0m[0m_accessors[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   6296[0m             [0;32mand[0m [0mself[0m[0;34m.[0m[0m_info_axis[0m[0;34m.[0m[0m_can_hold_identifiers_and_holds_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   6297[0m         [0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   6298[0m             [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 6299[0;31m         [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mAttributeError[0m: 'Series' object has no attribute 'append'
+Cell [0;32mIn[60], line 16[0m, in [0;36mplotModelResults[0;34m(model, X_train, X_test, plot_intervals, plot_anomalies)[0m
+[1;32m     13[0m plt[38;5;241m.[39mplot(y_test[38;5;241m.[39mvalues, label[38;5;241m=[39m[38;5;124m"[39m[38;5;124mactual[39m[38;5;124m"[39m, linewidth[38;5;241m=[39m[38;5;241m2.0[39m)
+[1;32m     15[0m [38;5;28;01mif[39;00m plot_intervals:
+[0;32m---> 16[0m     cv [38;5;241m=[39m [43mcross_val_score[49m[43m([49m
+[1;32m     17[0m [43m        [49m[43mmodel[49m[43m,[49m[43m [49m[43mX_train[49m[43m,[49m[43m [49m[43my_train[49m[43m,[49m[43m [49m[43mcv[49m[38;5;241;43m=[39;49m[43mtscv[49m[43m,[49m[43m [49m[43mscoring[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mneg_mean_absolute_error[39;49m[38;5;124;43m"[39;49m
+[1;32m     18[0m [43m    [49m[43m)[49m
+[1;32m     19[0m     mae [38;5;241m=[39m cv[38;5;241m.[39mmean() [38;5;241m*[39m ([38;5;241m-[39m[38;5;241m1[39m)
+[1;32m     20[0m     deviation [38;5;241m=[39m cv[38;5;241m.[39mstd()
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:216[0m, in [0;36mvalidate_params.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[1;32m    211[0m     [38;5;28;01mwith[39;00m config_context(
+[1;32m    212[0m         skip_parameter_validation[38;5;241m=[39m(
+[1;32m    213[0m             prefer_skip_nested_validation [38;5;129;01mor[39;00m global_skip_validation
+[1;32m    214[0m         )
+[1;32m    215[0m     ):
+[0;32m--> 216[0m         [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    217[0m [38;5;28;01mexcept[39;00m InvalidParameterError [38;5;28;01mas[39;00m e:
+[1;32m    218[0m     [38;5;66;03m# When the function is just a wrapper around an estimator, we allow[39;00m
+[1;32m    219[0m     [38;5;66;03m# the function to delegate validation to the estimator, but we replace[39;00m
+[1;32m    220[0m     [38;5;66;03m# the name of the estimator by the name of the function in the error[39;00m
+[1;32m    221[0m     [38;5;66;03m# message to avoid confusion.[39;00m
+[1;32m    222[0m     msg [38;5;241m=[39m re[38;5;241m.[39msub(
+[1;32m    223[0m         [38;5;124mr[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;124m\[39m[38;5;124mw+ must be[39m[38;5;124m"[39m,
+[1;32m    224[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;132;01m{[39;00mfunc[38;5;241m.[39m[38;5;18m__qualname__[39m[38;5;132;01m}[39;00m[38;5;124m must be[39m[38;5;124m"[39m,
+[1;32m    225[0m         [38;5;28mstr[39m(e),
+[1;32m    226[0m     )
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/model_selection/_validation.py:684[0m, in [0;36mcross_val_score[0;34m(estimator, X, y, groups, scoring, cv, n_jobs, verbose, params, pre_dispatch, error_score)[0m
+[1;32m    681[0m [38;5;66;03m# To ensure multimetric format is not supported[39;00m
+[1;32m    682[0m scorer [38;5;241m=[39m check_scoring(estimator, scoring[38;5;241m=[39mscoring)
+[0;32m--> 684[0m cv_results [38;5;241m=[39m [43mcross_validate[49m[43m([49m
+[1;32m    685[0m [43m    [49m[43mestimator[49m[38;5;241;43m=[39;49m[43mestimator[49m[43m,[49m
+[1;32m    686[0m [43m    [49m[43mX[49m[38;5;241;43m=[39;49m[43mX[49m[43m,[49m
+[1;32m    687[0m [43m    [49m[43my[49m[38;5;241;43m=[39;49m[43my[49m[43m,[49m
+[1;32m    688[0m [43m    [49m[43mgroups[49m[38;5;241;43m=[39;49m[43mgroups[49m[43m,[49m
+[1;32m    689[0m [43m    [49m[43mscoring[49m[38;5;241;43m=[39;49m[43m{[49m[38;5;124;43m"[39;49m[38;5;124;43mscore[39;49m[38;5;124;43m"[39;49m[43m:[49m[43m [49m[43mscorer[49m[43m}[49m[43m,[49m
+[1;32m    690[0m [43m    [49m[43mcv[49m[38;5;241;43m=[39;49m[43mcv[49m[43m,[49m
+[1;32m    691[0m [43m    [49m[43mn_jobs[49m[38;5;241;43m=[39;49m[43mn_jobs[49m[43m,[49m
+[1;32m    692[0m [43m    [49m[43mverbose[49m[38;5;241;43m=[39;49m[43mverbose[49m[43m,[49m
+[1;32m    693[0m [43m    [49m[43mparams[49m[38;5;241;43m=[39;49m[43mparams[49m[43m,[49m
+[1;32m    694[0m [43m    [49m[43mpre_dispatch[49m[38;5;241;43m=[39;49m[43mpre_dispatch[49m[43m,[49m
+[1;32m    695[0m [43m    [49m[43merror_score[49m[38;5;241;43m=[39;49m[43merror_score[49m[43m,[49m
+[1;32m    696[0m [43m[49m[43m)[49m
+[1;32m    697[0m [38;5;28;01mreturn[39;00m cv_results[[38;5;124m"[39m[38;5;124mtest_score[39m[38;5;124m"[39m]
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/utils/_param_validation.py:216[0m, in [0;36mvalidate_params.<locals>.decorator.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[1;32m    211[0m     [38;5;28;01mwith[39;00m config_context(
+[1;32m    212[0m         skip_parameter_validation[38;5;241m=[39m(
+[1;32m    213[0m             prefer_skip_nested_validation [38;5;129;01mor[39;00m global_skip_validation
+[1;32m    214[0m         )
+[1;32m    215[0m     ):
+[0;32m--> 216[0m         [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    217[0m [38;5;28;01mexcept[39;00m InvalidParameterError [38;5;28;01mas[39;00m e:
+[1;32m    218[0m     [38;5;66;03m# When the function is just a wrapper around an estimator, we allow[39;00m
+[1;32m    219[0m     [38;5;66;03m# the function to delegate validation to the estimator, but we replace[39;00m
+[1;32m    220[0m     [38;5;66;03m# the name of the estimator by the name of the function in the error[39;00m
+[1;32m    221[0m     [38;5;66;03m# message to avoid confusion.[39;00m
+[1;32m    222[0m     msg [38;5;241m=[39m re[38;5;241m.[39msub(
+[1;32m    223[0m         [38;5;124mr[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;124m\[39m[38;5;124mw+ must be[39m[38;5;124m"[39m,
+[1;32m    224[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;132;01m{[39;00mfunc[38;5;241m.[39m[38;5;18m__qualname__[39m[38;5;132;01m}[39;00m[38;5;124m must be[39m[38;5;124m"[39m,
+[1;32m    225[0m         [38;5;28mstr[39m(e),
+[1;32m    226[0m     )
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/model_selection/_validation.py:347[0m, in [0;36mcross_validate[0;34m(estimator, X, y, groups, scoring, cv, n_jobs, verbose, params, pre_dispatch, return_train_score, return_estimator, return_indices, error_score)[0m
+[1;32m    343[0m _check_groups_routing_disabled(groups)
+[1;32m    345[0m X, y [38;5;241m=[39m indexable(X, y)
+[0;32m--> 347[0m cv [38;5;241m=[39m check_cv(cv, y, classifier[38;5;241m=[39m[43mis_classifier[49m[43m([49m[43mestimator[49m[43m)[49m)
+[1;32m    349[0m scorers [38;5;241m=[39m check_scoring(
+[1;32m    350[0m     estimator, scoring[38;5;241m=[39mscoring, raise_exc[38;5;241m=[39m(error_score [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m)
+[1;32m    351[0m )
+[1;32m    353[0m [38;5;28;01mif[39;00m _routing_enabled():
+[1;32m    354[0m     [38;5;66;03m# For estimators, a MetadataRouter is created in get_metadata_routing[39;00m
+[1;32m    355[0m     [38;5;66;03m# methods. For these router methods, we create the router to use[39;00m
+[1;32m    356[0m     [38;5;66;03m# `process_routing` on it.[39;00m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/base.py:1237[0m, in [0;36mis_classifier[0;34m(estimator)[0m
+[1;32m   1230[0m     warnings[38;5;241m.[39mwarn(
+[1;32m   1231[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mpassing a class to [39m[38;5;132;01m{[39;00m[38;5;28mprint[39m(inspect[38;5;241m.[39mstack()[[38;5;241m0[39m][[38;5;241m3[39m])[38;5;132;01m}[39;00m[38;5;124m is deprecated and [39m[38;5;124m"[39m
+[1;32m   1232[0m         [38;5;124m"[39m[38;5;124mwill be removed in 1.8. Use an instance of the class instead.[39m[38;5;124m"[39m,
+[1;32m   1233[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m   1234[0m     )
+[1;32m   1235[0m     [38;5;28;01mreturn[39;00m [38;5;28mgetattr[39m(estimator, [38;5;124m"[39m[38;5;124m_estimator_type[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m) [38;5;241m==[39m [38;5;124m"[39m[38;5;124mclassifier[39m[38;5;124m"[39m
+[0;32m-> 1237[0m [38;5;28;01mreturn[39;00m [43mget_tags[49m[43m([49m[43mestimator[49m[43m)[49m[38;5;241m.[39mestimator_type [38;5;241m==[39m [38;5;124m"[39m[38;5;124mclassifier[39m[38;5;124m"[39m
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/utils/_tags.py:405[0m, in [0;36mget_tags[0;34m(estimator)[0m
+[1;32m    403[0m [38;5;28;01mfor[39;00m klass [38;5;129;01min[39;00m [38;5;28mreversed[39m([38;5;28mtype[39m(estimator)[38;5;241m.[39mmro()):
+[1;32m    404[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124m__sklearn_tags__[39m[38;5;124m"[39m [38;5;129;01min[39;00m [38;5;28mvars[39m(klass):
+[0;32m--> 405[0m         sklearn_tags_provider[klass] [38;5;241m=[39m [43mklass[49m[38;5;241;43m.[39;49m[43m__sklearn_tags__[49m[43m([49m[43mestimator[49m[43m)[49m  [38;5;66;03m# type: ignore[attr-defined][39;00m
+[1;32m    406[0m         class_order[38;5;241m.[39mappend(klass)
+[1;32m    407[0m     [38;5;28;01melif[39;00m [38;5;124m"[39m[38;5;124m_more_tags[39m[38;5;124m"[39m [38;5;129;01min[39;00m [38;5;28mvars[39m(klass):
+
+File [0;32m~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/sklearn/base.py:613[0m, in [0;36mRegressorMixin.__sklearn_tags__[0;34m(self)[0m
+[1;32m    612[0m [38;5;28;01mdef[39;00m[38;5;250m [39m[38;5;21m__sklearn_tags__[39m([38;5;28mself[39m):
+[0;32m--> 613[0m     tags [38;5;241m=[39m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43m__sklearn_tags__[49m()
+[1;32m    614[0m     tags[38;5;241m.[39mestimator_type [38;5;241m=[39m [38;5;124m"[39m[38;5;124mregressor[39m[38;5;124m"[39m
+[1;32m    615[0m     tags[38;5;241m.[39mregressor_tags [38;5;241m=[39m RegressorTags()
+
+[0;31mAttributeError[0m: 'super' object has no attribute '__sklearn_tags__'
 

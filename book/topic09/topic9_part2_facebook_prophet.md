@@ -216,7 +216,7 @@ Let's sort the dataframe by time and take a look at what we've got:
 
 
 ```{code-cell} ipython3
-df.sort_values(by=["published"]).head(n=3)
+df.sort_values(by=["published"]).head(n=2)
 ```
 
 Medium's public release date was August 15, 2012. But, as you can see from the data above, there are at least several rows with much earlier publication dates. They have somehow turned up in our dataset, but they are hardly legitimate ones. We will just trim our time series to keep only those rows that fall onto the period from August 15, 2012 to June 25, 2017:
