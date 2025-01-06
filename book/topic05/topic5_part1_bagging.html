@@ -589,12 +589,12 @@ document.write(`
 <p>For our example, we’ll use the familiar <code class="docutils literal notranslate"><span class="pre">telecom_churn</span></code> dataset. Previously, when we discussed feature importance, we saw that one of the most important features in this dataset is the number of calls to customer service. Let’s visualize the data and look at the distribution of this feature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 </pre></div>
 </div>
@@ -633,14 +633,14 @@ document.write(`
 <p>Looks like loyal customers make fewer calls to customer service than those who eventually leave. Now, it might be a good idea to estimate the average number of customer service calls in each group. Since our dataset is small, we would not get a good estimate by simply calculating the mean of the original sample. We will be better off applying the bootstrap method. Let’s generate 1000 new bootstrap samples from our original population and produce an interval estimate of the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_bootstrap_samples</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_bootstrap_samples</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate bootstrap samples using the bootstrap method.&quot;&quot;&quot;</span>
     <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
     <span class="n">samples</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">samples</span>
 
 
-<span class="k">def</span> <span class="nf">stat_intervals</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stat_intervals</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Produce an interval estimate.&quot;&quot;&quot;</span>
     <span class="n">boundaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)])</span>
     <span class="k">return</span> <span class="n">boundaries</span>
@@ -861,7 +861,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

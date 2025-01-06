@@ -618,24 +618,24 @@ document.write(`
 <p>Let’s import some libraries. First, we will need the <a class="reference external" href="http://statsmodels.sourceforge.net/stable/">statsmodels</a> library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> will definitely look more familiar since it supports model definitions like ‘Wage ~ Age + Education’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># plots</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># vectors and matrices</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># tables and data manipulations</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># more plots</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># plots</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># vectors and matrices</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>  <span class="c1"># tables and data manipulations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>  <span class="c1"># more plots</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
-<span class="kn">import</span> <span class="nn">warnings</span>  
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>  <span class="c1"># some useful functions</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>  <span class="c1"># some useful functions</span>
 
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">scs</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>  <span class="c1"># statistics and econometrics</span>
-<span class="kn">import</span> <span class="nn">statsmodels.tsa.api</span> <span class="k">as</span> <span class="nn">smt</span>
-<span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> \
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">scs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>  <span class="c1"># statistics and econometrics</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.tsa.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span><span class="w"> </span><span class="kn">import</span> \
     <span class="n">relativedelta</span>  <span class="c1"># working with dates with style</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>  <span class="c1"># for function minimization</span>
-<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">minimize</span>  <span class="c1"># for function minimization</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span> <span class="c1"># `do not disturbe` mode</span>
 
@@ -677,7 +677,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5d95bc33ed82109a71b7b4dd20368385d23a97f1a6fa0f5c8741363ade1dcacb.png" src="../../_images/5d95bc33ed82109a71b7b4dd20368385d23a97f1a6fa0f5c8741363ade1dcacb.png" />
+<img alt="../../_images/53faa56b8e90214eb0fc7e8af47eeca58c490896c335e33b6ac2bf048341b183.png" src="../../_images/53faa56b8e90214eb0fc7e8af47eeca58c490896c335e33b6ac2bf048341b183.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -691,7 +691,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a28acb75ee81c68902a2aae6972ad847e2721c4b26aeec17080cfa02396a8b0d.png" src="../../_images/a28acb75ee81c68902a2aae6972ad847e2721c4b26aeec17080cfa02396a8b0d.png" />
+<img alt="../../_images/f9ef4b3bbd3729d337b344d93441e24efe1fe88df8837e48f49df10f5caf2a06.png" src="../../_images/f9ef4b3bbd3729d337b344d93441e24efe1fe88df8837e48f49df10f5caf2a06.png" />
 </div>
 </div>
 <section id="forecast-quality-metrics">
@@ -743,7 +743,7 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(MAPE = \frac{100}{n}\sum\limits_{i=1}^{n} \frac{|y_i - \hat{y}_i|}{y_i}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 </div>
@@ -753,12 +753,12 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing everything from above</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span>
                              <span class="n">mean_squared_log_error</span><span class="p">,</span> <span class="n">median_absolute_error</span><span class="p">,</span>
                              <span class="n">r2_score</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 </div>
@@ -777,7 +777,7 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\hat{y}_{t} = \frac{1}{k} \displaystyle\sum^{k}_{n=1} y_{t-n}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">moving_average</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">moving_average</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate average of last n observations</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -797,7 +797,7 @@ document.write(`
 <p>Unfortunately, we cannot make predictions far in the future - in order to get the value for the next step, we need the previous values to be actually observed. But moving average has another use case - smoothing the original time series to identify trends. Pandas has an implementation available with <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rolling.html"><code class="docutils literal notranslate"><span class="pre">DataFrame.rolling(window).mean()</span></code></a>. The wider the window, the smoother the trend. In the case of very noisy data, which is often encountered in finance, this procedure can help detect common patterns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotMovingAverage</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotMovingAverage</span><span class="p">(</span>
     <span class="n">series</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">):</span>
 
@@ -845,7 +845,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ec74d35e747f52dcf73c2ccabbb0354cbcf76c0b57f075b6dfa957667502039b.png" src="../../_images/ec74d35e747f52dcf73c2ccabbb0354cbcf76c0b57f075b6dfa957667502039b.png" />
+<img alt="../../_images/17146e5298ee835ce779745f98e55997931cc8e0842486b67883f70f2a6de0ef.png" src="../../_images/17146e5298ee835ce779745f98e55997931cc8e0842486b67883f70f2a6de0ef.png" />
 </div>
 </div>
 <p>Now let’s try smoothing by the previous 12 hours.</p>
@@ -856,7 +856,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/328e4a3861f714ebd63e7098e1bc6a36948734b8b8d37473ddcfcfde0bb0a5e7.png" src="../../_images/328e4a3861f714ebd63e7098e1bc6a36948734b8b8d37473ddcfcfde0bb0a5e7.png" />
+<img alt="../../_images/21b984e7b7604e9770fd78637251a0d7528cea76d79f5197fa4f7499af8accdc.png" src="../../_images/21b984e7b7604e9770fd78637251a0d7528cea76d79f5197fa4f7499af8accdc.png" />
 </div>
 </div>
 <p>Now smoothing with the previous 24 hours, we get the daily trend.</p>
@@ -867,7 +867,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b061c9cf8701aa03ef3f025b636cb32297262283942a19b2d7a74002075da644.png" src="../../_images/b061c9cf8701aa03ef3f025b636cb32297262283942a19b2d7a74002075da644.png" />
+<img alt="../../_images/dcc5cc4a9e20375cf20c491ceaaadaa1799b1e0fd442b297cfbafa4f3bfd4650.png" src="../../_images/dcc5cc4a9e20375cf20c491ceaaadaa1799b1e0fd442b297cfbafa4f3bfd4650.png" />
 </div>
 </div>
 <p>When we applied daily smoothing on hourly data, we could clearly see the dynamics of ads watched. During the weekends, the values are higher (more time to play on the weekends) while fewer ads are watched on weekdays.</p>
@@ -879,7 +879,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/93a9132f0bab4275d1f08b9cf5ce02358efc813ba0a2da3a54c07bf00a130b60.png" src="../../_images/93a9132f0bab4275d1f08b9cf5ce02358efc813ba0a2da3a54c07bf00a130b60.png" />
+<img alt="../../_images/d1f2c6fe7fb421cacb46a31a7581db2317e12d268c0d1e7c041356df2d2745dd.png" src="../../_images/d1f2c6fe7fb421cacb46a31a7581db2317e12d268c0d1e7c041356df2d2745dd.png" />
 </div>
 </div>
 <p>Now, let’s create a simple anomaly detection system with the help of moving average. Unfortunately, in this particular dataset, everything is more or less normal, so we will intentionally make one of the values abnormal in our dataframe <code class="docutils literal notranslate"><span class="pre">ads_anomaly</span></code>.</p>
@@ -899,7 +899,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e1740d5cc1ccbb53f800992bcda06b6bcef859477c3051cdb27d615910438ef.png" src="../../_images/3e1740d5cc1ccbb53f800992bcda06b6bcef859477c3051cdb27d615910438ef.png" />
+<img alt="../../_images/ac50e311931c8cd88dcd8947bf03db8fac6de3631b18fdaf09406122dfd1b71f.png" src="../../_images/ac50e311931c8cd88dcd8947bf03db8fac6de3631b18fdaf09406122dfd1b71f.png" />
 </div>
 </div>
 <p>Neat! What about the second series?</p>
@@ -912,7 +912,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2650478f156e656fc29c06e5b9a9c4459187b547a4f543335f72e841b2b32729.png" src="../../_images/2650478f156e656fc29c06e5b9a9c4459187b547a4f543335f72e841b2b32729.png" />
+<img alt="../../_images/d99665edb1b7539375bf6a33c963ead3564eae4e45cdfc9a22687855d2e527b7.png" src="../../_images/d99665edb1b7539375bf6a33c963ead3564eae4e45cdfc9a22687855d2e527b7.png" />
 </div>
 </div>
 <p>Oh no, this was not as great! Here, we can see the downside of our simple approach – it did not capture the monthly seasonality in our data and marked almost all 30-day peaks as anomalies. If you want to avoid false positives, it is best to consider more complex models.</p>
@@ -920,7 +920,7 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\hat{y}_{t} = \displaystyle\sum^{k}_{n=1} \omega_n y_{t+1-n}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weighted_average</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">weighted_average</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate weighted average on the series.</span>
 <span class="sd">        Assuming weights are sorted in descending order</span>
@@ -969,7 +969,7 @@ dtype: float64
 <p>Exponentiality is hidden in the recursiveness of the function – we multiply by <span class="math notranslate nohighlight">\((1-\alpha)\)</span> each time, which already contains a multiplication by <span class="math notranslate nohighlight">\((1-\alpha)\)</span> of previous model values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exponential_smoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">exponential_smoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataset with timestamps</span>
 <span class="sd">        alpha - float [0.0, 1.0], smoothing parameter</span>
@@ -984,7 +984,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotExponentialSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alphas</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotExponentialSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alphas</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots exponential smoothing with different alphas</span>
 
@@ -1014,7 +1014,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68e6c7347185bdadd25039e50cac6d2847622558670b806795560b2a99a34561.png" src="../../_images/68e6c7347185bdadd25039e50cac6d2847622558670b806795560b2a99a34561.png" />
+<img alt="../../_images/24713b206e93bd2c0a6c71d9e45105b78aae5aa587c7747aa5f3c7a4015b6508.png" src="../../_images/24713b206e93bd2c0a6c71d9e45105b78aae5aa587c7747aa5f3c7a4015b6508.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1024,7 +1024,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/311d9cf4bd859ce3cbe0278110fc113ca22a38a5a183fcb060de0e7a7bfc3d83.png" src="../../_images/311d9cf4bd859ce3cbe0278110fc113ca22a38a5a183fcb060de0e7a7bfc3d83.png" />
+<img alt="../../_images/0a4d097ccafde8e9d6b0f8a21a7b7fb0eb9cd77d8c82bac1088ceb4f302d5504.png" src="../../_images/0a4d097ccafde8e9d6b0f8a21a7b7fb0eb9cd77d8c82bac1088ceb4f302d5504.png" />
 </div>
 </div>
 </section>
@@ -1041,7 +1041,7 @@ dtype: float64
 <p>The first one describes the intercept, which, as before, depends on the current value of the series. The second term is now split into previous values of the level and of the trend. The second function describes the trend, which depends on the level changes at the current step and on the previous value of the trend. In this case, the <span class="math notranslate nohighlight">\(\beta\)</span> coefficient is a weight for exponential smoothing. The final prediction is the sum of the model values of the intercept and trend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_exponential_smoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">double_exponential_smoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataset with timeseries</span>
 <span class="sd">        alpha - float [0.0, 1.0], smoothing parameter for level</span>
@@ -1062,7 +1062,7 @@ dtype: float64
     <span class="k">return</span> <span class="n">result</span>
 
 
-<span class="k">def</span> <span class="nf">plotDoubleExponentialSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">betas</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plotDoubleExponentialSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">betas</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots double exponential smoothing with different alphas and betas</span>
 
@@ -1095,7 +1095,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/21384e4fb8ff7d56bf027a81270d6837211229bda5141dd887a0839ccd30b17e.png" src="../../_images/21384e4fb8ff7d56bf027a81270d6837211229bda5141dd887a0839ccd30b17e.png" />
+<img alt="../../_images/47f17993fe1092dcb118fa80f760070e54fee841f5432225deffb8b8d0d5b0d8.png" src="../../_images/47f17993fe1092dcb118fa80f760070e54fee841f5432225deffb8b8d0d5b0d8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1107,7 +1107,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a9be7870e8278f2924bc36326f1fcc3269875790ab242c01553ffc220f4e8206.png" src="../../_images/a9be7870e8278f2924bc36326f1fcc3269875790ab242c01553ffc220f4e8206.png" />
+<img alt="../../_images/7d61194f9b0654ab7649cc0e051daf8b4609c72d04b2bd17cf0b406f380bad6c.png" src="../../_images/7d61194f9b0654ab7649cc0e051daf8b4609c72d04b2bd17cf0b406f380bad6c.png" />
 </div>
 </div>
 <p>Now we have to tune two parameters: <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>. The former is responsible for the series smoothing around the trend, the latter for the smoothing of the trend itself. The larger the values, the more weight the most recent observations will have and the less smoothed the model series will be. Certain combinations of the parameters may produce strange results, especially if set manually. We’ll look into choosing parameters automatically in a bit; before that, let’s discuss triple exponential smoothing.</p>
@@ -1136,7 +1136,7 @@ dtype: float64
 <p>where <span class="math notranslate nohighlight">\(T\)</span> is the length of the season, <span class="math notranslate nohighlight">\(d\)</span> is the predicted deviation. Other parameters were taken from triple exponential smoothing. You can read more about the method and its applicability to anomaly detection in time series <a class="reference external" href="http://fedcsis.org/proceedings/2012/pliks/118.pdf">here</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HoltWinters</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">HoltWinters</span><span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Holt-Winters model with the anomalies detection using Brutlag method</span>
@@ -1149,7 +1149,7 @@ dtype: float64
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n_preds</span><span class="p">,</span> <span class="n">scaling_factor</span><span class="o">=</span><span class="mf">1.96</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">slen</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">n_preds</span><span class="p">,</span> <span class="n">scaling_factor</span><span class="o">=</span><span class="mf">1.96</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">series</span> <span class="o">=</span> <span class="n">series</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">slen</span> <span class="o">=</span> <span class="n">slen</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
@@ -1158,13 +1158,13 @@ dtype: float64
         <span class="bp">self</span><span class="o">.</span><span class="n">n_preds</span> <span class="o">=</span> <span class="n">n_preds</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scaling_factor</span> <span class="o">=</span> <span class="n">scaling_factor</span>
 
-    <span class="k">def</span> <span class="nf">initial_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initial_trend</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slen</span><span class="p">):</span>
             <span class="nb">sum</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">series</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">slen</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">series</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">slen</span>
         <span class="k">return</span> <span class="nb">sum</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">slen</span>
 
-    <span class="k">def</span> <span class="nf">initial_seasonal_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initial_seasonal_components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">seasonals</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">season_averages</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">n_seasons</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">series</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">slen</span><span class="p">)</span>
@@ -1184,7 +1184,7 @@ dtype: float64
             <span class="n">seasonals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum_of_vals_over_avg</span> <span class="o">/</span> <span class="n">n_seasons</span>
         <span class="k">return</span> <span class="n">seasonals</span>
 
-    <span class="k">def</span> <span class="nf">triple_exponential_smoothing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">triple_exponential_smoothing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Smooth</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Season</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1268,11 +1268,11 @@ dtype: float64
 <p>Now, knowing how to set up cross-validation, we can find the optimal parameters for the Holt-Winters model. Recall that we have daily seasonality in ads, hence the <code class="docutils literal notranslate"><span class="pre">slen=24</span></code> parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> \
     <span class="n">TimeSeriesSplit</span>  <span class="c1"># you have everything done for you</span>
 
 
-<span class="k">def</span> <span class="nf">timeseriesCVscore</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">loss_function</span><span class="o">=</span><span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">slen</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">timeseriesCVscore</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">series</span><span class="p">,</span> <span class="n">loss_function</span><span class="o">=</span><span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">slen</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns error on CV  </span>
 
@@ -1350,8 +1350,8 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11912291397687808 0.00269957583214403 0.05376597682877887
-CPU times: user 142 ms, sys: 5.45 ms, total: 147 ms
-Wall time: 143 ms
+CPU times: user 176 ms, sys: 5.31 ms, total: 182 ms
+Wall time: 178 ms
 </pre></div>
 </div>
 </div>
@@ -1359,7 +1359,7 @@ Wall time: 143 ms
 <p>Let’s add some code to render plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotHoltWinters</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotHoltWinters</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series - dataset with timeseries</span>
 <span class="sd">        plot_intervals - show confidence intervals</span>
@@ -1414,7 +1414,7 @@ Wall time: 143 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e7736028646478309717455c03c6abb95c8f18005cbb4cb3ac9885ec12dd36e7.png" src="../../_images/e7736028646478309717455c03c6abb95c8f18005cbb4cb3ac9885ec12dd36e7.png" />
+<img alt="../../_images/880fbd79d834864126517f44cb4713afa74a38ee0ef3d4b1c4a9d80dbfccb40a.png" src="../../_images/880fbd79d834864126517f44cb4713afa74a38ee0ef3d4b1c4a9d80dbfccb40a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1424,7 +1424,7 @@ Wall time: 143 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0540e865a2c2d8b9c6e6ddb2411052132f24cb6e2d3995c3d4461c9a65b71b50.png" src="../../_images/0540e865a2c2d8b9c6e6ddb2411052132f24cb6e2d3995c3d4461c9a65b71b50.png" />
+<img alt="../../_images/49061da741c79878b83ceaff6c2d4d2a046d2f4ad1a7785e8a3ce78c2868614b.png" src="../../_images/49061da741c79878b83ceaff6c2d4d2a046d2f4ad1a7785e8a3ce78c2868614b.png" />
 </div>
 </div>
 <p>Judging by the plots, our model was able to successfully approximate the initial time series, capturing the daily seasonality, overall downwards trend, and even some anomalies. If you look at the model deviations, you can clearly see that the model reacts quite sharply to changes in the structure of the series but then quickly returns the deviation to the normal values, essentially “forgetting” the past. This feature of the model allows us to quickly build anomaly detection systems, even for noisy series data, without spending too much time and money on preparing the data and training the model.</p>
@@ -1439,7 +1439,7 @@ Wall time: 143 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/18ac814572b5e5e7d6ceec891045f693a976100947be91fcc98dd78adc7bd949.png" src="../../_images/18ac814572b5e5e7d6ceec891045f693a976100947be91fcc98dd78adc7bd949.png" />
+<img alt="../../_images/60267a16eefcb9c29dfd80b2b822ce09741891e9b701f90fb5bdec72bd7680ba.png" src="../../_images/60267a16eefcb9c29dfd80b2b822ce09741891e9b701f90fb5bdec72bd7680ba.png" />
 </div>
 </div>
 <p>We’ll apply the same algorithm for the second series which, as you may recall, has trend and a 30-day seasonality.</p>
@@ -1477,8 +1477,8 @@ Wall time: 143 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013190344846993662 0.047616267647338284 0.0
-CPU times: user 229 ms, sys: 1.73 ms, total: 230 ms
-Wall time: 229 ms
+CPU times: user 226 ms, sys: 1.75 ms, total: 227 ms
+Wall time: 227 ms
 </pre></div>
 </div>
 </div>
@@ -1490,7 +1490,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e481f1a5329b9ea3c16ab274cd1d061e1d9e9af274191b4605546f08b1f524f.png" src="../../_images/8e481f1a5329b9ea3c16ab274cd1d061e1d9e9af274191b4605546f08b1f524f.png" />
+<img alt="../../_images/11faa96627f6f500ecb30a0cae0b2bf5916f9c7712fcda62a78ba1b84657d555.png" src="../../_images/11faa96627f6f500ecb30a0cae0b2bf5916f9c7712fcda62a78ba1b84657d555.png" />
 </div>
 </div>
 <p>Looks good! The model caught both upwards trend and seasonal spikes and fits the data quite nicely.</p>
@@ -1501,7 +1501,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9a80e8268113f929574675de444858e134eca0cdd9c38be05c965df297631f26.png" src="../../_images/9a80e8268113f929574675de444858e134eca0cdd9c38be05c965df297631f26.png" />
+<img alt="../../_images/f8ed255836a2957b01f3312a7f8f6d215d0173acc37cd0d9e653a18493d06d00.png" src="../../_images/f8ed255836a2957b01f3312a7f8f6d215d0173acc37cd0d9e653a18493d06d00.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1515,7 +1515,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dcb25a2188973b67111b28b7aeb93e8fe8fa85e9df7610e653a4139ffb178b96.png" src="../../_images/dcb25a2188973b67111b28b7aeb93e8fe8fa85e9df7610e653a4139ffb178b96.png" />
+<img alt="../../_images/d249d6df2d20aa6eebcf181f0db779ceedff64a69ba626caddeada1a2fcf1729.png" src="../../_images/d249d6df2d20aa6eebcf181f0db779ceedff64a69ba626caddeada1a2fcf1729.png" />
 </div>
 </div>
 </section>
@@ -1551,14 +1551,14 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01042ed967ba5c70aa98e291fbd58fe5ce98d216824645c53d8175d698e1da1a.png" src="../../_images/01042ed967ba5c70aa98e291fbd58fe5ce98d216824645c53d8175d698e1da1a.png" />
+<img alt="../../_images/4570ca820acfa5f14cbcfcbbb81840c55675cea4e116cd15b6de0fc474060016.png" src="../../_images/4570ca820acfa5f14cbcfcbbb81840c55675cea4e116cd15b6de0fc474060016.png" />
 </div>
 </div>
 <p>The process generated by the standard normal distribution is stationary and oscillates around 0 with with deviation of 1. Now, based on this process, we will generate a new one where each subsequent value will depend on the previous one: <span class="math notranslate nohighlight">\(x_t = \rho x_{t-1} + e_t\)</span></p>
 <p>Here is the code to render the plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotProcess</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotProcess</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
         <span class="n">x</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">t</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
@@ -1579,10 +1579,10 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3fdec46169ef535f447094aee68b8e43f8d94de12dde1b32b512468ba9f7091f.png" src="../../_images/3fdec46169ef535f447094aee68b8e43f8d94de12dde1b32b512468ba9f7091f.png" />
-<img alt="../../_images/0f251842811f85d16629af2f27242c2ed0ede99635c38639138eea356a5a63d4.png" src="../../_images/0f251842811f85d16629af2f27242c2ed0ede99635c38639138eea356a5a63d4.png" />
-<img alt="../../_images/5fa865baac5fc0310fc3bc002c72f4cca823404b0b7d226bd61c0f117d3f5722.png" src="../../_images/5fa865baac5fc0310fc3bc002c72f4cca823404b0b7d226bd61c0f117d3f5722.png" />
-<img alt="../../_images/55fc7cfdc38dddab4635153ab157024eba7b95d9db152445e5562c2ab90931a8.png" src="../../_images/55fc7cfdc38dddab4635153ab157024eba7b95d9db152445e5562c2ab90931a8.png" />
+<img alt="../../_images/9d8551fb2e923b7cb387811a32ded67d4bce54bf766a87e44f0d64eba7616280.png" src="../../_images/9d8551fb2e923b7cb387811a32ded67d4bce54bf766a87e44f0d64eba7616280.png" />
+<img alt="../../_images/fd7aa11d547d5a329287a6c91d58bbab13a31fae75df677dc84a846eeb8b75b8.png" src="../../_images/fd7aa11d547d5a329287a6c91d58bbab13a31fae75df677dc84a846eeb8b75b8.png" />
+<img alt="../../_images/bb63f99df8d1239fbfc1ef0f2de413f64882230b214e8df902dbbb99f8931feb.png" src="../../_images/bb63f99df8d1239fbfc1ef0f2de413f64882230b214e8df902dbbb99f8931feb.png" />
+<img alt="../../_images/0e1393096af5f87fe78abc322f74ca6bf1e6a14c3bda3bc89b757571aa6fc080.png" src="../../_images/0e1393096af5f87fe78abc322f74ca6bf1e6a14c3bda3bc89b757571aa6fc080.png" />
 </div>
 </div>
 <p>On the first plot, you can see the same stationary white noise as before. On the second plot with <span class="math notranslate nohighlight">\(\rho\)</span> increased to 0.6, wider cycles appeared, but it still appears stationary overall. The third plot deviates even more from the 0 mean but still oscillates about the mean. Finally, with <span class="math notranslate nohighlight">\(\rho=1\)</span>, we have a random walk process i.e. a non-stationary time series.</p>
@@ -1595,7 +1595,7 @@ Wall time: 229 ms
 <p>Here is the code to render plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tsplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;bmh&quot;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tsplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;bmh&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot time series, its ACF and PACF, calculate Dickey–Fuller test</span>
 
@@ -1631,7 +1631,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a1a4b3aeb3f06a0a4b076ea82b63c156367653af5a3905096d96560887b4b364.png" src="../../_images/a1a4b3aeb3f06a0a4b076ea82b63c156367653af5a3905096d96560887b4b364.png" />
+<img alt="../../_images/a5f87efc95100748588d6a6d2057fbbf61c674d267ddc75a3467d6f70ede098b.png" src="../../_images/a5f87efc95100748588d6a6d2057fbbf61c674d267ddc75a3467d6f70ede098b.png" />
 </div>
 </div>
 <p><em>this outlier on partial autocorrelation plot looks like a statsmodels bug, partial autocorrelation shall be &lt;= 1 like any correlation.</em></p>
@@ -1644,7 +1644,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f683b3500f3b4de63128fe29b33ef1ea31405dbcee440fe340a0bf235c494f8e.png" src="../../_images/f683b3500f3b4de63128fe29b33ef1ea31405dbcee440fe340a0bf235c494f8e.png" />
+<img alt="../../_images/68268a535979037124c903acb49c55f4d293d78b8d2f2befaded67110fe1f675.png" src="../../_images/68268a535979037124c903acb49c55f4d293d78b8d2f2befaded67110fe1f675.png" />
 </div>
 </div>
 <p>It is now much better with the visible seasonality gone. However, the autocorrelation function still has too many significant lags. To remove them, we’ll take first differences, subtracting the series from itself with lag 1.</p>
@@ -1656,7 +1656,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0df05af6779392d79037196f43753f367f00262659888b1fab811d958d64ae28.png" src="../../_images/0df05af6779392d79037196f43753f367f00262659888b1fab811d958d64ae28.png" />
+<img alt="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" src="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" />
 </div>
 </div>
 <p>Perfect! Our series now looks like something indescribable, oscillating around zero. The Dickey-Fuller test indicates that it is stationary, and the number of significant peaks in ACF has dropped. We can finally start modeling!</p>
@@ -1692,7 +1692,7 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0df05af6779392d79037196f43753f367f00262659888b1fab811d958d64ae28.png" src="../../_images/0df05af6779392d79037196f43753f367f00262659888b1fab811d958d64ae28.png" />
+<img alt="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" src="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1730,7 +1730,7 @@ Wall time: 229 ms
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">optimizeSARIMA</span><span class="p">(</span><span class="n">parameters_list</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">optimizeSARIMA</span><span class="p">(</span><span class="n">parameters_list</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return dataframe with parameters and corresponding AIC</span>
 
@@ -1781,8 +1781,8 @@ Wall time: 229 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d3c1ddff2ec741a981cfbc8dd825e80f"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 35.1 s, sys: 1.36 s, total: 36.5 s
-Wall time: 36.5 s
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2603958f555e4e15894006f6dfc56ab5"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 35.4 s, sys: 2.11 s, total: 37.5 s
+Wall time: 37.7 s
 </pre></div>
 </div>
 </div>
@@ -1863,8 +1863,8 @@ Wall time: 36.5 s
 ============================================================================================
 Dep. Variable:                                  Ads   No. Observations:                  216
 Model:             SARIMAX(2, 1, 3)x(1, 1, [1], 24)   Log Likelihood               -1936.321
-Date:                              Sun, 25 Aug 2024   AIC                           3888.642
-Time:                                      09:23:35   BIC                           3914.660
+Date:                              Mon, 06 Jan 2025   AIC                           3888.642
+Time:                                      16:18:16   BIC                           3914.660
 Sample:                                  09-13-2017   HQIC                          3899.181
                                        - 09-21-2017                                         
 Covariance Type:                                opg                                         
@@ -1888,7 +1888,7 @@ Prob(H) (two-sided):                  0.09   Kurtosis:                         4
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-[2] Covariance matrix is singular or near-singular, with condition number 2.18e+32. Standard errors may be unstable.
+[2] Covariance matrix is singular or near-singular, with condition number 6.58e+32. Standard errors may be unstable.
 </pre></div>
 </div>
 </div>
@@ -1901,13 +1901,13 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1aa17e91ce8c284744fa9063d79e97d2795835fb27664bec19fc519b7561cd56.png" src="../../_images/1aa17e91ce8c284744fa9063d79e97d2795835fb27664bec19fc519b7561cd56.png" />
+<img alt="../../_images/47462038b8139f3ab6708224162d13a76d7b449793186ccca39d0211ce7c9a38.png" src="../../_images/47462038b8139f3ab6708224162d13a76d7b449793186ccca39d0211ce7c9a38.png" />
 </div>
 </div>
 <p>It is clear that the residuals are stationary, and there are no apparent autocorrelations. Let’s make predictions using our model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotSARIMA</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotSARIMA</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots model vs predicted values</span>
 
@@ -1952,10 +1952,10 @@ Warnings:
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_70036/2337694703.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="nn">/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_36977/2337694703.py</span> in <span class="ni">?</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plotSARIMA</span><span class="p">(</span><span class="n">ads</span><span class="p">,</span> <span class="n">best_model</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
-<span class="nn">/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_70036/3069305344.py</span> in <span class="ni">?</span><span class="nt">(series, model, n_steps)</span>
+<span class="nn">/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_36977/3069305344.py</span> in <span class="ni">?</span><span class="nt">(series, model, n_steps)</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;arima_model&quot;</span><span class="p">][:</span> <span class="n">s</span> <span class="o">+</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 <span class="g g-Whitespace">     </span><span class="mi">17</span> 
 <span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="c1"># forecasting on n_steps forward</span>
@@ -1965,7 +1965,7 @@ Warnings:
 <span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">error</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="n">data</span><span class="p">[</span><span class="s2">&quot;actual&quot;</span><span class="p">][</span><span class="n">s</span> <span class="o">+</span> <span class="n">d</span> <span class="p">:],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;arima_model&quot;</span><span class="p">][</span><span class="n">s</span> <span class="o">+</span> <span class="n">d</span> <span class="p">:]</span>
 
-<span class="nn">~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, name)</span>
+<span class="nn">~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, name)</span>
 <span class="g g-Whitespace">   </span><span class="mi">6295</span>             <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
 <span class="g g-Whitespace">   </span><span class="mi">6296</span>             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">6297</span>         <span class="p">):</span>
@@ -2040,8 +2040,8 @@ Warnings:
 <p>Great, we have generated a dataset here. Why don’t we now train a model?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span>
 
 <span class="c1"># for time-series cross-validation set 5 folds</span>
 <span class="n">tscv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -2051,7 +2051,7 @@ Warnings:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">timeseries_train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">timeseries_train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform train-test split with respect to time series structure</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2091,7 +2091,7 @@ Warnings:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotModelResults</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotModelResults</span><span class="p">(</span>
     <span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">plot_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot_anomalies</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2132,7 +2132,7 @@ Warnings:
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">plotCoefficients</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plotCoefficients</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots sorted coefficient values of the model</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2187,7 +2187,7 @@ Warnings:
 <p>Since we now have different scales in our variables, thousands for the lag features and tens for categorical, we need to transform them into same scale for exploring feature importance and, later, regularization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 </pre></div>
@@ -2220,7 +2220,7 @@ Warnings:
 <p>I’d like to add another variant for encoding categorical variables: encoding by mean value. If it is undesirable to explode a dataset by using many dummy variables that can lead to the loss of information and if they cannot be used as real values because of the conflicts like “0 hours &lt; 23 hours”, then it’s possible to encode a variable with slightly more interpretable values. The natural idea is to encode with the mean value of the target variable. In our example, every day of the week and every hour of the day can be encoded by the corresponding average number of ads watched during that day or hour. It’s very important to make sure that the mean value is calculated over the training set only (or over the current cross-validation fold only) so that the model is not aware of the future.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">code_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cat_feature</span><span class="p">,</span> <span class="n">real_feature</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">code_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cat_feature</span><span class="p">,</span> <span class="n">real_feature</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a dictionary where keys are unique categories of the cat_feature,</span>
 <span class="sd">    and values are means over real_feature</span>
@@ -2245,7 +2245,7 @@ Warnings:
 <p>Finally, let’s put all the transformations together in a single function .</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepareData</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">lag_start</span><span class="p">,</span> <span class="n">lag_end</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span> <span class="n">target_encoding</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepareData</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">lag_start</span><span class="p">,</span> <span class="n">lag_end</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span> <span class="n">target_encoding</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        series: pd.DataFrame</span>
 <span class="sd">            dataframe with timeseries</span>
@@ -2362,7 +2362,7 @@ Warnings:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LassoCV</span><span class="p">,</span> <span class="n">RidgeCV</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LassoCV</span><span class="p">,</span> <span class="n">RidgeCV</span>
 
 <span class="n">ridge</span> <span class="o">=</span> <span class="n">RidgeCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="n">tscv</span><span class="p">)</span>
 <span class="n">ridge</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -2408,7 +2408,7 @@ Warnings:
 </figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">xgboost</span><span class="w"> </span><span class="kn">import</span> <span class="n">XGBRegressor</span>
 
 <span class="n">xgb</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">xgb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
@@ -2571,7 +2571,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

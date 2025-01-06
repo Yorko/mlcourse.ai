@@ -280,7 +280,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topic09/videolecture09.html">Videolecture 9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series.html">Demo Assignment 9</a></li>
@@ -556,22 +555,22 @@ document.write(`
 <p>Let’s start by loading all necessary libraries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pydotplus</span>  <span class="c1"># pip install pydotplus</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pydotplus</span>  <span class="c1"># pip install pydotplus</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -586,7 +585,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dataframe with dummy variables</span>
-<span class="k">def</span> <span class="nf">create_df</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">feature_list</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_df</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">feature_list</span><span class="p">):</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">out</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">feature_list</span><span class="p">])],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">out</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">feature_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -594,7 +593,7 @@ document.write(`
 
 
 <span class="c1"># Some feature values are present in train and absent in test and vice-versa.</span>
-<span class="k">def</span> <span class="nf">intersect_features</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">intersect_features</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
     <span class="n">common_feat</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
     <span class="k">return</span> <span class="n">train</span><span class="p">[</span><span class="n">common_feat</span><span class="p">],</span> <span class="n">test</span><span class="p">[</span><span class="n">common_feat</span><span class="p">]</span>
 </pre></div>
@@ -1101,7 +1100,7 @@ document.write(`
 <h3>Implement a function to calculate the Shannon Entropy<a class="headerlink" href="#implement-a-function-to-calculate-the-shannon-entropy" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entropy</span><span class="p">(</span><span class="n">a_list</span><span class="p">):</span>
     <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
     <span class="k">pass</span>
 </pre></div>
@@ -1132,7 +1131,7 @@ None
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># information gain calculation</span>
-<span class="k">def</span> <span class="nf">information_gain</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">information_gain</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; root - initial data, left and right - two partitions of initial data&quot;&quot;&quot;</span>
 
     <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
@@ -1144,7 +1143,7 @@ None
 <p>5. What is the information gain from splitting the initial dataset into <strong>balls_left</strong> and <strong>balls_right</strong> ?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">information_gains</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">information_gains</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Outputs information gain when splitting with each feature&quot;&quot;&quot;</span>
 
     <span class="c1"># You code here (read-only in a JupyterBook, pls run jupyter-notebook to edit)</span>
@@ -2576,7 +2575,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

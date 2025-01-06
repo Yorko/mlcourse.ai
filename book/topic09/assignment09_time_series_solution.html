@@ -278,7 +278,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="videolecture09.html">Videolecture 9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignment09_time_series.html">Demo Assignment 9</a></li>
@@ -535,18 +534,18 @@ document.write(`
 <p><strong>Fill cells marked with “Your code here” and submit your answers to the questions through the <a class="reference external" href="https://docs.google.com/forms/d/1UYQ_WYSpsV3VSlZAzhSN_YXmyjV7YlTP8EYMg8M8SoM/edit">web form</a>.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="kn">from</span> <span class="nn">plotly</span> <span class="kn">import</span> <span class="n">graph_objs</span> <span class="k">as</span> <span class="n">go</span>
-<span class="kn">from</span> <span class="nn">plotly.offline</span> <span class="kn">import</span> <span class="n">download_plotlyjs</span><span class="p">,</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">iplot</span><span class="p">,</span> <span class="n">plot</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">IFrame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotly</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotly</span><span class="w"> </span><span class="kn">import</span> <span class="n">graph_objs</span> <span class="k">as</span> <span class="n">go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_plotlyjs</span><span class="p">,</span> <span class="n">init_notebook_mode</span><span class="p">,</span> <span class="n">iplot</span><span class="p">,</span> <span class="n">plot</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">IFrame</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">__version__</span><span class="p">)</span>  <span class="c1"># need 1.9.0 or greater</span>
 <span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -554,7 +553,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.23.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.24.1
 </pre></div>
 </div>
 <div class="output text_html">        <script type="text/javascript">
@@ -564,7 +563,7 @@ document.write(`
         require.undef("plotly");
         requirejs.config({
             paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.34.0.min']
+                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
             }
         });
         require(['plotly'], function(Plotly) {
@@ -576,7 +575,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plotly_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plotly_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize all the dataframe columns as line plots.&quot;&quot;&quot;</span>
     <span class="n">common_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="o">**</span><span class="n">common_kw</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
@@ -740,76 +739,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prophet</span> <span class="kn">import</span> <span class="n">Prophet</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">prophet</span> <span class="kn">import</span> <span class="n">Prophet</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Caches</span><span class="o">/</span><span class="n">pypoetry</span><span class="o">/</span><span class="n">virtualenvs</span><span class="o">/</span><span class="n">mlcourse</span><span class="o">-</span><span class="n">ai</span><span class="o">-</span><span class="n">czBTtoES</span><span class="o">-</span><span class="n">py3</span><span class="mf">.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">prophet</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Copyright (c) 2017-present, Facebook, Inc.</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># All rights reserved.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># This source code is licensed under the BSD-style license found in the</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># LICENSE file in the root directory of this source tree. An additional grant</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># of patent rights can be found in the PATENTS file in the same directory.</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">prophet.forecaster</span> <span class="kn">import</span> <span class="n">Prophet</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">about</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">Library</span><span class="o">/</span><span class="n">Caches</span><span class="o">/</span><span class="n">pypoetry</span><span class="o">/</span><span class="n">virtualenvs</span><span class="o">/</span><span class="n">mlcourse</span><span class="o">-</span><span class="n">ai</span><span class="o">-</span><span class="n">czBTtoES</span><span class="o">-</span><span class="n">py3</span><span class="mf">.12</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.12</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">prophet</span><span class="o">/</span><span class="n">forecaster</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">28</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">NANOSECONDS_TO_SECONDS</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">1000</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="k">class</span> <span class="nc">Prophet</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Prophet forecaster.</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span><span class="sd">     Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd">     holidays_mode: &#39;additive&#39; or &#39;multiplicative&#39;. Defaults to seasonality_mode.</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>             <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>             <span class="n">growth</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>             <span class="n">holidays_mode</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="p">):</span>
-
-<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/prophet/forecaster.py:459,</span> in <span class="ni">Prophet</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="bp">self</span><span class="o">.</span><span class="n">changepoints_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># dummy changepoint</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span> <span class="nd">@staticmethod</span>
-<span class="g g-Whitespace">    </span><span class="mi">455</span> <span class="k">def</span> <span class="nf">fourier_series</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">456</span>     <span class="n">dates</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="n">period</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">458</span>     <span class="n">series_order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">459</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float_</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Provides Fourier series components with the specified frequency</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span><span class="sd">     and order.</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">471</span><span class="sd">     Matrix with seasonality features.</span>
-<span class="g g-Whitespace">    </span><span class="mi">472</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">473</span>     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">series_order</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">):</span>
-
-<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/numpy/__init__.py:400,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span>         <span class="n">name</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">410</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: `np.float_` was removed in the NumPy 2.0 release. Use `np.float64` instead.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">prophet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Prophet</span>
 </pre></div>
 </div>
 </div>
@@ -824,6 +754,58 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ds</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>382</th>
+      <td>2016-01-16</td>
+      <td>1644</td>
+    </tr>
+    <tr>
+      <th>381</th>
+      <td>2016-01-17</td>
+      <td>1836</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>2016-01-18</td>
+      <td>2983</td>
+    </tr>
+    <tr>
+      <th>375</th>
+      <td>2016-01-19</td>
+      <td>3389</td>
+    </tr>
+    <tr>
+      <th>372</th>
+      <td>2016-01-20</td>
+      <td>3559</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -836,6 +818,76 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
 <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:17:24 - cmdstanpy - INFO - Chain [1] start processing
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:17:24 - cmdstanpy - INFO - Chain [1] done processing
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:17:24 - cmdstanpy - ERROR - Chain [1] error: terminated by signal 9 Unknown error: -9
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated abnormally. Falling back to Newton.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:17:24 - cmdstanpy - INFO - Chain [1] start processing
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:17:24 - cmdstanpy - INFO - Chain [1] done processing
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:17:24 - cmdstanpy - ERROR - Chain [1] error: terminated by signal 9 Unknown error: -9
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/prophet/models.py:121,</span> in <span class="ni">CmdStanPyBackend.fit</span><span class="nt">(self, stan_init, stan_data, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">121</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stan_fit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span> <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="c1"># Fall back on Newton</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/cmdstanpy/model.py:659,</span> in <span class="ni">CmdStanModel.optimize</span><span class="nt">(self, data, seed, inits, output_dir, sig_figs, save_profile, algorithm, init_alpha, tol_obj, tol_rel_obj, tol_grad, tol_rel_grad, tol_param, history_size, iter, save_iterations, require_converged, show_console, refresh, time_fmt, timeout, jacobian)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">659</span>         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span> <span class="n">mle</span> <span class="o">=</span> <span class="n">CmdStanMLE</span><span class="p">(</span><span class="n">runset</span><span class="p">)</span>
+
+<span class="ne">RuntimeError</span>: Error during optimization! Command &#39;/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/prophet/stan_model/prophet_model.bin random seed=13232 data file=/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/tmpplzcp64k/lcn3cev2.json init=/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/tmpplzcp64k/i9z6n41n.json output file=/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/tmpplzcp64k/prophet_model6x5_dgov/prophet_model-20250106161724.csv method=optimize algorithm=lbfgs iter=10000&#39; failed: 
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_df</span><span class="p">);</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/prophet/forecaster.py:1232,</span> in <span class="ni">Prophet.fit</span><span class="nt">(self, df, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1230</span>     <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stan_backend</span><span class="o">.</span><span class="n">sampling</span><span class="p">(</span><span class="n">stan_init</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mcmc_samples</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1231</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1232</span>     <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stan_backend</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">stan_init</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1234</span> <span class="bp">self</span><span class="o">.</span><span class="n">stan_fit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stan_backend</span><span class="o">.</span><span class="n">stan_fit</span>
+<span class="g g-Whitespace">   </span><span class="mi">1235</span> <span class="c1"># If no changepoints were requested, replace delta with 0s</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/prophet/models.py:128,</span> in <span class="ni">CmdStanPyBackend.fit</span><span class="nt">(self, stan_init, stan_data, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Optimization terminated abnormally. Falling back to Newton.&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="n">args</span><span class="p">[</span><span class="s1">&#39;algorithm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Newton&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">128</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stan_fit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="n">params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stan_to_dict_numpy</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stan_fit</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stan_fit</span><span class="o">.</span><span class="n">optimized_params_np</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> <span class="k">for</span> <span class="n">par</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+
+<span class="nn">File ~/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/cmdstanpy/model.py:659,</span> in <span class="ni">CmdStanModel.optimize</span><span class="nt">(self, data, seed, inits, output_dir, sig_figs, save_profile, algorithm, init_alpha, tol_obj, tol_rel_obj, tol_grad, tol_rel_grad, tol_param, history_size, iter, save_iterations, require_converged, show_console, refresh, time_fmt, timeout, jacobian)</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span>         <span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">659</span>         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span> <span class="n">mle</span> <span class="o">=</span> <span class="n">CmdStanMLE</span><span class="p">(</span><span class="n">runset</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span> <span class="k">return</span> <span class="n">mle</span>
+
+<span class="ne">RuntimeError</span>: Error during optimization! Command &#39;/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-L-dGjTF0-py3.12/lib/python3.12/site-packages/prophet/stan_model/prophet_model.bin random seed=94163 data file=/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/tmpplzcp64k/1vdfnbpd.json init=/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/tmpplzcp64k/37dzl9tg.json output file=/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/tmpplzcp64k/prophet_modelnv76xx_r/prophet_model-20250106161724.csv method=optimize algorithm=newton iter=10000&#39; failed: 
 </pre></div>
 </div>
 </div>
@@ -917,9 +969,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -990,7 +1042,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="n">ps</span><span class="p">,</span> <span class="n">ds</span><span class="p">,</span> <span class="n">qs</span><span class="p">,</span> <span class="n">Ps</span><span class="p">,</span> <span class="n">Ds</span><span class="p">,</span> <span class="n">Qs</span><span class="p">)</span>
 <span class="n">parameters_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
@@ -1002,9 +1054,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
-<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">results1</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">best_aic</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
@@ -1059,7 +1111,7 @@ document.write(`
 <p>Now do the same, but for the series with Box-Cox transformation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
 
 <span class="n">train_df</span><span class="p">[</span><span class="s2">&quot;y_box&quot;</span><span class="p">],</span> <span class="n">lmbda</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">boxcox</span><span class="p">(</span><span class="n">train_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The optimal Box-Cox transformation parameter: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">lmbda</span><span class="p">)</span>
@@ -1168,7 +1220,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">invboxcox</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lmbda</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">invboxcox</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lmbda</span><span class="p">):</span>
     <span class="c1"># reverse Box Cox transformation</span>
     <span class="k">if</span> <span class="n">lmbda</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -1283,7 +1335,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

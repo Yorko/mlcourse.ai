@@ -716,7 +716,7 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <h3><a class="toc-backref" href="#id11" role="doc-backlink">Tree-building Algorithm</a><a class="headerlink" href="#tree-building-algorithm" title="Permalink to this heading">#</a></h3>
 <p>We can make sure that the tree built in the previous example is optimal: it took only 5 “questions” (conditioned on the variable <span class="math notranslate nohighlight">\(x\)</span>) to perfectly fit a decision tree to the training set. Under other split conditions, the resulting tree would be deeper, i.e. take more “questions” to reach an answer.</p>
 <p>At the heart of the popular algorithms for decision tree construction, such as ID3 or C4.5, lies the principle of greedy maximization of information gain: at each step, the algorithm chooses the variable that gives the greatest information gain upon splitting. Then the procedure is repeated recursively until the entropy is zero (or some small value to account for overfitting). Different algorithms use different heuristics for “early stopping” or “cut-off” to avoid constructing an overfitted tree.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
     <span class="n">create</span> <span class="n">node</span> <span class="n">t</span>
     <span class="k">if</span> <span class="n">the</span> <span class="n">stopping</span> <span class="n">criterion</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">assign</span> <span class="n">a</span> <span class="n">predictive</span> <span class="n">model</span> <span class="n">to</span> <span class="n">t</span>
@@ -745,15 +745,15 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we don&#39;t like warnings</span>
 <span class="c1"># you can comment the following 2 lines if you&#39;d like to</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 </pre></div>
@@ -821,11 +821,11 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <p>Let’s try to separate these two classes by training an <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code> decision tree. We will use <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> parameter that limits the depth of the tree. Let’s visualize the resulting separating boundary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 
 
 <span class="c1"># Let’s write an auxiliary function that will return grid for further visualization.</span>
-<span class="k">def</span> <span class="nf">get_grid</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_grid</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))</span>
@@ -859,11 +859,11 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <p>And how does the tree itself look? We see that the tree “cuts” the space into 8 rectangles, i.e. the tree has 8 leaves. Within each rectangle, the tree will make the prediction according to the majority label of the objects inside it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydotplus</span>  <span class="c1"># pip install pydotplus</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pydotplus</span>  <span class="c1"># pip install pydotplus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_graphviz</span>
 
 
-<span class="k">def</span> <span class="nf">tree_graph_to_png</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">png_file_to_save</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tree_graph_to_png</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">png_file_to_save</span><span class="p">):</span>
     <span class="c1"># needs graphviz to be installed</span>
     <span class="n">tree_str</span> <span class="o">=</span> <span class="n">export_graphviz</span><span class="p">(</span>
         <span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="kc">None</span>
@@ -1390,12 +1390,12 @@ If we calculate information gain for each partition in that manner, we can selec
 <span class="n">noise</span> <span class="o">=</span> <span class="mf">0.1</span>
 
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
 
 
-<span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">5</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">(</span>
@@ -1410,7 +1410,7 @@ If we calculate information gain for each partition in that manner, we can selec
 <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">n_train</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">)</span>
 <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">n_test</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
 
 <span class="n">reg_tree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
 
@@ -1685,9 +1685,9 @@ train the first model without the <em>State</em> feature, and then we will see i
 <p>Let’s allocate 70% of the set for training (<code class="docutils literal notranslate"><span class="pre">X_train</span></code>, <code class="docutils literal notranslate"><span class="pre">y_train</span></code>) and 30% for the hold-out set (<code class="docutils literal notranslate"><span class="pre">X_holdout</span></code>, <code class="docutils literal notranslate"><span class="pre">y_holdout</span></code>). The hold-out set will not be involved in tuning the parameters of the models. We’ll use it at the end, after tuning, to assess the quality of the resulting model. Let’s train 2 models: decision tree and k-NN. We do not know what parameters are good, so we will assume some random ones: a tree depth of 5 and the number of nearest neighbors equal 10.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_holdout</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_holdout</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
@@ -1710,7 +1710,7 @@ train the first model without the <em>State</em> feature, and then we will see i
 <p>Let’s assess prediction quality on our hold-out set with a simple metric, the proportion of correct answers (accuracy). The decision tree did better: the percentage of correct answers is about 94% (decision tree) versus 88% (k-NN). Note that this performance is achieved by using random parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
 
 <span class="n">tree_pred</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_holdout</span><span class="p">)</span>
 <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_holdout</span><span class="p">,</span> <span class="n">tree_pred</span><span class="p">)</span>  <span class="c1"># 0.94</span>
@@ -1739,7 +1739,7 @@ train the first model without the <em>State</em> feature, and then we will see i
 <p>Now, let’s identify the parameters for the tree using cross-validation. We’ll tune the maximum depth and the maximum number of features used at each split. Here is the essence of how the GridSearchCV works: for each unique pair of values of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">max_features</span></code>, compute model performance with 5-fold cross-validation, and then select the best combination of parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
 
 <span class="n">tree_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="s2">&quot;max_features&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">19</span><span class="p">)}</span>
 
@@ -2224,7 +2224,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>Now, let’s tune the number of neighbors <span class="math notranslate nohighlight">\(k\)</span> for k-NN:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 
 <span class="n">knn_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
     <span class="p">[(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s2">&quot;knn&quot;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">))]</span>
@@ -2264,7 +2264,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>Here, the tree proved to be better than the nearest neighbors algorithm: 94.2%/94.6% accuracy for cross-validation and hold-out respectively. Decision trees perform very well, and even random forest (let’s think of it for now as a bunch of trees that work better together) in this example cannot achieve much better performance (95.1%/95.3%) despite being trained for much longer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 
 <span class="n">forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">forest</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)))</span>  <span class="c1"># 0.949</span>
@@ -2316,7 +2316,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>To continue the discussion of the pros and cons of the methods in question, let’s consider a simple classification task, where a tree would perform well but does it in an “overly complicated” manner. Let’s create a set of points on a plane (2 features), each point will be one of two classes (+1 for red, or -1 for yellow). If you look at it as a classification problem, it seems very simple: the classes are separated by a line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">form_linearly_separable_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">x1_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1_max</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">x2_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x2_max</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">form_linearly_separable_data</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">x1_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1_max</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">x2_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">x2_max</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
     <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">x1_min</span><span class="p">,</span> <span class="n">x1_max</span><span class="p">)</span>
@@ -2398,7 +2398,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>Let’s draw some handwritten digits. We see that they are distinguishable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_digits</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_digits</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">load_digits</span><span class="p">()</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
@@ -2984,7 +2984,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>Let’s consider another simple example. In the classification problem, one of the features will just be proportional to the vector of responses, but this won’t help for the nearest neighbors method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">form_noisy_data</span><span class="p">(</span><span class="n">n_obj</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_feat</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">17</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">form_noisy_data</span><span class="p">(</span><span class="n">n_obj</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_feat</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">17</span><span class="p">):</span>
     <span class="n">np</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">random_seed</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">n_obj</span><span class="p">)</span>
 
@@ -3011,7 +3011,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span>
 <span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span>
 
 <span class="n">cv_scores</span><span class="p">,</span> <span class="n">holdout_scores</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span class="n">n_neighb</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
@@ -3250,7 +3250,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

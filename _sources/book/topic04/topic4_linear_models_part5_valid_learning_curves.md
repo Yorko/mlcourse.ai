@@ -78,21 +78,21 @@ y = data["Churn"].astype("int").values
 X = data.drop("Churn", axis=1).values
 ```
 
-**We will train logistic regression with stochastic gradient descent. Later in the course, we will have a separate article on this topic.**
+**We will train an SVM with stochastic gradient descent. Later in the course, we will have a separate article on this topic.**
 
 
 ```{code-cell} ipython3
-alphas = np.logspace(-2, 0, 20)
-sgd_logit = SGDClassifier(loss="log", n_jobs=-1, random_state=17, max_iter=5)
+alphas = np.logspace(-4, 0, 20)
+sgd_model = SGDClassifier(loss="hinge", n_jobs=-1, random_state=17)
 logit_pipe = Pipeline(
     [
         ("scaler", StandardScaler()),
         ("poly", PolynomialFeatures(degree=2)),
-        ("sgd_logit", sgd_logit),
+        ("sgd_model", sgd_model),
     ]
 )
 val_train, val_test = validation_curve(
-    estimator=logit_pipe, X=X, y=y, param_name="sgd_logit__alpha", param_range=alphas, cv=5, scoring="roc_auc"
+    estimator=logit_pipe, X=X, y=y, param_name="sgd_model__alpha", param_range=alphas, cv=5, scoring="roc_auc"
 )
 ```
 
@@ -123,11 +123,9 @@ plt.grid(True);
 
 The trend is quite visible and is very common.
 
-- For simple models, training and validation errors are close and large. This suggests that the model **underfitted**, meaning it does not have a sufficient number of parameters.
+- For simple models, training and validation errors are close and large (conversely, metrics like ROC AUC or accuracy are low). This suggests that the model **underfitted**, meaning it does not have a sufficient number of parameters.
 
 - For highly sophisticated models, training and validation errors differ significantly. This can be explained by **overfitting**. When there are too many parameters or regularization is not strict enough, the algorithm can be "distracted" by the noise in the data and lose track of the overall trend.
-
-
 
 ### How much data is needed?
 
@@ -146,7 +144,7 @@ def plot_learning_curve(degree=2, alpha=0.01):
             ("scaler", StandardScaler()),
             ("poly", PolynomialFeatures(degree=degree)),
             (
-                "sgd_logit",
+                "sgd_model",
                 SGDClassifier(n_jobs=-1, random_state=17, alpha=alpha, max_iter=5),
             ),
         ]

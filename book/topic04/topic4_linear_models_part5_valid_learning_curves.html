@@ -559,19 +559,19 @@ document.write(`
 </nav>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="c1">#sharper plots</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="p">(</span><span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">LogisticRegressionCV</span><span class="p">,</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">LogisticRegressionCV</span><span class="p">,</span>
                                   <span class="n">SGDClassifier</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">learning_curve</span><span class="p">,</span> <span class="n">validation_curve</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">learning_curve</span><span class="p">,</span> <span class="n">validation_curve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span><span class="p">,</span> <span class="n">StandardScaler</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
@@ -609,20 +609,20 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>We will train logistic regression with stochastic gradient descent. Later in the course, we will have a separate article on this topic.</strong></p>
+<p><strong>We will train an SVM with stochastic gradient descent. Later in the course, we will have a separate article on this topic.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">sgd_logit</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">sgd_model</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;hinge&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
 <span class="n">logit_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
         <span class="p">(</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)),</span>
-        <span class="p">(</span><span class="s2">&quot;sgd_logit&quot;</span><span class="p">,</span> <span class="n">sgd_logit</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;sgd_model&quot;</span><span class="p">,</span> <span class="n">sgd_model</span><span class="p">),</span>
     <span class="p">]</span>
 <span class="p">)</span>
 <span class="n">val_train</span><span class="p">,</span> <span class="n">val_test</span> <span class="o">=</span> <span class="n">validation_curve</span><span class="p">(</span>
-    <span class="n">estimator</span><span class="o">=</span><span class="n">logit_pipe</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">param_name</span><span class="o">=</span><span class="s2">&quot;sgd_logit__alpha&quot;</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">alphas</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">logit_pipe</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">param_name</span><span class="o">=</span><span class="s2">&quot;sgd_model__alpha&quot;</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">alphas</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -631,7 +631,7 @@ document.write(`
 <p><strong>As a first step, we will construct validation curves showing how the quality (ROC-AUC) on training and test sets varies with the regularization parameter.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_with_err</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_with_err</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">data</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span>
@@ -654,12 +654,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eaebed195e56beb43384c0b7c215aa07d824261adaa72ea0cf396dc30a0b28df.png" src="../../_images/eaebed195e56beb43384c0b7c215aa07d824261adaa72ea0cf396dc30a0b28df.png" />
+<img alt="../../_images/4407dd7bf398a948eabc571e0c8889310f61d142895eed85c50e397fc666282b.png" src="../../_images/4407dd7bf398a948eabc571e0c8889310f61d142895eed85c50e397fc666282b.png" />
 </div>
 </div>
 <p>The trend is quite visible and is very common.</p>
 <ul class="simple">
-<li><p>For simple models, training and validation errors are close and large. This suggests that the model <strong>underfitted</strong>, meaning it does not have a sufficient number of parameters.</p></li>
+<li><p>For simple models, training and validation errors are close and large (conversely, metrics like ROC AUC or accuracy are low). This suggests that the model <strong>underfitted</strong>, meaning it does not have a sufficient number of parameters.</p></li>
 <li><p>For highly sophisticated models, training and validation errors differ significantly. This can be explained by <strong>overfitting</strong>. When there are too many parameters or regularization is not strict enough, the algorithm can be “distracted” by the noise in the data and lose track of the overall trend.</p></li>
 </ul>
 <section id="how-much-data-is-needed">
@@ -669,14 +669,14 @@ document.write(`
 <p>The idea is simple: we display the error as a function of the number of examples used in training. The parameters of the model are fixed in advance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_learning_curve</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_learning_curve</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
     <span class="n">train_sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
     <span class="n">logit_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
         <span class="p">[</span>
             <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
             <span class="p">(</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="n">degree</span><span class="p">)),</span>
             <span class="p">(</span>
-                <span class="s2">&quot;sgd_logit&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sgd_model&quot;</span><span class="p">,</span>
                 <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
             <span class="p">),</span>
         <span class="p">]</span>
@@ -702,7 +702,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9b89e67f86e6c2b289155f697e12b6f9f858c60056bf9bccddbe38b38f7e0033.png" src="../../_images/9b89e67f86e6c2b289155f697e12b6f9f858c60056bf9bccddbe38b38f7e0033.png" />
+<img alt="../../_images/378dbae702a9e62b519fc776781e02e90a27090aeb99717fb16ee79127fc4aa2.png" src="../../_images/378dbae702a9e62b519fc776781e02e90a27090aeb99717fb16ee79127fc4aa2.png" />
 </div>
 </div>
 <p>A typical situation: for a small amounts of data, errors between training and cross-validation sets are quite different, indicating overfitting. For that same model but with a large amount of data, errors “converge”, indicating underfitting.</p>
@@ -717,7 +717,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a5c30ee76a9e46003d1dcada7816e3700b39a2ffd43068ea58b2d39788893fd9.png" src="../../_images/a5c30ee76a9e46003d1dcada7816e3700b39a2ffd43068ea58b2d39788893fd9.png" />
+<img alt="../../_images/dd64480982d9da803f23bebf8164a50de303316185e15c4ea026448d0bc586cf.png" src="../../_images/dd64480982d9da803f23bebf8164a50de303316185e15c4ea026448d0bc586cf.png" />
 </div>
 </div>
 <p>Now, what if we make the model even more complex by setting alpha = 10-4?</p>
@@ -729,7 +729,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cb085f76fc8af1f6b1b8aade16527fa2bd0827e17b4f6b5ee7910009dc63a290.png" src="../../_images/cb085f76fc8af1f6b1b8aade16527fa2bd0827e17b4f6b5ee7910009dc63a290.png" />
+<img alt="../../_images/d1a3117530fe566d21b3d26c531d2308c33abd54735e94a0ac4c2a2236dae3af.png" src="../../_images/d1a3117530fe566d21b3d26c531d2308c33abd54735e94a0ac4c2a2236dae3af.png" />
 </div>
 </div>
 <p>Constructing these curves can help understand which way to go and how to properly adjust the complexity of the model for new data.</p>
@@ -865,7 +865,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

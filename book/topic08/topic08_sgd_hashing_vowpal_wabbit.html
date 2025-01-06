@@ -585,22 +585,22 @@ document.write(`
 </nav>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_20newsgroups</span><span class="p">,</span> <span class="n">load_files</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span><span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.sparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_20newsgroups</span><span class="p">,</span> <span class="n">load_files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span>
                              <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">log_loss</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span>
                              <span class="n">roc_curve</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 </pre></div>
 </div>
@@ -1267,7 +1267,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>Does this operation make any sense? Not really. Let’s try to train logistic regression with this feature transformation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logistic_regression_accuracy_on</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
     <span class="n">features</span> <span class="o">=</span> <span class="n">dataframe</span>
     <span class="n">train_features</span><span class="p">,</span> <span class="n">test_features</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
         <span class="n">features</span><span class="p">,</span> <span class="n">labels</span>
@@ -1865,7 +1865,7 @@ Thanks,
 <p>Now we convert the data into something Vowpal Wabbit can understand. We will throw away words shorter than 3 symbols. Here, we will skip some important NLP stages such as stemming and lemmatization; however, we will later see that VW solves the problem even without these steps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">to_vw_format</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_vw_format</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="nb">str</span><span class="p">(</span><span class="n">label</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
         <span class="o">+</span> <span class="s2">&quot; |text &quot;</span>
@@ -2053,16 +2053,16 @@ talk.religion.misc 19
 <p>Using the <code class="docutils literal notranslate"><span class="pre">load_files</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code>, we load the movie reviews datasets. It’s the same dataset we used in topic04 part4 notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tarfile</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
 <span class="c1"># Download the dataset if not already in place</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz&quot;</span>
 
 
-<span class="k">def</span> <span class="nf">load_imdb_dataset</span><span class="p">(</span><span class="n">extract_path</span><span class="o">=</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_imdb_dataset</span><span class="p">(</span><span class="n">extract_path</span><span class="o">=</span><span class="n">PATH_TO_WRITE_DATA</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="c1"># check if existed already</span>
     <span class="k">if</span> <span class="p">(</span>
         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="s2">&quot;aclImdb&quot;</span><span class="p">,</span> <span class="s2">&quot;README&quot;</span><span class="p">))</span>
@@ -2580,7 +2580,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

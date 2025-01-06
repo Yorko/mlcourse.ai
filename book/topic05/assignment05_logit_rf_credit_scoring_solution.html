@@ -280,7 +280,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
 <li class="toctree-l1"><a class="reference internal" href="../topic09/topic9_part2_facebook_prophet.html">Predicting the future with Facebook Prophet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topic09/videolecture09.html">Videolecture 9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../topic09/assignment09_time_series.html">Demo Assignment 9</a></li>
@@ -615,16 +614,16 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable warnings in Anaconda</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 </pre></div>
@@ -633,7 +632,7 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">rcParams</span>
 
 <span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span>
 </pre></div>
@@ -643,7 +642,7 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 <p>Let’s write the function that will replace <em>NaN</em> values with the median for each column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_nan</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fill_nan</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">table</span>
@@ -857,14 +856,14 @@ Name: count, dtype: float64
 <p><strong>Solution:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_bootstrap_samples</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_bootstrap_samples</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate samples using bootstrapping.&quot;&quot;&quot;</span>
     <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
     <span class="n">samples</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">samples</span>
 
 
-<span class="k">def</span> <span class="nf">stat_intervals</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stat_intervals</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make an interval estimate.&quot;&quot;&quot;</span>
     <span class="n">boundaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)])</span>
     <span class="k">return</span> <span class="n">boundaries</span>
@@ -896,8 +895,8 @@ Name: count, dtype: float64
 <p>Let’s set up to use logistic regression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
 </pre></div>
 </div>
 </div>
@@ -1646,7 +1645,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><strong>Solution:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">)</span>
 <span class="n">scal</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -1844,7 +1843,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>Import the Random Forest classifier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 </pre></div>
 </div>
 </div>
@@ -2021,8 +2020,8 @@ Wall time: 33.6 s
 <p>Import modules and set up the parameters for bagging:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomizedSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
 
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;max_features&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
@@ -2185,7 +2184,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

@@ -597,13 +597,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preload dataset automatically, if not already in place.</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="k">def</span> <span class="nf">download_file_from_gdrive</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">download_file_from_gdrive</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Downloads a file from GDrive given an URL</span>
 <span class="sd">    :param file_url: a string formated as https://drive.google.com/uc?id=&lt;file_id&gt;</span>
@@ -672,7 +672,7 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vocabulary:&quot;</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">vectorize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vectorize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="n">vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocabulary</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">vocabulary</span><span class="p">:</span>
         <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
@@ -706,7 +706,7 @@ Vectors:
 <p>When using algorithms like Bag of Words, we lose the order of the words in the text, which means that the texts “i have no cows” and “no, i have cows” will appear identical after vectorization when, in fact, they have the opposite meaning. To avoid this problem, we can revisit our tokenization step and use N-grams (the <em>sequence</em> of N consecutive tokens) instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
 
 <span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="s2">&quot;no i have cows&quot;</span><span class="p">,</span> <span class="s2">&quot;i have no cows&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -767,8 +767,8 @@ Vectors:
 <p>Also note that one does not have to use only words. In some cases, it is possible to generate N-grams of characters. This approach would be able to account for similarity of related words or handle typos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">euclidean</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial.distance</span><span class="w"> </span><span class="kn">import</span> <span class="n">euclidean</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
 
 <span class="n">vect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">analyzer</span><span class="o">=</span><span class="s2">&quot;char_wb&quot;</span><span class="p">)</span>
 
@@ -849,10 +849,10 @@ Vectors:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># requires `tesseract` to be installed in the system</span>
-<span class="kn">import</span> <span class="nn">pytesseract</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytesseract</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>
 
 <span class="c1">##### Just a random picture from search</span>
 <span class="n">img</span> <span class="o">=</span> <span class="s2">&quot;http://ohscurrent.org/wp-content/uploads/2015/09/domus-01-google.jpg&quot;</span>
@@ -912,7 +912,7 @@ x1t0&quot;
 <p>If you have a small amount of data, enough time, and no desire to extract fancy features, you can use <code class="docutils literal notranslate"><span class="pre">reverse_geocoder</span></code> in lieu of OpenStreetMap:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">reverse_geocoder</span> <span class="k">as</span> <span class="nn">revgc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">reverse_geocoder</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">revgc</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="n">revgc</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">longitude</span><span class="p">)))</span>
 
@@ -970,7 +970,7 @@ x1t0&quot;
 <p>There also exist some more esoteric approaches to such data like projecting the time onto a circle and using the two coordinates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_harmonic_features</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_harmonic_features</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
     <span class="n">value</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">period</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -980,7 +980,7 @@ x1t0&quot;
 <p>This transformation preserves the distance between points, which is important for algorithms that estimate distance (kNN, SVM, k-means …)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">distance</span>
 
 <span class="n">euclidean</span><span class="p">(</span><span class="n">make_harmonic_features</span><span class="p">(</span><span class="mi">23</span><span class="p">),</span> <span class="n">make_harmonic_features</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -1025,7 +1025,7 @@ x1t0&quot;
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install pyyaml ua-parser user-agents</span>
-<span class="kn">import</span> <span class="nn">user_agents</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">user_agents</span>
 
 <span class="n">ua</span> <span class="o">=</span> <span class="s2">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/56.0.2924.76 Chrome/56.0.2924.76 Safari/537.36&quot;</span>
 <span class="n">ua</span> <span class="o">=</span> <span class="n">user_agents</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">ua</span><span class="p">)</span>
@@ -1074,9 +1074,9 @@ Browser Version:  (56, 0, 2924)
 <p>Note that Standard Scaling does not make the distribution normal in the strict sense.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">beta</span><span class="p">,</span> <span class="n">shapiro</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span><span class="p">,</span> <span class="n">shapiro</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">beta</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">shapiro</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -1155,7 +1155,7 @@ Browser Version:  (56, 0, 2924)
 \[ \large X_{norm}=\frac{X-X_{min}}{X_{max}-X_{min}} \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span>
 
 <span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
@@ -1203,7 +1203,7 @@ Browser Version:  (56, 0, 2924)
 <p>If we assume that some data is not normally distributed but is described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">log-normal distribution</a>, it can easily be transformed to a normal distribution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">lognorm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">lognorm</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">lognorm</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">shapiro</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -1245,7 +1245,7 @@ Browser Version:  (56, 0, 2924)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s draw plots!</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
 <span class="c1"># Let&#39;s take the price feature from Renthop dataset and filter by hands the most extreme values for clarity</span>
 
@@ -1354,8 +1354,8 @@ Browser Version:  (56, 0, 2924)
 <p>The most obvious candidate for removal is a feature whose value remains unchanged, i.e., it contains no information at all. If we build on this thought, it is reasonable to say that features with low variance are worse than those with high variance. So, one can consider cutting features with variance below a certain threshold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">VarianceThreshold</span>
 
 <span class="n">x_data_generated</span><span class="p">,</span> <span class="n">y_data_generated</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">()</span>
 <span class="n">x_data_generated</span><span class="o">.</span><span class="n">shape</span>
@@ -1407,9 +1407,9 @@ Browser Version:  (56, 0, 2924)
 <p>There are other ways that are also <a class="reference external" href="http://scikit-learn.org/stable/modules/feature_selection.html#univariate-feature-selection">based on classical statistics</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span><span class="p">,</span> <span class="n">f_classif</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectKBest</span><span class="p">,</span> <span class="n">f_classif</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span>
 
 <span class="n">x_data_kbest</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">f_classif</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
     <span class="n">x_data_generated</span><span class="p">,</span> <span class="n">y_data_generated</span>
@@ -1477,11 +1477,11 @@ Browser Version:  (56, 0, 2924)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Synthetic example</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectFromModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
 
 <span class="n">x_data_generated</span><span class="p">,</span> <span class="n">y_data_generated</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">()</span>
 
@@ -1679,7 +1679,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

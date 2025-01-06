@@ -564,14 +564,14 @@ document.write(`
 <img alt="../../_images/topic4_bag_of_words.svg" src="../../_images/topic4_bag_of_words.svg" /></figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="c1">#sharper plots</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_files</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
 </pre></div>
 </div>
 </div>
@@ -579,15 +579,15 @@ document.write(`
 <p><strong>To get started, we automatically download the dataset from <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz">here</a> and unarchive it along with the rest of datasets in the data folder. The dataset is briefly described <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/">here</a>. There are 12.5k of good and bad reviews in the test and training sets.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tarfile</span>
-<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz&quot;</span>
 
 
-<span class="k">def</span> <span class="nf">load_imdb_dataset</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_imdb_dataset</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="c1"># check if existed already</span>
     <span class="k">if</span> <span class="p">(</span>
         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="s2">&quot;aclImdb&quot;</span><span class="p">,</span> <span class="s2">&quot;README&quot;</span><span class="p">))</span>
@@ -1274,7 +1274,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><strong>The coefficients of the model can be beautifully displayed.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualize_coefficients</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">n_top_features</span><span class="o">=</span><span class="mi">25</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_coefficients</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">n_top_features</span><span class="o">=</span><span class="mi">25</span><span class="p">):</span>
     <span class="c1"># get coefficients with large absolute values</span>
     <span class="n">coef</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
     <span class="n">positive_coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">coef</span><span class="p">)[</span><span class="o">-</span><span class="n">n_top_features</span><span class="p">:]</span>
@@ -1297,7 +1297,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_grid_scores</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">param_name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_grid_scores</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">param_name</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
         <span class="n">grid</span><span class="o">.</span><span class="n">param_grid</span><span class="p">[</span><span class="n">param_name</span><span class="p">],</span>
         <span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s2">&quot;mean_train_score&quot;</span><span class="p">],</span>
@@ -1329,7 +1329,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
 
 <span class="n">text_pipe_logit</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
     <span class="n">CountVectorizer</span><span class="p">(),</span>
@@ -1364,7 +1364,7 @@ Wall time: 4.43 s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
 
 <span class="n">param_grid_logit</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;logisticregression__C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
 <span class="n">grid_logit</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
@@ -1932,7 +1932,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><strong>Now let’s do the same with random forest. We see that, with logistic regression, we achieve better accuracy with less effort.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 </pre></div>
 </div>
 </div>
@@ -2407,7 +2407,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>Obviously, one cannot draw a single straight line to separate one class from another without errors. Therefore, logistic regression performs poorly with this task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_boundary</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">plot_title</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_boundary</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">plot_title</span><span class="p">):</span>
     <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
     <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="c1"># plot the decision function for each datapoint on the grid</span>
@@ -2454,8 +2454,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>But if one were to give polynomial features as an input (here, up to 2 degrees), then the problem is solved.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PolynomialFeatures</span>
 </pre></div>
 </div>
 </div>
@@ -2602,7 +2602,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
