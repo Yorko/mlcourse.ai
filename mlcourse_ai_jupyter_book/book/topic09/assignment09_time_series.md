@@ -77,6 +77,7 @@ DATA_PATH = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 df = pd.read_csv(DATA_PATH + "wiki_machine_learning.csv", sep=" ")
 df = df[df["count"] != 0]
 df.head()
+
 ```
 
 
