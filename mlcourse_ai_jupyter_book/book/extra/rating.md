@@ -570,7 +570,7 @@ According to the [final rating](https://drive.google.com/open?id=1NSdcHzMy_KoFx6
 
 According to the [final rating](https://drive.google.com/open?id=1thts1kTZev82aIvTa2MJAioTXjU9NjCPC7sFe1vZiEY). The session took place in Feb-May 2017, there were 530 participants.
 
-1. Волков Дмитрий Сергеевич, [e-mail](mailto:dsvolkov@gmail.com)
+1. Волков Дмитрий Сергеевич, [LinkedIn](https://www.linkedin.com/in/dmitry-dv-volkov/), [e-mail](mailto:dsvolkov@gmail.com)
 1. Лазарев Александр Александрович, [GitHub](https://github.com/Arsey), [LinkedIn](https://www.linkedin.com/in/arsey)
 1. Куцев Роман Анатольевич, [GitHub](https://github.com/Kucev), [e-mail](mailto:roman@kucev.ru)
 1. Буянкин Михаил Александрович
