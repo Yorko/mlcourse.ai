@@ -10,7 +10,6 @@ The course aims at a perfect balance between theory and practice. Therefore, pre
  - [Python](prereq_python)
  - [Math](prereq_math)
  - [Software & DevOps](prereq_software_devops)
- - (opt.) [Docker](prereq_docker)
 
 
 ## Python
