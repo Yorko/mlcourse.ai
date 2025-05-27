@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic02/topic02_visual_data_analysis';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Visual data analysis in Python. Part 2. Overview of Seaborn, Matplotlib and Plotly libraries" href="topic02_additional_seaborn_matplotlib_plotly.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -562,7 +574,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction">
-<span id="topic2-part1"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction</a><a class="headerlink" href="#visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction" title="Permalink to this heading">#</a></h1>
+<span id="topic2-part1"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Visual data analysis in Python. Part 1. Visualization: from Simple Distributions to Dimensionality Reduction</a><a class="headerlink" href="#visual-data-analysis-in-python-part-1-visualization-from-simple-distributions-to-dimensionality-reduction" title="Link to this heading">#</a></h1>
 <figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
 </figure>
@@ -574,7 +586,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>All in all, visualization is a relatively fast way to learn something new about your data. Thus, it is vital to learn its most useful techniques and make them part of your everyday ML toolbox.</p>
 <p>In this article, we are going to get hands-on experience with visual exploration of data using popular libraries such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -631,7 +643,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </nav>
 </section>
 <section id="dataset">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Dataset</a><a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Dataset</a><a class="headerlink" href="#dataset" title="Link to this heading">#</a></h2>
 <p>Before we get to the data, let’s initialize our environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,14 +960,14 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>The last data column, <strong>Churn</strong>, is our target variable. It is binary: <em>True</em> indicates that the company eventually lost the customer, and <em>False</em> indicates that the customer was retained. Later, we will build models that predict this feature based on the remaining features. This is why we call it a <em>target</em>.</p>
 </section>
 <section id="univariate-visualization">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Univariate visualization</a><a class="headerlink" href="#univariate-visualization" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Univariate visualization</a><a class="headerlink" href="#univariate-visualization" title="Link to this heading">#</a></h2>
 <p><em>Univariate</em> analysis looks at one feature at a time. When we analyze a feature independently, we are usually mostly interested in the <em>distribution of its values</em> and ignore other features in the dataset.</p>
 <p>Below, we will consider different statistical types of features and the corresponding tools for their individual visual analysis.</p>
 <section id="quantitative-features">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">2.1 Quantitative features</a><a class="headerlink" href="#quantitative-features" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">2.1 Quantitative features</a><a class="headerlink" href="#quantitative-features" title="Link to this heading">#</a></h3>
 <p><em>Quantitative features</em> take on ordered numerical values. Those values can be <em>discrete</em>, like integers, or <em>continuous</em>, like real numbers, and usually express a count or a measurement.</p>
 <section id="histograms-and-density-plots">
-<h4><a class="toc-backref" href="#id6" role="doc-backlink">Histograms and density plots</a><a class="headerlink" href="#histograms-and-density-plots" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Histograms and density plots</a><a class="headerlink" href="#histograms-and-density-plots" title="Link to this heading">#</a></h4>
 <p>The easiest way to take a look at the distribution of a numerical variable is to plot its <em>histogram</em> using the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.hist.html"><code class="docutils literal notranslate"><span class="pre">hist()</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -965,7 +977,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e3d11b317239ea45740ca4b36c830a17a19d891cb11ca8d3767b87499c574f86.svg" src="../../_images/e3d11b317239ea45740ca4b36c830a17a19d891cb11ca8d3767b87499c574f86.svg" /></div>
+<img alt="../../_images/58bd2389ddae4b6025aa07ea9d72a69790fbeaee4eb1f9964900206372b42352.svg" src="../../_images/58bd2389ddae4b6025aa07ea9d72a69790fbeaee4eb1f9964900206372b42352.svg" />
+</div>
 </div>
 <p>A histogram groups values into <em>bins</em> of equal value range. The shape of the histogram may contain clues about the underlying distribution type: Gaussian, exponential, etc. You can also spot any skewness in its shape when the distribution is nearly regular but has some anomalies. Knowing the distribution of the feature values becomes essential when you use Machine Learning methods that assume a particular type (most often Gaussian).</p>
 <p>In the above plot, we see that the variable <em>Total day minutes</em> is normally distributed, while <em>Total intl calls</em> is prominently skewed right (its tail is longer on the right).</p>
@@ -979,7 +992,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2a5c38e1b3d54d098eedc93c76924a224cf44f462b3a3a520c49460de618b73f.svg" src="../../_images/2a5c38e1b3d54d098eedc93c76924a224cf44f462b3a3a520c49460de618b73f.svg" /></div>
+<img alt="../../_images/93a6637f95a2e5752556c6597d58e0998fb36699a08cb048238d95969b83893b.svg" src="../../_images/93a6637f95a2e5752556c6597d58e0998fb36699a08cb048238d95969b83893b.svg" />
+</div>
 </div>
 <p>It is also possible to plot a distribution of observations with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.histplot.html"><code class="docutils literal notranslate"><span class="pre">histplot()</span></code></a>. For example, let’s look at the distribution of <em>Total day minutes</em>. Let’s plot the histogram with the <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimate</a> (KDE) on top.</p>
 <div class="cell docutils container">
@@ -989,12 +1003,13 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c04dba2a24d7bfcf5a8ca0182f16fb2400b25b70f4de636951b900f6529b3225.svg" src="../../_images/c04dba2a24d7bfcf5a8ca0182f16fb2400b25b70f4de636951b900f6529b3225.svg" /></div>
+<img alt="../../_images/91bd1bb9f7f256d0e4a75b1319fc5b9e5dd42cd4d99ee381847d617374ab70cd.svg" src="../../_images/91bd1bb9f7f256d0e4a75b1319fc5b9e5dd42cd4d99ee381847d617374ab70cd.svg" />
+</div>
 </div>
 <p>The height of the histogram bars here is normed and shows the density rather than the number of examples in each bin.</p>
 </section>
 <section id="box-plot">
-<h4><a class="toc-backref" href="#id7" role="doc-backlink">Box plot</a><a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Box plot</a><a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h4>
 <p>Another useful type of visualization is a <em>box plot</em>. <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> does a great job here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1003,7 +1018,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6d4e1435676a2cc0946caa1757050e4ba313c9a0726aeca435673565572e5299.svg" src="../../_images/6d4e1435676a2cc0946caa1757050e4ba313c9a0726aeca435673565572e5299.svg" /></div>
+<img alt="../../_images/c4a91fba4b12d448dd14f4ec7af069cf79bfe2759e10ac0c75c5a351be2c632e.svg" src="../../_images/c4a91fba4b12d448dd14f4ec7af069cf79bfe2759e10ac0c75c5a351be2c632e.svg" />
+</div>
 </div>
 <p>Let’s see how to interpret a box plot. Its components are a <em>box</em> (obviously, this is why it is called a <em>box plot</em>), the so-called <em>whiskers</em>, and a number of individual points (<em>outliers</em>).</p>
 <p>The box by itself illustrates the interquartile spread of the distribution; its length is determined by the <span class="math notranslate nohighlight">\(25^{th} \, (\text{Q1})\)</span> and <span class="math notranslate nohighlight">\(75^{th} \, (\text{Q3})\)</span> percentiles. The vertical line inside the box marks the median (<span class="math notranslate nohighlight">\(50\%\)</span>) of the distribution.</p>
@@ -1012,7 +1028,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>We can see that a large number of international calls is quite rare in our data.</p>
 </section>
 <section id="violin-plot">
-<h4><a class="toc-backref" href="#id8" role="doc-backlink">Violin plot</a><a class="headerlink" href="#violin-plot" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Violin plot</a><a class="headerlink" href="#violin-plot" title="Link to this heading">#</a></h4>
 <p>The last type of distribution plots that we will consider is a <em>violin plot</em>.</p>
 <p>Look at the figures below. On the left, we see the already familiar box plot. To the right, there is a <em>violin plot</em> with the kernel density estimate on both sides.</p>
 <div class="cell docutils container">
@@ -1024,13 +1040,14 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f65281cc8ada65a5568a8c8a57809a63e078e7fdf950ca129de1248deb0f24e1.svg" src="../../_images/f65281cc8ada65a5568a8c8a57809a63e078e7fdf950ca129de1248deb0f24e1.svg" /></div>
+<img alt="../../_images/3b08eeb72e9c950cac9a3c57d1a906f7d329f9b38627c2df2b5482ff1c706842.svg" src="../../_images/3b08eeb72e9c950cac9a3c57d1a906f7d329f9b38627c2df2b5482ff1c706842.svg" />
+</div>
 </div>
 <p>The difference between the box and violin plots is that the former illustrates certain statistics concerning individual examples in a dataset while the violin plot concentrates more on the smoothed distribution as a whole.</p>
 <p>In our case, the violin plot does not contribute any additional information about the data, as everything is clear from the box plot alone.</p>
 </section>
 <section id="describe">
-<h4><a class="toc-backref" href="#id9" role="doc-backlink">describe()</a><a class="headerlink" href="#describe" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">describe()</a><a class="headerlink" href="#describe" title="Link to this heading">#</a></h4>
 <p>In addition to graphical tools, in order to get the exact numerical statistics of the distribution, we can use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html"><code class="docutils literal notranslate"><span class="pre">describe()</span></code></a> of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,10 +1127,10 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </section>
 </section>
 <section id="categorical-and-binary-features">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.2 Categorical and binary features</a><a class="headerlink" href="#categorical-and-binary-features" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.2 Categorical and binary features</a><a class="headerlink" href="#categorical-and-binary-features" title="Link to this heading">#</a></h3>
 <p><em>Categorical features</em> take on a fixed number of values. Each of these values assigns an observation to a corresponding group, known as a <em>category</em>, which reflects some qualitative property of this example. <em>Binary</em> variables are an important special case of categorical variables when the number of possible values is exactly 2. If the values of a categorical variable are ordered, it is called <em>ordinal</em>.</p>
 <section id="frequency-table">
-<h4><a class="toc-backref" href="#id11" role="doc-backlink">Frequency table</a><a class="headerlink" href="#frequency-table" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Frequency table</a><a class="headerlink" href="#frequency-table" title="Link to this heading">#</a></h4>
 <p>Let’s check the class balance in our dataset by looking at the distribution of the target variable: the <em>churn rate</em>. First, we will get a frequency table, which shows how frequent each value of the categorical variable is. For this, we will use the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html"><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code></a> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1134,7 +1151,7 @@ Name: count, dtype: int64
 <p>In our case, the data is not <em>balanced</em>; that is, our two target classes, loyal and disloyal customers, are not represented equally in the dataset. Only a small part of the clients canceled their subscriptions to the telecom service. As we will see in the following articles, this fact may imply some restrictions on measuring the classification performance, and, in the future, we may want to additionally penalize our model errors in predicting the minority “Churn” class.</p>
 </section>
 <section id="bar-plot">
-<h4><a class="toc-backref" href="#id12" role="doc-backlink">Bar plot</a><a class="headerlink" href="#bar-plot" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Bar plot</a><a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h4>
 <p>The bar plot is a graphical representation of the frequency table. The easiest way to create it is to use the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>’s function <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.countplot.html"><code class="docutils literal notranslate"><span class="pre">countplot()</span></code></a>. There is another function in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> that is somewhat confusingly called <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.barplot.html"><code class="docutils literal notranslate"><span class="pre">barplot()</span></code></a> and is mostly used for the representation of some basic statistics of a numerical variable grouped by a categorical feature.</p>
 <p>Let’s plot the distributions for two categorical variables:</p>
 <div class="cell docutils container">
@@ -1147,7 +1164,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/701edbc845bdf1143417b45aaac809db8845933be1b08b6069d177158756a5c9.svg" src="../../_images/701edbc845bdf1143417b45aaac809db8845933be1b08b6069d177158756a5c9.svg" /></div>
+<img alt="../../_images/369ff8ec3619ede0cf5ca93c37f215a1f353f4552f502ce302a4bf73b6862102.svg" src="../../_images/369ff8ec3619ede0cf5ca93c37f215a1f353f4552f502ce302a4bf73b6862102.svg" />
+</div>
 </div>
 <p>While the histograms, discussed above, and bar plots may look similar, there are several differences between them:</p>
 <ol class="arabic simple">
@@ -1160,12 +1178,12 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="multivariate-visualization">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">3. Multivariate visualization</a><a class="headerlink" href="#multivariate-visualization" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">3. Multivariate visualization</a><a class="headerlink" href="#multivariate-visualization" title="Link to this heading">#</a></h2>
 <p><em>Multivariate</em> plots allow us to see relationships between two and more different variables, all in one figure. Just as in the case of univariate plots, the specific type of visualization will depend on the types of the variables being analyzed.</p>
 <section id="quantitative-vs-quantitative">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.1 Quantitative vs. Quantitative</a><a class="headerlink" href="#quantitative-vs-quantitative" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.1 Quantitative vs. Quantitative</a><a class="headerlink" href="#quantitative-vs-quantitative" title="Link to this heading">#</a></h3>
 <section id="correlation-matrix">
-<h4><a class="toc-backref" href="#id15" role="doc-backlink">Correlation matrix</a><a class="headerlink" href="#correlation-matrix" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Correlation matrix</a><a class="headerlink" href="#correlation-matrix" title="Link to this heading">#</a></h4>
 <p>Let’s look at the correlations among the numerical variables in our dataset. This information is important to know as there are Machine Learning algorithms (for example, linear and logistic regression) that do not handle highly correlated input variables well.</p>
 <p>First, we will use the method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr.html"><code class="docutils literal notranslate"><span class="pre">corr()</span></code></a> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> that calculates the correlation between each pair of features. Then, we pass the resulting <em>correlation matrix</em> to <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.heatmap.html"><code class="docutils literal notranslate"><span class="pre">heatmap()</span></code></a> from <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, which renders a color-coded matrix for the provided values:</p>
 <div class="cell docutils container">
@@ -1192,7 +1210,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e6f92bbc12d174f4fdd70480d3c4ee0cf30c83129c646c091fbeb05fbd6c663.svg" src="../../_images/6e6f92bbc12d174f4fdd70480d3c4ee0cf30c83129c646c091fbeb05fbd6c663.svg" /></div>
+<img alt="../../_images/42c9429fe8edd07352c78deaa413a16eb8a9d70e1823c0c66afa761aa70a0cf4.svg" src="../../_images/42c9429fe8edd07352c78deaa413a16eb8a9d70e1823c0c66afa761aa70a0cf4.svg" />
+</div>
 </div>
 <p>From the colored correlation matrix generated above, we can see that there are 4 variables such as <em>Total day charge</em> that have been calculated directly from the number of minutes spent on phone calls (<em>Total day minutes</em>). These are called <em>dependent</em> variables and can therefore be left out since they do not contribute any additional information. Let’s get rid of them:</p>
 <div class="cell docutils container">
@@ -1214,7 +1233,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="scatter-plot">
-<h4><a class="toc-backref" href="#id16" role="doc-backlink">Scatter plot</a><a class="headerlink" href="#scatter-plot" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Scatter plot</a><a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h4>
 <p>The <em>scatter plot</em> displays values of two numerical variables as <em>Cartesian coordinates</em> in 2D space. Scatter plots in 3D are also possible.</p>
 <p>Let’s try out the function <a class="reference external" href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">scatter()</span></code></a> from the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library:</p>
 <div class="cell docutils container">
@@ -1224,7 +1243,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8ea61c7a4e605dbaec625bfd61e7de9b9d4d7283a12944c95a15d0719a2569da.svg" src="../../_images/8ea61c7a4e605dbaec625bfd61e7de9b9d4d7283a12944c95a15d0719a2569da.svg" /></div>
+<img alt="../../_images/74db51dfcb0ab6af357666cae41bc00a9992bd6e982f81f4d2c4ba5198888781.svg" src="../../_images/74db51dfcb0ab6af357666cae41bc00a9992bd6e982f81f4d2c4ba5198888781.svg" />
+</div>
 </div>
 <p>We get an uninteresting picture of two normally distributed variables. Also, it seems that these features are uncorrelated because the ellipse-like shape is aligned with the axes.</p>
 <p>There is a slightly fancier option to create a scatter plot with the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> library:</p>
@@ -1235,7 +1255,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/570f6865060186b719cbcd1d4e1dae20806a155542e429d926168f3b7b22260d.svg" src="../../_images/570f6865060186b719cbcd1d4e1dae20806a155542e429d926168f3b7b22260d.svg" /></div>
+<img alt="../../_images/8ece6f1afb6673bc18445d0de8739fa27a3f80c8eaffb4f4961076966949c83d.svg" src="../../_images/8ece6f1afb6673bc18445d0de8739fa27a3f80c8eaffb4f4961076966949c83d.svg" />
+</div>
 </div>
 <p>The function <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.jointplot.html"><code class="docutils literal notranslate"><span class="pre">jointplot()</span></code></a> plots two histograms that may be useful in some cases.</p>
 <p>Using the same function, we can also get a smoothed version of our bivariate distribution:</p>
@@ -1248,12 +1269,13 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4d26bede5a794fb7a2cb730c855f43996230d198736cd12650dedbbfde883930.svg" src="../../_images/4d26bede5a794fb7a2cb730c855f43996230d198736cd12650dedbbfde883930.svg" /></div>
+<img alt="../../_images/8626cf938df379593cb9720f6680de81f68ebb8b9e1627d0a225331f80d5c01b.svg" src="../../_images/8626cf938df379593cb9720f6680de81f68ebb8b9e1627d0a225331f80d5c01b.svg" />
+</div>
 </div>
 <p>This is basically a bivariate version of the <em>Kernel Density Plot</em> discussed earlier.</p>
 </section>
 <section id="scatterplot-matrix">
-<h4><a class="toc-backref" href="#id17" role="doc-backlink">Scatterplot matrix</a><a class="headerlink" href="#scatterplot-matrix" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">Scatterplot matrix</a><a class="headerlink" href="#scatterplot-matrix" title="Link to this heading">#</a></h4>
 <p>In some cases, we may want to plot a <em>scatterplot matrix</em> such as the one shown below. Its diagonal contains the distributions of the corresponding variables, and the scatter plots for each pair of variables fill the rest of the matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1264,7 +1286,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2e976c28aa56fce8984d25e79353742e632a5c945e134691c73f1d1ef015c65f.png" src="../../_images/2e976c28aa56fce8984d25e79353742e632a5c945e134691c73f1d1ef015c65f.png" />
+<img alt="../../_images/45ae6d2f67d0dbbf61718730587ea5930a39db27fb305c2bbbf91b9b01363233.png" src="../../_images/45ae6d2f67d0dbbf61718730587ea5930a39db27fb305c2bbbf91b9b01363233.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1278,7 +1300,7 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="quantitative-vs-categorical">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">3.2 Quantitative vs. Categorical</a><a class="headerlink" href="#quantitative-vs-categorical" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">3.2 Quantitative vs. Categorical</a><a class="headerlink" href="#quantitative-vs-categorical" title="Link to this heading">#</a></h3>
 <p>In this section, we will make our simple quantitative plots a little more exciting. We will try to gain new insights for churn prediction from the interactions between the numerical and categorical features.</p>
 <p>More specifically, let’s see how the input variables are related to the target variable Churn.</p>
 <p>Previously, you learned about scatter plots. Additionally, their points can be color- or size-coded so that the values of a third categorical variable are also presented in the same figure. We can achieve this with the <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> function seen above, but let’s try a new function called <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.lmplot.html"><code class="docutils literal notranslate"><span class="pre">lmplot()</span></code></a> and use the parameter <code class="docutils literal notranslate"><span class="pre">hue</span></code> to indicate our categorical feature of interest:</p>
@@ -1291,7 +1313,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8d72a0528244094bcac3c4d087f21dcbcf11ecc72a67ad3b1ed490242484d22.svg" src="../../_images/d8d72a0528244094bcac3c4d087f21dcbcf11ecc72a67ad3b1ed490242484d22.svg" /></div>
+<img alt="../../_images/c1a6e33d7dbd866c6d3bffc57dc5680aaa527da5d768f83442ec329c12839126.svg" src="../../_images/c1a6e33d7dbd866c6d3bffc57dc5680aaa527da5d768f83442ec329c12839126.svg" />
+</div>
 </div>
 <p>It seems that our small proportion of disloyal customers lean towards the top-right corner; that is, such customers tend to spend more time on the phone during both day and night. But this is not absolutely clear, and we won’t make any definitive conclusions from this chart.</p>
 <p>Now, let’s create box plots to visualize the distribution statistics of the numerical variables in two disjoint groups: the loyal customers (<code class="docutils literal notranslate"><span class="pre">Churn=False</span></code>) and those who left (<code class="docutils literal notranslate"><span class="pre">Churn=True</span></code>).</p>
@@ -1311,7 +1334,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/982dc3eeff3d6105511e641d6790ede164a86002fa9c0b0c3f38738ecc4feef4.svg" src="../../_images/982dc3eeff3d6105511e641d6790ede164a86002fa9c0b0c3f38738ecc4feef4.svg" /></div>
+<img alt="../../_images/0753134cd7f10b8cd6b4e4b5b40daee7e8e0567a9e89414ead6c76e918bef388.svg" src="../../_images/0753134cd7f10b8cd6b4e4b5b40daee7e8e0567a9e89414ead6c76e918bef388.svg" />
+</div>
 </div>
 <p>From this chart, we can see that the greatest discrepancy in distribution between the two groups is for three variables: <em>Total day minutes</em>, <em>Customer service calls</em>, and <em>Number vmail messages</em>. Later in this course, we will learn how to determine feature importance in classification using <em>Random Forest</em> or <em>Gradient Boosting</em>; there, we will see that the first two features are indeed very important for churn prediction.</p>
 <p>Let’s look at the distribution of day minutes spoken for the loyal and disloyal customers separately. We will create box and violin plots for <em>Total day minutes</em> grouped by the target variable.</p>
@@ -1325,7 +1349,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a0a70f3773d8f95173567e67a3e1c31612571d80151fd1632169158270c672b9.svg" src="../../_images/a0a70f3773d8f95173567e67a3e1c31612571d80151fd1632169158270c672b9.svg" /></div>
+<img alt="../../_images/68f7bf2eb3a99b4b326349e538ffe99617d1d8a03b62cdcf7a06edbfce7b804b.svg" src="../../_images/68f7bf2eb3a99b4b326349e538ffe99617d1d8a03b62cdcf7a06edbfce7b804b.svg" />
+</div>
 </div>
 <p>In this case, the violin plot does not contribute any additional information about our data as everything is clear from the box plot alone: disloyal customers tend to talk on the phone more.</p>
 <p><strong>An interesting observation</strong>: on average, customers that discontinue their contracts are more active users of communication services. Perhaps they are unhappy with the tariffs, so a possible measure to prevent churn could be a reduction in call rates. The company will need to undertake additional economic analysis to find out whether such measures would be beneficial.</p>
@@ -1346,12 +1371,13 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/89add26c6e8cda20b7fc0b4195fa335abf6a4ca1541b4487ee5fa97866274a39.svg" src="../../_images/89add26c6e8cda20b7fc0b4195fa335abf6a4ca1541b4487ee5fa97866274a39.svg" /></div>
+<img alt="../../_images/45c522f3f1af2bd3404620ae921ac1ece4c57a5bbbac40e33d01372c4214ea4b.svg" src="../../_images/45c522f3f1af2bd3404620ae921ac1ece4c57a5bbbac40e33d01372c4214ea4b.svg" />
+</div>
 </div>
 <p>From this, we could conclude that starting with four calls, <em>Total day minutes</em> may no longer be the main factor for customer churn. Perhaps, in addition to our previous guess about the tariffs, there are customers that are dissatisfied with the service due to other problems, which might lead to fewer number of day minutes spent on calls.</p>
 </section>
 <section id="categorical-vs-categorical">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">3.3 Categorical vs. Categorical</a><a class="headerlink" href="#categorical-vs-categorical" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">3.3 Categorical vs. Categorical</a><a class="headerlink" href="#categorical-vs-categorical" title="Link to this heading">#</a></h3>
 <p>As we saw earlier in this article, the variable <em>Customer service calls</em> has few unique values and, thus, can be considered either numerical or ordinal. We have already seen its distribution with a <em>count plot</em>. Now, we are interested in the relationship between this ordinal feature and the target variable <em>Churn</em>.</p>
 <p>Let’s look at the distribution of the number of calls to customer service, again using a <em>count plot</em>. This time, let’s also pass the parameter <code class="docutils literal notranslate"><span class="pre">hue=Churn</span></code> that adds a categorical dimension to the plot:</p>
 <div class="cell docutils container">
@@ -1361,7 +1387,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/04dccb881ead9c179a6f47634fcb86a43812f6d527fca6108b85173c83bda9d0.svg" src="../../_images/04dccb881ead9c179a6f47634fcb86a43812f6d527fca6108b85173c83bda9d0.svg" /></div>
+<img alt="../../_images/0495c1f180944f3f493599528b875186e49b946741a495b8f90641309dc5a3d9.svg" src="../../_images/0495c1f180944f3f493599528b875186e49b946741a495b8f90641309dc5a3d9.svg" />
+</div>
 </div>
 <p><strong>An observation</strong>: the churn rate increases significantly after 4 or more calls to customer service.</p>
 <p>Now, let’s look at the relationship between <em>Churn</em> and the binary features, <em>International plan</em> and <em>Voice mail plan</em>.</p>
@@ -1375,11 +1402,12 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ffe062593d77d8829a99df0b75db212350ee1ce9c6e5210ca14919d99df7af0c.svg" src="../../_images/ffe062593d77d8829a99df0b75db212350ee1ce9c6e5210ca14919d99df7af0c.svg" /></div>
+<img alt="../../_images/9fec71411e23cc2212b3f4895debfafb1ffac93e4f94cc21b29ca156f762474e.svg" src="../../_images/9fec71411e23cc2212b3f4895debfafb1ffac93e4f94cc21b29ca156f762474e.svg" />
+</div>
 </div>
 <p><strong>An observation</strong>: when <em>International Plan</em> is enabled, the churn rate is much higher; the usage of the international plan by the customer is a strong feature. We do not observe the same effect with <em>Voice mail plan</em>.</p>
 <section id="contingency-table">
-<h4><a class="toc-backref" href="#id20" role="doc-backlink">Contingency table</a><a class="headerlink" href="#contingency-table" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">Contingency table</a><a class="headerlink" href="#contingency-table" title="Link to this heading">#</a></h4>
 <p>In addition to using graphical means for categorical analysis, there is a traditional tool from statistics: a <em>contingency table</em>, also called a <em>cross tabulation</em>. It shows a multivariate frequency distribution of categorical variables in tabular form. In particular, it allows us to see the distribution of one variable conditional on the other by looking along a column or row.</p>
 <p>Let’s try to see how <em>Churn</em> is related to the categorical variable <em>State</em> by creating a cross tabulation:</p>
 <div class="cell docutils container">
@@ -1592,21 +1620,21 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="whole-dataset-visualizations">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">4. Whole dataset visualizations</a><a class="headerlink" href="#whole-dataset-visualizations" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">4. Whole dataset visualizations</a><a class="headerlink" href="#whole-dataset-visualizations" title="Link to this heading">#</a></h2>
 <section id="a-naive-approach">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">4.1 A naive approach</a><a class="headerlink" href="#a-naive-approach" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">4.1 A naive approach</a><a class="headerlink" href="#a-naive-approach" title="Link to this heading">#</a></h3>
 <p>We have been looking at different <em>facets</em> of our dataset by guessing interesting features and selecting a small number of them at a time for visualization. We have only dealt with two to three variables at once and were easily able to observe the structure and relationships in the data. But what if we want to display all the features and still be able to interpret the resulting visualization?</p>
 <p>We could use <code class="docutils literal notranslate"><span class="pre">hist()</span></code> or create a scatterplot matrix with <code class="docutils literal notranslate"><span class="pre">pairplot()</span></code> for the whole dataset to look at all of our features simultaneously. But, when the number of features is high enough, this kind of visual analysis quickly becomes slow and inefficient. Besides, we would still be analyzing our variables in a pairwise fashion, not all at once.</p>
 </section>
 <section id="dimensionality-reduction">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">4.2 Dimensionality reduction</a><a class="headerlink" href="#dimensionality-reduction" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">4.2 Dimensionality reduction</a><a class="headerlink" href="#dimensionality-reduction" title="Link to this heading">#</a></h3>
 <p>Most real-world datasets have many features, sometimes, many thousands of them. Each of them can be considered as a dimension in the space of data points. Consequently, more often than not, we deal with high-dimensional datasets, where entire visualization is quite hard.</p>
 <p>To look at a dataset as a whole, we need to decrease the number of dimensions used in visualization without losing much information about the data. This task is called <em>dimensionality reduction</em> and is an example of an <em>unsupervised learning</em> problem because we need to derive new, low-dimensional features from the data itself, without any supervised input.</p>
 <p>One of the well-known dimensionality reduction methods is <em>Principal Component Analysis</em> (PCA), which we will study later in this course. Its limitation is that it is a <em>linear</em> algorithm that implies certain restrictions on the data.</p>
 <p>There are also many non-linear methods, collectively called <em>Manifold Learning</em>. One of the best-known of them is <em>t-SNE</em>.</p>
 </section>
 <section id="t-sne">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink">4.3 t-SNE</a><a class="headerlink" href="#t-sne" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">4.3 t-SNE</a><a class="headerlink" href="#t-sne" title="Link to this heading">#</a></h3>
 <p>Let’s create a <a class="reference external" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a> representation of the same churn data we have been using.</p>
 <p>The name of the method looks complex and a bit intimidating: <em>t-distributed Stochastic Neighbor Embedding</em>. Its math is also impressive (we will not delve into it here, but if you feel brave, here is the <a class="reference external" href="http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">original article</a> by Laurens van der Maaten and Geoffrey Hinton from <a class="reference external" href="http://www.jmlr.org/">JMLR</a>). Its basic idea is simple: find a projection for a high-dimensional feature space onto a plane (or a 3D hyperplane, but it is almost always 2D) such that those points that were far apart in the initial n-dimensional space will end up far apart on the plane. Those that were originally close would remain close to each other.</p>
 <p>Essentially, <em>neighbor embedding</em> is a search for a new and less-dimensional data representation that preserves neighborship of examples.</p>
@@ -1648,8 +1676,8 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 38.7 s, sys: 14.4 s, total: 53.1 s
-Wall time: 4.68 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.8 s, sys: 9.51 s, total: 25.3 s
+Wall time: 4.17 s
 </pre></div>
 </div>
 </div>
@@ -1662,7 +1690,8 @@ Wall time: 4.68 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ba1611d8c338d6ab0d224780cc2093ecc11621a2f500b581d87a35165c2fab7c.svg" src="../../_images/ba1611d8c338d6ab0d224780cc2093ecc11621a2f500b581d87a35165c2fab7c.svg" /></div>
+<img alt="../../_images/f462b2986fe48d6ed2f0c0c56444c97c42614cb98b1ce616ef7d4aed9965f1a1.svg" src="../../_images/f462b2986fe48d6ed2f0c0c56444c97c42614cb98b1ce616ef7d4aed9965f1a1.svg" />
+</div>
 </div>
 <p>Let’s color this t-SNE representation according to the churn (blue for loyal customers, and orange for those who churned).</p>
 <div class="cell docutils container">
@@ -1677,7 +1706,8 @@ Wall time: 4.68 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/92e7044018fa8ae0489ed0a7598d89d775d7bf01a5c8354fbdc307f3fe4188aa.svg" src="../../_images/92e7044018fa8ae0489ed0a7598d89d775d7bf01a5c8354fbdc307f3fe4188aa.svg" /></div>
+<img alt="../../_images/1b532b03468fea94dc52e36f3c1deaaa924bbd881116d3c5f129b8c81df5e485.svg" src="../../_images/1b532b03468fea94dc52e36f3c1deaaa924bbd881116d3c5f129b8c81df5e485.svg" />
+</div>
 </div>
 <p>We can see that customers who churned are concentrated in a few areas of the lower dimensional feature space.</p>
 <p>To better understand the picture, we can also color it with the remaining binary features: <em>International Plan</em> and <em>Voicemail</em>. Orange dots here indicate instances that are positive for the corresponding binary feature.</p>
@@ -1697,7 +1727,8 @@ Wall time: 4.68 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b91956421d270dcd7e9443059515dec1564876b356d9a017d96454b7b88e1dbe.svg" src="../../_images/b91956421d270dcd7e9443059515dec1564876b356d9a017d96454b7b88e1dbe.svg" /></div>
+<img alt="../../_images/84c4e81d3bb7594d6d45c063415e8b88e35ce3998d1f30fd630786f1e67ea6b6.svg" src="../../_images/84c4e81d3bb7594d6d45c063415e8b88e35ce3998d1f30fd630786f1e67ea6b6.svg" />
+</div>
 </div>
 <p>Now it is clear that, for example, many dissatisfied customers who canceled their subscriptions are crowded together in one cluster, representing the people with the international plan but no voice mail.</p>
 <p>Finally, let’s note some disadvantages of t-SNE:</p>
@@ -1712,13 +1743,13 @@ Wall time: 4.68 s
 </section>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id25" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-2-visual-data-analysis-in-python">Kaggle Kernel</a></p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/plotly_tutorial_for_interactive_plots_sankovalev.ipynb">“Plotly for interactive plots”</a> - a tutorial by Alexander Kovalev within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> (full list of tutorials is <a class="reference external" href="https://mlcourse.ai/tutorials">here</a>)</p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/bring_your_plots_to_life_with_matplotlib_animations_kyriacos_kyriacou.ipynb">“Bring your plots to life with Matplotlib animations”</a> - a tutorial by Kyriacos Kyriacou within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a></p></li>
 <li><p><a class="reference external" href="https://nbviewer.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/some_details_in_matplotlib_pisarev_ivan.ipynb">“Some details on Matplotlib”</a> - a tutorial by Ivan Pisarev within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a></p></li>
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd">“story”</a> based on this notebook</p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/323210/">article</a> on Habrahabr with ~ the same material. And a <a class="reference external" href="https://youtu.be/vm63p8Od0bM">lecture</a> on YouTube</p></li>

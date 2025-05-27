@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic05/assignment05_logit_rf_credit_scoring_solution';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bonus Assignment 5. Logistic Regression vs. Random Forest" href="bonus_assignment05_logreg_rf.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -534,7 +546,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution">
-<span id="assignment05-solution"></span><h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution<a class="headerlink" href="#assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution" title="Permalink to this heading">#</a></h1>
+<span id="assignment05-solution"></span><h1>Assignment #5 (demo). Logistic Regression and Random Forest in the credit scoring problem. Solution<a class="headerlink" href="#assignment-5-demo-logistic-regression-and-random-forest-in-the-credit-scoring-problem-solution" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Author: Vitaly Radchenko. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
@@ -556,13 +568,13 @@ Author: Vitaly Radchenko. All content is distributed under the <a class="referen
 \[\large \mu = \sum_{i=3}^{5}{5 \choose i}0.7^i(1-0.7)^{5-i} = 83.70\%\]</div>
 <p>Great! Let’s move on to machine learning.</p>
 <section id="credit-scoring-problem-setup">
-<h2>Credit scoring problem setup<a class="headerlink" href="#credit-scoring-problem-setup" title="Permalink to this heading">#</a></h2>
+<h2>Credit scoring problem setup<a class="headerlink" href="#credit-scoring-problem-setup" title="Link to this heading">#</a></h2>
 <section id="problem">
-<h3>Problem<a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h3>
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h3>
 <p>Predict whether the customer will repay their credit within 90 days. This is a binary classification problem; we will assign customers into good or bad categories based on our prediction.</p>
 </section>
 <section id="data-description">
-<h3>Data description<a class="headerlink" href="#data-description" title="Permalink to this heading">#</a></h3>
+<h3>Data description<a class="headerlink" href="#data-description" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Feature</p></th>
@@ -801,7 +813,7 @@ dtype: object
 Name: count, dtype: float64
 </pre></div>
 </div>
-<img alt="../../_images/41f27890241fef8d8bae0f7153513dd561718bd9dc437fd204f9a8dbce51176c.png" src="../../_images/41f27890241fef8d8bae0f7153513dd561718bd9dc437fd204f9a8dbce51176c.png" />
+<img alt="../../_images/b589f132ac1d9d9a43d923496dace3b9be338077a3806d05a95572c8898582ea.png" src="../../_images/b589f132ac1d9d9a43d923496dace3b9be338077a3806d05a95572c8898582ea.png" />
 </div>
 </div>
 <p>Separate the input variable names by excluding the target:</p>
@@ -844,7 +856,7 @@ Name: count, dtype: float64
 </section>
 </section>
 <section id="bootstrapping">
-<h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Permalink to this heading">#</a></h2>
+<h2>Bootstrapping<a class="headerlink" href="#bootstrapping" title="Link to this heading">#</a></h2>
 <p><strong>Question 2.</strong> Make an interval estimate of the average age for the customers who delayed the repayment with the confidence level equal 90%. Use the example from the article for reference. Also, use <code class="docutils literal notranslate"><span class="pre">np.random.seed(0)</span></code> as it was done in the article. What is the resulting interval estimate?</p>
 <ol class="arabic simple">
 <li><p>52.59 – 52.86</p></li>
@@ -891,7 +903,7 @@ Name: count, dtype: float64
 </div>
 </section>
 <section id="logistic-regression">
-<h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h2>
+<h2>Logistic regression<a class="headerlink" href="#logistic-regression" title="Link to this heading">#</a></h2>
 <p>Let’s set up to use logistic regression:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,112 +958,152 @@ Name: count, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1060,128 +1112,88 @@ Please also refer to the documentation for alternative solver options:
   n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1192,7 +1204,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <div class="output text_html"><style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1337,12 +1350,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-1 label.sk-toggleable__label-arrow:before {
@@ -1495,7 +1517,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -1594,7 +1617,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(C=10, class_weight=&#x27;balanced&#x27;, random_state=5)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(C=10, class_weight=&#x27;balanced&#x27;, random_state=5)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(C=10, class_weight=&#x27;balanced&#x27;, random_state=5)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(C=10, class_weight=&#x27;balanced&#x27;, random_state=5)</pre></div> </div></div></div></div></div></div>
 </div>
 <p><strong>Question 4.</strong> Can we consider the best model stable? The model is <em>stable</em> if the standard deviation on validation is less than 0.5%. Save the <em>ROC AUC</em> value of the best model, it will be useful for the following tasks.</p>
 <ol class="arabic simple">
@@ -1610,7 +1633,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.005077297878860909)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.004354245268933871)
 </pre></div>
 </div>
 </div>
@@ -1623,14 +1646,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7957062770203978)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7940646553848681)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="feature-importance">
-<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">#</a></h2>
+<h2>Feature importance<a class="headerlink" href="#feature-importance" title="Link to this heading">#</a></h2>
 <p><strong>Question 5.</strong> <em>Feature importance</em> is defined by the absolute value of its corresponding coefficient. First you need to normalize all the feature values so that it will be correct to compare them. What is the most important feature for the best logistic regression model?</p>
 <ol class="arabic simple">
 <li><p>age</p></li>
@@ -1788,37 +1811,37 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     <tr>
       <th>1</th>
       <td>NumberOfTime30-59DaysPastDueNotWorse</td>
-      <td>0.469084</td>
+      <td>0.470068</td>
     </tr>
     <tr>
       <th>3</th>
       <td>NumberOfTimes90DaysLate</td>
-      <td>0.412709</td>
+      <td>0.413556</td>
     </tr>
     <tr>
       <th>4</th>
       <td>NumberOfTime60-89DaysPastDueNotWorse</td>
-      <td>0.237502</td>
+      <td>0.237483</td>
     </tr>
     <tr>
       <th>6</th>
       <td>NumberOfDependents</td>
-      <td>0.147052</td>
+      <td>0.146759</td>
     </tr>
     <tr>
       <th>2</th>
       <td>DebtRatio</td>
-      <td>-0.000010</td>
+      <td>-0.000011</td>
     </tr>
     <tr>
       <th>5</th>
       <td>MonthlyIncome</td>
-      <td>-0.000011</td>
+      <td>-0.000012</td>
     </tr>
     <tr>
       <th>0</th>
       <td>age</td>
-      <td>-0.013189</td>
+      <td>-0.013153</td>
     </tr>
   </tbody>
 </table>
@@ -1831,7 +1854,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7681433458985552)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7686898891517073)
 </pre></div>
 </div>
 </div>
@@ -1839,7 +1862,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>It is <span class="math notranslate nohighlight">\(\exp^{\beta\delta}\)</span> times more likely that the customer won’t repay the debt, where <span class="math notranslate nohighlight">\(\delta\)</span> is the feature value increment. That means that if we increased the age by 20 years, the odds that the customer won’t repay would increase by 0.69 times.</p>
 </section>
 <section id="random-forest">
-<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Link to this heading">#</a></h2>
 <p>Import the Random Forest classifier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1895,9 +1918,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 36 candidates, totalling 180 fits
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.040068452693679646
-CPU times: user 2.47 s, sys: 465 ms, total: 2.93 s
-Wall time: 33.6 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04171006721229842
+CPU times: user 2.43 s, sys: 466 ms, total: 2.9 s
+Wall time: 35.7 s
 </pre></div>
 </div>
 </div>
@@ -2016,7 +2039,7 @@ Wall time: 33.6 s
 <p>On the other hand, the main advantage of Logistic Regression is that we can interpret the feature impact on the model outcome.</p>
 </section>
 <section id="bagging">
-<h2>Bagging<a class="headerlink" href="#bagging" title="Permalink to this heading">#</a></h2>
+<h2>Bagging<a class="headerlink" href="#bagging" title="Link to this heading">#</a></h2>
 <p>Import modules and set up the parameters for bagging:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

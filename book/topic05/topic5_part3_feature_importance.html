@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 5. Ensembles and random forest. Part 3. Feature importance &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic05/topic5_part3_feature_importance';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videolecture 5. Bagging and Random Forest" href="videolecture05.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -533,12 +545,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-3-feature-importance">
-<span id="topic05-part3"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 5. Ensembles and random forest. Part 3. Feature importance</a><a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-3-feature-importance" title="Permalink to this heading">#</a></h1>
+<span id="topic05-part3"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 5. Ensembles and random forest. Part 3. Feature importance</a><a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-3-feature-importance" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>, and Mikalai Parshutsich. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, Artem Gruzdev, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -561,14 +573,14 @@ document.write(`
 <p>It’s quite often that you want to make out the exact reasons of the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.</p>
 </section>
 <section id="intuition">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Intuition</a><a class="headerlink" href="#intuition" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Intuition</a><a class="headerlink" href="#intuition" title="Link to this heading">#</a></h2>
 <p>From the picture below, it is intuitively clear that, in our credit scoring problem, <em>Age</em> is much more important than <em>Income</em>. This can be formally explained using the concept of <em>information gain</em>.</p>
 <img src="../../_static/img/credit_scoring_toy_tree_english.png" align='center'>
 <p>In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as <em>Gini impurity</em>, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.</p>
 <p>Let’s go a little deeper into the details.</p>
 <p>There exist a lot of methods to assess feature importances. Leo Breinman in his works suggested to evaluate the importance of a variable by measuring decrease of accuracy of the forest when the variable is randomly permuted or decrease of impurity of a nodes where the given variable is used for splitting. The former method is often called <strong>permutation importance</strong>. The latter method is used in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
 <section id="permutation-importance">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Permutation importance</a><a class="headerlink" href="#permutation-importance" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Permutation importance</a><a class="headerlink" href="#permutation-importance" title="Link to this heading">#</a></h3>
 <p>Inspired by <a class="reference external" href="https://www.researchgate.net/publication/5231126_Conditional_Variable_Importance_for_Random_Forests">this</a> article.
 The average reduction in accuracy caused by a variable is determined during the calculation of the out-of-bag error. The greater the reduction in accuracy due to an exclusion or permutation of the variable, the higher its <em>importance score</em>. For this reason, variables with a greater average reduction in accuracy are generally more significant for classification.</p>
 <p>The rationale for calculating permutation importance is the following: By randomly permuting the predictor variable <span class="math notranslate nohighlight">\(X_j\)</span>, its original association with the response <span class="math notranslate nohighlight">\(Y\)</span> is broken. When the permuted variable <span class="math notranslate nohighlight">\(X_j\)</span>, together with all the others non-permuted variables, is used the response for the out-of-bag observations, the prediction <em>accuracy</em> decreases substantially if the original <span class="math notranslate nohighlight">\(X_j\)</span> was associated with response. Thus, as a measure of variable importance, the difference in prediction accuracy before and after permuting is used.</p>
@@ -593,7 +605,7 @@ The average reduction in accuracy caused by a variable is determined during the 
 </section>
 </section>
 <section id="illustrating-permutation-importance">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Illustrating permutation importance</a><a class="headerlink" href="#illustrating-permutation-importance" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Illustrating permutation importance</a><a class="headerlink" href="#illustrating-permutation-importance" title="Link to this heading">#</a></h2>
 <p>Let’s assume that we have a toy dataset with 10 instances. Target variable can be either <strong>‘N’</strong> or <strong>‘P’</strong>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c|c|c|c|c|c|c|c|c|c}
@@ -663,7 +675,7 @@ The average reduction in accuracy caused by a variable is determined during the 
 <p>The above mentioned steps are to be done for each out-of-bag sample <span class="math notranslate nohighlight">\(\overline{\mathfrak{B}}^{(t)}\)</span>. To get not normalized <em>permutation importance</em> we sum all computed differences and divide by the number of trees. Normalization is done by dividing <em>not normalized permutation importance</em> by standard error.</p>
 </section>
 <section id="sklearn-random-forest-feature-importance">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Sklearn Random Forest Feature Importance</a><a class="headerlink" href="#sklearn-random-forest-feature-importance" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Sklearn Random Forest Feature Importance</a><a class="headerlink" href="#sklearn-random-forest-feature-importance" title="Link to this heading">#</a></h2>
 <p>Inspired by <a class="reference external" href="https://medium.com/&#64;srnghn/the-mathematics-of-decision-trees-random-forest-and-feature-importance-in-scikit-learn-and-spark-f2861df67e3">this</a> article.
 Sklearn library uses another approach to determine feature importance. The rationale for that method is that the more gain in information the node (with splitting feature <span class="math notranslate nohighlight">\(X_j\)</span>) provides, the higher its importance.</p>
 <p>The average reduction in the Gini impurity – or MSE for regression – represents the contribution of each feature to the homogeneity of nodes and leaves in the resulting Random Forest model. Each time a selected feature is used for splitting, the Gini impurity of the child nodes is calculated and compared with that of the original node.</p>
@@ -814,7 +826,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e665bea707347ebf4fa2cee8271bac0bdd4c46454089914d650b45929d30654.png" src="../../_images/6e665bea707347ebf4fa2cee8271bac0bdd4c46454089914d650b45929d30654.png" />
+<img alt="../../_images/f064ce2c6fdef30981737969541889a0a64922b589013fbb8fa5acdbb5670fea.png" src="../../_images/f064ce2c6fdef30981737969541889a0a64922b589013fbb8fa5acdbb5670fea.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -831,7 +843,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9bca1ac4788034847dd91051fb6f4f4663e460c7151e571c1b29487b9b185c59.png" src="../../_images/9bca1ac4788034847dd91051fb6f4f4663e460c7151e571c1b29487b9b185c59.png" />
+<img alt="../../_images/4e5ffcdd4d6ba0173d2d24e0891e0d4c00bf9eea75688df88ea78e1351e7c01c.png" src="../../_images/4e5ffcdd4d6ba0173d2d24e0891e0d4c00bf9eea75688df88ea78e1351e7c01c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -848,7 +860,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/43a5ad9dec1b6a35d807ce7cf7a9ddcd028f39b5906e546861a7d8d4ec94f95c.png" src="../../_images/43a5ad9dec1b6a35d807ce7cf7a9ddcd028f39b5906e546861a7d8d4ec94f95c.png" />
+<img alt="../../_images/41c311e26a81d5dd4a83fa862a2dd9ad20f2492f9df112383c464d43d590fd9d.png" src="../../_images/41c311e26a81d5dd4a83fa862a2dd9ad20f2492f9df112383c464d43d590fd9d.png" />
 </div>
 </div>
 <p>Let’s start from the first tree and <code class="docutils literal notranslate"><span class="pre">Sepal</span> <span class="pre">length</span> <span class="pre">(cm)</span></code> feature. This feature is located in two nodes: the root (#0) and the rightmost node (#8). The reduction in impurity for these nodes are:</p>
@@ -904,7 +916,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 <p>Voila!</p>
 </section>
 <section id="practical-example">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Practical example</a><a class="headerlink" href="#practical-example" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Practical example</a><a class="headerlink" href="#practical-example" title="Link to this heading">#</a></h2>
 <p>Let’s consider the results of a survey given to visitors of hostels listed on <a class="reference external" href="https://www.booking.com/">Booking.com</a> and <a class="reference external" href="https://www.tripadvisor.com/">TripAdvisor.com</a>. Our features here are the average ratings for different categories including service quality, room condition, value for money, etc. Our target variable is the hostel’s overall rating on the website.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -985,15 +997,15 @@ Sklearn library uses another approach to determine feature importance. The ratio
 10. Room condition 0.038956 
 </pre></div>
 </div>
-<img alt="../../_images/ce979d0e02a767bb95d848f0478ec9dda8bde337456005206895f5bf51cd8a24.png" src="../../_images/ce979d0e02a767bb95d848f0478ec9dda8bde337456005206895f5bf51cd8a24.png" />
+<img alt="../../_images/1508d774eb6dd823dc76be5f44a30abce556f4ab977ad46da0b83bf02845ad0d.png" src="../../_images/1508d774eb6dd823dc76be5f44a30abce556f4ab977ad46da0b83bf02845ad0d.png" />
 </div>
 </div>
 <p>The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model’s accuracy. However, based on our analysis, we can recommend hostel owners to focus primarily on staff training and price-to-quality ratio.</p>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p><a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> <a class="reference external" href="https://www.youtube.com/watch?v=neXJL-AqI_c">lecture</a> on Random Forest</p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">“story”</a> based on this notebook</p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>

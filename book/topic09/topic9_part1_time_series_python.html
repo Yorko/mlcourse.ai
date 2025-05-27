@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 9. Part 1. Time series analysis in Python &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,19 +60,25 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="application/vnd.jupyter.widget-state+json">{"state": {"d248e846783f45419fbef38c5b302bfa": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "cb18c1f247bb42298a5a2abe7910e85a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "25bc623dec6a4e779ee4659759a9531b": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_d248e846783f45419fbef38c5b302bfa", "max": 36.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_cb18c1f247bb42298a5a2abe7910e85a", "tabbable": null, "tooltip": null, "value": 36.0}}, "fa13a97473154d97bcae528e4dd9aff3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3c343ec4a01f40789c8b4517e804c7ed": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "6014cd9014284e5da14d93d8b29296f8": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_fa13a97473154d97bcae528e4dd9aff3", "placeholder": "\u200b", "style": "IPY_MODEL_3c343ec4a01f40789c8b4517e804c7ed", "tabbable": null, "tooltip": null, "value": "100%"}}, "e7ba76851bc94b3fb58c9081abf74bf3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "80f12468ade24f97946291e07a621228": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "0ad5efc03f4142a7a90d189ad015e356": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_e7ba76851bc94b3fb58c9081abf74bf3", "placeholder": "\u200b", "style": "IPY_MODEL_80f12468ade24f97946291e07a621228", "tabbable": null, "tooltip": null, "value": "\u200736/36\u2007[00:37&lt;00:00,\u2007\u20072.22s/it]"}}, "7df24838b221472f9b97f52370603b10": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "36b08147a6d949bcb67d8924b46fb4ca": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_6014cd9014284e5da14d93d8b29296f8", "IPY_MODEL_25bc623dec6a4e779ee4659759a9531b", "IPY_MODEL_0ad5efc03f4142a7a90d189ad015e356"], "layout": "IPY_MODEL_7df24838b221472f9b97f52370603b10", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"839d776c663044b283961ec5da7f7428": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "265bec3653894b10a6758dca155354dc": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "8a6b58f0f6cb4fa7bc08c41458d92dee": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_839d776c663044b283961ec5da7f7428", "max": 36.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_265bec3653894b10a6758dca155354dc", "tabbable": null, "tooltip": null, "value": 36.0}}, "3724ff5fe8aa400983bca44a6eaa30d3": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "81c1d4da4b45405aa09b8b46e468f94a": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "6095a80944274382bc22f3e5440f8468": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_3724ff5fe8aa400983bca44a6eaa30d3", "placeholder": "\u200b", "style": "IPY_MODEL_81c1d4da4b45405aa09b8b46e468f94a", "tabbable": null, "tooltip": null, "value": "100%"}}, "e5c3d2243ba14247bcb6a6bce7db81ea": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "87cf623528824c91b7dc55c8c2b6fd98": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "39783c14ff9343b6873a44596f92de18": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_e5c3d2243ba14247bcb6a6bce7db81ea", "placeholder": "\u200b", "style": "IPY_MODEL_87cf623528824c91b7dc55c8c2b6fd98", "tabbable": null, "tooltip": null, "value": "\u200736/36\u2007[00:41&lt;00:00,\u2007\u20072.31s/it]"}}, "311c7c42b08c4938a165765aabc9c748": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d0c9a7dd9c6b42a89b24431397fbf3dd": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_6095a80944274382bc22f3e5440f8468", "IPY_MODEL_8a6b58f0f6cb4fa7bc08c41458d92dee", "IPY_MODEL_39783c14ff9343b6873a44596f92de18"], "layout": "IPY_MODEL_311c7c42b08c4938a165765aabc9c748", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic09/topic9_part1_time_series_python';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet" href="topic9_part2_facebook_prophet.html" />
@@ -178,7 +179,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -332,9 +344,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -492,9 +504,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -559,14 +571,14 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-9-part-1-time-series-analysis-in-python">
-<span id="topic09-part1"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 9. Part 1. Time series analysis in Python</a><a class="headerlink" href="#topic-9-part-1-time-series-analysis-in-python" title="Permalink to this heading">#</a></h1>
+<span id="topic09-part1"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 9. Part 1. Time series analysis in Python</a><a class="headerlink" href="#topic-9-part-1-time-series-analysis-in-python" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://github.com/DmitrySerg">Dmitriy Sergeyev</a>, Data Scientist &#64; Zeptolab, lecturer in the Center of Mathematical Finance in MSU. Translated by: &#64;borowis. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>We continue our open machine learning course with a new article on time series.</p>
 <p>Let’s take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost… In addition, all of this will be applied to (harsh) real world examples.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -612,7 +624,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>We begin with a simple <a class="reference external" href="https://en.wikipedia.org/wiki/Time_series">definition</a> of time series:</p>
 <blockquote>
 <div><p><em>Time series</em> is a series of data points indexed (or listed or graphed) in time order.</p>
@@ -680,7 +692,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5c117620b68fc3ed52a57e0adbc5cee00fbaa84cd4d265a46c16ef7dc849cbdb.png" src="../../_images/5c117620b68fc3ed52a57e0adbc5cee00fbaa84cd4d265a46c16ef7dc849cbdb.png" />
+<a class="reference internal image-reference" href="../../_images/dcd47a39acf6fb5bf341a939e879d439624eabcbf649cc735f004f648260fa27.png"><img alt="../../_images/dcd47a39acf6fb5bf341a939e879d439624eabcbf649cc735f004f648260fa27.png" src="../../_images/dcd47a39acf6fb5bf341a939e879d439624eabcbf649cc735f004f648260fa27.png" style="width: 1015px; height: 684px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -694,11 +707,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f9ef4b3bbd3729d337b344d93441e24efe1fe88df8837e48f49df10f5caf2a06.png" src="../../_images/f9ef4b3bbd3729d337b344d93441e24efe1fe88df8837e48f49df10f5caf2a06.png" />
+<a class="reference internal image-reference" href="../../_images/77cedc907ff01d4fcf2d2409296debaeb27c02346c4a86b486f9df5f5b1bae5b.png"><img alt="../../_images/77cedc907ff01d4fcf2d2409296debaeb27c02346c4a86b486f9df5f5b1bae5b.png" src="../../_images/77cedc907ff01d4fcf2d2409296debaeb27c02346c4a86b486f9df5f5b1bae5b.png" style="width: 1216px; height: 607px;" />
+</a>
 </div>
 </div>
 <section id="forecast-quality-metrics">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Forecast quality metrics</a><a class="headerlink" href="#forecast-quality-metrics" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Forecast quality metrics</a><a class="headerlink" href="#forecast-quality-metrics" title="Link to this heading">#</a></h2>
 <p>Before we begin forecasting, let’s understand how to measure the quality of our predictions and take a look at the most commonly used metrics.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination">R squared</a>: coefficient of determination (in econometrics, this can be interpreted as the percentage of variance explained by the model), <span class="math notranslate nohighlight">\((-\infty, 1]\)</span></p></li>
@@ -775,7 +789,7 @@ document.write(`
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="move-smoothe-evaluate">
-<h1><a class="toc-backref" href="#id5" role="doc-backlink">Move, smoothe, evaluate</a><a class="headerlink" href="#move-smoothe-evaluate" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">Move, smoothe, evaluate</a><a class="headerlink" href="#move-smoothe-evaluate" title="Link to this heading">#</a></h1>
 <p>Let’s start with a naive hypothesis: “tomorrow will be the same as today”. However, instead of a model like <span class="math notranslate nohighlight">\(\hat{y}_{t} = y_{t-1}\)</span> (which is actually a great baseline for any time series prediction problems and sometimes is impossible to beat), we will assume that the future value of our variable depends on the average of its <span class="math notranslate nohighlight">\(k\)</span> previous values. Therefore, we will use the <strong>moving average</strong>.</p>
 <p><span class="math notranslate nohighlight">\(\hat{y}_{t} = \frac{1}{k} \displaystyle\sum^{k}_{n=1} y_{t-n}\)</span></p>
 <div class="cell docutils container">
@@ -848,7 +862,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17146e5298ee835ce779745f98e55997931cc8e0842486b67883f70f2a6de0ef.png" src="../../_images/17146e5298ee835ce779745f98e55997931cc8e0842486b67883f70f2a6de0ef.png" />
+<a class="reference internal image-reference" href="../../_images/e055528f4f1108621ece85c1399731a4dfe122ff32a74d3f40847ed751b7bf0c.png"><img alt="../../_images/e055528f4f1108621ece85c1399731a4dfe122ff32a74d3f40847ed751b7bf0c.png" src="../../_images/e055528f4f1108621ece85c1399731a4dfe122ff32a74d3f40847ed751b7bf0c.png" style="width: 1246px; height: 470px;" />
+</a>
 </div>
 </div>
 <p>Now let’s try smoothing by the previous 12 hours.</p>
@@ -859,7 +874,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/21b984e7b7604e9770fd78637251a0d7528cea76d79f5197fa4f7499af8accdc.png" src="../../_images/21b984e7b7604e9770fd78637251a0d7528cea76d79f5197fa4f7499af8accdc.png" />
+<a class="reference internal image-reference" href="../../_images/9ba00403e759e9dbe91645d333f254b393d76b1fb07035b6f58c8518896a8036.png"><img alt="../../_images/9ba00403e759e9dbe91645d333f254b393d76b1fb07035b6f58c8518896a8036.png" src="../../_images/9ba00403e759e9dbe91645d333f254b393d76b1fb07035b6f58c8518896a8036.png" style="width: 1246px; height: 470px;" />
+</a>
 </div>
 </div>
 <p>Now smoothing with the previous 24 hours, we get the daily trend.</p>
@@ -870,7 +886,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dcc5cc4a9e20375cf20c491ceaaadaa1799b1e0fd442b297cfbafa4f3bfd4650.png" src="../../_images/dcc5cc4a9e20375cf20c491ceaaadaa1799b1e0fd442b297cfbafa4f3bfd4650.png" />
+<a class="reference internal image-reference" href="../../_images/34316422952a0ac258b722c21e4704ee29a954e3e4c1b6b61bea320782739b3f.png"><img alt="../../_images/34316422952a0ac258b722c21e4704ee29a954e3e4c1b6b61bea320782739b3f.png" src="../../_images/34316422952a0ac258b722c21e4704ee29a954e3e4c1b6b61bea320782739b3f.png" style="width: 1246px; height: 470px;" />
+</a>
 </div>
 </div>
 <p>When we applied daily smoothing on hourly data, we could clearly see the dynamics of ads watched. During the weekends, the values are higher (more time to play on the weekends) while fewer ads are watched on weekdays.</p>
@@ -882,7 +899,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d1f2c6fe7fb421cacb46a31a7581db2317e12d268c0d1e7c041356df2d2745dd.png" src="../../_images/d1f2c6fe7fb421cacb46a31a7581db2317e12d268c0d1e7c041356df2d2745dd.png" />
+<a class="reference internal image-reference" href="../../_images/ec3d9342a2e00e9fc17ed713b6978d44b4d04197b0bb06b1f88e39546622721e.png"><img alt="../../_images/ec3d9342a2e00e9fc17ed713b6978d44b4d04197b0bb06b1f88e39546622721e.png" src="../../_images/ec3d9342a2e00e9fc17ed713b6978d44b4d04197b0bb06b1f88e39546622721e.png" style="width: 1246px; height: 470px;" />
+</a>
 </div>
 </div>
 <p>Now, let’s create a simple anomaly detection system with the help of moving average. Unfortunately, in this particular dataset, everything is more or less normal, so we will intentionally make one of the values abnormal in our dataframe <code class="docutils literal notranslate"><span class="pre">ads_anomaly</span></code>.</p>
@@ -902,7 +920,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ac50e311931c8cd88dcd8947bf03db8fac6de3631b18fdaf09406122dfd1b71f.png" src="../../_images/ac50e311931c8cd88dcd8947bf03db8fac6de3631b18fdaf09406122dfd1b71f.png" />
+<a class="reference internal image-reference" href="../../_images/118e47823282b477dcbe0aa15ab98e0dca5a5de48aeb50cd648337b1641a5f1b.png"><img alt="../../_images/118e47823282b477dcbe0aa15ab98e0dca5a5de48aeb50cd648337b1641a5f1b.png" src="../../_images/118e47823282b477dcbe0aa15ab98e0dca5a5de48aeb50cd648337b1641a5f1b.png" style="width: 1246px; height: 470px;" />
+</a>
 </div>
 </div>
 <p>Neat! What about the second series?</p>
@@ -915,7 +934,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d99665edb1b7539375bf6a33c963ead3564eae4e45cdfc9a22687855d2e527b7.png" src="../../_images/d99665edb1b7539375bf6a33c963ead3564eae4e45cdfc9a22687855d2e527b7.png" />
+<a class="reference internal image-reference" href="../../_images/a2e7117d237785e1b2265a2426f94b25f62d683cbd6f8ac6427e194f8c591290.png"><img alt="../../_images/a2e7117d237785e1b2265a2426f94b25f62d683cbd6f8ac6427e194f8c591290.png" src="../../_images/a2e7117d237785e1b2265a2426f94b25f62d683cbd6f8ac6427e194f8c591290.png" style="width: 1216px; height: 470px;" />
+</a>
 </div>
 </div>
 <p>Oh no, this was not as great! Here, we can see the downside of our simple approach – it did not capture the monthly seasonality in our data and marked almost all 30-day peaks as anomalies. If you want to avoid false positives, it is best to consider more complex models.</p>
@@ -964,7 +984,7 @@ dtype: float64
 </div>
 </div>
 <section id="exponential-smoothing">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Exponential smoothing</a><a class="headerlink" href="#exponential-smoothing" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Exponential smoothing</a><a class="headerlink" href="#exponential-smoothing" title="Link to this heading">#</a></h2>
 <p>Now, let’s see what happens if, instead of weighting the last <span class="math notranslate nohighlight">\(k\)</span> values of the time series, we start weighting all available observations while exponentially decreasing the weights as we move further back in time. There exists a formula for <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_smoothing">exponential smoothing</a></strong> that will help us with this:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y}_{t} = \alpha \cdot y_t + (1-\alpha) \cdot \hat y_{t-1} \]</div>
@@ -1017,7 +1037,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/24713b206e93bd2c0a6c71d9e45105b78aae5aa587c7747aa5f3c7a4015b6508.png" src="../../_images/24713b206e93bd2c0a6c71d9e45105b78aae5aa587c7747aa5f3c7a4015b6508.png" />
+<a class="reference internal image-reference" href="../../_images/3554d9c371b3e19d3b7f21fa04d64bb8e0709bc9c2f151b0ffcd8f3eff41076d.png"><img alt="../../_images/3554d9c371b3e19d3b7f21fa04d64bb8e0709bc9c2f151b0ffcd8f3eff41076d.png" src="../../_images/3554d9c371b3e19d3b7f21fa04d64bb8e0709bc9c2f151b0ffcd8f3eff41076d.png" style="width: 1238px; height: 604px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1027,12 +1048,13 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0a4d097ccafde8e9d6b0f8a21a7b7fb0eb9cd77d8c82bac1088ceb4f302d5504.png" src="../../_images/0a4d097ccafde8e9d6b0f8a21a7b7fb0eb9cd77d8c82bac1088ceb4f302d5504.png" />
+<a class="reference internal image-reference" href="../../_images/0d9ef076ecb51d1ce413bc7b487dcb526cf911c90380261946d61976adefd8cb.png"><img alt="../../_images/0d9ef076ecb51d1ce413bc7b487dcb526cf911c90380261946d61976adefd8cb.png" src="../../_images/0d9ef076ecb51d1ce413bc7b487dcb526cf911c90380261946d61976adefd8cb.png" style="width: 1208px; height: 604px;" />
+</a>
 </div>
 </div>
 </section>
 <section id="double-exponential-smoothing">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Double exponential smoothing</a><a class="headerlink" href="#double-exponential-smoothing" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Double exponential smoothing</a><a class="headerlink" href="#double-exponential-smoothing" title="Link to this heading">#</a></h2>
 <p>Up to now, the methods that we’ve discussed have been for a single future point prediction (with some nice smoothing). That is cool, but it is also not enough. Let’s extend exponential smoothing so that we can predict two future points (of course, we will also include more smoothing).</p>
 <p>Series decomposition will help us – we obtain two components: intercept (i.e. level) <span class="math notranslate nohighlight">\(\ell\)</span> and slope (i.e. trend) <span class="math notranslate nohighlight">\(b\)</span>. We have learnt to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depends on the previous weighted changes. As a result, we get the following set of functions:</p>
 <div class="math notranslate nohighlight">
@@ -1098,7 +1120,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/47f17993fe1092dcb118fa80f760070e54fee841f5432225deffb8b8d0d5b0d8.png" src="../../_images/47f17993fe1092dcb118fa80f760070e54fee841f5432225deffb8b8d0d5b0d8.png" />
+<a class="reference internal image-reference" href="../../_images/536dfefd0bab5d70ffe982b09701f94dc426abe9908bc1f8d7468d11c6d27cce.png"><img alt="../../_images/536dfefd0bab5d70ffe982b09701f94dc426abe9908bc1f8d7468d11c6d27cce.png" src="../../_images/536dfefd0bab5d70ffe982b09701f94dc426abe9908bc1f8d7468d11c6d27cce.png" style="width: 1625px; height: 681px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1110,13 +1133,14 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7d61194f9b0654ab7649cc0e051daf8b4609c72d04b2bd17cf0b406f380bad6c.png" src="../../_images/7d61194f9b0654ab7649cc0e051daf8b4609c72d04b2bd17cf0b406f380bad6c.png" />
+<a class="reference internal image-reference" href="../../_images/8df6de0984d90372d2c1338c6350373f079aeda218aa7c228cb34fc829f7f888.png"><img alt="../../_images/8df6de0984d90372d2c1338c6350373f079aeda218aa7c228cb34fc829f7f888.png" src="../../_images/8df6de0984d90372d2c1338c6350373f079aeda218aa7c228cb34fc829f7f888.png" style="width: 1592px; height: 681px;" />
+</a>
 </div>
 </div>
 <p>Now we have to tune two parameters: <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>. The former is responsible for the series smoothing around the trend, the latter for the smoothing of the trend itself. The larger the values, the more weight the most recent observations will have and the less smoothed the model series will be. Certain combinations of the parameters may produce strange results, especially if set manually. We’ll look into choosing parameters automatically in a bit; before that, let’s discuss triple exponential smoothing.</p>
 </section>
 <section id="triple-exponential-smoothing-a-k-a-holt-winters">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Triple exponential smoothing a.k.a. Holt-Winters</a><a class="headerlink" href="#triple-exponential-smoothing-a-k-a-holt-winters" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Triple exponential smoothing a.k.a. Holt-Winters</a><a class="headerlink" href="#triple-exponential-smoothing-a-k-a-holt-winters" title="Link to this heading">#</a></h2>
 <p>We’ve looked at exponential smoothing and double exponential smoothing. This time, we’re going into <em>triple</em> exponential smoothing.</p>
 <p>As you could have guessed, the idea is to add a third component - seasonality. This means that we should not use this method if our time series is not expected to have seasonality. Seasonal components in the model will explain repeated variations around intercept and trend, and it will be specified by the length of the season, in other words by the period after which the variations repeat. For each observation in the season, there is a separate component; for example, if the length of the season is 7 days (a weekly seasonality), we will have 7 seasonal components, one for each day of the week.</p>
 <p>With this, let’s write out a new system of equations:</p>
@@ -1262,7 +1286,7 @@ dtype: float64
 </div>
 </section>
 <section id="time-series-cross-validation">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Time series cross validation</a><a class="headerlink" href="#time-series-cross-validation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Time series cross validation</a><a class="headerlink" href="#time-series-cross-validation" title="Link to this heading">#</a></h2>
 <p>Before we start building a model, let’s first discuss how to estimate model parameters automatically.</p>
 <p>There is nothing unusual here; as always, we have to choose a loss function suitable for the task that will tell us how closely the model approximates the data. Then, using cross-validation, we will evaluate our chosen loss function for the given model parameters, calculate the gradient, adjust the model parameters, and so on, eventually descending to the global minimum.</p>
 <p>You may be asking how to do cross-validation for time series because time series have this temporal structure and one cannot randomly mix values in a fold while preserving this structure. With randomization, all time dependencies between observations will be lost. This is why we will have to use a more tricky approach in optimizing the model parameters. I don’t know if there’s an official name to this, but on <a class="reference external" href="https://stats.stackexchange.com/questions/14099/using-k-fold-cross-validation-for-time-series-model-selection">CrossValidated</a>, where one can find all answers but the Answer to the Ultimate Question of Life, the Universe, and Everything, the proposed name for this method is “cross-validation on a rolling basis”.</p>
@@ -1353,8 +1377,8 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11912291397687808 0.00269957583214403 0.05376597682877887
-CPU times: user 150 ms, sys: 5.72 ms, total: 156 ms
-Wall time: 151 ms
+CPU times: user 167 ms, sys: 4.17 ms, total: 171 ms
+Wall time: 167 ms
 </pre></div>
 </div>
 </div>
@@ -1417,7 +1441,8 @@ Wall time: 151 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/880fbd79d834864126517f44cb4713afa74a38ee0ef3d4b1c4a9d80dbfccb40a.png" src="../../_images/880fbd79d834864126517f44cb4713afa74a38ee0ef3d4b1c4a9d80dbfccb40a.png" />
+<a class="reference internal image-reference" href="../../_images/57e9989d59175a32b18abe346fc879a99f0bbdcf34fb0a2904a5e2f7a773cee6.png"><img alt="../../_images/57e9989d59175a32b18abe346fc879a99f0bbdcf34fb0a2904a5e2f7a773cee6.png" src="../../_images/57e9989d59175a32b18abe346fc879a99f0bbdcf34fb0a2904a5e2f7a773cee6.png" style="width: 1634px; height: 838px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1427,7 +1452,8 @@ Wall time: 151 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/49061da741c79878b83ceaff6c2d4d2a046d2f4ad1a7785e8a3ce78c2868614b.png" src="../../_images/49061da741c79878b83ceaff6c2d4d2a046d2f4ad1a7785e8a3ce78c2868614b.png" />
+<a class="reference internal image-reference" href="../../_images/b1b2bf1f89072227411d509d65bf48f95ad1ba219c1c300437430c0d8eef7a92.png"><img alt="../../_images/b1b2bf1f89072227411d509d65bf48f95ad1ba219c1c300437430c0d8eef7a92.png" src="../../_images/b1b2bf1f89072227411d509d65bf48f95ad1ba219c1c300437430c0d8eef7a92.png" style="width: 1634px; height: 838px;" />
+</a>
 </div>
 </div>
 <p>Judging by the plots, our model was able to successfully approximate the initial time series, capturing the daily seasonality, overall downwards trend, and even some anomalies. If you look at the model deviations, you can clearly see that the model reacts quite sharply to changes in the structure of the series but then quickly returns the deviation to the normal values, essentially “forgetting” the past. This feature of the model allows us to quickly build anomaly detection systems, even for noisy series data, without spending too much time and money on preparing the data and training the model.</p>
@@ -1442,7 +1468,8 @@ Wall time: 151 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/60267a16eefcb9c29dfd80b2b822ce09741891e9b701f90fb5bdec72bd7680ba.png" src="../../_images/60267a16eefcb9c29dfd80b2b822ce09741891e9b701f90fb5bdec72bd7680ba.png" />
+<a class="reference internal image-reference" href="../../_images/b923cc485cec175396bf09db308cf73c622d2e510db4ac5e9831da0d3ea96988.png"><img alt="../../_images/b923cc485cec175396bf09db308cf73c622d2e510db4ac5e9831da0d3ea96988.png" src="../../_images/b923cc485cec175396bf09db308cf73c622d2e510db4ac5e9831da0d3ea96988.png" style="width: 2004px; height: 453px;" />
+</a>
 </div>
 </div>
 <p>We’ll apply the same algorithm for the second series which, as you may recall, has trend and a 30-day seasonality.</p>
@@ -1480,8 +1507,8 @@ Wall time: 151 ms
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013190344846993662 0.047616267647338284 0.0
-CPU times: user 224 ms, sys: 1.32 ms, total: 226 ms
-Wall time: 225 ms
+CPU times: user 243 ms, sys: 1.52 ms, total: 245 ms
+Wall time: 244 ms
 </pre></div>
 </div>
 </div>
@@ -1493,7 +1520,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/11faa96627f6f500ecb30a0cae0b2bf5916f9c7712fcda62a78ba1b84657d555.png" src="../../_images/11faa96627f6f500ecb30a0cae0b2bf5916f9c7712fcda62a78ba1b84657d555.png" />
+<a class="reference internal image-reference" href="../../_images/f0769bca4e43a0965d36607132220ce30c5de25f4697da4f1a5e77c7bb6d5f2c.png"><img alt="../../_images/f0769bca4e43a0965d36607132220ce30c5de25f4697da4f1a5e77c7bb6d5f2c.png" src="../../_images/f0769bca4e43a0965d36607132220ce30c5de25f4697da4f1a5e77c7bb6d5f2c.png" style="width: 1604px; height: 838px;" />
+</a>
 </div>
 </div>
 <p>Looks good! The model caught both upwards trend and seasonal spikes and fits the data quite nicely.</p>
@@ -1504,7 +1532,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f8ed255836a2957b01f3312a7f8f6d215d0173acc37cd0d9e653a18493d06d00.png" src="../../_images/f8ed255836a2957b01f3312a7f8f6d215d0173acc37cd0d9e653a18493d06d00.png" />
+<a class="reference internal image-reference" href="../../_images/8b2436d472de4e700218f2a0b8abde3be2f3db21432821889e9c9c69f10545d6.png"><img alt="../../_images/8b2436d472de4e700218f2a0b8abde3be2f3db21432821889e9c9c69f10545d6.png" src="../../_images/8b2436d472de4e700218f2a0b8abde3be2f3db21432821889e9c9c69f10545d6.png" style="width: 1604px; height: 838px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1518,15 +1547,16 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d249d6df2d20aa6eebcf181f0db779ceedff64a69ba626caddeada1a2fcf1729.png" src="../../_images/d249d6df2d20aa6eebcf181f0db779ceedff64a69ba626caddeada1a2fcf1729.png" />
+<a class="reference internal image-reference" href="../../_images/9af244d0d8c2bc5ae83c851674b393b85a2b79a78f6801f1a0c81b6d0477017e.png"><img alt="../../_images/9af244d0d8c2bc5ae83c851674b393b85a2b79a78f6801f1a0c81b6d0477017e.png" src="../../_images/9af244d0d8c2bc5ae83c851674b393b85a2b79a78f6801f1a0c81b6d0477017e.png" style="width: 1621px; height: 453px;" />
+</a>
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="econometric-approach">
-<h1><a class="toc-backref" href="#id10" role="doc-backlink">Econometric approach</a><a class="headerlink" href="#econometric-approach" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id10" role="doc-backlink">Econometric approach</a><a class="headerlink" href="#econometric-approach" title="Link to this heading">#</a></h1>
 <section id="stationarity">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Stationarity</a><a class="headerlink" href="#stationarity" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Stationarity</a><a class="headerlink" href="#stationarity" title="Link to this heading">#</a></h2>
 <p>Before we start modeling, we should mention such an important property of time series: <a class="reference external" href="https://en.wikipedia.org/wiki/Stationary_process"><strong>stationarity</strong></a>.</p>
 <p>If a process is stationary, that means it does not change its statistical properties over time, namely its mean and variance. (The constancy of variance is called <a class="reference external" href="https://en.wikipedia.org/wiki/Homoscedasticity">homoscedasticity</a>)The covariance function does not depend on time; it should only depend on the distance between observations. You can see this visually on the images in the post by <a class="reference external" href="http://www.seanabu.com/2016/03/22/time-series-seasonal-ARIMA-model-in-python/">Sean Abu</a>:</p>
 <ul class="simple">
@@ -1554,7 +1584,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d3b651c48939e290ab79b87d891fa90f6423884a4ea49cd53d674eab13d0dce0.png" src="../../_images/d3b651c48939e290ab79b87d891fa90f6423884a4ea49cd53d674eab13d0dce0.png" />
+<a class="reference internal image-reference" href="../../_images/2add13c5bdfa021d5ad776e6d293c797716b3f0c416c9c2149f872560b5772bb.png"><img alt="../../_images/2add13c5bdfa021d5ad776e6d293c797716b3f0c416c9c2149f872560b5772bb.png" src="../../_images/2add13c5bdfa021d5ad776e6d293c797716b3f0c416c9c2149f872560b5772bb.png" style="width: 1204px; height: 424px;" />
+</a>
 </div>
 </div>
 <p>The process generated by the standard normal distribution is stationary and oscillates around 0 with with deviation of 1. Now, based on this process, we will generate a new one where each subsequent value will depend on the previous one: <span class="math notranslate nohighlight">\(x_t = \rho x_{t-1} + e_t\)</span></p>
@@ -1582,10 +1613,14 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/260df0e02209487cc82e46e5aa1791b349995df628a807006a43de4399392624.png" src="../../_images/260df0e02209487cc82e46e5aa1791b349995df628a807006a43de4399392624.png" />
-<img alt="../../_images/e338c4271ee578fc7678cafdb00efcaeac2dda2cdcbff7ce38fc72f3366d83f6.png" src="../../_images/e338c4271ee578fc7678cafdb00efcaeac2dda2cdcbff7ce38fc72f3366d83f6.png" />
-<img alt="../../_images/0f574d9e9ae440a07d5738f5001bd5d28e0ecbdeab7ade616a1a5e00e7b77c65.png" src="../../_images/0f574d9e9ae440a07d5738f5001bd5d28e0ecbdeab7ade616a1a5e00e7b77c65.png" />
-<img alt="../../_images/eab31065bd4f6b48963865c8b0c6675ce3b9b22fe4a479d88520fadbe4fdb5ee.png" src="../../_images/eab31065bd4f6b48963865c8b0c6675ce3b9b22fe4a479d88520fadbe4fdb5ee.png" />
+<a class="reference internal image-reference" href="../../_images/f049b9436ec7aca9920e39a0fb35bab9a2a7e739ac7ee61d5e26888b7403368d.png"><img alt="../../_images/f049b9436ec7aca9920e39a0fb35bab9a2a7e739ac7ee61d5e26888b7403368d.png" src="../../_images/f049b9436ec7aca9920e39a0fb35bab9a2a7e739ac7ee61d5e26888b7403368d.png" style="width: 817px; height: 322px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/7052e2871a5b01b40fff9284c89b58eccf17320fb60a168aba16827a105b31ea.png"><img alt="../../_images/7052e2871a5b01b40fff9284c89b58eccf17320fb60a168aba16827a105b31ea.png" src="../../_images/7052e2871a5b01b40fff9284c89b58eccf17320fb60a168aba16827a105b31ea.png" style="width: 817px; height: 322px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/6cf236f66b0e21b5c4edb5eb9d850f79693db4f976006ced7114d558c73f8cae.png"><img alt="../../_images/6cf236f66b0e21b5c4edb5eb9d850f79693db4f976006ced7114d558c73f8cae.png" src="../../_images/6cf236f66b0e21b5c4edb5eb9d850f79693db4f976006ced7114d558c73f8cae.png" style="width: 817px; height: 322px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/afd2edcdd9475ad49d4d7b57307aaeb38efc35fefe45c91da80018f64f6984f8.png"><img alt="../../_images/afd2edcdd9475ad49d4d7b57307aaeb38efc35fefe45c91da80018f64f6984f8.png" src="../../_images/afd2edcdd9475ad49d4d7b57307aaeb38efc35fefe45c91da80018f64f6984f8.png" style="width: 825px; height: 322px;" />
+</a>
 </div>
 </div>
 <p>On the first plot, you can see the same stationary white noise as before. On the second plot with <span class="math notranslate nohighlight">\(\rho\)</span> increased to 0.6, wider cycles appeared, but it still appears stationary overall. The third plot deviates even more from the 0 mean but still oscillates about the mean. Finally, with <span class="math notranslate nohighlight">\(\rho=1\)</span>, we have a random walk process i.e. a non-stationary time series.</p>
@@ -1593,7 +1628,7 @@ Wall time: 225 ms
 <p>We can fight non-stationarity using different approaches: various order differences, trend and seasonality removal, smoothing, and transformations like Box-Cox or logarithmic.</p>
 </section>
 <section id="getting-rid-of-non-stationarity-and-building-sarima">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Getting rid of non-stationarity and building SARIMA</a><a class="headerlink" href="#getting-rid-of-non-stationarity-and-building-sarima" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Getting rid of non-stationarity and building SARIMA</a><a class="headerlink" href="#getting-rid-of-non-stationarity-and-building-sarima" title="Link to this heading">#</a></h2>
 <p>Let’s build an ARIMA model by walking through all the <em>circles of hell</em> stages of making a series stationary.</p>
 <p>Here is the code to render plots.</p>
 <div class="cell docutils container">
@@ -1634,7 +1669,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a5f87efc95100748588d6a6d2057fbbf61c674d267ddc75a3467d6f70ede098b.png" src="../../_images/a5f87efc95100748588d6a6d2057fbbf61c674d267ddc75a3467d6f70ede098b.png" />
+<a class="reference internal image-reference" href="../../_images/760140b6822233a1df7f7236f332b4f8da8b807aeb75e657bf2ba42213667950.png"><img alt="../../_images/760140b6822233a1df7f7236f332b4f8da8b807aeb75e657bf2ba42213667950.png" src="../../_images/760140b6822233a1df7f7236f332b4f8da8b807aeb75e657bf2ba42213667950.png" style="width: 1183px; height: 683px;" />
+</a>
 </div>
 </div>
 <p><em>this outlier on partial autocorrelation plot looks like a statsmodels bug, partial autocorrelation shall be &lt;= 1 like any correlation.</em></p>
@@ -1647,7 +1683,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/68268a535979037124c903acb49c55f4d293d78b8d2f2befaded67110fe1f675.png" src="../../_images/68268a535979037124c903acb49c55f4d293d78b8d2f2befaded67110fe1f675.png" />
+<a class="reference internal image-reference" href="../../_images/d273190b715a74313b0b24406fe35adbad486b211f049574b8b9246266c20ef5.png"><img alt="../../_images/d273190b715a74313b0b24406fe35adbad486b211f049574b8b9246266c20ef5.png" src="../../_images/d273190b715a74313b0b24406fe35adbad486b211f049574b8b9246266c20ef5.png" style="width: 1182px; height: 683px;" />
+</a>
 </div>
 </div>
 <p>It is now much better with the visible seasonality gone. However, the autocorrelation function still has too many significant lags. To remove them, we’ll take first differences, subtracting the series from itself with lag 1.</p>
@@ -1659,13 +1696,14 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" src="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" />
+<a class="reference internal image-reference" href="../../_images/c49634a9777292cc73bad326cba30e1aa244e7da91a7543265033aaf84200a88.png"><img alt="../../_images/c49634a9777292cc73bad326cba30e1aa244e7da91a7543265033aaf84200a88.png" src="../../_images/c49634a9777292cc73bad326cba30e1aa244e7da91a7543265033aaf84200a88.png" style="width: 1183px; height: 683px;" />
+</a>
 </div>
 </div>
 <p>Perfect! Our series now looks like something indescribable, oscillating around zero. The Dickey-Fuller test indicates that it is stationary, and the number of significant peaks in ACF has dropped. We can finally start modeling!</p>
 </section>
 <section id="arima-family-crash-course">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">ARIMA-family Crash-Course</a><a class="headerlink" href="#arima-family-crash-course" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">ARIMA-family Crash-Course</a><a class="headerlink" href="#arima-family-crash-course" title="Link to this heading">#</a></h2>
 <p>We will explain this model by building up letter by letter. <span class="math notranslate nohighlight">\(SARIMA(p, d, q)(P, D, Q, s)\)</span>, Seasonal Autoregression Moving Average model:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(AR(p)\)</span> - autoregression model i.e. regression of the time series onto itself. The basic assumption is that the current series values depend on its previous values with some lag (or several lags). The maximum lag in the model is referred to as <span class="math notranslate nohighlight">\(p\)</span>. To determine the initial <span class="math notranslate nohighlight">\(p\)</span>, you need to look at the PACF plot and find the biggest significant lag after which <strong>most</strong> other lags become insignificant.</p></li>
@@ -1695,7 +1733,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" src="../../_images/e68882065c0e98c80517dac2cbc6ab4ba2a98c4fb30ee1a8fe16f49474fd2283.png" />
+<a class="reference internal image-reference" href="../../_images/c49634a9777292cc73bad326cba30e1aa244e7da91a7543265033aaf84200a88.png"><img alt="../../_images/c49634a9777292cc73bad326cba30e1aa244e7da91a7543265033aaf84200a88.png" src="../../_images/c49634a9777292cc73bad326cba30e1aa244e7da91a7543265033aaf84200a88.png" style="width: 1183px; height: 683px;" />
+</a>
 </div>
 </div>
 <ul class="simple">
@@ -1784,8 +1823,8 @@ Wall time: 225 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "36b08147a6d949bcb67d8924b46fb4ca"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 35.2 s, sys: 2.31 s, total: 37.6 s
-Wall time: 37.6 s
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d0c9a7dd9c6b42a89b24431397fbf3dd"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 36.6 s, sys: 2.38 s, total: 38.9 s
+Wall time: 41.4 s
 </pre></div>
 </div>
 </div>
@@ -1866,8 +1905,8 @@ Wall time: 37.6 s
 ============================================================================================
 Dep. Variable:                                  Ads   No. Observations:                  216
 Model:             SARIMAX(2, 1, 3)x(1, 1, [1], 24)   Log Likelihood               -1936.321
-Date:                              Mon, 06 Jan 2025   AIC                           3888.642
-Time:                                      17:21:19   BIC                           3914.660
+Date:                              Tue, 27 May 2025   AIC                           3888.642
+Time:                                      22:19:02   BIC                           3914.660
 Sample:                                  09-13-2017   HQIC                          3899.181
                                        - 09-21-2017                                         
 Covariance Type:                                opg                                         
@@ -1904,7 +1943,8 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/47462038b8139f3ab6708224162d13a76d7b449793186ccca39d0211ce7c9a38.png" src="../../_images/47462038b8139f3ab6708224162d13a76d7b449793186ccca39d0211ce7c9a38.png" />
+<a class="reference internal image-reference" href="../../_images/41393e3766b70714e7aa0100801b9abde1f0fdd877044e87eb066a3b73787f09.png"><img alt="../../_images/41393e3766b70714e7aa0100801b9abde1f0fdd877044e87eb066a3b73787f09.png" src="../../_images/41393e3766b70714e7aa0100801b9abde1f0fdd877044e87eb066a3b73787f09.png" style="width: 1183px; height: 683px;" />
+</a>
 </div>
 </div>
 <p>It is clear that the residuals are stationary, and there are no apparent autocorrelations. Let’s make predictions using our model.</p>
@@ -1952,18 +1992,19 @@ Warnings:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/171f6df561d3a646018ee36ffe1a38e28204adf31262da630e870dde710ba838.png" src="../../_images/171f6df561d3a646018ee36ffe1a38e28204adf31262da630e870dde710ba838.png" />
+<a class="reference internal image-reference" href="../../_images/52741e6d6925fa7dc4b9754e725dd15f65462ba50020a48a2986a396a96c450f.png"><img alt="../../_images/52741e6d6925fa7dc4b9754e725dd15f65462ba50020a48a2986a396a96c450f.png" src="../../_images/52741e6d6925fa7dc4b9754e725dd15f65462ba50020a48a2986a396a96c450f.png" style="width: 1246px; height: 607px;" />
+</a>
 </div>
 </div>
 <p>In the end, we got very adequate predictions. Our model was wrong by 4.01% on average, which is very, very good. However, the overall costs of preparing data, making the series stationary, and selecting parameters might not be worth this accuracy.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="linear-and-not-only-models-for-time-series">
-<h1><a class="toc-backref" href="#id14" role="doc-backlink">Linear (and not only) models for time series</a><a class="headerlink" href="#linear-and-not-only-models-for-time-series" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id14" role="doc-backlink">Linear (and not only) models for time series</a><a class="headerlink" href="#linear-and-not-only-models-for-time-series" title="Link to this heading">#</a></h1>
 <p>Often, in my job, I have to build models with <a class="reference external" href="http://fastgood.cheap"><em>fast, good, cheap</em></a> as my only guiding principle. That means that some of these models will never be considered “production ready” as they demand too much time for data preparation (as in SARIMA) or require frequent re-training on new data (again, SARIMA) or are difficult to tune (good example - SARIMA). Therefore, it’s very often much easier to select a few features from the existing time series and build a simple linear regression model or, say, a random forest. It is good and cheap.</p>
 <p>This approach is not backed by theory and breaks several assumptions (e.g. Gauss-Markov theorem, especially for errors being uncorrelated), but it is very useful in practice and is often used in machine learning competitions.</p>
 <section id="feature-extraction">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Feature extraction</a><a class="headerlink" href="#feature-extraction" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Feature extraction</a><a class="headerlink" href="#feature-extraction" title="Link to this heading">#</a></h2>
 <p>The model needs features, and all we have is a 1-dimensional time series. What features can we extract?</p>
 <ul class="simple">
 <li><p>Time series lags</p></li>
@@ -1987,7 +2028,7 @@ Warnings:
 <p>Let’s run through some of the methods and see what we can extract from our ads time series data.</p>
 </section>
 <section id="time-series-lags">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Time series lags</a><a class="headerlink" href="#time-series-lags" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Time series lags</a><a class="headerlink" href="#time-series-lags" title="Link to this heading">#</a></h2>
 <p>Shifting the series <span class="math notranslate nohighlight">\(n\)</span> steps back, we get a feature column where the current value of time series is aligned with its value at time <span class="math notranslate nohighlight">\(t-n\)</span>. If we make a 1 lag shift and train a model on that feature, the model will be able to forecast 1 step ahead from having observed the current state of the series. Increasing the lag, say, up to 6, will allow the model to make predictions 6 steps ahead; however it will use data observed 6 steps back. If something fundamentally changes the series during that unobserved period, the model will not catch these changes and will return forecasts with a large error. Therefore, during the initial lag selection, one has to find a balance between the optimal prediction quality and the length of the forecasting horizon.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2298,7 +2339,8 @@ Warnings:
 <div class="cell_output docutils container">
 <div class="output text_html"><style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -2443,12 +2485,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-1 label.sk-toggleable__label-arrow:before {
@@ -2601,7 +2652,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -2700,7 +2752,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LinearRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2771,8 +2823,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8cdfc24c988b9b38dc3b083ec29853792b7cc0b9e7b5e5f2ed43d8caf81ea739.png" src="../../_images/8cdfc24c988b9b38dc3b083ec29853792b7cc0b9e7b5e5f2ed43d8caf81ea739.png" />
-<img alt="../../_images/d0ae1639f474c7d73e13eb8015c7eda1382fbbf025a7f907dd580d2315636dda.png" src="../../_images/d0ae1639f474c7d73e13eb8015c7eda1382fbbf025a7f907dd580d2315636dda.png" />
+<a class="reference internal image-reference" href="../../_images/582e901953f2edf7079e321ae5db3d0e7415aa9d95c848a87a4aa626dd6fb7cd.png"><img alt="../../_images/582e901953f2edf7079e321ae5db3d0e7415aa9d95c848a87a4aa626dd6fb7cd.png" src="../../_images/582e901953f2edf7079e321ae5db3d0e7415aa9d95c848a87a4aa626dd6fb7cd.png" style="width: 1483px; height: 684px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/42ad62bd247c5be1d125ce838ed86c267da2ddd6b4cadd6300f14b028b84c11b.png"><img alt="../../_images/42ad62bd247c5be1d125ce838ed86c267da2ddd6b4cadd6300f14b028b84c11b.png" src="../../_images/42ad62bd247c5be1d125ce838ed86c267da2ddd6b4cadd6300f14b028b84c11b.png" style="width: 1225px; height: 618px;" />
+</a>
 </div>
 </div>
 <p>Simple lags and linear regression gave us predictions that are not that far off from SARIMA in terms of quality. There are many unnecessary features, so we’ll do feature selection in a little while. For now, let’s continue engineering!</p>
@@ -2992,7 +3046,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0d74254fafa70b4ca81d1854829127a69eab007857ee73169ff5cf24e63a4e2e.png" src="../../_images/0d74254fafa70b4ca81d1854829127a69eab007857ee73169ff5cf24e63a4e2e.png" />
+<a class="reference internal image-reference" href="../../_images/151f5622e8f3a30408d00f1494f96d3d82512b762d6763da335a1175c9bb2297.png"><img alt="../../_images/151f5622e8f3a30408d00f1494f96d3d82512b762d6763da335a1175c9bb2297.png" src="../../_images/151f5622e8f3a30408d00f1494f96d3d82512b762d6763da335a1175c9bb2297.png" style="width: 1290px; height: 507px;" />
+</a>
 </div>
 </div>
 <p>Since we now have different scales in our variables, thousands for the lag features and tens for categorical, we need to transform them into same scale for exploring feature importance and, later, regularization.</p>
@@ -3024,14 +3079,16 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ecc7d6f173ae1f94d09ed8261abfa0d9f70f12862b961b84a82f7fef4b7e2559.png" src="../../_images/ecc7d6f173ae1f94d09ed8261abfa0d9f70f12862b961b84a82f7fef4b7e2559.png" />
-<img alt="../../_images/571909a958a84bb8bdb6e5c266eb962ea06d7f4ce9dc72b6af36d39f2a168128.png" src="../../_images/571909a958a84bb8bdb6e5c266eb962ea06d7f4ce9dc72b6af36d39f2a168128.png" />
+<a class="reference internal image-reference" href="../../_images/b7945b26e89218777dffaffd43ee71b80167fbc388b10735a2f4a9985a353622.png"><img alt="../../_images/b7945b26e89218777dffaffd43ee71b80167fbc388b10735a2f4a9985a353622.png" src="../../_images/b7945b26e89218777dffaffd43ee71b80167fbc388b10735a2f4a9985a353622.png" style="width: 1483px; height: 684px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/9fe0b6ee10806fbb30ea2314ff788aefe23ff30225f27daf4789e0c795db81cf.png"><img alt="../../_images/9fe0b6ee10806fbb30ea2314ff788aefe23ff30225f27daf4789e0c795db81cf.png" src="../../_images/9fe0b6ee10806fbb30ea2314ff788aefe23ff30225f27daf4789e0c795db81cf.png" style="width: 1238px; height: 652px;" />
+</a>
 </div>
 </div>
 <p>The test error goes down a little bit. Judging by the coefficients plot, we can say that <code class="docutils literal notranslate"><span class="pre">weekday</span></code> and <code class="docutils literal notranslate"><span class="pre">is_weekend</span></code> are useful features.</p>
 </section>
 <section id="target-encoding">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Target encoding</a><a class="headerlink" href="#target-encoding" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Target encoding</a><a class="headerlink" href="#target-encoding" title="Link to this heading">#</a></h2>
 <p>I’d like to add another variant for encoding categorical variables: encoding by mean value. If it is undesirable to explode a dataset by using many dummy variables that can lead to the loss of information and if they cannot be used as real values because of the conflicts like “0 hours &lt; 23 hours”, then it’s possible to encode a variable with slightly more interpretable values. The natural idea is to encode with the mean value of the target variable. In our example, every day of the week and every hour of the day can be encoded by the corresponding average number of ads watched during that day or hour. It’s very important to make sure that the mean value is calculated over the training set only (or over the current cross-validation fold only) so that the model is not aware of the future.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3057,7 +3114,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c23f4bb7c5aca04b793dd8fce2b2a9fc03852c865bb238dcd88669e01d42caa3.png" src="../../_images/c23f4bb7c5aca04b793dd8fce2b2a9fc03852c865bb238dcd88669e01d42caa3.png" />
+<a class="reference internal image-reference" href="../../_images/4567e617bae130a611a8e267b38b8034e0c012ca17cce3a19e8ab6c20e7932a2.png"><img alt="../../_images/4567e617bae130a611a8e267b38b8034e0c012ca17cce3a19e8ab6c20e7932a2.png" src="../../_images/4567e617bae130a611a8e267b38b8034e0c012ca17cce3a19e8ab6c20e7932a2.png" style="width: 626px; height: 453px;" />
+</a>
 </div>
 </div>
 <p>Finally, let’s put all the transformations together in a single function .</p>
@@ -3149,8 +3207,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/69675a17fca36bd589d78decd581d989e1bb0abe75afc2b1eec573de2c5bb445.png" src="../../_images/69675a17fca36bd589d78decd581d989e1bb0abe75afc2b1eec573de2c5bb445.png" />
-<img alt="../../_images/eec004f4ae784e02c7b1f6b5beab0197a5d27ff94a624ea119e89c86dadc0c40.png" src="../../_images/eec004f4ae784e02c7b1f6b5beab0197a5d27ff94a624ea119e89c86dadc0c40.png" />
+<a class="reference internal image-reference" href="../../_images/fce2abc484ce0f2e311a3551d6eada7e54201a0fecf129068f40ac192add73c6.png"><img alt="../../_images/fce2abc484ce0f2e311a3551d6eada7e54201a0fecf129068f40ac192add73c6.png" src="../../_images/fce2abc484ce0f2e311a3551d6eada7e54201a0fecf129068f40ac192add73c6.png" style="width: 1483px; height: 684px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/f69e79872cde9485401971a7e2f12d4beb38e6448bc1d0d70d68790b8567e3fd.png"><img alt="../../_images/f69e79872cde9485401971a7e2f12d4beb38e6448bc1d0d70d68790b8567e3fd.png" src="../../_images/f69e79872cde9485401971a7e2f12d4beb38e6448bc1d0d70d68790b8567e3fd.png" style="width: 1238px; height: 696px;" />
+</a>
 </div>
 </div>
 <p>We see some <strong>overfitting</strong>! <code class="docutils literal notranslate"><span class="pre">Hour_average</span></code> was so great in the training dataset that the model decided to concentrate all of its forces on it. As a result, the quality of prediction dropped. This problem can be solved in a variety of ways; for example, we can calculate the target encoding not for the whole train set, but for some window instead. That way, encodings from the last observed window will most likely better describe the current series state. Alternatively, we can just drop it manually since we are sure that it makes things only worse in this case.</p>
@@ -3168,7 +3228,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </section>
 <section id="regularization-and-feature-selection">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Regularization and feature selection</a><a class="headerlink" href="#regularization-and-feature-selection" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Regularization and feature selection</a><a class="headerlink" href="#regularization-and-feature-selection" title="Link to this heading">#</a></h2>
 <p>As we already know, not all features are equally healthy – some may lead to overfitting while others should be removed. Besides manual inspection, we can apply regularization. Two of the most popular regression models with regularization are Ridge and Lasso regressions. They both add some more constrains to our loss function.</p>
 <p>In the case of Ridge regression, those constraints are the sum of squares of the coefficients multiplied by the regularization coefficient. The bigger the coefficient a feature has, the bigger our loss will be. Hence, we will try to optimize the model while keeping the coefficients fairly low.</p>
 <p>As a result of this <span class="math notranslate nohighlight">\(L2\)</span> regularization, we will have higher bias and lower variance, so the model will generalize better (at least that’s what we hope will happen).</p>
@@ -3182,7 +3242,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d702e966f775b8db5868e3dacb597ed74eb17e7500a98a7c065c4906e9e84ef6.png" src="../../_images/d702e966f775b8db5868e3dacb597ed74eb17e7500a98a7c065c4906e9e84ef6.png" />
+<a class="reference internal image-reference" href="../../_images/910df1d64bbc95af4f1a6e71831c90627a2255fc00ae2e1dc09da46ba2e62059.png"><img alt="../../_images/910df1d64bbc95af4f1a6e71831c90627a2255fc00ae2e1dc09da46ba2e62059.png" src="../../_images/910df1d64bbc95af4f1a6e71831c90627a2255fc00ae2e1dc09da46ba2e62059.png" style="width: 846px; height: 735px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -3204,8 +3265,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1163982e7e4ec88df06c9b0eb540fb490af8aea2a67d8ce89f87d8e87c146c95.png" src="../../_images/1163982e7e4ec88df06c9b0eb540fb490af8aea2a67d8ce89f87d8e87c146c95.png" />
-<img alt="../../_images/dfc2383e9b5942b55788c72352dcee62e92eeadfc1c12edae4072906ff75ae31.png" src="../../_images/dfc2383e9b5942b55788c72352dcee62e92eeadfc1c12edae4072906ff75ae31.png" />
+<a class="reference internal image-reference" href="../../_images/e60e78f11be860ea2f49ddd2d232cc276418f1a485d14815507233a268c1bf3b.png"><img alt="../../_images/e60e78f11be860ea2f49ddd2d232cc276418f1a485d14815507233a268c1bf3b.png" src="../../_images/e60e78f11be860ea2f49ddd2d232cc276418f1a485d14815507233a268c1bf3b.png" style="width: 1483px; height: 684px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/5fb60aef22d92fec1022c365469bcfcd6dc7f7ca5ef120507d3eeb9efb194daf.png"><img alt="../../_images/5fb60aef22d92fec1022c365469bcfcd6dc7f7ca5ef120507d3eeb9efb194daf.png" src="../../_images/5fb60aef22d92fec1022c365469bcfcd6dc7f7ca5ef120507d3eeb9efb194daf.png" style="width: 1238px; height: 652px;" />
+</a>
 </div>
 </div>
 <p>We can clearly see some coefficients are getting closer and closer to zero (though they never actually reach it) as their importance in the model drops.</p>
@@ -3226,18 +3289,21 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4d9ef94448a2b20f661992431e751105b2d78d6acb5676e9d160da1983e76a51.png" src="../../_images/4d9ef94448a2b20f661992431e751105b2d78d6acb5676e9d160da1983e76a51.png" />
-<img alt="../../_images/a4261d1016fe9ab5e089f9f6ecdba8f5917926036012116188acab82b74fe79e.png" src="../../_images/a4261d1016fe9ab5e089f9f6ecdba8f5917926036012116188acab82b74fe79e.png" />
+<a class="reference internal image-reference" href="../../_images/23c5ff09fcd3832afb81f71d673479ea625eefbff96e5400feb20d66ebf67715.png"><img alt="../../_images/23c5ff09fcd3832afb81f71d673479ea625eefbff96e5400feb20d66ebf67715.png" src="../../_images/23c5ff09fcd3832afb81f71d673479ea625eefbff96e5400feb20d66ebf67715.png" style="width: 1483px; height: 684px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/87de098de3b4a955c784f93a2271a3b9efcbf6e6ebb79766d12bc37d96788dcf.png"><img alt="../../_images/87de098de3b4a955c784f93a2271a3b9efcbf6e6ebb79766d12bc37d96788dcf.png" src="../../_images/87de098de3b4a955c784f93a2271a3b9efcbf6e6ebb79766d12bc37d96788dcf.png" style="width: 1238px; height: 652px;" />
+</a>
 </div>
 </div>
 <p>Lasso regression turned out to be more conservative; it removed 23-rd lag from the most important features and dropped 5 features completely, which only made the quality of prediction better.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="boosting">
-<h1><a class="toc-backref" href="#id19" role="doc-backlink">Boosting</a><a class="headerlink" href="#boosting" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id19" role="doc-backlink">Boosting</a><a class="headerlink" href="#boosting" title="Link to this heading">#</a></h1>
 <p>Why shouldn’t we try XGBoost now?</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/xgboost_the_things.jpg"><img alt="../../_images/xgboost_the_things.jpg" src="../../_images/xgboost_the_things.jpg" style="width: 200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/xgboost_the_things.jpg"><img alt="../../_images/xgboost_the_things.jpg" src="../../_images/xgboost_the_things.jpg" style="width: 200px;" />
+</a>
 </figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3262,22 +3328,23 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a82f3154cfb415dfc18e90e6cd75c81f74a8614702fe513ab74a6a58312f5103.png" src="../../_images/a82f3154cfb415dfc18e90e6cd75c81f74a8614702fe513ab74a6a58312f5103.png" />
+<a class="reference internal image-reference" href="../../_images/df665341674b077b0f0e04402b15378afd873adec2958301afd29db7453982ac.png"><img alt="../../_images/df665341674b077b0f0e04402b15378afd873adec2958301afd29db7453982ac.png" src="../../_images/df665341674b077b0f0e04402b15378afd873adec2958301afd29db7453982ac.png" style="width: 1483px; height: 684px;" />
+</a>
 </div>
 </div>
 <p>We have a winner! This is the smallest error on the test set among all the models we’ve tried so far.</p>
 <p>But, this victory is decieving, and it might not be the brightest idea to fit <code class="docutils literal notranslate"><span class="pre">xgboost</span></code> as soon as you get your hands on time series data. Generally, tree-based models handle trends in data poorly when compared with linear models. In that case, you would have to detrend your series first or use some tricks to make the magic happen. Ideally, you can make the series stationary and then use XGBoost. For example, you can forecast trend separately with a linear model and then add predictions from <code class="docutils literal notranslate"><span class="pre">xgboost</span></code> to get a final forecast.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conclusion">
-<h1><a class="toc-backref" href="#id20" role="doc-backlink">Conclusion</a><a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id20" role="doc-backlink">Conclusion</a><a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
 <p>We discussed different time series analysis and prediction methods. Unfortunately, or maybe luckily, there is no one way to solve these kind of problems. Methods developed in the 1960s (and some even in the beginning of the 21st century) are still popular, along with LSTMs and RNNs (not covered in this article). This is partially related to the fact that the prediction task, like any other data-related task, requires creativity in so many aspects and definitely requires research. In spite of the large number of formal quality metrics and approaches to parameters estimation, it is often necessary to try something different for each time series. Last but not least, the balance between quality and cost is important. As a good example, the SARIMA model can produce spectacular results after tuning but can require many hours of <em>tambourine dancing</em> time series manipulation while a simple linear regression model can be built in 10 minutes and can achieve more or less comparable results.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="useful-resources">
-<h1><a class="toc-backref" href="#id21" role="doc-backlink">Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id21" role="doc-backlink">Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-9-part-1-time-series-analysis-in-python">Kaggle Kernel</a></p></li>
 <li><p>“LSTM (Long Short Term Memory) Networks for predicting Time Series” - a tutorial by Max Sergei Bulaev within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> (full list of tutorials is <a class="reference external" href="https://mlcourse.ai/tutorials">here</a>)</p></li>
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-9-time-series-analysis-in-python-a270cb05e0b3?source=collection_home---6------2---------------------">“story”</a> based on this notebook</p></li>
 <li><p>If you read Russian: an <a class="reference external" href="https://habr.com/ru/company/ods/blog/327242/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/_9lBwXnbOd8">lecture</a> on YouTube</p></li>

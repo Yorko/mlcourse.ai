@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic08/topic08_sgd_hashing_vowpal_wabbit';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videolecture 8. Vowpal Wabbit: Learning with Gigabytes of Data" href="videolecture08.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -544,13 +556,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-8-vowpal-wabbit-learning-with-gigabytes-of-data">
-<span id="topic08"></span><h1><a class="toc-backref" href="#id4" role="doc-backlink">Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data</a><a class="headerlink" href="#topic-8-vowpal-wabbit-learning-with-gigabytes-of-data" title="Permalink to this heading">#</a></h1>
+<span id="topic08"></span><h1><a class="toc-backref" href="#id4" role="doc-backlink">Topic 8. Vowpal Wabbit: Learning with Gigabytes of Data</a><a class="headerlink" href="#topic-8-vowpal-wabbit-learning-with-gigabytes-of-data" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/sergeoreshkov/">Serge Oreshkov</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>This week, we’ll cover two reasons for Vowpal Wabbit’s exceptional training speed, namely, online learning and hashing trick, in both theory and practice. We will try it out with news, movie reviews, and StackOverflow questions.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -608,9 +620,9 @@ document.write(`
 </div>
 </section>
 <section id="stochastic-gradient-descent-and-online-learning">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">1. Stochastic gradient descent and online learning</a><a class="headerlink" href="#stochastic-gradient-descent-and-online-learning" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1. Stochastic gradient descent and online learning</a><a class="headerlink" href="#stochastic-gradient-descent-and-online-learning" title="Link to this heading">#</a></h2>
 <section id="stochastic-gradient-descent">
-<span id="id1"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">1.1. Stochastic gradient descent</a><a class="headerlink" href="#stochastic-gradient-descent" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">1.1. Stochastic gradient descent</a><a class="headerlink" href="#stochastic-gradient-descent" title="Link to this heading">#</a></h3>
 <p id="id2">Despite the fact that gradient descent is one of the first things learned in machine learning and optimization courses, it is one of its modifications, Stochastic Gradient Descent (SGD), that is hard to top.</p>
 <p>Recall that the idea of gradient descent is to minimize some function by making small steps in the direction of the fastest decrease. This method was named due to the following fact from calculus: vector <span class="math notranslate nohighlight">\(\nabla f = (\frac{\partial f}{\partial x_1}, \ldots \frac{\partial f}{\partial x_n})^\text{T}\)</span> of partial derivatives of the function <span class="math notranslate nohighlight">\(f(x) = f(x_1, \ldots x_n)\)</span> points to the direction of the fastest function growth. It means that, by moving in the opposite direction (antigradient), it is possible to decrease the function value with the fastest rate.</p>
 <div align="center">
@@ -646,7 +658,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9d1dd91cfef7ac5c83eded5f42793030255a805da8ccba09413cf66bb8b1568e.png" src="../../_images/9d1dd91cfef7ac5c83eded5f42793030255a805da8ccba09413cf66bb8b1568e.png" />
+<a class="reference internal image-reference" href="../../_images/d3bb56013475482cf246b1b4a16e63daa182717f52efa70f9580fe040426beae.png"><img alt="../../_images/d3bb56013475482cf246b1b4a16e63daa182717f52efa70f9580fe040426beae.png" src="../../_images/d3bb56013475482cf246b1b4a16e63daa182717f52efa70f9580fe040426beae.png" style="width: 562px; height: 432px;" />
+</a>
 </div>
 </div>
 <p>Here we have a vector <span class="math notranslate nohighlight">\(x\)</span> of dimension <span class="math notranslate nohighlight">\(\ell\)</span> (weight of every person i.e. training sample) and <span class="math notranslate nohighlight">\(y\)</span>, a vector containing the height of every person in the dataset.</p>
@@ -684,7 +697,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <p>These are the contour plots for some function, and we want to find the global minimum of this function. The red curve shows weight changes (in this picture, <span class="math notranslate nohighlight">\(\theta_0\)</span> and <span class="math notranslate nohighlight">\(\theta_1\)</span> correspond to our <span class="math notranslate nohighlight">\(w_0\)</span> and <span class="math notranslate nohighlight">\(w_1\)</span>). According to the properties of a gradient, the direction of change at every point is orthogonal to contour plots. With stochastic gradient descent, weights are changing in a less predictable manner, and it even may seem that some steps are wrong by leading away from minima; however, both procedures converge to the same solution.</p>
 </section>
 <section id="online-approach-to-learning">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">1.2. Online approach to learning</a><a class="headerlink" href="#online-approach-to-learning" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">1.2. Online approach to learning</a><a class="headerlink" href="#online-approach-to-learning" title="Link to this heading">#</a></h3>
 <p id="id3">Stochastic gradient descent gives us practical guidance for training both classifiers and regressors with large amounts of data up to hundreds of GBs (depending on computational resources).</p>
 <p>Considering the case of paired regression, we can store the training data set <span class="math notranslate nohighlight">\((X,y)\)</span> in HDD without loading it into RAM (where it simply won’t fit), read objects one by one, and update the weights of our model:</p>
 <div class="math notranslate nohighlight">
@@ -698,9 +711,9 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </section>
 </section>
 <section id="categorical-feature-processing">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">2. Categorical feature processing</a><a class="headerlink" href="#categorical-feature-processing" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">2. Categorical feature processing</a><a class="headerlink" href="#categorical-feature-processing" title="Link to this heading">#</a></h2>
 <section id="label-encoding">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.1. Label Encoding</a><a class="headerlink" href="#label-encoding" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.1. Label Encoding</a><a class="headerlink" href="#label-encoding" title="Link to this heading">#</a></h3>
 <p>Many classification and regression algorithms operate in Euclidean or metric space, implying that data is represented with vectors of real numbers. However, in real data, we often have categorical features with discrete values such as yes/no or January/February/…/December. We will see how to process this kind of data, particularly with linear models, and how to deal with many categorical features even when they have many unique values.</p>
 <p>Let’s explore the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">UCI bank marketing dataset</a> where most of  features are categorical.</p>
 <div class="cell docutils container">
@@ -884,7 +897,8 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f8617bafd101e10aa8449f349b13d106c14122618c81156adadd798f703ce4f5.png" src="../../_images/f8617bafd101e10aa8449f349b13d106c14122618c81156adadd798f703ce4f5.png" />
+<a class="reference internal image-reference" href="../../_images/8ff79f7c6de0171f09aac7d3bf82efe63817147afba527f416dfaf91cc612824.png"><img alt="../../_images/8ff79f7c6de0171f09aac7d3bf82efe63817147afba527f416dfaf91cc612824.png" src="../../_images/8ff79f7c6de0171f09aac7d3bf82efe63817147afba527f416dfaf91cc612824.png" style="width: 680px; height: 413px;" />
+</a>
 </div>
 </div>
 <p>The most straightforward solution is to map each value of this feature into a unique number. For example, we can map  <code class="docutils literal notranslate"><span class="pre">university.degree</span></code> to 0, <code class="docutils literal notranslate"><span class="pre">basic.9y</span></code> to 1, and so on. You can use <code class="docutils literal notranslate"><span class="pre">sklearn.preprocessing.LabelEncoder</span></code> to perform this mapping.</p>
@@ -908,7 +922,8 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: &#39;basic.4y&#39;, 1: &#39;basic.6y&#39;, 2: &#39;basic.9y&#39;, 3: &#39;high.school&#39;, 4: &#39;illiterate&#39;, 5: &#39;professional.course&#39;, 6: &#39;university.degree&#39;, 7: &#39;unknown&#39;}
 </pre></div>
 </div>
-<img alt="../../_images/e37762ee43629ae557aa4f2a695bb16b6ee0c7ab02f1192fae8c6c778f81e41e.png" src="../../_images/e37762ee43629ae557aa4f2a695bb16b6ee0c7ab02f1192fae8c6c778f81e41e.png" />
+<a class="reference internal image-reference" href="../../_images/6cd82ce7e044f88510d6315a875452888020b4d02ecf67610d63b64220d5217e.png"><img alt="../../_images/6cd82ce7e044f88510d6315a875452888020b4d02ecf67610d63b64220d5217e.png" src="../../_images/6cd82ce7e044f88510d6315a875452888020b4d02ecf67610d63b64220d5217e.png" style="width: 534px; height: 413px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1285,12 +1300,12 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.89      1.00      0.94      6141
-           1       0.00      0.00      0.00       758
+           0       0.89      1.00      0.94      6116
+           1       0.80      0.01      0.01       783
 
     accuracy                           0.89      6899
-   macro avg       0.45      0.50      0.47      6899
-weighted avg       0.79      0.89      0.84      6899
+   macro avg       0.84      0.50      0.48      6899
+weighted avg       0.88      0.89      0.83      6899
 </pre></div>
 </div>
 </div>
@@ -1298,7 +1313,7 @@ weighted avg       0.79      0.89      0.84      6899
 <p>We can see that logistic regression never predicts class 1. In order to use linear models with categorical features, we will use a different approach: One-Hot Encoding.</p>
 </section>
 <section id="one-hot-encoding">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">2.2. One-Hot Encoding</a><a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">2.2. One-Hot Encoding</a><a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h3>
 <p>Suppose that some feature can have one of 10 unique values. One-hot encoding creates 10 new features corresponding to these unique values, all of them <em>except one</em> are zeros.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1552,11 +1567,11 @@ weighted avg       0.79      0.89      0.84      6899
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.90      0.99      0.95      6129
-           1       0.67      0.17      0.27       770
+           0       0.91      0.99      0.94      6126
+           1       0.65      0.19      0.29       773
 
     accuracy                           0.90      6899
-   macro avg       0.79      0.58      0.61      6899
+   macro avg       0.78      0.59      0.62      6899
 weighted avg       0.88      0.90      0.87      6899
 </pre></div>
 </div>
@@ -1564,7 +1579,7 @@ weighted avg       0.88      0.90      0.87      6899
 </div>
 </section>
 <section id="hashing-trick">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">2.3. Hashing trick</a><a class="headerlink" href="#hashing-trick" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">2.3. Hashing trick</a><a class="headerlink" href="#hashing-trick" title="Link to this heading">#</a></h3>
 <p>Real data can be volatile, meaning we cannot guarantee that new values of categorical features will not occur. This issue hampers using a trained model on new data. Besides that, <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> requires preliminary analysis of the whole dataset and storage of constructed mappings in memory, which makes it difficult to work with large datasets.</p>
 <p>There is a simple approach to vectorization of categorical data based on hashing and is known as, not-so-surprisingly, the hashing trick.</p>
 <p>Hash functions can help us find unique codes for different feature values, for example:</p>
@@ -1576,9 +1591,9 @@ weighted avg       0.88      0.90      0.87      6899
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -6570551753604382266
-high.school -&gt; 6474175424192702820
-illiterate -&gt; -134044616707330102
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; -1742382809704570793
+high.school -&gt; 6823827509022928501
+illiterate -&gt; -8188189404438762176
 </pre></div>
 </div>
 </div>
@@ -1593,9 +1608,9 @@ illiterate -&gt; -134044616707330102
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 9
-high.school -&gt; 20
-illiterate -&gt; 23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>university.degree -&gt; 7
+high.school -&gt; 1
+illiterate -&gt; 24
 </pre></div>
 </div>
 </div>
@@ -1612,9 +1627,9 @@ illiterate -&gt; 23
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 18
-marital=single -&gt; 4
-day_of_week=mon -&gt; 22
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>job=student -&gt; 7
+marital=single -&gt; 23
+day_of_week=mon -&gt; 6
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1665,22 +1680,22 @@ day_of_week=mon -&gt; 22
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
@@ -1706,7 +1721,7 @@ day_of_week=mon -&gt; 22
 </section>
 </section>
 <section id="vowpal-wabbit">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">3. Vowpal Wabbit</a><a class="headerlink" href="#vowpal-wabbit" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">3. Vowpal Wabbit</a><a class="headerlink" href="#vowpal-wabbit" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit">Vowpal Wabbit</a> (VW) is one of the most widespread machine learning libraries used in industry. It is prominent for its training speed and support of many training modes, especially for online learning with big and high-dimensional data. This is one of the major merits of the library. Also, with the hashing trick implemented, Vowpal Wabbit is a perfect choice for working with text data.</p>
 <p>Shell is the main interface for VW.</p>
 <div class="cell docutils container">
@@ -1782,7 +1797,7 @@ total feature number = 10
 </div>
 <p>VW is a wonderful tool for working with text data. We’ll illustrate it with the <a class="reference external" href="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html">20newsgroups dataset</a>, which contains letters from 20 different newsletters.</p>
 <section id="news-binary-classification">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.1. News. Binary classification.</a><a class="headerlink" href="#news-binary-classification" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.1. News. Binary classification.</a><a class="headerlink" href="#news-binary-classification" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data with sklearn&#39;s function</span>
@@ -1879,12 +1894,6 @@ Thanks,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
-&lt;&gt;:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_75585/1433298466.py:5: SyntaxWarning: invalid escape sequence &#39;\w&#39;
-  + &quot; &quot;.join(re.findall(&quot;\w{3,}&quot;, document.lower()))
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1 |text from lerxst wam umd edu where thing subject what car this nntp posting host rac3 wam umd edu organization university maryland college park lines was wondering anyone out there could enlighten this car saw the other day was door sports car looked from the late 60s early 70s was called bricklin the doors were really small addition the front bumper was separate from the rest the body this all know anyone can tellme model name engine specs years production where this car made history whatever info you have this funky looking car please mail thanks brought you your neighborhood lerxst\n&#39;
 </pre></div>
 </div>
@@ -1946,13 +1955,14 @@ Thanks,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/cb14b3701260245f7009f269890c70b857432842669b9a833099debf3a118276.png" src="../../_images/cb14b3701260245f7009f269890c70b857432842669b9a833099debf3a118276.png" />
+<a class="reference internal image-reference" href="../../_images/02b1cd849ee48b3a81ed744f2092153204dca3da94d973a4931e141a8814ccc3.png"><img alt="../../_images/02b1cd849ee48b3a81ed744f2092153204dca3da94d973a4931e141a8814ccc3.png" src="../../_images/02b1cd849ee48b3a81ed744f2092153204dca3da94d973a4931e141a8814ccc3.png" style="width: 567px; height: 454px;" />
+</a>
 </div>
 </div>
 <p>The AUC value we get shows that we have achieved high classification quality.</p>
 </section>
 <section id="news-multiclass-classification">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.2. News. Multiclass classification</a><a class="headerlink" href="#news-multiclass-classification" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.2. News. Multiclass classification</a><a class="headerlink" href="#news-multiclass-classification" title="Link to this heading">#</a></h3>
 <p>We will use the same news dataset, but, this time, we will solve a multiclass classification problem. <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code> is a little picky – it wants labels starting from 1 till K, where K – is the number of classes in the classification task (20 in our case). So we will use LabelEncoder and add 1 afterwards (recall that <code class="docutils literal notranslate"><span class="pre">LabelEncoder</span></code> maps labels into range from 0 to K-1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2048,7 +2058,7 @@ talk.religion.misc 19
 </div>
 </section>
 <section id="imdb-movie-reviews">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.3. IMDB movie reviews</a><a class="headerlink" href="#imdb-movie-reviews" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.3. IMDB movie reviews</a><a class="headerlink" href="#imdb-movie-reviews" title="Link to this heading">#</a></h3>
 <p>In this part we will do binary classification of <a class="reference external" href="http://www.imdb.com">IMDB</a> (International Movie DataBase) movie reviews. We will see how fast Vowpal Wabbit performs.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">load_files</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn.datasets</span></code>, we load the movie reviews datasets. It’s the same dataset we used in topic04 part4 notebook.</p>
 <div class="cell docutils container">
@@ -2289,8 +2299,8 @@ talk.religion.misc 19
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw --loss_function hinge \
--f $PATH_TO_WRITE_DATA/movie_reviews_model.vw --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>-d<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_train.vw<span class="w"> </span>--loss_function<span class="w"> </span>hinge<span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_reviews_model</span><span class="o">.</span><span class="n">vw</span> <span class="o">--</span><span class="n">quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2304,8 +2314,8 @@ talk.religion.misc 19
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
--d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw -p $PATH_TO_WRITE_DATA/movie_valid_pred.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>-i<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_model.vw<span class="w"> </span>-t<span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">d</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_reviews_valid</span><span class="o">.</span><span class="n">vw</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_valid_pred</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2339,9 +2349,9 @@ AUC: 0.942
 <p>Again, do the same for the test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model.vw -t \
--d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
--p $PATH_TO_WRITE_DATA/movie_test_pred.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>-i<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_model.vw<span class="w"> </span>-t<span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">d</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_reviews_test</span><span class="o">.</span><span class="n">vw</span> \
+<span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_test_pred</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2374,16 +2384,16 @@ AUC: 0.94
 <p>Let’s try to achieve a higher accuracy by incorporating bigrams.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -d $PATH_TO_WRITE_DATA/movie_reviews_train.vw \
- --loss_function hinge --ngram 2 -f $PATH_TO_WRITE_DATA/movie_reviews_model2.vw --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>-d<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_train.vw<span class="w"> </span><span class="err">\</span>
+ <span class="o">--</span><span class="n">loss_function</span> <span class="n">hinge</span> <span class="o">--</span><span class="n">ngram</span> <span class="mi">2</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_reviews_model2</span><span class="o">.</span><span class="n">vw</span> <span class="o">--</span><span class="n">quiet</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i$PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_valid.vw \
--p $PATH_TO_WRITE_DATA/movie_valid_pred2.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>-i<span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_model2.vw<span class="w"> </span>-t<span class="w"> </span>-d<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_valid.vw<span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_valid_pred2</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2415,8 +2425,8 @@ AUC: 0.954
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!vw -i $PATH_TO_WRITE_DATA/movie_reviews_model2.vw -t -d $PATH_TO_WRITE_DATA/movie_reviews_test.vw \
--p $PATH_TO_WRITE_DATA/movie_test_pred2.txt --quiet
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>vw<span class="w"> </span>-i<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_model2.vw<span class="w"> </span>-t<span class="w"> </span>-d<span class="w"> </span><span class="nv">$PATH_TO_WRITE_DATA</span>/movie_reviews_test.vw<span class="w"> </span><span class="err">\</span>
+<span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">PATH_TO_WRITE_DATA</span><span class="o">/</span><span class="n">movie_test_pred2</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">quiet</span>
 </pre></div>
 </div>
 </div>
@@ -2449,16 +2459,16 @@ AUC: 0.952
 <p>Adding bigrams really helped to improve our model!</p>
 </section>
 <section id="classifying-gigabytes-of-stackoverflow-questions">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">3.4. Classifying gigabytes of StackOverflow questions</a><a class="headerlink" href="#classifying-gigabytes-of-stackoverflow-questions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">3.4. Classifying gigabytes of StackOverflow questions</a><a class="headerlink" href="#classifying-gigabytes-of-stackoverflow-questions" title="Link to this heading">#</a></h3>
 <p>This section has been moved to Kaggle, please explore <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-8-online-learning-and-vowpal-wabbit">this Notebook</a>.</p>
 </section>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">4. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">4. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as am interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-8-online-learning-and-vowpal-wabbit">Kaggle Kernel</a></p></li>
 <li><p><a class="reference external" href="https://www.kaggle.com/kashnitsky/training-while-reading-vowpal-wabbit-starter">“Training while reading”</a> - an example of the Python wrapper usage</p></li>
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>Official VW <a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit/wiki">documentation</a> on Github</p></li>
 <li><p><a class="reference external" href="https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Awesome-Vowpal-Wabbit">“Awesome Vowpal Wabbit”</a> Wiki</p></li>

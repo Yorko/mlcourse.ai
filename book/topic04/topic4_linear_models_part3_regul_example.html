@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic04/topic4_linear_models_part3_regul_example';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 4. Linear Classification and Regression" href="topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -529,9 +541,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
-<span id="topic04-part3"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 4. Linear Classification and Regression</a><a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this heading">#</a></h1>
+<span id="topic04-part3"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 4. Linear Classification and Regression</a><a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Link to this heading">#</a></h1>
 <section id="part-3-an-illustrative-example-of-logistic-regression-regularization">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Part 3. An Illustrative Example of Logistic Regression Regularization</a><a class="headerlink" href="#part-3-an-illustrative-example-of-logistic-regression-regularization" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Part 3. An Illustrative Example of Logistic Regression Regularization</a><a class="headerlink" href="#part-3-an-illustrative-example-of-logistic-regression-regularization" title="Link to this heading">#</a></h2>
 <figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
 </figure>
@@ -539,7 +551,7 @@ document.write(`
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 </section>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -773,7 +785,8 @@ memory usage: 2.9 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/40915e6e2316947938069019a6a939381a21367320004de667e8e4546b6782d7.png" src="../../_images/40915e6e2316947938069019a6a939381a21367320004de667e8e4546b6782d7.png" />
+<a class="reference internal image-reference" href="../../_images/b0efa713bd49d5548f9ed924b557cdc18ba52be37f590b481212a56e713ec09d.png"><img alt="../../_images/b0efa713bd49d5548f9ed924b557cdc18ba52be37f590b481212a56e713ec09d.png" src="../../_images/b0efa713bd49d5548f9ed924b557cdc18ba52be37f590b481212a56e713ec09d.png" style="width: 587px; height: 454px;" />
+</a>
 </div>
 </div>
 <p>Let’s define a function to display the separating curve of the classifier.</p>
@@ -845,13 +858,11 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set: 0.627
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.627
-</pre></div>
-</div>
-<img alt="../../_images/8f7bdcdfe9e5547f170cba04e379983237377f4cf5ee0343390eedcb1d55e828.png" src="../../_images/8f7bdcdfe9e5547f170cba04e379983237377f4cf5ee0343390eedcb1d55e828.png" />
+<a class="reference internal image-reference" href="../../_images/acd2075e062b71954e9038291b9516afa96c2ce7825e05acdd9a1f3c14f34edd.png"><img alt="../../_images/acd2075e062b71954e9038291b9516afa96c2ce7825e05acdd9a1f3c14f34edd.png" src="../../_images/acd2075e062b71954e9038291b9516afa96c2ce7825e05acdd9a1f3c14f34edd.png" style="width: 587px; height: 454px;" />
+</a>
 </div>
 </div>
 <p>We could now try increasing <span class="math notranslate nohighlight">\(C\)</span> to 1. In doing this, we weaken regularization, and the solution can now have greater values (in absolute value) of model weights than previously. Now the accuracy of the classifier on the training set improves to 0.831.</p>
@@ -878,7 +889,8 @@ The number of such features is exponentially large, and it can be costly to buil
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set: 0.831
 </pre></div>
 </div>
-<img alt="../../_images/8324cdbd4ea3199b1fcf34bb2b8069191efbb53d9c350982441577d16841c31b.png" src="../../_images/8324cdbd4ea3199b1fcf34bb2b8069191efbb53d9c350982441577d16841c31b.png" />
+<a class="reference internal image-reference" href="../../_images/56293cc9e254cce9e231aaab0e0e5cd179258b95f8e3cbfbf4753b462a39a91e.png"><img alt="../../_images/56293cc9e254cce9e231aaab0e0e5cd179258b95f8e3cbfbf4753b462a39a91e.png" src="../../_images/56293cc9e254cce9e231aaab0e0e5cd179258b95f8e3cbfbf4753b462a39a91e.png" style="width: 587px; height: 454px;" />
+</a>
 </div>
 </div>
 <p>Then, why don’t we increase <span class="math notranslate nohighlight">\(C\)</span> even more - up to 10,000? Now, regularization is clearly not strong enough, and we see overfitting. Note that, with <span class="math notranslate nohighlight">\(C\)</span>=1 and a “smooth” boundary, the share of correct answers on the training set is not much lower than here. But one can easily imagine how our second model will work much better on new data.</p>
@@ -905,7 +917,8 @@ The number of such features is exponentially large, and it can be costly to buil
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy on training set: 0.873
 </pre></div>
 </div>
-<img alt="../../_images/fc0901d085f9251081efc1502e695b5239903440fd08feec685adcb0ebcd11af.png" src="../../_images/fc0901d085f9251081efc1502e695b5239903440fd08feec685adcb0ebcd11af.png" />
+<a class="reference internal image-reference" href="../../_images/3c0dedfe1109d20ebde52a701d0ebf634c6e39b0d765633e7946824a2dc673b5.png"><img alt="../../_images/3c0dedfe1109d20ebde52a701d0ebf634c6e39b0d765633e7946824a2dc673b5.png" src="../../_images/3c0dedfe1109d20ebde52a701d0ebf634c6e39b0d765633e7946824a2dc673b5.png" style="width: 587px; height: 454px;" />
+</a>
 </div>
 </div>
 <p>To discuss the results, let’s rewrite the function that is optimized in logistic regression with the form:</p>
@@ -944,7 +957,7 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([165.36244071])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([154.30384692])
 </pre></div>
 </div>
 </div>
@@ -959,7 +972,8 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d491678a85ca5e9c7355bee73e4aaed1c4665cd0c8f3788c8803f66af6fc201a.png" src="../../_images/d491678a85ca5e9c7355bee73e4aaed1c4665cd0c8f3788c8803f66af6fc201a.png" />
+<a class="reference internal image-reference" href="../../_images/fe43b4775ded6ff6c9dc75997686fab410ef3e5053938ca71964bf7c0102910c.png"><img alt="../../_images/fe43b4775ded6ff6c9dc75997686fab410ef3e5053938ca71964bf7c0102910c.png" src="../../_images/fe43b4775ded6ff6c9dc75997686fab410ef3e5053938ca71964bf7c0102910c.png" style="width: 576px; height: 432px;" />
+</a>
 </div>
 </div>
 <p>Finally, select the area with the “best” values of <span class="math notranslate nohighlight">\(C\)</span>.</p>
@@ -973,14 +987,15 @@ The number of such features is exponentially large, and it can be costly to buil
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b6254eb6f4001fb45f20dcfe2cf1fc4da374d90b59715fb5a285ce57de3c7ea.png" src="../../_images/3b6254eb6f4001fb45f20dcfe2cf1fc4da374d90b59715fb5a285ce57de3c7ea.png" />
+<a class="reference internal image-reference" href="../../_images/f7f7a41f100b665e844c1a84393d618d541968ff6bd6260e8505661e1b144ad3.png"><img alt="../../_images/f7f7a41f100b665e844c1a84393d618d541968ff6bd6260e8505661e1b144ad3.png" src="../../_images/f7f7a41f100b665e844c1a84393d618d541968ff6bd6260e8505661e1b144ad3.png" style="width: 585px; height: 432px;" />
+</a>
 </div>
 </div>
 <p>Recall that these curves are called validation curves. Previously, we built them manually, but sklearn has special methods to construct these that we will use going forward.</p>
 <section id="useful-resources">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/323890/">article</a> on Habrahabr with ~ the same material. And a <a class="reference external" href="https://youtu.be/oTXGQ-_oqvI">lecture</a> on YouTube</p></li>

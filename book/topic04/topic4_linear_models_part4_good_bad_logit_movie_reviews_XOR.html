@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic04/topic4_linear_models_part4_good_bad_logit_movie_reviews_XOR';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 4. Linear Classification and Regression" href="topic4_linear_models_part5_valid_learning_curves.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -530,9 +542,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
-<span id="topic04-part4"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 4. Linear Classification and Regression</a><a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this heading">#</a></h1>
+<span id="topic04-part4"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 4. Linear Classification and Regression</a><a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Link to this heading">#</a></h1>
 <section id="part-4-when-logistic-regression-is-good-and-when-it-is-not">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Part 4. When Logistic Regression Is Good and When It Is Not</a><a class="headerlink" href="#part-4-when-logistic-regression-is-good-and-when-it-is-not" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Part 4. When Logistic Regression Is Good and When It Is Not</a><a class="headerlink" href="#part-4-when-logistic-regression-is-good-and-when-it-is-not" title="Link to this heading">#</a></h2>
 <figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
 </figure>
@@ -540,7 +552,7 @@ document.write(`
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 </section>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -558,10 +570,11 @@ document.write(`
 </nav>
 </section>
 <section id="analysis-of-imdb-movie-reviews">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Analysis of IMDB movie reviews</a><a class="headerlink" href="#analysis-of-imdb-movie-reviews" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Analysis of IMDB movie reviews</a><a class="headerlink" href="#analysis-of-imdb-movie-reviews" title="Link to this heading">#</a></h2>
 <p>Now for a little practice! We want to solve the problem of binary classification of IMDB movie reviews. We have a training set with marked reviews, 12500 reviews marked as good, another 12500 bad. Here, it’s not easy to get started with machine learning right away because we don’t have the matrix <span class="math notranslate nohighlight">\(X\)</span>; we need to prepare it. We will use a simple approach: bag of words model. Features of the review will be represented by indicators of the presence of each word from the whole corpus in this review. The corpus is the set of all user reviews. The idea is illustrated by a picture</p>
 <figure class="align-default">
-<img alt="../../_images/topic4_bag_of_words.svg" src="../../_images/topic4_bag_of_words.svg" /></figure>
+<img alt="../../_images/topic4_bag_of_words.svg" src="../../_images/topic4_bag_of_words.svg" />
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -723,7 +736,7 @@ Number of documents in test data: 25000
 </div>
 </section>
 <section id="a-simple-word-count">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. A Simple Word Count</a><a class="headerlink" href="#a-simple-word-count" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. A Simple Word Count</a><a class="headerlink" href="#a-simple-word-count" title="Link to this heading">#</a></h2>
 <p><strong>First, we will create a dictionary of all the words using CountVectorizer</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,12 +851,12 @@ Number of documents in test data: 25000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.7 ms, sys: 81.8 ms, total: 103 ms
-Wall time: 1.63 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.8 ms, sys: 108 ms, total: 130 ms
+Wall time: 1.94 s
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -854,7 +867,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <div class="output text_html"><style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -999,12 +1013,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-1 label.sk-toggleable__label-arrow:before {
@@ -1157,7 +1180,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -1256,7 +1280,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(n_jobs=-1, random_state=7)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(n_jobs=-1, random_state=7)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(n_jobs=-1, random_state=7)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(n_jobs=-1, random_state=7)</pre></div> </div></div></div></div></div></div>
 </div>
 <p><strong>Let’s look at accuracy on the both the training and the test sets.</strong></p>
 <div class="cell docutils container">
@@ -1266,7 +1290,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.982, 0.864)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.982, 0.865)
 </pre></div>
 </div>
 </div>
@@ -1322,7 +1346,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4db10450d6416541b1c715184997d1714bae29316ca83dcd387badaa09bd0166.png" src="../../_images/4db10450d6416541b1c715184997d1714bae29316ca83dcd387badaa09bd0166.png" />
+<a class="reference internal image-reference" href="../../_images/c8fcdd227bf46bc1ea60eaf71e806f9cf69bbabcd3484c39b1997c8171021bdd.png"><img alt="../../_images/c8fcdd227bf46bc1ea60eaf71e806f9cf69bbabcd3484c39b1997c8171021bdd.png" src="../../_images/c8fcdd227bf46bc1ea60eaf71e806f9cf69bbabcd3484c39b1997c8171021bdd.png" style="width: 1212px; height: 516px;" />
+</a>
 </div>
 </div>
 <p><strong>To make our model better, we can optimize the regularization coefficient for the <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code>. We’ll use <code class="docutils literal notranslate"><span class="pre">sklearn.pipeline</span></code> because <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> should only be applied to the training data (so as to not “peek” into the test set and not count word frequencies there). In this case, <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> determines the correct sequence of actions: apply <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code>, then train <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code>.</strong></p>
@@ -1344,8 +1369,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1354,9 +1379,9 @@ Please also refer to the documentation for alternative solver options:
   n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8638
-CPU times: user 4.27 s, sys: 88.6 ms, total: 4.36 s
-Wall time: 4.43 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.86472
+CPU times: user 4.01 s, sys: 71.9 ms, total: 4.08 s
+Wall time: 4.1 s
 </pre></div>
 </div>
 </div>
@@ -1376,34 +1401,24 @@ Wall time: 4.43 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1412,24 +1427,8 @@ Please also refer to the documentation for alternative solver options:
   n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1438,16 +1437,24 @@ Please also refer to the documentation for alternative solver options:
   n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1456,12 +1463,30 @@ Please also refer to the documentation for alternative solver options:
   n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.08 s, sys: 286 ms, total: 3.37 s
-Wall time: 14.7 s
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Library/Caches/pypoetry/virtualenvs/mlcourse-ai-czBTtoES-py3.12/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.88 s, sys: 291 ms, total: 3.17 s
+Wall time: 12.4 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
     https://scikit-learn.org/stable/modules/preprocessing.html
@@ -1472,7 +1497,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <div class="output text_html"><style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1617,12 +1643,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-2 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-2 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-2 label.sk-toggleable__label-arrow:before {
@@ -1775,7 +1810,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -1881,17 +1917,17 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
                                                            random_state=7))]),
              n_jobs=-1,
              param_grid={&#x27;logisticregression__C&#x27;: array([1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00])},
-             return_train_score=True)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;GridSearchCV<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=3,
+             return_train_score=True)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GridSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=3,
              estimator=Pipeline(steps=[(&#x27;countvectorizer&#x27;, CountVectorizer()),
                                        (&#x27;logisticregression&#x27;,
                                         LogisticRegression(n_jobs=1,
                                                            random_state=7))]),
              n_jobs=-1,
              param_grid={&#x27;logisticregression__C&#x27;: array([1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00])},
-             return_train_score=True)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">best_estimator_: Pipeline</label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;countvectorizer&#x27;, CountVectorizer()),
+             return_train_score=True)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: Pipeline</div></div></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;countvectorizer&#x27;, CountVectorizer()),
                 (&#x27;logisticregression&#x27;,
                  LogisticRegression(C=np.float64(0.1), n_jobs=1,
-                                    random_state=7))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;CountVectorizer<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(C=np.float64(0.1), n_jobs=1, random_state=7)</pre></div> </div></div></div></div></div></div></div></div></div></div></div></div></div>
+                                    random_state=7))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CountVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(C=np.float64(0.1), n_jobs=1, random_state=7)</pre></div> </div></div></div></div></div></div></div></div></div></div></div></div></div>
 </div>
 <p><strong>Let’s print best <span class="math notranslate nohighlight">\(C\)</span> and cv-score using this hyperparameter:</strong></p>
 <div class="cell docutils container">
@@ -1901,7 +1937,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;logisticregression__C&#39;: np.float64(0.1)}, np.float64(0.8853199196362382))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;logisticregression__C&#39;: np.float64(0.1)}, np.float64(0.8852399164361103))
 </pre></div>
 </div>
 </div>
@@ -1913,7 +1949,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/07f171dcf735c31eec6da59faae18a114c7f323ff5cce4f5d7c4750211d73a38.png" src="../../_images/07f171dcf735c31eec6da59faae18a114c7f323ff5cce4f5d7c4750211d73a38.png" />
+<a class="reference internal image-reference" href="../../_images/63f3e637b1edae35d370b568df09d8e0652e7adcb35c76fdc5437543d5f3859b.png"><img alt="../../_images/63f3e637b1edae35d370b568df09d8e0652e7adcb35c76fdc5437543d5f3859b.png" src="../../_images/63f3e637b1edae35d370b568df09d8e0652e7adcb35c76fdc5437543d5f3859b.png" style="width: 556px; height: 413px;" />
+</a>
 </div>
 </div>
 <p>For the validation set:</p>
@@ -1952,13 +1989,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 57.5 s, sys: 313 ms, total: 57.8 s
-Wall time: 6.07 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 56.3 s, sys: 397 ms, total: 56.7 s
+Wall time: 5.4 s
 </pre></div>
 </div>
 <div class="output text_html"><style>#sk-container-id-3 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -2103,12 +2141,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-3 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-3 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-3 label.sk-toggleable__label-arrow:before {
@@ -2261,7 +2308,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -2360,7 +2408,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(n_estimators=200, n_jobs=-1, random_state=17)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;RandomForestClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(n_estimators=200, n_jobs=-1, random_state=17)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(n_estimators=200, n_jobs=-1, random_state=17)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(n_estimators=200, n_jobs=-1, random_state=17)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2376,7 +2424,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </section>
 <section id="the-xor-problem">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. The XOR Problem</a><a class="headerlink" href="#the-xor-problem" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. The XOR Problem</a><a class="headerlink" href="#the-xor-problem" title="Link to this heading">#</a></h2>
 <p>Let’s now consider an example where linear models are worse.</p>
 <p>Linear classification methods still define a very simple separating surface - a hyperplane. The most famous toy example of where classes cannot be divided by a hyperplane (or line) with no errors is “the XOR problem”.</p>
 <p>XOR is the “exclusive OR”, a Boolean function with the following truth table:</p>
@@ -2401,7 +2449,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2c3df88e512d7e06a11bea222af2faee17d96894dcec547837fd0afe9aa5157d.png" src="../../_images/2c3df88e512d7e06a11bea222af2faee17d96894dcec547837fd0afe9aa5157d.png" />
+<a class="reference internal image-reference" href="../../_images/f5806d5c56c2e91cf413fd992199e3064383b886712fa50758394a530add0683.png"><img alt="../../_images/f5806d5c56c2e91cf413fd992199e3064383b886712fa50758394a530add0683.png" src="../../_images/f5806d5c56c2e91cf413fd992199e3064383b886712fa50758394a530add0683.png" style="width: 546px; height: 413px;" />
+</a>
 </div>
 </div>
 <p>Obviously, one cannot draw a single straight line to separate one class from another without errors. Therefore, logistic regression performs poorly with this task.</p>
@@ -2444,11 +2493,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_24558/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_87058/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
   contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
 </pre></div>
 </div>
-<img alt="../../_images/d434b2b0bb30fe0ecea87b3a41d2003f3395beaad23b5b758d41479be4432e2d.png" src="../../_images/d434b2b0bb30fe0ecea87b3a41d2003f3395beaad23b5b758d41479be4432e2d.png" />
+<a class="reference internal image-reference" href="../../_images/d09ec670e9a132e73c210da41f3efaadf167094973919ee03c51e553fd02ad71.png"><img alt="../../_images/d09ec670e9a132e73c210da41f3efaadf167094973919ee03c51e553fd02ad71.png" src="../../_images/d09ec670e9a132e73c210da41f3efaadf167094973919ee03c51e553fd02ad71.png" style="width: 511px; height: 430px;" />
+</a>
 </div>
 </div>
 <p>But if one were to give polynomial features as an input (here, up to 2 degrees), then the problem is solved.</p>
@@ -2479,21 +2529,22 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_24558/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_87058/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
   contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
 </pre></div>
 </div>
-<img alt="../../_images/635c267f4bd7458d698dd535e6abbaf01a30f7ea5ed1cb28415b0c0d71a4d4e8.png" src="../../_images/635c267f4bd7458d698dd535e6abbaf01a30f7ea5ed1cb28415b0c0d71a4d4e8.png" />
+<a class="reference internal image-reference" href="../../_images/db8197705210ce2ea95cb0a870e7ee42b2538f37eec4aa42018c02a7b6bd9501.png"><img alt="../../_images/db8197705210ce2ea95cb0a870e7ee42b2538f37eec4aa42018c02a7b6bd9501.png" src="../../_images/db8197705210ce2ea95cb0a870e7ee42b2538f37eec4aa42018c02a7b6bd9501.png" style="width: 522px; height: 430px;" />
+</a>
 </div>
 </div>
 <p>Here, logistic regression has still produced a hyperplane but in a 6-dimensional feature space <span class="math notranslate nohighlight">\(1, x_1, x_2, x_1^2, x_1x_2\)</span> and <span class="math notranslate nohighlight">\(x_2^2\)</span>. When we project to the original feature space, <span class="math notranslate nohighlight">\(x_1, x_2\)</span>, the boundary is nonlinear.</p>
 <p>In practice, polynomial features do help, but it is computationally inefficient to build them explicitly. SVM with the kernel trick works much faster. In this approach, only the distance between the objects (defined by the kernel function) in a high dimensional space is computed, and there is no need to produce a combinatorially large number of features.</p>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/323890/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/oTXGQ-_oqvI">lecture</a> on YouTube</p></li>
 <li><p>A nice and concise overview of linear models is given in the book <a class="reference external" href="http://www.deeplearningbook.org">“Deep Learning”</a> (I. Goodfellow, Y. Bengio, and A. Courville).</p></li>

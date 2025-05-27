@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic09/topic9_part2_facebook_prophet';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videolecture 9. Time series: ARIMA and Prophet" href="videolecture09.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -546,7 +558,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-9-time-series-analysis-in-python-part-2-predicting-the-future-with-facebook-prophet">
-<span id="topic09-part2"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet</a><a class="headerlink" href="#topic-9-time-series-analysis-in-python-part-2-predicting-the-future-with-facebook-prophet" title="Permalink to this heading">#</a></h1>
+<span id="topic09-part2"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 9. Time series analysis in Python. Part 2. Predicting the future with Facebook Prophet</a><a class="headerlink" href="#topic-9-time-series-analysis-in-python-part-2-predicting-the-future-with-facebook-prophet" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br>
 Author: <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
@@ -560,7 +572,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>There are quite a few different methods to predict future trends, for example, <a class="reference external" href="https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average">ARIMA</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity">ARCH</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Autoregressive_model">regressive models</a>, <a class="reference external" href="https://medium.com/machine-learning-world/neural-networks-for-algorithmic-trading-1-2-correct-time-series-forecasting-backtesting-9776bfd9e589">neural networks</a>.</p>
 <p>In this article, we will look at <a class="reference external" href="https://facebook.github.io/prophet/">Prophet</a>, a library for time series forecasting released by Facebook and open-sourced on February 23, 2017. We will also try it out in the problem of predicting the daily number of posts published on Medium.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -596,7 +608,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </nav>
 </section>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>According to the <a class="reference external" href="https://facebook.github.io/prophet/static/prophet_paper_20170113.pdf">article</a> by Facebook Research, Prophet was initially developed for the purpose of creating high quality business forecasts. This library tries to address the following difficulties common to many business time series:</p>
 <ul class="simple">
 <li><p>Seasonal effects caused by human behavior: weekly, monthly and yearly cycles, dips and peaks on public holidays.</p></li>
@@ -613,7 +625,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </ul>
 </section>
 <section id="the-prophet-forecasting-model">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. The Prophet Forecasting Model</a><a class="headerlink" href="#the-prophet-forecasting-model" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. The Prophet Forecasting Model</a><a class="headerlink" href="#the-prophet-forecasting-model" title="Link to this heading">#</a></h2>
 <p>Now, let’s take a closer look at how Prophet works. In its essence, this library utilizes the <a class="reference external" href="https://en.wikipedia.org/wiki/Additive_model">additive regression model</a> <span class="math notranslate nohighlight">\(y(t)\)</span> comprising the following components:</p>
 <div class="math notranslate nohighlight">
 \[y(t) = g(t) + s(t) + h(t) + \epsilon_{t},\]</div>
@@ -625,7 +637,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </ul>
 <p>Below, we will consider some important properties of these model components.</p>
 <section id="trend">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Trend</a><a class="headerlink" href="#trend" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Trend</a><a class="headerlink" href="#trend" title="Link to this heading">#</a></h3>
 <p>The Prophet library implements two possible trend models for <span class="math notranslate nohighlight">\(g(t)\)</span>.</p>
 <p>The first one is called <em>Nonlinear, Saturating Growth</em>. It is represented in the form of the <a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_function">logistic growth model</a>:</p>
 <div class="math notranslate nohighlight">
@@ -642,23 +654,23 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>The second trend model is a simple <em>Piecewise Linear Model</em> with a constant rate of growth. It is best suited for problems without saturating growth.</p>
 </section>
 <section id="seasonality">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Seasonality</a><a class="headerlink" href="#seasonality" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Seasonality</a><a class="headerlink" href="#seasonality" title="Link to this heading">#</a></h3>
 <p>The seasonal component <span class="math notranslate nohighlight">\(s(t)\)</span> provides a flexible model of periodic changes due to weekly and yearly seasonality.</p>
 <p>Weekly seasonal data is modeled with dummy variables. Six new variables are added: <code class="docutils literal notranslate"><span class="pre">monday</span></code>, <code class="docutils literal notranslate"><span class="pre">tuesday</span></code>, <code class="docutils literal notranslate"><span class="pre">wednesday</span></code>, <code class="docutils literal notranslate"><span class="pre">thursday</span></code>, <code class="docutils literal notranslate"><span class="pre">friday</span></code>, <code class="docutils literal notranslate"><span class="pre">saturday</span></code>, which take values 0 or 1 depending on the day of the week. The feature <code class="docutils literal notranslate"><span class="pre">sunday</span></code> is not added because it would be a linear combination of the other days of the week, and this fact would have an adverse effect on the model.</p>
 <p>Yearly seasonality model in Prophet relies on Fourier series.</p>
 <p>Since <a class="reference external" href="https://github.com/facebook/prophet">version 0.2</a> you can also use <em>sub-daily time series</em> and make <em>sub-daily forecasts</em> as well as employ the new <em>daily seasonality</em> feature.</p>
 </section>
 <section id="holidays-and-events">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Holidays and Events</a><a class="headerlink" href="#holidays-and-events" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Holidays and Events</a><a class="headerlink" href="#holidays-and-events" title="Link to this heading">#</a></h3>
 <p>The component <span class="math notranslate nohighlight">\(h(t)\)</span> represents predictable abnormal days of the year including those on irregular schedules, e.g., Black Fridays.</p>
 <p>To utilize this feature, the analyst needs to provide a custom list of events.</p>
 </section>
 <section id="error">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Error</a><a class="headerlink" href="#error" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Error</a><a class="headerlink" href="#error" title="Link to this heading">#</a></h3>
 <p>The error term <span class="math notranslate nohighlight">\(\epsilon(t)\)</span> represents information that was not reflected in the model. Usually it is modeled as normally distributed noise.</p>
 </section>
 <section id="prophet-benchmarking">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Prophet Benchmarking</a><a class="headerlink" href="#prophet-benchmarking" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Prophet Benchmarking</a><a class="headerlink" href="#prophet-benchmarking" title="Link to this heading">#</a></h3>
 <p>For a detailed description of the model and algorithms behind Prophet refer to the paper <a class="reference external" href="https://peerj.com/preprints/3190/">“Forecasting at scale”</a> by Sean J. Taylor and Benjamin Letham.</p>
 <p>The authors also compared their library with several other methods for time series forecasting. They used <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error">Mean Absolute Percentage Error (MAPE)</a> as a measure of prediction accuracy. In this research, Prophet has shown substantially lower forecasting error than the other models.</p>
 <img src="../../_static/img/topic9_benchmarking_prophet.png" />
@@ -683,9 +695,9 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </section>
 </section>
 <section id="practice-with-facebook-prophet">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">3. Practice with Facebook Prophet</a><a class="headerlink" href="#practice-with-facebook-prophet" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">3. Practice with Facebook Prophet</a><a class="headerlink" href="#practice-with-facebook-prophet" title="Link to this heading">#</a></h2>
 <section id="installation-in-python">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.1 Installation in Python</a><a class="headerlink" href="#installation-in-python" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">3.1 Installation in Python</a><a class="headerlink" href="#installation-in-python" title="Link to this heading">#</a></h3>
 <p>First, you need to install the library. Prophet is available for Python and R. The choice will depend on your personal preferences and project requirements. Further in this article we will use Python.</p>
 <p>In Python you can install Prophet using PyPI:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install fbprophet
@@ -713,7 +725,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </section>
 <section id="dataset">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.2 Dataset</a><a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">3.2 Dataset</a><a class="headerlink" href="#dataset" title="Link to this heading">#</a></h3>
 <p>We will predict the daily number of posts published on <a class="reference external" href="https://medium.com/">Medium</a>.</p>
 <p>First, we load our dataset.</p>
 <div class="cell docutils container">
@@ -1023,7 +1035,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </section>
 <section id="exploratory-visual-analysis">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.3 Exploratory visual analysis</a><a class="headerlink" href="#exploratory-visual-analysis" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.3 Exploratory visual analysis</a><a class="headerlink" href="#exploratory-visual-analysis" title="Link to this heading">#</a></h3>
 <p>As always, it may be helpful and instructive to look at a graphical representation of your data.</p>
 <p>We will create a time series plot for the whole time range. Displaying data over such a long period of time can give clues about seasonality and conspicuous abnormal deviations.</p>
 <p>First, we import and initialize the <code class="docutils literal notranslate"><span class="pre">Plotly</span></code> library, which allows creating beautiful interactive plots:</p>
@@ -1042,18 +1054,8 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <div class="output text_html">        <script type="text/javascript">
         window.PlotlyConfig = {MathJaxConfig: 'local'};
         if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
-        if (typeof require !== 'undefined') {
-        require.undef("plotly");
-        requirejs.config({
-            paths: {
-                'plotly': ['https://cdn.plot.ly/plotly-2.35.2.min']
-            }
-        });
-        require(['plotly'], function(Plotly) {
-            window._Plotly = Plotly;
-        });
-        }
         </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.1.min"</script>
         </div></div>
 </div>
 <p>We also define a helper function, which will plot our dataframes throughout the article:</p>
@@ -1182,7 +1184,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 <p>To sum up, from visual analysis we can see that our dataset is non-stationary with a prominent growing trend. It also demonstrates weekly and yearly seasonality and a number of abnormal days in each year.</p>
 </section>
 <section id="making-a-forecast">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.4 Making a forecast</a><a class="headerlink" href="#making-a-forecast" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">3.4 Making a forecast</a><a class="headerlink" href="#making-a-forecast" title="Link to this heading">#</a></h3>
 <p>Prophet’s API is very similar to the one you can find in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>. First we create a model, then call the method <code class="docutils literal notranslate"><span class="pre">fit</span></code>, and, finally, make a forecast. The input to the method <code class="docutils literal notranslate"><span class="pre">fit</span></code> is a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with two columns:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ds</span></code> (datestamp) must be of type <code class="docutils literal notranslate"><span class="pre">date</span></code> or <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
@@ -1316,10 +1318,10 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:55:27 - cmdstanpy - INFO - Chain [1] start processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22:19:10 - cmdstanpy - INFO - Chain [1] start processing
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:55:27 - cmdstanpy - INFO - Chain [1] done processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22:19:10 - cmdstanpy - INFO - Chain [1] done processing
 </pre></div>
 </div>
 </div>
@@ -1424,10 +1426,10 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
       <th>904</th>
       <td>2017-06-23</td>
       <td>276.682485</td>
-      <td>254.201087</td>
-      <td>304.016830</td>
-      <td>276.267332</td>
-      <td>277.098510</td>
+      <td>253.417466</td>
+      <td>301.869587</td>
+      <td>276.379698</td>
+      <td>277.144647</td>
       <td>2.316748</td>
       <td>2.316748</td>
       <td>2.316748</td>
@@ -1446,10 +1448,10 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
       <th>905</th>
       <td>2017-06-24</td>
       <td>277.388317</td>
-      <td>218.637265</td>
-      <td>267.275922</td>
-      <td>276.948748</td>
-      <td>277.834694</td>
+      <td>216.769598</td>
+      <td>266.963808</td>
+      <td>277.063743</td>
+      <td>277.886349</td>
       <td>-34.992533</td>
       <td>-34.992533</td>
       <td>-34.992533</td>
@@ -1468,10 +1470,10 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
       <th>906</th>
       <td>2017-06-25</td>
       <td>278.094149</td>
-      <td>222.470485</td>
-      <td>272.170684</td>
-      <td>277.624320</td>
-      <td>278.567768</td>
+      <td>222.103851</td>
+      <td>273.498413</td>
+      <td>277.742635</td>
+      <td>278.623086</td>
       <td>-31.355580</td>
       <td>-31.355580</td>
       <td>-31.355580</td>
@@ -1500,7 +1502,7 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eed11a86ee6c8c5f919dd459341bcbd8441930b310c3c7f57354bb3ca87c425f.png" src="../../_images/eed11a86ee6c8c5f919dd459341bcbd8441930b310c3c7f57354bb3ca87c425f.png" />
+<img alt="../../_images/8300e9d7adbe3611d62dce5bc4d2ce967b5c066dce96764b0d272ca27e406fcb.png" src="../../_images/8300e9d7adbe3611d62dce5bc4d2ce967b5c066dce96764b0d272ca27e406fcb.png" />
 </div>
 </div>
 <p>This chart doesn’t look very informative. The only definitive conclusion that we can draw here is that the model treated many of the data points as outliers.</p>
@@ -1513,13 +1515,13 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a86af3d5e44dd070a80826fd921fb8fa299ff15fba87989baafe5ccb7e454697.png" src="../../_images/a86af3d5e44dd070a80826fd921fb8fa299ff15fba87989baafe5ccb7e454697.png" />
+<img alt="../../_images/2945d00625b9f99a203149b4a389365570df2ca28f4e45f81eb07359a77cec0d.png" src="../../_images/2945d00625b9f99a203149b4a389365570df2ca28f4e45f81eb07359a77cec0d.png" />
 </div>
 </div>
 <p>As you can see from the trend graph, Prophet did a good job by fitting the accelerated growth of new posts at the end of 2016. The graph of weekly seasonality leads to the conclusion that usually there are less new posts on Saturdays and Sundays than on the other days of the week. In the yearly seasonality graph there is a prominent dip on Christmas Day.</p>
 </section>
 <section id="forecast-quality-evaluation">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.5 Forecast quality evaluation</a><a class="headerlink" href="#forecast-quality-evaluation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">3.5 Forecast quality evaluation</a><a class="headerlink" href="#forecast-quality-evaluation" title="Link to this heading">#</a></h3>
 <p>Let’s evaluate the quality of the algorithm by calculating the error metrics for the last 30 days that we predicted. For this, we will need the observations <span class="math notranslate nohighlight">\(y_i\)</span> and the corresponding predicted values <span class="math notranslate nohighlight">\(\hat{y}_i\)</span>.</p>
 <p>Let’s look into the object <code class="docutils literal notranslate"><span class="pre">forecast</span></code> that the library created for us:</p>
 <div class="cell docutils container">
@@ -1593,22 +1595,22 @@ Author: <a class="reference external" href="https://www.linkedin.com/in/egor-pol
     <tr>
       <th>2017-06-23</th>
       <td>278.999233</td>
-      <td>254.201087</td>
-      <td>304.016830</td>
+      <td>253.417466</td>
+      <td>301.869587</td>
       <td>421</td>
     </tr>
     <tr>
       <th>2017-06-24</th>
       <td>242.395784</td>
-      <td>218.637265</td>
-      <td>267.275922</td>
+      <td>216.769598</td>
+      <td>266.963808</td>
       <td>277</td>
     </tr>
     <tr>
       <th>2017-06-25</th>
       <td>246.738569</td>
-      <td>222.470485</td>
-      <td>272.170684</td>
+      <td>222.103851</td>
+      <td>273.498413</td>
       <td>253</td>
     </tr>
   </tbody>
@@ -1666,7 +1668,7 @@ MAE 70.23342214773827
 <p>As a result, the relative error of our forecast (MAPE) is about 22.6%, and on average our model is wrong by ~70 posts (MAE).</p>
 </section>
 <section id="visualization">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.6 Visualization</a><a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">3.6 Visualization</a><a class="headerlink" href="#visualization" title="Link to this heading">#</a></h3>
 <p>Let’s create our own visualization of the model built by Prophet. It will comprise the actual values, forecast and confidence intervals.</p>
 <p>First, we will plot the data for a shorter period of time to make the data points easier to distinguish. Second, we will show the model performance only for the period that we predicted, that is the last 30 days. It seems that these two measures should give us a more legible plot.</p>
 <p>Third, we will use <code class="docutils literal notranslate"><span class="pre">Plotly</span></code> to make our chart interactive, which is great for exploring.</p>
@@ -1739,7 +1741,7 @@ MAE 70.23342214773827
 </section>
 </section>
 <section id="box-cox-transformation">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Box-Cox Transformation</a><a class="headerlink" href="#box-cox-transformation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Box-Cox Transformation</a><a class="headerlink" href="#box-cox-transformation" title="Link to this heading">#</a></h2>
 <p>So far we have used Prophet with the default settings and the original data. We will leave the parameters of the model alone. But despite this we still have some room for improvement. In this section, we will apply the <a class="reference external" href="http://onlinestatbook.com/2/transformations/box-cox.html">Box–Cox transformation</a> to our original series. Let’s see where it will lead us.</p>
 <p>A few words about this transformation. This is a monotonic data transformation that can be used to stabilize variance. We will use the one-parameter Box–Cox transformation, which is defined by the following expression:</p>
 <div class="math notranslate nohighlight">
@@ -1798,10 +1800,10 @@ MAE 70.23342214773827
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:55:27 - cmdstanpy - INFO - Chain [1] start processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22:19:11 - cmdstanpy - INFO - Chain [1] start processing
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16:55:27 - cmdstanpy - INFO - Chain [1] done processing
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22:19:11 - cmdstanpy - INFO - Chain [1] done processing
 </pre></div>
 </div>
 </div>
@@ -1864,14 +1866,14 @@ MAE 39.7806146830978
 <p>We see that the forecast of weekly changes in the second graph is much closer to the real values now.</p>
 </section>
 <section id="summary">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">5. Summary</a><a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">5. Summary</a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>We have taken a look at <em>Prophet</em>, an open-source forecasting library that is specifically targeted at business time series. We have also done some hands-on practice in time series prediction.</p>
 <p>As we have seen, the Prophet library does not make wonders, and its predictions out-of-box are not <a class="reference external" href="https://en.wikipedia.org/wiki/No_free_lunch_in_search_and_optimization">ideal</a>. It is still up to the data scientist to explore the forecast results, tune model parameters and transform data when necessary.</p>
 <p>However, this library is user-friendly and easily customizable. The sole ability to take into account abnormal days that are known to the analyst beforehand might make a difference in some cases.</p>
 <p>All in all, the Prophet library is worth being a part of your analytical toolbox.</p>
 </section>
 <section id="references">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">6. References</a><a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">6. References</a><a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Official <a class="reference external" href="https://github.com/facebook/prophet">Prophet repository</a> on GitHub.</p></li>
 <li><p>Official <a class="reference external" href="https://facebook.github.io/prophet/docs/quick_start.html#python-api">Prophet documentation</a>.</p></li>

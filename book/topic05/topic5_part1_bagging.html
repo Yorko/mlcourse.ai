@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 5. Ensembles and random forest. Part 1. Bagging &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic05/topic5_part1_bagging';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 5. Ensembles and random forest. Part 2. Random Forest" href="topic5_part2_random_forest.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -530,12 +542,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-1-bagging">
-<span id="topic05-part1"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 5. Ensembles and random forest. Part 1. Bagging</a><a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-1-bagging" title="Permalink to this heading">#</a></h1>
+<span id="topic05-part1"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 5. Ensembles and random forest. Part 1. Bagging</a><a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-1-bagging" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, and <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -562,7 +574,7 @@ document.write(`
 <p>An <em>ensemble</em> is a set of elements that collectively contribute to a whole. A familiar example is a musical ensemble, which blends the sounds of several musical instruments to create harmony, or architectural ensembles, which are a set of buildings designed as a unit. In ensembles, the (whole) harmonious outcome is more important than the performance of any individual part.</p>
 </section>
 <section id="ensembles">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Ensembles</a><a class="headerlink" href="#ensembles" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Ensembles</a><a class="headerlink" href="#ensembles" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Condorcet%27s_jury_theorem">Condorcet’s jury theorem</a> (1784) is about an ensemble in some sense. It states that, if each member of the jury makes an independent judgement and the probability of the correct decision by each juror is more than 0.5, then the probability of the correct decision by the whole jury increases with the total number of jurors and tends to one. On the other hand, if the probability of being right is less than 0.5 for each juror, then the probability of the correct decision by the whole jury decreases with the number of jurors and tends to zero.</p>
 <p>Let’s write an analytic expression for this theorem:</p>
 <ul class="simple">
@@ -580,7 +592,7 @@ document.write(`
 <p>A similar idea for error reduction was adopted in the field of Machine Learning.</p>
 </section>
 <section id="bootstrapping">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Bootstrapping</a><a class="headerlink" href="#bootstrapping" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Bootstrapping</a><a class="headerlink" href="#bootstrapping" title="Link to this heading">#</a></h2>
 <p><em>Bagging</em> (also known as <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">Bootstrap aggregation</a>) is one of the first and most basic ensemble techniques. It was proposed by <a class="reference external" href="https://en.wikipedia.org/wiki/Leo_Breiman">Leo Breiman</a> in 1994. Bagging is based on the statistical method of <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_%28statistics%29">bootstrapping</a>, which makes the evaluation of many statistics of complex models feasible.</p>
 <p>The bootstrap method goes as follows. Let there be a sample <span class="math notranslate nohighlight">\(\large X\)</span> of size <span class="math notranslate nohighlight">\(\large N\)</span>. We can make a new sample from the original sample by drawing <span class="math notranslate nohighlight">\(\large N\)</span> elements from the latter randomly and uniformly, with replacement. In other words, we select a random element from the original sample of size <span class="math notranslate nohighlight">\(\large N\)</span> and do this <span class="math notranslate nohighlight">\(\large N\)</span> times. All elements are equally likely to be selected, thus each element is drawn with the equal probability <span class="math notranslate nohighlight">\(\large \frac{1}{N}\)</span>.</p>
 <p>Let’s say we are drawing balls from a bag one at a time. At each step, the selected ball is put back into the bag so that the next selection is made equiprobably i.e. from the same number of balls <span class="math notranslate nohighlight">\(\large N\)</span>. Note that, because we put the balls back, there may be duplicates in the new sample. Let’s call this new sample <span class="math notranslate nohighlight">\(\large X_1\)</span>.</p>
@@ -627,7 +639,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/57c338bf825c3b1d1a0c15a8b45ed77c8a5b610359ed723f91947a6218f82df9.png" src="../../_images/57c338bf825c3b1d1a0c15a8b45ed77c8a5b610359ed723f91947a6218f82df9.png" />
+<a class="reference internal image-reference" href="../../_images/9439d7fdaf061ede6196de9f484a321643904ae2569d60cc89657c30cdaae105.png"><img alt="../../_images/9439d7fdaf061ede6196de9f484a321643904ae2569d60cc89657c30cdaae105.png" src="../../_images/9439d7fdaf061ede6196de9f484a321643904ae2569d60cc89657c30cdaae105.png" style="width: 584px; height: 438px;" />
+</a>
 </div>
 </div>
 <p>Looks like loyal customers make fewer calls to customer service than those who eventually leave. Now, it might be a good idea to estimate the average number of customer service calls in each group. Since our dataset is small, we would not get a good estimate by simply calculating the mean of the original sample. We will be better off applying the bootstrap method. Let’s generate 1000 new bootstrap samples from our original population and produce an interval estimate of the mean.</p>
@@ -682,10 +695,10 @@ Service calls from churn: mean interval [2.0621118  2.39761905]
 </div>
 </div>
 </div>
-<p>For the interpretation of confidence intervals, you can address <a class="reference external" href="https://www.graphpad.com/guides/prism/7/statistics/stat_more_about_confidence_interval.htm?toc=0&amp;printWindow">this</a> concise note or any course on statistics. It’s not correct to say that a confidence interval contains 95% of values. Note that the interval for the loyal customers is narrower, which is reasonable since they make fewer calls (0, 1 or 2) in comparison with the churned clients who call until they are fed up and decide to switch providers.</p>
+<p>For the interpretation of confidence intervals, you can address <a class="reference external" href="https://www.graphpad.com/guides/prism/7/statistics/stat_more_about_confidence_interval.htm?toc=0&amp;amp;printWindow">this</a> concise note or any course on statistics. It’s not correct to say that a confidence interval contains 95% of values. Note that the interval for the loyal customers is narrower, which is reasonable since they make fewer calls (0, 1 or 2) in comparison with the churned clients who call until they are fed up and decide to switch providers.</p>
 </section>
 <section id="bagging">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">3. Bagging</a><a class="headerlink" href="#bagging" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">3. Bagging</a><a class="headerlink" href="#bagging" title="Link to this heading">#</a></h2>
 <p>Now that you’ve grasped the idea of bootstrapping, we can move on to <em>bagging</em>.</p>
 <p>Suppose that we have a training set <span class="math notranslate nohighlight">\(\large X\)</span>. Using bootstrapping, we generate samples <span class="math notranslate nohighlight">\(\large X_1, \dots, X_M\)</span>. Now, for each bootstrap sample, we train its own classifier <span class="math notranslate nohighlight">\(\large a_i(x)\)</span>. The final classifier will average the outputs from all these individual classifiers. In the case of classification, this technique corresponds to voting:</p>
 <div class="math notranslate nohighlight">
@@ -735,7 +748,7 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <p>The example above is unlikely to be applicable to any real work. This is because we made a strong assumption that our individual errors are uncorrelated. More often than not, this is way too optimistic for real-world applications. When this assumption is false, the reduction in error will not be as significant. In the following lectures, we will discuss some more sophisticated ensemble methods, which enable more accurate predictions in real-world problems.</p>
 </section>
 <section id="out-of-bag-error">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">4. Out-of-bag error</a><a class="headerlink" href="#out-of-bag-error" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">4. Out-of-bag error</a><a class="headerlink" href="#out-of-bag-error" title="Link to this heading">#</a></h2>
 <p>Looking ahead, in case of Random Forest, there is no need to use cross-validation or hold-out samples in order to get an unbiased error estimation. Why? Because, in ensemble techniques, the error estimation takes place internally.</p>
 <p>Random trees are constructed using different bootstrap samples of the original dataset. Approximately 37% of inputs are left out of a particular bootstrap sample and are not used in the construction of the <span class="math notranslate nohighlight">\(\large k\)</span>-th tree.</p>
 <p>This is easy to prove. Suppose there are <span class="math notranslate nohighlight">\(\large \ell\)</span> examples in our dataset. At each step, each data point has equal probability of ending up in a bootstrap sample with replacement, probability <span class="math notranslate nohighlight">\(\large\frac{1}{\ell}.\)</span> The probability that there is no such bootstrap sample that contains a particular dataset element (i.e. it has been omitted <span class="math notranslate nohighlight">\(\large \ell\)</span> times) equals <span class="math notranslate nohighlight">\(\large (1 - \frac{1}{\ell})^\ell\)</span>. When <span class="math notranslate nohighlight">\(\large \ell \rightarrow +\infty\)</span>, it becomes equal to the <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_limits">Second Remarkable Limit</a> <span class="math notranslate nohighlight">\(\large \frac{1}{e}\)</span>. Then, the probability of selecting a specific example is <span class="math notranslate nohighlight">\(\large \approx  1 - \frac{1}{e} \approx 63\%\)</span>.</p>
@@ -753,9 +766,9 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <p>For further elaboration, see also visualizations in <a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-bag_error">this Wikipedia article</a>.</p>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p><a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> <a class="reference external" href="https://www.youtube.com/watch?v=neXJL-AqI_c">lecture</a> on Random Forest</p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">“story”</a> based on this notebook</p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>

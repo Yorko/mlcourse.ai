@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 4. Linear Classification and Regression &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic04/topic4_linear_models_part2_logit_likelihood_learning';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 4. Linear Classification and Regression" href="topic4_linear_models_part3_regul_example.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -531,9 +543,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-4-linear-classification-and-regression">
-<span id="topic04-part2"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 4. Linear Classification and Regression</a><a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Permalink to this heading">#</a></h1>
+<span id="topic04-part2"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 4. Linear Classification and Regression</a><a class="headerlink" href="#topic-4-linear-classification-and-regression" title="Link to this heading">#</a></h1>
 <section id="part-2-linear-classification">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Part 2. Linear Classification</a><a class="headerlink" href="#part-2-linear-classification" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Part 2. Linear Classification</a><a class="headerlink" href="#part-2-linear-classification" title="Link to this heading">#</a></h2>
 <figure class="align-default">
 <img alt="../../_images/ods_stickers.jpg" src="../../_images/ods_stickers.jpg" />
 </figure>
@@ -541,7 +553,7 @@ document.write(`
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/nersesbagiyan/">Nerses Bagiyan</a>, <a class="reference external" href="https://www.linkedin.com/in/yuliya-klimushina-7168a9139">Yulia Klimushina</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 </section>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -560,10 +572,11 @@ document.write(`
 </nav>
 </section>
 <section id="linear-classifier">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Linear Classifier</a><a class="headerlink" href="#linear-classifier" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Linear Classifier</a><a class="headerlink" href="#linear-classifier" title="Link to this heading">#</a></h2>
 <p>The basic idea behind a linear classifier two target classes can be separated by a hyperplane in the feature space. If this can be done without error, the training set is called <em>linearly separable</em>.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/topic4_linear_classifier.png"><img alt="../../_images/topic4_linear_classifier.png" src="../../_images/topic4_linear_classifier.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../../_images/topic4_linear_classifier.png"><img alt="../../_images/topic4_linear_classifier.png" src="../../_images/topic4_linear_classifier.png" style="width: 480px;" />
+</a>
 </figure>
 <p>We have already seen linear regression and Ordinary Least Squares (OLS). Let’s consider a binary classification problem, and denote target classes to be “+1” (positive examples) and “-1” (negative examples). One of the simplest linear classifiers can be defined using regression as follows:</p>
 <div class="math notranslate nohighlight">
@@ -577,7 +590,7 @@ document.write(`
 </ul>
 </section>
 <section id="logistic-regression-as-a-linear-classifier">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Logistic Regression as a Linear Classifier</a><a class="headerlink" href="#logistic-regression-as-a-linear-classifier" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2. Logistic Regression as a Linear Classifier</a><a class="headerlink" href="#logistic-regression-as-a-linear-classifier" title="Link to this heading">#</a></h2>
 <p>Logistic regression is a special case of the linear classifier, but it has an added benefit of predicting a probability <span class="math notranslate nohighlight">\(p_+\)</span> of referring example <span class="math notranslate nohighlight">\(\textbf{x}_\text{i}\)</span> to the class “+”:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -585,12 +598,14 @@ document.write(`
 \]</div>
 <p>Being able to predict not just a response ( “+1” or “-1”) but the <em>probability</em> of assignment to class “+1” is a very important requirement in many business problems e.g. credit scoring where logistic regression is traditionally used. Customers who have applied for a loan are ranked based on this predicted probability (in descending order) to obtain a scoreboard that rates customers from bad to good. Below is an example of such a toy scoreboard.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/topic4_toy_scorecard_eng.png"><img alt="../../_images/topic4_toy_scorecard_eng.png" src="../../_images/topic4_toy_scorecard_eng.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../../_images/topic4_toy_scorecard_eng.png"><img alt="../../_images/topic4_toy_scorecard_eng.png" src="../../_images/topic4_toy_scorecard_eng.png" style="width: 480px;" />
+</a>
 </figure>
 <p>The bank chooses a threshold <span class="math notranslate nohighlight">\(p_*\)</span> to predict the probability of loan default (in the picture it’s <span class="math notranslate nohighlight">\(0.15\)</span>) and stops approving loans starting from that value. Moreover, it is possible to multiply this predicted probability by the loan amount to get the expectation of losses from the client, which can also constitute good business metrics (scoring experts may have more to add, but the main gist is this).</p>
 <p>To predict the probability <span class="math notranslate nohighlight">\(p_+ \in [0,1]\)</span>, we can start by constructing a linear prediction using OLS: <span class="math notranslate nohighlight">\(b(\textbf{x}) = \textbf{w}^\text{T} \textbf{x} \in \mathbb{R}\)</span>. But converting the resulting value to the probability within in the [0, 1] range requires some function <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow [0,1]\)</span>. Logistic regression uses a specific function for this: <span class="math notranslate nohighlight">\(\sigma(z) = \frac{1}{1 + \exp^{-z}}\)</span>. Now let’s understand what the prerequisites are.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/topic4_sigmoid.png"><img alt="../../_images/topic4_sigmoid.png" src="../../_images/topic4_sigmoid.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../../_images/topic4_sigmoid.png"><img alt="../../_images/topic4_sigmoid.png" src="../../_images/topic4_sigmoid.png" style="width: 480px;" />
+</a>
 </figure>
 <p>Let’s denote the probability of an event <span class="math notranslate nohighlight">\(X\)</span> as <span class="math notranslate nohighlight">\(P(X)\)</span>. Then the odds  <span class="math notranslate nohighlight">\(OR(X)\)</span> are determined by <span class="math notranslate nohighlight">\(\frac{P(X)}{1-P(X)}\)</span>, which is the ratio of the probabilities of whether or not an event will happen. It is obvious that the probability and odds contain the same information, but, while <span class="math notranslate nohighlight">\(P(X)\)</span> ranges from 0 to 1, <span class="math notranslate nohighlight">\(OR(X)\)</span> is in the range of 0 to <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
 <p>If we calculate the logarithm of <span class="math notranslate nohighlight">\(OR(X)\)</span> (a logarithm of odds or log probability ratio), it is easy to notice that <span class="math notranslate nohighlight">\(\log{OR(X)} \in \mathbb{R}\)</span>. This is what we will use with OLS.</p>
@@ -607,7 +622,7 @@ document.write(`
 <p>Next, we will see how the model is trained. We will again rely on maximum likelihood estimation.</p>
 </section>
 <section id="maximum-likelihood-estimation-and-logistic-regression">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Maximum Likelihood Estimation and Logistic Regression</a><a class="headerlink" href="#maximum-likelihood-estimation-and-logistic-regression" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">3. Maximum Likelihood Estimation and Logistic Regression</a><a class="headerlink" href="#maximum-likelihood-estimation-and-logistic-regression" title="Link to this heading">#</a></h2>
 <p>Now let’s see how an optimization problem for logistic regression is obtained from the MLE, namely, minimization of the <em>logistic</em> loss function. We have just seen that logistic regression models the probability of assigning an example to the class “+” as:</p>
 <div class="math notranslate nohighlight">
 \[\Large p_+(\textbf{x}_\text{i}) = P\left(y_i = 1 \mid \textbf{x}_\text{i}, \textbf{w}\right) = \sigma(\textbf{w}^T\textbf{x}_\text{i})\]</div>
@@ -630,7 +645,8 @@ document.write(`
 \]</div>
 </details>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/topic4_simple_linal_task.png"><img alt="../../_images/topic4_simple_linal_task.png" src="../../_images/topic4_simple_linal_task.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../../_images/topic4_simple_linal_task.png"><img alt="../../_images/topic4_simple_linal_task.png" src="../../_images/topic4_simple_linal_task.png" style="width: 480px;" />
+</a>
 </figure>
 <p>When we get to the answer, we will understand that the greater the absolute value of the expression <span class="math notranslate nohighlight">\(\textbf{w}^\text{T}\textbf{x}_\text{i}\)</span>, the farther the point <span class="math notranslate nohighlight">\(\textbf{x}_\text{i}\)</span> is from the plane <span class="math notranslate nohighlight">\(\textbf{w}^\text{T}\textbf{x} = 0.\)</span></p>
 <p>Hence, our expression <span class="math notranslate nohighlight">\(M(\textbf{x}_\text{i}) = y_i\textbf{w}^\text{T}\textbf{x}_\text{i}\)</span> is a kind of “confidence” in our model’s classification of the object <span class="math notranslate nohighlight">\(\textbf{x}_\text{i}\)</span>:</p>
@@ -640,7 +656,8 @@ document.write(`
 <li><p>if the margin is small (in absolute value), then the object is close to the separating hyperplane, and the margin sign determines whether the object is correctly classified. See Points <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_4\)</span> on the plot;</p></li>
 </ul>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/topic4_margin.png"><img alt="../../_images/topic4_margin.png" src="../../_images/topic4_margin.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../../_images/topic4_margin.png"><img alt="../../_images/topic4_margin.png" src="../../_images/topic4_margin.png" style="width: 480px;" />
+</a>
 </figure>
 <p>Let’s now compute the likelihood of the data set i.e. the probability of observing the given vector <span class="math notranslate nohighlight">\(\textbf{y}\)</span> from data set <span class="math notranslate nohighlight">\(X\)</span>. We’ll make a strong assumption: objects come independently from one distribution (<em>i.i.d.</em>). Then, we can write</p>
 <div class="math notranslate nohighlight">
@@ -657,7 +674,8 @@ document.write(`
 <p>This is <em>logistic</em> loss function that is summed over all objects in the training set.</p>
 <p>Let’s look at the new function as a function of margin <span class="math notranslate nohighlight">\(L(M) = \log (1 + \exp^{-M})\)</span> and plot it along with <em>zero-one loss</em> graph, which simply penalizes the model for error on each object by 1 (negative margin): <span class="math notranslate nohighlight">\(L_{1/0}(M) = [M &lt; 0]\)</span>.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/topic4_logloss_margin_eng.png"><img alt="../../_images/topic4_logloss_margin_eng.png" src="../../_images/topic4_logloss_margin_eng.png" style="width: 480px;" /></a>
+<a class="reference internal image-reference" href="../../_images/topic4_logloss_margin_eng.png"><img alt="../../_images/topic4_logloss_margin_eng.png" src="../../_images/topic4_logloss_margin_eng.png" style="width: 480px;" />
+</a>
 </figure>
 <p>The picture reflects the idea that, if we are not able to directly minimize the number of errors in the classification problem (at least not by gradient methods - derivative of the zero-one loss function at zero turns to infinity), we can minimize its upper bounds. For the logistic loss function (where the logarithm is binary, but this does not matter), the following is valid:</p>
 <div class="math notranslate nohighlight">
@@ -666,7 +684,7 @@ document.write(`
 <p>Thus, by reducing the upper bound of <span class="math notranslate nohighlight">\(\mathcal{L_{log}}\)</span> by the number of classification errors, we hope to reduce the number of errors itself.</p>
 </section>
 <section id="l-2-regularization-of-logistic-loss">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. <span class="math notranslate nohighlight">\(L_2\)</span>-Regularization of Logistic Loss</a><a class="headerlink" href="#l-2-regularization-of-logistic-loss" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. <span class="math notranslate nohighlight">\(L_2\)</span>-Regularization of Logistic Loss</a><a class="headerlink" href="#l-2-regularization-of-logistic-loss" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(L_2\)</span>-regularization of logistic regression is almost the same as in the case of ridge regression. Instead of minimizing the function <span class="math notranslate nohighlight">\(\mathcal{L_{\log}} (\textbf X, \textbf{y}, \textbf{w})\)</span> we minimize the following:</p>
 <div class="math notranslate nohighlight">
 \[\Large \mathcal{J}(\textbf X, \textbf{y}, \textbf{w}) = \mathcal{L_{\log}} (\textbf X, \textbf{y}, \textbf{w}) + \lambda |\textbf{w}|^2\]</div>
@@ -676,10 +694,10 @@ document.write(`
 <p>Next, we’ll look at an example that allows us to intuitively understand one of the interpretations of regularization.</p>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-4-linear-classification-and-regression-44a41b9b5220">“story”</a> based on this notebook</p></li>
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
 <li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/323890/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/oTXGQ-_oqvI">lecture</a> on YouTube</p></li>
 <li><p>A nice and concise overview of linear models is given in the book <a class="reference external" href="http://www.deeplearningbook.org">“Deep Learning”</a> (I. Goodfellow, Y. Bengio, and A. Courville).</p></li>

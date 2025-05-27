@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 7. Unsupervised learning: PCA and clustering &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic07/topic7_pca_clustering';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Videolecture 7. Unsupervised learning" href="videolecture07.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -548,7 +560,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-7-unsupervised-learning-pca-and-clustering">
-<span id="topic07"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 7. Unsupervised learning: PCA and clustering</a><a class="headerlink" href="#topic-7-unsupervised-learning-pca-and-clustering" title="Permalink to this heading">#</a></h1>
+<span id="topic07"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 7. Unsupervised learning: PCA and clustering</a><a class="headerlink" href="#topic-7-unsupervised-learning-pca-and-clustering" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://www.linkedin.com/in/sokorolev/">Sergey Korolev</a>, Software Engineer at Snap Inc. <br>
@@ -556,7 +568,7 @@ Translated and edited by <a class="reference external" href="https://www.linkedi
 <p>Welcome to the seventh part of our Open Machine Learning Course!</p>
 <p>In this lesson, we will work with unsupervised learning methods such as Principal Component Analysis (PCA) and clustering. You will learn why and how we can reduce the dimensionality of the original data and what the main approaches are for grouping similar data points.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -596,14 +608,14 @@ Translated and edited by <a class="reference external" href="https://www.linkedi
 </nav>
 </section>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The main feature of unsupervised learning algorithms, when compared to classification and regression methods, is that input data are unlabeled (i.e. no labels or classes given) and that the algorithm learns the structure of the data without any assistance. This creates two main differences. First, it allows us to process large amounts of data because the data does not need to be manually labeled. Second, it is difficult to evaluate the quality of an unsupervised algorithm due to the absence of an explicit goodness metric as used in supervised learning.</p>
 <p>One of the most common tasks in unsupervised learning is dimensionality reduction. On one hand, dimensionality reduction may help with data visualization (e.g. t-SNE method) while, on the other hand, it may help deal with the multicollinearity of your data and prepare the data for a supervised learning method (e.g. decision trees).</p>
 </section>
 <section id="principal-component-analysis-pca">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Principal Component Analysis (PCA)</a><a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Principal Component Analysis (PCA)</a><a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
 <section id="intuition-theories-and-application-issues">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Intuition, theories, and application issues</a><a class="headerlink" href="#intuition-theories-and-application-issues" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Intuition, theories, and application issues</a><a class="headerlink" href="#intuition-theories-and-application-issues" title="Link to this heading">#</a></h3>
 <p>Principal Component Analysis is one of the easiest, most intuitive, and most frequently used methods for dimensionality reduction, projecting data onto its orthogonal feature subspace.</p>
 <img align="right" src="https://habrastorage.org/getpro/habr/post_images/bb6/fe7/f06/bb6fe7f06e114bcc9c354a1cb025b966.png" width="400">
 <p>More generally speaking, all observations can be considered as an ellipsoid in a subspace of an initial feature space, and the new basis set in this subspace is aligned with the ellipsoid axes. This assumption lets us remove highly correlated features since basis set vectors are orthogonal.
@@ -626,9 +638,9 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </section>
 </section>
 <section id="examples">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
 <section id="fisher-s-iris-dataset">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Fisher’s iris dataset</a><a class="headerlink" href="#fisher-s-iris-dataset" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Fisher’s iris dataset</a><a class="headerlink" href="#fisher-s-iris-dataset" title="Link to this heading">#</a></h3>
 <p>Let’s start by uploading all of the essential modules and try out the iris example from the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> documentation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,7 +672,8 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6f7df0723522751246dc877b13b2b774a8daf985366b98c7b7596441f9b6818.png" src="../../_images/f6f7df0723522751246dc877b13b2b774a8daf985366b98c7b7596441f9b6818.png" />
+<a class="reference internal image-reference" href="../../_images/032f2847b9f513d6d0614f738e666425b0184e10da38cb4400dd8db64303f816.png"><img alt="../../_images/032f2847b9f513d6d0614f738e666425b0184e10da38cb4400dd8db64303f816.png" src="../../_images/032f2847b9f513d6d0614f738e666425b0184e10da38cb4400dd8db64303f816.png" style="width: 790px; height: 790px;" />
+</a>
 </div>
 </div>
 <p>Now let’s see how PCA will improve the results of a simple model that is not able to correctly fit all of the training data:</p>
@@ -707,7 +720,8 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0ae2b5f8402b69591dc8cfbc56f35318cc6e4795a2db2af698e5c6698607ca48.png" src="../../_images/0ae2b5f8402b69591dc8cfbc56f35318cc6e4795a2db2af698e5c6698607ca48.png" />
+<a class="reference internal image-reference" href="../../_images/887e5d6b2d134f108dc3debe37f7556a36cb5cf44e9bd9e0304a43eb7c7e9413.png"><img alt="../../_images/887e5d6b2d134f108dc3debe37f7556a36cb5cf44e9bd9e0304a43eb7c7e9413.png" src="../../_images/887e5d6b2d134f108dc3debe37f7556a36cb5cf44e9bd9e0304a43eb7c7e9413.png" style="width: 559px; height: 422px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -760,7 +774,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </section>
 <section id="handwritten-numbers-dataset">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Handwritten numbers dataset</a><a class="headerlink" href="#handwritten-numbers-dataset" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Handwritten numbers dataset</a><a class="headerlink" href="#handwritten-numbers-dataset" title="Link to this heading">#</a></h3>
 <p>Let’s look at the handwritten numbers dataset that we used before in the <a class="reference external" href="https://habrahabr.ru/company/ods/blog/322534/#derevya-resheniy-i-metod-blizhayshih-sosedey-v-zadache-raspoznavaniya-rukopisnyh-cifr-mnist">3rd lesson</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +797,8 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d039a317896547c725aefcdbfd07b51a785dad7903b0bfc9720d099076b84967.png" src="../../_images/d039a317896547c725aefcdbfd07b51a785dad7903b0bfc9720d099076b84967.png" />
+<a class="reference internal image-reference" href="../../_images/1ed697a8fc545b9c4b77491125cbbccdf7e50e4870600a91b56783860f05a293.png"><img alt="../../_images/1ed697a8fc545b9c4b77491125cbbccdf7e50e4870600a91b56783860f05a293.png" src="../../_images/1ed697a8fc545b9c4b77491125cbbccdf7e50e4870600a91b56783860f05a293.png" style="width: 1277px; height: 509px;" />
+</a>
 </div>
 </div>
 <p>Our data has 64 dimensions, but we are going to reduce it to only 2 and see that, even with just 2 dimensions, we can clearly see that digits separate into clusters.</p>
@@ -813,7 +828,8 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Projecting 64-dimensional data to 2D
 </pre></div>
 </div>
-<img alt="../../_images/43caa2233602fb7117c823a1d83380303b25c9bb69b4ff6684352a85923102e3.png" src="../../_images/43caa2233602fb7117c823a1d83380303b25c9bb69b4ff6684352a85923102e3.png" />
+<a class="reference internal image-reference" href="../../_images/7a5b2cec005bff39885d867e486de0291e1a47ec2ff4547539c6e42bd692f051.png"><img alt="../../_images/7a5b2cec005bff39885d867e486de0291e1a47ec2ff4547539c6e42bd692f051.png" src="../../_images/7a5b2cec005bff39885d867e486de0291e1a47ec2ff4547539c6e42bd692f051.png" style="width: 909px; height: 838px;" />
+</a>
 </div>
 </div>
 <p>Indeed, with t-SNE, the picture looks better since PCA has a linear constraint while t-SNE does not. However, even with such a small dataset, the t-SNE algorithm takes significantly more time to complete than PCA.</p>
@@ -843,11 +859,12 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.5 s, sys: 9.17 s, total: 27.7 s
-Wall time: 2.6 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.1 s, sys: 8.28 s, total: 24.4 s
+Wall time: 2.25 s
 </pre></div>
 </div>
-<img alt="../../_images/8de823457f05d77c46b3fa30620aed44df16c1cf2b96819ba5e3feda352b761e.png" src="../../_images/8de823457f05d77c46b3fa30620aed44df16c1cf2b96819ba5e3feda352b761e.png" />
+<a class="reference internal image-reference" href="../../_images/1169af1cfe17392c5aba2683a150b7f6af939b469261cf79ca77f2abfbed5bf9.png"><img alt="../../_images/1169af1cfe17392c5aba2683a150b7f6af939b469261cf79ca77f2abfbed5bf9.png" src="../../_images/1169af1cfe17392c5aba2683a150b7f6af939b469261cf79ca77f2abfbed5bf9.png" style="width: 909px; height: 838px;" />
+</a>
 </div>
 </div>
 <p>In practice, we would choose the number of principal components such that we can explain 90% of the initial data variance (via the <code class="docutils literal notranslate"><span class="pre">explained_variance_ratio</span></code>). Here, that means retaining 21 principal components; therefore, we reduce the dimensionality from 64 features to 21.</p>
@@ -868,18 +885,19 @@ Wall time: 2.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/832bb4f7cffea48e154326dbe0a5ff4925e31ad74cdd3d435d83b5bdaca3fb2f.png" src="../../_images/832bb4f7cffea48e154326dbe0a5ff4925e31ad74cdd3d435d83b5bdaca3fb2f.png" />
+<a class="reference internal image-reference" href="../../_images/f1384088f403e5d88b167cf5ae7b6c764bcf6dc9f673b17390a2e6959606cbb4.png"><img alt="../../_images/f1384088f403e5d88b167cf5ae7b6c764bcf6dc9f673b17390a2e6959606cbb4.png" src="../../_images/f1384088f403e5d88b167cf5ae7b6c764bcf6dc9f673b17390a2e6959606cbb4.png" style="width: 850px; height: 607px;" />
+</a>
 </div>
 </div>
 </section>
 </section>
 <section id="clustering">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">2. Clustering</a><a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">2. Clustering</a><a class="headerlink" href="#clustering" title="Link to this heading">#</a></h2>
 <p>The main idea behind clustering is pretty straightforward. Basically, we say to ourselves, “I have these points here, and I can see that they organize into groups. It would be nice to describe these things more concretely, and, when a new point comes in, assign it to the correct group.” This general idea encourages exploration and opens up a variety of algorithms for clustering.</p>
 <figure><img align="center" src="https://habrastorage.org/getpro/habr/post_images/8b9/ae5/586/8b9ae55861f22a2809e8b3a00ef815ad.png"><figcaption><it>The examples of the outcomes from different algorithms from scikit-learn</it></figcaption></figure>
 <p>The algorithms listed below do not cover all the clustering methods out there, but they are the most commonly used ones.</p>
 <section id="k-means">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">K-means</a><a class="headerlink" href="#k-means" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">K-means</a><a class="headerlink" href="#k-means" title="Link to this heading">#</a></h3>
 <p>K-means algorithm is the most popular and yet simplest of all the clustering algorithms. Here is how it works:</p>
 <ol class="arabic simple">
 <li><p>Select the number of clusters <span class="math notranslate nohighlight">\(k\)</span> that you think is the optimal number.</p></li>
@@ -910,7 +928,8 @@ Wall time: 2.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0ad009c47a0ee69c3000a45267e04e12d36f33349cb7f9da2989a9fcc5cd6a37.png" src="../../_images/0ad009c47a0ee69c3000a45267e04e12d36f33349cb7f9da2989a9fcc5cd6a37.png" />
+<a class="reference internal image-reference" href="../../_images/8d0c4e1cf274b337544a14fd085183110f28e9691b2fff352464258f692e00e3.png"><img alt="../../_images/8d0c4e1cf274b337544a14fd085183110f28e9691b2fff352464258f692e00e3.png" src="../../_images/8d0c4e1cf274b337544a14fd085183110f28e9691b2fff352464258f692e00e3.png" style="width: 438px; height: 432px;" />
+</a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -963,7 +982,8 @@ Wall time: 2.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/baa7b2aa0d17deb22f55aae409610ac9dac68dc4cef097dea8d6ab388d571fe3.png" src="../../_images/baa7b2aa0d17deb22f55aae409610ac9dac68dc4cef097dea8d6ab388d571fe3.png" />
+<a class="reference internal image-reference" href="../../_images/63369dddec053552bcf56b1df7c76c2513d99d9554667d8a146690d237e5e6c0.png"><img alt="../../_images/63369dddec053552bcf56b1df7c76c2513d99d9554667d8a146690d237e5e6c0.png" src="../../_images/63369dddec053552bcf56b1df7c76c2513d99d9554667d8a146690d237e5e6c0.png" style="width: 670px; height: 684px;" />
+</a>
 </div>
 </div>
 <p>Here, we used Euclidean distance, but the algorithm will converge with any other metric. You can not only vary the number of steps or the convergence criteria but also the distance measure between the points and cluster centroids.</p>
@@ -971,7 +991,7 @@ Wall time: 2.6 s
 </section>
 </section>
 <section id="choosing-the-number-of-clusters-for-k-means">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Choosing the number of clusters for K-means</a><a class="headerlink" href="#choosing-the-number-of-clusters-for-k-means" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Choosing the number of clusters for K-means</a><a class="headerlink" href="#choosing-the-number-of-clusters-for-k-means" title="Link to this heading">#</a></h2>
 <p>In contrast to the supervised learning tasks such as classification and regression, clustering requires more effort to choose the optimization criterion. Usually, when working with k-means, we optimize the sum of squared distances between the observations and their centroids.</p>
 <div class="math notranslate nohighlight">
 \[ J(C) = \sum_{k=1}^K\sum_{i~\in~C_k} ||x_i - \mu_k|| \rightarrow \min\limits_C,\]</div>
@@ -1007,18 +1027,19 @@ Wall time: 2.6 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2757da485ce4cdbf26e78856b570ea76e500720ac3ef0c7f52fcb6c92d156277.png" src="../../_images/2757da485ce4cdbf26e78856b570ea76e500720ac3ef0c7f52fcb6c92d156277.png" />
+<a class="reference internal image-reference" href="../../_images/82d18544f53df2e5e67e5a9815a7192895e247b7fc785fd2d082459641ae8d25.png"><img alt="../../_images/82d18544f53df2e5e67e5a9815a7192895e247b7fc785fd2d082459641ae8d25.png" src="../../_images/82d18544f53df2e5e67e5a9815a7192895e247b7fc785fd2d082459641ae8d25.png" style="width: 582px; height: 438px;" />
+</a>
 </div>
 </div>
 <p>We see that <span class="math notranslate nohighlight">\(J(C_k)\)</span> decreases significantly until the number of clusters is 3 and then does not change as much anymore. This means that the optimal number of clusters is 3.</p>
 <section id="issues">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Issues</a><a class="headerlink" href="#issues" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Issues</a><a class="headerlink" href="#issues" title="Link to this heading">#</a></h3>
 <p>Inherently, K-means is NP-hard. For <span class="math notranslate nohighlight">\(d\)</span> dimensions, <span class="math notranslate nohighlight">\(k\)</span> clusters, and <span class="math notranslate nohighlight">\(n\)</span> observations, we will find a solution in <span class="math notranslate nohighlight">\(O(n^{d k+1})\)</span> time. There are some heuristics to deal with this; an example is MiniBatch K-means, which takes portions (batches) of data instead of fitting the whole dataset and then moves centroids by taking the average of the previous steps. Compare the implementation of K-means and MiniBatch K-means in the <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/cluster/plot_mini_batch_kmeans.html">scikit-learn documentation</a>.</p>
 <p>The <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">implementation</a> of the algorithm using <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> has its benefits such as the possibility to state the number of initializations with the <code class="docutils literal notranslate"><span class="pre">n_init</span></code> function parameter, which enables us to identify more robust centroids. Moreover, these runs can be done in parallel to decrease the computation time.</p>
 </section>
 </section>
 <section id="affinity-propagation">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Affinity Propagation</a><a class="headerlink" href="#affinity-propagation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Affinity Propagation</a><a class="headerlink" href="#affinity-propagation" title="Link to this heading">#</a></h2>
 <p>Affinity propagation is another example of a clustering algorithm. As opposed to K-means, this approach does not require us to set the number of clusters beforehand. The main idea here is that we would like to cluster our data based on the similarity of the observations (or how they “correspond” to each other).</p>
 <p>Let’s define a similarity metric such that <span class="math notranslate nohighlight">\(s(x_i, x_j) &gt; s(x_i, x_k)\)</span> if an observation <span class="math notranslate nohighlight">\(x_i\)</span> is more similar to observation <span class="math notranslate nohighlight">\(x_j\)</span> and less similar to observation <span class="math notranslate nohighlight">\(x_k\)</span>. A simple example of such a similarity metric is a negative square of distance <span class="math notranslate nohighlight">\(s(x_i, x_j) = - ||x_i - x_j||^{2}\)</span>.</p>
 <p>Now, let’s describe “correspondence” by making two zero matrices. One of them, <span class="math notranslate nohighlight">\(r_{i,k}\)</span>, determines how well the <span class="math notranslate nohighlight">\(k\)</span>th observation is as a “role model” for the <span class="math notranslate nohighlight">\(i\)</span>th observation with respect to all other possible “role models”. Another matrix, <span class="math notranslate nohighlight">\(a_{i,k}\)</span> determines how appropriate it would be for <span class="math notranslate nohighlight">\(i\)</span>th observation to take the <span class="math notranslate nohighlight">\(k\)</span>th observation as a “role model”. This may sound confusing, but it becomes more understandable with some hands-on practice.</p>
@@ -1031,13 +1052,13 @@ Wall time: 2.6 s
 \[a_{k,k} \leftarrow \sum_{i' \neq k} \max(0, r_{i',k})\]</div>
 </section>
 <section id="spectral-clustering">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Spectral clustering</a><a class="headerlink" href="#spectral-clustering" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Spectral clustering</a><a class="headerlink" href="#spectral-clustering" title="Link to this heading">#</a></h2>
 <p>Spectral clustering combines some of the approaches described above to create a stronger clustering method.</p>
 <p>First of all, this algorithm requires us to define the similarity matrix for observations called the adjacency matrix. This can be done in a similar fashion as in the Affinity Propagation algorithm: <span class="math notranslate nohighlight">\(A_{i, j} = - ||x_i - x_j||^{2}\)</span>. This matrix describes a full graph with the observations as vertices and the estimated similarity value between a pair of observations as edge weights for that pair of vertices. For the metric defined above and two-dimensional observations, this is pretty intuitive - two observations are similar if the edge between them is shorter.
 We’d like to split up the graph into two subgraphs in such a way that each observation in each subgraph would be similar to another observation in that subgraph. Formally, this is a Normalized cuts problem; for more details, we recommend reading <a class="reference external" href="http://people.eecs.berkeley.edu/~malik/papers/SM-ncut.pdf">this paper</a>.</p>
 </section>
 <section id="agglomerative-clustering">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Agglomerative clustering</a><a class="headerlink" href="#agglomerative-clustering" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Agglomerative clustering</a><a class="headerlink" href="#agglomerative-clustering" title="Link to this heading">#</a></h2>
 <p>The following algorithm is the simplest and easiest to understand among all the the clustering algorithms without a fixed number of clusters.</p>
 <p>The algorithm is fairly simple:</p>
 <ol class="arabic simple">
@@ -1087,12 +1108,13 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/92da9beabd85af0ec06e588db97840ded0af8c7cffea6a95e0d3c533a4cb00bb.png" src="../../_images/92da9beabd85af0ec06e588db97840ded0af8c7cffea6a95e0d3c533a4cb00bb.png" />
+<a class="reference internal image-reference" href="../../_images/8180ff70c368f1959ad4d25edc5a02f65c84cb6f812dc8749deb034b89d4d0cb.png"><img alt="../../_images/8180ff70c368f1959ad4d25edc5a02f65c84cb6f812dc8749deb034b89d4d0cb.png" src="../../_images/8180ff70c368f1959ad4d25edc5a02f65c84cb6f812dc8749deb034b89d4d0cb.png" style="width: 830px; height: 429px;" />
+</a>
 </div>
 </div>
 </section>
 <section id="accuracy-metrics">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Accuracy metrics</a><a class="headerlink" href="#accuracy-metrics" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Accuracy metrics</a><a class="headerlink" href="#accuracy-metrics" title="Link to this heading">#</a></h2>
 <p>As opposed to classification, it is difficult to assess the quality of results from clustering. Here, a metric cannot depend on the labels but only on the goodness of split. Secondly, we do not usually have true labels of the observations when we use clustering.</p>
 <p>There are <em>internal</em> and <em>external</em> goodness metrics. External metrics use the information about the known true split while internal metrics do not use any external information and assess the goodness of clusters based only on the initial data. The optimal number of clusters is usually defined with respect to some internal metrics.</p>
 <p>All the metrics described below are implemented in <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span></code>.</p>
@@ -1237,7 +1259,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 </div>
 </section>
 <section id="useful-links">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Useful links</a><a class="headerlink" href="#useful-links" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">4. Useful links</a><a class="headerlink" href="#useful-links" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Overview of clustering methods in the <a class="reference external" href="http://scikit-learn.org/stable/modules/clustering.html">scikit-learn doc</a>.</p></li>
 <li><p><a class="reference external" href="http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues">Q&amp;A</a> for PCA with examples</p></li>

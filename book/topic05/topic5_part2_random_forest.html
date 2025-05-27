@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Topic 5. Ensembles and random forest. Part 2. Random Forest &#8212; mlcourse.ai</title>
   
@@ -29,35 +28,31 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -65,16 +60,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-CN7ZN59CQB');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-CN7ZN59CQB');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/topic05/topic5_part2_random_forest';</script>
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Topic 5. Ensembles and random forest. Part 3. Feature importance" href="topic5_part3_feature_importance.html" />
@@ -175,7 +176,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -329,9 +341,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -489,9 +501,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -542,12 +554,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="topic-5-ensembles-and-random-forest-part-2-random-forest">
-<span id="topic05-part2"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 5. Ensembles and random forest. Part 2. Random Forest</a><a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-2-random-forest" title="Permalink to this heading">#</a></h1>
+<span id="topic05-part2"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">Topic 5. Ensembles and random forest. Part 2. Random Forest</a><a class="headerlink" href="#topic-5-ensembles-and-random-forest-part-2-random-forest" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/vitaliyradchenk0/">Vitaliy Radchenko</a>, and <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="http://linkedin.com/in/anna-shirshova-b908458b">Anna Shirshova</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <section id="article-outline">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -596,7 +608,7 @@ document.write(`
 </ol>
 </section>
 <section id="algorithm">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Algorithm</a><a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Algorithm</a><a class="headerlink" href="#algorithm" title="Link to this heading">#</a></h2>
 <p>The algorithm for constructing a random forest of <span class="math notranslate nohighlight">\(\large N\)</span> trees goes as follows:</p>
 <ul class="simple">
 <li><p>For each <span class="math notranslate nohighlight">\(\large k = 1, \dots, N\)</span>:</p>
@@ -620,7 +632,7 @@ document.write(`
 <p>You can see random forest as bagging of decision trees with the modification of selecting a random subset of features at each split.</p>
 </section>
 <section id="comparison-with-decision-trees-and-bagging">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Comparison with Decision Trees and Bagging</a><a class="headerlink" href="#comparison-with-decision-trees-and-bagging" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Comparison with Decision Trees and Bagging</a><a class="headerlink" href="#comparison-with-decision-trees-and-bagging" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable warnings in Anaconda</span>
@@ -703,9 +715,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c59c834e7d387213f1988d57b44bbd95e80bff62647ff4301eae9fdaf0f1002a.png" src="../../_images/c59c834e7d387213f1988d57b44bbd95e80bff62647ff4301eae9fdaf0f1002a.png" />
-<img alt="../../_images/e1ea94cc4fcd78b3bb754865c981ac6df09ead1d2c76608566c37823fdf7928f.png" src="../../_images/e1ea94cc4fcd78b3bb754865c981ac6df09ead1d2c76608566c37823fdf7928f.png" />
-<img alt="../../_images/8c5cf2891ea4758de33631003ee5eb678371be91bb37c74510d655880bc95622.png" src="../../_images/8c5cf2891ea4758de33631003ee5eb678371be91bb37c74510d655880bc95622.png" />
+<a class="reference internal image-reference" href="../../_images/6a94fa54275f2a8bf7164b18d73bd09872adb2a19c6b06e70468ed19dd1c00b7.png"><img alt="../../_images/6a94fa54275f2a8bf7164b18d73bd09872adb2a19c6b06e70468ed19dd1c00b7.png" src="../../_images/6a94fa54275f2a8bf7164b18d73bd09872adb2a19c6b06e70468ed19dd1c00b7.png" style="width: 847px; height: 529px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/30cf9e890e93d281fa41a145f184f795825522dd5c70818b0e41cd9ed4e80c15.png"><img alt="../../_images/30cf9e890e93d281fa41a145f184f795825522dd5c70818b0e41cd9ed4e80c15.png" src="../../_images/30cf9e890e93d281fa41a145f184f795825522dd5c70818b0e41cd9ed4e80c15.png" style="width: 847px; height: 529px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/4f5c709515ff3bc0583852edb51792b878729c1d64e1663013a9e5d1b68f943f.png"><img alt="../../_images/4f5c709515ff3bc0583852edb51792b878729c1d64e1663013a9e5d1b68f943f.png" src="../../_images/4f5c709515ff3bc0583852edb51792b878729c1d64e1663013a9e5d1b68f943f.png" style="width: 847px; height: 529px;" />
+</a>
 </div>
 </div>
 <p>As we can see from our graphs and the MSE values above, a random forest of 10 trees achieves a better result than a single decision tree and is comparable to bagging with 10 trees. The main difference between random forests and bagging is that, in a random forest, the best feature for a split is selected from a random subset of the available features while, in bagging, all features are considered for the next best split.</p>
@@ -757,16 +772,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/18005d4db8de8db9a3424b9a1c150d53e4be9d6386c2e203bdde66f72e798097.png" src="../../_images/18005d4db8de8db9a3424b9a1c150d53e4be9d6386c2e203bdde66f72e798097.png" />
-<img alt="../../_images/5c1bd4e93eb5c4eb87f13fac472aba72e891d1b6473d73183d588b98140e28d9.png" src="../../_images/5c1bd4e93eb5c4eb87f13fac472aba72e891d1b6473d73183d588b98140e28d9.png" />
-<img alt="../../_images/04e7970bb41be3a60da5b3b614aecf74fea57b8668f5106d362a91bfbf2919ff.png" src="../../_images/04e7970bb41be3a60da5b3b614aecf74fea57b8668f5106d362a91bfbf2919ff.png" />
+<a class="reference internal image-reference" href="../../_images/581b949167fc44732611b2e71308a0b6808e85e034da7ca93561a76a98ebba93.png"><img alt="../../_images/581b949167fc44732611b2e71308a0b6808e85e034da7ca93561a76a98ebba93.png" src="../../_images/581b949167fc44732611b2e71308a0b6808e85e034da7ca93561a76a98ebba93.png" style="width: 838px; height: 529px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/665bfb0e15ba52a9cdc15b92dfef76e27f676e85df44e1eaf38dd89008c2bf9d.png"><img alt="../../_images/665bfb0e15ba52a9cdc15b92dfef76e27f676e85df44e1eaf38dd89008c2bf9d.png" src="../../_images/665bfb0e15ba52a9cdc15b92dfef76e27f676e85df44e1eaf38dd89008c2bf9d.png" style="width: 838px; height: 529px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/40b24e95ee7b1f632932e1995518704d1870e8f07f029c73ef09a058a9c471de.png"><img alt="../../_images/40b24e95ee7b1f632932e1995518704d1870e8f07f029c73ef09a058a9c471de.png" src="../../_images/40b24e95ee7b1f632932e1995518704d1870e8f07f029c73ef09a058a9c471de.png" style="width: 838px; height: 529px;" />
+</a>
 </div>
 </div>
 <p>The figures above show that the decision boundary of the decision tree is quite jagged and has a lot of acute angles that suggest overfitting and a weak ability to generalize. We would have trouble making reliable predictions on new test data. In contrast, the bagging algorithm has a rather smooth boundary and has no obvious signs of overfitting.</p>
 <p>Now, let’s investigate some parameters which can help us increase the model accuracy.</p>
 </section>
 <section id="parameters">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">3. Parameters</a><a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">3. Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <p>The <a class="reference external" href="http://scikit-learn.org/stable/">scikit-learn library</a> implements random forests by providing two estimators: <code class="docutils literal notranslate"><span class="pre">RandomForestClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code>.</p>
 <p>The full list of random forest parameters for regression is shown below:</p>
 <ul class="simple">
@@ -800,7 +818,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> — the maximum depth of the tree.</p></li>
 </ul>
 <section id="practice-with-random-forests-in-a-real-problem">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Practice with random forests in a real problem</a><a class="headerlink" href="#practice-with-random-forests-in-a-real-problem" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Practice with random forests in a real problem</a><a class="headerlink" href="#practice-with-random-forests-in-a-real-problem" title="Link to this heading">#</a></h3>
 <p>In this example we will look at predicting customer churn. This is a classification problem, so we will use accuracy for model evaluation.</p>
 <p>First, let’s build a simple classifier which we will use as a baseline. For the sake of simplicity, we will use only numeric features.</p>
 <div class="cell docutils container">
@@ -905,7 +923,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/22efabebd9cfb46686a8c0c32edd107bc472e411c1fcd9f986840aad5c312809.png" src="../../_images/22efabebd9cfb46686a8c0c32edd107bc472e411c1fcd9f986840aad5c312809.png" />
+<a class="reference internal image-reference" href="../../_images/a91cd3dd5fdce2bff84b8dd38dd8459fec4c45496966a5f74978b7118b48f0c6.png"><img alt="../../_images/a91cd3dd5fdce2bff84b8dd38dd8459fec4c45496966a5f74978b7118b48f0c6.png" src="../../_images/a91cd3dd5fdce2bff84b8dd38dd8459fec4c45496966a5f74978b7118b48f0c6.png" style="width: 702px; height: 379px;" />
+</a>
 </div>
 </div>
 <p>As you can see, when a certain number of trees is reached, our accuracy on the test set is very close to the asymptote. You can decide by yourself which value would be the optimal number of trees for your problem.</p>
@@ -955,7 +974,8 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best CV accuracy is 92.50% with 22 max_depth
 </pre></div>
 </div>
-<img alt="../../_images/af63b16a9c3052da344fb92fb00385eeb924dbcc7b4975af9bf73dd1ba24cbde.png" src="../../_images/af63b16a9c3052da344fb92fb00385eeb924dbcc7b4975af9bf73dd1ba24cbde.png" />
+<a class="reference internal image-reference" href="../../_images/62c0ee8698cbe397778b578c1b168da2e29a77c94a41647bf48c8ab3e3684a5d.png"><img alt="../../_images/62c0ee8698cbe397778b578c1b168da2e29a77c94a41647bf48c8ab3e3684a5d.png" src="../../_images/62c0ee8698cbe397778b578c1b168da2e29a77c94a41647bf48c8ab3e3684a5d.png" style="width: 710px; height: 379px;" />
+</a>
 </div>
 </div>
 <p>Parameter <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> copes well with the regularization of our model and it does not overfit as badly as before. The model accuracy has increased slightly.</p>
@@ -1012,7 +1032,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4ba526dff0d13ac667826fa17daff6f156d2aaeb3c42dab531ff7b983e5be482.png" src="../../_images/4ba526dff0d13ac667826fa17daff6f156d2aaeb3c42dab531ff7b983e5be482.png" />
+<a class="reference internal image-reference" href="../../_images/e505d6e0252e75d7147181b58d957256a9daffbf3a42528e9a6c20f378e70262.png"><img alt="../../_images/e505d6e0252e75d7147181b58d957256a9daffbf3a42528e9a6c20f378e70262.png" src="../../_images/e505d6e0252e75d7147181b58d957256a9daffbf3a42528e9a6c20f378e70262.png" style="width: 707px; height: 379px;" />
+</a>
 </div>
 </div>
 <p>In this case, we do not see an improvement in accuracy on the validation set, but we significantly reduce the overfitting down to 2% while keeping the accuracy at about 92%.</p>
@@ -1062,7 +1083,8 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best CV accuracy is 92.41% with 14 max_features
 </pre></div>
 </div>
-<img alt="../../_images/e1d249ae07a78dd2fdb3aa73a85f20109ea9532dea08b0537bbaa49f6daca1f4.png" src="../../_images/e1d249ae07a78dd2fdb3aa73a85f20109ea9532dea08b0537bbaa49f6daca1f4.png" />
+<a class="reference internal image-reference" href="../../_images/93e06830163df0549031a3ec13da4d4e65bd8bb6932c8d8ba3bd9b3d81cffb42.png"><img alt="../../_images/93e06830163df0549031a3ec13da4d4e65bd8bb6932c8d8ba3bd9b3d81cffb42.png" src="../../_images/93e06830163df0549031a3ec13da4d4e65bd8bb6932c8d8ba3bd9b3d81cffb42.png" style="width: 702px; height: 379px;" />
+</a>
 </div>
 </div>
 <p>In our case, the optimal number of features is equal to 10. This is the value at which the best result is achieved.</p>
@@ -1085,7 +1107,8 @@ document.write(`
 </div>
 <div class="output text_html"><style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1230,12 +1253,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-1 label.sk-toggleable__label-arrow:before {
@@ -1388,7 +1420,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -1493,14 +1526,14 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
              param_grid={&#x27;max_depth&#x27;: [5, 10, 15, 20],
                          &#x27;max_features&#x27;: [4, 7, 10, 13],
                          &#x27;min_samples_leaf&#x27;: [1, 3, 5, 7]},
-             verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;GridSearchCV<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=StratifiedKFold(n_splits=5, random_state=42, shuffle=True),
+             verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GridSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=StratifiedKFold(n_splits=5, random_state=42, shuffle=True),
              estimator=RandomForestClassifier(n_jobs=-1, random_state=42),
              n_jobs=-1,
              param_grid={&#x27;max_depth&#x27;: [5, 10, 15, 20],
                          &#x27;max_features&#x27;: [4, 7, 10, 13],
                          &#x27;min_samples_leaf&#x27;: [1, 3, 5, 7]},
-             verbose=1)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">best_estimator_: RandomForestClassifier</label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(max_depth=20, max_features=10, min_samples_leaf=3,
-                       n_jobs=-1, random_state=42)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;RandomForestClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(max_depth=20, max_features=10, min_samples_leaf=3,
+             verbose=1)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: RandomForestClassifier</div></div></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(max_depth=20, max_features=10, min_samples_leaf=3,
+                       n_jobs=-1, random_state=42)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>RandomForestClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html">?<span>Documentation for RandomForestClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>RandomForestClassifier(max_depth=20, max_features=10, min_samples_leaf=3,
                        n_jobs=-1, random_state=42)</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1519,7 +1552,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 </section>
 <section id="variance-and-decorrelation">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Variance and Decorrelation</a><a class="headerlink" href="#variance-and-decorrelation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">4. Variance and Decorrelation</a><a class="headerlink" href="#variance-and-decorrelation" title="Link to this heading">#</a></h2>
 <p>Let’s write the variance of a random forest as</p>
 <div class="math notranslate nohighlight">
 \[\large \Var f(x) = \rho(x)\sigma^2(x)\]</div>
@@ -1541,7 +1574,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p><img alt="image" src="../../_images/topic5_variance_rf.png" /></p>
 </section>
 <section id="bias">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Bias</a><a class="headerlink" href="#bias" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Bias</a><a class="headerlink" href="#bias" title="Link to this heading">#</a></h2>
 <p>Just as in bagging, the bias of a random forest is the same as the bias of a single tree <span class="math notranslate nohighlight">\(\large T(x,\Theta(Z))\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \large \begin{array}{rcl} \Bias &amp;=&amp; \mu(x) - \E_Z \, f_{rf}(x) \\
@@ -1549,13 +1582,13 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <p>In absolute value, the bias is usually higher than that of an unpruned tree because randomization and sample space reduction impose their own restrictions on the model. Therefore, the improvements in prediction accuracy obtained by bagging and random forests are solely the result of variance reduction.</p>
 </section>
 <section id="extremely-randomized-trees">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">6. Extremely Randomized Trees</a><a class="headerlink" href="#extremely-randomized-trees" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">6. Extremely Randomized Trees</a><a class="headerlink" href="#extremely-randomized-trees" title="Link to this heading">#</a></h2>
 <p>Extremely Randomized Trees employ a greater degree of randomization at the cut-point choice when splitting a tree node. As in random forests, a random subset of features is used. But, instead of the search for the optimal thresholds, their values are selected at random for each possible feature, and the best one among these randomly generated thresholds is used as the best rule to split the node. This usually trades off a slight reduction in the model variance with a small increase of the bias.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library, there are 2 implementations of Extremely Randomized Trees: <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier">ExtraTreesClassifier</a> and <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor">ExtraTreesRegressor</a>.</p>
 <p>This method should be used if you have greatly overfit with random forests or gradient boosting.</p>
 </section>
 <section id="similarities-between-random-forest-and-k-nearest-neighbors">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">7. Similarities between Random Forest and k-Nearest Neighbors</a><a class="headerlink" href="#similarities-between-random-forest-and-k-nearest-neighbors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">7. Similarities between Random Forest and k-Nearest Neighbors</a><a class="headerlink" href="#similarities-between-random-forest-and-k-nearest-neighbors" title="Link to this heading">#</a></h2>
 <p>The random forest method is similar to the nearest neighbors technique. Random forests predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let’s prove this formally.</p>
 <p>Let’s consider a regression problem with the quadratic loss function. Let <span class="math notranslate nohighlight">\(\large T_n(x)\)</span> be the number of the leaf of the <span class="math notranslate nohighlight">\(\large n\)</span>-th tree in a random forest with input <span class="math notranslate nohighlight">\(\large x\)</span>.
 The algorithm response for the input vector <span class="math notranslate nohighlight">\(\large x\)</span> equals the averaged response over all the examples of the training sample that fall into the leaf <span class="math notranslate nohighlight">\(\large T_n(x)\)</span>. This can be written as</p>
@@ -1574,15 +1607,15 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 <p><img alt="image" src="../../_images/topic5_knn_vs_rf.png" /></p>
 </section>
 <section id="transformation-of-a-dataset-into-a-high-dimensional-representation">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">8. Transformation of a dataset into a high-dimensional representation</a><a class="headerlink" href="#transformation-of-a-dataset-into-a-high-dimensional-representation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">8. Transformation of a dataset into a high-dimensional representation</a><a class="headerlink" href="#transformation-of-a-dataset-into-a-high-dimensional-representation" title="Link to this heading">#</a></h2>
 <p>Random forests are mostly used in supervised learning, but there is a way to apply them in the unsupervised setting.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> method <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomTreesEmbedding.html#sklearn.ensemble.RandomTreesEmbedding">RandomTreesEmbedding</a>, we can transform our dataset into a high-dimensional, <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">sparse</a> representation. We first build extremely randomized trees and then use the index of the leaf containing the example as a new feature.</p>
 <p>For example, if the input appears in the first leaf, we assign <span class="math notranslate nohighlight">\(1\)</span> as the feature value; if not, we assign <span class="math notranslate nohighlight">\(0\)</span>. This is a so-called <em>binary coding</em>. We can control the number of features and the sparseness of data by increasing or decreasing the number of trees and their depth. Because nearby data points are likely to fall into the same leaf, this transformation provides an implicit nonparametric estimate of their density.</p>
 </section>
 <section id="pros-and-cons-of-random-forests">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">9. Pros and cons of random forests</a><a class="headerlink" href="#pros-and-cons-of-random-forests" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">9. Pros and cons of random forests</a><a class="headerlink" href="#pros-and-cons-of-random-forests" title="Link to this heading">#</a></h2>
 <section id="pros">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Pros:</a><a class="headerlink" href="#pros" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Pros:</a><a class="headerlink" href="#pros" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>High prediction accuracy; will perform better than linear algorithms in most problems; the accuracy is comparable with that of boosting.</p></li>
 <li><p>Robust to outliers, thanks to random sampling.</p></li>
@@ -1600,7 +1633,7 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 </ul>
 </section>
 <section id="cons">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Cons:</a><a class="headerlink" href="#cons" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Cons:</a><a class="headerlink" href="#cons" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>In comparison with a single decision tree, Random Forest’s output is more difficult to interpret.</p></li>
 <li><p>There are no formal p-values for feature significance estimation.</p></li>
@@ -1614,9 +1647,9 @@ The algorithm response for the input vector <span class="math notranslate nohigh
 </section>
 </section>
 <section id="useful-resources">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">10. Useful resources</a><a class="headerlink" href="#useful-resources" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">10. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
+<li><p>Main course <a class="reference external" href="https://mlcourse.ai">site</a>, <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p><a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> <a class="reference external" href="https://www.youtube.com/watch?v=neXJL-AqI_c">lecture</a> on Random Forest</p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">“story”</a> based on this notebook</p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
