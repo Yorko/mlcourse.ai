@@ -53,7 +53,7 @@ pd.set_option("display.precision", 2)
 ```
 
 
-We demonstrate the main methods in action by analyzing a [dataset](https://bigml.com/user/bigml/gallery/dataset/4f89bff4155268645c000030) on the churn rate of telecom operator clients. Let’s read the data (using the `read_csv` method), and take a look at the first 5 lines using the `head` method:
+We demonstrate the main methods in action by analyzing a dataset on the churn rate of telecom operator clients. Let’s read the data (using the `read_csv` method), and take a look at the first 5 lines using the `head` method:
 
 
 
