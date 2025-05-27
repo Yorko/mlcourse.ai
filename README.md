@@ -104,6 +104,12 @@ The bonus pack contains 10 assignments, in some of them you are challenged to be
 2. Predicting popularity of a Medium article. [Kaggle Inclass](https://www.kaggle.com/c/how-good-is-your-medium-article)
 3. DotA 2 winner prediction. [Kaggle Inclass](https://www.kaggle.com/c/mlcourse-dota2-win-prediction)
 
+### Building course material as a Jupyter Book
+
+1. Install [uv](https://github.com/astral-sh/uv) for dependency management: `pip install uv`;
+1. Run `uv sync` to install project dependencies;
+1. Run `uv run jb build mlcourse_ai_jupyter_book` – this will take a while, the output is found in the [mlcourse_ai_jupyter_book/_build](mlcourse_ai_jupyter_book/_build) folder. Namely, [mlcourse_ai_jupyter_book/_build/html/index.html](mlcourse_ai_jupyter_book/_build/html/index.html) is what gets rendered at the [mlcourse.ai](mlcourse.ai) main page. 
+
 ### Citing mlcourse.ai
 
 If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can use this BibTeX record:
