@@ -26,46 +26,37 @@ As for `bash`, it's just very rewarding to be familiar with UNIX OS and command-
 You've got several alternatives to set up your learning environment:
 
  - Kaggle Notebooks or Azure ML, i.e. avoid local configurations and just use the browser
- - Pip & Anaconda or Poetry
- - Docker
+ - Pip & Anaconda
+ - uv
 
 #### Kaggle Notebooks or Azure ML
 
 The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset [mlcourse.ai](https://www.kaggle.com/kashnitsky/mlcourse) and fork some Notebooks (better to keep them private). All your Jupyter notebooks with Anaconda are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.
 
-#### Pip & Anaconda or Poetry
+#### Pip & Anaconda
 
 Most python packages like `NumPy`, `Pandas`, or  `Sklearn` can be installed manually with `pip` -- Python installer, e.g. `pip install numpy`. Additionally, you'll need `Xgboost`, `Vowpal Wabbit`, and (maybe) `LightGBM` and `CatBoost` for competitions.
 
-However, to manage package dependencies, it's better to use either [Anaconda](https://www.anaconda.com/products/individual) or [Poetry](https://python-poetry.org/).
+You can install [Anaconda 3](https://www.anaconda.com/download/) – a distribution that contains the latest Python with `NumPy`, `Pandas`, `Sklearn`, `Jupyter`, and lots of other libraries. However, some other packages are also used in our course – `Xgboost` and/or `LightGBM` and/or `CatBoost` and `Vowpal Wabbit` to name a few. In addition, the `Graphviz` library must be installed. Installing some of them on Windows might be painful.
 
-##### Anaconda
+##### uv
 
-The [Anaconda 3](https://www.anaconda.com/download/) distribution is one of the best options as it already contains the latest Python with `NumPy`, `Pandas`, `Sklearn`, `Jupyter`, and lots of other libraries. However, some other packages are also used in our course – `Xgboost` and/or `LightGBM` and/or `CatBoost` and `Vowpal Wabbit` to name a few. In addition, the `Graphviz` library must be installed. Installing some of them on Windows might be painful.
+[uv]](https://github.com/astral-sh/uv) is a fast Python dependency manager.
 
-##### Poetry
-
-Poetry is an alternative Python packages and dependency manager.
-
-Installing Poetry:
+Installing uv:
 
 ```shell
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+pip install uv
 ```
 
-Installing dependencies from the [`pyproject.toml` file](https://github.com/Yorko/mlcourse.ai/blob/main/pyproject.toml).
+Installing dependencies from the [uv.lock](uv.lock) file:
 
 ```shell
-poetry install
+uv sync
 ```
 
-This will install the required packages. For the rest, please refer to [Poetry docs](https://python-poetry.org/).
+This will install the required packages. For the rest, please refer to [uv docs](https://docs.astral.sh/uv/getting-started/first-steps/).
 
-#### Docker
-
-This part is pretty lengthy, so we moved it to a [separate next page](prereq_docker).
-
-_Note: Using Docker is optional, you can set up your environment with Poetry or Anaconda as well. It's hard to say which option is more challenging._
 
 ### Jupyter Notebooks
 

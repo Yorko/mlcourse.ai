@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -76,7 +76,7 @@
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Prerequisites" href="docker.html" />
+    <link rel="next" title="Topic 1. Exploratory data analysis with Pandas" href="../topic01/topic01_intro.html" />
     <link rel="prev" title="Prerequisites" href="math.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -200,7 +200,6 @@
 <li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="math.html">Math</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Software &amp; DevOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -526,12 +525,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-and-all">Git, bash, and all</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-environment">Setting the environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-notebooks-or-azure-ml">Kaggle Notebooks or Azure ML</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-anaconda-or-poetry">Pip &amp; Anaconda or Poetry</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">Poetry</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-anaconda">Pip &amp; Anaconda</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">uv</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
@@ -573,39 +570,30 @@ document.write(`
 <p>You’ve got several alternatives to set up your learning environment:</p>
 <ul class="simple">
 <li><p>Kaggle Notebooks or Azure ML, i.e. avoid local configurations and just use the browser</p></li>
-<li><p>Pip &amp; Anaconda or Poetry</p></li>
-<li><p>Docker</p></li>
+<li><p>Pip &amp; Anaconda</p></li>
+<li><p>uv</p></li>
 </ul>
 <section id="kaggle-notebooks-or-azure-ml">
 <h4>Kaggle Notebooks or Azure ML<a class="headerlink" href="#kaggle-notebooks-or-azure-ml" title="Link to this heading">#</a></h4>
 <p>The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">mlcourse.ai</a> and fork some Notebooks (better to keep them private). All your Jupyter notebooks with Anaconda are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.</p>
 </section>
-<section id="pip-anaconda-or-poetry">
-<h4>Pip &amp; Anaconda or Poetry<a class="headerlink" href="#pip-anaconda-or-poetry" title="Link to this heading">#</a></h4>
+<section id="pip-anaconda">
+<h4>Pip &amp; Anaconda<a class="headerlink" href="#pip-anaconda" title="Link to this heading">#</a></h4>
 <p>Most python packages like <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, or  <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code> can be installed manually with <code class="docutils literal notranslate"><span class="pre">pip</span></code> – Python installer, e.g. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code>. Additionally, you’ll need <code class="docutils literal notranslate"><span class="pre">Xgboost</span></code>, <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code>, and (maybe) <code class="docutils literal notranslate"><span class="pre">LightGBM</span></code> and <code class="docutils literal notranslate"><span class="pre">CatBoost</span></code> for competitions.</p>
-<p>However, to manage package dependencies, it’s better to use either <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> or <a class="reference external" href="https://python-poetry.org/">Poetry</a>.</p>
-<section id="anaconda">
-<h5>Anaconda<a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h5>
-<p>The <a class="reference external" href="https://www.anaconda.com/download/">Anaconda 3</a> distribution is one of the best options as it already contains the latest Python with <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code>, <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code>, and lots of other libraries. However, some other packages are also used in our course – <code class="docutils literal notranslate"><span class="pre">Xgboost</span></code> and/or <code class="docutils literal notranslate"><span class="pre">LightGBM</span></code> and/or <code class="docutils literal notranslate"><span class="pre">CatBoost</span></code> and <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code> to name a few. In addition, the <code class="docutils literal notranslate"><span class="pre">Graphviz</span></code> library must be installed. Installing some of them on Windows might be painful.</p>
-</section>
-<section id="poetry">
-<h5>Poetry<a class="headerlink" href="#poetry" title="Link to this heading">#</a></h5>
-<p>Poetry is an alternative Python packages and dependency manager.</p>
-<p>Installing Poetry:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-
+<p>You can install <a class="reference external" href="https://www.anaconda.com/download/">Anaconda 3</a> – a distribution that contains the latest Python with <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">Sklearn</span></code>, <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code>, and lots of other libraries. However, some other packages are also used in our course – <code class="docutils literal notranslate"><span class="pre">Xgboost</span></code> and/or <code class="docutils literal notranslate"><span class="pre">LightGBM</span></code> and/or <code class="docutils literal notranslate"><span class="pre">CatBoost</span></code> and <code class="docutils literal notranslate"><span class="pre">Vowpal</span> <span class="pre">Wabbit</span></code> to name a few. In addition, the <code class="docutils literal notranslate"><span class="pre">Graphviz</span></code> library must be installed. Installing some of them on Windows might be painful.</p>
+<section id="uv">
+<h5>uv<a class="headerlink" href="#uv" title="Link to this heading">#</a></h5>
+<p>[uv]](<a class="github reference external" href="https://github.com/astral-sh/uv">astral-sh/uv</a>) is a fast Python dependency manager.</p>
+<p>Installing uv:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>uv
 </pre></div>
 </div>
-<p>Installing dependencies from the <a class="reference external" href="https://github.com/Yorko/mlcourse.ai/blob/main/pyproject.toml"><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file</a>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install
+<p>Installing dependencies from the <a class="reference internal" href="#uv.lock"><span class="xref myst">uv.lock</span></a> file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
 </pre></div>
 </div>
-<p>This will install the required packages. For the rest, please refer to <a class="reference external" href="https://python-poetry.org/">Poetry docs</a>.</p>
+<p>This will install the required packages. For the rest, please refer to <a class="reference external" href="https://docs.astral.sh/uv/getting-started/first-steps/">uv docs</a>.</p>
 </section>
-</section>
-<section id="docker">
-<h4>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h4>
-<p>This part is pretty lengthy, so we moved it to a <a class="reference internal" href="docker.html#prereq-docker"><span class="std std-ref">separate next page</span></a>.</p>
-<p><em>Note: Using Docker is optional, you can set up your environment with Poetry or Anaconda as well. It’s hard to say which option is more challenging.</em></p>
 </section>
 </section>
 <section id="jupyter-notebooks">
@@ -681,11 +669,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="docker.html"
+       href="../topic01/topic01_intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Prerequisites</p>
+        <p class="prev-next-title">Topic 1. Exploratory data analysis with Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -709,12 +697,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-and-all">Git, bash, and all</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-environment">Setting the environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-notebooks-or-azure-ml">Kaggle Notebooks or Azure ML</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-anaconda-or-poetry">Pip &amp; Anaconda or Poetry</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#poetry">Poetry</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-anaconda">Pip &amp; Anaconda</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">uv</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
