@@ -41,7 +41,7 @@ You can install [Anaconda 3](https://www.anaconda.com/download/) – a distribut
 
 ##### uv
 
-[uv]](https://github.com/astral-sh/uv) is a fast Python dependency manager.
+[uv](https://github.com/astral-sh/uv) is a fast Python dependency manager.
 
 Installing uv:
 
