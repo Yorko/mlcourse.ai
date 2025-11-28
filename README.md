@@ -128,3 +128,5 @@ If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can u
 ### Community
 
 You can join the [Singularis.ai](https://singularis.ai/) Slack community to ask questions on the course materials. The community is mostly Russian-speaking but questions in English are still welcome. 
+
+### this is a change
