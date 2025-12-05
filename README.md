@@ -35,7 +35,7 @@ This is the list of published articles on medium.com [:uk:](https://medium.com/o
 10. Gradient Boosting [:uk:](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-10-gradient-boosting-c751538131ac) [:ru:](https://habrahabr.ru/company/ods/blog/327250/), [:cn:](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_chinese/topic05-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E6%96%B9%E6%B3%95.ipynb), [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-10-gradient-boosting)
 
 ### Lectures
-Videolectures are uploaded to [this](https://bit.ly/2zY6Xe2) YouTube playlist.
+Videolectures are uploaded to [this](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX) YouTube playlist.
 Introduction, [video](https://www.youtube.com/watch?v=DrohHdQa8u8), [slides](https://www.slideshare.net/festline/mlcourseai-fall2019-live-session-0)
 
 1. Exploratory data analysis with Pandas, [video](https://youtu.be/fwWCw_cE5aI)
