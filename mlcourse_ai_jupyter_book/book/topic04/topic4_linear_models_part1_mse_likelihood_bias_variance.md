@@ -127,6 +127,10 @@ Now, we want to find such a value of $\theta$ that will maximize the likelihood.
 
 $$\Large  \frac{\partial \log p(\textbf{x}; \theta)}{\partial \theta} = \frac{\partial}{\partial \theta} \left(117 \log \theta + 283 \log \left(1 - \theta\right)\right) = \frac{117}{\theta} - \frac{283}{1 - \theta};$$
 
+$$\Large \begin{array}{rcl}
+\frac{117}{\theta} - \frac{283}{1 - \theta} = 0 \Rightarrow \theta = \frac{117}{400}
+\end{array}.$$
+
 It turns out that our intuitive assessment is exactly the maximum likelihood estimate. Now let us apply the same reasoning to the linear regression problem and try to find out what lies beyond the mean squared error. To do this, we'll need to look at linear regression from a probabilistic perspective. Our model naturally remains the same:
 
 $$\Large \textbf y = \textbf X \textbf w + \epsilon,$$

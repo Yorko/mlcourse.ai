@@ -200,7 +200,7 @@ X_test = cv.transform(text_test)
 
 ```{code-cell} ipython3
 %%time
-logit = LogisticRegression(solver="lbfgs", n_jobs=-1, random_state=7)
+logit = LogisticRegression(solver="lbfgs", n_jobs=-1, random_state=7, max_iter=500)
 logit.fit(X_train, y_train)
 ```
 
@@ -268,7 +268,7 @@ text_pipe_logit = make_pipeline(
     CountVectorizer(),
     # for some reason n_jobs > 1 won't work
     # with GridSearchCV's n_jobs > 1
-    LogisticRegression(solver="lbfgs", n_jobs=1, random_state=7),
+    LogisticRegression(solver="lbfgs", n_jobs=1, random_state=7, max_iter=500),
 )
 
 text_pipe_logit.fit(text_train, y_train)
@@ -388,7 +388,7 @@ def plot_boundary(clf, X, y, plot_title):
 
 ```{code-cell} ipython3
 plot_boundary(
-    LogisticRegression(solver="lbfgs"), X, y, "Logistic Regression, XOR problem"
+    LogisticRegression(solver="lbfgs", max_iter=500), X, y, "Logistic Regression, XOR problem"
 )
 ```
 
@@ -405,7 +405,7 @@ from sklearn.preprocessing import PolynomialFeatures
 logit_pipe = Pipeline(
     [
         ("poly", PolynomialFeatures(degree=2)),
-        ("logit", LogisticRegression(solver="lbfgs")),
+        ("logit", LogisticRegression(solver="lbfgs", max_iter=500)),
     ]
 )
 ```
