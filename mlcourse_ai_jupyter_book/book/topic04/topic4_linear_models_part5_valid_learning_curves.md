@@ -48,7 +48,7 @@ from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 warnings.filterwarnings("ignore")
 ```
 
-Now that we have an idea of model validation, cross-validation, and regularization. Let's consider the bigger question:
+Now that we have an idea of model validation, cross-validation, and regularization, let's consider the bigger question:
 
 **What to do if the quality of the model is dissatisfying?**
 
@@ -58,7 +58,7 @@ Now that we have an idea of model validation, cross-validation, and regularizati
 
 The answers to these questions are not obvious. In particular, sometimes a more complex model can lead to a deterioration in performance. Other times, adding new observations will not bring noticeable changes. In fact, the ability to make the right decision and choose the right method to improve the model distinguishes a good professional from a bad one.
 
-We will work our data on customer churn of telecom operator.
+We will work with our data on customer churn of a telecom operator.
 
 
 ```{code-cell} ipython3
@@ -129,7 +129,7 @@ The trend is quite visible and is very common.
 
 ### How much data is needed?
 
-The more data the model uses, the better. But how do we understand whether new data will helpful in any given situation? For example, is it rational to spend $N$ for assessors to double the dataset?
+The more data the model uses, the better. But how do we understand whether new data will be helpful in any given situation? For example, is it rational to spend $N$ for assessors to double the dataset?
 
 Since the new data can be unavailable, it is reasonable to vary the size of the training set and see how the quality of the solution depends on the amount of training data. This is how we get **learning curves**.
 
@@ -214,7 +214,7 @@ Constructing these curves can help understand which way to go and how to properl
 - If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/323890/) on Habrahabr with ~ the same material. And a [lecture](https://youtu.be/oTXGQ-_oqvI) on YouTube
 - A nice and concise overview of linear models is given in the book [“Deep Learning”](http://www.deeplearningbook.org) (I. Goodfellow, Y. Bengio, and A. Courville).
 - Linear models are covered practically in every ML book. We recommend “Pattern Recognition and Machine Learning” (C. Bishop) and “Machine Learning: A Probabilistic Perspective” (K. Murphy).
-- If you prefer a thorough overview of linear model from a statistician’s viewpoint, then look at “The elements of statistical learning” (T. Hastie, R. Tibshirani, and J. Friedman).
+- If you prefer a thorough overview of linear models from a statistician’s viewpoint, then look at “The elements of statistical learning” (T. Hastie, R. Tibshirani, and J. Friedman).
 - The book “Machine Learning in Action” (P. Harrington) will walk you through implementations of classic ML algorithms in pure Python.
 - [Scikit-learn](http://scikit-learn.org/stable/documentation.html) library. These guys work hard on writing really clear documentation.
 - Scipy 2017 [scikit-learn tutorial](https://github.com/amueller/scipy-2017-sklearn) by Alex Gramfort and Andreas Mueller.
