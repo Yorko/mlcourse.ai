@@ -109,6 +109,8 @@ The bonus pack contains 10 assignments, in some of them you are challenged to be
 1. Run `uv sync` to install project dependencies;
 1. Run `uv run jb build mlcourse_ai_jupyter_book` – this will take a while, the output is found in the [mlcourse_ai_jupyter_book/_build](mlcourse_ai_jupyter_book/_build) folder. Namely, [mlcourse_ai_jupyter_book/_build/html/index.html](mlcourse_ai_jupyter_book/_build/html/index.html) is what gets rendered at the [mlcourse.ai](mlcourse.ai) main page. 
 
+This will show the path to your local file with the course material, e.g. `file:///Users/nick/Documents/mlcourse.ai/mlcourse_ai_jupyter_book/_build/html/index.html`. You can open it in your browser to see the course material locally.
+
 ### Citing mlcourse.ai
 
 If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can use this BibTeX record:
@@ -123,7 +125,3 @@ If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can u
     howpublished = {\url{https://github.com/Yorko/mlcourse.ai}},
 }
 ```
-
-### Community
-
-You can join the [Singularis.ai](https://singularis.ai/) Slack community to ask questions on the course materials. The community is mostly Russian-speaking but questions in English are still welcome. 
