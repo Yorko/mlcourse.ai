@@ -36,16 +36,16 @@ $$\large \textbf y = \textbf X \textbf w + \epsilon,$$
 
 where
 
-- $\textbf w \in \mathbb{R}^{m+1}$ – is a $(m+1) \times 1$ column-vector of the model parameters (in machine learning, these parameters are often referred to as *weights*);
-- $\textbf X \in \mathbb{R}^{n \times (m+1)}$ – is a $n \times (m+1)$ matrix of observations and their features, (including the fictitious column on the left) with full column [rank](https://en.wikipedia.org/wiki/Rank_(linear_algebra)):  $\text{rank}\left(\textbf X\right) = m + 1 $;
-- $\epsilon \in \mathbb{R}^n$ – is a $n \times 1$ random column-vector, referred to as *error* or *noise*;
-- $\textbf y \in \mathbb{R}^n$ – is a $n \times 1$ column-vector - the dependent (or *target*) variable.
+- $\textbf w \in \mathbb{R}^{m+1}$ – is an $(m+1) \times 1$ column-vector of the model parameters (in machine learning, these parameters are often referred to as *weights*);
+- $\textbf X \in \mathbb{R}^{n \times (m+1)}$ – is an $n \times (m+1)$ matrix of observations and their features, (including the fictitious column on the left) with full column [rank](https://en.wikipedia.org/wiki/Rank_(linear_algebra)):  $\text{rank}\left(\textbf X\right) = m + 1 $;
+- $\epsilon \in \mathbb{R}^n$ – is an $n \times 1$ random column-vector, referred to as *error* or *noise*;
+- $\textbf y \in \mathbb{R}^n$ – is an $n \times 1$ column-vector - the dependent (or *target*) variable.
 
 We can also write this expression out for each observation
 
 $$\large y_i = \sum_{j=0}^m w_j X_{ij} + \epsilon_i$$
 
-Will apply the following restrictions to the set of random errors $\epsilon_i$ (see [Gauss-Markov](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem) theorem for deeper statistical motivation):
+We will apply the following restrictions to the set of random errors $\epsilon_i$ (see [Gauss-Markov](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem) theorem for deeper statistical motivation):
 
 - expectation of all random errors is zero:  $\forall i: \mathbb{E}\left[\epsilon_i\right] = 0 $;
 - all random errors have the same finite variance, this property is called <a href="https://en.wikipedia.org/wiki/Homoscedasticity">homoscedasticity</a>:  $\forall i: \text{Var}\left(\epsilon_i\right) = \sigma^2 < \infty $;
@@ -102,7 +102,7 @@ $$\Large \begin{array}{rcl} \frac{\partial \mathcal{L}}{\partial \textbf{w}} = 0
 &\Leftrightarrow& \textbf{w} = \left(\textbf{X}^{\text{T}} \textbf{X}\right)^{-1} \textbf{X}^{\text{T}} \textbf{y}
 \end{array}$$
 
-Bearing in mind all the definitions and conditions described above, we can say that, based on the <a href="https://en.wikipedia.org/wiki/Gauss–Markov_theorem">Gauss–Markov theorem</a>, OLS estimators of the model parameters are optimal among all linear and unbiased estimators, i.e. they give the lowest variance.
+Bearing in mind all the definitions and conditions described above, we can say that, based on the <a href="https://en.wikipedia.org/wiki/Gauss–Markov_theorem">Gauss–Markov theorem</a>, OLS estimators of the model parameters are optimal among all linear and unbiased estimators, i.e., they give the lowest variance.
 
 ## 2. Maximum Likelihood Estimation
 
@@ -110,7 +110,7 @@ One could ask why we choose to minimize the mean square error instead of somethi
 
 Before we continue, let's digress to illustrate maximum likelihood estimation with a simple example.
 
-Many people probably remember the formula of ethyl alcohol, so I decided to do an experiment to determine whether people remember a simpler formula for methanol: $CH_3OH$. We surveyed 400 people to find that only 117 people remembered the formula. Then, it is reasonable to assume that the probability that the next respondent knows the formula of methyl alcohol is $\frac{117}{400} \approx 29\%$. Let's show that this intuitive assessment is not only good but also a maximum likelihood estimate. Where this estimate come from? Recall the definition of the Bernoulli distribution: a random variable has a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli distribution</a> if it takes only two values ($1$ and $0$ with probability $\theta$ and $1 - \theta$, respectively) and has the following probability distribution function:
+Many people probably remember the formula of ethyl alcohol, so I decided to do an experiment to determine whether people remember a simpler formula for methanol: $CH_3OH$. We surveyed 400 people to find that only 117 people remembered the formula. Then, it is reasonable to assume that the probability that the next respondent knows the formula of methyl alcohol is $\frac{117}{400} \approx 29\%$. Let's show that this intuitive assessment is not only good but also a maximum likelihood estimate. Where does this estimate come from? Recall the definition of the Bernoulli distribution: a random variable has a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli distribution</a> if it takes only two values ($1$ and $0$ with probability $\theta$ and $1 - \theta$, respectively) and has the following probability distribution function:
 
 $$\Large p\left(\theta, x\right) = \theta^x \left(1 - \theta\right)^\left(1 - x\right), x \in \left\{0, 1\right\}$$
 
@@ -225,7 +225,7 @@ With that, we have reached our ultimate goal -- the last formula tells us that t
 - variance: $\text{Var}\left(\widehat{f}\right)$ is error variability, or by how much error will vary if we train the model on different sets of data;
 - irremovable error: $\sigma^2$.
 
-While we cannot do anything with the $\sigma^2$ term, we can influence the first two. Ideally, we'd like to negate both of these terms (upper left square of the picture), but, in practice, it is often necessary to balance between the biased and unstable estimates (high variance).
+While we cannot do anything with the $\sigma^2$ term, we can influence the first two. Ideally, we'd like to eliminate both of these terms (upper left square of the picture), but, in practice, it is often necessary to balance between the biased and unstable estimates (high variance).
 
 ```{figure} /_static/img/topic4_bias_variance.png
 :width: 480px
@@ -237,12 +237,12 @@ Generally, as the model becomes more computational (e.g. when the number of free
 :width: 480px
 ```
 
-The Gauss-Markov theorem asserts that the OLS estimator of parameters of the linear model is the best for the class of linear unbiased estimator. This means that if there exists any other unbiased model $g$, from the same class of linear models, we can be sure that $Var\left(\widehat{f}\right) \leq Var\left(g\right)$.
+The Gauss-Markov theorem asserts that the OLS estimator of parameters of the linear model is the best for the class of linear unbiased estimators. This means that if there exists any other unbiased model $g$, from the same class of linear models, we can be sure that $Var\left(\widehat{f}\right) \leq Var\left(g\right)$.
 
 ## 4. Regularization of Linear Regression
 
 There are situations where we might intentionally increase the bias of the model for the sake of stability i.e. to reduce the variance of the model $\text{Var}\left(\widehat{f}\right)$. One of the conditions of the Gauss-Markov theorem is the full column rank of matrix $\textbf{X}$. Otherwise, the OLS solution $\textbf{w} = \left(\textbf{X}^\text{T} \textbf{X}\right)^{-1} \textbf{X}^\text{T} \textbf{y}$ does not exist since the inverse matrix $\left(\textbf{X}^\text{T} \textbf{X}\right)^{-1}$ does not exist. In other words, matrix $\textbf{X}^\text{T} \textbf{X}$ will be singular or degenerate. This problem is called an <a href="https://en.wikipedia.org/wiki/Well-posed_problem"> ill-posed problem</a>. Problems like this must be corrected, namely, matrix $\textbf{X}^\text{T} \textbf{X}$ needs to become non-degenerate, or regular (which is why this process is called regularization). Often we observe the so-called multicollinearity in the data: when two or more features are strongly correlated, it is manifested in the matrix $\textbf{X}$ in the form of "almost" linear dependence between the columns. For example, in the problem of predicting house prices by their parameters, attributes "area with balcony" and "area without balcony" will have an "almost" linear relationship. Formally, matrix $\textbf{X}^\text{T} \textbf{X}$ for such data is reversible, but, due to multicollinearity, some of its eigenvalues will be close to zero. In the inverse matrix $\textbf{X}^\text{T} \textbf{X}$, some extremely large eigenvalues will appear, as eigenvalues of the inverse matrix are $\frac{1}{\lambda_i}$. The result of this vacillation of eigenvalues is an unstable estimate of model parameters, i.e. adding a new set of observations to the training data will lead to a completely different solution.
-One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Tikhonov regularization</a>, which generally looks like the addition of a new member to the mean squared error:
+One method of regularization is <a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Tikhonov regularization</a>, which generally looks like the addition of a new term to the mean squared error:
 
 $$\Large \begin{array}{rcl}
 \mathcal{L}\left(\textbf{X}, \textbf{y}, \textbf{w} \right) &=& \frac{1}{2n} \left\| \textbf{y} - \textbf{X} \textbf{w} \right\|_2^2 + \left\| \Gamma \textbf{w}\right\|^2\\
@@ -272,7 +272,7 @@ Such a solution reduces dispersion but becomes biased because the norm of the ve
 - If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/323890/) on Habrahabr with ~ the same material. And a [lecture](https://youtu.be/oTXGQ-_oqvI) on YouTube
 - A nice and concise overview of linear models is given in the book ["Deep Learning"](http://www.deeplearningbook.org) (I. Goodfellow, Y. Bengio, and A. Courville).
 - Linear models are covered practically in every ML book. We recommend "Pattern Recognition and Machine Learning" (C. Bishop) and "Machine Learning: A Probabilistic Perspective" (K. Murphy).
-- If you prefer a thorough overview of linear model from a statistician's viewpoint, then look at "The elements of statistical learning" (T. Hastie, R. Tibshirani, and J. Friedman).
+- If you prefer a thorough overview of linear models from a statistician's viewpoint, then look at "The elements of statistical learning" (T. Hastie, R. Tibshirani, and J. Friedman).
 - The book "Machine Learning in Action" (P. Harrington) will walk you through implementations of classic ML algorithms in pure Python.
 - [Scikit-learn](http://scikit-learn.org/stable/documentation.html) library. These guys work hard on writing really clear documentation.
 - Scipy 2017 [scikit-learn tutorial](https://github.com/amueller/scipy-2017-sklearn) by Alex Gramfort and Andreas Mueller.
