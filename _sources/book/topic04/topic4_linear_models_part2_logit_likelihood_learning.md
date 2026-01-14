@@ -31,7 +31,7 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Ch
 
 ## 1. Linear Classifier
 
-The basic idea behind a linear classifier two target classes can be separated by a hyperplane in the feature space. If this can be done without error, the training set is called *linearly separable*.
+The basic idea behind a linear classifier is that two target classes can be separated by a hyperplane in the feature space. If this can be done without error, the training set is called *linearly separable*.
 
 ```{figure} /_static/img/topic4_linear_classifier.png
 :width: 480px
@@ -49,7 +49,7 @@ where
 
 ##  2. Logistic Regression as a Linear Classifier
 
-Logistic regression is a special case of the linear classifier, but it has an added benefit of predicting a probability $p_+$ of referring example $\textbf{x}_\text{i}$ to the class "+":
+Logistic regression is a special case of the linear classifier, but it has an added benefit of predicting a probability $p_+$ of assigning example $\textbf{x}_\text{i}$ to the class "+":
 
 $$
 \Large p_+ = P\left(y_i = 1 \mid \textbf{x}_\text{i}, \textbf{w}\right)
@@ -61,9 +61,9 @@ Being able to predict not just a response ( "+1" or "-1") but the *probability* 
 :width: 480px
 ```
 
-The bank chooses a threshold $p_*$ to predict the probability of loan default (in the picture it's $0.15$) and stops approving loans starting from that value. Moreover, it is possible to multiply this predicted probability by the loan amount to get the expectation of losses from the client, which can also constitute good business metrics (scoring experts may have more to add, but the main gist is this).
+The bank chooses a threshold $p_*$ to predict the probability of loan default (in the picture it's $0.15$) and stops approving loans starting from that value. Moreover, it is possible to multiply this predicted probability by the loan amount to get the expectation of losses from the client, which can also constitute a good business metric (scoring experts may have more to add, but the main gist is this).
 
-To predict the probability $p_+ \in [0,1]$, we can start by constructing a linear prediction using OLS: $b(\textbf{x}) = \textbf{w}^\text{T} \textbf{x} \in \mathbb{R}$. But converting the resulting value to the probability within in the [0, 1] range requires some function $f: \mathbb{R} \rightarrow [0,1]$. Logistic regression uses a specific function for this: $\sigma(z) = \frac{1}{1 + \exp^{-z}}$. Now let's understand what the prerequisites are.
+To predict the probability $p_+ \in [0,1]$, we can start by constructing a linear prediction using OLS: $b(\textbf{x}) = \textbf{w}^\text{T} \textbf{x} \in \mathbb{R}$. But converting the resulting value to the probability within the [0, 1] range requires some function $f: \mathbb{R} \rightarrow [0,1]$. Logistic regression uses a specific function for this: $\sigma(z) = \frac{1}{1 + \exp^{-z}}$. Now let's understand what the prerequisites are.
 
 ```{figure} /_static/img/topic4_sigmoid.png
 :width: 480px
@@ -155,7 +155,7 @@ Maximizing the likelihood is equivalent to minimizing the expression:
 
 $$\Large \mathcal{L_{\log}} (\textbf X, \textbf{y}, \textbf{w}) = \sum_{i=1}^{\ell} \log (1 + \exp^{-y_i\textbf{w}^\text{T}\textbf{x}_\text{i}}).$$
 
-This is *logistic* loss function that is summed over all objects in the training set.
+This is the *logistic* loss function that is summed over all objects in the training set.
 
 Let's look at the new function as a function of margin $L(M) = \log (1 + \exp^{-M})$ and plot it along with *zero-one loss* graph, which simply penalizes the model for error on each object by 1 (negative margin): $L_{1/0}(M) = [M < 0]$.
 
@@ -189,7 +189,7 @@ Next, we'll look at an example that allows us to intuitively understand one of t
 - If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/323890/) on Habr.com with ~ the same material. And a [lecture](https://youtu.be/oTXGQ-_oqvI) on YouTube
 - A nice and concise overview of linear models is given in the book ["Deep Learning"](http://www.deeplearningbook.org) (I. Goodfellow, Y. Bengio, and A. Courville).
 - Linear models are covered practically in every ML book. We recommend "Pattern Recognition and Machine Learning" (C. Bishop) and "Machine Learning: A Probabilistic Perspective" (K. Murphy).
-- If you prefer a thorough overview of linear model from a statistician's viewpoint, then look at "The elements of statistical learning" (T. Hastie, R. Tibshirani, and J. Friedman).
+- If you prefer a thorough overview of linear models from a statistician's viewpoint, then look at "The elements of statistical learning" (T. Hastie, R. Tibshirani, and J. Friedman).
 - The book "Machine Learning in Action" (P. Harrington) will walk you through implementations of classic ML algorithms in pure Python.
 - [Scikit-learn](http://scikit-learn.org/stable/documentation.html) library. These guys work hard on writing really clear documentation.
 - Scipy 2017 [scikit-learn tutorial](https://github.com/amueller/scipy-2017-sklearn) by Alex Gramfort and Andreas Mueller.

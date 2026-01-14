@@ -108,7 +108,7 @@ print(
 
 **Sort features by their influence on the target feature (wine quality). Beware that both large positive and large negative coefficients mean large influence on target. It's handy to use `pandas.DataFrame` here.**
 
-**<font color='red'>Question 2:</font> Which feature this linear regression model treats as the most influential on wine quality?**
+**<font color='red'>Question 2:</font> Which feature does this linear regression model treat as the most influential on wine quality?**
 
 
 ```{code-cell} ipython3
@@ -273,4 +273,4 @@ rf_importance.sort_values(by="coef", ascending=False)
 
 **Make conclusions about the performance of the explored 3 models in this particular prediction task.**
 
-The dependency of wine quality on other features in hand is, presumable, non-linear. So Random Forest works better in this task.
+The dependency of wine quality on other features in hand is, presumably, non-linear. So Random Forest works better in this task.

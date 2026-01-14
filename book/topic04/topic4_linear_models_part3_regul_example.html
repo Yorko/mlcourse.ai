@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -202,7 +202,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -934,7 +933,7 @@ The number of such features is exponentially large, and it can be costly to buil
 <li><p>the larger the parameter <span class="math notranslate nohighlight">\(C\)</span>, the more complex the relationships in the data that the model can recover (intuitively <span class="math notranslate nohighlight">\(C\)</span> corresponds to the “complexity” of the model - model capacity)</p></li>
 <li><p>if regularization is too strong i.e. the values of <span class="math notranslate nohighlight">\(C\)</span> are small, the solution to the problem of minimizing the logistic loss function may be the one where many of the weights are too small or zeroed. The model is also not sufficiently “penalized” for errors (i.e. in the function <span class="math notranslate nohighlight">\(J\)</span>, the sum of the squares of the weights “outweighs”, and the error <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> can be relatively large). In this case, the model will underfit as we saw in our first case.</p></li>
 <li><p>on the contrary, if regularization is too weak i.e. the values of <span class="math notranslate nohighlight">\(C\)</span> are large, a vector <span class="math notranslate nohighlight">\(w\)</span> with high absolute value components can become the solution to the optimization problem. In this case, <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> has a greater contribution to the optimized functional <span class="math notranslate nohighlight">\(J\)</span>. Loosely speaking, the model is too “afraid” to be mistaken on the objects from the training set and will therefore overfit as we saw in the third case.</p></li>
-<li><p>logistic regression will not “understand” (or “learn”) what value of <span class="math notranslate nohighlight">\(C\)</span> to choose as it does with the weights <span class="math notranslate nohighlight">\(w\)</span>. That is to say, it can not be determined by solving the optimization problem in logistic regression. We have seen a similar situation before – a decision tree can not “learn” what depth limit to choose during the training process. Therefore, <span class="math notranslate nohighlight">\(C\)</span> is the a model hyperparameter that is tuned on cross-validation; so is the max_depth in a tree.</p></li>
+<li><p>logistic regression will not “understand” (or “learn”) what value of <span class="math notranslate nohighlight">\(C\)</span> to choose as it does with the weights <span class="math notranslate nohighlight">\(w\)</span>. That is to say, it can not be determined by solving the optimization problem in logistic regression. We have seen a similar situation before – a decision tree can not “learn” what depth limit to choose during the training process. Therefore, <span class="math notranslate nohighlight">\(C\)</span> is a model hyperparameter that is tuned on cross-validation; so is the max_depth in a tree.</p></li>
 </ul>
 <p><strong>Regularization parameter tuning</strong></p>
 <p>Using this example, let’s identify the optimal value of the regularization parameter <span class="math notranslate nohighlight">\(C\)</span>. This can be done using <code class="docutils literal notranslate"><span class="pre">LogisticRegressionCV</span></code> - a grid search of parameters followed by cross-validation. This class is designed specifically for logistic regression (effective algorithms with well-known search parameters). For an arbitrary model, use <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>, <code class="docutils literal notranslate"><span class="pre">RandomizedSearchCV</span></code>, or special algorithms for hyperparameter optimization such as the one implemented in <code class="docutils literal notranslate"><span class="pre">hyperopt</span></code>.</p>
@@ -1001,7 +1000,7 @@ The number of such features is exponentially large, and it can be costly to buil
 <li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/323890/">article</a> on Habrahabr with ~ the same material. And a <a class="reference external" href="https://youtu.be/oTXGQ-_oqvI">lecture</a> on YouTube</p></li>
 <li><p>A nice and concise overview of linear models is given in the book <a class="reference external" href="http://www.deeplearningbook.org">“Deep Learning”</a> (I. Goodfellow, Y. Bengio, and A. Courville).</p></li>
 <li><p>Linear models are covered practically in every ML book. We recommend “Pattern Recognition and Machine Learning” (C. Bishop) and “Machine Learning: A Probabilistic Perspective” (K. Murphy).</p></li>
-<li><p>If you prefer a thorough overview of linear model from a statistician’s viewpoint, then look at “The elements of statistical learning” (T. Hastie, R. Tibshirani, and J. Friedman).</p></li>
+<li><p>If you prefer a thorough overview of linear models from a statistician’s viewpoint, then look at “The elements of statistical learning” (T. Hastie, R. Tibshirani, and J. Friedman).</p></li>
 <li><p>The book “Machine Learning in Action” (P. Harrington) will walk you through implementations of classic ML algorithms in pure Python.</p></li>
 <li><p><a class="reference external" href="http://scikit-learn.org/stable/documentation.html">Scikit-learn</a> library. These guys work hard on writing really clear documentation.</p></li>
 <li><p>Scipy 2017 <a class="reference external" href="https://github.com/amueller/scipy-2017-sklearn">scikit-learn tutorial</a> by Alex Gramfort and Andreas Mueller.</p></li>

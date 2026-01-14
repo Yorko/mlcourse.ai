@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/kashnitsky/.local/share/uv/python/cpython-3.13.2-macos-aarch64-none/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+with open(os.path.join(PATH_TO_WRITE_DATA, "20news_test_predictions.txt")) as pred_file:
+    test_prediction = [float(label) for label in pred_file.readlines()]
+
+auc = roc_auc_score(test_labels, test_prediction)
+roc_curve = roc_curve(test_labels, test_prediction)
+
+
+plt.plot(roc_curve[0], roc_curve[1])
+plt.plot([0, 1], [0, 1])
+plt.xlabel("FPR")
+plt.ylabel("TPR")
+plt.title("test AUC = %f" % (auc))
+plt.axis([-0.05, 1.05, -0.05, 1.05]);
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[29][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mos[49m[43m.[49m[43mpath[49m[43m.[49m[43mjoin[49m[43m([49m[43mPATH_TO_WRITE_DATA[49m[43m,[49m[43m [49m[33;43m"[39;49m[33;43m20news_test_predictions.txt[39;49m[33;43m"[39;49m[43m)[49m[43m)[49m [38;5;28;01mas[39;00m pred_file:
+[32m      2[39m     test_prediction = [[38;5;28mfloat[39m(label) [38;5;28;01mfor[39;00m label [38;5;129;01min[39;00m pred_file.readlines()]
+[32m      4[39m auc = roc_auc_score(test_labels, test_prediction)
+
+[36mFile [39m[32m~/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/IPython/core/interactiveshell.py:326[39m, in [36m_modified_open[39m[34m(file, *args, **kwargs)[39m
+[32m    319[39m [38;5;28;01mif[39;00m file [38;5;129;01min[39;00m {[32m0[39m, [32m1[39m, [32m2[39m}:
+[32m    320[39m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[32m    321[39m         [33mf[39m[33m"[39m[33mIPython won[39m[33m'[39m[33mt let you open fd=[39m[38;5;132;01m{[39;00mfile[38;5;132;01m}[39;00m[33m by default [39m[33m"[39m
+[32m    322[39m         [33m"[39m[33mas it is likely to crash IPython. If you know what you are doing, [39m[33m"[39m
+[32m    323[39m         [33m"[39m[33myou can use builtins[39m[33m'[39m[33m open.[39m[33m"[39m
+[32m    324[39m     )
+[32m--> [39m[32m326[39m [38;5;28;01mreturn[39;00m [43mio_open[49m[43m([49m[43mfile[49m[43m,[49m[43m [49m[43m*[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: '../../../data/tmp/20news_test_predictions.txt'
+

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -202,7 +202,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prereqs/docker.html">Docker</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -571,7 +570,7 @@ document.write(`
 </section>
 <section id="analysis-of-imdb-movie-reviews">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1. Analysis of IMDB movie reviews</a><a class="headerlink" href="#analysis-of-imdb-movie-reviews" title="Link to this heading">#</a></h2>
-<p>Now for a little practice! We want to solve the problem of binary classification of IMDB movie reviews. We have a training set with marked reviews, 12500 reviews marked as good, another 12500 bad. Here, it’s not easy to get started with machine learning right away because we don’t have the matrix <span class="math notranslate nohighlight">\(X\)</span>; we need to prepare it. We will use a simple approach: bag of words model. Features of the review will be represented by indicators of the presence of each word from the whole corpus in this review. The corpus is the set of all user reviews. The idea is illustrated by a picture</p>
+<p>Now for a little practice! We want to solve the problem of binary classification of IMDB movie reviews. We have a training set with marked reviews, 12500 reviews marked as good, another 12500 bad. Here, it’s not easy to get started with machine learning right away because we don’t have the matrix <span class="math notranslate nohighlight">\(X\)</span>; we need to prepare it. We will use a simple approach: the bag of words model. Features of the review will be represented by indicators of the presence of each word from the whole corpus in this review. The corpus is the set of all user reviews. The idea is illustrated by the picture below</p>
 <figure class="align-default">
 <img alt="../../_images/topic4_bag_of_words.svg" src="../../_images/topic4_bag_of_words.svg" />
 </figure>
@@ -589,7 +588,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p><strong>To get started, we automatically download the dataset from <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz">here</a> and unarchive it along with the rest of datasets in the data folder. The dataset is briefly described <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/">here</a>. There are 12.5k of good and bad reviews in the test and training sets.</strong></p>
+<p><strong>To get started, we automatically download the dataset from <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz">here</a> and unarchive it along with the rest of the datasets in the data folder. The dataset is briefly described <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/">here</a>. There are 12.5k good and 12.5k bad reviews in the test and training sets.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
@@ -778,7 +777,7 @@ Number of documents in test data: 25000
 </div>
 </div>
 </div>
-<p><strong>Secondly, we are encoding the sentences from the training set texts with the indices of incoming words. We’ll use the sparse format.</strong></p>
+<p><strong>Secondly, we are encoding the sentences from the training set texts with the indices of the words. We’ll use the sparse format.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">text_train</span><span class="p">)</span>
@@ -845,24 +844,14 @@ Number of documents in test data: 25000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 <span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.8 ms, sys: 108 ms, total: 130 ms
-Wall time: 1.94 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 27.5 ms, sys: 141 ms, total: 169 ms
+Wall time: 6.05 s
 </pre></div>
 </div>
 <div class="output text_html"><style>#sk-container-id-1 {
@@ -1280,9 +1269,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(n_jobs=-1, random_state=7)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(n_jobs=-1, random_state=7)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=500, n_jobs=-1, random_state=7)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=500, n_jobs=-1, random_state=7)</pre></div> </div></div></div></div></div></div>
 </div>
-<p><strong>Let’s look at accuracy on the both the training and the test sets.</strong></p>
+<p><strong>Let’s look at accuracy on both the training and the test sets.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">logit</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">logit</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span>
@@ -1290,7 +1279,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.982, 0.865)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.998, 0.867)
 </pre></div>
 </div>
 </div>
@@ -1346,11 +1335,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/c8fcdd227bf46bc1ea60eaf71e806f9cf69bbabcd3484c39b1997c8171021bdd.png"><img alt="../../_images/c8fcdd227bf46bc1ea60eaf71e806f9cf69bbabcd3484c39b1997c8171021bdd.png" src="../../_images/c8fcdd227bf46bc1ea60eaf71e806f9cf69bbabcd3484c39b1997c8171021bdd.png" style="width: 1212px; height: 516px;" />
+<a class="reference internal image-reference" href="../../_images/53513e618e9e321ddebfa04ff548a0d68b61d589d4cddc5a7d132d3e237af536.png"><img alt="../../_images/53513e618e9e321ddebfa04ff548a0d68b61d589d4cddc5a7d132d3e237af536.png" src="../../_images/53513e618e9e321ddebfa04ff548a0d68b61d589d4cddc5a7d132d3e237af536.png" style="width: 1225px; height: 516px;" />
 </a>
 </div>
 </div>
-<p><strong>To make our model better, we can optimize the regularization coefficient for the <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code>. We’ll use <code class="docutils literal notranslate"><span class="pre">sklearn.pipeline</span></code> because <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> should only be applied to the training data (so as to not “peek” into the test set and not count word frequencies there). In this case, <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> determines the correct sequence of actions: apply <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code>, then train <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code>.</strong></p>
+<p><strong>To make our model better, we can optimize the regularization coefficient for <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code>. We’ll use <code class="docutils literal notranslate"><span class="pre">sklearn.pipeline</span></code> because <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> should only be applied to the training data (so as to not “peek” into the test set and not count word frequencies there). In this case, <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> determines the correct sequence of actions: apply <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code>, then train <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code>.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
@@ -1360,7 +1349,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     <span class="n">CountVectorizer</span><span class="p">(),</span>
     <span class="c1"># for some reason n_jobs &gt; 1 won&#39;t work</span>
     <span class="c1"># with GridSearchCV&#39;s n_jobs &gt; 1</span>
-    <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">),</span>
+    <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
 <span class="p">)</span>
 
 <span class="n">text_pipe_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">text_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1369,19 +1358,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.86472
-CPU times: user 4.01 s, sys: 71.9 ms, total: 4.08 s
-Wall time: 4.1 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.86672
+CPU times: user 7.4 s, sys: 124 ms, total: 7.53 s
+Wall time: 7.54 s
 </pre></div>
 </div>
 </div>
@@ -1401,98 +1380,8 @@ Wall time: 4.1 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.88 s, sys: 291 ms, total: 3.17 s
-Wall time: 12.4 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/sklearn/linear_model/_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.33 s, sys: 321 ms, total: 4.65 s
+Wall time: 18.8 s
 </pre></div>
 </div>
 <div class="output text_html"><style>#sk-container-id-2 {
@@ -1913,21 +1802,23 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GridSearchCV(cv=3,
              estimator=Pipeline(steps=[(&#x27;countvectorizer&#x27;, CountVectorizer()),
                                        (&#x27;logisticregression&#x27;,
-                                        LogisticRegression(n_jobs=1,
+                                        LogisticRegression(max_iter=500,
+                                                           n_jobs=1,
                                                            random_state=7))]),
              n_jobs=-1,
              param_grid={&#x27;logisticregression__C&#x27;: array([1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00])},
              return_train_score=True)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GridSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=3,
              estimator=Pipeline(steps=[(&#x27;countvectorizer&#x27;, CountVectorizer()),
                                        (&#x27;logisticregression&#x27;,
-                                        LogisticRegression(n_jobs=1,
+                                        LogisticRegression(max_iter=500,
+                                                           n_jobs=1,
                                                            random_state=7))]),
              n_jobs=-1,
              param_grid={&#x27;logisticregression__C&#x27;: array([1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00])},
              return_train_score=True)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: Pipeline</div></div></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;countvectorizer&#x27;, CountVectorizer()),
                 (&#x27;logisticregression&#x27;,
-                 LogisticRegression(C=np.float64(0.1), n_jobs=1,
-                                    random_state=7))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CountVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(C=np.float64(0.1), n_jobs=1, random_state=7)</pre></div> </div></div></div></div></div></div></div></div></div></div></div></div></div>
+                 LogisticRegression(C=np.float64(0.1), max_iter=500, n_jobs=1,
+                                    random_state=7))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>CountVectorizer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html">?<span>Documentation for CountVectorizer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>CountVectorizer()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(C=np.float64(0.1), max_iter=500, n_jobs=1, random_state=7)</pre></div> </div></div></div></div></div></div></div></div></div></div></div></div></div>
 </div>
 <p><strong>Let’s print best <span class="math notranslate nohighlight">\(C\)</span> and cv-score using this hyperparameter:</strong></p>
 <div class="cell docutils container">
@@ -1937,7 +1828,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;logisticregression__C&#39;: np.float64(0.1)}, np.float64(0.8852399164361103))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;logisticregression__C&#39;: np.float64(0.1)}, np.float64(0.8848399532333585))
 </pre></div>
 </div>
 </div>
@@ -1949,7 +1840,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/63f3e637b1edae35d370b568df09d8e0652e7adcb35c76fdc5437543d5f3859b.png"><img alt="../../_images/63f3e637b1edae35d370b568df09d8e0652e7adcb35c76fdc5437543d5f3859b.png" src="../../_images/63f3e637b1edae35d370b568df09d8e0652e7adcb35c76fdc5437543d5f3859b.png" style="width: 556px; height: 413px;" />
+<a class="reference internal image-reference" href="../../_images/6eba8770bc770d98ecda25e570a649be9f1816c6fa7a77d9ce243b3977664f19.png"><img alt="../../_images/6eba8770bc770d98ecda25e570a649be9f1816c6fa7a77d9ce243b3977664f19.png" src="../../_images/6eba8770bc770d98ecda25e570a649be9f1816c6fa7a77d9ce243b3977664f19.png" style="width: 556px; height: 413px;" />
 </a>
 </div>
 </div>
@@ -1961,7 +1852,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.87812
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.879
 </pre></div>
 </div>
 </div>
@@ -1989,8 +1880,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 56.3 s, sys: 397 ms, total: 56.7 s
-Wall time: 5.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 53.3 s, sys: 291 ms, total: 53.6 s
+Wall time: 4.95 s
 </pre></div>
 </div>
 <div class="output text_html"><style>#sk-container-id-3 {
@@ -2471,7 +2362,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
         <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span>
         <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">PuOr_r</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linetypes</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(())</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(())</span>
@@ -2487,16 +2378,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_boundary</span><span class="p">(</span>
-    <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;Logistic Regression, XOR problem&quot;</span>
+    <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;Logistic Regression, XOR problem&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_87058/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
-  contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
-</pre></div>
-</div>
 <a class="reference internal image-reference" href="../../_images/d09ec670e9a132e73c210da41f3efaadf167094973919ee03c51e553fd02ad71.png"><img alt="../../_images/d09ec670e9a132e73c210da41f3efaadf167094973919ee03c51e553fd02ad71.png" src="../../_images/d09ec670e9a132e73c210da41f3efaadf167094973919ee03c51e553fd02ad71.png" style="width: 511px; height: 430px;" />
 </a>
 </div>
@@ -2515,7 +2402,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="p">(</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)),</span>
-        <span class="p">(</span><span class="s2">&quot;logit&quot;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s2">&quot;logit&quot;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">)),</span>
     <span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
@@ -2529,10 +2416,6 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_87058/3069517639.py:16: UserWarning: The following kwargs were not used by contour: &#39;linetypes&#39;
-  contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes=&quot;--&quot;)
-</pre></div>
-</div>
 <a class="reference internal image-reference" href="../../_images/db8197705210ce2ea95cb0a870e7ee42b2538f37eec4aa42018c02a7b6bd9501.png"><img alt="../../_images/db8197705210ce2ea95cb0a870e7ee42b2538f37eec4aa42018c02a7b6bd9501.png" src="../../_images/db8197705210ce2ea95cb0a870e7ee42b2538f37eec4aa42018c02a7b6bd9501.png" style="width: 522px; height: 430px;" />
 </a>
 </div>
@@ -2549,7 +2432,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li><p>If you read Russian: an <a class="reference external" href="https://habrahabr.ru/company/ods/blog/323890/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/oTXGQ-_oqvI">lecture</a> on YouTube</p></li>
 <li><p>A nice and concise overview of linear models is given in the book <a class="reference external" href="http://www.deeplearningbook.org">“Deep Learning”</a> (I. Goodfellow, Y. Bengio, and A. Courville).</p></li>
 <li><p>Linear models are covered practically in every ML book. We recommend “Pattern Recognition and Machine Learning” (C. Bishop) and “Machine Learning: A Probabilistic Perspective” (K. Murphy).</p></li>
-<li><p>If you prefer a thorough overview of linear model from a statistician’s viewpoint, then look at “The elements of statistical learning” (T. Hastie, R. Tibshirani, and J. Friedman).</p></li>
+<li><p>If you prefer a thorough overview of linear models from a statistician’s viewpoint, then look at “The elements of statistical learning” (T. Hastie, R. Tibshirani, and J. Friedman).</p></li>
 <li><p>The book “Machine Learning in Action” (P. Harrington) will walk you through implementations of classic ML algorithms in pure Python.</p></li>
 <li><p><a class="reference external" href="http://scikit-learn.org/stable/documentation.html">Scikit-learn</a> library. These guys work hard on writing really clear documentation.</p></li>
 <li><p>Scipy 2017 <a class="reference external" href="https://github.com/amueller/scipy-2017-sklearn">scikit-learn tutorial</a> by Alex Gramfort and Andreas Mueller.</p></li>
