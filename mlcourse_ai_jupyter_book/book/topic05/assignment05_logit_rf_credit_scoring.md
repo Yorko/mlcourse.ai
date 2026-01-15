@@ -51,7 +51,7 @@ Predict whether the customer will repay their credit within 90 days. This is a b
 | DebtRatio | Input Feature | real | Total monthly loan payments (loan, alimony, etc.) / Total monthly income percentage |
 | NumberOfTime30-59DaysPastDueNotWorse | Input Feature | integer | The number of cases when client has overdue 30-59 days (not worse) on other loans during the last 2 years |
 | NumberOfTimes90DaysLate | Input Feature | integer | Number of cases when customer had 90+dpd overdue on other credits |
-| NumberOfTime60-89DaysPastDueNotWorse | Input Feature | integer | Number of cased when customer has 60-89dpd (not worse) during the last 2 years |
+| NumberOfTime60-89DaysPastDueNotWorse | Input Feature | integer | Number of cases when customer has 60-89dpd (not worse) during the last 2 years |
 | NumberOfDependents | Input Feature | integer | The number of customer dependents |
 | SeriousDlqin2yrs | Target Variable | binary: <br>0 or 1 | Customer hasn't paid the loan debt within 90 days |
 

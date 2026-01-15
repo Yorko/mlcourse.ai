@@ -59,7 +59,7 @@ Predict whether the customer will repay their credit within 90 days. This is a b
 | DebtRatio | Input Feature | real | Total monthly loan payments (loan, alimony, etc.) / Total monthly income percentage |
 | NumberOfTime30-59DaysPastDueNotWorse | Input Feature | integer | The number of cases when client has overdue 30-59 days (not worse) on other loans during the last 2 years |
 | NumberOfTimes90DaysLate | Input Feature | integer | Number of cases when customer had 90+dpd overdue on other credits |
-| NumberOfTime60-89DaysPastDueNotWorse | Input Feature | integer | Number of cased when customer has 60-89dpd (not worse) during the last 2 years |
+| NumberOfTime60-89DaysPastDueNotWorse | Input Feature | integer | Number of cases when customer has 60-89dpd (not worse) during the last 2 years |
 | NumberOfDependents | Input Feature | integer | The number of customer dependents |
 | SeriousDlqin2yrs | Target Variable | binary: <br>0 or 1 | Customer hasn't paid the loan debt within 90 days |
 
@@ -161,7 +161,7 @@ y = table["SeriousDlqin2yrs"]
 
 ## Bootstrapping
 
-**Question 2.** Make an interval estimate of the average age for the customers who delayed the repayment with the confidence level equal 90%. Use the example from the article for reference. Also, use `np.random.seed(0)` as it was done in the article. What is the resulting interval estimate?
+**Question 2.** Make an interval estimate of the average age for the customers who delayed repayment with a 90% confidence level. Use the example from the article for reference. Also, use `np.random.seed(0)` as it was done in the article. What is the resulting interval estimate?
 
 1. 52.59 – 52.86
 2. 45.71 – 46.13
@@ -514,4 +514,4 @@ _(the following code is commented out for the Jupyter-book version as it takes ~
 
 **Solution:**
 
-The advantage of *Random Forest* is that the trees in the composition are not highly correlated. Similarly, for bagging with logistic regression, the weaker correlation between single models, the higher the accuracy. Since in logistic regression there is almost no randomness, we have to change the set of features to minimize the correlation between our single models.
+The advantage of *Random Forest* is that the trees in the composition are not highly correlated. Similarly, for bagging with logistic regression, the weaker the correlation between single models, the higher the accuracy. Since in logistic regression there is almost no randomness, we have to change the set of features to minimize the correlation between our single models.
