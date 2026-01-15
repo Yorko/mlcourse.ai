@@ -24,7 +24,7 @@ Author: [Dmitriy Sergeyev](https://github.com/DmitrySerg), Data Scientist @ Zept
 
 We continue our open machine learning course with a new article on time series.
 
-Let's take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost... In addition, all of this will be applied to (harsh) real world examples.
+Let's take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing are, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost... In addition, all of this will be applied to (harsh) real world examples.
 
 ## Article outline
 
@@ -36,7 +36,7 @@ In my day-to-day job, I encounter time-series related tasks almost every day. Th
 # Introduction
 
 We begin with a simple [definition](https://en.wikipedia.org/wiki/Time_series) of time series:
-> *Time series* is a series of data points indexed (or listed or graphed) in time order.
+> *Time series* are a series of data points indexed (or listed or graphed) in time order.
 
 Therefore, the data is organized by relatively deterministic timestamps, and may, compared to random sample data, contain additional information that we can extract.
 
@@ -138,7 +138,7 @@ $MSE = \frac{1}{n}\sum\limits_{i=1}^{n} (y_i - \hat{y}_i)^2$
 sklearn.metrics.mean_squared_error
 ```
 ---
-- [Mean Squared Logarithmic Error](http://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error): practically, this is the same as MSE, but we take the logarithm of the series. As a result, we give more weight to small mistakes as well. This is usually used when the data has exponential trends, $[0, +\infty)$
+- [Mean Squared Logarithmic Error](http://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error): practically, this is the same as MSE, but we take the logarithm of the series. As a result, we give more weight to small errors as well. This is usually used when the data has exponential trends, $[0, +\infty)$
 
 $MSLE = \frac{1}{n}\sum\limits_{i=1}^{n} (log(1+y_i) - log(1+\hat{y}_i))^2$
 
@@ -169,7 +169,7 @@ def mean_absolute_percentage_error(y_true, y_pred):
 ```
 
 ```{note}
-You should be very careful with MAPE, MSLE and other metrics that are poorly defined around $y=0$. Formally, MAPE is not defined for any $y_i = 0$. In practice, these metric can "explode" even for small values of $y_i$ around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values $y_i = 0$ is indeed a workaround but a bad one: thus, we'd ignore those cases where the prediction is high ($\hat{y}_i \gg 1$) and the actual value is 0 ($y_i = 0$). More of this is [discussed](https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape) on CrossValidated.
+You should be very careful with MAPE, MSLE and other metrics that are poorly defined around $y=0$. Formally, MAPE is not defined for any $y_i = 0$. In practice, these metrics can "explode" even for small values of $y_i$ around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values $y_i = 0$ is indeed a workaround but a bad one: thus, we'd ignore those cases where the prediction is high ($\hat{y}_i \gg 1$) and the actual value is 0 ($y_i = 0$). More of this is [discussed](https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape) on CrossValidated.
 ```
 
 Now that we know how to measure the quality of the forecasts, let's see what metrics we can use and how to translate the results for the boss. After that, one small detail remains - building the model.
@@ -380,7 +380,7 @@ plotExponentialSmoothing(currency.GEMS_GEMS_SPENT, [0.3, 0.05])
 
 Up to now, the methods that we've discussed have been for a single future point prediction (with some nice smoothing). That is cool, but it is also not enough. Let's extend exponential smoothing so that we can predict two future points (of course, we will also include more smoothing).
 
-Series decomposition will help us -- we obtain two components: intercept (i.e. level) $\ell$ and slope (i.e. trend) $b$. We have learnt to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depends on the previous weighted changes. As a result, we get the following set of functions:
+Series decomposition will help us -- we obtain two components: intercept (i.e. level) $\ell$ and slope (i.e. trend) $b$. We have learned to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depend on the previous weighted changes. As a result, we get the following set of functions:
 
 $$\ell_x = \alpha y_x + (1-\alpha)(\ell_{x-1} + b_{x-1})$$
 
