@@ -57,7 +57,7 @@ The algorithm for constructing a random forest of $\large N$ trees goes as follo
     * Build a decision tree $\large b_k$ on the sample $\large X_k$:
 
         * Pick the best feature according to the given criteria. Split the sample by this feature to create a new tree level. Repeat this procedure until the sample is exhausted.
-        * Building the tree until any of its leaves contains no more than $\large n_\text{min}$ instances or until a certain depth is reached.
+        * Build the tree until any of its leaves contains no more than $\large n_\text{min}$ instances or until a certain depth is reached.
         * For each split, we first randomly pick $\large m$ features from the $\large d$ original ones and then search for the next best split only among the subset.
 
 The final classifier is defined by:
@@ -215,11 +215,11 @@ The full list of random forest parameters for regression is shown below:
    - `max_features` — the number of features to consider when looking for the best split. You can specify the number or percentage of features, or choose from the available values: "auto" (all features), "sqrt", "log2". (default = "auto")
    -  `max_depth` — the maximum depth of the tree (default means that nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples)
    -  `min_samples_split` — the minimum number of samples required to split an internal node. Can be specified as the number or as a percentage of a total number of samples (default = 2)
-   -  `min_samples_leaf` — the minimum number of samples required at a leaf node(default = 1)
+   -  `min_samples_leaf` — the minimum number of samples required at a leaf node (default = 1)
    -  `min_weight_fraction_leaf` — the minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided (default = 0)
    - `max_leaf_nodes` — the maximum number of leaves (default = no restrictions)
    - `min_impurity_split` — threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf (default = 1е-7)
-   - `bootstrap` — whether bootstrap samples are used when building trees(default = True)
+   - `bootstrap` — whether bootstrap samples are used when building trees (default = True)
    - `oob_score` — whether to use out-of-bag samples to estimate the R^2 on unseen data (default = False)
    - `n_jobs` — the number of jobs to run in parallel for both fit and predict. If -1, then the number of jobs is set to the number of cores (default = 1)
    - `random_state` — if int, random_state is the seed used by the random number generator; if RandomState instance, random_state is the random number generator; if None, the random number generator is the RandomState instance used by np.random (default = None)
@@ -537,7 +537,7 @@ In the `scikit-learn` library, there are 2 implementations of Extremely Randomiz
 This method should be used if you have greatly overfit with random forests or gradient boosting.
 
 ## 7. Similarities between Random Forest and k-Nearest Neighbors
-The random forest method is similar to the nearest neighbors technique. Random forests predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let's prove this formally.
+The random forest method is similar to the nearest neighbors technique. Random forests' predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let's prove this formally.
 
 Let's consider a regression problem with the quadratic loss function. Let $\large T_n(x)$ be the number of the leaf of the $\large n$-th tree in a random forest with input $\large x$.
 The algorithm response for the input vector $\large x$ equals the averaged response over all the examples of the training sample that fall into the leaf $\large T_n(x)$. This can be written as

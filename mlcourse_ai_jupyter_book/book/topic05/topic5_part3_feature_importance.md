@@ -26,7 +26,7 @@ Authors: [Vitaliy Radchenko](https://www.linkedin.com/in/vitaliyradchenk0/), [Yu
 ```{contents}
 ```
 
-It's quite often that you want to make out the exact reasons of the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.
+It's quite often that you want to determine the exact reasons for the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.
 
 ## 1. Intuition
 
@@ -38,14 +38,14 @@ In the case of many decision trees or a random forest, the closer the mean posit
 
 Let's go a little deeper into the details.
 
-There exist a lot of methods to assess feature importances. Leo Breinman in his works suggested to evaluate the importance of a variable by measuring decrease of accuracy of the forest when the variable is randomly permuted or decrease of impurity of a nodes where the given variable is used for splitting. The former method is often called **permutation importance**. The latter method is used in `sklearn`.
+There exist a lot of methods to assess feature importances. Leo Breiman in his works suggested evaluating the importance of a variable by measuring decrease of accuracy of the forest when the variable is randomly permuted or decrease of impurity of a node where the given variable is used for splitting. The former method is often called **permutation importance**. The latter method is used in `sklearn`.
 
 ### Permutation importance
 
 Inspired by [this](https://www.researchgate.net/publication/5231126_Conditional_Variable_Importance_for_Random_Forests) article.
 The average reduction in accuracy caused by a variable is determined during the calculation of the out-of-bag error. The greater the reduction in accuracy due to an exclusion or permutation of the variable, the higher its *importance score*. For this reason, variables with a greater average reduction in accuracy are generally more significant for classification.
 
-The rationale for calculating permutation importance is the following: By randomly permuting the predictor variable $X_j$, its original association with the response $Y$ is broken. When the permuted variable $X_j$, together with all the others non-permuted variables, is used the response for the out-of-bag observations, the prediction *accuracy* decreases substantially if the original $X_j$ was associated with response. Thus, as a measure of variable importance, the difference in prediction accuracy before and after permuting is used.
+The rationale for calculating permutation importance is the following: By randomly permuting the predictor variable $X_j$, its original association with the response $Y$ is broken. When the permuted variable $X_j$, together with all the other non-permuted variables, is used to predict the response for the out-of-bag observations, the prediction *accuracy* decreases substantially if the original $X_j$ was associated with response. Thus, as a measure of variable importance, the difference in prediction accuracy before and after permuting is used.
 
 More formally: denote $\overline{\mathfrak{B}}^{(t)}$ as the out-of-bag sample for a tree $t$, for $t\in\{1, ..., N\}$ where $N$ is the number of trees in ensemble. Then the permutation importance of variable $X_j$ in tree $t$ is
 
@@ -159,14 +159,14 @@ The algorithm of obtaining feature importance may be represented with the follow
 
   1.1.  for each node $i$ calculate the reduction in impurity (such as MSE, Gini or entropy) as ${RI}_i^{(t)}=w_i^{(t)}\cdot I_i^{(t)} - w_{LEFT_i}^{(t)}\cdot I_{LEFT_i}^{(t)}-w_{RIGHT_i}^{(t)}\cdot I_{RIGHT_i}^{(t)}$, where:
 
-  - $w_i^{(t)}$, $w_{LEFT_i}^{(t)}$, and $w_{RIGHT_i}^{(t)}$ are respectively weighted number of samples reaching   node $i$ in tree $t$, and its left $LEFT_i$ and right $RIGHT_i$ children
-  - $I_i^{(t)}$, $I_{LEFT_i}^{(t)}$,   $I_{RIGHT_i}^{(t)}$ are impurities (such as MSE, Gini or entropy) of the nodes. For leaves ${RI}_i^{(t)}$ is equal to 0.
+  - $w_i^{(t)}$, $w_{LEFT_i}^{(t)}$, and $w_{RIGHT_i}^{(t)}$ are respectively weighted number of samples reaching node $i$ in tree $t$, and its left $LEFT_i$ and right $RIGHT_i$ children
+  - $I_i^{(t)}$, $I_{LEFT_i}^{(t)}$,   $I_{RIGHT_i}^{(t)}$ are impurities (such as MSE, Gini or entropy) of the nodes. For leaves, ${RI}_i^{(t)}$ is equal to 0.
 
   1.2.  for each feature $j$ calculate its importance in that particular tree as
 
 $${FI}_j^{(t)}=\frac{\sum_{i:\text{node }i\text{ splits on feature } j}{RI}_i^{(t)}}{\sum_{i\in\text{all nodes}}{RI}_i^{(t)}}$$
 
-   That means that in numerator we sum the reduction in impurity only in those nodes where feature $j$ is situated.
+   That means that in the numerator we sum the reduction in impurity only in those nodes where feature $j$ is situated.
 
 2\. Calculate the average feature importances over all trees in ensemble:
 
@@ -210,7 +210,7 @@ rfc = RandomForestClassifier(n_estimators=3, max_depth=3, random_state=17)
 rfc.fit(data, target);
 ```
 
-After fitting list of all the trees are stored in `estimators_` property.
+After fitting, the list of all the trees is stored in `estimators_` property.
 
 
 ```{code-cell} ipython3
@@ -346,7 +346,7 @@ forest.fit(hostel_data.drop(["hostel", "rating"], axis=1), hostel_data["rating"]
 importances = forest.feature_importances_
 
 indices = np.argsort(importances)[::-1]
-# Plot the feature importancies of the forest
+# Plot the feature importances of the forest
 num_to_plot = 10
 feature_indices = [ind + 1 for ind in indices[:num_to_plot]]
 
@@ -371,7 +371,7 @@ plt.xlim([-1, num_to_plot])
 plt.legend(bars, [u"".join(features["f" + str(i)]) for i in feature_indices]);
 ```
 
-The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model's accuracy. However, based on our analysis, we can recommend hostel owners to focus primarily on staff training and price-to-quality ratio.
+The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model's accuracy. However, based on our analysis, we can recommend that hostel owners focus primarily on staff training and price-to-quality ratio.
 
 ## 5. Useful resources
 - Main course [site](https://mlcourse.ai), [course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
