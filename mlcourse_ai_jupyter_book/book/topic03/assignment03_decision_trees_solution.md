@@ -202,7 +202,7 @@ print(entropy([1, 2, 3, 4, 5, 6]))  # entropy of a fair 6-sided die
 
 <font color='red'>Answer:</font> 0.961
 
-4\. What is the entropy of a fair dice? (where we look at a dice as a system with 6 equally probable states)?
+4\. What is the entropy of a fair die? (where we look at a die as a system with 6 equally probable states)?
 
 <font color='red'>Answer:</font> 2.585
 

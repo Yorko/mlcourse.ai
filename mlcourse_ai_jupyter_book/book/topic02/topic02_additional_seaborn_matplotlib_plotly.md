@@ -229,7 +229,7 @@ init_notebook_mode(connected=True)
 def plotly_depict_figure_as_iframe(fig, title="", width=800, height=500,
   plot_path='../../_static/plotly_htmls/'):
   """
-  This is a helper method to visualizae PLotly plots as Iframes in a Jupyter book.
+  This is a helper method to visualize Plotly plots as Iframes in a Jupyter book.
   If you are running `jupyter-notebook`, you can just use iplot(fig).
   """
 
@@ -371,5 +371,5 @@ Using `plotly`, you can also create other types of visualization. Even with defa
 - Here is the official documentation for the libraries we used: [`matplotlib`](https://matplotlib.org/contents.html), [`seaborn`](https://seaborn.pydata.org/introduction.html) and [`pandas`](https://pandas.pydata.org/pandas-docs/stable/).
 - The [gallery](http://seaborn.pydata.org/examples/index.html) of sample charts created with `seaborn` is a very good resource.
 - Also, see the [documentation](http://scikit-learn.org/stable/modules/manifold.html) on Manifold Learning in `scikit-learn`.
-- Efficient t-SNE implementation [Multi-core-TSNE](https://github.com/DmitryUlyanov/Multicore-TSNE).
+- Efficient t-SNE implementation [Multicore-TSNE](https://github.com/DmitryUlyanov/Multicore-TSNE).
 - "How to Use t-SNE Effectively", [Distill.pub](https://distill.pub/2016/misread-tsne/).
