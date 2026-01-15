@@ -40,7 +40,7 @@ import requests
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from tqdm import tqdm_notebook
+from tqdm.notebook import tqdm
 
 %matplotlib inline
 from matplotlib import pyplot as plt
@@ -277,7 +277,7 @@ It can be seen that kMeans does not distinguish activities very well. Use the el
 ```{code-cell} ipython3
 # Your code here
 inertia = []
-for k in tqdm_notebook(range(1, n_classes + 1)):
+for k in tqdm(range(1, n_classes + 1)):
     kmeans = KMeans(n_clusters=k, n_init=100, random_state=RANDOM_STATE).fit(
         X_pca
     )

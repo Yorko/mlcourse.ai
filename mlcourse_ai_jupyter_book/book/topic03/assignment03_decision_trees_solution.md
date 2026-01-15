@@ -447,12 +447,12 @@ print("numerical_columns:", numerical_columns)
 # fill missing data
 
 for c in categorical_columns:
-    data_train[c].fillna(data_train[c].mode()[0], inplace=True)
-    data_test[c].fillna(data_train[c].mode()[0], inplace=True)
+    data_train[c] = data_train[c].fillna(data_train[c].mode()[0])
+    data_test[c] = data_test[c].fillna(data_train[c].mode()[0])
 
 for c in numerical_columns:
-    data_train[c].fillna(data_train[c].median(), inplace=True)
-    data_test[c].fillna(data_train[c].median(), inplace=True)
+    data_train[c] = data_train[c].fillna(data_train[c].median())
+    data_test[c] = data_test[c].fillna(data_train[c].median())
 ```
 
 
