@@ -21,7 +21,7 @@ kernelspec:
 Author: [Yury Kashnitsky](https://yorko.github.io). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 
-Your task is to beat at least 2 benchmarks in this [Kaggle Inclass competition](https://www.kaggle.com/c/flight-delays-spring-2018). Here you won’t be provided with detailed instructions. We only give you a brief description of how the second benchmark was achieved using Xgboost. Hopefully, at this stage of the course, it's enough for you to take a quick look at the data in order to understand that this is the type of task where gradient boosting will perform well. Most likely it will be Xgboost, however, we’ve got plenty of categorical features here.
+Your task is to beat at least 2 benchmarks in this [Kaggle Inclass competition](https://www.kaggle.com/c/flight-delays-spring-2018). Here, you won’t be provided with detailed instructions. We only give you a brief description of how the second benchmark was achieved using Xgboost. Hopefully, at this stage of the course, it's enough for you to take a quick look at the data in order to understand that this is the type of task where gradient boosting will perform well. Most likely it will be Xgboost; however, we have plenty of categorical features here.
 
 ```{figure} /_static/img/xgboost_meme.jpg
 :name: ods_stickers
@@ -66,7 +66,7 @@ train.head()
 test.head()
 ```
 
-Given flight departure time, carrier's code, departure airport, destination location, and flight distance, you have to predict departure delay for more than 15 minutes. As the simplest benchmark, let's take Xgboost classifier and two features that are easiest to take: DepTime and Distance. Such model results in 0.68202 on the LB.
+Given flight departure time, carrier's code, departure airport, destination location, and flight distance, you have to predict departure delay for more than 15 minutes. As the simplest benchmark, let's take an Xgboost classifier and two features that are easiest to take: DepTime and Distance. Such a model results in 0.68202 on the LB.
 
 
 ```{code-cell} ipython3
@@ -79,7 +79,7 @@ X_train_part, X_valid, y_train_part, y_valid = train_test_split(
 )
 ```
 
-We'll train Xgboost with default parameters on part of data and estimate holdout ROC AUC.
+We'll train Xgboost with default parameters on a part of the data and estimate holdout ROC AUC.
 
 
 ```{code-cell} ipython3
@@ -91,7 +91,7 @@ xgb_valid_pred = xgb_model.predict_proba(X_valid)[:, 1]
 roc_auc_score(y_valid, xgb_valid_pred)
 ```
 
-Now we do the same with the whole training set, make predictions to test set and form a submission file. This is how you beat the first benchmark.
+Now we do the same with the whole training set, make predictions to the test set and form a submission file. This is how you beat the first benchmark.
 
 
 ```{code-cell} ipython3
@@ -108,7 +108,7 @@ The second benchmark in the leaderboard was achieved as follows:
 - Features `Distance` and `DepTime` were taken unchanged
 - A feature `Flight` was created from features `Origin` and `Dest`
 - Features `Month`, `DayofMonth`, `DayOfWeek`, `UniqueCarrier` and `Flight` were transformed with OHE (`LabelBinarizer`)
-- Logistic regression and gradient boosting (xgboost) were trained. Xgboost hyperparameters were tuned via cross-validation. First, the hyperparameters responsible for model complexity were optimized, then the number of trees was fixed at 500 and learning step was tuned.
+- Logistic regression and gradient boosting (xgboost) were trained. Xgboost hyperparameters were tuned via cross-validation. First, the hyperparameters responsible for model complexity were optimized, then the number of trees was fixed at 500 and learning rate was tuned.
 - Predicted probabilities were made via cross-validation using `cross_val_predict`. A linear mixture of logistic regression and gradient boosting predictions was set in the form $w_1 * p_{logit} + (1 - w_1) * p_{xgb}$, where $p_{logit}$ is a probability of class 1, predicted by logistic regression, and $p_{xgb}$ – the same for xgboost. $w_1$ weight was selected manually.
 - A similar combination of predictions was made for test set.
 
