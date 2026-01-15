@@ -880,26 +880,26 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Money_spent_little</th>
-      <th>Eloquence_high</th>
-      <th>Looks_handsome</th>
-      <th>Money_spent_lots</th>
       <th>Alcoholic_beverage_yes</th>
-      <th>Alcoholic_beverage_no</th>
       <th>Looks_repulsive</th>
+      <th>Looks_handsome</th>
+      <th>Alcoholic_beverage_no</th>
       <th>Eloquence_average</th>
+      <th>Eloquence_high</th>
+      <th>Money_spent_lots</th>
+      <th>Money_spent_little</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>True</td>
       <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
+      <td>True</td>
+      <td>True</td>
       <td>False</td>
     </tr>
     <tr>
@@ -908,10 +908,10 @@ document.write(`
       <td>False</td>
       <td>True</td>
       <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
@@ -919,54 +919,54 @@ document.write(`
       <td>False</td>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>False</td>
       <td>True</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
       <td>True</td>
       <td>False</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
       <td>True</td>
       <td>False</td>
+      <td>True</td>
       <td>False</td>
       <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -997,14 +997,14 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Money_spent_little</th>
-      <th>Eloquence_high</th>
-      <th>Looks_handsome</th>
-      <th>Money_spent_lots</th>
       <th>Alcoholic_beverage_yes</th>
-      <th>Alcoholic_beverage_no</th>
       <th>Looks_repulsive</th>
+      <th>Looks_handsome</th>
+      <th>Alcoholic_beverage_no</th>
       <th>Eloquence_average</th>
+      <th>Eloquence_high</th>
+      <th>Money_spent_lots</th>
+      <th>Money_spent_little</th>
     </tr>
   </thead>
   <tbody>
@@ -1014,32 +1014,32 @@ document.write(`
       <td>False</td>
       <td>True</td>
       <td>True</td>
-      <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>True</td>
-      <td>True</td>
-      <td>True</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
+      <td>True</td>
       <td>False</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
+      <td>False</td>
       <td>True</td>
+      <td>False</td>
       <td>True</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -1946,114 +1946,12 @@ memory usage: 3.5+ MB
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fill missing data</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">categorical_columns</span><span class="p">:</span>
-    <span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">data_test</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">data_test</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_test</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">numerical_columns</span><span class="p">:</span>
-    <span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">data_test</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:4: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].mode()[0], inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:5: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].mode()[0], inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:8: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:9: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:8: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:9: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:8: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:9: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:8: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:9: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:8: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:9: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:8: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_train[c].fillna(data_train[c].median(), inplace=True)
-/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86525/1077200075.py:9: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  data_test[c].fillna(data_train[c].median(), inplace=True)
+    <span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+    <span class="n">data_test</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_test</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data_train</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>

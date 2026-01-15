@@ -214,7 +214,7 @@ Now, we will create a LogisticRegression model and use class_weight='balanced' t
 
 
 ```{code-cell} ipython3
-lr = LogisticRegression(random_state=5, class_weight="balanced", max_iter=500)
+lr = LogisticRegression(random_state=5, class_weight="balanced", max_iter=5000)
 ```
 
 Let's try to find the best regularization coefficient, which is the coefficient `C` for logistic regression. Then, we will have an optimal model that is not overfit and is a good predictor of the target variable.
@@ -294,7 +294,7 @@ grid_search.best_score_
 ```{code-cell} ipython3
 from sklearn.preprocessing import StandardScaler
 
-lr = LogisticRegression(C=0.001, random_state=5, class_weight="balanced", max_iter=500)
+lr = LogisticRegression(C=0.001, random_state=5, class_weight="balanced", max_iter=5000)
 scal = StandardScaler()
 lr.fit(scal.fit_transform(X), y)
 
@@ -332,7 +332,7 @@ print((np.exp(lr.coef_[0]) / np.sum(np.exp(lr.coef_[0])))[2])
 
 
 ```{code-cell} ipython3
-lr = LogisticRegression(C=0.001, random_state=5, class_weight="balanced", max_iter=500)
+lr = LogisticRegression(C=0.001, random_state=5, class_weight="balanced", max_iter=5000)
 lr.fit(X, y)
 
 pd.DataFrame(
