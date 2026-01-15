@@ -61,7 +61,7 @@ Recall that the idea of gradient descent is to minimize some function by making 
 <img src='../../_static/img/topic08/snowboarder_gesh.jpg' width=70%>  
 </div>
 
-Here is a snowboarder (me) in Sheregesh, Russia's most popular winter resort. (I highly recommended it if you like skiing or snowboarding). In addition to advertising the beautiful landscapes, this picture depicts the idea of gradient descent. If you want to ride as fast as possible, you need to choose the path of steepest descent. Calculating antigradients can be seen as evaluating the slope at various spots.
+Here is a snowboarder (me) in Sheregesh, Russia's most popular winter resort. (I highly recommend it if you like skiing or snowboarding). In addition to advertising the beautiful landscapes, this picture depicts the idea of gradient descent. If you want to ride as fast as possible, you need to choose the path of steepest descent. Calculating antigradients can be seen as evaluating the slope at various spots.
 
 **Example**
 
@@ -92,7 +92,7 @@ plt.ylabel("Height in inches");
 
 Here we have a vector $x$ of dimension $\ell$ (weight of every person i.e. training sample) and $y$, a vector containing the height of every person in the dataset.
 
-The task is the following: find weights $w_0$ and $w_1$ such that predicting height as $y_i = w_0 + w_1 x_i$ (where $y_i$ is $i$-th height value, $x_i$ is $i$-th weight value) minimizes the squared error (as well as mean squared error since $\frac{1}{\ell}$ doesn't make any difference ):
+The task is the following: find weights $w_0$ and $w_1$ such that predicting height as $y_i = w_0 + w_1 x_i$ (where $y_i$ is $i$-th height value, $x_i$ is $i$-th weight value) minimizes the squared error (as well as mean squared error since $\frac{1}{\ell}$ doesn't make any difference):
 
 $$
 SE(w_0, w_1) = \frac{1}{2}\sum_{i=1}^\ell(y_i - (w_0 + w_1x_{i}))^2 \rightarrow min_{w_0,w_1}
@@ -112,7 +112,7 @@ $$
 $$
 
 This math works quite well as long as the amount of data is not large (we will not discuss issues with local minima, saddle points, choosing the learning rate, moments and other stuff –- these topics are covered very thoroughly in [the Numeric Computation chapter](http://www.deeplearningbook.org/contents/numerical.html) in "Deep Learning").
-There is an issue with batch gradient descent -- the gradient evaluation requires the summation of a number of values for every object from the training set. In other words, the algorithm requires a lot of iterations, and every iteration recomputes weights with formula which contains a sum $\sum_{i=1}^\ell$ over the whole training set. What happens when we have billions of training samples?
+There is an issue with batch gradient descent -- the gradient evaluation requires the summation of a number of values for every object from the training set. In other words, the algorithm requires a lot of iterations, and every iteration recomputes weights with a formula that contains a sum $\sum_{i=1}^\ell$ over the whole training set. What happens when we have billions of training samples?
 
 <div align="center">
 <img src='../../_static/img/topic08/overfitting_meme.jpeg'
@@ -148,7 +148,7 @@ After working through the whole training dataset, our loss function (for example
 
 This approach to learning is called **online learning**, and this name emerged even before machine learning MOOC-s turned mainstream.
 
-We did not discuss many specifics about SGD here. If you want dive into theory, I highly recommend ["Convex Optimization" by Stephen Boyd](https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787). Now, we will introduce the Vowpal Wabbit library, which is good for training simple models with huge data sets thanks to stochastic optimization and another trick, feature hashing.
+We did not discuss many specifics about SGD here. If you want to dive into theory, I highly recommend ["Convex Optimization" by Stephen Boyd](https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787). Now, we will introduce the Vowpal Wabbit library, which is good for training simple models with huge data sets thanks to stochastic optimization and another trick, feature hashing.
 
 In scikit-learn, classifiers and regressors trained with SGD are named  `SGDClassifier` and `SGDRegressor` in `sklearn.linear_model`. These are nice implementations of SGD, but we'll focus on VW since it is more performant than sklearn's SGD models in many aspects.
 
@@ -157,7 +157,7 @@ In scikit-learn, classifiers and regressors trained with SGD are named  `SGDClas
 ### 2.1. Label Encoding
 Many classification and regression algorithms operate in Euclidean or metric space, implying that data is represented with vectors of real numbers. However, in real data, we often have categorical features with discrete values such as yes/no or January/February/.../December. We will see how to process this kind of data, particularly with linear models, and how to deal with many categorical features even when they have many unique values.
 
-Let's explore the [UCI bank marketing dataset](https://archive.ics.uci.edu/ml/datasets/bank+marketing) where most of  features are categorical.
+Let's explore the [UCI bank marketing dataset](https://archive.ics.uci.edu/ml/datasets/bank+marketing) where most of the features are categorical.
 
 
 ```{code-cell} ipython3
@@ -169,7 +169,7 @@ labels = pd.read_csv(
 df.head()
 ```
 
-We can see that most of features are not represented by numbers. This poses a problem because we cannot use most machine learning methods (at least those implemented in scikit-learn) out-of-the-box.
+We can see that most of the features are not represented by numbers. This poses a problem because we cannot use most machine learning methods (at least those implemented in scikit-learn) out-of-the-box.
 
 Let's dive into the "education" feature.
 
@@ -509,11 +509,11 @@ with open(os.path.join(PATH_TO_WRITE_DATA, "20news_test_mult.vw"), "w") as vw_te
         vw_test_data.write(to_vw_format(text))
 ```
 
-We train Vowpal Wabbit in multiclass classification mode, passing the `oaa` parameter("one against all") with the number of classes. Also, let's see what parameters our model quality is dependent on (more info can be found in the [official Vowpal Wabbit tutorial](https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial)):
+We train Vowpal Wabbit in multiclass classification mode, passing the `oaa` parameter ("one against all") with the number of classes. Also, let's see what parameters our model quality is dependent on (more info can be found in the [official Vowpal Wabbit tutorial](https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial)):
  - learning rate (-l, 0.5 default) – rate of weight change on every step
  - learning rate decay (--power_t, 0.5 default) – it is proven in practice, that, if the learning rate drops with the number of steps in stochastic gradient descent, we approach the minimum loss better
- - loss function (--loss_function) – the entire training algorithm depends on it. See [docs](https://github.com/JohnLangford/vowpal_wabbit/wiki/Loss-functions) for loss functions
- - Regularization (-l1) – note that VW  calculates regularization for every object. That is why we usually set regularization values to about $10^{-20}.$
+ - loss function (--loss_function) – the entire training algorithm depends on it. See the [docs](https://github.com/JohnLangford/vowpal_wabbit/wiki/Loss-functions) for loss functions
+ - Regularization (-l1) – note that VW  calculates regularization for every object. This is why we usually set regularization values to about $10^{-20}.$
 
 Additionally, we can try automatic Vowpal Wabbit parameter tuning with [Hyperopt](https://github.com/hyperopt/hyperopt).
 

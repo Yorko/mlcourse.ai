@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Users/kashnitsky/.local/share/uv/python/cpython-3.13.2-macos-aarch64-none/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/kashnitsky/Documents/misc/mlcourse.ai/.venv/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Your code here
+inertia = []
+for k in tqdm_notebook(range(1, n_classes + 1)):
+    kmeans = KMeans(n_clusters=k, n_init=100, random_state=RANDOM_STATE).fit(
+        X_pca
+    )
+    inertia.append(np.sqrt(kmeans.inertia_))
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[18][39m[32m, line 3[39m
+[32m      1[39m [38;5;66;03m# Your code here[39;00m
+[32m      2[39m inertia = []
+[32m----> [39m[32m3[39m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [43mtqdm_notebook[49m([38;5;28mrange[39m([32m1[39m, n_classes + [32m1[39m)):
+[32m      4[39m     kmeans = KMeans(n_clusters=k, n_init=[32m100[39m, random_state=RANDOM_STATE).fit(
+[32m      5[39m         X_pca
+[32m      6[39m     )
+[32m      7[39m     inertia.append(np.sqrt(kmeans.inertia_))
+
+[31mNameError[39m: name 'tqdm_notebook' is not defined
+

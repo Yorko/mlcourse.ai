@@ -29,7 +29,7 @@ Next, when we analyze a model's performance or report results, we often use char
 
 All in all, visualization is a relatively fast way to learn something new about your data. Thus, it is vital to learn its most useful techniques and make them part of your everyday ML toolbox.
 
-In this article, we are going to get hands-on experience with visual exploration of data using popular libraries such as `pandas`, `matplotlib` and `seaborn`.
+In this article, we are going to get hands-on experience with visual exploration of data using popular libraries such as `pandas`, `matplotlib`, and `seaborn`.
 
 ## Article outline
 
@@ -441,7 +441,7 @@ In the case of *State*, the number of distinct values is rather high: 51. We see
 df.groupby(["State"])["Churn"].agg(["mean"]).sort_values(by="mean", ascending=False).T
 ```
 
-At first glance, it seems that the churn rate in *New Jersey* and *California* is above 25% and less than 6% for Hawaii and Alaska. However, these conclusions are based on too few examples, and our observation could be a mere property of our particular dataset. We can confirm this with the [Matthews](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) and [Cramer](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) correlation hypotheses, but this would be beyond the scope of this article.
+At first glance, it seems that the churn rate in *New Jersey* and *California* is above 25% and less than 6% for Hawaii and Alaska. However, these conclusions are based on too few examples, and our observation could be a mere property of our particular dataset. We can confirm this with the [Matthews](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) and [Cramer](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) correlation coefficients, but this would be beyond the scope of this article.
 
 ## 4. Whole dataset visualizations
 
@@ -561,7 +561,7 @@ Occasionally, using t-SNE, you can get a really good intuition for the data. The
 - Medium ["story"](https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-2-visual-data-analysis-in-python-846b989675cd) based on this notebook
 - Course materials as a [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse)
 - If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/323210/) on Habrahabr with ~ the same material. And a [lecture](https://youtu.be/vm63p8Od0bM) on YouTube
-- Here is the official documentation for the libraries we used: [`matplotlib`](https://matplotlib.org/contents.html), [`seaborn`](https://seaborn.pydata.org/introduction.html) and [`pandas`](https://pandas.pydata.org/pandas-docs/stable/).
+- Here is the official documentation for the libraries we used: [`matplotlib`](https://matplotlib.org/contents.html), [`seaborn`](https://seaborn.pydata.org/introduction.html), and [`pandas`](https://pandas.pydata.org/pandas-docs/stable/).
 - The [gallery](http://seaborn.pydata.org/examples/index.html) of sample charts created with `seaborn` is a very good resource.
 - Also, see the [documentation](http://scikit-learn.org/stable/modules/manifold.html) on Manifold Learning in `scikit-learn`.
 - Efficient t-SNE implementation [Multicore-TSNE](https://github.com/DmitryUlyanov/Multicore-TSNE).

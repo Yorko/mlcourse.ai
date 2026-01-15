@@ -169,7 +169,7 @@ sns.catplot(
 plt.xticks(rotation='vertical');
 ```
 
-You can see that the distribution of cholesterol and glucose levels great differs by the value of the target variable. Is this a coincidence?
+You can see that the distribution of cholesterol and glucose levels greatly differs by the value of the target variable. Is this a coincidence?
 
 Now, let's calculate some statistics for the feature unique values:
 
@@ -192,7 +192,7 @@ In the end, we have:
 
 ## 1.1. Basic observations
 
-**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not given (whether "1" stands for women or for men) – figure this out by looking analyzing height, making the assumption that men are taller on average.**
+**Question 1.1. (1 point). How many men and women are present in this dataset? Values of the `gender` feature were not given (whether "1" stands for women or for men) – figure this out by analyzing height, making the assumption that men are taller on average.**
 
 1. 45530 women and 24470 men
 2. 45530 men and 24470 women
@@ -259,7 +259,7 @@ Create a new feature – BMI ([Body Mass Index](https://en.wikipedia.org/wiki/Bo
 **Question 1.6. (2 points). Choose the correct statements:**
 
 1. Median BMI in the sample is within boundaries of normal values.
-2. Women's BMI is on average higher then men's.
+2. Women's BMI is on average higher than men's.
 3. Healthy people have higher median BMI than ill people.
 4. In the segment of healthy and non-drinking men BMI is closer to the norm than in the segment of healthy and non-drinking women
 
@@ -270,7 +270,7 @@ We can see that the data is not perfect. It contains "dirt" and inaccuracies. We
 
 Filter out the following patient segments (we consider these as erroneous data)
 
-- diastolic pressure is higher than systolic
+- diastolic pressure is higher than systolic.
 - height is strictly less than 2.5 percentile (Use `pd.Series.quantile` to compute this value. If you are not familiar with the function, please read the docs.)
 - height is strictly more than 97.5 percentile
 - weight is strictly less than 2.5 percentile
@@ -332,7 +332,7 @@ In order for the plot to render correctly, you need to convert your `DataFrame` 
 ## 2.3. Rank correlation
 
 In most cases, *the Pearson coefficient of linear correlation* is more than enough to discover patterns in data.
-But let's go a little further and calculate a [rank correlation](https://en.wikipedia.org/wiki/Rank_correlation). It will help us to identify such feature pairs in which the lower rank in the variational series of one feature always precedes the higher rank in the another one (and we have the opposite in the case of negative correlation).
+But let's go a little further and calculate a [rank correlation](https://en.wikipedia.org/wiki/Rank_correlation). It will help us to identify such feature pairs in which the lower rank in the variational series of one feature always precedes the higher rank in the other one (and we have the opposite in the case of negative correlation).
 
 ### Task:
 

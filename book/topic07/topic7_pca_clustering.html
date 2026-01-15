@@ -608,8 +608,8 @@ Translated and edited by <a class="reference external" href="https://www.linkedi
 </section>
 <section id="introduction">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>The main feature of unsupervised learning algorithms, when compared to classification and regression methods, is that input data are unlabeled (i.e. no labels or classes given) and that the algorithm learns the structure of the data without any assistance. This creates two main differences. First, it allows us to process large amounts of data because the data does not need to be manually labeled. Second, it is difficult to evaluate the quality of an unsupervised algorithm due to the absence of an explicit goodness metric as used in supervised learning.</p>
-<p>One of the most common tasks in unsupervised learning is dimensionality reduction. On one hand, dimensionality reduction may help with data visualization (e.g. t-SNE method) while, on the other hand, it may help deal with the multicollinearity of your data and prepare the data for a supervised learning method (e.g. decision trees).</p>
+<p>The main feature of unsupervised learning algorithms, when compared to classification and regression methods, is that input data is unlabeled (i.e. no labels or classes given) and that the algorithm learns the structure of the data without any assistance. This creates two main differences. First, it allows us to process large amounts of data because the data does not need to be manually labeled. Second, it is difficult to evaluate the quality of an unsupervised algorithm due to the absence of an explicit goodness metric as used in supervised learning.</p>
+<p>One of the most common tasks in unsupervised learning is dimensionality reduction. On one hand, dimensionality reduction may help with data visualization (e.g., the t-SNE method) while, on the other hand, it may help deal with the multicollinearity of your data and prepare the data for a supervised learning method (e.g., decision trees).</p>
 </section>
 <section id="principal-component-analysis-pca">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Principal Component Analysis (PCA)</a><a class="headerlink" href="#principal-component-analysis-pca" title="Link to this heading">#</a></h2>
@@ -784,7 +784,7 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 </div>
-<p>Let’s start by visualizing our data. Fetch the first 10 numbers. The numbers are represented by 8 x 8 matrixes with the color intensity for each pixel. Every matrix is flattened into a vector of 64 numbers, so we get the feature version of the data.</p>
+<p>Let’s start by visualizing our data. Fetch the first 10 numbers. The numbers are represented by 8 x 8 matrices with the color intensity for each pixel. Every matrix is flattened into a vector of 64 numbers, so we get the feature version of the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># f, axes = plt.subplots(5, 2, sharey=True, figsize=(16,6))</span>
@@ -858,8 +858,8 @@ In the general case, the resulting ellipsoid dimensionality matches the initial 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16.1 s, sys: 8.28 s, total: 24.4 s
-Wall time: 2.25 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9.34 s, sys: 6.34 s, total: 15.7 s
+Wall time: 2.5 s
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/1169af1cfe17392c5aba2683a150b7f6af939b469261cf79ca77f2abfbed5bf9.png"><img alt="../../_images/1169af1cfe17392c5aba2683a150b7f6af939b469261cf79ca77f2abfbed5bf9.png" src="../../_images/1169af1cfe17392c5aba2683a150b7f6af939b469261cf79ca77f2abfbed5bf9.png" style="width: 909px; height: 838px;" />
@@ -994,7 +994,7 @@ Wall time: 2.25 s
 <p>In contrast to the supervised learning tasks such as classification and regression, clustering requires more effort to choose the optimization criterion. Usually, when working with k-means, we optimize the sum of squared distances between the observations and their centroids.</p>
 <div class="math notranslate nohighlight">
 \[ J(C) = \sum_{k=1}^K\sum_{i~\in~C_k} ||x_i - \mu_k|| \rightarrow \min\limits_C,\]</div>
-<p>where <span class="math notranslate nohighlight">\(C\)</span> – is a set of clusters with power <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(\mu_k\)</span> is a centroid of a cluster <span class="math notranslate nohighlight">\(C_k\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> – is a set of clusters with power <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(\mu_k\)</span> is the centroid of a cluster <span class="math notranslate nohighlight">\(C_k\)</span>.</p>
 <p>This definition seems reasonable – we want our observations to be as close to their centroids as possible. But, there is a problem – the optimum is reached when the number of centroids is equal to the number of observations, so you would end up with every single observation as its own separate cluster.</p>
 <p>In order to avoid that case, we should choose a number of clusters after which a function <span class="math notranslate nohighlight">\(J(C_k)\)</span> is decreasing less rapidly. More formally,</p>
 <div class="math notranslate nohighlight">
@@ -1058,12 +1058,12 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 </section>
 <section id="agglomerative-clustering">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">Agglomerative clustering</a><a class="headerlink" href="#agglomerative-clustering" title="Link to this heading">#</a></h2>
-<p>The following algorithm is the simplest and easiest to understand among all the the clustering algorithms without a fixed number of clusters.</p>
+<p>The following algorithm is the simplest and easiest to understand among all the clustering algorithms without a fixed number of clusters.</p>
 <p>The algorithm is fairly simple:</p>
 <ol class="arabic simple">
 <li><p>We start by assigning each observation to its own cluster</p></li>
 <li><p>Then sort the pairwise distances between the centers of clusters in descending order</p></li>
-<li><p>Take the nearest two neigbor clusters and merge them together, and recompute the centers</p></li>
+<li><p>Take the nearest two neighbor clusters and merge them together, and recompute the centers</p></li>
 <li><p>Repeat steps 2 and 3 until all the data is merged into one cluster</p></li>
 </ol>
 <p>The process of searching for the nearest cluster can be conducted with different methods of bounding the observations:</p>
@@ -1126,7 +1126,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 \[\text{ARI} = \frac{\text{RI} - E[\text{RI}]}{\max(\text{RI}) - E[\text{RI}]}.\]</div>
 <p>This metric is symmetric and does not depend in the label permutation. Therefore, this index is a measure of distances between different sample splits. <span class="math notranslate nohighlight">\(\text{ARI}\)</span> takes on values in the <span class="math notranslate nohighlight">\([-1, 1]\)</span> range. Negative values indicate the independence of splits, and positive values indicate that these splits are consistent (they match <span class="math notranslate nohighlight">\(\text{ARI} = 1\)</span>).</p>
 <p><strong>Adjusted Mutual Information (AMI)</strong></p>
-<p>This metric is similar to <span class="math notranslate nohighlight">\(\text{ARI}\)</span>. It is also symmetric and does not depend on the labels’ values and permutation. It is defined by the [entropy](<a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">https://en.wikipedia.org/wiki/Entropy_(information_theory)</a> function and interprets a sample split as a discrete distribution (likelihood of assigning to a cluster is equal to the percent of objects in it). The <span class="math notranslate nohighlight">\(MI\)</span> index is defined as the <a class="reference external" href="https://en.wikipedia.org/wiki/Mutual_information">mutual information</a> for two distributions, corresponding to the sample split into clusters. Intuitively, the mutual information measures the share of information common for both clustering splits i.e. how information about one of them decreases the uncertainty of the other one.</p>
+<p>This metric is similar to <span class="math notranslate nohighlight">\(\text{ARI}\)</span>. It is also symmetric and does not depend on the labels’ values and permutation. It is defined by the <a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a> function and interprets a sample split as a discrete distribution (likelihood of assigning to a cluster is equal to the percent of objects in it). The <span class="math notranslate nohighlight">\(MI\)</span> index is defined as the <a class="reference external" href="https://en.wikipedia.org/wiki/Mutual_information">mutual information</a> for two distributions, corresponding to the sample split into clusters. Intuitively, the mutual information measures the share of information common for both clustering splits i.e. how information about one of them decreases the uncertainty of the other one.</p>
 <p>Similarly to the <span class="math notranslate nohighlight">\(\text{ARI}\)</span>, the <span class="math notranslate nohighlight">\(\text{AMI}\)</span> is defined. This allows us to get rid of the <span class="math notranslate nohighlight">\(MI\)</span> index’s increase with the number of clusters. The <span class="math notranslate nohighlight">\(\text{AMI}\)</span> lies in the <span class="math notranslate nohighlight">\([0, 1]\)</span> range. Values close to zero mean the splits are independent, and those close to 1 mean they are similar (with complete match at <span class="math notranslate nohighlight">\(\text{AMI} = 1\)</span>).</p>
 <p><strong>Homogeneity, completeness, V-measure</strong></p>
 <p>Formally, these metrics are also defined based on the entropy function and the conditional entropy function, interpreting the sample splits as discrete distributions:</p>
@@ -1170,7 +1170,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
             <span class="p">{</span>
                 <span class="s2">&quot;ARI&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
                 <span class="s2">&quot;AMI&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_mutual_info_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
-                <span class="s2">&quot;Homogenity&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">homogeneity_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
+                <span class="s2">&quot;Homogeneity&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">homogeneity_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
                 <span class="s2">&quot;Completeness&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">completeness_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
                 <span class="s2">&quot;V-measure&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">v_measure_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
                 <span class="s2">&quot;Silhouette&quot;</span><span class="p">:</span> <span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">algo</span><span class="o">.</span><span class="n">labels_</span><span class="p">),</span>
@@ -1180,7 +1180,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
 
 <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ARI&quot;</span><span class="p">,</span> <span class="s2">&quot;AMI&quot;</span><span class="p">,</span> <span class="s2">&quot;Homogenity&quot;</span><span class="p">,</span> <span class="s2">&quot;Completeness&quot;</span><span class="p">,</span> <span class="s2">&quot;V-measure&quot;</span><span class="p">,</span> <span class="s2">&quot;Silhouette&quot;</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ARI&quot;</span><span class="p">,</span> <span class="s2">&quot;AMI&quot;</span><span class="p">,</span> <span class="s2">&quot;Homogeneity&quot;</span><span class="p">,</span> <span class="s2">&quot;Completeness&quot;</span><span class="p">,</span> <span class="s2">&quot;V-measure&quot;</span><span class="p">,</span> <span class="s2">&quot;Silhouette&quot;</span><span class="p">],</span>
     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;K-means&quot;</span><span class="p">,</span> <span class="s2">&quot;Affinity&quot;</span><span class="p">,</span> <span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="s2">&quot;Agglomerative&quot;</span><span class="p">],</span>
 <span class="p">)</span>
 
@@ -1209,7 +1209,7 @@ We’d like to split up the graph into two subgraphs in such a way that each obs
       <th></th>
       <th>ARI</th>
       <th>AMI</th>
-      <th>Homogenity</th>
+      <th>Homogeneity</th>
       <th>Completeness</th>
       <th>V-measure</th>
       <th>Silhouette</th>
@@ -1379,7 +1379,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

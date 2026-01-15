@@ -627,7 +627,7 @@ document.write(`
 <div align="center">
 <img src='../../_static/img/topic08/snowboarder_gesh.jpg' width=70%>  
 </div>
-<p>Here is a snowboarder (me) in Sheregesh, Russia’s most popular winter resort. (I highly recommended it if you like skiing or snowboarding). In addition to advertising the beautiful landscapes, this picture depicts the idea of gradient descent. If you want to ride as fast as possible, you need to choose the path of steepest descent. Calculating antigradients can be seen as evaluating the slope at various spots.</p>
+<p>Here is a snowboarder (me) in Sheregesh, Russia’s most popular winter resort. (I highly recommend it if you like skiing or snowboarding). In addition to advertising the beautiful landscapes, this picture depicts the idea of gradient descent. If you want to ride as fast as possible, you need to choose the path of steepest descent. Calculating antigradients can be seen as evaluating the slope at various spots.</p>
 <p><strong>Example</strong></p>
 <p>The paired regression problem can be solved with gradient descent. Let us predict one variable using another: height with weight. Assume that these variables are linearly dependent. We will use the <a class="reference external" href="http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data">SOCR</a> dataset.</p>
 <div class="cell docutils container">
@@ -662,7 +662,7 @@ document.write(`
 </div>
 </div>
 <p>Here we have a vector <span class="math notranslate nohighlight">\(x\)</span> of dimension <span class="math notranslate nohighlight">\(\ell\)</span> (weight of every person i.e. training sample) and <span class="math notranslate nohighlight">\(y\)</span>, a vector containing the height of every person in the dataset.</p>
-<p>The task is the following: find weights <span class="math notranslate nohighlight">\(w_0\)</span> and <span class="math notranslate nohighlight">\(w_1\)</span> such that predicting height as <span class="math notranslate nohighlight">\(y_i = w_0 + w_1 x_i\)</span> (where <span class="math notranslate nohighlight">\(y_i\)</span> is <span class="math notranslate nohighlight">\(i\)</span>-th height value, <span class="math notranslate nohighlight">\(x_i\)</span> is <span class="math notranslate nohighlight">\(i\)</span>-th weight value) minimizes the squared error (as well as mean squared error since <span class="math notranslate nohighlight">\(\frac{1}{\ell}\)</span> doesn’t make any difference ):</p>
+<p>The task is the following: find weights <span class="math notranslate nohighlight">\(w_0\)</span> and <span class="math notranslate nohighlight">\(w_1\)</span> such that predicting height as <span class="math notranslate nohighlight">\(y_i = w_0 + w_1 x_i\)</span> (where <span class="math notranslate nohighlight">\(y_i\)</span> is <span class="math notranslate nohighlight">\(i\)</span>-th height value, <span class="math notranslate nohighlight">\(x_i\)</span> is <span class="math notranslate nohighlight">\(i\)</span>-th weight value) minimizes the squared error (as well as mean squared error since <span class="math notranslate nohighlight">\(\frac{1}{\ell}\)</span> doesn’t make any difference):</p>
 <div class="math notranslate nohighlight">
 \[
 SE(w_0, w_1) = \frac{1}{2}\sum_{i=1}^\ell(y_i - (w_0 + w_1x_{i}))^2 \rightarrow min_{w_0,w_1}
@@ -679,7 +679,7 @@ An iterative training procedure is then defined by simple update formulas (we ch
 \begin{array}{rcl} w_0^{(t+1)} = w_0^{(t)} + \eta \sum_{i=1}^{\ell}(y_i - w_0^{(t)} - w_1^{(t)}x_i) \\  w_1^{(t+1)} = w_1^{(t)} + \eta \sum_{i=1}^{\ell}(y_i - w_0^{(t)} - w_1^{(t)}x_i)x_i \end{array}
 \end{split}\]</div>
 <p>This math works quite well as long as the amount of data is not large (we will not discuss issues with local minima, saddle points, choosing the learning rate, moments and other stuff –- these topics are covered very thoroughly in <a class="reference external" href="http://www.deeplearningbook.org/contents/numerical.html">the Numeric Computation chapter</a> in “Deep Learning”).
-There is an issue with batch gradient descent – the gradient evaluation requires the summation of a number of values for every object from the training set. In other words, the algorithm requires a lot of iterations, and every iteration recomputes weights with formula which contains a sum <span class="math notranslate nohighlight">\(\sum_{i=1}^\ell\)</span> over the whole training set. What happens when we have billions of training samples?</p>
+There is an issue with batch gradient descent – the gradient evaluation requires the summation of a number of values for every object from the training set. In other words, the algorithm requires a lot of iterations, and every iteration recomputes weights with a formula that contains a sum <span class="math notranslate nohighlight">\(\sum_{i=1}^\ell\)</span> over the whole training set. What happens when we have billions of training samples?</p>
 <div align="center">
 <img src='../../_static/img/topic08/overfitting_meme.jpeg'
 </div>
@@ -705,7 +705,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 \end{split}\]</div>
 <p>After working through the whole training dataset, our loss function (for example, quadratic squared root error in regression or logistic loss in classification) will decrease, but it usually takes dozens of passes over the training set to make the loss small enough.</p>
 <p>This approach to learning is called <strong>online learning</strong>, and this name emerged even before machine learning MOOC-s turned mainstream.</p>
-<p>We did not discuss many specifics about SGD here. If you want dive into theory, I highly recommend <a class="reference external" href="https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787">“Convex Optimization” by Stephen Boyd</a>. Now, we will introduce the Vowpal Wabbit library, which is good for training simple models with huge data sets thanks to stochastic optimization and another trick, feature hashing.</p>
+<p>We did not discuss many specifics about SGD here. If you want to dive into theory, I highly recommend <a class="reference external" href="https://www.amazon.com/Convex-Optimization-Stephen-Boyd/dp/0521833787">“Convex Optimization” by Stephen Boyd</a>. Now, we will introduce the Vowpal Wabbit library, which is good for training simple models with huge data sets thanks to stochastic optimization and another trick, feature hashing.</p>
 <p>In scikit-learn, classifiers and regressors trained with SGD are named  <code class="docutils literal notranslate"><span class="pre">SGDClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">SGDRegressor</span></code> in <code class="docutils literal notranslate"><span class="pre">sklearn.linear_model</span></code>. These are nice implementations of SGD, but we’ll focus on VW since it is more performant than sklearn’s SGD models in many aspects.</p>
 </section>
 </section>
@@ -714,7 +714,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 <section id="label-encoding">
 <h3><a class="toc-backref" href="#id10" role="doc-backlink">2.1. Label Encoding</a><a class="headerlink" href="#label-encoding" title="Link to this heading">#</a></h3>
 <p>Many classification and regression algorithms operate in Euclidean or metric space, implying that data is represented with vectors of real numbers. However, in real data, we often have categorical features with discrete values such as yes/no or January/February/…/December. We will see how to process this kind of data, particularly with linear models, and how to deal with many categorical features even when they have many unique values.</p>
-<p>Let’s explore the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">UCI bank marketing dataset</a> where most of  features are categorical.</p>
+<p>Let’s explore the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/bank+marketing">UCI bank marketing dataset</a> where most of the features are categorical.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;bank_train.csv&quot;</span><span class="p">))</span>
@@ -887,7 +887,7 @@ There is an issue with batch gradient descent – the gradient evaluation requir
 </table>
 </div></div></div>
 </div>
-<p>We can see that most of features are not represented by numbers. This poses a problem because we cannot use most machine learning methods (at least those implemented in scikit-learn) out-of-the-box.</p>
+<p>We can see that most of the features are not represented by numbers. This poses a problem because we cannot use most machine learning methods (at least those implemented in scikit-learn) out-of-the-box.</p>
 <p>Let’s dive into the “education” feature.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1989,12 +1989,12 @@ Thanks,
 </div>
 </div>
 </div>
-<p>We train Vowpal Wabbit in multiclass classification mode, passing the <code class="docutils literal notranslate"><span class="pre">oaa</span></code> parameter(“one against all”) with the number of classes. Also, let’s see what parameters our model quality is dependent on (more info can be found in the <a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial">official Vowpal Wabbit tutorial</a>):</p>
+<p>We train Vowpal Wabbit in multiclass classification mode, passing the <code class="docutils literal notranslate"><span class="pre">oaa</span></code> parameter (“one against all”) with the number of classes. Also, let’s see what parameters our model quality is dependent on (more info can be found in the <a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Tutorial">official Vowpal Wabbit tutorial</a>):</p>
 <ul class="simple">
 <li><p>learning rate (-l, 0.5 default) – rate of weight change on every step</p></li>
 <li><p>learning rate decay (–power_t, 0.5 default) – it is proven in practice, that, if the learning rate drops with the number of steps in stochastic gradient descent, we approach the minimum loss better</p></li>
-<li><p>loss function (–loss_function) – the entire training algorithm depends on it. See <a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Loss-functions">docs</a> for loss functions</p></li>
-<li><p>Regularization (-l1) – note that VW  calculates regularization for every object. That is why we usually set regularization values to about <span class="math notranslate nohighlight">\(10^{-20}.\)</span></p></li>
+<li><p>loss function (–loss_function) – the entire training algorithm depends on it. See the <a class="reference external" href="https://github.com/JohnLangford/vowpal_wabbit/wiki/Loss-functions">docs</a> for loss functions</p></li>
+<li><p>Regularization (-l1) – note that VW  calculates regularization for every object. This is why we usually set regularization values to about <span class="math notranslate nohighlight">\(10^{-20}.\)</span></p></li>
 </ul>
 <p>Additionally, we can try automatic Vowpal Wabbit parameter tuning with <a class="reference external" href="https://github.com/hyperopt/hyperopt">Hyperopt</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!vw --oaa 20 $PATH_TO_WRITE_DATA/20news_train_mult.vw -f $PATH_TO_WRITE_DATA/20news_model_mult.vw --loss_function=hinge
@@ -2589,7 +2589,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

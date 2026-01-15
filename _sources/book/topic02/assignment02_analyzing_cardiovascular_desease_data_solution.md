@@ -209,7 +209,7 @@ Let's calculate average height for both values of `gender`:
 df.groupby("gender")["height"].mean()
 ```
 
-161 cm and almost 170 cm on average, so we make a conclusion that gender=1 represents females, and gender=2 – males. So the sample contains 45530 women и 24470 men.
+161 cm and almost 170 cm on average, so we make a conclusion that gender=1 represents females, and gender=2 – males. So the sample contains 45530 women and 24470 men.
 
 **Question 1.2. (1 point). Who more often report consuming alcohol – men or women?**
 

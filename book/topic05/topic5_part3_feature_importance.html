@@ -569,7 +569,7 @@ document.write(`
 </li>
 </ul>
 </nav>
-<p>It’s quite often that you want to make out the exact reasons of the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.</p>
+<p>It’s quite often that you want to determine the exact reasons for the algorithm outputting a particular answer. Or at the very least to find out which input features contributed most to the result. With Random Forest, you can obtain such information quite easily.</p>
 </section>
 <section id="intuition">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Intuition</a><a class="headerlink" href="#intuition" title="Link to this heading">#</a></h2>
@@ -577,12 +577,12 @@ document.write(`
 <img src="../../_static/img/credit_scoring_toy_tree_english.png" align='center'>
 <p>In the case of many decision trees or a random forest, the closer the mean position of a feature over all the trees to the root, the more significant it is for a given classification or regression problem. Gains in the splitting criterion, such as <em>Gini impurity</em>, obtained at each optimal split in every tree is a measure of importance that is directly associated with the splitting feature. The value of this score is distinct for each feature and accumulates over all the trees.</p>
 <p>Let’s go a little deeper into the details.</p>
-<p>There exist a lot of methods to assess feature importances. Leo Breinman in his works suggested to evaluate the importance of a variable by measuring decrease of accuracy of the forest when the variable is randomly permuted or decrease of impurity of a nodes where the given variable is used for splitting. The former method is often called <strong>permutation importance</strong>. The latter method is used in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+<p>There exist a lot of methods to assess feature importances. Leo Breiman in his works suggested evaluating the importance of a variable by measuring decrease of accuracy of the forest when the variable is randomly permuted or decrease of impurity of a node where the given variable is used for splitting. The former method is often called <strong>permutation importance</strong>. The latter method is used in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
 <section id="permutation-importance">
 <h3><a class="toc-backref" href="#id4" role="doc-backlink">Permutation importance</a><a class="headerlink" href="#permutation-importance" title="Link to this heading">#</a></h3>
 <p>Inspired by <a class="reference external" href="https://www.researchgate.net/publication/5231126_Conditional_Variable_Importance_for_Random_Forests">this</a> article.
 The average reduction in accuracy caused by a variable is determined during the calculation of the out-of-bag error. The greater the reduction in accuracy due to an exclusion or permutation of the variable, the higher its <em>importance score</em>. For this reason, variables with a greater average reduction in accuracy are generally more significant for classification.</p>
-<p>The rationale for calculating permutation importance is the following: By randomly permuting the predictor variable <span class="math notranslate nohighlight">\(X_j\)</span>, its original association with the response <span class="math notranslate nohighlight">\(Y\)</span> is broken. When the permuted variable <span class="math notranslate nohighlight">\(X_j\)</span>, together with all the others non-permuted variables, is used the response for the out-of-bag observations, the prediction <em>accuracy</em> decreases substantially if the original <span class="math notranslate nohighlight">\(X_j\)</span> was associated with response. Thus, as a measure of variable importance, the difference in prediction accuracy before and after permuting is used.</p>
+<p>The rationale for calculating permutation importance is the following: By randomly permuting the predictor variable <span class="math notranslate nohighlight">\(X_j\)</span>, its original association with the response <span class="math notranslate nohighlight">\(Y\)</span> is broken. When the permuted variable <span class="math notranslate nohighlight">\(X_j\)</span>, together with all the other non-permuted variables, is used to predict the response for the out-of-bag observations, the prediction <em>accuracy</em> decreases substantially if the original <span class="math notranslate nohighlight">\(X_j\)</span> was associated with response. Thus, as a measure of variable importance, the difference in prediction accuracy before and after permuting is used.</p>
 <p>More formally: denote <span class="math notranslate nohighlight">\(\overline{\mathfrak{B}}^{(t)}\)</span> as the out-of-bag sample for a tree <span class="math notranslate nohighlight">\(t\)</span>, for <span class="math notranslate nohighlight">\(t\in\{1, ..., N\}\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of trees in ensemble. Then the permutation importance of variable <span class="math notranslate nohighlight">\(X_j\)</span> in tree <span class="math notranslate nohighlight">\(t\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[{PI}^{(t)}\left(X_j\right)=\frac{\sum_{i\in\overline{\mathfrak{B}}^{(t)}}I\left(y_i=\hat{y}_i^{(t)}\right)}{\left|\overline{\mathfrak{B}}^{(t)}\right|}-\frac{\sum_{i\in\overline{\mathfrak{B}}^{(t)}}I\left(y_i=\hat{y}_{i,\pi_j}^{(t)}\right)}{\left|\overline{\mathfrak{B}}^{(t)}\right|}\]</div>
@@ -683,13 +683,13 @@ Sklearn library uses another approach to determine feature importance. The ratio
 <p>1. For each tree <span class="math notranslate nohighlight">\(t\)</span> in ensemble <span class="math notranslate nohighlight">\(t\in\{1,...,N\}\)</span>:</p>
 <p>1.1.  for each node <span class="math notranslate nohighlight">\(i\)</span> calculate the reduction in impurity (such as MSE, Gini or entropy) as <span class="math notranslate nohighlight">\({RI}_i^{(t)}=w_i^{(t)}\cdot I_i^{(t)} - w_{LEFT_i}^{(t)}\cdot I_{LEFT_i}^{(t)}-w_{RIGHT_i}^{(t)}\cdot I_{RIGHT_i}^{(t)}\)</span>, where:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(w_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(w_{LEFT_i}^{(t)}\)</span>, and <span class="math notranslate nohighlight">\(w_{RIGHT_i}^{(t)}\)</span> are respectively weighted number of samples reaching   node <span class="math notranslate nohighlight">\(i\)</span> in tree <span class="math notranslate nohighlight">\(t\)</span>, and its left <span class="math notranslate nohighlight">\(LEFT_i\)</span> and right <span class="math notranslate nohighlight">\(RIGHT_i\)</span> children</p></li>
-<li><p><span class="math notranslate nohighlight">\(I_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(I_{LEFT_i}^{(t)}\)</span>,   <span class="math notranslate nohighlight">\(I_{RIGHT_i}^{(t)}\)</span> are impurities (such as MSE, Gini or entropy) of the nodes. For leaves <span class="math notranslate nohighlight">\({RI}_i^{(t)}\)</span> is equal to 0.</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(w_{LEFT_i}^{(t)}\)</span>, and <span class="math notranslate nohighlight">\(w_{RIGHT_i}^{(t)}\)</span> are respectively weighted number of samples reaching node <span class="math notranslate nohighlight">\(i\)</span> in tree <span class="math notranslate nohighlight">\(t\)</span>, and its left <span class="math notranslate nohighlight">\(LEFT_i\)</span> and right <span class="math notranslate nohighlight">\(RIGHT_i\)</span> children</p></li>
+<li><p><span class="math notranslate nohighlight">\(I_i^{(t)}\)</span>, <span class="math notranslate nohighlight">\(I_{LEFT_i}^{(t)}\)</span>,   <span class="math notranslate nohighlight">\(I_{RIGHT_i}^{(t)}\)</span> are impurities (such as MSE, Gini or entropy) of the nodes. For leaves, <span class="math notranslate nohighlight">\({RI}_i^{(t)}\)</span> is equal to 0.</p></li>
 </ul>
 <p>1.2.  for each feature <span class="math notranslate nohighlight">\(j\)</span> calculate its importance in that particular tree as</p>
 <div class="math notranslate nohighlight">
 \[{FI}_j^{(t)}=\frac{\sum_{i:\text{node }i\text{ splits on feature } j}{RI}_i^{(t)}}{\sum_{i\in\text{all nodes}}{RI}_i^{(t)}}\]</div>
-<p>That means that in numerator we sum the reduction in impurity only in those nodes where feature <span class="math notranslate nohighlight">\(j\)</span> is situated.</p>
+<p>That means that in the numerator we sum the reduction in impurity only in those nodes where feature <span class="math notranslate nohighlight">\(j\)</span> is situated.</p>
 <p>2. Calculate the average feature importances over all trees in ensemble:</p>
 <div class="math notranslate nohighlight">
 \[{FI}_j=\frac{\sum_{t=1}^N {FI}_j^{(t)}}{N}\]</div>
@@ -800,7 +800,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 </div>
 </div>
 </div>
-<p>After fitting list of all the trees are stored in <code class="docutils literal notranslate"><span class="pre">estimators_</span></code> property.</p>
+<p>After fitting, the list of all the trees is stored in <code class="docutils literal notranslate"><span class="pre">estimators_</span></code> property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_list</span> <span class="o">=</span> <span class="n">rfc</span><span class="o">.</span><span class="n">estimators_</span>
@@ -956,7 +956,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 <span class="n">importances</span> <span class="o">=</span> <span class="n">forest</span><span class="o">.</span><span class="n">feature_importances_</span>
 
 <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">importances</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="c1"># Plot the feature importancies of the forest</span>
+<span class="c1"># Plot the feature importances of the forest</span>
 <span class="n">num_to_plot</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">feature_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">ind</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">[:</span><span class="n">num_to_plot</span><span class="p">]]</span>
 
@@ -999,7 +999,7 @@ Sklearn library uses another approach to determine feature importance. The ratio
 <img alt="../../_images/1508d774eb6dd823dc76be5f44a30abce556f4ab977ad46da0b83bf02845ad0d.png" src="../../_images/1508d774eb6dd823dc76be5f44a30abce556f4ab977ad46da0b83bf02845ad0d.png" />
 </div>
 </div>
-<p>The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model’s accuracy. However, based on our analysis, we can recommend hostel owners to focus primarily on staff training and price-to-quality ratio.</p>
+<p>The picture above shows that, more often than not, customers pay great attention to staff and the price-quality ratio. This couple of factors affects the resulting overall rating the most. The difference between these two features and other features is not very large, so we can conclude that exclusion of any of these features will lead to a reduction of model’s accuracy. However, based on our analysis, we can recommend that hostel owners focus primarily on staff training and price-to-quality ratio.</p>
 </section>
 <section id="useful-resources">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
@@ -1113,7 +1113,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

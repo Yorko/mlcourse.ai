@@ -753,7 +753,7 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <p>This is easy to prove. Suppose there are <span class="math notranslate nohighlight">\(\large \ell\)</span> examples in our dataset. At each step, each data point has equal probability of ending up in a bootstrap sample with replacement, probability <span class="math notranslate nohighlight">\(\large\frac{1}{\ell}.\)</span> The probability that there is no such bootstrap sample that contains a particular dataset element (i.e. it has been omitted <span class="math notranslate nohighlight">\(\large \ell\)</span> times) equals <span class="math notranslate nohighlight">\(\large (1 - \frac{1}{\ell})^\ell\)</span>. When <span class="math notranslate nohighlight">\(\large \ell \rightarrow +\infty\)</span>, it becomes equal to the <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_limits">Second Remarkable Limit</a> <span class="math notranslate nohighlight">\(\large \frac{1}{e}\)</span>. Then, the probability of selecting a specific example is <span class="math notranslate nohighlight">\(\large \approx  1 - \frac{1}{e} \approx 63\%\)</span>.</p>
 <p>Let’s visualize how Out-of-Bag Error (or OOBE) estimation works:</p>
 <p><img alt="image" src="../../_images/topic5_oob.png" /></p>
-<p>The top part of the figure above represents our original dataset. We split it into the training (left) and test (right) sets. In the left image, we draw a grid that perfectly divides our dataset according to classes. Now, we use the same grid to estimate the share of the correct answers on our test set. We can see that our classifier gave incorrect answers in those 4 cases that have not been used during training (on the left). Hence, the accuracy of our classifier is <span class="math notranslate nohighlight">\(\large \frac{11}{15}*100\% = 73.33\%\)</span>.</p>
+<p>The top part of the figure above represents our original dataset. We split it into the training (left) and test (right) sets. In the left image, we draw a grid that perfectly divides our dataset according to classes. Now, we use the same grid to estimate the share of the correct answers on our test set. We can see that our classifier gave incorrect answers in those 4 cases that were not used during training (on the left). Hence, the accuracy of our classifier is <span class="math notranslate nohighlight">\(\large \frac{11}{15}*100\% = 73.33\%\)</span>.</p>
 <p>To sum up, each base algorithm is trained on <span class="math notranslate nohighlight">\(\large \approx 63\%\)</span> of the original examples. It can be validated on the remaining <span class="math notranslate nohighlight">\(\large \approx 37\%\)</span>.</p>
 <p>The Out-of-Bag error is then computed in the following way:</p>
 <ul class="simple">
@@ -771,7 +771,7 @@ $<span class="math notranslate nohighlight">\( \large 0.0196 \, (\Err) = 0.0004 
 <li><p><a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> <a class="reference external" href="https://www.youtube.com/watch?v=neXJL-AqI_c">lecture</a> on Random Forest</p></li>
 <li><p>Medium <a class="reference external" href="https://medium.com/open-machine-learning-course/open-machine-learning-course-topic-5-ensembles-of-algorithms-and-random-forest-8e05246cbba7">“story”</a> based on this notebook</p></li>
 <li><p>Course materials as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">Kaggle Dataset</a></p></li>
-<li><p>If you read Russian: an <a class="reference external" href="https://habr.com/ru/company/ods/blog/324402/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with ~ the same material. And a <a class="reference external" href="https://youtu.be/G0DmuuFeC30">lecture</a> on YouTube</p></li>
+<li><p>If you read Russian: an <a class="reference external" href="https://habr.com/ru/company/ods/blog/324402/">article</a> on <a class="reference external" href="http://Habr.com">Habr.com</a> with approximately the same material. And a <a class="reference external" href="https://youtu.be/G0DmuuFeC30">lecture</a> on YouTube</p></li>
 <li><p>Chapter 15 of the book “<a class="reference external" href="https://statweb.stanford.edu/~tibs/ElemStatLearn/">Elements of Statistical Learning</a>” by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie.</p></li>
 <li><p>More about practical applications of random forests and other algorithms can be found in the <a class="reference external" href="http://scikit-learn.org/stable/modules/ensemble.html">official documentation</a> of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
 <li><p>For a more in-depth discussion of variance and decorrelation of random forests, see the <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf">original paper</a>.</p></li>
@@ -873,7 +873,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

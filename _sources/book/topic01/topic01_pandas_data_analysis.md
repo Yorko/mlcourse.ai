@@ -50,6 +50,7 @@ import numpy as np
 import pandas as pd
 
 pd.set_option("display.precision", 2)
+pd.set_option("future.no_silent_downcasting", True)
 ```
 
 
@@ -188,7 +189,7 @@ Let's use it to answer the question:
 
 **What are the average values of numerical features for churned users?**
 
-Here we'l resort to an additional method `select_dtypes` to select all numeric columns.
+Here we'll resort to an additional method `select_dtypes` to select all numeric columns.
 
 ```{code-cell} ipython3
 df.select_dtypes(include=np.number)[df["Churn"] == 1].mean()
@@ -266,7 +267,7 @@ Almost the same thing can be done with the `replace` method.
 <details>
 <summary>Difference in treating values that are absent in the mapping dictionary</summary>
 <p>
-There's a slight difference. Еру `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).
+There's a slight difference. The `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs.
 
 ```{code-cell} ipython3
 a_series = pd.Series(['a', 'b', 'c'])
@@ -471,7 +472,7 @@ As we move on through this course, recall that, before the advent of machine lea
 
 - The share of loyal clients in the dataset is 85.5%. The most naive model that always predicts a "loyal customer" on such data will guess right in about 85.5% of all cases. That is, the proportion of correct answers (*accuracy*) of subsequent models should be no less than this number, and will hopefully be significantly higher;
 - With the help of a simple prediction that can be expressed by the following formula: `International plan = True & Customer Service calls > 3 => Churn = 1, else Churn = 0`, we can expect a guessing rate of 85.8%, which is just above 85.5%. Subsequently, we'll talk about decision trees and figure out how to find such rules **automatically** based only on the input data;
-- We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, persay, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple "if-else" model with two conditions;
+- We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, per se, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple "if-else" model with two conditions;
 - Before training complex models, it is recommended to wrangle the data a bit, make some plots, and check simple assumptions. Moreover, in business applications of machine learning, they usually start with simple solutions and then experiment with more complex ones.
 
 ```{figure} /_static/img/topic01/no_ml_meme.jpg
@@ -481,7 +482,7 @@ As we move on through this course, recall that, before the advent of machine lea
 ## 3. Useful resources
 
 * The same notebook as an interactive web-based [Kaggle Kernel](https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas)
-* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Plako within mlcourse.ai (the full list of tutorials is [here](https://mlcourse.ai/tutorials))
+* ["Merging DataFrames with pandas"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb) -- a tutorial by Max Palko within mlcourse.ai (the full list of tutorials is [here](https://mlcourse.ai/tutorials))
 * ["Handle different dataset with dask and trying a little dask ML"](https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb) -- a tutorial by Irina Knyazeva within mlcourse.ai
 * [Course repo](https://github.com/Yorko/mlcourse.ai), and YouTube [channel](https://www.youtube.com/watch?v=QKTuw4PNOsU&list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX)
 * Official Pandas [documentation](http://pandas.pydata.org/pandas-docs/stable/index.html)

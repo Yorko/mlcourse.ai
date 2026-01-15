@@ -575,7 +575,7 @@ document.write(`
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://github.com/DmitrySerg">Dmitriy Sergeyev</a>, Data Scientist &#64; Zeptolab, lecturer in the Center of Mathematical Finance in MSU. Translated by: &#64;borowis. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p>We continue our open machine learning course with a new article on time series.</p>
-<p>Let’s take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing is, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost… In addition, all of this will be applied to (harsh) real world examples.</p>
+<p>Let’s take a look at how to work with time series in Python: what methods and models we can use for prediction, what double and triple exponential smoothing are, what to do if stationarity is not your favorite thing, how to build SARIMA and stay alive, how to make predictions using xgboost… In addition, all of this will be applied to (harsh) real world examples.</p>
 <section id="article-outline">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
@@ -626,7 +626,7 @@ document.write(`
 <h1><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>We begin with a simple <a class="reference external" href="https://en.wikipedia.org/wiki/Time_series">definition</a> of time series:</p>
 <blockquote>
-<div><p><em>Time series</em> is a series of data points indexed (or listed or graphed) in time order.</p>
+<div><p><em>Time series</em> are a series of data points indexed (or listed or graphed) in time order.</p>
 </div></blockquote>
 <p>Therefore, the data is organized by relatively deterministic timestamps, and may, compared to random sample data, contain additional information that we can extract.</p>
 <p>Let’s import some libraries. First, we will need the <a class="reference external" href="http://statsmodels.sourceforge.net/stable/">statsmodels</a> library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> will definitely look more familiar since it supports model definitions like ‘Wage ~ Age + Education’.</p>
@@ -746,7 +746,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><a class="reference external" href="http://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error">Mean Squared Logarithmic Error</a>: practically, this is the same as MSE, but we take the logarithm of the series. As a result, we give more weight to small mistakes as well. This is usually used when the data has exponential trends, <span class="math notranslate nohighlight">\([0, +\infty)\)</span></p></li>
+<li><p><a class="reference external" href="http://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error">Mean Squared Logarithmic Error</a>: practically, this is the same as MSE, but we take the logarithm of the series. As a result, we give more weight to small errors as well. This is usually used when the data has exponential trends, <span class="math notranslate nohighlight">\([0, +\infty)\)</span></p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(MSLE = \frac{1}{n}\sum\limits_{i=1}^{n} (log(1+y_i) - log(1+\hat{y}_i))^2\)</span></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_log_error</span>
@@ -782,7 +782,7 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You should be very careful with MAPE, MSLE and other metrics that are poorly defined around <span class="math notranslate nohighlight">\(y=0\)</span>. Formally, MAPE is not defined for any <span class="math notranslate nohighlight">\(y_i = 0\)</span>. In practice, these metric can “explode” even for small values of <span class="math notranslate nohighlight">\(y_i\)</span> around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values <span class="math notranslate nohighlight">\(y_i = 0\)</span> is indeed a workaround but a bad one: thus, we’d ignore those cases where the prediction is high (<span class="math notranslate nohighlight">\(\hat{y}_i \gg 1\)</span>) and the actual value is 0 (<span class="math notranslate nohighlight">\(y_i = 0\)</span>). More of this is <a class="reference external" href="https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape">discussed</a> on CrossValidated.</p>
+<p>You should be very careful with MAPE, MSLE and other metrics that are poorly defined around <span class="math notranslate nohighlight">\(y=0\)</span>. Formally, MAPE is not defined for any <span class="math notranslate nohighlight">\(y_i = 0\)</span>. In practice, these metrics can “explode” even for small values of <span class="math notranslate nohighlight">\(y_i\)</span> around 0. The ways to go around this limitation should be clear for the end user. For example, simply ignoring actual values <span class="math notranslate nohighlight">\(y_i = 0\)</span> is indeed a workaround but a bad one: thus, we’d ignore those cases where the prediction is high (<span class="math notranslate nohighlight">\(\hat{y}_i \gg 1\)</span>) and the actual value is 0 (<span class="math notranslate nohighlight">\(y_i = 0\)</span>). More of this is <a class="reference external" href="https://stats.stackexchange.com/questions/299712/what-are-the-shortcomings-of-the-mean-absolute-percentage-error-mape">discussed</a> on CrossValidated.</p>
 </div>
 <p>Now that we know how to measure the quality of the forecasts, let’s see what metrics we can use and how to translate the results for the boss. After that, one small detail remains - building the model.</p>
 </section>
@@ -1055,7 +1055,7 @@ dtype: float64
 <section id="double-exponential-smoothing">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">Double exponential smoothing</a><a class="headerlink" href="#double-exponential-smoothing" title="Link to this heading">#</a></h2>
 <p>Up to now, the methods that we’ve discussed have been for a single future point prediction (with some nice smoothing). That is cool, but it is also not enough. Let’s extend exponential smoothing so that we can predict two future points (of course, we will also include more smoothing).</p>
-<p>Series decomposition will help us – we obtain two components: intercept (i.e. level) <span class="math notranslate nohighlight">\(\ell\)</span> and slope (i.e. trend) <span class="math notranslate nohighlight">\(b\)</span>. We have learnt to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depends on the previous weighted changes. As a result, we get the following set of functions:</p>
+<p>Series decomposition will help us – we obtain two components: intercept (i.e. level) <span class="math notranslate nohighlight">\(\ell\)</span> and slope (i.e. trend) <span class="math notranslate nohighlight">\(b\)</span>. We have learned to predict intercept (or expected series value) with our previous methods; now, we will apply the same exponential smoothing to the trend by assuming that the future direction of the time series changes depend on the previous weighted changes. As a result, we get the following set of functions:</p>
 <div class="math notranslate nohighlight">
 \[\ell_x = \alpha y_x + (1-\alpha)(\ell_{x-1} + b_{x-1})\]</div>
 <div class="math notranslate nohighlight">
@@ -3473,7 +3473,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

@@ -530,7 +530,7 @@ document.write(`
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
 <p>Author: <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. All content is distributed under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license.</p>
-<p>Your task is to beat at least 2 benchmarks in this <a class="reference external" href="https://www.kaggle.com/c/flight-delays-spring-2018">Kaggle Inclass competition</a>. Here you won’t be provided with detailed instructions. We only give you a brief description of how the second benchmark was achieved using Xgboost. Hopefully, at this stage of the course, it’s enough for you to take a quick look at the data in order to understand that this is the type of task where gradient boosting will perform well. Most likely it will be Xgboost, however, we’ve got plenty of categorical features here.</p>
+<p>Your task is to beat at least 2 benchmarks in this <a class="reference external" href="https://www.kaggle.com/c/flight-delays-spring-2018">Kaggle Inclass competition</a>. Here, you won’t be provided with detailed instructions. We only give you a brief description of how the second benchmark was achieved using Xgboost. Hopefully, at this stage of the course, it’s enough for you to take a quick look at the data in order to understand that this is the type of task where gradient boosting will perform well. Most likely it will be Xgboost; however, we have plenty of categorical features here.</p>
 <figure class="align-default" id="ods-stickers">
 <a class="reference internal image-reference" href="../../_images/xgboost_meme.jpg"><img alt="../../_images/xgboost_meme.jpg" src="../../_images/xgboost_meme.jpg" style="width: 444px;" />
 </a>
@@ -765,7 +765,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Given flight departure time, carrier’s code, departure airport, destination location, and flight distance, you have to predict departure delay for more than 15 minutes. As the simplest benchmark, let’s take Xgboost classifier and two features that are easiest to take: DepTime and Distance. Such model results in 0.68202 on the LB.</p>
+<p>Given flight departure time, carrier’s code, departure airport, destination location, and flight distance, you have to predict departure delay for more than 15 minutes. As the simplest benchmark, let’s take an Xgboost classifier and two features that are easiest to take: DepTime and Distance. Such a model results in 0.68202 on the LB.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">train</span><span class="p">[[</span><span class="s2">&quot;Distance&quot;</span><span class="p">,</span> <span class="s2">&quot;DepTime&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
@@ -779,7 +779,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We’ll train Xgboost with default parameters on part of data and estimate holdout ROC AUC.</p>
+<p>We’ll train Xgboost with default parameters on a part of the data and estimate holdout ROC AUC.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgb_model</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
@@ -797,7 +797,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now we do the same with the whole training set, make predictions to test set and form a submission file. This is how you beat the first benchmark.</p>
+<p>Now we do the same with the whole training set, make predictions to the test set and form a submission file. This is how you beat the first benchmark.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -815,7 +815,7 @@ document.write(`
 <li><p>Features <code class="docutils literal notranslate"><span class="pre">Distance</span></code> and <code class="docutils literal notranslate"><span class="pre">DepTime</span></code> were taken unchanged</p></li>
 <li><p>A feature <code class="docutils literal notranslate"><span class="pre">Flight</span></code> was created from features <code class="docutils literal notranslate"><span class="pre">Origin</span></code> and <code class="docutils literal notranslate"><span class="pre">Dest</span></code></p></li>
 <li><p>Features <code class="docutils literal notranslate"><span class="pre">Month</span></code>, <code class="docutils literal notranslate"><span class="pre">DayofMonth</span></code>, <code class="docutils literal notranslate"><span class="pre">DayOfWeek</span></code>, <code class="docutils literal notranslate"><span class="pre">UniqueCarrier</span></code> and <code class="docutils literal notranslate"><span class="pre">Flight</span></code> were transformed with OHE (<code class="docutils literal notranslate"><span class="pre">LabelBinarizer</span></code>)</p></li>
-<li><p>Logistic regression and gradient boosting (xgboost) were trained. Xgboost hyperparameters were tuned via cross-validation. First, the hyperparameters responsible for model complexity were optimized, then the number of trees was fixed at 500 and learning step was tuned.</p></li>
+<li><p>Logistic regression and gradient boosting (xgboost) were trained. Xgboost hyperparameters were tuned via cross-validation. First, the hyperparameters responsible for model complexity were optimized, then the number of trees was fixed at 500 and learning rate was tuned.</p></li>
 <li><p>Predicted probabilities were made via cross-validation using <code class="docutils literal notranslate"><span class="pre">cross_val_predict</span></code>. A linear mixture of logistic regression and gradient boosting predictions was set in the form <span class="math notranslate nohighlight">\(w_1 * p_{logit} + (1 - w_1) * p_{xgb}\)</span>, where <span class="math notranslate nohighlight">\(p_{logit}\)</span> is a probability of class 1, predicted by logistic regression, and <span class="math notranslate nohighlight">\(p_{xgb}\)</span> – the same for xgboost. <span class="math notranslate nohighlight">\(w_1\)</span> weight was selected manually.</p></li>
 <li><p>A similar combination of predictions was made for test set.</p></li>
 </ul>
@@ -897,7 +897,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

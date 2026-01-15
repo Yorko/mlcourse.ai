@@ -18,7 +18,7 @@ In the following [short video](https://youtu.be/CPlYV_DryEo) we discuss how to b
 
 ## How to navigate this website and pass the course
 
-Here you see a [Jupyter book](https://jupyterbook.org/intro.html) -- an executable book containing MarkDown, code, images, graphs, etc. (we describe Jupyter books in more detail [later](./prereqs/software_devops.md#jupyter-book)). You can jump forward and backward with left and right arrows. Any page can be downloaded as `.md` (MarkDown) or PDF -- use the Download button in the upper-right corner. Additionally, each page containing code can be downloaded as `.ipynb` -- a [Jupyter Notebook](https://jupyter.org) (not to be confused with Jupyter book). For every page, you can see its source on GitHub, and you can also open an issue or suggest an edit -- use the GitHub button in the upper-right corner.
+Here you see a [Jupyter book](https://jupyterbook.org/intro.html) -- an executable book containing MarkDown, code, images, graphs, etc. (we describe Jupyter books in more detail [later](./prereqs/software_devops.md#jupyter-book)). You can jump forward and backward with left and right arrows. Any page can be downloaded as `.md` (MarkDown) or PDF -- use the Download button in the upper-right corner. For every page, you can see its source on GitHub, and you can also open an issue or suggest an edit -- use the GitHub button in the upper-right corner.
 
 OK, let's go! First, check [prerequisites](prereq_python), then you see 10 topics -- from exploratory data analysis with Pandas to gradient boosting. For each topic, there's an introductory part ([here's an example](topic01_intro) for Topic 1) that lists articles to read, lectures to watch and assignments to crack.
 
@@ -74,6 +74,6 @@ Below you can see the course program (click to enlarge).
 If you scroll down here on the left, you see the "About the course" section with additional materials and information:
 
  - One of the assignments in the past mlcourse.ai sessions was to write a tutorial on almost any ML/DS-related topic. The result is seen on the [Tutorials](tutorials) page;
- - One of the motivating features of the the past mlcourse.ai sessions was the leaderboard. Top 100 participants of each session are listed on the [Rating](rating) page;
+ - One of the motivating features of the past mlcourse.ai sessions was the leaderboard. Top 100 participants of each session are listed on the [Rating](rating) page;
  - The [Resources](resources) page lists other resources constituting the course, e.g. YouTube playlists or Medium/Habr.com articles written in the past;
  - Authors and some of the mlcourse.ai contributors (there were too many to list all of them) are listed on the [Contributors](contributors) page. Acknowledgements are there as well.

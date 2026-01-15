@@ -688,7 +688,7 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </a>
 </figure>
 <p>In our next case, we solve a binary classification problem (approve/deny a loan) based on the “Age”, “Home-ownership”, “Income”, and “Education” features.</p>
-<p>The decision tree as a machine learning algorithm is essentially the same thing as the diagram shown above; we incorporate a stream of logical rules of the form “feature <span class="math notranslate nohighlight">\(a\)</span> value is less than <span class="math notranslate nohighlight">\(x\)</span> and feature <span class="math notranslate nohighlight">\(b\)</span> value is less than <span class="math notranslate nohighlight">\(y\)</span> … =&gt; Category 1” into a tree-like data structure. The advantage of this algorithm is that they are easily interpretable. For example, using the above scheme, the bank can explain to the client why they were denied for a loan: e.g the client does not own a house and her income is less than 5,000.</p>
+<p>The decision tree as a machine learning algorithm is essentially the same thing as the diagram shown above; we incorporate a stream of logical rules of the form “feature <span class="math notranslate nohighlight">\(a\)</span> value is less than <span class="math notranslate nohighlight">\(x\)</span> and feature <span class="math notranslate nohighlight">\(b\)</span> value is less than <span class="math notranslate nohighlight">\(y\)</span> … =&gt; Category 1” into a tree-like data structure. The advantage of this algorithm is that it is easily interpretable. For example, using the above scheme, the bank can explain to the client why they were denied for a loan: e.g the client does not own a house and her income is less than 5,000.</p>
 <p>As we’ll see later, many other models, although more accurate, do not have this property and can be regarded as more of a “black box” approach, where it is harder to interpret how the input data was transformed into the output. Due to this “understandability” and similarity to human decision-making (you can easily explain your model to your boss), decision trees have gained immense popularity. C4.5, a representative of this group of classification methods, is even the first in the list of 10 best data mining algorithms (“Top 10 Algorithms in Data Mining”, Knowledge and Information Systems, 2008. <a class="reference external" href="https://www.researchgate.net/publication/29467751_Top_10_algorithms_in_data_mining">ResearchGate</a>).</p>
 <section id="how-to-build-a-decision-tree">
 <h3><a class="toc-backref" href="#id8" role="doc-backlink">How to Build a Decision Tree</a><a class="headerlink" href="#how-to-build-a-decision-tree" title="Link to this heading">#</a></h3>
@@ -744,7 +744,7 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 </section>
 <section id="other-quality-criteria-for-splits-in-classification-problems">
 <h3><a class="toc-backref" href="#id12" role="doc-backlink">Other Quality Criteria for Splits in Classification Problems</a><a class="headerlink" href="#other-quality-criteria-for-splits-in-classification-problems" title="Link to this heading">#</a></h3>
-<p>We discussed how entropy allows us to formalize partitions in a tree. But this is only one heuristic; there exists others:</p>
+<p>We discussed how entropy allows us to formalize partitions in a tree. But this is only one heuristic; there exist others:</p>
 <ul class="simple">
 <li><p>Gini uncertainty (Gini impurity): <span class="math notranslate nohighlight">\(G = 1 - \sum\limits_k (p_k)^2\)</span>. Maximizing this criterion can be interpreted as the maximization of the number of pairs of objects of the same class that are in the same subtree (not to be confused with the Gini index).</p></li>
 <li><p>Misclassification error:  <span class="math notranslate nohighlight">\(E = 1 - \max\limits_k p_k\)</span></p></li>
@@ -1472,14 +1472,14 @@ If we calculate information gain for each partition in that manner, we can selec
 </ol>
 <p>The method adapts quite easily for the regression problem: on step 3, it returns not the class, but the number – a mean (or median) of the target variable among neighbors.</p>
 <p>A notable feature of this approach is its laziness – calculations are only done during the prediction phase, when a test sample needs to be classified. No model is constructed from the training examples beforehand. In contrast, recall that for decision trees in the first half of this article the tree is constructed based on the training set, and the classification of test cases occurs relatively quickly by traversing through the tree.</p>
-<p>Nearest neighbors is a well-studied approach. There exist many important theorems claiming that, on “endless” datasets, it is the optimal method of classification. The authors of the classic book “The Elements of Statistical Learning” consider k-NN to be a theoretically ideal algorithm which usage is only limited by computation power and the <a class="reference external" href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.</p>
+<p>Nearest neighbors is a well-studied approach. There exist many important theorems claiming that, on “endless” datasets, it is the optimal method of classification. The authors of the classic book “The Elements of Statistical Learning” consider k-NN to be a theoretically ideal algorithm whose usage is only limited by computation power and the <a class="reference external" href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.</p>
 <section id="nearest-neighbors-method-in-real-applications">
 <h3><a class="toc-backref" href="#id21" role="doc-backlink">Nearest Neighbors Method in Real Applications</a><a class="headerlink" href="#nearest-neighbors-method-in-real-applications" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>k-NN can serve as a good starting point (baseline) in some cases;</p></li>
 <li><p>In Kaggle competitions, k-NN is often used for the construction of meta-features (i.e. k-NN predictions as input to other models) or for stacking/blending;</p></li>
 <li><p>The nearest neighbors method extends to other tasks like recommendation systems. The initial decision could be a recommendation of a product (or service) that is popular among the <em>closest neighbors</em> of the person for whom we want to make a recommendation;</p></li>
-<li><p>In practice, on large datasets, approximate methods of search are often used for nearest neighbors. There is a number of open source libraries that implement such algorithms; check out Spotify’s library <a class="reference external" href="https://github.com/spotify/annoy">Annoy</a>.</p></li>
+<li><p>In practice, on large datasets, approximate methods of search are often used for nearest neighbors. There are a number of open source libraries that implement such algorithms; check out Spotify’s library <a class="reference external" href="https://github.com/spotify/annoy">Annoy</a>.</p></li>
 </ul>
 <p>The quality of classification/regression with k-NN depends on several parameters:</p>
 <ul class="simple">
@@ -2378,12 +2378,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
     <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;autumn&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Easy task. Decision tree compexifies everything&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Easy task. Decision tree complexifies everything&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../_images/2e12245db49a40f8bce8802a0957c74ae2352233132905655d8bc9fd598ebf4a.png"><img alt="../../_images/2e12245db49a40f8bce8802a0957c74ae2352233132905655d8bc9fd598ebf4a.png" src="../../_images/2e12245db49a40f8bce8802a0957c74ae2352233132905655d8bc9fd598ebf4a.png" style="width: 546px; height: 437px;" />
+<a class="reference internal image-reference" href="../../_images/759e3b5f049e910232897ac4982d07ec71a1562b3ed53e59935977819cb5038c.png"><img alt="../../_images/759e3b5f049e910232897ac4982d07ec71a1562b3ed53e59935977819cb5038c.png" src="../../_images/759e3b5f049e910232897ac4982d07ec71a1562b3ed53e59935977819cb5038c.png" style="width: 546px; height: 437px;" />
 </a>
 </div>
 </div>
@@ -3295,7 +3295,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

@@ -34,9 +34,9 @@ In this lesson, we will work with unsupervised learning methods such as Principa
 
 ## 1. Introduction
 
-The main feature of unsupervised learning algorithms, when compared to classification and regression methods, is that input data are unlabeled (i.e. no labels or classes given) and that the algorithm learns the structure of the data without any assistance. This creates two main differences. First, it allows us to process large amounts of data because the data does not need to be manually labeled. Second, it is difficult to evaluate the quality of an unsupervised algorithm due to the absence of an explicit goodness metric as used in supervised learning.  
+The main feature of unsupervised learning algorithms, when compared to classification and regression methods, is that input data is unlabeled (i.e. no labels or classes given) and that the algorithm learns the structure of the data without any assistance. This creates two main differences. First, it allows us to process large amounts of data because the data does not need to be manually labeled. Second, it is difficult to evaluate the quality of an unsupervised algorithm due to the absence of an explicit goodness metric as used in supervised learning.  
 
-One of the most common tasks in unsupervised learning is dimensionality reduction. On one hand, dimensionality reduction may help with data visualization (e.g. t-SNE method) while, on the other hand, it may help deal with the multicollinearity of your data and prepare the data for a supervised learning method (e.g. decision trees).
+One of the most common tasks in unsupervised learning is dimensionality reduction. On one hand, dimensionality reduction may help with data visualization (e.g., the t-SNE method) while, on the other hand, it may help deal with the multicollinearity of your data and prepare the data for a supervised learning method (e.g., decision trees).
 
 
 ## 2. Principal Component Analysis (PCA)
@@ -191,7 +191,7 @@ X = digits.data
 y = digits.target
 ```
 
-Let's start by visualizing our data. Fetch the first 10 numbers. The numbers are represented by 8 x 8 matrixes with the color intensity for each pixel. Every matrix is flattened into a vector of 64 numbers, so we get the feature version of the data.
+Let's start by visualizing our data. Fetch the first 10 numbers. The numbers are represented by 8 x 8 matrices with the color intensity for each pixel. Every matrix is flattened into a vector of 64 numbers, so we get the feature version of the data.
 
 
 ```{code-cell} ipython3
@@ -362,7 +362,7 @@ In contrast to the supervised learning tasks such as classification and regressi
 
 $$ J(C) = \sum_{k=1}^K\sum_{i~\in~C_k} ||x_i - \mu_k|| \rightarrow \min\limits_C,$$
 
-where $C$ – is a set of clusters with power $K$, $\mu_k$ is a centroid of a cluster $C_k$.
+where $C$ – is a set of clusters with power $K$, $\mu_k$ is the centroid of a cluster $C_k$.
 
 This definition seems reasonable -- we want our observations to be as close to their centroids as possible. But, there is a problem -- the optimum is reached when the number of centroids is equal to the number of observations, so you would end up with every single observation as its own separate cluster.
 
@@ -427,13 +427,13 @@ We'd like to split up the graph into two subgraphs in such a way that each obser
 ## Agglomerative clustering
 
 
-The following algorithm is the simplest and easiest to understand among all the the clustering algorithms without a fixed number of clusters.
+The following algorithm is the simplest and easiest to understand among all the clustering algorithms without a fixed number of clusters.
 
 
 The algorithm is fairly simple:
 1. We start by assigning each observation to its own cluster
 2. Then sort the pairwise distances between the centers of clusters in descending order
-3. Take the nearest two neigbor clusters and merge them together, and recompute the centers
+3. Take the nearest two neighbor clusters and merge them together, and recompute the centers
 4. Repeat steps 2 and 3 until all the data is merged into one cluster
 
 The process of searching for the nearest cluster can be conducted with different methods of bounding the observations:
@@ -499,7 +499,7 @@ This metric is symmetric and does not depend in the label permutation. Therefore
 
 **Adjusted Mutual Information (AMI)**
 
-This metric is similar to $\text{ARI}$. It is also symmetric and does not depend on the labels' values and permutation. It is defined by the [entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory) function and interprets a sample split as a discrete distribution (likelihood of assigning to a cluster is equal to the percent of objects in it). The $MI$ index is defined as the [mutual information](https://en.wikipedia.org/wiki/Mutual_information) for two distributions, corresponding to the sample split into clusters. Intuitively, the mutual information measures the share of information common for both clustering splits i.e. how information about one of them decreases the uncertainty of the other one.
+This metric is similar to $\text{ARI}$. It is also symmetric and does not depend on the labels' values and permutation. It is defined by the [entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)) function and interprets a sample split as a discrete distribution (likelihood of assigning to a cluster is equal to the percent of objects in it). The $MI$ index is defined as the [mutual information](https://en.wikipedia.org/wiki/Mutual_information) for two distributions, corresponding to the sample split into clusters. Intuitively, the mutual information measures the share of information common for both clustering splits i.e. how information about one of them decreases the uncertainty of the other one.
 
 Similarly to the $\text{ARI}$, the $\text{AMI}$ is defined. This allows us to get rid of the $MI$ index's increase with the number of clusters. The $\text{AMI}$ lies in the $[0, 1]$ range. Values close to zero mean the splits are independent, and those close to 1 mean they are similar (with complete match at $\text{AMI} = 1$).
 
@@ -555,7 +555,7 @@ for algo in algorithms:
             {
                 "ARI": metrics.adjusted_rand_score(y, algo.labels_),
                 "AMI": metrics.adjusted_mutual_info_score(y, algo.labels_),
-                "Homogenity": metrics.homogeneity_score(y, algo.labels_),
+                "Homogeneity": metrics.homogeneity_score(y, algo.labels_),
                 "Completeness": metrics.completeness_score(y, algo.labels_),
                 "V-measure": metrics.v_measure_score(y, algo.labels_),
                 "Silhouette": metrics.silhouette_score(X, algo.labels_),
@@ -565,7 +565,7 @@ for algo in algorithms:
 
 results = pd.DataFrame(
     data=data,
-    columns=["ARI", "AMI", "Homogenity", "Completeness", "V-measure", "Silhouette"],
+    columns=["ARI", "AMI", "Homogeneity", "Completeness", "V-measure", "Silhouette"],
     index=["K-means", "Affinity", "Spectral", "Agglomerative"],
 )
 

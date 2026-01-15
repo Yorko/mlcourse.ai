@@ -532,7 +532,7 @@ document.write(`
 <p>Authors: <a class="reference external" href="https://www.linkedin.com/in/odaykhovskaya/">Olga Daykhovskaya</a>, <a class="reference external" href="https://yorko.github.io">Yury Kashnitsky</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <p><strong>Same assignment as a <a class="reference external" href="https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning">Kaggle Notebook</a> + <a class="reference external" href="https://www.kaggle.com/kashnitsky/a7-demo-unsupervised-learning-solution">solution</a>.</strong></p>
 <p>In this task, we will look at how data dimensionality reduction and clustering methods work. At the same time, we’ll practice solving classification task again.</p>
-<p>We will work with the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">Samsung Human Activity Recognition</a> dataset. The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones ( you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.</p>
+<p>We will work with the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">Samsung Human Activity Recognition</a> dataset. The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones (you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.</p>
 <p>First, we pretend that the type of activity is unknown to us, and we will try to cluster people purely on the basis of available features. Then we solve the problem of determining the type of physical activity as a classification problem.</p>
 <p>Fill the code where needed (“Your code is here”) and answer the questions in the <a class="reference external" href="https://docs.google.com/forms/d/1wBf5UoRndv6PpzIwYnM9f0ysoGa4Yqcqle-HBlBP5QQ/edit">web form</a>.</p>
 <div class="cell docutils container">
@@ -692,7 +692,7 @@ What is the minimum number of principal components required to cover the 90% of 
 <li><p>66</p></li>
 <li><p>193</p></li>
 </ul>
-<p><strong>Вопрос 2:</strong><br>
+<p><strong>Question 2:</strong><br>
 What percentage of the variance is covered by the first principal component? Round to the nearest percent.</p>
 <p><strong>Answer options:</strong></p>
 <ul class="simple">
@@ -722,12 +722,12 @@ If everything worked out correctly, you will see a number of clusters, almost pe
 <p><strong>Answer options:</strong></p>
 <ul class="simple">
 <li><p>1 cluster: all 6 activities</p></li>
-<li><p>2 clusters: (walking, walking upstairs, walking downstairs ) and (sitting, standing, laying)</p></li>
+<li><p>2 clusters: (walking, walking upstairs, walking downstairs) and (sitting, standing, laying)</p></li>
 <li><p>3 clusters: (walking), (walking upstairs, walking downstairs) and (sitting, standing, laying)</p></li>
 <li><p>6 clusters</p></li>
 </ul>
 <hr class="docutils" />
-<p>Perform clustering with the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> method, training the model on data with reduced dimensionality (by PCA). In this case, we will give a clue to look for exactly 6 clusters, but in general case we will not know how many clusters we should be looking for.</p>
+<p>Perform clustering with the <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> method, training the model on data with reduced dimensionality (by PCA). In this case, we will give a clue to look for exactly 6 clusters, but in the general case we will not know how many clusters we should be looking for.</p>
 <p>Options:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code> = n_classes (number of unique labels of the target class)</p></li>
@@ -829,7 +829,7 @@ Select all the correct statements. <br></p>
 <hr class="docutils" />
 <p>You can notice that the task is not very well solved when we try to detect several clusters (&gt; 2). Now, let’s solve the classification problem, given that the data is labeled.</p>
 <p>For classification, use the support vector machine – class <code class="docutils literal notranslate"><span class="pre">sklearn.svm.LinearSVC</span></code>. In this course, we didn’t study this algorithm separately, but it is well-known and you can read about it, for example <a class="reference external" href="http://cs231n.github.io/linear-classify/#svmvssoftmax">here</a>.</p>
-<p>Choose the <code class="docutils literal notranslate"><span class="pre">C</span></code> hyperparameter for<code class="docutils literal notranslate"> <span class="pre">LinearSVC</span></code> using <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p>
+<p>Choose the <code class="docutils literal notranslate"><span class="pre">C</span></code> hyperparameter for <code class="docutils literal notranslate"><span class="pre">LinearSVC</span></code> using <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p>
 <ul class="simple">
 <li><p>Train the new <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> on the training set (with all original features), apply scaling to the test set</p></li>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>, specify <code class="docutils literal notranslate"><span class="pre">cv</span></code> = 3.</p></li>
@@ -933,7 +933,7 @@ What is the difference between the best quality (accuracy) for cross-validation 
 Select all the correct statements:</p>
 <p><strong>Answer options:</strong></p>
 <ul class="simple">
-<li><p>Principal component analysis in this case allowed to reduce the model training time, while the quality (mean cross-validation accuracy) suffered greatly, by more than 10%</p></li>
+<li><p>Principal component analysis in this case allowed us to reduce the model training time, while the quality (mean cross-validation accuracy) suffered greatly, by more than 10%</p></li>
 <li><p>PCA can be used to visualize data, but there are better methods for this task, for example, tSNE. However, PCA has lower computational complexity</p></li>
 <li><p>PCA builds linear combinations of initial features, and in some applications they might be poorly interpreted by humans</p></li>
 </ul>
@@ -1013,7 +1013,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

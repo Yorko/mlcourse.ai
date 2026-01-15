@@ -249,7 +249,7 @@ In this practice, we are interested in the number of posts **a day**. But at thi
 aggr_df.head(n=3)
 ```
 
-To fix this, we need to aggregate the post counts by "bins" of a date size. In time series analysis, this process is referred to as *resampling*. And if we *reduce* the sampling rate of data it is often called *downsampling*.
+To fix this, we need to aggregate the post counts by "bins" of a date size. In time series analysis, this process is referred to as *resampling*. If we *reduce* the sampling rate of data, it is often called *downsampling*.
 
 Luckily, `pandas` has a built-in functionality for this task. We will resample our time index down to 1-day bins:
 
@@ -423,7 +423,7 @@ Let's try it out:
 m.plot_components(forecast);
 ```
 
-As you can see from the trend graph, Prophet did a good job by fitting the accelerated growth of new posts at the end of 2016. The graph of weekly seasonality leads to the conclusion that usually there are less new posts on Saturdays and Sundays than on the other days of the week. In the yearly seasonality graph there is a prominent dip on Christmas Day.
+As you can see from the trend graph, Prophet did a good job by fitting the accelerated growth of new posts at the end of 2016. The graph of weekly seasonality leads to the conclusion that usually there are fewer new posts on Saturdays and Sundays than on the other days of the week. In the yearly seasonality graph there is a prominent dip on Christmas Day.
 
 ### 3.5 Forecast quality evaluation
 
@@ -560,7 +560,7 @@ def show_forecast(cmp_df, num_predictions, num_values, title, width=800, height=
 show_forecast(cmp_df, prediction_size, 100, "New posts on Medium")
 ```
 
-At first glance, the prediction of the mean values by our model seems to be sensible. The high value of MAPE that we got above may be explained by the fact that the model failed to catch on to increasing peak-to-peak amplitude of weakly seasonality.
+At first glance, the prediction of the mean values by our model seems to be sensible. The high value of MAPE that we got above may be explained by the fact that the model failed to catch on to increasing peak-to-peak amplitude of weekly seasonality.
 
 Also, we can conclude from the graph above that many of the actual values lie outside the confidence interval. Prophet may not be suitable for time series with unstable variance, at least when the default settings are used. We will try to fix this by applying a transform to our data.
 
@@ -656,7 +656,7 @@ We see that the forecast of weekly changes in the second graph is much closer to
 
 We have taken a look at *Prophet*, an open-source forecasting library that is specifically targeted at business time series. We have also done some hands-on practice in time series prediction.
 
-As we have seen, the Prophet library does not make wonders, and its predictions out-of-box are not [ideal](https://en.wikipedia.org/wiki/No_free_lunch_in_search_and_optimization). It is still up to the data scientist to explore the forecast results, tune model parameters and transform data when necessary.
+As we have seen, the Prophet library does not work wonders, and its predictions out-of-box are not [ideal](https://en.wikipedia.org/wiki/No_free_lunch_in_search_and_optimization). It is still up to the data scientist to explore the forecast results, tune model parameters and transform data when necessary.
 
 However, this library is user-friendly and easily customizable. The sole ability to take into account abnormal days that are known to the analyst beforehand might make a difference in some cases.
 

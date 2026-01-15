@@ -603,7 +603,7 @@ document.write(`
 <p>Furthermore, XGBoost is often the standard recipe for <a class="reference external" href="https://github.com/dmlc/xgboost/blob/master/demo/README.md#usecases">winning</a> <a class="reference external" href="http://blog.kaggle.com/tag/xgboost/">ML competitions</a>. It is so popular that the idea of stacking XGBoosts has become a meme. Moreover, boosting is an important component in <a class="reference external" href="https://en.wikipedia.org/wiki/Learning_to_rank#Practical_usage_by_search_engines">many recommender systems</a>; sometimes, it is even considered a <a class="reference external" href="https://yandex.com/company/technologies/matrixnet/">brand</a>.
 Let’s look at the history and development of boosting.</p>
 <p>Boosting was born out of <a class="reference external" href="http://www.cis.upenn.edu/~mkearns/papers/boostnote.pdf">the question:</a> is it possible to get one strong model from a large amount of relatively weak and simple models? By saying “weak models”, we do not mean simple basic models like decision trees but models with poor accuracy performance, where poor is a little bit better than random.</p>
-<p>A positive mathematical answer to this question was found (see <a class="reference external" href="http://rob.schapire.net/papers/strengthofweak.pdf">“The Strength of Weak Learnability”</a> by Robert Shapire), but it took a few years to develop fully functioning algorithms based on this solution e.g. AdaBoost. These algorithms take a greedy approach: first, they build a linear combination of simple models (basic algorithms) by re-weighing the input data. Then, the model (usually a decision tree) is built on earlier incorrectly predicted objects, which are now given larger weights.</p>
+<p>A positive mathematical answer to this question was found (see <a class="reference external" href="http://rob.schapire.net/papers/strengthofweak.pdf">“The Strength of Weak Learnability”</a> by Robert Schapire), but it took a few years to develop fully functioning algorithms based on this solution e.g. AdaBoost. These algorithms take a greedy approach: first, they build a linear combination of simple models (basic algorithms) by re-weighing the input data. Then, the model (usually a decision tree) is built on earlier incorrectly predicted objects, which are now given larger weights.</p>
 <spoiler title="More about AdaBoost">
 Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boosting Machine). However, since AdaBoost merged with GBM, it has become apparent that AdaBoost is just a particular variation of GBM.  
 <p>The algorithm itself has a very clear visual interpretation and intuition for defining weights. Let’s have a look at the following toy classification problem where we are going to split the data between the trees of depth 1 (also known as ‘stumps’) on each iteration of AdaBoost. For the first two iterations, we have the following picture:</p>
@@ -615,7 +615,7 @@ Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boo
 <li><p>Initialize sample weights <span class="math notranslate nohighlight">\(\Large w_i^{(0)} = \frac{1}{l}, i = 1, \dots, l\)</span>.</p></li>
 <li><p>For all <span class="math notranslate nohighlight">\(t = 1, \dots, T\)</span></p>
 <ul>
-<li><p>Train base algo <span class="math notranslate nohighlight">\(\Large b_t\)</span>, let <span class="math notranslate nohighlight">\(\epsilon_t\)</span> be it’s training error.</p></li>
+<li><p>Train base algo <span class="math notranslate nohighlight">\(\Large b_t\)</span>, let <span class="math notranslate nohighlight">\(\epsilon_t\)</span> be its training error.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Large \alpha_t = \frac{1}{2}ln\frac{1 - \epsilon_t}{\epsilon_t}\)</span>.</p></li>
 <li><p>Update sample weights: <span class="math notranslate nohighlight">\(\Large w_i^{(t)} = w_i^{(t-1)} e^{-\alpha_t y_i b_t(x_i)}, i = 1, \dots, l\)</span>.</p></li>
 <li><p>Normalize sample weights: <span class="math notranslate nohighlight">\(\Large w_0^{(t)} = \sum_{j = 1}^l w_j^{(t)}, w_i^{(t)} = \frac{w_i^{(t)}}{w_0^{(t)}}, i = 1, \dots, l\)</span>.</p></li>
@@ -624,7 +624,7 @@ Many machine learning courses study AdaBoost - the ancestor of GBM (Gradient Boo
 <li><p>Return <span class="math notranslate nohighlight">\(\sum_t^{T}\alpha_tb_t\)</span></p></li>
 </ul>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=k4G2VCuOMMg">Here</a> is more detailed example of AdaBoost where, as we iterate, we can see the weights increase, especially on the border between classes.</p>
-<p>AdaBoost works well, but <a class="reference external" href="https://www.cs.princeton.edu/courses/archive/spring07/cos424/papers/boosting-survey.pdf">the lack</a> of explanation for why the algorithm is successful sewed the seeds of doubt. Some considered it a super-algorithm, a silver bullet, but others were skeptical and believed AdaBoost was just overfitting.</p>
+<p>AdaBoost works well, but <a class="reference external" href="https://www.cs.princeton.edu/courses/archive/spring07/cos424/papers/boosting-survey.pdf">the lack</a> of explanation for why the algorithm is successful sowed the seeds of doubt. Some considered it a super-algorithm, a silver bullet, but others were skeptical and believed AdaBoost was just overfitting.</p>
 <p>The overfitting problem did indeed exist, especially when data had strong outliers. Therefore, in those types of problems, AdaBoost was unstable. Fortunately, a few professors in the statistics department at Stanford, who had created Lasso, Elastic Net, and Random Forest, started researching the algorithm. In 1999, Jerome Friedman came up with the generalization of boosting algorithms development - Gradient Boosting (Machine), also known as GBM. With this work, Friedman set up the statistical foundation for many algorithms providing the general approach of boosting for optimization in the functional space.</p>
 <p>CART, bootstrap, and many other algorithms have originated from Stanford’s statistics department. In doing so, the department has solidified their names in future textbooks. These algorithms are very practical, and some recent works have yet to be widely adopted. For example, check out <a class="reference external" href="https://arxiv.org/abs/1308.2719">glinternet</a>.</p>
 <p>Not many video recordings of Friedman are available. Although, there is a very interesting <a class="reference external" href="https://www.youtube.com/watch?v=8hupHmBVvb0">interview</a> with him about the creation of CART and how they solved statistics problems (which is similar to data analysis and data science today) more than 40 years ago.</p>
@@ -638,7 +638,7 @@ GBM was extended to apply to different statistics problems: GLMboost and GAMboos
 Many realizations of GBM also appeared under different names and on different platforms: Stochastic GBM, GBDT (Gradient Boosted Decision Trees), GBRT (Gradient Boosted Regression Trees), MART (Multiple Additive Regression Trees), and more. In addition, the ML community was very segmented and dissociated, which made it hard to track just how widespread boosting had become.</p>
 <p>At the same time, boosting had been actively used in search ranking. This problem was rewritten in terms of a loss function that penalizes errors in the output order, so it became convenient to simply insert it into GBM. AltaVista was one of the first companies who introduced boosting to ranking. Soon, the ideas spread to Yahoo, Yandex, Bing, etc. Once this happened, boosting became one of the main algorithms that was used not only in research but also in core technologies in industry.</p>
 <p><img src='https://habrastorage.org/web/48a/ea4/fff/48aea4fffdbe4e5f9205ba81110e6061.jpg' align='right' width=30%> ML competitions, especially Kaggle, played a major role in boosting’s popularization. Now, researchers had a common platform where they could compete in different data science problems with large number of participants from around the world. With Kaggle, one could test new algorithms on the real data, giving algorithms an opportunity to “shine”, and provide full information in sharing model performance results across competition data sets. This is exactly what happened to boosting when it was used at <a class="reference external" href="http://blog.kaggle.com/2011/12/21/score-xavier-conort-on-coming-second-in-give-me-some-credit/">Kaggle</a> (check interviews with Kaggle winners starting from 2011 who mostly used boosting). The <a class="reference external" href="https://github.com/dmlc/xgboost">XGBoost</a> library quickly gained popularity after its appearance. XGBoost is not a new, unique algorithm; it is just an extremely effective realization of classic GBM with additional heuristics.</p>
-<p>This algorithm has gone through very typical path for ML algorithms today: mathematical problem and algorithmic crafts to successful practical applications and mass adoption years after its first appearance.</p>
+<p>This algorithm has gone through a very typical path for ML algorithms today: mathematical problem and algorithmic crafts to successful practical applications and mass adoption years after its first appearance.</p>
 </section>
 </section>
 <section id="gbm-algorithm">
@@ -679,7 +679,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <div class="math notranslate nohighlight">
 \[\large \hat{f}(x) = \sum_{i = 0}^M \hat{f_i}(x)\]</div>
 <p>Nothing has happened yet; we have only decided that we will search for our approximation <span class="math notranslate nohighlight">\(\large \hat{f}(x)\)</span> not as a big model with plenty of parameters (as an example, neural network), but as a sum of functions, pretending we move in functional space.</p>
-<p>In order to accomplish this task, we need to limit our search by some function family <span class="math notranslate nohighlight">\(\large \hat{f}(x) = h(x, \theta)\)</span>. There are a few issues here – first of all, the sum of models can be more complicated than any model from this family; secondly, the general objective is still in functional space. Let’s note that, on every step, we will need to select an optimal coefficient <span class="math notranslate nohighlight">\(\large \rho \in \mathbb{R}\)</span>. For step <span class="math notranslate nohighlight">\(\large t\)</span>, the problem is the following:</p>
+<p>In order to accomplish this task, we need to limit our search to some function family <span class="math notranslate nohighlight">\(\large \hat{f}(x) = h(x, \theta)\)</span>. There are a few issues here – first, the sum of models can be more complicated than any model from this family; second, the general objective is still in functional space. Let’s note that, on every step, we will need to select an optimal coefficient <span class="math notranslate nohighlight">\(\large \rho \in \mathbb{R}\)</span>. For step <span class="math notranslate nohighlight">\(\large t\)</span>, the problem is the following:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\large \hat{f}(x) = \sum_{i = 0}^{t-1} \hat{f_i}(x), \\
 \large (\rho_t,\theta_t) = \underset{\rho,\theta}{\arg\min} \ \mathbb {E} _{x,y}[L(y,\hat{f}(x) +  \rho \cdot h(x, \theta))], \\
@@ -705,7 +705,7 @@ Many realizations of GBM also appeared under different names and on different pl
 </ul>
 <p>The only thing left is the initial approximation <span class="math notranslate nohighlight">\(\large f_0(x)\)</span>. For simplicity, for an initial approximation, a constant value <span class="math notranslate nohighlight">\(\large \gamma\)</span> is used. The constant value, as well as the optimal coefficient <span class="math notranslate nohighlight">\(\large \rho \)</span>, are identified via binary search or another line search algorithm over the initial loss function (not a gradient). So, we have our GBM algorithm described as follows:</p>
 <ol class="arabic simple">
-<li><p>Initialize GBM with constant value <span class="math notranslate nohighlight">\(\large \hat{f}(x) = \hat{f}_0, \hat{f}_0 = \gamma,  \gamma \in \mathbb{R}\)</span>
+<li><p>Initialize GBM with a constant value <span class="math notranslate nohighlight">\(\Large \hat{f}(x) = \hat{f}_0, \hat{f}_0 = \gamma,  \gamma \in \mathbb{R}\)</span>
 <span class="math notranslate nohighlight">\(\large \hat{f}_0 = \underset{\gamma}{\arg\min} \ \sum_{i = 1}^{n} L(y_i, \gamma)\)</span></p></li>
 <li><p>For each iteration <span class="math notranslate nohighlight">\(\large t = 1, \dots, M\)</span>, repeat:</p></li>
 <li><p>Calculate pseudo-residuals <span class="math notranslate nohighlight">\(\large r_t\)</span>
@@ -785,7 +785,7 @@ Many realizations of GBM also appeared under different names and on different pl
 <p>Now, let’s look at the binary classification problem <span class="math notranslate nohighlight">\(\large y \in \left\{-1, 1\right\}\)</span>. We saw that GBM can even optimize non-differentiable loss functions. Technically, it is possible to solve this problem with a regression <span class="math notranslate nohighlight">\(\large L_2\)</span> loss, but it wouldn’t be correct.</p>
 <p>The distribution of the target variable requires us to use log-likelihood, so we need to have different loss functions for targets multiplied by their predictions:  <span class="math notranslate nohighlight">\(\large y \cdot f\)</span>. The most common choices would be the following:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\large L(y, f) = log(1 + exp(-2yf))\)</span> a.k.a. Logistic loss or Bernoulli loss. This has an interesting property that penalizes even correctly predicted classes, which helps not only helps to optimize loss but also to move the classes apart further, even if all classes are predicted correctly.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\large L(y, f) = log(1 + exp(-2yf))\)</span> a.k.a. Logistic loss or Bernoulli loss. This has an interesting property that penalizes even correctly predicted classes, which not only helps to optimize loss but also to move the classes apart further, even if all classes are predicted correctly.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\large L(y, f) = exp(-yf)\)</span> a.k.a. AdaBoost loss. The classic AdaBoost is equivalent to GBM with this loss function. Conceptually, this function is very similar to logistic loss, but it has a bigger exponential penalization if the prediction is wrong.</p></li>
 </ul>
 <img src='https://habrastorage.org/web/bf5/9de/dcf/bf59dedcfd9d49b18e89ce342b09ce69.png' width=60%>
@@ -816,7 +816,7 @@ Many realizations of GBM also appeared under different names and on different pl
 \[\begin{split} \large w_i \in \mathbb{R}, \\
 \large w_i \geq 0 \quad \mbox{for } i=1,\ldots,n, \\
 \large \sum_{i = 1}^n w_i &gt; 0 \end{split}\]</div>
-<p>Weights can significantly reduce the time spent adjusting the loss function for the task we are solving and also encourages experiments with the target models’ properties. Assigning these weights is entirely a function of creativity. We simply add scalar weights:</p>
+<p>Weights can significantly reduce the time spent adjusting the loss function for the task we are solving and also encourage experiments with the target models’ properties. Assigning these weights is entirely a function of creativity. We simply add scalar weights:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \large L_{w}(y,f) = w \cdot L(y,f), \\
 \large r_{it} =   - w_i \cdot \left[\frac{\partial L(y_i, f(x_i))}{\partial f(x_i)}\right]_{f(x)=\hat{f}(x)}, \quad \mbox{for } i=1,\ldots,n \end{split}\]</div>
@@ -968,7 +968,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

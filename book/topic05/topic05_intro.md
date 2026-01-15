@@ -16,7 +16,7 @@ Yet again, both theory and practice are exciting. We discuss why “wisdom of a 
  - ["Random Forest"](topic05_part2) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-2-random-forest));
  - ["Feature Importance"](topic05_part3) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-5-ensembles-part-3-feature-importance));
 
-2\. Watch a video lecture on coming in 3 parts:
+2\. Watch a video lecture series coming in 3 parts:
  - the [theory](https://www.youtube.com/watch?v=neXJL-AqI_c) behind ensembles, bagging, and Random Forest;
  - [classification metrics](https://www.youtube.com/watch?v=aBOMYqGUlWQ) in machine learning;
  - [business case](https://youtu.be/B8yIaIEMyIc), where we discuss a real classification task -- predicting customer payment;
@@ -25,4 +25,4 @@ Yet again, both theory and practice are exciting. We discuss why “wisdom of a 
 
 4\. Check out the [solution](assignment05_solution) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a5-demo-logit-and-rf-for-credit-scoring-sol)) to the demo assignment (optional);
 
-5\. Complete [Bonus Assignment 5](bonus05) were you'll be applying logistic regression and Random Forest in two different tasks, which will be great for your understanding of application scenarios of these two extremely popular algorithms (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).
+5\. Complete [Bonus Assignment 5](bonus05) where you'll be applying logistic regression and Random Forest in two different tasks, which will be great for your understanding of application scenarios of these two extremely popular algorithms (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).

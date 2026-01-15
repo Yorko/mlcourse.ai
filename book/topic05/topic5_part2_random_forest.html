@@ -616,7 +616,7 @@ document.write(`
 <li><p>Build a decision tree <span class="math notranslate nohighlight">\(\large b_k\)</span> on the sample <span class="math notranslate nohighlight">\(\large X_k\)</span>:</p>
 <ul>
 <li><p>Pick the best feature according to the given criteria. Split the sample by this feature to create a new tree level. Repeat this procedure until the sample is exhausted.</p></li>
-<li><p>Building the tree until any of its leaves contains no more than <span class="math notranslate nohighlight">\(\large n_\text{min}\)</span> instances or until a certain depth is reached.</p></li>
+<li><p>Build the tree until any of its leaves contains no more than <span class="math notranslate nohighlight">\(\large n_\text{min}\)</span> instances or until a certain depth is reached.</p></li>
 <li><p>For each split, we first randomly pick <span class="math notranslate nohighlight">\(\large m\)</span> features from the <span class="math notranslate nohighlight">\(\large d\)</span> original ones and then search for the next best split only among the subset.</p></li>
 </ul>
 </li>
@@ -792,11 +792,11 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code> — the number of features to consider when looking for the best split. You can specify the number or percentage of features, or choose from the available values: “auto” (all features), “sqrt”, “log2”. (default = “auto”)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> — the maximum depth of the tree (default means that nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code> — the minimum number of samples required to split an internal node. Can be specified as the number or as a percentage of a total number of samples (default = 2)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> — the minimum number of samples required at a leaf node(default = 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> — the minimum number of samples required at a leaf node (default = 1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min_weight_fraction_leaf</span></code> — the minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided (default = 0)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">max_leaf_nodes</span></code> — the maximum number of leaves (default = no restrictions)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">min_impurity_split</span></code> — threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf (default = 1е-7)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> — whether bootstrap samples are used when building trees(default = True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> — whether bootstrap samples are used when building trees (default = True)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">oob_score</span></code> — whether to use out-of-bag samples to estimate the R^2 on unseen data (default = False)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> — the number of jobs to run in parallel for both fit and predict. If -1, then the number of jobs is set to the number of cores (default = 1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code> — if int, random_state is the seed used by the random number generator; if RandomState instance, random_state is the random number generator; if None, the random number generator is the RandomState instance used by np.random (default = None)</p></li>
@@ -1588,7 +1588,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="similarities-between-random-forest-and-k-nearest-neighbors">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">7. Similarities between Random Forest and k-Nearest Neighbors</a><a class="headerlink" href="#similarities-between-random-forest-and-k-nearest-neighbors" title="Link to this heading">#</a></h2>
-<p>The random forest method is similar to the nearest neighbors technique. Random forests predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let’s prove this formally.</p>
+<p>The random forest method is similar to the nearest neighbors technique. Random forests’ predictions are based on labels of alike examples from the training set. The more often these examples appear in the same leaf of a tree, the higher their similarity. Let’s prove this formally.</p>
 <p>Let’s consider a regression problem with the quadratic loss function. Let <span class="math notranslate nohighlight">\(\large T_n(x)\)</span> be the number of the leaf of the <span class="math notranslate nohighlight">\(\large n\)</span>-th tree in a random forest with input <span class="math notranslate nohighlight">\(\large x\)</span>.
 The algorithm response for the input vector <span class="math notranslate nohighlight">\(\large x\)</span> equals the averaged response over all the examples of the training sample that fall into the leaf <span class="math notranslate nohighlight">\(\large T_n(x)\)</span>. This can be written as</p>
 <div class="math notranslate nohighlight">
@@ -1767,7 +1767,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

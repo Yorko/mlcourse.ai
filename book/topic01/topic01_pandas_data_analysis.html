@@ -596,6 +596,7 @@ Author: <a class="reference external" href="https://yorko.github.io">Yury Kashni
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.precision&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;future.no_silent_downcasting&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1538,7 +1539,7 @@ Name: proportion, dtype: float64
 <p><strong>Boolean indexing</strong> with one column is also very convenient. The syntax is <code class="docutils literal notranslate"><span class="pre">df[P(df['Name'])]</span></code>, where <code class="docutils literal notranslate"><span class="pre">P</span></code> is some logical condition that is checked for each element of the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column. The result of such indexing is the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> consisting only of the rows that satisfy the <code class="docutils literal notranslate"><span class="pre">P</span></code> condition on the <code class="docutils literal notranslate"><span class="pre">Name</span></code> column.</p>
 <p>Let’s use it to answer the question:</p>
 <p><strong>What are the average values of numerical features for churned users?</strong></p>
-<p>Here we’l resort to an additional method <code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code> to select all numeric columns.</p>
+<p>Here we’ll resort to an additional method <code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code> to select all numeric columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Churn&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -2186,7 +2187,7 @@ dtype: object
 <details>
 <summary>Difference in treating values that are absent in the mapping dictionary</summary>
 <p>
-There's a slight difference. Еру `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs).<div class="cell docutils container">
+There's a slight difference. The `replace` method will not do anything with values not found in the mapping dictionary, while `map` will change them to NaNs.<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 <span class="n">a_series</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>     <span class="c1"># 1, 2, c</span>
@@ -2212,10 +2213,6 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/n0/1qj4_6k97ms4rnr_bsfq6j40018_cq/T/ipykernel_86460/1212166602.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
-  df = df.replace({&quot;Voice mail plan&quot;: d})
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3675,7 +3672,7 @@ dtype: float64
 <ul class="simple">
 <li><p>The share of loyal clients in the dataset is 85.5%. The most naive model that always predicts a “loyal customer” on such data will guess right in about 85.5% of all cases. That is, the proportion of correct answers (<em>accuracy</em>) of subsequent models should be no less than this number, and will hopefully be significantly higher;</p></li>
 <li><p>With the help of a simple prediction that can be expressed by the following formula: <code class="docutils literal notranslate"><span class="pre">International</span> <span class="pre">plan</span> <span class="pre">=</span> <span class="pre">True</span> <span class="pre">&amp;</span> <span class="pre">Customer</span> <span class="pre">Service</span> <span class="pre">calls</span> <span class="pre">&gt;</span> <span class="pre">3</span> <span class="pre">=&gt;</span> <span class="pre">Churn</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">else</span> <span class="pre">Churn</span> <span class="pre">=</span> <span class="pre">0</span></code>, we can expect a guessing rate of 85.8%, which is just above 85.5%. Subsequently, we’ll talk about decision trees and figure out how to find such rules <strong>automatically</strong> based only on the input data;</p></li>
-<li><p>We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, persay, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple “if-else” model with two conditions;</p></li>
+<li><p>We got these two baselines without applying machine learning, and they’ll serve as the starting point for our subsequent models. If it turns out that with enormous effort, we increase accuracy by only 0.5%, per se, then possibly we are doing something wrong, and it suffices to confine ourselves to a simple “if-else” model with two conditions;</p></li>
 <li><p>Before training complex models, it is recommended to wrangle the data a bit, make some plots, and check simple assumptions. Moreover, in business applications of machine learning, they usually start with simple solutions and then experiment with more complex ones.</p></li>
 </ul>
 <figure class="align-default" id="no-ml">
@@ -3686,7 +3683,7 @@ dtype: float64
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">3. Useful resources</a><a class="headerlink" href="#useful-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>The same notebook as an interactive web-based <a class="reference external" href="https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas">Kaggle Kernel</a></p></li>
-<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb">“Merging DataFrames with pandas”</a> – a tutorial by Max Plako within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> (the full list of tutorials is <a class="reference external" href="https://mlcourse.ai/tutorials">here</a>)</p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/merging_dataframes_tutorial_max_palko.ipynb">“Merging DataFrames with pandas”</a> – a tutorial by Max Palko within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> (the full list of tutorials is <a class="reference external" href="https://mlcourse.ai/tutorials">here</a>)</p></li>
 <li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/Yorko/mlcourse.ai/blob/main/jupyter_english/tutorials/dask_objects_and_little_dask_ml_tutorial_iknyazeva.ipynb">“Handle different dataset with dask and trying a little dask ML”</a> – a tutorial by Irina Knyazeva within <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a></p></li>
 <li><p><a class="reference external" href="https://github.com/Yorko/mlcourse.ai">Course repo</a>, and YouTube <a class="reference external" href="https://www.youtube.com/watch?v=QKTuw4PNOsU&amp;amp;list=PLVlY_7IJCMJeRfZ68eVfEcu-UcN9BbwiX">channel</a></p></li>
 <li><p>Official Pandas <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/index.html">documentation</a></p></li>
@@ -3803,7 +3800,7 @@ By Yury Kashnitsky (yorko)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>
