@@ -33,6 +33,6 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
   </div>
 </div><br>
 
-In this assignment, you'll be challenged to beat a baseline in the competition where the goal is to predict the popularity of a Medium article. For this purpose, you'll be provided with instructions on extracting features from raw JSON files, such as title, author, content, etc. as well as some time-based features.
+In this assignment, you'll be challenged to beat a baseline in the competition where the goal is to predict the popularity of a Medium article. For this purpose, you'll be provided with instructions on extracting features from raw JSON files, such as title, author, content, etc., as well as some time-based features.
 
-Here it's much closer to real-world Data Science, where you spend time fussing with JSONs extracting features, and waiting while the model is being trained. At the same time, just like with the "Alice" competition (see [Bonus Assignment 4](bonus04)) feature engineering is the key, and that's fun.
+Here it's much closer to real-world Data Science, where you spend time fussing with JSONs, extracting features, and waiting while the model is being trained. At the same time, just like with the "Alice" competition (see [Bonus Assignment 4](bonus04)), feature engineering is the key, and that's fun.
