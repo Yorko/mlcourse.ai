@@ -465,7 +465,7 @@ X_test_pca = pca.transform(X_test_scaled)
 
 
 ```{code-cell} ipython3
-svc = LinearSVC(random_state=RANDOM_STATE)
+svc = LinearSVC(random_state=RANDOM_STATE, max_iter=5000)
 svc_params = {"C": [0.001, 0.01, 0.1, 1, 10]}
 ```
 
