@@ -78,7 +78,7 @@ To start working with the course materials (i.e. Jupyter notebooks):
 
 _Note: not to be confused with Jupyter Notebooks_
 
-The [mlcourse.ai](https://mlcourse.ai) website now renders a [Jupyter book](https://jupyterbook.org/stable/get-started/l). A strong advantage of this type of content is that it's actually a book with __executable__ content meaning that the pages that you see are not just static but they are updated with each build of the book by running all Python code. This also guarantees (well, if the book is frequently re-built, say, through a CI/CD process) that the book actually shows working Python code.
+The [mlcourse.ai](https://mlcourse.ai) website now renders a [Jupyter book](https://jupyterbook.org/stable/get-started/). A strong advantage of this type of content is that it's actually a book with __executable__ content meaning that the pages that you see are not just static but they are updated with each build of the book by running all Python code. This also guarantees (well, if the book is frequently re-built, say, through a CI/CD process) that the book actually shows working Python code.
 
 To reproduce all the code that you see on the current website (lectures, assignments, solutions, etc. for all topic), clone [the course repo](https://github.com/Yorko/mlcourse.ai), navigate to the mlcourse.ai directory, and run
 
