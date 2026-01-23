@@ -65,7 +65,7 @@ Here is a snowboarder (me) in Sheregesh, Russia's most popular winter resort. (I
 
 **Example**
 
-The paired regression problem can be solved with gradient descent. Let us predict one variable using another: height with weight. Assume that these variables are linearly dependent. We will use the [SOCR](http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data) dataset.
+The paired regression problem can be solved with gradient descent. Let us predict one variable using another: height with weight. Assume that these variables are linearly dependent. We will use the [SOCR](https://wiki.socr.umich.edu/index.php/SOCR_Data_Dinov_020108_HeightsWeightsa) dataset.
 
 
 ```{code-cell} ipython3
