@@ -14,7 +14,7 @@ If you think, there is a more serious error in course materials (ex. incorrect m
 
 ## Pull requests 
 
-If you are about to open a Pull Request, test `jupyter-book` build on your branch as described [here](https://github.com/Yorko/mlcourse.ai/tree/main?tab=readme-ov-file#building-course-material-as-a-jupyter-book) in Readme. There are no formal test or CI/CD, but you should be able to see that `jupyter-book` builds and runs with no issues. 
+If you are about to open a Pull Request, test `jupyter-book` build on your branch as described [here](https://github.com/Yorko/mlcourse.ai/tree/main?tab=readme-ov-file#building-course-material-as-a-jupyter-book) in Readme. There are no formal tests or CI/CD, but you should be able to see that `jupyter-book` builds and runs with no issues. 
 
 
 

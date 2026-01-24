@@ -100,9 +100,11 @@ The following are demo-assignments. Additionally, within the ["Bonus Assignments
 
 ### Building course material as a Jupyter Book
 
+We are using [Jupyter Book v1](https://jupyterbook.org/v1/start/build.html) to build the book. 
+
 1. Install [uv](https://github.com/astral-sh/uv) for dependency management: `pip install uv`;
 1. Run `uv sync` to install project dependencies, or `uv lock --upgrade` to update them;
-1. Run `uv run jb build mlcourse_ai_jupyter_book` – this will take a while, the output is found in the [mlcourse_ai_jupyter_book/_build](mlcourse_ai_jupyter_book/_build) folder. Namely, [mlcourse_ai_jupyter_book/_build/html/index.html](mlcourse_ai_jupyter_book/_build/html/index.html) is what gets rendered at the [mlcourse.ai](https://mlcourse.ai) main page. 
+1. Run `uv run jb build mlcourse_ai_jupyter_book` (_note: this works with Jupyter Book v1_) – this will take a while, the output is found in the [mlcourse_ai_jupyter_book/_build](mlcourse_ai_jupyter_book/_build) folder. Namely, [mlcourse_ai_jupyter_book/_build/html/index.html](mlcourse_ai_jupyter_book/_build/html/index.html) is what gets rendered at the [mlcourse.ai](https://mlcourse.ai) main page. 
 
 This will show the path to your local file with the course material, e.g. `file:///Users/nickname/Documents/mlcourse.ai/mlcourse_ai_jupyter_book/_build/html/index.html`. You can open it in your browser to see the course material locally.
 
