@@ -40,7 +40,7 @@ We begin with a simple [definition](https://en.wikipedia.org/wiki/Time_series) o
 
 Therefore, the data is organized by relatively deterministic timestamps, and may, compared to random sample data, contain additional information that we can extract.
 
-Let's import some libraries. First, we will need the [statsmodels](http://statsmodels.sourceforge.net/stable/) library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, `statsmodels` will definitely look more familiar since it supports model definitions like 'Wage ~ Age + Education'.
+Let's import some libraries. First, we will need the [statsmodels](https://www.statsmodels.org/stable/index.html/) library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, `statsmodels` will definitely look more familiar since it supports model definitions like 'Wage ~ Age + Education'.
 
 
 ```{code-cell} ipython3
@@ -477,7 +477,7 @@ $$\hat y_{min_x}=\ell_{x−1}+b_{x−1}+s_{x−T}-m⋅d_{t−T}$$
 
 $$d_t=\gamma∣y_t−\hat y_t∣+(1−\gamma)d_{t−T},$$
 
-where $T$ is the length of the season, $d$ is the predicted deviation. Other parameters were taken from triple exponential smoothing. You can read more about the method and its applicability to anomaly detection in time series [here](http://fedcsis.org/proceedings/2012/pliks/118.pdf).
+where $T$ is the length of the season, $d$ is the predicted deviation. Other parameters were taken from triple exponential smoothing. 
 
 
 ```{code-cell} ipython3

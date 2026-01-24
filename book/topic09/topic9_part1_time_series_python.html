@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
@@ -204,7 +204,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Prerequisites</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -629,7 +630,7 @@ document.write(`
 <div><p><em>Time series</em> are a series of data points indexed (or listed or graphed) in time order.</p>
 </div></blockquote>
 <p>Therefore, the data is organized by relatively deterministic timestamps, and may, compared to random sample data, contain additional information that we can extract.</p>
-<p>Let’s import some libraries. First, we will need the <a class="reference external" href="http://statsmodels.sourceforge.net/stable/">statsmodels</a> library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> will definitely look more familiar since it supports model definitions like ‘Wage ~ Age + Education’.</p>
+<p>Let’s import some libraries. First, we will need the <a class="reference external" href="https://www.statsmodels.org/stable/index.html/">statsmodels</a> library, which has many statistical modeling functions, including time series. For R aficionados who had to move to Python, <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> will definitely look more familiar since it supports model definitions like ‘Wage ~ Age + Education’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># plots</span>
@@ -1159,7 +1160,7 @@ dtype: float64
 \[\hat y_{min_x}=\ell_{x−1}+b_{x−1}+s_{x−T}-m⋅d_{t−T}\]</div>
 <div class="math notranslate nohighlight">
 \[d_t=\gamma∣y_t−\hat y_t∣+(1−\gamma)d_{t−T},\]</div>
-<p>where <span class="math notranslate nohighlight">\(T\)</span> is the length of the season, <span class="math notranslate nohighlight">\(d\)</span> is the predicted deviation. Other parameters were taken from triple exponential smoothing. You can read more about the method and its applicability to anomaly detection in time series <a class="reference external" href="http://fedcsis.org/proceedings/2012/pliks/118.pdf">here</a>.</p>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the length of the season, <span class="math notranslate nohighlight">\(d\)</span> is the predicted deviation. Other parameters were taken from triple exponential smoothing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">HoltWinters</span><span class="p">:</span>

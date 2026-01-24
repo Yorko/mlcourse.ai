@@ -18,7 +18,7 @@ kernelspec:
 
 **<center>[mlcourse.ai](https://mlcourse.ai) – Open Machine Learning Course** </center><br>
 
-Author: [Arseny Kravchenko](https://arseny.info/pages/about_me.html#about_me). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yury Kashnitsky](https://yorko.github.io/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiiamanokhina/), [Anna Larionova](https://www.linkedin.com/in/anna-larionova-74434689/), [Evgeny Sushko](https://www.linkedin.com/in/evgenysushko/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
+Author: [Arseny Kravchenko](https://arseny.info/#about_me). Translated and edited by [Christina Butsko](https://www.linkedin.com/in/christinabutsko/), [Yury Kashnitsky](https://yorko.github.io/), [Egor Polusmak](https://www.linkedin.com/in/egor-polusmak/), [Anastasia Manokhina](https://www.linkedin.com/in/anastasiiamanokhina/), [Anna Larionova](https://www.linkedin.com/in/anna-larionova-74434689/), [Evgeny Sushko](https://www.linkedin.com/in/evgenysushko/), and [Yuanyuan Pao](https://www.linkedin.com/in/yuanyuanpao/). This material is subject to the terms and conditions of the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license. Free use is permitted for any non-commercial purpose.
 
 
 ## Article outline
@@ -185,7 +185,7 @@ $$ \large idf(t,D) = \log\frac{\mid D\mid}{df(d,t)+1} $$
 
 $$ \large tfidf(t,d,D) = tf(t,d) \times idf(t,D) $$
 
-Ideas similar to Bag of Words can also be found outside of text problems e.g. bag of sites in the [Catch Me If You Can competition](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking), [bag of apps](https://www.kaggle.com/xiaoml/talkingdata-mobile-user-demographics/bag-of-app-id-python-2-27392), [bag of events](http://www.interdigital.com/download/58540a46e3b9659c9f000372), etc.
+Ideas similar to Bag of Words can also be found outside of text problems e.g. bag of sites in the [Catch Me If You Can competition](https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking), [bag of apps](https://www.kaggle.com/xiaoml/talkingdata-mobile-user-demographics/bag-of-app-id-python-2-27392), etc.
 
 ![image](../../_static/img/topic6_bag_of_words.png)
 

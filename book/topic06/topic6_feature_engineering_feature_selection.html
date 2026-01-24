@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
@@ -201,7 +201,8 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prereqs/math.html">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Software &amp; DevOps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prereqs/software_devops.html">Prerequisites</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -560,7 +561,7 @@ document.write(`
 <span id="topic06"></span><h1><a class="toc-backref" href="#id2" role="doc-backlink">Topic 6. Feature Engineering and Feature Selection</a><a class="headerlink" href="#topic-6-feature-engineering-and-feature-selection" title="Link to this heading">#</a></h1>
 <img src="https://habrastorage.org/webt/ia/m9/zk/iam9zkyzqebnf_okxipihkgjwnw.jpeg" />
 <p><strong><center><a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> – Open Machine Learning Course</strong> </center><br></p>
-<p>Author: <a class="reference external" href="https://arseny.info/pages/about_me.html#about_me">Arseny Kravchenko</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io/">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-larionova-74434689/">Anna Larionova</a>, <a class="reference external" href="https://www.linkedin.com/in/evgenysushko/">Evgeny Sushko</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
+<p>Author: <a class="reference external" href="https://arseny.info/#about_me">Arseny Kravchenko</a>. Translated and edited by <a class="reference external" href="https://www.linkedin.com/in/christinabutsko/">Christina Butsko</a>, <a class="reference external" href="https://yorko.github.io/">Yury Kashnitsky</a>, <a class="reference external" href="https://www.linkedin.com/in/egor-polusmak/">Egor Polusmak</a>, <a class="reference external" href="https://www.linkedin.com/in/anastasiiamanokhina/">Anastasia Manokhina</a>, <a class="reference external" href="https://www.linkedin.com/in/anna-larionova-74434689/">Anna Larionova</a>, <a class="reference external" href="https://www.linkedin.com/in/evgenysushko/">Evgeny Sushko</a>, and <a class="reference external" href="https://www.linkedin.com/in/yuanyuanpao/">Yuanyuan Pao</a>. This material is subject to the terms and conditions of the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons CC BY-NC-SA 4.0</a> license. Free use is permitted for any non-commercial purpose.</p>
 <section id="article-outline">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Article outline</a><a class="headerlink" href="#article-outline" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
@@ -804,7 +805,7 @@ Vectors:
 \[ \large idf(t,D) = \log\frac{\mid D\mid}{df(d,t)+1} \]</div>
 <div class="math notranslate nohighlight">
 \[ \large tfidf(t,d,D) = tf(t,d) \times idf(t,D) \]</div>
-<p>Ideas similar to Bag of Words can also be found outside of text problems e.g. bag of sites in the <a class="reference external" href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking">Catch Me If You Can competition</a>, <a class="reference external" href="https://www.kaggle.com/xiaoml/talkingdata-mobile-user-demographics/bag-of-app-id-python-2-27392">bag of apps</a>, <a class="reference external" href="http://www.interdigital.com/download/58540a46e3b9659c9f000372">bag of events</a>, etc.</p>
+<p>Ideas similar to Bag of Words can also be found outside of text problems e.g. bag of sites in the <a class="reference external" href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking">Catch Me If You Can competition</a>, <a class="reference external" href="https://www.kaggle.com/xiaoml/talkingdata-mobile-user-demographics/bag-of-app-id-python-2-27392">bag of apps</a>, etc.</p>
 <p><img alt="image" src="../../_images/topic6_bag_of_words.png" /></p>
 <p>Using these algorithms, it is possible to obtain a working solution for a simple problem, which can serve as a baseline. However, for those who do not like the classics, there are new approaches. The most popular method in the new wave is <a class="reference external" href="https://arxiv.org/pdf/1310.4546.pdf">Word2Vec</a>, but there are a few alternatives as well (<a class="reference external" href="https://nlp.stanford.edu/pubs/glove.pdf">GloVe</a>, <a class="reference external" href="https://arxiv.org/abs/1607.01759">Fasttext</a>, etc.).</p>
 <p>Word2Vec is a special case of the word embedding algorithms. Using Word2Vec and similar models, we can not only vectorize words in a high-dimensional space (typically a few hundred dimensions) but also compare their semantic similarity. This is a classic example of operations that can be performed on vectorized concepts: king - man + woman = queen.</p>

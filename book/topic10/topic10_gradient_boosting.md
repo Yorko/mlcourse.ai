@@ -350,7 +350,7 @@ In this article, we intentionally omitted questions concerning GBM’s regulariz
 - mlcourse.ai lectures on gradient boosting: [theory](https://youtu.be/g0ZOtzZqdqk) and [practice](https://youtu.be/V5158Oug4W8)
 - [Original article](https://statweb.stanford.edu/~jhf/ftp/trebst.pdf) about GBM from Jerome Friedman
 - “Gradient boosting machines, a tutorial”, [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3885826/) by Alexey Natekin, and Alois Knoll
-- [Chapter in Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) from Hastie, Tibshirani, Friedman (page 337)
+- Chapter 10 in the [Elements of Statistical Learning](http://www.stat.ucla.edu/~ywu/research/documents/BOOKS/ElementsLearningII.pdf) from Hastie, Tibshirani, Friedman (page 337)
 - [Wiki](https://en.wikipedia.org/wiki/Gradient_boosting) article about Gradient Boosting
 - [Introduction to boosted trees (Xgboost docs)](https://xgboost.readthedocs.io/en/latest/tutorials/model.html)
 - [Video-lecture by Hastie](https://www.youtube.com/watch?v=wPqtzj5VZus) about GBM at h2o.ai conference

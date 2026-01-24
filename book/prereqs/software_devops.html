@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-CN7ZN59CQB"></script>
@@ -199,7 +199,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="math.html">Math</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Software &amp; DevOps</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Prerequisites</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -521,6 +522,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Prerequisites</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requirements">Software requirements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-and-all">Git, bash, and all</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-environment">Setting the environment</a><ul class="nav section-nav flex-column">
@@ -536,6 +538,11 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<em>Note: this may take a long time, about an hour, to play around with a toy example, check how a template JupyterBook is created.</em></a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -614,19 +621,35 @@ document.write(`
 <section id="jupyter-book">
 <h3>Jupyter Book<a class="headerlink" href="#jupyter-book" title="Link to this heading">#</a></h3>
 <p><em>Note: not to be confused with Jupyter Notebooks</em></p>
-<p>The <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> website now renders a <a class="reference external" href="https://jupyterbook.org/intro.html">Jupyter book</a>. A strong advantage of this type of content is that it’s actually a book with <strong>executable</strong> content meaning that the pages that you see are not just static but they are updated with each build of the book by running all Python code. This also guarantees (well, if the book is frequently re-built, say, through a CI/CD process) that the book actually shows working Python code.</p>
+<p>The <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> website renders a <a class="reference external" href="https://jupyterbook.org/v1/intro.html">Jupyter book</a> (v1). A strong advantage of this type of content is that it’s actually a book with <strong>executable</strong> content meaning that the pages that you see are not just static but they are updated with each build of the book by running all Python code. This also guarantees (well, if the book is frequently re-built, say, through a CI/CD process) that the book actually shows working Python code.</p>
 <p>To reproduce all the code that you see on the current website (lectures, assignments, solutions, etc. for all topic), clone <a class="reference external" href="https://github.com/Yorko/mlcourse.ai">the course repo</a>, navigate to the <a class="reference external" href="http://mlcourse.ai">mlcourse.ai</a> directory, and run</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>build<span class="w"> </span>mlcourse_ai_jupyter_book
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>jupyter-book<span class="w"> </span>build<span class="w"> </span>mlcourse_ai_jupyter_book
 </pre></div>
 </div>
-<p><em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/start/create.html">how a template JupyterBook is created.</a></em></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created">
+<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/stable/get-started/init/">how a template JupyterBook is created.</a></em><a class="headerlink" href="#head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created" title="Link to this heading">#</a></h1>
+<p><em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/v1/start/create.html">how a template JupyterBook is created.</a></em></p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>a9458e301 (downgrade jupyter-book to v1)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <p>Then, open the HTML file located at <code class="docutils literal notranslate"><span class="pre">mlcourse_ai_jupyter_book/_build/html/index.html.</span></code></p>
-<p>You can also download any <a class="reference external" href="https://mlcourse.ai">mlcourse.ai</a> page as a Jupyter Notebook and run it yourself:</p>
-<figure class="align-default">
-<img alt="../../_images/download_as_jupyter.png" src="../../_images/download_as_jupyter.png" />
-</figure>
-</section>
-</section>
+<p><em>Note: Jupyter Book v1 is currently used</em></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -693,6 +716,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Prerequisites</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requirements">Software requirements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-and-all">Git, bash, and all</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-environment">Setting the environment</a><ul class="nav section-nav flex-column">
@@ -708,6 +732,11 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<em>Note: this may take a long time, about an hour, to play around with a toy example, check how a template JupyterBook is created.</em></a></li>
+</ul>
+
   </nav></div>
 
 </div></div>

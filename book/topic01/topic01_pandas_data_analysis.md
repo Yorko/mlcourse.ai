@@ -492,4 +492,4 @@ As we move on through this course, recall that, before the advent of machine lea
 * [10 minutes to pandas](http://pandas.pydata.org/pandas-docs/stable/10min.html)
 * [Pandas cheatsheet PDF](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
 * GitHub repos: [Pandas exercises](https://github.com/guipsamora/pandas_exercises/) and ["Effective Pandas"](https://github.com/TomAugspurger/effective-pandas)
-* [scipy-lectures.org](http://www.scipy-lectures.org/index.html) -- tutorials on pandas, numpy, matplotlib and scikit-learn
+* [Scientific Python Lectures](https://lectures.scientific-python.org/index.html) - tutorials on pandas, numpy, matplotlib and scikit-learn
