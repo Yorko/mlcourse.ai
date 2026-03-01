@@ -477,7 +477,7 @@ $$\hat y_{min_x}=\ell_{x−1}+b_{x−1}+s_{x−T}-m⋅d_{t−T}$$
 
 $$d_t=\gamma∣y_t−\hat y_t∣+(1−\gamma)d_{t−T},$$
 
-where $T$ is the length of the season, $d$ is the predicted deviation. Other parameters were taken from triple exponential smoothing. 
+where $T$ is the length of the season, $d$ is the predicted deviation. Other parameters were taken from triple exponential smoothing.
 
 
 ```{code-cell} ipython3

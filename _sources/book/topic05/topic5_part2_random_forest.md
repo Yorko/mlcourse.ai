@@ -607,4 +607,3 @@ For example, if the input appears in the first leaf, we assign $1$ as the featur
 - Chapter 15 of the book “[Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)” by Jerome H. Friedman, Robert Tibshirani, and Trevor Hastie.
 - More about practical applications of random forests and other algorithms can be found in the [official documentation](http://scikit-learn.org/stable/modules/ensemble.html) of `scikit-learn`.
 - For a more in-depth discussion of variance and decorrelation of random forests, see the [original paper](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf).
-http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf
