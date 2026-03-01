@@ -10,7 +10,7 @@
 
 </div>
 
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, the course meets you with math formulae in lectures, and a lot of practice in the form of assignments and Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here, we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/), now Staff GenAI specialist at Google Cloud. Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, the course meets you with math formulae in lectures, and a lot of practice in the form of assignments and Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here, we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
 
 ### Bonus assignments
 
