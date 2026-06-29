@@ -74,6 +74,8 @@ DATA_URL = "https://raw.githubusercontent.com/Yorko/mlcourse.ai/main/data/"
 ```{code-cell} ipython3
 data = pd.read_csv(DATA_URL + "adult.data.csv")
 data.head()
+data.info()
+data.describe()
 ```
 
 **1. How many men and women (*sex* feature) are represented in this dataset?**
