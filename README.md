@@ -122,3 +122,7 @@ If you happen to cite [mlcourse.ai](https://mlcourse.ai) in your work, you can u
     howpublished = {\url{https://github.com/Yorko/mlcourse.ai}},
 }
 ```
+
+---
+
+*[Mukller](https://github.com/Mukller)*
