@@ -18,7 +18,7 @@ kernelspec:
 
 Author: [Yury Kashnitsky](https://www.linkedin.com/in/kashnitskiy/). All content is distributed under the [Creative Commons CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression) + [solution](https://www.kaggle.com/kashnitsky/a6-demo-regression-solution).**  
+**Same assignment as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/a6-demo-linear-models-and-rf-for-regression) + [solution](https://www.kaggle.com/kashnitsky/a6-demo-regression-solution).**
 
 
 ```{figure} /_static/img/wine_quality.jpg

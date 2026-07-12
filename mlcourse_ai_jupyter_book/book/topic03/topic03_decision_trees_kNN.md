@@ -135,7 +135,7 @@ def build(L):
         Find the best binary split L = L_left + L_right
         t.left = build(L_left)
         t.right = build(L_right)
-    return t  
+    return t
 ```
 
 ### Other Quality Criteria for Splits in Classification Problems
@@ -819,7 +819,7 @@ tree.fit(X_train, y_train)
 knn_pipe.fit(X_train, y_train);
 ```
 
-Now let’s make predictions on our holdout set. We can see that k-NN did much better, but note that this is with random parameters.  
+Now let’s make predictions on our holdout set. We can see that k-NN did much better, but note that this is with random parameters.
 
 
 ```{code-cell} ipython3
@@ -854,7 +854,7 @@ Let's see the best parameters combination and the corresponding accuracy from cr
 tree_grid.best_params_, tree_grid.best_score_  # ({'max_depth': 20, 'max_features': 64}, 0.844)
 ```
 
-That has already passed 66% but not quite 97%. kNN works better on this dataset. In the case of one nearest neighbour, we were able to reach 99% guesses on cross-validation.  
+That has already passed 66% but not quite 97%. kNN works better on this dataset. In the case of one nearest neighbour, we were able to reach 99% guesses on cross-validation.
 
 
 ```{code-cell} ipython3
@@ -872,14 +872,14 @@ np.mean(
 )  # 0.935
 ```
 
-You would be right to point out that we have not tuned any `RandomForestClassifier` parameters here. Even with tuning, the training accuracy doesn’t reach 98% as it did with one nearest neighbour.  
+You would be right to point out that we have not tuned any `RandomForestClassifier` parameters here. Even with tuning, the training accuracy doesn’t reach 98% as it did with one nearest neighbour.
 
 Results
 *(Legend: CV and Holdout are average shares of the correct answers on cross-model validation and hold-out sample. DT stands for a decision tree, k-NN stands for k-nearest neighbors, RF stands for random forest).*
 
-|   algo\eval      |   CV  | Holdout |  
+|   algo\eval      |   CV  | Holdout |
 |---------|-------|---------|
-| **DT**  | 0.844 |  0.838  |  
+| **DT**  | 0.844 |  0.838  |
 | **kNN** | 0.987 |  0.983  |
 | **RF**  | 0.935 |  0.941  |
 
