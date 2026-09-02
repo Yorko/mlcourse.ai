@@ -15,7 +15,7 @@
 __Bonus:__
 Additionally, you can purchase a Bonus Assignments pack with the best non-demo versions of [mlcourse.ai](https://mlcourse.ai/) assignments. Select the ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse). Refer to the details of the deal on the main page [mlcourse.ai](https://mlcourse.ai/).
 
-Mirrors (:uk:-only): [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kaggle Notebooks)
+Mirrors: [mlcourse.ai](https://mlcourse.ai) (main site), [Kaggle Dataset](https://www.kaggle.com/kashnitsky/mlcourse) (same notebooks as Kaggle Notebooks), [Arabic version](jupyter_arabic/README.md)
 
 ### Self-paced passing
 You are guided through 10 weeks of [mlcourse.ai](https://mlcourse.ai). For each week, from Pandas to Gradient Boosting, instructions are given on which articles to read, lectures to watch, what assignments to accomplish.
