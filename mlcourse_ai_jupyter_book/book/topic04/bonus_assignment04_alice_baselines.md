@@ -35,7 +35,7 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
 
 In this assignment, you’ll be guided through working with sparse data, feature engineering, model validation, and the process of competing on Kaggle. The task will be to beat baselines in the “Alice” [Kaggle competition](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2). That’s a very useful assignment for anyone starting to practice with Machine Learning, regardless of the desire to compete on Kaggle.
 
-The competition is about identifying a user ("Alice") on the Internet through tracking her web sessions, it's based on the actual data from one French University. The competition turned out to be very successful, in a sense that the task can be solved well with fairly simple models (literally, logistic regression), and extensive feature engineering.
+The competition is about identifying a user ("Alice") on the Internet through tracking her web sessions, it's based on the actual data from one French University. The competition turned out to be very successful in the sense that the task can be solved well with fairly simple models (literally, logistic regression), and extensive feature engineering.
 
 
 ```{figure} /_static/img/topic6-teaser.png

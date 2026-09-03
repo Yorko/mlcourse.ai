@@ -33,7 +33,7 @@ mlcourse.ai is never supposed to go fully monetized (it's created in the wonderf
   </div>
 </div><br>
 
-In this assignment, we are attacking a times series prediction task with a method that has proven to be working well in practice providing quality comparable to ARIMA models. Namely, feature engineering, feature selection and linear models.
+In this assignment, we are attacking a times series prediction task with a method that has proven to work well in practice providing quality comparable to ARIMA models. Namely, feature engineering, feature selection and linear models.
 
 ```{figure} /_static/img/bonus_assignment09_teaser.png
 :width: 800px

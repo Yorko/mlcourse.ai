@@ -7,7 +7,7 @@
 
 
 
-[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by [OpenDataScience (ods.ai)](https://ods.ai/), led by [Yury Kashnitsky (yorko)](https://yorko.github.io/). Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, the course meets you with math formulae in lectures, and a lot of practice in a form of assignments and  Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
+[mlcourse.ai](https://mlcourse.ai) is an open Machine Learning course by OpenDataScience, led by [Yury Kashnitsky (yorko)](https://yorko.github.io/), now Staff GenAI specialist at Google Cloud. Having both a Ph.D. degree in applied math and a Kaggle Competitions Master tier, Yury aimed at designing an ML course with a perfect balance between theory and practice. Thus, the course meets you with math formulae in lectures, and a lot of practice in a form of assignments and  Kaggle Inclass competitions. Currently, the course is in a **self-paced mode**. Here we guide you through the self-paced [mlcourse.ai](https://mlcourse.ai).
 
 In the following [short video](https://youtu.be/CPlYV_DryEo) we discuss how to best approach the course material:
 
@@ -18,7 +18,7 @@ In the following [short video](https://youtu.be/CPlYV_DryEo) we discuss how to b
 
 ## How to navigate this website and pass the course
 
-Here you see a [Jupyter book](https://jupyterbook.org/intro.html) -- an executable book containing MarkDown, code, images, graphs, etc. (we describe Jupyter books in more detail [later](./prereqs/software_devops.md#jupyter-book)). You can jump forward and backward with left and right arrows. Any page can be downloaded as `.md` (MarkDown) or PDF -- use the Download button in the upper-right corner. Additionally, each page containing code can be downloaded as `.ipynb` -- a [Jupyter Notebook](https://jupyter.org) (not to be confused with Jupyter book). For every page, you can see its source on GitHub, and you can also open an issue or suggest an edit -- use the GitHub button in the upper-right corner.
+Here you see a [Jupyter book](https://jupyterbook.org/stable/get-started/) -- an executable book containing MarkDown, code, images, graphs, etc. (we describe Jupyter books in more detail [later](./prereqs/software_devops.md#jupyter-book)). You can jump forward and backward with left and right arrows. Any page can be downloaded as `.md` (MarkDown) or PDF -- use the Download button in the upper-right corner. For every page, you can see its source on GitHub, and you can also open an issue or suggest an edit -- use the GitHub button in the upper-right corner.
 
 OK, let's go! First, check [prerequisites](prereq_python), then you see 10 topics -- from exploratory data analysis with Pandas to gradient boosting. For each topic, there's an introductory part ([here's an example](topic01_intro) for Topic 1) that lists articles to read, lectures to watch and assignments to crack.
 

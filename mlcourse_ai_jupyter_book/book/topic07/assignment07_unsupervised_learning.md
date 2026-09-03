@@ -24,7 +24,7 @@ Authors: [Olga Daykhovskaya](https://www.linkedin.com/in/odaykhovskaya/), [Yury 
 
 In this task, we will look at how data dimensionality reduction and clustering methods work. At the same time, we'll practice solving classification task again.
 
-We will work with the [Samsung Human Activity Recognition](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) dataset. The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones ( you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.
+We will work with the [Samsung Human Activity Recognition](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) dataset. The data comes from accelerometers and gyros of Samsung Galaxy S3 mobile phones (you can find more info about the features using the link above), the type of activity of a person with a phone in his/her pocket is also known – whether he/she walked, stood, lay, sat or walked up or down the stairs.
 
 First, we pretend that the type of activity is unknown to us, and we will try to cluster people purely on the basis of available features. Then we solve the problem of determining the type of physical activity as a classification problem.
 
@@ -163,7 +163,7 @@ What is the minimum number of principal components required to cover the 90% of 
 - 66
 - 193
 
-**Вопрос 2:**<br>
+**Question 2:**<br>
 What percentage of the variance is covered by the first principal component? Round to the nearest percent.
 
 **Answer options:**
@@ -190,13 +190,13 @@ If everything worked out correctly, you will see a number of clusters, almost pe
 
 **Answer options:**
 - 1 cluster: all 6 activities
-- 2 clusters: (walking, walking upstairs, walking downstairs ) and (sitting, standing, laying)
+- 2 clusters: (walking, walking upstairs, walking downstairs) and (sitting, standing, laying)
 - 3 clusters: (walking), (walking upstairs, walking downstairs) and (sitting, standing, laying)
 - 6 clusters
 
 ------------------------------
 
-Perform clustering with the `KMeans` method, training the model on data with reduced dimensionality (by PCA). In this case, we will give a clue to look for exactly 6 clusters, but in general case we will not know how many clusters we should be looking for.
+Perform clustering with the `KMeans` method, training the model on data with reduced dimensionality (by PCA). In this case, we will give a clue to look for exactly 6 clusters, but in the general case we will not know how many clusters we should be looking for.
 
 Options:
 
@@ -300,7 +300,7 @@ You can notice that the task is not very well solved when we try to detect sever
 
 For classification, use the support vector machine – class `sklearn.svm.LinearSVC`. In this course, we didn't study this algorithm separately, but it is well-known and you can read about it, for example [here](http://cs231n.github.io/linear-classify/#svmvssoftmax).
 
-Choose the `C` hyperparameter for` LinearSVC` using `GridSearchCV`.
+Choose the `C` hyperparameter for `LinearSVC` using `GridSearchCV`.
 
 - Train the new `StandardScaler` on the training set (with all original features), apply scaling to the test set
 - In `GridSearchCV`, specify `cv` = 3.
@@ -390,6 +390,6 @@ What is the difference between the best quality (accuracy) for cross-validation 
 Select all the correct statements:
 
 **Answer options:**
-- Principal component analysis in this case allowed to reduce the model training time, while the quality (mean cross-validation accuracy) suffered greatly, by more than 10%
+- Principal component analysis in this case allowed us to reduce the model training time, while the quality (mean cross-validation accuracy) suffered greatly, by more than 10%
 - PCA can be used to visualize data, but there are better methods for this task, for example, tSNE. However, PCA has lower computational complexity
 - PCA builds linear combinations of initial features, and in some applications they might be poorly interpreted by humans

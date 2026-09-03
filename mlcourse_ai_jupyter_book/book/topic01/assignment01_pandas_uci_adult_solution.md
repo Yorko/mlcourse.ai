@@ -97,7 +97,7 @@ data[data["sex"] == "Female"]["age"].mean()
 float((data["native-country"] == "Germany").sum()) / data.shape[0]
 ```
 
-**4-5. What are mean value and standard deviation of the age of those who receive more than 50K per year (*salary* feature) and those who receive less than 50K per year? **
+**4-5. What are the mean value and standard deviation of the age of those who receive more than 50K per year (*salary* feature) and those who receive less than 50K per year? **
 
 
 ```{code-cell} ipython3
@@ -129,7 +129,7 @@ for (race, sex), sub_df in data.groupby(["race", "sex"]):
     print(sub_df["age"].describe())
 ```
 
-**8. Among whom is the proportion of those who earn a lot (`>50K`) greater: married or single men (*marital-status* feature)? Consider as married those who have a *marital-status* starting with *Married* (`Married-civ-spouse`, `Married-spouse-absent` or `Married-AF-spouse`), the rest are considered bachelors.**
+**8. Among whom is the proportion of those who earn a lot (`>50K`) greater: married or single men (*marital-status* feature)? Consider as married those who have a *marital-status* starting with *Married* (`Married-civ-spouse`, `Married-spouse-absent` or `Married-AF-spouse`), the rest are considered single.**
 
 
 ```{code-cell} ipython3
@@ -169,7 +169,7 @@ rich_share = (
 print("Percentage of rich among them {0}%".format(int(100 * rich_share)))
 ```
 
-**10. Count the average time of work (*hours-per-week*) those who earning a little and a lot (*salary*) for each country (*native-country*).**
+**10. Count the average time of work (*hours-per-week*) those who earn a little and a lot (*salary*) for each country (*native-country*).**
 
 Simple method:
 

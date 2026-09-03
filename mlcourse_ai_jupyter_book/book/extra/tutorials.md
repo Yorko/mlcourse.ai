@@ -21,7 +21,6 @@ One of the assignments in the course was to write a tutorial on almost any ML/DS
 1. "Bayesian methods of hyperparameter optimization" -- [Kaggle Kernel](https://www.kaggle.com/clair14/tutorial-bayesian-optimization) by @clair
 1. "Python Data Pre-Processing -- Handy Tips" -- [Kaggle Kernel](https://inclass.kaggle.com/shravankoninti/python-data-pre-processing-handy-tips) by @Shravan Kumar Koninti
 1. "Categorical Feature Encoding" -- [Kaggle Kernel](https://www.kaggle.com/waydeherman/categorical-feature-encoding) by @Wayde Herman
-1. "Unsupervised Learning: Clustering" -- [Kaggle Kernel](https://inclass.kaggle.com/maximgolovatchev/unsupervised-learning-clustering-tutorial) by @Maximgolovatchev
 1. "Collaborative filtering with PySpark" -- [Kaggle Kernel](https://www.kaggle.com/vchulski/tutorial-collaborative-filtering-with-pyspark) by @vchulski
 1. "AutoML capabilities of H2O library" -- [Kaggle Kernel](https://inclass.kaggle.com/paradiselost/tutorial-automl-capabilities-of-h2o-library) by @Dmitry Burdeiny
 1. "Factorization machine implemented in PyTorch" -- [Kaggle Kernel](https://inclass.kaggle.com/gennadylaptev/factorization-machine-implemented-in-pytorch) by @GL

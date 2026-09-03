@@ -10,7 +10,7 @@
 
 <p align="center"><iframe width="560" height="315" style='' src="https://www.youtube.com/embed/7o0SWgY89i8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
-3\. Ordinary Least Squares, LASSO, and RIdge: theory.
+3\. Ordinary Least Squares, LASSO, and Ridge: theory.
 
 <p align="center"><iframe width="560" height="315" style='' src="https://www.youtube.com/embed/ne-MfRfYs_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 

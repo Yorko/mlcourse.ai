@@ -202,7 +202,7 @@ print(entropy([1, 2, 3, 4, 5, 6]))  # entropy of a fair 6-sided die
 
 <font color='red'>Answer:</font> 0.961
 
-4\. What is the entropy of a fair dice? (where we look at a dice as a system with 6 equally probable states)?
+4\. What is the entropy of a fair die? (where we look at a die as a system with 6 equally probable states)?
 
 <font color='red'>Answer:</font> 2.585
 
@@ -284,7 +284,7 @@ This visualization is far from perfect, but it's easy to grasp if you compare it
 
 **Dataset description:**
 
-[Dataset](http://archive.ics.uci.edu/ml/machine-learning-databases/adult) UCI Adult (no need to download it, we have a copy in the course repository): classify people using demographic data - whether they earn more than \$50,000 per year or not.
+[Dataset](https://archive.ics.uci.edu/dataset/2/adult) UCI Adult (no need to download it, we have a copy in the course repository): classify people using demographic data - whether they earn more than \$50,000 per year or not.
 
 Feature descriptions:
 
@@ -447,12 +447,12 @@ print("numerical_columns:", numerical_columns)
 # fill missing data
 
 for c in categorical_columns:
-    data_train[c].fillna(data_train[c].mode()[0], inplace=True)
-    data_test[c].fillna(data_train[c].mode()[0], inplace=True)
+    data_train[c] = data_train[c].fillna(data_train[c].mode()[0])
+    data_test[c] = data_test[c].fillna(data_train[c].mode()[0])
 
 for c in numerical_columns:
-    data_train[c].fillna(data_train[c].median(), inplace=True)
-    data_test[c].fillna(data_train[c].median(), inplace=True)
+    data_train[c] = data_train[c].fillna(data_train[c].median())
+    data_test[c] = data_test[c].fillna(data_train[c].median())
 ```
 
 

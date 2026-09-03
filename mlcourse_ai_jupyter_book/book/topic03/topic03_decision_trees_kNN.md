@@ -71,7 +71,7 @@ A decision tree is often a generalization of the experts' experience, a means of
 
 In our next case, we solve a binary classification problem (approve/deny a loan) based on the "Age", "Home-ownership", "Income", and "Education" features.
 
-The decision tree as a machine learning algorithm is essentially the same thing as the diagram shown above; we incorporate a stream of logical rules of the form "feature $a$ value is less than $x$ and feature $b$ value is less than $y$ ... => Category 1" into a tree-like data structure. The advantage of this algorithm is that they are easily interpretable. For example, using the above scheme, the bank can explain to the client why they were denied for a loan: e.g the client does not own a house and her income is less than 5,000.
+The decision tree as a machine learning algorithm is essentially the same thing as the diagram shown above; we incorporate a stream of logical rules of the form "feature $a$ value is less than $x$ and feature $b$ value is less than $y$ ... => Category 1" into a tree-like data structure. The advantage of this algorithm is that it is easily interpretable. For example, using the above scheme, the bank can explain to the client why they were denied for a loan: e.g the client does not own a house and her income is less than 5,000.
 
 As we'll see later, many other models, although more accurate, do not have this property and can be regarded as more of a "black box" approach, where it is harder to interpret how the input data was transformed into the output. Due to this "understandability" and similarity to human decision-making (you can easily explain your model to your boss), decision trees have gained immense popularity. C4.5, a representative of this group of classification methods, is even the first in the list of 10 best data mining algorithms ("Top 10 Algorithms in Data Mining", Knowledge and Information Systems, 2008. [ResearchGate](https://www.researchgate.net/publication/29467751_Top_10_algorithms_in_data_mining)).
 
@@ -140,7 +140,7 @@ def build(L):
 
 ### Other Quality Criteria for Splits in Classification Problems
 
-We discussed how entropy allows us to formalize partitions in a tree. But this is only one heuristic; there exists others:
+We discussed how entropy allows us to formalize partitions in a tree. But this is only one heuristic; there exist others:
 
 - Gini uncertainty (Gini impurity): $G = 1 - \sum\limits_k (p_k)^2$. Maximizing this criterion can be interpreted as the maximization of the number of pairs of objects of the same class that are in the same subtree (not to be confused with the Gini index).
 - Misclassification error:  $E = 1 - \max\limits_k p_k$
@@ -496,12 +496,12 @@ The method adapts quite easily for the regression problem: on step 3, it returns
 
 A notable feature of this approach is its laziness – calculations are only done during the prediction phase, when a test sample needs to be classified. No model is constructed from the training examples beforehand. In contrast, recall that for decision trees in the first half of this article the tree is constructed based on the training set, and the classification of test cases occurs relatively quickly by traversing through the tree.
 
-Nearest neighbors is a well-studied approach. There exist many important theorems claiming that, on "endless" datasets, it is the optimal method of classification. The authors of the classic book "The Elements of Statistical Learning" consider k-NN to be a theoretically ideal algorithm which usage is only limited by computation power and the [curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality).
+Nearest neighbors is a well-studied approach. There exist many important theorems claiming that, on "endless" datasets, it is the optimal method of classification. The authors of the classic book "The Elements of Statistical Learning" consider k-NN to be a theoretically ideal algorithm whose usage is only limited by computation power and the [curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality).
 ### Nearest Neighbors Method in Real Applications
 - k-NN can serve as a good starting point (baseline) in some cases;
 - In Kaggle competitions, k-NN is often used for the construction of meta-features (i.e. k-NN predictions as input to other models) or for stacking/blending;
 - The nearest neighbors method extends to other tasks like recommendation systems. The initial decision could be a recommendation of a product (or service) that is popular among the *closest neighbors* of the person for whom we want to make a recommendation;
-- In practice, on large datasets, approximate methods of search are often used for nearest neighbors. There is a number of open source libraries that implement such algorithms; check out Spotify's library [Annoy](https://github.com/spotify/annoy).
+- In practice, on large datasets, approximate methods of search are often used for nearest neighbors. There are a number of open source libraries that implement such algorithms; check out Spotify's library [Annoy](https://github.com/spotify/annoy).
 
 The quality of classification/regression with k-NN depends on several parameters:
 
@@ -737,7 +737,7 @@ plt.pcolormesh(xx, yy, predicted, cmap="autumn")
 plt.scatter(
     X[:, 0], X[:, 1], c=y, s=100, cmap="autumn", edgecolors="black", linewidth=1.5
 )
-plt.title("Easy task. Decision tree compexifies everything");
+plt.title("Easy task. Decision tree complexifies everything");
 ```
 
 We got this overly complex construction, although the solution is just a straight line $x_1 = x_2$.

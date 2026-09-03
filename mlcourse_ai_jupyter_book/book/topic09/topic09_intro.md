@@ -7,7 +7,7 @@
 </div>
 <br>
 
-Here we discuss various approaches to working with time series: what types of data preparation is necessary, how to get short-term and long-term predictions. We walk through different time series models, from simple moving average to ARIMA and to general machine learning models with specific feature engineering. We also take a look at the ways to search for anomalies in time series and discuss pros and cons of these methods.
+Here we discuss various approaches to working with time series: what data preparation is necessary, and how to get short-term and long-term predictions. We walk through different time series models, from simple moving averages to ARIMA and general machine learning models with specific feature engineering. We also take a look at methods to search for anomalies in time series and discuss the pros and cons of these methods.
 
 ## Steps in this block
 

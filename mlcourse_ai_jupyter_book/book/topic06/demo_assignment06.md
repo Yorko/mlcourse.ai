@@ -12,6 +12,6 @@ Following simple baselines in the ["Alice" competition](https://www.kaggle.com/c
  - ["Correct time-aware cross-validation scheme"](https://www.kaggle.com/kashnitsky/correct-time-aware-cross-validation-scheme);
  - ["Model validation in a competition"](https://www.kaggle.com/kashnitsky/model-validation-in-a-competition);
 
-Go on with feature engineering and try to achieve ~ 0.955 (or higher) ROC AUC on the [Public Leaderboard](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/leaderboard). Alternatively, if a better solution is already shared by the time you join the competition, try to improve the best publicly shared solution by at least 0.5%. However, **please do not share high-performing solutions**, it ruins the competitive spirit of the competition and also hurts some other courses which also have this competition in their syllabus;
+Go on with feature engineering and try to achieve ~ 0.955 (or higher) ROC AUC on the [Public Leaderboard](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/leaderboard). Alternatively, if a better solution is already shared by the time you join the competition, try to improve the best publicly shared solution by at least 0.5%. However, **please do not share high-performing solutions**, it ruins the competitive spirit of the competition and also hurts some other courses which also have this competition in their syllabus.
 
 You might want to check out [Bonus Assignment 4](bonus04) to achieve this.

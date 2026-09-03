@@ -100,7 +100,7 @@ data.info()
 
 **Sort features by their influence on the target feature (wine quality). Beware that both large positive and large negative coefficients mean large influence on target. It's handy to use `pandas.DataFrame` here.**
 
-**<font color='red'>Question 2:</font> Which feature this linear regression model treats as the most influential on wine quality?**
+**<font color='red'>Question 2:</font> Which feature does this linear regression model treat as the most influential on wine quality?**
 
 
 ```{code-cell} ipython3
@@ -220,4 +220,4 @@ data.info()
 # rf_importance.sort_values  
 ```
 
-**Make conclusions about the performance of the explored 3 models in this particular prediction task.**
+**Make conclusions about the performance of the 3 explored models in this particular prediction task.**

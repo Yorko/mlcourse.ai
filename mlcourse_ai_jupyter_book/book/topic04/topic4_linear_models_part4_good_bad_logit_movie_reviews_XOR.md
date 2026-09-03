@@ -31,7 +31,7 @@ Author: [Yury Kashnitsky](https://yorko.github.io). Translated and edited by [Ch
 
 ## 1. Analysis of IMDB movie reviews
 
-Now for a little practice! We want to solve the problem of binary classification of IMDB movie reviews. We have a training set with marked reviews, 12500 reviews marked as good, another 12500 bad. Here, it's not easy to get started with machine learning right away because we don't have the matrix $X$; we need to prepare it. We will use a simple approach: bag of words model. Features of the review will be represented by indicators of the presence of each word from the whole corpus in this review. The corpus is the set of all user reviews. The idea is illustrated by a picture
+Now for a little practice! We want to solve the problem of binary classification of IMDB movie reviews. We have a training set with marked reviews, 12500 reviews marked as good, another 12500 bad. Here, it's not easy to get started with machine learning right away because we don't have the matrix $X$; we need to prepare it. We will use a simple approach: the bag of words model. Features of the review will be represented by indicators of the presence of each word from the whole corpus in this review. The corpus is the set of all user reviews. The idea is illustrated by the picture below
 
 ```{figure} /_static/img/topic4_bag_of_words.svg
 ```
@@ -47,7 +47,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 ```
 
-**To get started, we automatically download the dataset from [here](http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz) and unarchive it along with the rest of datasets in the data folder. The dataset is briefly described [here](http://ai.stanford.edu/~amaas/data/sentiment/). There are 12.5k of good and bad reviews in the test and training sets.**
+**To get started, we automatically download the dataset from [here](http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz) and unarchive it along with the rest of the datasets in the data folder. The dataset is briefly described [here](http://ai.stanford.edu/~amaas/data/sentiment/). There are 12.5k good and 12.5k bad reviews in the test and training sets.**
 
 
 ```{code-cell} ipython3
@@ -163,7 +163,7 @@ print(cv.get_feature_names_out()[:50])
 print(cv.get_feature_names_out()[50000:50050])
 ```
 
-**Secondly, we are encoding the sentences from the training set texts with the indices of incoming words. We'll use the sparse format.**
+**Secondly, we are encoding the sentences from the training set texts with the indices of the words. We'll use the sparse format.**
 
 
 ```{code-cell} ipython3
@@ -200,11 +200,11 @@ X_test = cv.transform(text_test)
 
 ```{code-cell} ipython3
 %%time
-logit = LogisticRegression(solver="lbfgs", n_jobs=-1, random_state=7)
+logit = LogisticRegression(solver="lbfgs", n_jobs=-1, random_state=7, max_iter=500)
 logit.fit(X_train, y_train)
 ```
 
-**Let's look at accuracy on the both the training and the test sets.**
+**Let's look at accuracy on both the training and the test sets.**
 
 
 ```{code-cell} ipython3
@@ -257,7 +257,7 @@ def plot_grid_scores(grid, param_name):
 visualize_coefficients(logit, cv.get_feature_names_out());
 ```
 
-**To make our model better, we can optimize the regularization coefficient for the `Logistic Regression`. We'll use `sklearn.pipeline` because `CountVectorizer` should only be applied to the training data (so as to not "peek" into the test set and not count word frequencies there). In this case, `pipeline` determines the correct sequence of actions: apply `CountVectorizer`, then train `Logistic Regression`.**
+**To make our model better, we can optimize the regularization coefficient for `Logistic Regression`. We'll use `sklearn.pipeline` because `CountVectorizer` should only be applied to the training data (so as to not "peek" into the test set and not count word frequencies there). In this case, `pipeline` determines the correct sequence of actions: apply `CountVectorizer`, then train `Logistic Regression`.**
 
 
 ```{code-cell} ipython3
@@ -268,7 +268,7 @@ text_pipe_logit = make_pipeline(
     CountVectorizer(),
     # for some reason n_jobs > 1 won't work
     # with GridSearchCV's n_jobs > 1
-    LogisticRegression(solver="lbfgs", n_jobs=1, random_state=7),
+    LogisticRegression(solver="lbfgs", n_jobs=1, random_state=7, max_iter=500),
 )
 
 text_pipe_logit.fit(text_train, y_train)
@@ -374,7 +374,7 @@ def plot_boundary(clf, X, y, plot_title):
         origin="lower",
         cmap=plt.cm.PuOr_r,
     )
-    contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2, linetypes="--")
+    contours = plt.contour(xx, yy, Z, levels=[0], linewidths=2)
     plt.scatter(X[:, 0], X[:, 1], s=30, c=y, cmap=plt.cm.Paired)
     plt.xticks(())
     plt.yticks(())
@@ -388,7 +388,7 @@ def plot_boundary(clf, X, y, plot_title):
 
 ```{code-cell} ipython3
 plot_boundary(
-    LogisticRegression(solver="lbfgs"), X, y, "Logistic Regression, XOR problem"
+    LogisticRegression(solver="lbfgs", max_iter=500), X, y, "Logistic Regression, XOR problem"
 )
 ```
 
@@ -405,7 +405,7 @@ from sklearn.preprocessing import PolynomialFeatures
 logit_pipe = Pipeline(
     [
         ("poly", PolynomialFeatures(degree=2)),
-        ("logit", LogisticRegression(solver="lbfgs")),
+        ("logit", LogisticRegression(solver="lbfgs", max_iter=500)),
     ]
 )
 ```
@@ -426,7 +426,7 @@ In practice, polynomial features do help, but it is computationally inefficient 
 - If you read Russian: an [article](https://habrahabr.ru/company/ods/blog/323890/) on Habr.com with ~ the same material. And a [lecture](https://youtu.be/oTXGQ-_oqvI) on YouTube
 - A nice and concise overview of linear models is given in the book ["Deep Learning"](http://www.deeplearningbook.org) (I. Goodfellow, Y. Bengio, and A. Courville).
 - Linear models are covered practically in every ML book. We recommend "Pattern Recognition and Machine Learning" (C. Bishop) and "Machine Learning: A Probabilistic Perspective" (K. Murphy).
-- If you prefer a thorough overview of linear model from a statistician's viewpoint, then look at "The elements of statistical learning" (T. Hastie, R. Tibshirani, and J. Friedman).
+- If you prefer a thorough overview of linear models from a statistician's viewpoint, then look at "The elements of statistical learning" (T. Hastie, R. Tibshirani, and J. Friedman).
 - The book "Machine Learning in Action" (P. Harrington) will walk you through implementations of classic ML algorithms in pure Python.
 - [Scikit-learn](http://scikit-learn.org/stable/documentation.html) library. These guys work hard on writing really clear documentation.
 - Scipy 2017 [scikit-learn tutorial](https://github.com/amueller/scipy-2017-sklearn) by Alex Gramfort and Andreas Mueller.

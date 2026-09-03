@@ -86,7 +86,7 @@ df.shape
 ```
 
 ## Predicting with FB Prophet
-We will train at first 5 months and predict the number of trips for June.
+We will train on the first 5 months and predict the number of trips for June.
 
 
 ```{code-cell} ipython3

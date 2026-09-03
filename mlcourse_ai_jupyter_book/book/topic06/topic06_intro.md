@@ -11,7 +11,7 @@ Feature engineering is one of the most interesting processes in the whole of ML.
 
 ## Steps in this block
 
-1\. Read the [article](topic06) (same in a form of a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-6-feature-engineering-and-feature-selection));
+1\. Read the [article](topic06) (same as a [Kaggle Notebook](https://www.kaggle.com/kashnitsky/topic-6-feature-engineering-and-feature-selection));
 
 2\. **Kaggle:** Following simple baselines in the ["Alice" competition](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2) (see [Topic 4](topic04_intro)), check out a bit more advanced Notebooks:
 
@@ -20,4 +20,4 @@ Feature engineering is one of the most interesting processes in the whole of ML.
 
    Go on with feature engineering and try to achieve ~ 0.955 (or higher) ROC AUC on the [Public Leaderboard](https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/leaderboard). Alternatively, if a better solution is already shared by the time you join the competition, try to improve the best publicly shared solution by at least 0.5%. However, **please do not share high-performing solutions**, it ruins the competitive spirit of the competition and also hurts some other courses which also have this competition in their syllabus;
 
-3\.  Complete [Bonus Assignment 6](bonus06) we walk you through beating a baseline in a competition where the task is to predict the popularity of an article published on Medium. The basic solution uses text only. But on the go, you'll create a lot of additional features to improve the model. Also, in this assignment, you'll learn some dirty Kaggle hacks. (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).
+3\.  Complete [Bonus Assignment 6](bonus06), where we walk you through beating a baseline in a competition where the task is to predict the popularity of an article published on Medium. The basic solution uses text only. But on the go, you'll create a lot of additional features to improve the model. Also, in this assignment, you'll learn some dirty Kaggle hacks (optional, available under Patreon ["Bonus Assignments" tier](https://www.patreon.com/ods_mlcourse)).
