@@ -25,13 +25,13 @@ As for `bash`, it's just very rewarding to be familiar with UNIX OS and command-
 
 You've got several alternatives to set up your learning environment:
 
- - Kaggle Notebooks or Azure ML, i.e. avoid local configurations and just use the browser
+ - Kaggle Notebooks (to avoid local configurations and just use the browser)
  - Pip & Anaconda
  - uv
 
-#### Kaggle Notebooks or Azure ML
+#### Kaggle Notebooks
 
-The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset [mlcourse.ai](https://www.kaggle.com/kashnitsky/mlcourse) and fork some Notebooks (better to keep them private). All your Jupyter notebooks with Anaconda are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.
+The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset [mlcourse.ai](https://www.kaggle.com/kashnitsky/mlcourse) and fork some Notebooks (better to keep them private). All your Jupyter notebooks are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.
 
 #### Pip & Anaconda
 
@@ -44,6 +44,13 @@ You can install [Anaconda 3](https://www.anaconda.com/download/) – a distribut
 [uv](https://github.com/astral-sh/uv) is a fast Python dependency manager.
 
 Installing uv:
+
+```shell
+# On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh
+```
+
+or via pip (on Windows, macOS, and Linux):
 
 ```shell
 pip install uv
@@ -85,11 +92,8 @@ To reproduce all the code that you see on the current website (lectures, assignm
 ```shell
 uv run jupyter-book build mlcourse_ai_jupyter_book
 ```
-<<<<<<< HEAD
+
 _Note: this may take a long time, about an hour, to play around with a toy example, check [how a template JupyterBook is created.](https://jupyterbook.org/stable/get-started/init/)_
-=======
-_Note: this may take a long time, about an hour, to play around with a toy example, check [how a template JupyterBook is created.](https://jupyterbook.org/v1/start/create.html)_
->>>>>>> a9458e301 (downgrade jupyter-book to v1)
 
 Then, open the HTML file located at `mlcourse_ai_jupyter_book/_build/html/index.html.`
 
