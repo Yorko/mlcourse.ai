@@ -6,7 +6,7 @@
 :name: ods_stickers
 ```
 
-One of the assignments in the course was to write a tutorial on almost any ML/DS-related topic. Here is the result. Slack nicks of the authors are given with @'s.
+One of the assignments in the course was to write a tutorial on almost any ML/DS-related topic. Here is the result.
 
 ## Spring 2019 session
 

@@ -129,7 +129,7 @@ for (race, sex), sub_df in data.groupby(["race", "sex"]):
     print(sub_df["age"].describe())
 ```
 
-**8. Among whom is the proportion of those who earn a lot (`>50K`) greater: married or single men (*marital-status* feature)? Consider as married those who have a *marital-status* starting with *Married* (`Married-civ-spouse`, `Married-spouse-absent` or `Married-AF-spouse`), the rest are considered bachelors.**
+**8. Among whom is the proportion of those who earn a lot (`>50K`) greater: married or single men (*marital-status* feature)? Consider as married those who have a *marital-status* starting with *Married* (`Married-civ-spouse`, `Married-spouse-absent` or `Married-AF-spouse`), the rest are considered single.**
 
 
 ```{code-cell} ipython3

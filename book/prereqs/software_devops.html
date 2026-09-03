@@ -199,8 +199,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="math.html">Math</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Prerequisites</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Software &amp; DevOps</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Topic 1</span></p>
 <ul class="nav bd-sidenav">
@@ -522,11 +521,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Prerequisites</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requirements">Software requirements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-and-all">Git, bash, and all</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-environment">Setting the environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-notebooks-or-azure-ml">Kaggle Notebooks or Azure ML</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-notebooks">Kaggle Notebooks</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-anaconda">Pip &amp; Anaconda</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">uv</a></li>
 </ul>
@@ -538,11 +536,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<em>Note: this may take a long time, about an hour, to play around with a toy example, check how a template JupyterBook is created.</em></a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -576,13 +569,13 @@ document.write(`
 <h3>Setting the environment<a class="headerlink" href="#setting-the-environment" title="Link to this heading">#</a></h3>
 <p>You’ve got several alternatives to set up your learning environment:</p>
 <ul class="simple">
-<li><p>Kaggle Notebooks or Azure ML, i.e. avoid local configurations and just use the browser</p></li>
+<li><p>Kaggle Notebooks (to avoid local configurations and just use the browser)</p></li>
 <li><p>Pip &amp; Anaconda</p></li>
 <li><p>uv</p></li>
 </ul>
-<section id="kaggle-notebooks-or-azure-ml">
-<h4>Kaggle Notebooks or Azure ML<a class="headerlink" href="#kaggle-notebooks-or-azure-ml" title="Link to this heading">#</a></h4>
-<p>The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">mlcourse.ai</a> and fork some Notebooks (better to keep them private). All your Jupyter notebooks with Anaconda are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.</p>
+<section id="kaggle-notebooks">
+<h4>Kaggle Notebooks<a class="headerlink" href="#kaggle-notebooks" title="Link to this heading">#</a></h4>
+<p>The easiest way to start working with course materials (no local software installations needed) is to visit Kaggle Dataset <a class="reference external" href="https://www.kaggle.com/kashnitsky/mlcourse">mlcourse.ai</a> and fork some Notebooks (better to keep them private). All your Jupyter notebooks are live and running in your browser. Almost all needed datasets are there as well. However, uploading other datasets might be tiresome.</p>
 </section>
 <section id="pip-anaconda">
 <h4>Pip &amp; Anaconda<a class="headerlink" href="#pip-anaconda" title="Link to this heading">#</a></h4>
@@ -592,6 +585,11 @@ document.write(`
 <h5>uv<a class="headerlink" href="#uv" title="Link to this heading">#</a></h5>
 <p><a class="reference external" href="https://github.com/astral-sh/uv">uv</a> is a fast Python dependency manager.</p>
 <p>Installing uv:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># On macOS and Linux.</span>
+curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh
+</pre></div>
+</div>
+<p>or via pip (on Windows, macOS, and Linux):</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>uv
 </pre></div>
 </div>
@@ -626,30 +624,11 @@ document.write(`
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>jupyter-book<span class="w"> </span>build<span class="w"> </span>mlcourse_ai_jupyter_book
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created">
-<h1>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/stable/get-started/init/">how a template JupyterBook is created.</a></em><a class="headerlink" href="#head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created" title="Link to this heading">#</a></h1>
-<p><em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/v1/start/create.html">how a template JupyterBook is created.</a></em></p>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><p>a9458e301 (downgrade jupyter-book to v1)</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
+<p><em>Note: this may take a long time, about an hour, to play around with a toy example, check <a class="reference external" href="https://jupyterbook.org/stable/get-started/init/">how a template JupyterBook is created.</a></em></p>
 <p>Then, open the HTML file located at <code class="docutils literal notranslate"><span class="pre">mlcourse_ai_jupyter_book/_build/html/index.html.</span></code></p>
 <p><em>Note: Jupyter Book v1 is currently used</em></p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -716,11 +695,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Prerequisites</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requirements">Software requirements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-and-all">Git, bash, and all</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-the-environment">Setting the environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-notebooks-or-azure-ml">Kaggle Notebooks or Azure ML</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kaggle-notebooks">Kaggle Notebooks</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-anaconda">Pip &amp; Anaconda</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">uv</a></li>
 </ul>
@@ -732,11 +710,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#head-note-this-may-take-a-long-time-about-an-hour-to-play-around-with-a-toy-example-check-how-a-template-jupyterbook-is-created">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<em>Note: this may take a long time, about an hour, to play around with a toy example, check how a template JupyterBook is created.</em></a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
