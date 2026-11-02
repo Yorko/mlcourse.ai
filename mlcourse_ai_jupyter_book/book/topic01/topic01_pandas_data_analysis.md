@@ -271,7 +271,7 @@ There's a slight difference. The `replace` method will not do anything with valu
 
 ```{code-cell} ipython3
 a_series = pd.Series(['a', 'b', 'c'])
-a_series.replace({'a': 1, 'b': 1})     # 1, 2, c
+a_series.replace({'a': 1, 'b': 2})     # 1, 2, c
 a_series.map({'a': 1, 'b': 2})     # 1, 2, NaN
 ```
 </p>
