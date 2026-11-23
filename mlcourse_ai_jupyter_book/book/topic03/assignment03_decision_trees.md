@@ -237,7 +237,7 @@ Feature descriptions:
 - **fnlwgt** – final weight of object, continuous feature
 - **Education** –  categorical feature
 - **Education_Num** – number of years of education, continuous feature
-- **Martial_Status** –  categorical feature
+- **Marital_Status** –  categorical feature
 - **Occupation** –  categorical feature
 - **Relationship** – categorical feature
 - **Race** – categorical feature
@@ -402,7 +402,7 @@ for c in numerical_columns:
 data_train.info()
 ```
 
-We'll dummy code some categorical features: **Workclass**, **Education**, **Martial_Status**, **Occupation**, **Relationship**, **Race**, **Sex**, **Country**. It can be done via pandas method **get_dummies**
+We'll dummy code some categorical features: **Workclass**, **Education**, **Marital_Status**, **Occupation**, **Relationship**, **Race**, **Sex**, **Country**. It can be done via pandas method **get_dummies**
 
 
 ```{code-cell} ipython3
